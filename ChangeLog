@@ -18,6 +18,8 @@ bindings:
   o better documentation, removed relative path dependencies, general cleanup
   o python: updated to latest signature format (was still on 0.1)
   o java: rewritten (old version was never complete, anyways)
+buildsys:
+  o cmake: made to work on systems without C++ compiler (thanks Franklin Mathieu)
 
 Version 0.9 (2015/12/31)
 dyncall:
