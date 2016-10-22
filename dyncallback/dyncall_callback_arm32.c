@@ -24,11 +24,20 @@
 */
 
 
-#include "dyncall_callback_arm32.h"
-
+#include "dyncall_callback.h"
 #include "dyncall_alloc_wx.h"
+#include "dyncall_thunk.h"
 
+/* Callback symbol. */
 extern void dcCallbackThunkEntry();
+
+struct DCCallback
+{
+  DCThunk  	         thunk;    // offset 0
+  DCCallbackHandler* handler;  // offset 12
+  void*              userdata; // offset 16
+};
+
 
 void dcbInitCallback(DCCallback* pcb, const char* signature, DCCallbackHandler* handler, void* userdata)
 {
