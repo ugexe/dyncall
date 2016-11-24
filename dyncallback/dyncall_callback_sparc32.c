@@ -3,7 +3,7 @@
  Package: dyncall
  Library: dyncallback
  File: dyncallback/dyncall_callback_sparc32.c
- Description: Callback - Implementation for sparc32 (TODO: not implemented yet)
+ Description: Callback - Implementation for sparc32
  License:
 
    Copyright (c) 2007-2016 Daniel Adler <dadler@uni-goettingen.de>,
@@ -33,15 +33,16 @@ extern void dcCallbackThunkEntry();
 
 struct DCCallback
 {
-  DCThunk            thunk;         /* offset  0, size ?? */
-  DCCallbackHandler* handler;       /* offset ??, size  4 */
-  size_t             stack_cleanup; /* offset ??, size  4 */
-  void*              userdata;      /* offset ??, size  4 */
+  DCThunk            thunk;         /* offset  0 size 24 */
+  DCCallbackHandler* handler;       /* offset 24 size  4 */
+  void*              userdata;      /* offset 28 size  4 */
 };
 
 
 void dcbInitCallback(DCCallback* pcb, const char* signature, DCCallbackHandler* handler, void* userdata)
 {
+  pcb->handler  = handler;
+  pcb->userdata = userdata;
 }
 
 DCCallback* dcbNewCallback(const char* signature, DCCallbackHandler* handler, void* userdata)
@@ -65,3 +66,4 @@ void* dcbGetUserData(DCCallback* pcb)
 {
   return pcb->userdata;
 }
+

@@ -1,5 +1,6 @@
 1.0:
 ----
+- dyncallback's "stack_cleanup" can be removed from non x86 impls... test if they still work
 - the CallVM-free functions are per VTable, however the latter can be changed out
   at runtime... which basically changes potentially the deallocator...
   same goes for functions setting the mode. think about how to make this safer - currently

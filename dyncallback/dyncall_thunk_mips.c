@@ -45,22 +45,18 @@ the called function.' [See MIPS Run, p.413]
       jr  $t9
       ori $t4, $t4, %lo(p)        ; branch delay slot
 
-thunk.o:     file format elf32-tradbigmips
-
-
-Disassembly of section .text:
 
 00000000 <thunk>:
-   0:	3c0c0000 	lui	t4,0x0
-   4:	3c190000 	lui	t9,0x0
-   8:	37390000 	ori	t9,t9,0x0
-   c:	03200008 	jr	t9
-  10:	00200825 	move	at,at
-  14:	358c0000 	ori	t4,t4,0x0
-  18:	00200825 	move	at,at
-  1c:	00200825 	move	at,at
+   0:  3c0c0000  lui  t4,0x0
+   4:  3c190000  lui  t9,0x0
+   8:  37390000  ori  t9,t9,0x0
+   c:  03200008  jr   t9
+  10:  00200825  move at,at
+  14:  358c0000  ori  t4,t4,0x0
+  18:  00200825  move at,at
+  1c:  00200825  move at,at
 
-  */
+*/
 
 #if defined(DC__Endian_BIG)
 

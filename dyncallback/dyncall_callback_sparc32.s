@@ -6,7 +6,7 @@
  Description: Callback Thunk - Implementation for Sparc 32-bit
  License:
 
-   Copyright (c) 2007-2011 Daniel Adler <dadler@uni-goettingen.de>,
+   Copyright (c) 2007-2016 Daniel Adler <dadler@uni-goettingen.de>,
                            Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
@@ -23,8 +23,14 @@
 
 */
 
+/* input:
+	$i0    -> thunk
+	$i0+24 -> cb handler
+	$i0+28 -> userdata
+*/
+
 .globl dcCallbackThunkEntry
 dcCallbackThunkEntry:
-        jmpl %i7 + 8, %g0			/* Return from proc. */
-	 nop
+	jmpl %i7 + 8, %g0			/* Return from proc. */
+	nop
 
