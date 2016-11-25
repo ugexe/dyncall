@@ -22,15 +22,15 @@
 
 */
 
-	/* input:
-		$t4    -> thunk
-		$t4+20 -> cb handler
-		$t4+24 -> userdata
-	*/
+/* input:
+	$t4    -> thunk
+	$t4+20 -> cb handler
+	$t4+24 -> userdata
+*/
 
-	.text
-	.globl dcCallbackThunkEntry
-	.ent   dcCallbackThunkEntry
+.text
+.globl dcCallbackThunkEntry
+.ent   dcCallbackThunkEntry
 
 /* Called by thunk - thunk stores pointer to DCCallback in $12 ($t4), and */
 /* pointer to called function in $25 ($t9, required for PIC)              */
