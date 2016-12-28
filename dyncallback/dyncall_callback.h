@@ -6,7 +6,7 @@
  Description: Callback - Interface
  License:
 
-   Copyright (c) 2007-2015 Daniel Adler <dadler@uni-goettingen.de>,
+   Copyright (c) 2007-2016 Daniel Adler <dadler@uni-goettingen.de>,
                            Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
@@ -43,7 +43,6 @@ DCCallback* dcbNewCallback(const char* signature, DCCallbackHandler* funcptr, vo
 void        dcbInitCallback(DCCallback* pcb, const char* signature, DCCallbackHandler* handler, void* userdata);
 void        dcbFreeCallback(DCCallback* pcb);
 void*       dcbGetUserData (DCCallback* pcb);
-
 
 #ifdef __cplusplus
 }

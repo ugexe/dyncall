@@ -80,7 +80,7 @@ dynload:
 
 dyncallback:
 ------------
-- add SPARC and SPARC64 callback support
+- add SPARC64 callback support
 - callback_plain's return value not correct anymore on NDS (maybe just broken testcode?),
   see above under 1.0 items
   * check other platforms also, if asm stub initializes retval space, correctly

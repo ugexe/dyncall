@@ -6,7 +6,7 @@
  Description: Callback's Arguments VM - Implementation for sparc32 - not yet
  License:
 
-   Copyright (c) 2007-2015 Daniel Adler <dadler@uni-goettingen.de>,
+   Copyright (c) 2007-2016 Daniel Adler <dadler@uni-goettingen.de>,
                            Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
@@ -26,10 +26,23 @@
 
 #include "dyncall_args_sparc32.h"
 
-DCint       dcbArgInt      (DCArgs* p) { return 0; }
-DCuint      dcbArgUInt     (DCArgs* p) { return 0; }
-DCulonglong dcbArgULongLong(DCArgs* p) { return 0; }
+static void* sparc_word(DCArgs* args)
+{
+  return args->arg_ptr++;
+}
+
+static void* sparc_dword(DCArgs* args)
+{
+  void *p = args->arg_ptr;
+  args->arg_ptr += 2;
+  return p;
+}
+
+DCuint      dcbArgUInt     (DCArgs* p) { return *(DCuint*)sparc_word(p); }
+DCulonglong dcbArgULongLong(DCArgs* p) { return *(DCulonglong*)sparc_dword(p); }
+
 DClonglong  dcbArgLongLong (DCArgs* p) { return (DClonglong)dcbArgULongLong(p); }
+DCint       dcbArgInt      (DCArgs* p) { return (DCint)     dcbArgUInt(p); }
 DClong      dcbArgLong     (DCArgs* p) { return (DClong)    dcbArgUInt(p); }
 DCulong     dcbArgULong    (DCArgs* p) { return (DCulong)   dcbArgUInt(p); }
 DCchar      dcbArgChar     (DCArgs* p) { return (DCchar)    dcbArgUInt(p); }
@@ -38,5 +51,7 @@ DCshort     dcbArgShort    (DCArgs* p) { return (DCshort)   dcbArgUInt(p); }
 DCushort    dcbArgUShort   (DCArgs* p) { return (DCushort)  dcbArgUInt(p); }
 DCbool      dcbArgBool     (DCArgs* p) { return (DCbool)    dcbArgUInt(p); }
 DCpointer   dcbArgPointer  (DCArgs* p) { return (DCpointer) dcbArgUInt(p); }
-DCdouble    dcbArgDouble   (DCArgs* p) { return 0.0; }
-DCfloat     dcbArgFloat    (DCArgs* p) { return 0.0f; }
+
+DCdouble    dcbArgDouble   (DCArgs* p) { return *(DCdouble*)sparc_dword(p); }
+DCfloat     dcbArgFloat    (DCArgs* p) { return *(DCfloat*) sparc_word(p); }
+
