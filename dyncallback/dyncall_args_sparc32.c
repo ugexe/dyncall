@@ -26,6 +26,13 @@
 
 #include "dyncall_args_sparc32.h"
 
+/* Compiler aligns this to 8-byte boundaries, b/c of dword members, a fact needed below */
+typedef union {
+  DCdouble    d;
+  DCulonglong L;
+  DCulong     l[2];
+} DCAligned64BitVal_t;
+
 static void* sparc_word(DCArgs* args)
 {
   return args->arg_ptr++;
@@ -38,9 +45,14 @@ static void* sparc_dword(DCArgs* args)
   return p;
 }
 
-DCuint      dcbArgUInt     (DCArgs* p) { return *(DCuint*)sparc_word(p); }
-DCulonglong dcbArgULongLong(DCArgs* p) { return *(DCulonglong*)sparc_dword(p); }
+/* copy words so that dwords are 8-byte aligned, for 64bit value indirection; unaligned
+   access results in SIGBUS; not quite sure why compiler doesn't abstract this (maybe b/c
+   of not having any idea about our assembler code?) */
+DCulonglong dcbArgULongLong(DCArgs* p) { DCAligned64BitVal_t v; DCulong *l = (DCulong*)sparc_dword(p); v.l[0]=l[0]; v.l[1]=l[1]; return v.L; }
+DCdouble    dcbArgDouble   (DCArgs* p) { DCAligned64BitVal_t v; DCulong *l = (DCulong*)sparc_dword(p); v.l[0]=l[0]; v.l[1]=l[1]; return v.d; }
 
+/* rest of getters based on above functions */
+DCuint      dcbArgUInt     (DCArgs* p) { return *(DCuint*)sparc_word(p); }
 DClonglong  dcbArgLongLong (DCArgs* p) { return (DClonglong)dcbArgULongLong(p); }
 DCint       dcbArgInt      (DCArgs* p) { return (DCint)     dcbArgUInt(p); }
 DClong      dcbArgLong     (DCArgs* p) { return (DClong)    dcbArgUInt(p); }
@@ -52,6 +64,5 @@ DCushort    dcbArgUShort   (DCArgs* p) { return (DCushort)  dcbArgUInt(p); }
 DCbool      dcbArgBool     (DCArgs* p) { return (DCbool)    dcbArgUInt(p); }
 DCpointer   dcbArgPointer  (DCArgs* p) { return (DCpointer) dcbArgUInt(p); }
 
-DCdouble    dcbArgDouble   (DCArgs* p) { return *(DCdouble*)sparc_dword(p); }
 DCfloat     dcbArgFloat    (DCArgs* p) { return *(DCfloat*) sparc_word(p); }
 
