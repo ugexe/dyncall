@@ -12,8 +12,10 @@ dyncall:
 dyncallback:
   o PPC64 single-precision float fixes for more than 13 float args (thanks Masanori!)
   o MIPS o32 (big- and little-endian), EABI (32 bit, little-endian) and n64 (big-endian) support
+  o SPARC (32-bit) support
 doc:
   o working html doc generation from TEX sources
+  o SPARC (32-bit) calling convention description
 bindings:
   o better documentation, removed relative path dependencies, general cleanup
   o python: updated to latest signature format (was still on 0.1)

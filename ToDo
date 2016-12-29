@@ -121,7 +121,7 @@ manual:
 
 regressions:
 ------------
-- finish SPARC/SPARC64 calling conventions in doc's callconv-appendix !!!
+- finish SPARC64 calling conventions in doc's callconv-appendix !!!
 - Haiku/gmake build doesn't build dynload due to the fact, that elf.h is not found
   on default installations (one has to install the system headers)
   * add to doc
