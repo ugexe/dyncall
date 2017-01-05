@@ -69,7 +69,7 @@
 	.text
 #  define BEGIN_ASM
 #  define END_ASM 
-#  include "../autovar/autovar_OS.h"
+#  include "../autovar/autovar_ABI.h"
 #  if defined(OS_Win32) || defined(OS_Cygwin) || defined(OS_MinGW) || defined(OS_Darwin) || defined(OS_Minix)
 #    define CSYM(X) _##X
 #  else
@@ -126,8 +126,7 @@
 #  define FLDL(X)  fldl X
 #  define ADD(A,B) add A,B
 #  define LOCAL(X) .X
-/* @@@ extend following to probably *all* ELF targets - needs testing, though */
-#  if defined(OS_Linux)
+#  if defined(ABI_ELF) && !defined(CC_SUN)
 #    define SECTION_NOTE_NXSTACK .section .note.GNU-stack,"",@progbits
 #  else
 #    define SECTION_NOTE_NXSTACK
