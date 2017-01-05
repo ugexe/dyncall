@@ -27,29 +27,29 @@
 #include "../dyncall/dyncall_macros.h"
 
 BEGIN_ASM
-DCThunk_size		= 16
-DCArgs_size		= 20
-DCValue_size		=  8
+DCThunk_size = 16
+DCArgs_size  = 20
+DCValue_size =  8
 
-CTX_thunk		=  0
-CTX_phandler		= 16
-CTX_pargsvt		= 20
-CTX_stack_cleanup	= 24
-CTX_userdata		= 28
+CTX_thunk         =  0
+CTX_phandler      = 16
+CTX_pargsvt       = 20
+CTX_stack_cleanup = 24
+CTX_userdata      = 28
 
-frame_arg0         	=  8
-frame_ret          	=  4
-frame_parent       	=  0
-frame_CTX         	= -4
-frame_DCArgs       	= -24
-frame_DCValue      	= -32
+frame_arg0    =  8
+frame_ret     =  4
+frame_parent  =  0
+frame_CTX     = -4
+frame_DCArgs  = -24
+frame_DCValue = -32
 
-#define ASCII_L	76
-#define ASCII_l	108
-#define ASCII_d	100
-#define ASCII_f	102
-#define ASCII_i	105
-#define ASCII_v	118
+#define ASCII_L 76
+#define ASCII_l 108
+#define ASCII_d 100
+#define ASCII_f 102
+#define ASCII_i 105
+#define ASCII_v 118
 
 GLOBAL(dcCallbackThunkEntry)
 BEGIN_PROC(dcCallbackThunkEntry)
@@ -79,7 +79,7 @@ BEGIN_PROC(dcCallbackThunkEntry)
 	CALL_DWORD(EAX,CTX_phandler)
 	/* cleanup stack */
 	MOVL(EBP,ESP)				/* reset esp to frame */
-	POP(ECX)				/* skip parent frame */	
+	POP(ECX)				/* skip parent frame */
 	POP(ECX)				/* pop return address */
 	MOVL(DWORD(EBP,frame_CTX),EDX)	
 	ADD(DWORD(EDX,CTX_stack_cleanup),ESP)	/* cleanup stack */
@@ -94,7 +94,7 @@ BEGIN_PROC(dcCallbackThunkEntry)
 	CMP(LIT(ASCII_d),AL)
 	JE(LOCAL(return_f64))
 #endif
-	
+
 	/* All int cases (+ pointer & string cases) fall in the return_i64 case, here */
 LOCAL(return_i64):
 	MOVL(DWORD(EDX,0),EAX)

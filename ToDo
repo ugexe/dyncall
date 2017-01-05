@@ -1,6 +1,17 @@
 1.0:
 ----
+- make sure all assembly files declare (or are built) by setting the noexecstack flag,
+  compared to translating code with gcc, it's manual for the assembler; this depends on arch
+  support (currently it's only done for linux):
+
+    "When you compile source code normally, gcc takes care of adding the GNU_STACK
+    markings so that the final object code is not marked with an executable stack
+    unless it actually needs it. However, if you compile assembly code, gcc will
+    not automatically add GNU_STACK markings."
+
 - dyncallback's "stack_cleanup" can be removed from non x86 impls... test if they still work
+- target a minimum c version, for use with -pedantic, etc.? Right now we use e.g. extensions
+  for anon structs, etc.
 - the CallVM-free functions are per VTable, however the latter can be changed out
   at runtime... which basically changes potentially the deallocator...
   same goes for functions setting the mode. think about how to make this safer - currently

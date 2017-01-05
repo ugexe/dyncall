@@ -2,7 +2,7 @@
 
  Package: dyncall
  Library: dyncall
- File: dyncall/dyncall_call_x64-att.S
+ File: dyncall/dyncall_call_x64.S
  Description: All x64 abi call kernel implementation
  License:
 
@@ -25,20 +25,20 @@
 
 
 
-#include "../portasm/portasm-x64-att.S"
+#include "../portasm/portasm-x64.S"
 
 BEGIN_ASM
 
 /*---------------------------------------------------------------------------
-  
+
   Call Kernel for x64 System V
-  
+
   Input:
-    RDI : size of arguments to be passed via stack 
-    RSI : pointer to arguments to be passed via the stack 
-    RDX : pointer to arguments of integral/pointer type to be passed via registers 
-    RCX : pointer to arguments of floating point type to be passed via registers 
-    R8  : target function pointer 
+    RDI : size of arguments to be passed via stack
+    RSI : pointer to arguments to be passed via the stack
+    RDX : pointer to arguments of integral/pointer type to be passed via registers
+    RCX : pointer to arguments of floating point type to be passed via registers
+    R8  : target function pointer
   Notes:
     RSP+8: is always 16-byte aligned (32-byte align if __m256 is used)
 */
@@ -62,11 +62,11 @@ BEGIN_PROC(dcCall_x64_sysv)
 	AND(LIT(-32),RDI)
 	ADD(LIT(8),RDI)		/* Adjust by 8-byte for the return-address. */
 	SUB(RDI,RSP)			/* Setup stack frame by subtracting the size of arguments. */
-					
+
 	MOV(RDI,RCX)			/* Store number of bytes to copy to stack in RCX (for rep movsb). */
 	MOV(RSP,RDI)			/* Store pointer to beginning of stack arguments in RDI (for rep movsb). */
 
-	REP(MOVSB)			/* copy bytes (@@@ should be optimized). */
+	REP(MOVSB)			/* copy bytes (@@@ should be optimized, movq?). */
 
 	MOV(QWORD(RDX,0),RDI)		/* copy first six int/pointer arguments to RDI, RSI, RDX, RCX, R8, R9. */
 	MOV(QWORD(RDX,8),RSI)
@@ -87,11 +87,11 @@ END_PROC(dcCALl_x64_sysv)
 /*---------------------------------------------------------------------------
 
   Call Kernel for x64 Win64
-	
+
   Input:
-    RCX : size of arguments to be passed via stack 
-    RDX : pointer to arguments to be passed via the stack 
-    R8  : pointer to arguments of integral/pointer type to be passed via registers 
+    RCX : size of arguments to be passed via stack
+    RDX : pointer to arguments to be passed via the stack
+    R8  : pointer to arguments of integral/pointer type to be passed via registers
     R9  : target function pointer
 
 */
@@ -102,7 +102,7 @@ BEGIN_PROC(dcCall_x64_win64)
 	PUSH(RBP)			/* Pseudo-prolog - preserve RBP. */
 	PUSH(RSI)			/* Preserve RSI and RDI. */
 	PUSH(RDI)
-	
+
 	MOV(RSP,RBP)			/* Store stack pointer in RBP. */
 
 	ADD(LIT(15),RCX)		/* Align stack size to 16 bytes. */

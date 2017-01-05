@@ -2,7 +2,7 @@
 
  Package: dyncall
  Library: portasm
- File: portasm/portasm-x64-att.S
+ File: portasm/portasm-x64.S
  Description: Portable Assembler Macros for X64
  License:
 
