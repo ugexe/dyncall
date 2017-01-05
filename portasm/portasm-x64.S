@@ -69,6 +69,8 @@
 #  define JNE(X) jne X
 #  define CMP(A,B) cmp B,A
 #  define LOCAL(X) X
+/* @@@ check if masm support wanted/needed */
+#  define SECTION_NOTE_NXSTACK
 #else
 /* GNU/SunPro Assembler AT&T Syntax */
 	.text
@@ -152,5 +154,11 @@
 #  define FLDL(X)  fldl X
 #  define SET(K,V) .set K,V
 #  define LOCAL(X) .X
+/* @@@ extend following to probably *all* ELF targets - needs testing, though */
+#  if defined(OS_Linux)
+#    define SECTION_NOTE_NXSTACK .section .note.GNU-stack,"",@progbits
+#  else
+#    define SECTION_NOTE_NXSTACK
+#  endif
 #endif
 

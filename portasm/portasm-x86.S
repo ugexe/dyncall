@@ -62,6 +62,8 @@
 #  define FLDS(OP) fld OP
 #  define FLDL(OP) fld OP
 #  define LOCAL(NAME) NAME
+/* @@@ check if masm support wanted/needed */
+#  define SECTION_NOTE_NXSTACK
 #else
 /* GNU/SunPro Assembler AT&T Syntax */
 	.text
@@ -124,5 +126,11 @@
 #  define FLDL(X)  fldl X
 #  define ADD(A,B) add A,B
 #  define LOCAL(X) .X
+/* @@@ extend following to probably *all* ELF targets - needs testing, though */
+#  if defined(OS_Linux)
+#    define SECTION_NOTE_NXSTACK .section .note.GNU-stack,"",@progbits
+#  else
+#    define SECTION_NOTE_NXSTACK
+#  endif
 #endif
 

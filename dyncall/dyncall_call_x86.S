@@ -237,3 +237,6 @@ END_PROC(dcCall_x86_sys_int80h_bsd)
 
 END_ASM
 
+
+SECTION_NOTE_NXSTACK /* mark object as not needing execstack */
+

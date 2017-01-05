@@ -145,3 +145,6 @@ END_PROC(dcCall_x64_win64)
 
 END_ASM
 
+
+SECTION_NOTE_NXSTACK /* mark object as not needing execstack */
+
