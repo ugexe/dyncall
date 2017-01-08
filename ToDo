@@ -2,7 +2,7 @@
 ----
 - make sure all assembly files declare (or are built) by setting the noexecstack flag,
   compared to translating code with gcc, it's manual for the assembler; this depends on arch
-  support (currently it's only done for linux):
+  support (currently it's only done for x86/x64 ELF, but doesn't always work I think... e.g. openbsd 4.0, maybe too old?):
 
     "When you compile source code normally, gcc takes care of adding the GNU_STACK
     markings so that the final object code is not marked with an executable stack
