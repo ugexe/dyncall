@@ -123,7 +123,9 @@
 #define DC__OS_Minix
 
 #else
-	#error Unsupported OS.
+
+/* Unable to determine OS, which is probably ok (e.g. baremetal stuff, etc.). */
+#define DC__OS_UNKNOWN
 #endif
 
 
@@ -192,8 +194,8 @@
 #elif defined(__sh__)
 # define DC__Arch_SuperH
 #elif defined(__sparcv9) || defined(__sparc64__) || ( defined(__sparc) && defined(__arch64__) ) 
-/* this could be needed on Linux/GNU sparc64 in the future: || ( defined(__sparc) && defined(__arch64__) ) */
-# define DC__Arch_Sparcv9
+# define DC__Arch_Sparcv9 /* @@@ need this define, or use just sparc64 more generically? */
+# define DC__Arch_Sparc64
 #elif defined(__sparc)
 # define DC__Arch_Sparc
 #endif
@@ -268,7 +270,7 @@ DC__Arch_ARM64
 DC__Arch_Itanium
 DC__Arch_PPC32
 DC__Arch_PPC64
-DC__Arch_Sparcv9
+DC__Arch_Sparcv9 / DC__Arch_Sparc64
 DC__Arch_SuperH
 */
 # if (defined(DC__Arch_PPC64) && (DC__ABI_PPC64_ELF_V == 1)) || defined(_BIG_ENDIAN) || defined(MIPSEB) || defined(__MIPSEB) || defined(__MIPSEB__)
