@@ -2,8 +2,8 @@
 
  Package: dyncall
  Library: dyncall
- File: dyncall/dyncall_callvm_sparc_v9.c
- Description: Call VM for sparc-v9 ABI.
+ File: dyncall/dyncall_callvm_sparc64.c
+ Description: Call VM for sparc64 (v9) ABI.
  License:
 
    Copyright (c) 2011-2015 Daniel Adler <dadler@uni-goettingen.de>
@@ -24,8 +24,8 @@
 
 
 
-#include "dyncall_callvm_sparc_v9.h"
-#include "dyncall_call_sparc_v9.h"
+#include "dyncall_callvm_sparc64.h"
+#include "dyncall_call_sparc64.h"
 #include "dyncall_alloc.h"
 
 /* Reset argument buffer. */

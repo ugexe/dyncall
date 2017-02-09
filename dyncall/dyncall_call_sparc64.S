@@ -2,8 +2,8 @@
 
  Package: dyncall
  Library: dyncall
- File: dyncall/dyncall_call_sparc_v9.S
- Description: Call kernel for sparc64 v9 ABI.
+ File: dyncall/dyncall_call_sparc64.S
+ Description: Call kernel for sparc64 (v9) ABI.
  License:
 
    Copyright (c) 2011-2015 Daniel Adler <dadler@uni-goettingen.de>

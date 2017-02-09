@@ -2,8 +2,8 @@
 
  Package: dyncall
  Library: dyncall
- File: dyncall/dyncall_callvm_sparc_v9.h
- Description: Call VM for sparc-v9 ABI.
+ File: dyncall/dyncall_call_sparc64.h
+ Description: 
  License:
 
    Copyright (c) 2011-2015 Daniel Adler <dadler@uni-goettingen.de>
@@ -24,19 +24,20 @@
 
 
 
-#ifndef DYNCALL_CALLVM_SPARC_V9_H
-#define DYNCALL_CALLVM_SPARC_V9_H
+#ifndef DYNCALL_CALL_SPARC_V9_H
+#define DYNCALL_CALL_SPARC_V9_H
 
-#include "dyncall_callvm.h"
-#include "dyncall_vector.h"
+#include "dyncall_types.h"
 
-typedef struct 
-{
-  DCCallVM     mInterface;      /*   0: +12:8 = 16*/
-  DCVecHead    mVecHead;        /* 16   152: mTotalSize +8 */
-                                /* 24   160: mSize      +8 */
-                                /* 32  168: mData  */ 
-} DCCallVM_v9;
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-#endif /* DYNCALL_CALLVM_SPARC_V9_H */
+void dcCall_v9 (DCCallVM* vm, DCpointer target);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* DYNCALL_CALL_SPARC_v9_H */
 

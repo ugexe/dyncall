@@ -68,7 +68,7 @@
 #elif defined(DC__Arch_Sparc)
 #  include "dyncall_callvm_sparc.c"
 #elif defined(DC__Arch_Sparcv9)
-#  include "dyncall_callvm_sparc_v9.c"
+#  include "dyncall_callvm_sparc64.c"
 #elif defined(DC__Arch_RiscV)
 #  include "dyncall_callvm_riscv.c"
 #else
