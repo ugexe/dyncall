@@ -8,6 +8,7 @@ dyncall:
     underway)
   o MIPS n64 ellipsis call fixes
   o ARM32 armhf ellipsis call fixes
+  o fixed ARM32-THUMB stack alignment issues (found on Cortex-m0, thanks Darren Whobrey!)
   o better C++ compiler support (for pointer conversions)
 dyncallback:
   o PPC64 single-precision float fixes for more than 13 float args (thanks Masanori!)
