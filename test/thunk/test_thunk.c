@@ -40,6 +40,7 @@
 #include <errno.h>
 #include <signal.h>
 #include <setjmp.h>
+#include <string.h>
 
 jmp_buf jbuf;
 
