@@ -194,7 +194,6 @@
 #elif defined(__sh__)
 # define DC__Arch_SuperH
 #elif defined(__sparcv9) || defined(__sparc64__) || ( defined(__sparc) && defined(__arch64__) ) 
-# define DC__Arch_Sparcv9 /* @@@ need this define, or use just sparc64 more generically? */
 # define DC__Arch_Sparc64
 #elif defined(__sparc)
 # define DC__Arch_Sparc
@@ -261,7 +260,7 @@
 /* Endian detection. */
 #if defined(DC__Arch_Intel_x86) || defined(DC__Arch_AMD64) /* always little */
 # define DC__Endian_LITTLE
-#elif defined(DC__Arch_Sparc)                              /*always big until v9*/
+#elif defined(DC__Arch_Sparc)                              /* always purely big until v9 */
 # define DC__Endian_BIG
 #else                                                      /* all others are bi-endian */
 /* @@@check flags used on following bi-endianness archs:
@@ -270,7 +269,7 @@ DC__Arch_ARM64
 DC__Arch_Itanium
 DC__Arch_PPC32
 DC__Arch_PPC64
-DC__Arch_Sparcv9 / DC__Arch_Sparc64
+DC__Arch_Sparc64
 DC__Arch_SuperH
 */
 # if (defined(DC__Arch_PPC64) && (DC__ABI_PPC64_ELF_V == 1)) || defined(_BIG_ENDIAN) || defined(MIPSEB) || defined(__MIPSEB) || defined(__MIPSEB__)

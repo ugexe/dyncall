@@ -121,7 +121,7 @@ r24-r31 -> ins
 
 */
 
-#if defined __arch64__
+#if defined(DC__Arch_Sparc64) /* @@@ this entire block can even be removed, b/c this file is about 32 bit sparc */
 #define REGSIZE 8
 #error invalid arch
 #else

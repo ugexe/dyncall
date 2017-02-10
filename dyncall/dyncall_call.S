@@ -68,7 +68,7 @@
 #    include "dyncall_call_ppc64.S"
 #  elif defined(DC__Arch_MIPS) || defined(DC__Arch_MIPS64)
 #    include "dyncall_call_mips_gas.S"
-#  elif defined(DC__Arch_Sparcv9)
+#  elif defined(DC__Arch_Sparc64)
 #    include "dyncall_call_sparc64.S"
 #  elif defined(DC__Arch_Sparc)
 #    include "dyncall_call_sparc.S"
