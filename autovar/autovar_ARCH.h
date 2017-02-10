@@ -50,10 +50,12 @@
 # endif
 #elif defined(__sh__)
 # define ARCH_SH
-#elif defined(__sparcv9) || defined(__sparc64__) || ( defined(__sparc) && defined(__arch64__) ) 
-# define ARCH_SPARC64
-#elif defined(__sparc)
-# define ARCH_SPARC
+#elif defined(__sparc) || defined(__sparc__)
+# if defined(__sparcv9) || defined(__sparc_v9__) || defined(__sparc64__) || defined(__arch64__)
+#  define ARCH_SPARC64
+# else
+#  define ARCH_SPARC
+# endif
 #endif
 
 #endif /* AUTOVAR_ARCH_H */

@@ -193,10 +193,12 @@
 # define DC__Arch_ARM64
 #elif defined(__sh__)
 # define DC__Arch_SuperH
-#elif defined(__sparcv9) || defined(__sparc64__) || ( defined(__sparc) && defined(__arch64__) ) 
-# define DC__Arch_Sparc64
-#elif defined(__sparc)
-# define DC__Arch_Sparc
+#elif defined(__sparc) || defined(__sparc__)
+# if defined(__sparcv9) || defined(__sparc_v9__) || defined(__sparc64__) || defined(__arch64__)
+#  define DC__Arch_Sparc64
+# else
+#  define DC__Arch_Sparc
+# endif
 #endif
 
 
