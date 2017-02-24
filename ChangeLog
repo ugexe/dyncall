@@ -14,10 +14,11 @@ dyncallback:
   o PPC64 single-precision float fixes for more than 13 float args (thanks Masanori!)
   o MIPS o32 (big- and little-endian), EABI (32 bit, little-endian) and n64 (big-endian) support
   o SPARC (32-bit) support
+  o POSIX compliance: fallback for wx alloc on systems that don't have mmap()'s MAP_ANON
 general:
-  o marked assembly code as not needing an execstack, for security and better/easier integration
-    into other projects/builds; modern toolchains do that automatically on compilation, but not
-    for hand written assembly code (thanks Thorsten Behrens for report and analysis)
+  o marked assembly code as not needing an execstack, for safer/easier integration into other
+    projects/builds, where needed; this is needed b/c of questionable default behaviours of some
+    toolchains (thanks Thorsten Behrens for report and analysis)
 doc:
   o working html doc generation from TEX sources
   o SPARC (32-bit) calling convention description
