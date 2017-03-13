@@ -6,7 +6,7 @@
  Description: Platform detection macros
  License:
 
-   Copyright (c) 2007-2015 Daniel Adler <dadler@uni-goettingen.de>, 
+   Copyright (c) 2007-2015 Daniel Adler <dadler@uni-goettingen.de>,
                            Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
@@ -278,13 +278,19 @@ DC__Arch_SuperH
 #  define DC__Endian_BIG
 # elif (defined(DC__Arch_PPC64) && (DC__ABI_PPC64_ELF_V == 2)) || defined(_LITTLE_ENDIAN) || defined(MIPSEL) || defined(__MIPSEL) || defined(__MIPSEL__)
 #  define DC__Endian_LITTLE
+# elif defined(__BYTE_ORDER__) /* explicitly set */
+#  if defined(__ORDER_BIG_ENDIAN__) && (__BYTE_ORDER__ == __ORDER_BIG_ENDIAN__)
+#    define DC__Endian_BIG
+#  elif defined(__ORDER_LITTLE_ENDIAN__) && (__BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__)
+#    define DC__Endian_LITTLE
+#  endif
 # endif /* no else, leave unset if not sure */
 #endif
 
 
 /* Internal macro/tag. */
 #if !defined(DC_API)
-#define DC_API
+# define DC_API
 #endif
 
 #endif /* DYNCALL_MACROS_H */
