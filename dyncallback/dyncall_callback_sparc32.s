@@ -51,13 +51,13 @@ dcCallbackThunkEntry:
 	add  %fp, 68, %l0
 	st   %l0, [ %sp + 64 ]  /* init arg_ptr */
 
-	/* Zero retval store (for data < word size). */
+	/* Zero retval store. */
 	st   %g0, [ %sp + 72 ]
 	st   %g0, [ %sp + 76 ]
 
 	/* Prepare callback handler call. */
 	mov  %g1, %o0           /* Param 0 = DCCallback*, %g1 holds ptr to thunk */
-	add  %sp, 64, %o1       /* Param 1 = DCArgs* (ptr to struct with args ptr */
+	add  %sp, 64, %o1       /* Param 1 = DCArgs* (ptr to struct with args ptr) */
 	add  %sp, 72, %o2       /* Param 2 = results ptr to 8b of local stack data */
 	ld   [ %g1 + 28 ], %o3  /* Param 3 = userdata ptr */
 

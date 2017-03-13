@@ -62,11 +62,11 @@ Name                                 & Alias                   & Brief descripti
 \item stack always aligned to 8 bytes
 \item first 6 integers and floats are passed independently in registers using \%o0-\%o5
 \item for every other argument the stack is used
-\item all arguments <= 32 bit are passed as 32 bit values
-\item 64 bit arguments are passed like two consecutive <= 32 bit values
+\item all arguments \textless=\ 32 bit are passed as 32 bit values
+\item 64 bit arguments are passed like two consecutive \textless=\ 32 bit values
 \item minimum stack size is 64 bytes, b/c stack pointer must always point at enough space to store all \%i* and \%l* registers, used when running out of register windows
 \item if needed, register spill area is adjacent to parameters
-\item results are expected by caller to be returned in \%o0\%o1 (after reg window restore, meaning callee writes to \%i0\%i1) for integers, \%f0/\%f1 for floats, and for structs/unions a pointer to them is used as a hidden stack parameter (see below)
+\item results are expected by caller to be returned in \%o0/\%o1 (after reg window restore, meaning callee writes to \%i0/\%i1) for integers, \%f0/\%f1 for floats, and for structs/unions a pointer to them is used as a hidden stack parameter (see below)
 \end{itemize}
 
 \paragraph{Stack layout}
