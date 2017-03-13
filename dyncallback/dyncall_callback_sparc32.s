@@ -3,7 +3,7 @@
  Package: dyncall
  Library: dyncallback
  File: dyncallback/dyncall_callback_sparc32.s
- Description: Callback Thunk - Implementation for Sparc 32-bit
+ Description: Callback - Implementation for Sparc 32-bit
  License:
 
    Copyright (c) 2007-2016 Daniel Adler <dadler@uni-goettingen.de>,
