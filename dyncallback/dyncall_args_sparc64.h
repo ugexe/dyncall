@@ -6,7 +6,7 @@
  Description: Callback's Arguments VM - Header for sparc64 - not yet
  License:
 
-   Copyright (c) 2007-2015 Daniel Adler <dadler@uni-goettingen.de>,
+   Copyright (c) 2007-2017 Daniel Adler <dadler@uni-goettingen.de>,
                            Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
@@ -31,7 +31,7 @@
 
 struct DCArgs
 {
-  int dummy;
+  long long *arg_ptr;
 };
 
 #endif /* DYNCALLBACK_ARGS_SPARC64_H */
