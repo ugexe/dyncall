@@ -34,22 +34,24 @@ SPARC uses big endian byte order.\\
 \paragraph{Register usage}
 
 \begin{itemize}
-\item 32 32-bit integer/pointer registers
-\item 32 floating point registers (usable as 8 quad precision, 16 double precision or 32 single precision registers)
-\item 32 registers are accessible at a time (8 are global ones (g*), whereas the rest forms a register window with 8 input (i*), 8 output (o*) and 8 local (l*) ones)
+\item 32 single floating point registers (f0-f31, usable as 8 quad precision q0,q4,q8,...,q28, 16 double precision d0,d2,d4,...,d30)
+\item 32 32-bit integer/pointer registers out of a bigger (vendor/model dependent) number that are accessible at a time (8 are global ones (g*), whereas the remaining 24 form a register window with 8 input (i*), 8 output (o*) and 8 local (l*) ones)
 \item calling a function shifts the register window, the old output registers become the new input registers (old local and input ones are not accessible anymore)
 \end{itemize}
 
 \begin{table}[h]
 \begin{tabular*}{0.95\textwidth}{lll}
-Name                                 & Alias                   & Brief description\\
+Name                          & Alias                          & Brief description\\
 \hline
-{\bf \%g0}                           &                         & Read-only, hardwired to 0 \\
-{\bf \%g1-\%g7}                      &                         & Global \\
-{\bf \%o0 and \%i0}                  &                         & Output and input argument 0, return value \\
-{\bf \%o1-\%o5 and \%i1-\%i5}        &                         & Output and input argument registers \\
-{\bf \%o6 and \%i6}                  &                         & Stack and frame pointer \\
-{\bf \%o7 and \%i7}                  &                         & Return address (caller writes to o7, callee uses i7) \\
+{\bf \%g0}                    & \%r0                           & Read-only, hardwired to 0 \\
+{\bf \%g1-\%g7}               & \%r1-\%r7                      & Global \\
+{\bf \%o0,\%o1 and \%i0,\%i1} & \%r8,\%r9 and \%r24,\%r25      & Output and input argument registers, return value \\
+{\bf \%o2-\%o5 and \%i2-\%i5} & \%r10-\%r13 and \%r26-\%r29    & Output and input argument registers \\
+{\bf \%o6 and \%i6}           & \%r14 and \%r30, \%sp and \%fp & Stack and frame pointer \\
+{\bf \%o7 and \%i7}           & \%r15 and \%r31                & Return address (caller writes to o7, callee uses i7) \\
+{\bf \%l0-\%l7}               & \%r16-\%r23                    & preserve \\
+{\bf \%f0,\%f1}               &                                & Floating point return value \\
+{\bf \%f2-\%f31}              &                                & scratch \\
 \end{tabular*}
 \caption{Register usage on sparc calling convention}
 \end{table}
@@ -102,6 +104,6 @@ parameter area                     &                             &              
 \\
 \\
 \\
-\caption{Stack layout on sparc calling convention}
+\caption{Stack layout on sparc32 calling convention}
 \end{figure}
 
