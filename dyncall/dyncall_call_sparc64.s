@@ -83,19 +83,12 @@ dcCall_v9:
 .do_call:
 	call    %i0  /* Call target. */
 	nop
-	or      %o0, %g0, %i0
+	or      %o0, %g0, %i0   /* pass out retval (mov o0 -> i0) */
 	jmpl    %i7 + 8, %g0    /* optimized restore;retl;nop */
 	restore
 
 /* 
-@@@ all of this needs to go in manual
-
-	or     %o0, %g0, %i0
-	or     %o1, %g0, %i1
-	or     %o2, %g0, %i2
-	or     %o3, %g0, %i3
-	return  %i7 + 8
-	nop
+@@@ complete manual with this, and remove from here once done
 
 Changes from v8:
 - fundamental data types
@@ -125,7 +118,7 @@ Stack Layout:
 
 Function Argument Passing:
 - integer %o0..%o5 (caller view).
-- floating-point %f0 .. %f15
+- floating-point %f0 .. %f31
 - continuous memory starting at %sp+BIAS+136 (caller view).
 
 Register Usage:
