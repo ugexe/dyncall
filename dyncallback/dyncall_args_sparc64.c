@@ -26,7 +26,7 @@
 
 #include "dyncall_args_sparc64.h"
 
-DCulonglong dcbArgULongLong(DCArgs* p) { return *(DCulonglong*)   p->arg_ptr++; }
+DCulonglong dcbArgULongLong(DCArgs* p) { return p->arg_ptr[p->i++]; }
 DClonglong  dcbArgLongLong (DCArgs* p) { return (DClonglong)dcbArgULongLong(p); }
 DCulong     dcbArgULong    (DCArgs* p) { return (DCulong)   dcbArgULongLong(p); }
 DClong      dcbArgLong     (DCArgs* p) { return (DClong)    dcbArgULongLong(p); }
@@ -38,6 +38,18 @@ DCushort    dcbArgUShort   (DCArgs* p) { return (DCushort)  dcbArgULongLong(p); 
 DCshort     dcbArgShort    (DCArgs* p) { return (DCshort)   dcbArgULongLong(p); }
 DCbool      dcbArgBool     (DCArgs* p) { return (DCbool)    dcbArgULongLong(p); }
 DCpointer   dcbArgPointer  (DCArgs* p) { return (DCpointer) dcbArgULongLong(p); }
-DCdouble    dcbArgDouble   (DCArgs* p) { return *(DCdouble*)      p->arg_ptr++; }
-DCfloat     dcbArgFloat    (DCArgs* p) { return *(DCfloat*)       p->arg_ptr++; }
+
+DCdouble dcbArgDouble(DCArgs* p)
+{
+	return (p->i < DCARGS_SPARC64_NUM_DOUBLE_REGS)
+		? p->dreg_data[p->i++]
+		: *(DCdouble*)(p->arg_ptr + p->i++);
+}
+
+DCfloat dcbArgFloat(DCArgs* p)
+{
+	return (p->i < DCARGS_SPARC64_NUM_DOUBLE_REGS)
+		? *((DCfloat*)(p->dreg_data + p->i++)+1)  /* +1 bc single-prec fp args are */
+		: *((DCfloat*)(p->arg_ptr   + p->i++)+1); /* right aligned in 64bit slot   */
+}
 
