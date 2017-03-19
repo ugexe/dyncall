@@ -13,7 +13,8 @@ dyncall:
 dyncallback:
   o PPC64 single-precision float fixes for more than 13 float args (thanks Masanori!)
   o MIPS o32 (big- and little-endian), EABI (32 bit, little-endian) and n64 (big-endian) support
-  o SPARC (32-bit) support
+  o SPARC32 (v7/v8) support
+  o SPARC64 (v9) support
   o POSIX compliance: fallback for wx alloc on systems that don't have mmap()'s MAP_ANON
 general:
   o marked assembly code as not needing an execstack, for safer/easier integration into other
@@ -21,7 +22,8 @@ general:
     toolchains (thanks Thorsten Behrens for report and analysis)
 doc:
   o working html doc generation from TEX sources
-  o SPARC (32-bit) calling convention description
+  o SPARC32 (v7/v8) calling convention description
+  o SPARC64 (v9) calling convention description
 bindings:
   o better documentation, removed relative path dependencies, general cleanup
   o python: updated to latest signature format (was still on 0.1)

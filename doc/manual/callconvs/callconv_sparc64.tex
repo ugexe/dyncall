@@ -63,15 +63,18 @@ Name                          & Alias                          & Brief descripti
 \item stack grows down
 \item stack parameter order: right-to-left
 \item caller cleans up the stack
-\item stack always aligned to 8 bytes
+\item stack frame is always aligned to 16 bytes
 \item first 6 integers are passed in registers using \%o0-\%o5
 \item first 8 quad precision floating point args (or 16 double precision, or 32 single precision) are passed in floating point registers (\%q0,\%q4,...,\%q28 or \%d0,\%d2,...,\%d30 or \%f0-\%f32, respectively)
 \item for every other argument the stack is used
-\item for every floating point argument passed in a register, corresponding \%o* registers or stack space is skipped (e.g. if \%d0 is used for 3rd call argument, \%o2 is skipped and not used for subsequent integer arguments)
+\item single precision floating point args are passed in odd \%f* registers, and are "right aligned" in their 8-byte space on the stack
+\item for every argument passed, corresponding \%o*, \%f* register or stack space is skipped (e.g. passing a doube as 3rd call argument, \%d4 is used and \%o2 is skipped)
 \item all arguments \textless=\ 64 bit are passed as 64 bit values
 \item minimum stack size is 128 bytes, b/c stack pointer must always point at enough space to store all \%i* and \%l* registers, used when running out of register windows
 \item if needed, register spill area (for integer arguments passed via \%o0-\%o5) is adjacent to parameters
-\item results are expected by caller to be returned in \%o0-\%o3 (after reg window restore, meaning callee writes to \%i0-\%i3) for integers, \%d0,\%d2,\%d4,\%d6 for floats, and for structs/unions a pointer to them is used as a hidden stack parameter (see below)
+\item results are expected by caller to be returned in \%o0-\%o3 (after reg window restore, meaning callee writes to \%i0-\%i3) for integers, \%d0,\%d2,\%d4,\%d6 for floats
+\item structs/unions up to 32b, the fields are returned via the respective registers mentioned in the previous bullet point
+\item for structs/unions \textgreater= 32b, the caller allocates the space and a pointer to it is passed as hidden first parameter to the function called (meaning in \%o0)
 \end{itemize}
 
 \paragraph{Stack layout}
@@ -83,7 +86,7 @@ Stack directly after function prolog:\\
 \hhline{~-~~}
                                    & \vdots                      &                                &                               \\
 \hhline{~=~~}
-local data                         & \hspace{4cm}                &                                & \mrrbrace{10}{caller's frame} \\
+local data (and padding)           & \hspace{4cm}                &                                & \mrrbrace{8}{caller's frame}  \\
 \hhline{~-~~}
 \mrlbrace{7}{parameter area}       & argument x                  & \mrrbrace{3}{stack parameters} &                               \\
                                    & \ldots                      &                                &                               \\
@@ -91,11 +94,10 @@ local data                         & \hspace{4cm}                &              
                                    & input argument 5 spill      & \mrrbrace{3}{spill area}       &                               \\
                                    & \ldots                      &                                &                               \\
                                    & input argument 0 spill      &                                &                               \\
-                                   & struct/union return pointer &                                &                               \\
 \hhline{~-~~}
 register save area (\%i* and \%l*) &                             &                                &                               \\
 \hhline{~=~~}
-local data                         &                             &                                & \mrrbrace{3}{current frame}   \\
+local data (and padding)           &                             &                                & \mrrbrace{3}{current frame}   \\
 \hhline{~-~~}
 parameter area                     &                             &                                &                               \\
 \hhline{~-~~}

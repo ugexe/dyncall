@@ -80,9 +80,7 @@ Stack directly after function prolog:\\
 \hhline{~-~~}
                                    & \vdots                      &                                &                               \\
 \hhline{~=~~}
-local data                         & \hspace{4cm}                &                                & \mrrbrace{10}{caller's frame} \\
-\hhline{~-~~}
-padding                            &                             &                                &                               \\
+local data (and padding)           & \hspace{4cm}                &                                & \mrrbrace{9}{caller's frame}  \\
 \hhline{~-~~}
 \mrlbrace{7}{parameter area}       & argument x                  & \mrrbrace{3}{stack parameters} &                               \\
                                    & \ldots                      &                                &                               \\
@@ -94,7 +92,7 @@ padding                            &                             &              
 \hhline{~-~~}
 register save area (\%i* and \%l*) &                             &                                &                               \\
 \hhline{~=~~}
-local data and padding             &                             &                                & \mrrbrace{3}{current frame}   \\
+local data (and padding)           &                             &                                & \mrrbrace{3}{current frame}   \\
 \hhline{~-~~}
 parameter area                     &                             &                                &                               \\
 \hhline{~-~~}
