@@ -41,7 +41,7 @@
 #endif
 
 
-int dcAllocWX(size_t size, void** pp)
+DCerror dcAllocWX(size_t size, void** pp)
 {
   void* p;
 #if !defined(MAP_ANON) && defined(DC_UNIX)
@@ -50,7 +50,7 @@ int dcAllocWX(size_t size, void** pp)
   int fd = open("/dev/zero", O_RDWR);
   if(fd == -1)
     return -1;
-  p = mmap(0, size+sizeof(int), PROT_EXEC|PROT_READ|PROT_WRITE, MAP_PRIVATE, fd, 0);
+  p = mmap(0, size+sizeof(int), PROT_READ|PROT_WRITE, MAP_PRIVATE, fd, 0);
   if(p == MAP_FAILED) {
     close(fd);
     return -1;
@@ -58,13 +58,18 @@ int dcAllocWX(size_t size, void** pp)
   *(int*)p = fd;
   p += sizeof(int);
 #else
-  p = mmap(0, size, PROT_EXEC|PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANON, -1, 0);
+  p = mmap(0, size, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANON, -1, 0);
   if(p == MAP_FAILED)
     return -1;
 #endif
 
   *pp = p;
   return 0;
+}
+
+DCerror dcInitExecWX(void* p, size_t size)
+{
+  return mprotect(p, size, PROT_READ|PROT_EXEC);
 }
 
 void dcFreeWX(void* p, size_t size)
