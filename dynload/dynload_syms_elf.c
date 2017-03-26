@@ -38,6 +38,9 @@
 #if defined(OS_OpenBSD)
 #  include <stdint.h>
 #  include <elf_abi.h>
+#elif defined(OS_NetBSD)
+#  include <stddef.h>
+#  include <elf.h>
 #elif defined(OS_SunOS)
 #  include <libelf.h>
 #elif defined(OS_BeOS)
