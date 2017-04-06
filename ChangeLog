@@ -16,6 +16,11 @@ dyncallback:
   o SPARC64 (v9) support
   o POSIX compliance: fallback for wx alloc on systems that don't have mmap()'s MAP_ANON
   o allocated space used for thunk now always W^X (req. for e.g. OpenBSD >= 6.0)
+dynload:
+  o simplifications of implemention on Darwin
+  o reliability/stability fixes for Mach-O dlSyms* lib to handle symlinks,
+    relative paths, paths with random casings
+  o allowing Mach-O dlSyms* lib to be used standalone (consistent with ELF and PE impls now)
 general:
   o marked assembly code as not needing an execstack, for safer/easier integration into other
     projects/builds, where needed; this is needed b/c of questionable default behaviours of some
