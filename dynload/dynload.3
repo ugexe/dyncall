@@ -1,4 +1,4 @@
-.\" Copyright (c) 2007-2014 Daniel Adler <dadler AT uni-goettingen DOT de>, 
+.\" Copyright (c) 2007-2017 Daniel Adler <dadler AT uni-goettingen DOT de>, 
 .\"                         Tassilo Philipp <tphilipp AT potion-studios DOT com>
 .\" 
 .\" Permission to use, copy, modify, and distribute this software for any
@@ -26,7 +26,7 @@ gives access to functions in foreign dynamic libraries and code modules.
 .Ft void
 .Fn dlFreeLibrary "DLLib * pLib"
 .Ft void *
-.Fn dlFindSymbol "DLLib pLibode" "const char * pSymbolName"
+.Fn dlFindSymbol "DLLib * pLib" "const char * pSymbolName"
 .Sh DESCRIPTION
 The
 .Nm
@@ -40,7 +40,9 @@ and returns a handle to it for use in
 .Fn dlFreeLibrary 
 and
 .Fn dlFindSymbol
-calls.
+calls. Passing a null pointer for the
+.Ar libpath
+argument is valid, and returns a handle to the main executable of the calling code. Returns a null pointer on error.
 .Pp
 .Fn dlFreeLibrary 
 frees the loaded library with handle
