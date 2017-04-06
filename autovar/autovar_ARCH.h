@@ -48,6 +48,8 @@
 # if defined(__thumb__)
 #   define ARCH_THUMB
 # endif
+#elif defined(__aarch64__)
+# define ARCH_ARM64
 #elif defined(__sh__)
 # define ARCH_SH
 #elif defined(__sparc) || defined(__sparc__)
