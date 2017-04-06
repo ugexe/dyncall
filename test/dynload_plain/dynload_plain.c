@@ -93,7 +93,7 @@ int main(int argc, char* argv[])
 
       for(i=0; i<n; ++i) {
         name = dlSymsName(pSyms, i);
-        if(strcmp(name, "printf") == 0) { // check if we find "printf" also in iterated symbols
+        if(name && strcmp(name, "printf") == 0) { // check if we find "printf" also in iterated symbols
           ++r;
           break;
         }
@@ -101,15 +101,15 @@ int main(int argc, char* argv[])
       printf("printf symbol found by iteration: %d\n", i<n);
 
       name = dlSymsName(pSyms, i);
-      r += (strcmp(name, "printf") == 0); // check if we can lookup "printf" by index
-      printf("printf symbol name by index: %s\n", name);
+      r += (name && strcmp(name, "printf") == 0); // check if we can lookup "printf" by index
+      printf("printf symbol name by index: %s\n", name?name:"");
 
       pLib = dlLoadLibrary(path); // check if we can resolve ptr -> name,
       if(pLib) {                  // need to lookup by name again, first
         p = dlFindSymbol(pLib, "printf");
         name = dlSymsNameFromValue(pSyms, p);
-        printf("printf symbol name by its own address (%p): %s\n", p, name);
-        r += (strcmp(name, "printf") == 0);
+        printf("printf symbol name by its own address (%p): %s\n", p, name?name:"");
+        r += (name && strcmp(name, "printf") == 0);
         dlFreeLibrary(pLib);
       }
 
