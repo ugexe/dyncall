@@ -35,6 +35,7 @@
 #include "dynload.h"
 #include "dynload_alloc.h"
 #include "../autovar/autovar_ARCH.h"
+#include "../autovar/autovar_OS.h"
 
 #include <mach-o/dyld.h>
 #include <mach-o/nlist.h>
@@ -42,7 +43,7 @@
 #include <dlfcn.h>
 #include <string.h>
 
-#if defined(ARCH_X64) || defined(ARCH_PPC64) || defined(ARCH_ARM64) //@@@ use dyncall_macros.h
+#if defined(ARCH_X64) || defined(ARCH_PPC64) || defined(ARCH_ARM64) /*@@@ use dyncall_macros.h*/
 #define MACH_HEADER_TYPE mach_header_64
 #define SEGMENT_COMMAND segment_command_64
 #define NLIST_TYPE nlist_64
@@ -77,7 +78,7 @@ DLSyms* dlSymsInit(const char* libPath)
 	if(!pLib)
 		return NULL;
 
-	// Loop over all dynamically linked images to find ours.
+	/* Loop over all dynamically linked images to find ours. */
 	for(i = 0, n = _dyld_image_count(); i < n; ++i)
 	{
 		struct stat st1;
@@ -85,12 +86,12 @@ DLSyms* dlSymsInit(const char* libPath)
 
 		if(name && (stat(name, &st1) != -1))
 		{
-			// Don't rely on name comparison alone, as libPath might be relative, symlink, differently
-			// cased, etc., but compare inode number with the one of the mapped dyld image.
+			/* Don't rely on name comparison alone, as libPath might be relative, symlink, differently */
+			/* cased, etc., but compare inode number with the one of the mapped dyld image. */
 			if(st0.st_ino == st1.st_ino/*!strcmp(name, libPath)*/)
 			{
 				pHeader = (const struct MACH_HEADER_TYPE*) _dyld_get_image_header(i);
-				break; // found header
+				break; /* found header */
 			}
 		}
 	}
@@ -106,16 +107,16 @@ DLSyms* dlSymsInit(const char* libPath)
 			if(cmd->cmd == LC_SEGMENT)
 			{
 				const struct SEGMENT_COMMAND* seg = (struct SEGMENT_COMMAND*)cmd;
-				if((seg->fileoff == 0) && (seg->filesize != 0)) // Count segment sizes to slide over...@@@?
+				if((seg->fileoff == 0) && (seg->filesize != 0)) /* Count segment sizes to slide over...@@@? */
 					slide = (uintptr_t)pHeader - seg->vmaddr;
 				if(strcmp(seg->segname, "__LINKEDIT") == 0)
-					pBase = (const char*)(seg->vmaddr - seg->fileoff + slide); // Adjust pBase depending on __LINKEDIT segment
+					pBase = (const char*)(seg->vmaddr - seg->fileoff + slide); /* Adjust pBase depending on __LINKEDIT segment */
 			}
 			else if(cmd->cmd == LC_SYMTAB)
 			{
 				const struct symtab_command* scmd = (const struct symtab_command*)cmd;
 
-				// cmd->cmdsize must be size of struct, otherwise something is off; abort
+				/* cmd->cmdsize must be size of struct, otherwise something is off; abort */
 				if(cmd->cmdsize != sizeof(struct symtab_command))
 					break;
 
@@ -127,11 +128,11 @@ DLSyms* dlSymsInit(const char* libPath)
 
 				return pSyms;
 			}
-            //@@@ handle also LC_DYSYMTAB
+            /*@@@ handle also LC_DYSYMTAB */
 		}
 	}
 
-	// Couldn't init syms, so free lib and return error.
+	/* Couldn't init syms, so free lib and return error. */
 	dlFreeLibrary(pLib);
 	return NULL;
 }
@@ -156,27 +157,29 @@ const char* dlSymsName(DLSyms* pSyms, int index)
 	const struct NLIST_TYPE* nl;
 	unsigned char t;
 
-//@@@ mach-o ref: http://www.cilinder.be/docs/next/NeXTStep/3.3/nd/DevTools/14_MachO/MachO.htmld/index.html
-
 	if(!pSyms)
 		return NULL;
 
 	nl = pSyms->pSymbolTable + index;
 
-	// Mach-O manual: Symbols with an index into the string table of zero
-	// (n_un.n_strx == 0) are defined to have a null ("") name.
+	/* Mach-O manual: Symbols with an index into the string table of zero */
+	/* (n_un.n_strx == 0) are defined to have a null ("") name. */
 	if(nl->n_un.n_strx == 0)
-		return NULL; //@@@ have return pointer to some static "" string?
+		return NULL; /*@@@ have return pointer to some static "" string? */
 
-	// Skip undefined symbols. @@@ should we?
+	/* Skip undefined symbols. @@@ should we? */
 	t = nl->n_type & N_TYPE;
-	if(t == N_UNDF || t == N_PBUD) // @@@ check if N_PBUD is defined, it's not in the NeXT manual, but on Darwin 8.0.1
+	if(t == N_UNDF || t == N_PBUD) /* @@@ check if N_PBUD is defined, it's not in the NeXT manual, but on Darwin 8.0.1 */
 		return NULL;
 
-	//TODO skip more symbols based on nl->n_desc and nl->n_type ?
+	/*TODO skip more symbols based on nl->n_desc and nl->n_type ? */
 
-	// Return name - handles lookup of indirect names.
-	return &pSyms->pStringTable[t == N_INDR ? nl->n_value : nl->n_un.n_strx];
+	/* Return name - handles lookup of indirect names. */
+	return &pSyms->pStringTable[(t == N_INDR ? nl->n_value : nl->n_un.n_strx)
+#if defined(OS_Darwin)
+		+ 1 /* Skip '_'-prefix */
+#endif
+	];
 }
 
 
