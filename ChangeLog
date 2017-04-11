@@ -18,9 +18,13 @@ dyncallback:
   o allocated space used for thunk now always W^X (req. for e.g. OpenBSD >= 6.0)
 dynload:
   o simplifications of implemention on Darwin
-  o reliability/stability fixes for Mach-O dlSyms* lib to handle symlinks,
-    relative paths, paths with random casings
+  o reliability/stability fixes for Mach-O dlSyms* lib to better handle loading dylibs by symlink,
+    relative path, path with random casing, etc., as well as fixes to symbol name lookups that
+    used wrong offsets before (thanks Stéphane Mons for finding and help)
   o allowing Mach-O dlSyms* lib to be used standalone (consistent with ELF and PE impls now)
+  o support for non-x64 64-bit platforms when using dlSyms* functions with Macho-O files
+  o potentially breaking change on macos/Darwin platforms: all functions now consistently accept or
+    return symbol names as they would appear in C code, instead of the raw name in object files
 general:
   o marked assembly code as not needing an execstack, for safer/easier integration into other
     projects/builds, where needed; this is needed b/c of questionable default behaviours of some
@@ -210,8 +214,7 @@ Version 0.4 (2009/07/06)
   o fixed nmake buildfiles and configure.bat (were out of date and wrong)
   o test suite clean up (GNUmake, BSDmake):
     target "config" modified, phony without dependencies to other builds
-  o bugfix: GNU fastcall calling convention for float and double arguments
-    was wrong. no skip of register.
+  o bugfix: GNU fastcall calling convention for float and double arguments was wrong (no skip of register)
   o update: x86win32* suite tests are built on cygwin now, added total result output
   o signature types change:
     C Strings: 'S' -> 'Z'
