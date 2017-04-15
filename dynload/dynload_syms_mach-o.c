@@ -45,12 +45,16 @@
 
 #if defined(ARCH_X64) || defined(ARCH_PPC64) || defined(ARCH_ARM64) /*@@@ use dyncall_macros.h*/
 #define MACH_HEADER_TYPE mach_header_64
+#define MACH_HEADER_MAGIC_NR MH_MAGIC_64
+#define SEGMEND_COMMAND_ID LC_SEGMENT_64
 #define SEGMENT_COMMAND segment_command_64
 #define NLIST_TYPE nlist_64
 #else
 #define MACH_HEADER_TYPE mach_header
-#define NLIST_TYPE nlist
+#define MACH_HEADER_MAGIC_NR MH_MAGIC
+#define SEGMEND_COMMAND_ID LC_SEGMENT
 #define SEGMENT_COMMAND segment_command
+#define NLIST_TYPE nlist
 #endif
 
 
@@ -66,10 +70,11 @@ struct DLSyms_
 DLSyms* dlSymsInit(const char* libPath)
 {
 	DLLib* pLib;
-	DLSyms* pSyms;
+	DLSyms* pSyms = NULL;
 	uint32_t i, n;
 	struct stat st0;
 	const struct MACH_HEADER_TYPE* pHeader = NULL;
+	const struct dysymtab_command* dysymtab_cmd = NULL;
 
 	if(stat(libPath, &st0) == -1)
 		return NULL;
@@ -96,7 +101,7 @@ DLSyms* dlSymsInit(const char* libPath)
 		}
 	}
 
-	if(pHeader && (pHeader->filetype == MH_DYLIB) && !(pHeader->flags & MH_SPLIT_SEGS))
+	if(pHeader && (pHeader->magic == MACH_HEADER_MAGIC_NR) && (pHeader->filetype == MH_DYLIB) && !(pHeader->flags & MH_SPLIT_SEGS))
 	{
 		const char* pBase = (const char*)pHeader;
 		uintptr_t slide = 0;
@@ -104,7 +109,7 @@ DLSyms* dlSymsInit(const char* libPath)
 
 		for(i = 0, n = pHeader->ncmds; i < n; ++i, cmd = (const struct load_command*)((const char*)cmd + cmd->cmdsize))
 		{
-			if(cmd->cmd == LC_SEGMENT)
+			if(cmd->cmd == SEGMEND_COMMAND_ID)
 			{
 				const struct SEGMENT_COMMAND* seg = (struct SEGMENT_COMMAND*)cmd;
 				if((seg->fileoff == 0) && (seg->filesize != 0)) /* Count segment sizes to slide over...@@@? */
@@ -112,7 +117,7 @@ DLSyms* dlSymsInit(const char* libPath)
 				if(strcmp(seg->segname, "__LINKEDIT") == 0)
 					pBase = (const char*)(seg->vmaddr - seg->fileoff + slide); /* Adjust pBase depending on __LINKEDIT segment */
 			}
-			else if(cmd->cmd == LC_SYMTAB)
+			else if(cmd->cmd == LC_SYMTAB && !pSyms/* only init once - just safety check */)
 			{
 				const struct symtab_command* scmd = (const struct symtab_command*)cmd;
 
@@ -125,11 +130,27 @@ DLSyms* dlSymsInit(const char* libPath)
 				pSyms->pStringTable = pBase + scmd->stroff;
 				pSyms->pSymbolTable = (struct NLIST_TYPE*)(pBase + scmd->symoff);
 				pSyms->pLib         = pLib;
-
-				return pSyms;
 			}
-            /*@@@ handle also LC_DYSYMTAB */
+			else if(cmd->cmd == LC_DYSYMTAB)
+			{
+				dysymtab_cmd = (const struct dysymtab_command*)cmd;
+				/*@@@ check if(cmd->cmdsize != sizeof(struct dysymtab_command)) {
+					dlFreeMem....
+					break;
+				}*/
+			}
 		}
+	}
+
+	/* Got symbol table? */
+	if(pSyms) {
+		/* Alter symtable info if we got symbols organized in local/defined/undefined groups. */
+		/* Only use local ones in that case. */
+		/*@@@ don't restrict to only local symbols if(dysymtab_cmd) {
+			pSyms->pSymbolTable += dysymtab_cmd->ilocalsym;
+			pSyms->symbolCount = dysymtab_cmd->nlocalsym;
+		}*/
+		return pSyms;
 	}
 
 	/* Couldn't init syms, so free lib and return error. */

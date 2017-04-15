@@ -53,7 +53,7 @@ returns a pointer to a symbol with name
 .Ar pSymbolName
 in the library with handle
 .Ar pLib ,
-or returns a null pointer if the symbol cannot be found.
+or returns a null pointer if the symbol cannot be found. The name is specified as it would appear in C source code (mangled if C++, etc.).
 .Sh SEE ALSO
 .Xr dyncall 3 ,
 .Xr dyncallback 3

@@ -46,14 +46,17 @@ int main(int argc, char* argv[])
     "/lib32/libc.so",
     "/lib32/libc.so.6",
     "/lib32/libc.so.7",
+	"/usr/lib/system/libsystem_c.dylib",
     "/usr/lib/libc.dylib",
     "C:\\Windows\\system32\\msvcrt.dll"
   };
 
 
   for(i=0; i<(sizeof(clibs)/sizeof(const char*)); ++i) {
-    if(access(clibs[i], F_OK) != -1)
+    if(access(clibs[i], F_OK) != -1) {
       path = clibs[i];
+      break;
+    }
   }
 
   if(path) {
@@ -100,7 +103,7 @@ int main(int argc, char* argv[])
       }
       printf("printf symbol found by iteration: %d\n", i<n);
 
-      name = dlSymsName(pSyms, i);
+      name = (i<n) ? dlSymsName(pSyms, i) : NULL;
       r += (name && strcmp(name, "printf") == 0); // check if we can lookup "printf" by index
       printf("printf symbol name by index: %s\n", name?name:"");
 
