@@ -64,6 +64,7 @@ struct DLSyms_
 	const char*              pStringTable;
 	const struct NLIST_TYPE* pSymbolTable;
 	uint32_t                 symbolCount;
+	uintptr_t                symOffset;
 };
 
 
@@ -104,7 +105,7 @@ DLSyms* dlSymsInit(const char* libPath)
 	if(pHeader && (pHeader->magic == MACH_HEADER_MAGIC_NR) && (pHeader->filetype == MH_DYLIB) && !(pHeader->flags & MH_SPLIT_SEGS))
 	{
 		const char* pBase = (const char*)pHeader;
-		uintptr_t slide = 0;
+		uintptr_t slide = 0, symOffset = 0;
 		const struct load_command* cmd = (const struct load_command*)(pBase + sizeof(struct MACH_HEADER_TYPE));
 
 		for(i = 0, n = pHeader->ncmds; i < n; ++i, cmd = (const struct load_command*)((const char*)cmd + cmd->cmdsize))
@@ -112,10 +113,14 @@ DLSyms* dlSymsInit(const char* libPath)
 			if(cmd->cmd == SEGMEND_COMMAND_ID)
 			{
 				const struct SEGMENT_COMMAND* seg = (struct SEGMENT_COMMAND*)cmd;
-				if((seg->fileoff == 0) && (seg->filesize != 0)) /* Count segment sizes to slide over...@@@? */
-					slide = (uintptr_t)pHeader - seg->vmaddr;
-				if(strcmp(seg->segname, "__LINKEDIT") == 0)
-					pBase = (const char*)(seg->vmaddr - seg->fileoff + slide); /* Adjust pBase depending on __LINKEDIT segment */
+				if((seg->fileoff == 0) && (seg->filesize != 0))
+					slide = (uintptr_t)pHeader - seg->vmaddr; /* effective offset of segment from header */
+
+				if(strcmp(seg->segname, "__LINKEDIT") == 0) {
+					/* Adjust pBase depending on where __LINKEDIT segment is */
+					pBase = (const char*)(seg->vmaddr - seg->fileoff) + slide;
+					symOffset = slide; /* this is also offset of symbols */
+				}
 			}
 			else if(cmd->cmd == LC_SYMTAB && !pSyms/* only init once - just safety check */)
 			{
@@ -129,6 +134,7 @@ DLSyms* dlSymsInit(const char* libPath)
 				pSyms->symbolCount  = scmd->nsyms;
 				pSyms->pStringTable = pBase + scmd->stroff;
 				pSyms->pSymbolTable = (struct NLIST_TYPE*)(pBase + scmd->symoff);
+				pSyms->symOffset    = symOffset;
 				pSyms->pLib         = pLib;
 			}
 			else if(cmd->cmd == LC_DYSYMTAB)
@@ -182,14 +188,25 @@ const char* dlSymsName(DLSyms* pSyms, int index)
 		return NULL;
 
 	nl = pSyms->pSymbolTable + index;
+	t = nl->n_type & N_TYPE;
 
+	/* Return name by lookup through it's address. This guarantees to be consistent with dlsym and dladdr */
+	/* calls as used in dlFindAddress and dlSymsNameFromValue - the "#if 0"-ed code below returns the */
+	/* name directly, but assumes wrongly that everything is prefixed with an underscore on Darwin. */
+
+	/* only handle symbols that are in a section and aren't symbolic debug entries */
+	if((t == N_SECT) && (nl->n_type & N_STAB) == 0)
+		return dlSymsNameFromValue(pSyms, (void*)(nl->n_value + pSyms->symOffset));
+
+	return NULL; /* @@@ handle N_INDR, etc.? */
+
+#if 0
 	/* Mach-O manual: Symbols with an index into the string table of zero */
 	/* (n_un.n_strx == 0) are defined to have a null ("") name. */
 	if(nl->n_un.n_strx == 0)
 		return NULL; /*@@@ have return pointer to some static "" string? */
 
 	/* Skip undefined symbols. @@@ should we? */
-	t = nl->n_type & N_TYPE;
 	if(t == N_UNDF || t == N_PBUD) /* @@@ check if N_PBUD is defined, it's not in the NeXT manual, but on Darwin 8.0.1 */
 		return NULL;
 
@@ -201,6 +218,7 @@ const char* dlSymsName(DLSyms* pSyms, int index)
 		+ 1 /* Skip '_'-prefix */
 #endif
 	];
+#endif
 }
 
 
