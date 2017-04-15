@@ -17,14 +17,14 @@ dyncallback:
   o POSIX compliance: fallback for wx alloc on systems that don't have mmap()'s MAP_ANON
   o allocated space used for thunk now always W^X (req. for e.g. OpenBSD >= 6.0)
 dynload:
-  o simplifications of implemention on Darwin
-  o reliability/stability fixes for Mach-O dlSyms* lib to better handle loading dylibs by symlink,
-    relative path, path with random casing, etc., as well as fixes to symbol name lookups that
-    used wrong offsets before (thanks Stéphane Mons for finding and help)
+  o major reliability/stability fixes for Mach-O dlSyms* functions to (thanks Stéphane Mons for help):
+    better handle loading dylibs by symlink, relative path, random casing, etc.
+    fixes to symbol name lookups that used wrong offsets before
+    64-bit platform fixes (was broken on x64 and never supported on others)
   o allowing Mach-O dlSyms* lib to be used standalone (consistent with ELF and PE impls now)
-  o support for non-x64 64-bit platforms when using dlSyms* functions with Macho-O files
+  o simplifications of implemention on Darwin, sharing parts with *nix implementation
   o potentially breaking change on macos/Darwin platforms: all functions now consistently accept or
-    return symbol names as they would appear in C code, instead of the raw name in object files
+    return symbol names as they would appear in C code, instead of the raw ones in object files
 general:
   o marked assembly code as not needing an execstack, for safer/easier integration into other
     projects/builds, where needed; this is needed b/c of questionable default behaviours of some
