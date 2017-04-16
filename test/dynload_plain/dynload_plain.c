@@ -27,7 +27,12 @@
 #include "../common/platformInit.h"
 
 #include <string.h>
-#include <unistd.h>
+#if defined(DC_WINDOWS)
+#  include <io.h>
+#  define F_OK 0
+#else
+#  include <unistd.h>
+#endif
 
 
 int main(int argc, char* argv[])
@@ -35,6 +40,7 @@ int main(int argc, char* argv[])
   int r = 0, i;
   void* p;
   DLLib* pLib;
+  DLSyms* pSyms;
   const char* path = NULL;
   const char* clibs[] = { // hacky/lazy list of some clib paths per platform
     "/lib/libc.so",
@@ -48,7 +54,10 @@ int main(int argc, char* argv[])
     "/lib32/libc.so.7",
 	"/usr/lib/system/libsystem_c.dylib",
     "/usr/lib/libc.dylib",
-    "C:\\Windows\\system32\\msvcrt.dll"
+    "\\Windows\\system32\\msvcrt.dll",
+    "C:\\Windows\\system32\\msvcrt.dll",
+    "D:\\Windows\\system32\\msvcrt.dll",
+    "E:\\Windows\\system32\\msvcrt.dll"
   };
 
 
@@ -82,7 +91,7 @@ int main(int argc, char* argv[])
 
     // dlSyms* tests (intentionally after freeing lib above, as they work standalone)
     // --------
-    DLSyms* pSyms = dlSymsInit(path); // check if we can iterate over symbols - init
+    pSyms = dlSymsInit(path); // check if we can iterate over symbols - init
     if(pSyms) {
       int n;
       const char* name;
