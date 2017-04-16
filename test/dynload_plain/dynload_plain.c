@@ -54,10 +54,10 @@ int main(int argc, char* argv[])
     "/lib32/libc.so.7",
 	"/usr/lib/system/libsystem_c.dylib",
     "/usr/lib/libc.dylib",
+    "\\ReactOS\\system32\\msvcrt.dll",
+    "C:\\ReactOS\\system32\\msvcrt.dll",
     "\\Windows\\system32\\msvcrt.dll",
-    "C:\\Windows\\system32\\msvcrt.dll",
-    "D:\\Windows\\system32\\msvcrt.dll",
-    "E:\\Windows\\system32\\msvcrt.dll"
+    "C:\\Windows\\system32\\msvcrt.dll"
   };
 
 
