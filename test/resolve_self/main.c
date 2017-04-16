@@ -46,6 +46,7 @@ int main(int argc, char* argv[])
   void* address;
   double result;
   int status;
+  DLSyms* pSyms;
   DLLib* pLib = dlLoadLibrary(NULL);
   assert(pLib);
   printf("self loaded at %p\n", pLib);
@@ -59,6 +60,14 @@ int main(int argc, char* argv[])
     printf("can't resolve address of add_dd_d, it doesn't seem to be a *dynamic* symbol\n");
     status = 0;
   }
+
+  dlFreeLibrary(pLib);
+
+  /*pSyms = dlSymsInit(NULL);
+  printf("syms handle: %p\n", pSyms);
+  dlSymsCleanup(pSyms);*/
+
   printf("result: resolve_self: %d\n", status);
   return 0;
 }
+
