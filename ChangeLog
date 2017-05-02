@@ -14,6 +14,7 @@ dyncallback:
   o MIPS o32 (big- and little-endian), EABI (32 bit, little-endian) and n64 (big-endian) support
   o SPARC32 (v7/v8) support
   o SPARC64 (v9) support
+  o PPC32 fixes for (old) Darwin/OS X systems
   o POSIX compliance: fallback for wx alloc on systems that don't have mmap()'s MAP_ANON
   o allocated space used for thunk now always W^X (req. for e.g. OpenBSD >= 6.0)
 dynload:
