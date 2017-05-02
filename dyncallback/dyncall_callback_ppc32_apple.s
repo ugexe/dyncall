@@ -81,14 +81,6 @@ DCA_SP          = DCA_FARRAY + SIZEOF_DOUBLE*FLOAT_REGS
 DCA_ICOUNT	= DCA_SP + 4
 DCA_FCOUNT	= DCA_ICOUNT + 4
 
-/* struct DCValue */
-DCV_INT		= 0
-DCV_FLOAT	= 0 
-DCV_DOUBLE	= 0
-DCV_LONG_HI32	= 0
-DCV_LONG_LO32	= 4
-DCV_SIZE	= 8
-
 iregfile	= ARGS_OFFSET+DCA_IARRAY
 fregfile	= ARGS_OFFSET+DCA_FARRAY
 save_sp		= ARGS_OFFSET+DCA_SP
@@ -98,18 +90,17 @@ fcount		= ARGS_OFFSET+DCA_FCOUNT
 
 	/* 
 	  Thunk entry:
-	  R2 = DCCallback*
+	  r2 = DCCallback*
 	*/
 _dcCallbackThunkEntry:
 
-	mflr	r0			
-	stw	r0,  8(r1)		/* store return address */
-	/* stmw  r30, -8(r1) */	/* store preserved registers (r30/r31) */
-	addi	r12, r1, PAR_OFFSET	/* temporary r12 = parameter area on callers stack frame */
-	stwu	r1, -FRAME_SIZE(r1)	/* save callers stack pointer and make new stack frame. */
-	stw	r3, iregfile+0*4(r1)	/* spill 8 integer parameter registers */
-	stw	r4, iregfile+1*4(r1)
-	stw	r5, iregfile+2*4(r1)
+	mflr    r0
+	stw     r0,  8(r1)		/* store return address */
+	addi    r12, r1, PAR_OFFSET	/* temporary r12 = parameter area on callers stack frame */
+	stwu    r1, -FRAME_SIZE(r1)	/* save callers stack pointer and make new stack frame. */
+	stw     r3, iregfile+0*4(r1)	/* spill 8 integer parameter registers */
+	stw     r4, iregfile+1*4(r1)
+	stw     r5, iregfile+2*4(r1)
 	stw     r6, iregfile+3*4(r1)
 	stw     r7, iregfile+4*4(r1)
 	stw     r8, iregfile+5*4(r1)
@@ -143,39 +134,23 @@ _dcCallbackThunkEntry:
 	lwz	r12,  DCB_HANDLER(r2)
 	mtctr	r12
 	bctrl
-	addi	r0, r1, RESULT_OFFSET	/* r0 = DCValue* */
 					/* switch on base result type */	
-	cmpi	cr0, r3, 'B
-	beq	.i32
-	cmpi	cr0, r3, 'i
-	beq	.i32 
-	cmpi	cr0, r3, 'l
-	beq	.i64
 	cmpi	cr0, r3, 'f
 	beq	.f32
 	cmpi	cr0, r3, 'd
 	beq	.f64
-	cmpi	cr0, r3, 'p
-	beq	.i32
-.void:				/* ignore result (void call) */
-	b	.end
-.i32:				/* result is integer <= 32-bit result */
-	lwz	r3, RESULT_OFFSET + DCV_INT(r1)	
-	b	.end
-.f32:				/* result is C float result */
-	lfs	f1, RESULT_OFFSET + DCV_FLOAT(r1)
-	b	.end
-.f64:
-	lfd	f1, RESULT_OFFSET + DCV_FLOAT(r1)
-	b	.end
 .i64:				/* result is C double result */
-	lwz    r3, RESULT_OFFSET + DCV_LONG_HI32(r1)
-	lwz    r4, RESULT_OFFSET + DCV_LONG_LO32(r1)
-	b .end
+	lwz    r3, RESULT_OFFSET     (r1)
+	lwz    r4, RESULT_OFFSET + 4 (r1)
 .end:
 	lwz    r1,  0(r1)	/* restore stack pointer */
-	/* lmw   r30, -8(r1)	*/  /* restore preserved registers */
 	lwz    r0,  8(r1)	/* load link register with return address */
 	mtlr   r0
 	blr			/* branch back to link register */
+.f32:				/* result is C float result */
+	lfs	f1, RESULT_OFFSET(r1)
+	b	.end
+.f64:
+	lfd	f1, RESULT_OFFSET(r1)
+	b	.end
 
