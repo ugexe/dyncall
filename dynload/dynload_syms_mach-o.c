@@ -97,6 +97,7 @@ DLSyms* dlSymsInit(const char* libPath)
 			if(st0.st_ino == st1.st_ino/*!strcmp(name, libPath)*/)
 			{
 				pHeader = (const struct MACH_HEADER_TYPE*) _dyld_get_image_header(i);
+//@@@ slide = _dyld_get_image_vmaddr_slide(i);
 				break; /* found header */
 			}
 		}
