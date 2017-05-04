@@ -68,6 +68,14 @@ void dlFreeLibrary(DLLib* pLib)
 }
 
 
+/* prefer RTLD_NOLOAD for code below that merely checks lib names */
+#if defined(RTLD_NOLOAD)
+#  define RTLD_LIGHTEST RTLD_NOLOAD
+#else
+#  define RTLD_LIGHTEST RTLD_LAZY
+#endif
+
+
 /* code for dlGetLibraryPath differs on Darwin */
 #if defined(OS_Darwin)
 
@@ -89,10 +97,12 @@ int dlGetLibraryPath(DLLib* pLib, char* sOut, int bufSize)
   for(i=_dyld_image_count(); i>0;) /* iterate libs from end, more likely ours */
   {
     const char* libPath = _dyld_get_image_name(--i);
-    DLLib* lib = dlLoadLibrary(libPath); /* re-open same way for same handle */
+    void* lib = dlopen(libPath, RTLD_LIGHTEST);
     if(lib) {
-      dlFreeLibrary(lib);
-      if(pLib == lib) {
+      dlclose(lib);
+      /* compare handle pointers' high bits (in low 2 bits some flags might */
+      /* be stored - should be safe b/c address needs alignment, anywas) */
+      if(((intptr_t)pLib ^ (intptr_t)lib) < 4) {
         l = strlen(libPath);
         if(l < bufSize) /* l+'\0' <= bufSize */
           strcpy(sOut, libPath);
@@ -126,10 +136,10 @@ static int iter_phdr_cb(struct dl_phdr_info* info, size_t size, void* data)
   /* unable to relate info->dlpi_addr directly to our dlopen handle, let's */
   /* do what we do on macOS above, re-dlopen the already loaded lib (just  */
   /* increases ref count) and compare handles. */
-  DLLib* lib = dlLoadLibrary(info->dlpi_name); /* re-open same way for same handle */
+  void* lib = dlopen(info->dlpi_name, RTLD_LIGHTEST);
   if(lib) {
-    dlFreeLibrary(lib);
-    if(lib == d->pLib) {
+    dlclose(lib);
+    if(lib == (void*)d->pLib) {
       l = strlen(info->dlpi_name);
       if(l < d->bufSize) /* l+'\0' <= bufSize */
         strcpy(d->sOut, info->dlpi_name);
