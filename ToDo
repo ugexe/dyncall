@@ -86,6 +86,7 @@ dyncall:
 
 dynload:
 --------
+- dlGetLibraryPath: dl_iterate_phdr() used on OpenBSD, but not available on version < 3.7
 - bug: test/nm crashes on qemu mips linux o32 debian etch
 - test/resolve_self crashes/asserts on windows and bsds
 - rename SymsInit to InitSyms and similar for cleanup function to reflect naming
