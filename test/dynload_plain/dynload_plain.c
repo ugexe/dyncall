@@ -47,7 +47,6 @@ int main(int argc, char* argv[])
     "/lib/libc.so",
     "/lib/libc.so.6",
     "/lib/libc.so.7",
-    "/lib/libc.so.39.3", /* hack: for OpenBSD used in dyncall test env */
     "/lib64/libc.so",
     "/lib64/libc.so.6",
     "/lib64/libc.so.7",
@@ -57,6 +56,7 @@ int main(int argc, char* argv[])
     "/usr/lib/libc.so",
     "/usr/lib/libc.so.6",
     "/usr/lib/libc.so.7",
+    "/usr/lib/libc.so.39.3", /* hack: for OpenBSD used in dyncall test env */
     "/usr/lib/system/libsystem_c.dylib",
     "/usr/lib/libc.dylib",
     "\\ReactOS\\system32\\msvcrt.dll",
@@ -97,7 +97,7 @@ int main(int argc, char* argv[])
         int b;
         printf("path of lib looked up via handle: %s\n", queriedPath);
         b = (stat(path, &st0) != -1) && (stat(queriedPath, &st1) != -1);
-        printf("lib (inode:%d) and looked up lib (inode:%d) are same: %d\n", b?st0.st_ino:-1, b?st1.st_ino:-1, b && (st0.st_ino == st1.st_ino));
+        printf("lib (inode:%d) and looked up lib (inode:%d) are same: %d\n", b?st0.st_ino:-1, b?st1.st_ino:-1, b && (st0.st_ino == st1.st_ino)); //@@@ on windows, inode numbers returned here are always 0
         r += b && (st0.st_ino == st1.st_ino); /* compare if same lib using inode */
 /*@@@ check of resolved path is absolute*/
 
