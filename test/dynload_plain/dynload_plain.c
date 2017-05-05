@@ -59,6 +59,7 @@ int main(int argc, char* argv[])
     "/usr/lib/libc.so.39.3", /* hack: for OpenBSD used in dyncall test env */
     "/usr/lib/system/libsystem_c.dylib",
     "/usr/lib/libc.dylib",
+    "/boot/system/lib/libroot.so", /* Haiku */
     "\\ReactOS\\system32\\msvcrt.dll",
     "C:\\ReactOS\\system32\\msvcrt.dll",
     "\\Windows\\system32\\msvcrt.dll",

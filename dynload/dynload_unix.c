@@ -114,9 +114,7 @@ int dlGetLibraryPath(DLLib* pLib, char* sOut, int bufSize)
   return l+1; /* strlen + '\0' */
 }
 
-#else /* non-Darwin --> */
-
-#if defined(OS_OpenBSD) /* doesn't have dlinfo() but dl_iterate_phdr() --> */
+#elif defined(OS_OpenBSD) /* doesn't have dlinfo() but dl_iterate_phdr() --> */
 
 /* @@@ dl_iterate_phdr() only exists on OpenBSD >= 3.7 */
 
@@ -154,6 +152,68 @@ int dlGetLibraryPath(DLLib* pLib, char* sOut, int bufSize)
   return dl_iterate_phdr(iter_phdr_cb, &d);
 }
 
+#elif defined(OS_BeOS) /* neither dlinfo(), nor dl_iterate_phdr(), but ltdl stuff*/
+
+#if 0
+#include <ltdl.h>
+
+typedef struct { // @@@share
+  DLLib* pLib;
+  char*  sOut;
+  int    bufSize;
+} iter_phdr_data;
+
+static int handle_map_cb(lt_dlhandle h, void* data)
+{
+  int l = -1;
+  iter_phdr_data* d = (iter_phdr_data*)data;
+  /* same idea as with dl_iterate_phdr, see above */
+  const lt_dlinfo* dli = lt_dlgetinfo(h);
+  if(dli) {
+    void* lib = dlopen(dli->filename, RTLD_LIGHTEST);
+    if(lib) {
+      dlclose(lib);
+      if(lib == (void*)d->pLib) {
+        l = strlen(dli->filename);
+        if(l < d->bufSize) /* l+'\0' <= bufSize */
+          strcpy(d->sOut, dli->filename);
+      }
+    }
+  }
+  return l+1; /* strlen + '\0'; is 0 if lib not found, which continues iter */
+}
+
+int dlGetLibraryPath(DLLib* pLib, char* sOut, int bufSize)
+{
+  iter_phdr_data d = { pLib, sOut, bufSize };
+  lt_dlinterface_id ii = lt_dlinterface_register("not_sure_here...", NULL);
+  int l = lt_dlhandle_map(ii, handle_map_cb, &d);
+  lt_dlinterface_free(ii);
+  return l;
+}
+#endif
+
+/* we have lt_dlgetinfo on BeOS, which requires iterating over ltdl stuff, */
+/* but was unable to get that to work (would also have introduced a link   */
+/* dependency on libltdl); so do a hacky dladdr() based attempt, instead,  */
+/* which might not always work, but probably is ok for nearly all libs     */
+
+int dlGetLibraryPath(DLLib* pLib, char* sOut, int bufSize)
+{
+  /* BeOS uses ELF, cross fingers that .so is standard and look for _fini */
+  int l = -1;
+  void* s = dlsym((void*)pLib, "_fini");
+  if(s) {
+    Dl_info i;
+    if(dladdr(s, &i) != 0) {
+      l = strlen(i.dli_fname);
+      if(l < bufSize) /* l+'\0' <= bufSize */
+        strcpy(sOut, i.dli_fname);
+    }
+  }
+  return l+1; /* strlen + '\0' */
+}
+
 #else /* use dlinfo() --> */
 
 #include <link.h>
@@ -169,8 +229,6 @@ int dlGetLibraryPath(DLLib* pLib, char* sOut, int bufSize)
   }
   return l+1; /* strlen + '\0' */
 }
-
-#endif
 
 #endif
 
