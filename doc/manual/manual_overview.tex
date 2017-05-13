@@ -178,3 +178,10 @@ For detailed info about a platform's support consult the calling convention appe
 \caption{Supported platforms}%
 \end{table}
 
+\subsection{Build Requirements}
+
+The library needs at least a c99 compiler with additional support for anonymous
+structs/unions (which were introduced officially in c11). Given that those are
+generally supported by pretty much all major c99 conforming compilers (as
+default extension), it should build fine with a c99 toolchain.
+

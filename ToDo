@@ -4,8 +4,6 @@
   prototype exist (e.g. just calling some pointer), without any declaration... even possible in C, as one has
   to cast to the function type? need to support?
 
-- Add doc note (and on website) on dyncall's c standard compatibility, which is c99 + anon struct extension
-
 - make sure all assembly files declare (or are built) by setting the noexecstack flag,
   compared to translating code with gcc, it's manual for the assembler; this depends on arch
   support (currently it's only done for x86/x64 ELF, but doesn't always work I think... e.g. openbsd 4.0, maybe too old?):
