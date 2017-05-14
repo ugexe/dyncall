@@ -72,6 +72,7 @@ DCerror dcInitExecWX(void* p, size_t size)
 #if !defined(MAP_ANON) && defined(DC_UNIX)
   /* Fixup pointer for no-MAP_ANON workaround (see above) */
   p -= sizeof(int);
+  size += sizeof(int);
 #endif
   return mprotect(p, size, PROT_READ|PROT_EXEC);
 }
