@@ -45,8 +45,8 @@ DCerror dcAllocWX(size_t size, void** pp)
 {
   void* p;
 #if !defined(MAP_ANON) && defined(DC_UNIX)
-  // Hack around not having POSIX' MAP_ANON by going through /dev/zero; store
-  // file descriptor to close on dcFreeWX at beginning of memory, as tiny hack
+  /* Hack around not having POSIX' MAP_ANON by going through /dev/zero; store
+     file descr to close on dcFreeWX at beginning of memory, as tiny hack */
   int fd = open("/dev/zero", O_RDWR);
   if(fd == -1)
     return -1;
@@ -69,13 +69,17 @@ DCerror dcAllocWX(size_t size, void** pp)
 
 DCerror dcInitExecWX(void* p, size_t size)
 {
+#if !defined(MAP_ANON) && defined(DC_UNIX)
+  /* Fixup pointer for no-MAP_ANON workaround (see above) */
+  p -= sizeof(int);
+#endif
   return mprotect(p, size, PROT_READ|PROT_EXEC);
 }
 
 void dcFreeWX(void* p, size_t size)
 {
 #if !defined(MAP_ANON) && defined(DC_UNIX)
-  // Close file descriptor of no-MAP_ANON workaround (see above)
+  /* Close file descriptor for no-MAP_ANON workaround (see above) */
   p -= sizeof(int);
   size += sizeof(int);
   close(*(int*)p);
