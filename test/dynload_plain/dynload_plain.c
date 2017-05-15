@@ -45,6 +45,7 @@ int main(int argc, char* argv[])
   const char* path = NULL;
   const char* clibs[] = { /* hacky/lazy list of some clib paths per platform */
     "/lib/libc.so",
+    "/lib/libc.so.0.1",
     "/lib/libc.so.6",
     "/lib/libc.so.7",
     "/lib64/libc.so",

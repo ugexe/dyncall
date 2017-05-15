@@ -79,10 +79,10 @@ void dlFreeLibrary(DLLib* pLib)
 
 
 /* code for dlGetLibraryPath is platform specific - if dlinfo() exists use */
-/* that (checked through existance of RTLD_DI_LINKMAP, usually a #define   */
-/* for dlinfo(), or by OS (always on Solaris where it's from, usually on   */
-/* Linux, where the flag might be an enum instead, ...) */
-#if defined(RTLD_DI_LINKMAP) || defined(OS_SunOS) || (defined(OS_Linux) && !defined(DL_DLADDR_TO_LIBPATH))
+/* that: check for RTLD_DI_LINKMAP (#define for dlinfo()), or if GNU C Lib */
+/* is used (where RTLD_DI_LINKMAP is an enum), or by OS (dlinfo comes from */
+/* Solaris), etc. */
+#if defined(RTLD_DI_LINKMAP) || defined(OS_SunOS) || defined(__GLIBC__) /* @@@ dlinfo() was introduced in glibc 2.3.3 (in 2003), somehow check for that, also */
 
 #include <link.h>
 
