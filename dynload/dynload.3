@@ -102,11 +102,11 @@ is not thread-safe on Darwin (macOS, iOS, ...) and OpenBSD.
 .Fn dlSymsInit
 is not thread-safe on Darwin.
 .Fn dlGetLibraryPath
-will not work on Haiku when the library in question doesn't have the (default)
+will not work on the following platforms when the library in question doesn't have the (default)
 .Fn _init
 and
 .Fn _fini
-symbols exported (rare, but possible).
+symbols exported (rare, but possible): Haiku (all versions), OpenBSD < 3.7, NetBSD < 5.1, FreeBSD < 4.8
 .Sh CONFORMING TO
 The dynload library conforms to c99.
 .Ed
