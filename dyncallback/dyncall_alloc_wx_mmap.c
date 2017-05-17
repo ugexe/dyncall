@@ -40,6 +40,17 @@
 #  endif
 #endif
 
+/* platforms without mprotect */
+#if defined(DC__OS_Minix)
+#  define NO_MPROTECT
+#endif
+
+/* if no mprotect() available/wanted, make mmap alloc pages as rwx */
+#if defined(NO_MPROTECT)
+#  define MMAP_PROT_INIT (PROT_READ|PROT_WRITE|PROT_EXEC)
+#else
+#  define MMAP_PROT_INIT (PROT_READ|PROT_WRITE)
+#endif
 
 DCerror dcAllocWX(size_t size, void** pp)
 {
@@ -50,7 +61,7 @@ DCerror dcAllocWX(size_t size, void** pp)
   int fd = open("/dev/zero", O_RDWR);
   if(fd == -1)
     return -1;
-  p = mmap(0, size+sizeof(int), PROT_READ|PROT_WRITE, MAP_PRIVATE, fd, 0);
+  p = mmap(0, size+sizeof(int), MMAP_PROT_INIT, MAP_PRIVATE, fd, 0);
   if(p == MAP_FAILED) {
     close(fd);
     return -1;
@@ -58,7 +69,7 @@ DCerror dcAllocWX(size_t size, void** pp)
   *(int*)p = fd;
   p += sizeof(int);
 #else
-  p = mmap(0, size, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANON, -1, 0);
+  p = mmap(0, size, MMAP_PROT_INIT, MAP_PRIVATE|MAP_ANON, -1, 0);
   if(p == MAP_FAILED)
     return -1;
 #endif
@@ -69,12 +80,17 @@ DCerror dcAllocWX(size_t size, void** pp)
 
 DCerror dcInitExecWX(void* p, size_t size)
 {
+#if defined(NO_MPROTECT)
+  return 0;
+#else
+
 #if !defined(MAP_ANON) && defined(DC_UNIX)
   /* Fixup pointer for no-MAP_ANON workaround (see above) */
   p -= sizeof(int);
   size += sizeof(int);
 #endif
   return mprotect(p, size, PROT_READ|PROT_EXEC);
+#endif
 }
 
 void dcFreeWX(void* p, size_t size)
