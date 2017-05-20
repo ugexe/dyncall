@@ -223,8 +223,8 @@ RWXTESTBIN="$BLDTOP/rwxtest.out" # @@@ put this maybe all in Makefile.generic? o
 STACKFLAGS=`make -f - <<MAKEFILE
 include $C
 t:
-	@(echo .global main;echo main:) | \\\${CC} -xassembler -o "$RWXTESTBIN" -Wa,--noexecstack -
-	@(which objdump && objdump -p "$RWXTESTBIN") | grep -A1 STACK | sed '1d;s/^.*flags //' | awk '{print \\\$1}'
+	@(echo .text;echo .globl main;echo main:) | sed '/m/p;s/m/_m/' | \\\${CC} -xassembler -o "$RWXTESTBIN" -Wa,--noexecstack -
+	@(which objdump && objdump -p "$RWXTESTBIN") | grep -A1 STACK | sed '1d;s/^.*flags[ \\t]\\(rw[x-]\\)[ \\t]*/\\1/'
 MAKEFILE
 `
 rm "$RWXTESTBIN" 2>/dev/null
