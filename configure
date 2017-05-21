@@ -203,44 +203,48 @@ esac
 # Assure objects not asking for an execstack (or binary that links dyncall might end
 # up with one, for no reason).
 
-# We run our .s and .S files through $CC. GCC and others (annoyingly) assume without
-# being told explicitly that an executable stack may be required for those.
+# We run our .s and .S files through $CC. GCC and others might (annoyingly) assume that
+# an executable stack may be required for those, if not told explicitly that it isn't.
 # Trying to specify this per source via .section .note.GNU-stack,"",... turned out to
 # be not consistently implemented across our supported platforms and toolchains, and
 # thus not being portable (on some platforms even resulting in the opposite, the mere
 # presence of this section, no matter the flags, creating an rwx stack).
 # So, let's set the needed build flags by running a few tests, if we find any that
-# work.
+# work (as those also don't always have the intended effect).
 
-#determine_asflags() {
-#	AS_PROG=".global main\nmain:\n"
-#	echo "${AS_PROG}"                              | cc -xassembler -o rwxtest.d.out -
-#	echo "${AS_PROG}.section .note.GNU-stack,\"\"" | cc -xassembler -o rwxtest.s.out -
-#	echo "${AS_PROG}"                              | cc -xassembler -o rwxtest.f.out -Wa,--noexecstack -
+RWXTESTPREFIX="rwxtest" # @@@ put this maybe all in Makefile.generic? out of source builds?
+for s in S s ; do (
+  cd "$BLDTOP"
+  # asm test file, with main and _main for portability.
+  (echo '.text';(echo '.globl main';echo 'main:') | sed 'p;s/m/_m/') > $RWXTESTPREFIX.$s
 
-# @@@ find solution for platforms without objdump
-RWXTESTBIN="$BLDTOP/rwxtest.out" # @@@ put this maybe all in Makefile.generic? out of source builds?
-STACKFLAGS=`make -f - <<MAKEFILE
+  # Check var to be used, which depends on inference rules of this platform. E.g. ASFLAGS is only common
+  # on GNU, and on some other platforms only CFLAGS is used, ...
+  for f in "ASFLAGS=-Wa,--noexecstack" "ACFLAGS=-Wa,--noexecstack" "AFLAGS=--noexecstack" "CFLAGS+=-Wa,--noexecstack"; do
+    # Build a dummy makefile that triggers inference rules that dyncall's build also uses
+    make -f - <<MAKEFILE
 include $C
-t:
-	@(echo .text;echo .globl main;echo main:) | sed '/m/p;s/m/_m/' | \\\${CC} -xassembler -o "$RWXTESTBIN" -Wa,--noexecstack -
-	@(which objdump && objdump -p "$RWXTESTBIN") | grep -A1 STACK | sed '1d;s/^.*flags[ \\t]\\(rw[x-]\\)[ \\t]*/\\1/'
+$f
+# Force dependency via .o, to avoid .[sS].out rules that might be set - also set command as not all platforms set .o.out
+$RWXTESTPREFIX.out: $RWXTESTPREFIX.o
+	\${CC} \${CFLAGS} \${LDFLAGS} \$< \${LDLIBS} -o \$@
 MAKEFILE
-`
-rm "$RWXTESTBIN" 2>/dev/null
-if [ "$STACKFLAGS" = "rw-" ]; then
-  # platforms differe here, so set them all
-  printf "ASFLAGS=-Wa,--noexecstack\n" >>$C # common on GNU
-  printf "ACFLAGS=-Wa,--noexecstack\n" >>$C # specifically for .S.o
-  printf "AFLAGS=--noexecstack\n"      >>$C # for direct assembler invocation
-fi
 
-#if echo ".global main\nmain:\n" | cc -xassembler -o rwxtest.f.out -Wa,--noexecstack -
-#(which objdump && objdump -p rwxtest.f.out  || echo stack flags lookup_err) | grep -i -A1 stack | grep 'flags.*' | sed 's/^.*flags //'
-#}
+    # Check what stack of a built test binary would result in.
+# @@@ add xxd hexdump based versions for when objdump is not available; also check for those if we deal with ELF files
+    STACKFLAGS=`(which objdump && objdump -p $RWXTESTPREFIX.out) | sed -e '/STACK/bx' -e 'd' -e ':x' -e 'N' -e 's/^.*flags[ \t]\([^ \t]*\).*/\1/'`
+    rm $RWXTESTPREFIX.out $RWXTESTPREFIX.o
+    if [ "$STACKFLAGS" = "rw-" ]; then
+      printf "$f\n"
+      break
+    fi
 
-#printf "ACFLAGS=-Wa,--noexecstack\n" >>$C
-#printf "AFLAGS=--noexecstack\n" >>$C
+  done
+
+  rm $RWXTESTPREFIX.$s
+
+) done 2>&1 | grep '^[ASC]\+FLAGS.*noexecstack$' | uniq >>$C
+
 
 
 # Generate all makefiles needed
@@ -258,4 +262,6 @@ include $BLDTOP/Makefile.config
 include \${VPATH}/Makefile.generic
 EOF
 done
+
+echo "Configuration written do $C"
 
