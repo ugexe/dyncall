@@ -227,7 +227,7 @@ include $C
 $f
 # Force dependency via .o, to avoid .[sS].out rules that might be set - also set command as not all platforms set .o.out
 $RWXTESTPREFIX.out: $RWXTESTPREFIX.o
-	\${CC} \${CFLAGS} \${LDFLAGS} \$< \${LDLIBS} -o \$@
+	\${CC} \${CFLAGS} \${LDFLAGS} $RWXTESTPREFIX.o \${LDLIBS} -o $RWXTESTPREFIX.out
 MAKEFILE
 
     # Check what stack of a built test binary would result in.
