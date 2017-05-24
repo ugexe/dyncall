@@ -221,7 +221,7 @@ for s in S s ; do (
   # Check var to be used, which depends on inference rules of this platform. E.g. ASFLAGS is only common on GNU, and
   # on some other platforms only CFLAGS is the only one used, others use AFLAGS with cc and thus need -Wa,... Check
   # makes use of the config written so far, so use '+=' to not overwrite vars.
-  for f in "ASFLAGS+=-Wa,--noexecstack" "ACFLAGS+=-Wa,--noexecstack" "AFLAGS+=--noexecstack" "AFLAGS+=--noexecstack" "CFLAGS+=-Wa,--noexecstack"; do
+  for f in "ASFLAGS+=-Wa,--noexecstack" "ACFLAGS+=-Wa,--noexecstack" "AFLAGS+=--noexecstack" "AFLAGS+=-Wa,--noexecstack" "CFLAGS+=-Wa,--noexecstack"; do
     # dummy makefile triggering inference rules, reflecting dyncall's build
     make -f - <<MAKEFILE
 include $C
