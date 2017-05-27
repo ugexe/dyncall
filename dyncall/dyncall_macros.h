@@ -142,7 +142,7 @@
 #define DC__C_MSVC
 
 /* LLVM clang. */
-#elif defined(__clang__)
+#elif defined(__clang__) || defined(__llvm__)
 #define DC__C_CLANG
 
 /* The GNU Compiler Collection - GCC. */
