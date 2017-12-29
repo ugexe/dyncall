@@ -43,31 +43,26 @@ int main(int argc, char* argv[])
   DLLib* pLib;
   DLSyms* pSyms;
   const char* path = NULL;
-  const char* clibs[] = { /* hacky/lazy list of some clib paths per platform */
+  /* hacky/lazy list of some clib paths per platform - more/others, like version-suffixed ones */
+  /* can be specified in Makefile; this avoids trying to write portable directory traversal stuff */
+  const char* clibs[] = {
+#if defined(DEF_C_DYLIB)
+	DEF_C_DYLIB,
+#endif
     "/lib/libc.so",
-    "/lib/libc.so.0.1",
-    "/lib/libc.so.6",
-    "/lib/libc.so.7",
-    "/lib64/libc.so",
-    "/lib64/libc.so.6",
-    "/lib64/libc.so.7",
     "/lib32/libc.so",
-    "/lib32/libc.so.6",
-    "/lib32/libc.so.7",
+    "/lib64/libc.so",
     "/usr/lib/libc.so",
-    "/usr/lib/libc.so.6",
-    "/usr/lib/libc.so.7",
-    "/usr/lib/libc.so.39.3", /* hack: for OpenBSD used in dyncall test env */
-    "/usr/lib/system/libsystem_c.dylib",
+    "/usr/lib/system/libsystem_c.dylib", /* macos */
     "/usr/lib/libc.dylib",
     "/boot/system/lib/libroot.so", /* Haiku */
-    "\\ReactOS\\system32\\msvcrt.dll",
+    "\\ReactOS\\system32\\msvcrt.dll", /* ReactOS */
     "C:\\ReactOS\\system32\\msvcrt.dll",
-    "\\Windows\\system32\\msvcrt.dll",
+    "\\Windows\\system32\\msvcrt.dll", /* Windows */
     "C:\\Windows\\system32\\msvcrt.dll"
   };
 
-
+  /* use first matching path of hacky hardcoded list, above */
   for(i=0; i<(sizeof(clibs)/sizeof(const char*)); ++i) {
     if(access(clibs[i], F_OK) != -1) {
       path = clibs[i];
@@ -101,7 +96,7 @@ int main(int argc, char* argv[])
         b = (stat(path, &st0) != -1) && (stat(queriedPath, &st1) != -1);
         printf("lib (inode:%d) and looked up lib (inode:%d) are same: %d\n", b?st0.st_ino:-1, b?st1.st_ino:-1, b && (st0.st_ino == st1.st_ino)); //@@@ on windows, inode numbers returned here are always 0
         r += b && (st0.st_ino == st1.st_ino); /* compare if same lib using inode */
-/*@@@ check of resolved path is absolute*/
+/*@@@ check if resolved path is absolute*/
 
         /* check correct bufsize retval */
         b = (bs == strlen(queriedPath) + 1);
@@ -149,7 +144,16 @@ int main(int argc, char* argv[])
         p = dlFindSymbol(pLib, "printf");
         name = dlSymsNameFromValue(pSyms, p);
         printf("printf symbol name by its own address (%p): %s\n", p, name?name:"");
-        r += (name && strcmp(name, "printf") == 0);
+        if(name) {
+			if(strcmp(name, "printf") == 0)
+      			++r;
+			else {
+				/* Symbol name returned might be an "alias". In that case, check address again (full lookup to be sure). */
+				void* p0 = dlFindSymbol(pLib, name);
+        		printf("lookup by address returned different name (%s), which is alias of printf: %d\n", name, (p==p0));
+        		r += (p == p0);
+			}
+		}
         dlFreeLibrary(pLib);
       }
 
