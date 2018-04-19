@@ -23,7 +23,6 @@
 - autovar was never really pushed all the way through and still plays second
   fiddle to dyncall_macros.h, clean this all up, eventually (Tassilo: for now, I
   removed out of sync files to avoid confusion; but still probably duped code)
-- ppc32 callback fixes on bsd
 - add portable "make install"
   * make install should also install manpages
 - mailing list announcements (html email?)
@@ -45,7 +44,6 @@
 - quadmath support (long double)
 - add tests using alloca(), as this might depend on the frame pointer being correctly
   set; we don't check for this, currently, at all
-- test on OpenBSD 6.0 which comes with W^X by default
 
 portasm:
 --------
