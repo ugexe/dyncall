@@ -1,3 +1,7 @@
+1.0 final:
+----------
+- configure on macOS does not pass CFLAG etc.. to Makefile.config
+
 1.1:
 ----
 - support platforms without shared libraries so they can be built by just typing `./configure;make` (e.g. minix < 3.2.1)
