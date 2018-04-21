@@ -1,9 +1,6 @@
-1.0 final:
-----------
-- configure on macOS does not pass CFLAG etc.. to Makefile.config
-
 1.1:
 ----
+- ./configure on macOS does not pass CFLAGS etc.. to Makefile.config
 - support platforms without shared libraries so they can be built by just typing `./configure;make` (e.g. minix < 3.2.1)
   * also make sure minix with shared library support builds and works in general (>= 3.2.1) as well as ELF on Minix (>= 3.2.0) to begin with (as that's the base, and we only test on 3.1.8 so far)
 - dyncall supports calls to functions where prototype exists (with and without varargs); however not when no
