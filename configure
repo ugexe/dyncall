@@ -147,7 +147,7 @@ case ${TARGET:=`uname`} in
         [67].*)
           ARCHS="-arch armv7"
           ;;
-        [89].*)
+        [89].*|1[0-9].*)
           ARCHS="-arch armv7 -arch arm64"
           ;;
       esac
