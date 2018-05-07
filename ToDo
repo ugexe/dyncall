@@ -1,5 +1,7 @@
 1.1:
 ----
+- support mips/softfloat: e.g. test freebsd/mips dynOS illegal instruction; compiler defines are: #define __mips_soft_float / __mips_hard_float 1
+- plain_cpp only supports windows; fix
 - ./configure on macOS does not pass CFLAGS etc.. to Makefile.config
 - support platforms without shared libraries so they can be built by just typing `./configure;make` (e.g. minix < 3.2.1)
   * also make sure minix with shared library support builds and works in general (>= 3.2.1) as well as ELF on Minix (>= 3.2.0) to begin with (as that's the base, and we only test on 3.1.8 so far)
