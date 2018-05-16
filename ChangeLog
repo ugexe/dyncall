@@ -1,6 +1,8 @@
 This file lists bigger/noteworthy changes, only...
 
 Version 1.1 (upcoming)
+buildsys:
+  o default ./configure: FreeBSD/mips*hf needed -mhard-float compiler flag set explicitly
 
 Version 1.0 (2018/04/23)
 dyncall:
