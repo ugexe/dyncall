@@ -91,7 +91,7 @@ case ${TARGET:=`uname`} in
     ;;
   FreeBSD)
     if [ -z "${CFLAGS}" ]; then
-      if [ `uname -m` = "mips" ] && ! echo 'int main(){return (float)(int)&main;}' | cc -x c -o mips_float_test - >/dev/null 2>&1; then
+      if [ `uname -m` = "mips" ] && make -V MACHINE_ARCH | grep 'hf$' >/dev/null 2>&1; then
         # FBSD12-CURRENT/mipshf needs to be told explicitly to use -mhard_float (at least as of may 2018)
         printf "CFLAGS=-fPIC -mhard-float\n" >>$C
       else
