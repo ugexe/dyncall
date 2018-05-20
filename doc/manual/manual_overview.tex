@@ -195,43 +195,51 @@ For detailed info about a platform's support consult the calling convention appe
 % also include hardfloat/softfloat @@@
 \begin{table}[h]
 \begin{tabular}{r>{\rule{0pt}{2.5ex}\tiny}l*{12}{c!{\color{gray3}\vrule}}c>{\tiny}l}
-                        &    & \OSwinfam  & \OSlinux   & \OSdarwin  & \OSfreebsd & \OSnetbsd  & \OSopenbsd & \OSdflybsd & \OSsunos   & \OSplanN   & \OSbeos    & \OSminix   & \OSpsp     & \OSnds    \\%& \\
-\arrayrulecolor{gray3}
-Alpha                   &    & \marknotx  & \marknimp  & \marknotx  & \marknimp  & \marknimp  & \marknimp  & \marknotx  & \marknotx  & \marknimp  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& \\
+                           &    & \OSwinfam  & \OSlinux   & \OSdarwin  & \OSfreebsd & \OSnetbsd  & \OSopenbsd & \OSdflybsd & \OSsunos   & \OSplanN   & \OSbeos    & \OSminix   & \OSpsp     & \OSnds    \\%& \\
+\arrayrulecolor{gray3}%           ,- checked   ,- find@@@   ,- checked   ,- find@@@   ,- find@@@   ,- find@@@   ,- checked   ,- checked   ,- checked   ,- new@@@   ,- checked    ,- checked   ,- checked
+\multirow{2}{*}{ARM}       & EB & \marknotx  & \markunkn  & \marknotx  & \markunkn  & \markunkn  & \markunkn  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& \multirow{2}{*}{atpcs (arm \& thumb), eabi (arm \& thumb), armhf} \\
+\hhline{*{1}{|~}*{14}{|-}}%       ,- find@@@   ,- dynOS     ,- real      ,- dynOS     ,- dynOS     ,- real/bbb  ,- checked   ,- checked   ,- checked   ,- new@@@   ,- new@@@     ,- checked   ,- checked
+                           & EL & \markunkn  & \markcmpl  & \markcmpl  & \markcmpl  & \markcmpl  & \markcmpl  & \marknotx  & \marknotx  & \marknimp  & \marknotx  & \markunkn  & \marknotx  & \markcmpl \\%& \\
+\hline%                           ,- checked   ,- find@@@   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked
+\multirow{2}{*}{ARM64}     & EB & \marknotx  & \markunkn  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& \multirow{2}{*}{aapcs64, apple} \\
+\hhline{*{1}{|~}*{14}{|-}}%       ,- find@@@   ,- find@@@   ,- checked   ,- checked   ,- find@@@   ,- find@@@   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked
+                           & EL & \markunkn  & \markcmpl  & \markcmpl  & \markcmpl  & \markunkn  & \markunkn  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& \\
+\hline%                           ,- checked   ,- dynOS     ,- checked   ,- checked   ,- find@@@   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked
+\multirow{2}{*}{MIPS}      & EB & \marknotx  & \markcmpl  & \marknotx  & \markcmpl  & \markunkn  & \marknotx  & \marknotx  & \marknotx  & \marknimp  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& \multirow{2}{*}{o32, n32, eabi / only hardfloat support} \\
+\hhline{*{1}{|~}*{14}{|-}}%       ,- checked   ,- find@@@   ,- checked   ,- checked   ,- dynOS     ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked
+                           & EL & \marknotx  & \markunkn  & \marknotx  & \markcmpl  & \markcmpl  & \markunkn  & \marknotx  & \marknotx  & \marknimp  & \marknotx  & \marknotx  & \markcmpl  & \marknotx \\%& \\
+\hline%                           ,- checked   ,- find@@@   ,- checked   ,- checked   ,- find@@@   ,- real/ERlt ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked
+\multirow{2}{*}{MIPS64}    & EB & \marknotx  & \markunkn  & \marknotx  & \markcmpl  & \markunkn  & \markcmpl  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& \multirow{2}{*}{n64 / only hardfloat support} \\
+\hhline{*{1}{|~}*{14}{|-}}%       ,- checked   ,- dynOS     ,- checked   ,- checked   ,- find@@@   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked
+                           & EL & \marknotx  & \markcmpl  & \marknotx  & \markcmpl  & \markunkn  & \markunkn  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& \\
+\hline%                           ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked
+\multirow{2}{*}{SuperH}    & EB & \marknotx  & \marknimp  & \marknotx  & \marknotx  & \marknimp  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& \\
+\hhline{*{1}{|~}*{14}{|-}}%       ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked
+                           & EL & \marknotx  & \marknimp  & \marknotx  & \marknotx  & \marknimp  & \marknimp  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& \\
+\hline%                           ,- checked   ,- dynOS     ,-dynOS      ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked
+\multirow{2}{*}{PowerPC}   & EB & \marknotx  & \markcmpl  & \markcmpl  & \markimpl  & \markimpl  & \markunkn  & \marknotx  & \marknotx  & \marknimp  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& \multirow{2}{*}{apple, sysv}\\
+\hhline{*{1}{|~}*{14}{|-}}%       ,- checked   ,- find@@@   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked
+                           & EL & \marknotx  & \markunkn  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& \\
+\hline%                           ,- checked   ,- masanori@ ,- checked   ,- dynOS     ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked
+\multirow{2}{*}{PowerPC64} & EB & \marknotx  & \markcmpl  & \markunkn  & \markcmpl  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknimp  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& \multirow{2}{*}{elf} \\
+\hhline{*{1}{|~}*{14}{|-}}%       ,- checked   ,- masanori@ ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked   ,- checked
+                           & EL & \marknotx  & \markcmpl  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& \\
 \hline
-ARM                     &    & \markunkn  & \markcmpl  & \markcmpl  & \markcmpl  & \markcmpl  & \markcmpl  & \marknotx  & \marknotx  & \marknimp  & \marknotx  & \markunkn  & \marknotx  & \markcmpl \\%& atpcs (arm \& thumb), eabi (arm \& thumb), armhf\\
+m68k                       &    & \marknotx  & \marknimp  & \marknotx  & \marknotx  & \marknimp  & \marknimp  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& \\
 \hline
-ARM64                   &    & \marknotx  & \markcmpl  & \markcmpl  & \markcmpl  & \marknotx  & \markunkn  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& aapcs64, apple\\
+m88k                       &    & \marknotx  & \marknimp  & \marknotx  & \marknotx  & \marknimp  & \marknimp  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& \\
 \hline
-\multirow{2}{*}{MIPS}   & EB & \marknotx  & \markcmpl  & \marknotx  & \markcmpl  & \markunkn  & \markunkn  & \marknotx  & \marknotx  & \marknimp  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& \multirow{2}{*}{o32, n32, eabi / only hardfloat support} \\
-\hhline{*{1}{|~}*{14}{|-}}
-                        & EL & \marknotx  & \markunkn  & \marknotx  & \markcmpl  & \markcmpl  & \markunkn  & \marknotx  & \marknotx  & \marknimp  & \marknotx  & \marknotx  & \markcmpl  & \marknotx \\%& \\
+x86                        &    & \markcmpl  & \markcmpl  & \markcmpl  & \markcmpl  & \markcmpl  & \markcmpl  & \markcmpl  & \markcmpl  & \markcmpl  & \markcmpl  & \markcmpl  & \marknotx  & \marknotx \\%& cdecl, stdcall, fastcall (MS \& GNU), thiscall (MS \& GNU), plan9 \\
 \hline
-\multirow{2}{*}{MIPS64} & EB & \marknotx  & \markunkn  & \marknotx  & \markcmpl  & \markunkn  & \markcmpl  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& \multirow{2}{*}{n64 / only hardfloat support} \\
-\hhline{*{1}{|~}*{14}{|-}}
-                        & EL & \marknotx  & \markcmpl  & \marknotx  & \markcmpl  & \markunkn  & \markunkn  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& \\
+x64                        &    & \markcmpl  & \markcmpl  & \markcmpl  & \markcmpl  & \markcmpl  & \markcmpl  & \markcmpl  & \markcmpl  & \marknimp  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& ms, sysv\\
 \hline
-SuperH                  &    & \marknotx  & \marknimp  & \marknotx  & \marknotx  & \marknimp  & \marknimp  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& \\
+Itanium                    &    & \marknimp  & \marknimp  & \marknotx  & \marknimp  & \marknimp  & \marknimp  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& \\
 \hline
-PowerPC                 &    & \marknotx  & \markcmpl  & \markcmpl  & \markimpl  & \markimpl  & \markunkn  & \marknotx  & \marknotx  & \marknimp  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& apple, sysv\\
+SPARC                      &    & \marknotx  & \markcmpl  & \marknotx  & \marknotx  & \markcmpl  & \markcmpl  & \marknotx  & \markcmpl  & \marknimp  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& v7, v8\\
 \hline
-PowerPC64               &    & \marknotx  & \markcmpl  & \markunkn  & \markcmpl  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& elf\\
+SPARC64                    &    & \marknotx  & \markcmpl  & \marknotx  & \markcmpl  & \markcmpl  & \markcmpl  & \marknotx  & \markimpl  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& v9 \\
 \hline
-m68k                    &    & \marknotx  & \marknimp  & \marknotx  & \marknotx  & \marknimp  & \marknimp  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& \\
-\hline
-m88k                    &    & \marknotx  & \marknimp  & \marknotx  & \marknotx  & \marknimp  & \marknimp  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& \\
-\hline
-x86                     &    & \markcmpl  & \markcmpl  & \markcmpl  & \markcmpl  & \markcmpl  & \markcmpl  & \markcmpl  & \markcmpl  & \markcmpl  & \markcmpl  & \markcmpl  & \marknotx  & \marknotx \\%& cdecl, stdcall, fastcall (MS \& GNU), thiscall (MS \& GNU), plan9 \\
-\hline
-x64                     &    & \markcmpl  & \markcmpl  & \markcmpl  & \markcmpl  & \markcmpl  & \markcmpl  & \markcmpl  & \markcmpl  & \marknimp  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& ms, sysv\\
-\hline
-Itanium                 &    & \marknimp  & \marknimp  & \marknotx  & \marknimp  & \marknimp  & \marknimp  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& \\
-\hline
-SPARC                   &    & \marknotx  & \markcmpl  & \marknotx  & \marknotx  & \markcmpl  & \markcmpl  & \marknotx  & \markcmpl  & \marknimp  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& v7, v8\\
-\hline
-SPARC64                 &    & \marknotx  & \markcmpl  & \marknotx  & \markcmpl  & \markcmpl  & \markcmpl  & \marknotx  & \markimpl  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& v9 \\
-\hline
-RISC-V                  &    & \marknotx  & \marknimp  & \marknotx  & \marknimp  & \marknimp  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& \\
+RISC-V                     &    & \marknotx  & \marknimp  & \marknotx  & \marknimp  & \marknimp  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& \\
 
 \end{tabular}
 \caption{Supported platforms}%
