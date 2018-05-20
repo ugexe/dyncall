@@ -1,6 +1,8 @@
 This file lists bigger/noteworthy changes, only...
 
 Version 1.1 (upcoming)
+doc:
+  o more detail in support matrix for bi-endian platforms
 buildsys:
   o default ./configure: FreeBSD/mips*hf needed -mhard-float compiler flag set explicitly
 
