@@ -33,7 +33,7 @@ struct DCArgs
 {
 	/* Don't change order or types, laid out for asm code to fill in! */
 #if defined(DC__Arch_MIPS) && defined(DC__ABI_MIPS_O32)
-	DCint freg_count;
+	DCint freg_count; /* unused on soft-float targets, but keep as 4b-padding */
 #else
 #  define DCARGS_MIPS_NUM_IREGS 8
 #  define DCARGS_MIPS_NUM_FREGS 8

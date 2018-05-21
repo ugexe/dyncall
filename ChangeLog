@@ -1,6 +1,10 @@
 This file lists bigger/noteworthy changes, only...
 
 Version 1.1 (upcoming)
+dyncall:
+  o support for soft-float MIPS o32 (big- and little-endian)
+dyncallback:
+  o support for soft-float MIPS o32 (big- and little-endian)
 doc:
   o more detail in support matrix for bi-endian platforms
 buildsys:

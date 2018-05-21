@@ -23,7 +23,7 @@
 
 Multiple revisions of the MIPS Instruction set exist, namely MIPS I, MIPS II, MIPS III, MIPS IV, MIPS32 and MIPS64.
 Nowadays, MIPS32 and MIPS64 are the main ones used for 32-bit and 64-bit instruction sets, respectively.\\
-Given MIPS processor are often used for embedded devices, several add-on extensions exist for the MIPS family, for example: 
+Given MIPS processors are often used for embedded devices, several add-on extensions exist for the MIPS family, for example: 
 
 \begin{description}
 \item [MIPS-3D] simple floating-point SIMD instructions dedicated to common 3D tasks.
@@ -37,8 +37,8 @@ by many different environments such as \emph{O32}\cite{MIPSo32}, \emph{O64}\cite
 
 \paragraph{\product{dyncall} support}
 
-Currently, dyncall supports for MIPS 32-bit architectures the widely-used O32 calling convention (for big- and little-endian targets),
-as well as EABI (which is used on the Homebrew SDK for the Playstation Portable). \product{dyncall} currently does not support MIPS16e
+Currently, dyncall supports for MIPS 32-bit architectures the widely-used O32 calling convention (for all four combinations of big/little-endian, and soft/hard-float targets),
+as well as EABI (little-endian/hard-float, which is used on the Homebrew SDK for the Playstation Portable). \product{dyncall} currently does not support MIPS16e
 (contrary to the like-minded ARM-THUMB, which is supported). Both, calls and callbacks are supported.
 
 \subsubsection{MIPS EABI 32-bit Calling Convention}
@@ -54,7 +54,7 @@ Name                                   & Alias                & Brief descriptio
 {\bf \$2-\$3}                          & {\bf \$v0-\$v1}      & Integer results \\
 {\bf \$4-\$11}                         & {\bf \$a0-\$a7}      & Integer arguments, or double precision float arguments\\
 {\bf \$12-\$15,\$24}                   & {\bf \$t4-\$t7,\$t8} & Integer temporaries \\
-{\bf \$25}                             & {\bf \$t9}           & Integer temporary, hold the address of the called function for all PIC calls (by convention) \\
+{\bf \$25}                             & {\bf \$t9}           & Integer temporary, holds address of called function for PIC calls (by convention) \\
 {\bf \$16-\$23}                        & {\bf \$s0-\$s7}      & Preserved \\
 {\bf \$26,\$27}                        & {\bf \$kt0,\$kt1}    & Reserved for kernel \\
 {\bf \$28}                             & {\bf \$gp}           & Global pointer, preserve \\
@@ -125,8 +125,8 @@ Name                         & Alias                & Brief description\\
 \hline                                                             
 {\bf \$0}                    & {\bf \$zero}         & hardware zero \\
 {\bf \$1}                    & {\bf \$at}           & assembler temporary \\
-{\bf \$2-\$3}                & {\bf \$v0-\$v1}      & return value, scratch \\
-{\bf \$4-\$7}                & {\bf \$a0-\$a3}      & first integer arguments, scratch\\
+{\bf \$2-\$3}                & {\bf \$v0-\$v1}      & return value (only integer, on hard-float targets), scratch \\
+{\bf \$4-\$7}                & {\bf \$a0-\$a3}      & first arguments (only integer, on hard-float targets), scratch\\
 {\bf \$8-\$15,\$24}          & {\bf \$t0-\$t7,\$t8} & temporaries, scratch \\
 {\bf \$25}                   & {\bf \$t9}           & temporary, hold the address of the called function for all PIC calls (by convention) \\
 {\bf \$16-\$23}              & {\bf \$s0-\$s7}      & preserved \\
@@ -136,10 +136,10 @@ Name                         & Alias                & Brief description\\
 {\bf \$30}                   & {\bf \$fp}           & frame pointer, preserve \\
 {\bf \$31}                   & {\bf \$ra}           & return address, preserve \\
 {\bf hi, lo}                 &                      & multiply/divide special registers \\
-{\bf \$f0-\$f3}              &                      & float return value, scratch \\
-{\bf \$f4-\$f11,\$f16-\$f19} &                      & float temporaries, scratch \\
-{\bf \$f12-\$f15}            &                      & first floating point arguments, scratch \\
-{\bf \$f20-\$f31}            &                      & preserved \\
+{\bf \$f0-\$f3}              &                      & only on hard-float targets: float return value, scratch \\
+{\bf \$f4-\$f11,\$f16-\$f19} &                      & only on hard-float targets: float temporaries, scratch \\
+{\bf \$f12-\$f15}            &                      & only on hard-float targets: first floating point arguments, scratch \\
+{\bf \$f20-\$f31}            &                      & only on hard-float targets: preserved \\
 \end{tabular*}
 \caption{Register usage on MIPS O32 calling convention}
 \end{table}
@@ -150,15 +150,16 @@ Name                         & Alias                & Brief description\\
 \item Stack grows down
 \item Stack parameter order: right-to-left
 \item Caller cleans up the stack
-\item Caller is required to always leave a 16-byte spill area for\$a0-\$a3 at the and of {\bf its} frame, to be used and spilled to by the callee, if needed
-\item The different stack areas (local data, register save area, parameter area) are each aligned to 8 bytes.
-\item generally, first four 32bit arguments are passed in registers \$a0-\$a3, respectively (see below for exceptions if first arg is a float)
+\item Caller is required to always leave a 16-byte spill area for \$a0-\$a3 at the and of {\bf its} frame, to be used and spilled to by the callee, if needed
+\item The different stack areas (local data, register save area, parameter area) are each aligned to 8 bytes
+\item generally, first four 32bit arguments are passed in registers \$a0-\$a3, respectively (only on hard-float targets: see below for exceptions if first arg is a float)
 \item subsequent parameters are passed vie the stack
 \item 64-bit params passed via registers are passed using either two registers (starting at an even register number, skipping an odd one if necessary), or via the stack using an 8-byte alignment
-\item if the very first call argument is a float, up to 2 floats or doubles can be passed via \$f12 and \$f14, respectively, for first and second argument
-\item if any arguments are passed via float registers, skip \$a0-\$a3 for subsequent arguments as if the values were passed via them
-\item note that if the first argument is not a float, but the second, it'll get passed via the \$a? registers
-\item results are returned in \$v0 (32-bit int return values), \$f0 (32-bit float), \$v0 and \$v1 (64-bit int), \$f0 and \$f3 (64bit float)
+\item only on hard-float targets: if the very first call argument is a float, up to 2 floats or doubles can be passed via \$f12 and \$f14, respectively, for first and second argument
+\item only on hard-float targets: if any arguments are passed via float registers, skip \$a0-\$a3 for subsequent arguments as if the values were passed via them
+\item only on hard-float targets: note that if the first argument is not a float, but the second, it'll get passed via the \$a? registers
+\item results are returned in \$v0 and \$v1, with \$v0 for all values < 64bit (only integer, on hard-float targets)
+\item only on hard-float targets: floating point results are returned in \$f0 (32-bit float), or \$f0 and \$f3 (64bit float)
 \end{itemize}
 
 \paragraph{Stack layout}
@@ -197,8 +198,4 @@ parameter area                           &                &                     
 \end{figure}
 
 \newpage
-
-\subsubsection{MIPS N32 32-bit Calling Convention}
-
-@@@
 
