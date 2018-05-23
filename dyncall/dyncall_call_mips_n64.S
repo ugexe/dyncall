@@ -86,11 +86,9 @@ dcCall_mips_n64:
 
 	/* locals: */
 	/* $13 = register data */
-	/* $14 = useDouble flags */
 	move    $13, $5
-	ld      $14, 128($13)
 	
-	/* load integer parameter registers */
+	/* load parameter registers (only ints on hardfloat) */
 
 	ld      $4 , 0($13)
 	ld      $5 , 8($13)
@@ -100,6 +98,11 @@ dcCall_mips_n64:
 	ld      $9 ,40($13)
 	ld      $10,48($13)
 	ld      $11,56($13)
+
+#if defined(DC__ABI_HARDFLOAT)
+
+	/* $14 = useDouble flags */
+	ld      $14, 128($13)
 
 	/* load float-or-double floating pointer parameter registers 
 	   a 64-bit bitmask given at byte offset 128 of regdata indicates
@@ -171,6 +174,8 @@ dcCall_mips_n64:
 	j       .fregend
 .d7:
 	l.d     $f19,120($13)
+
+#endif /* DC__ABI_HARDFLOAT) */
 
 .fregend:
 

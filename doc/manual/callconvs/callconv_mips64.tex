@@ -29,7 +29,7 @@ Other than that there are 64-bit versions of the other ABIs found for MIPS32, e.
 
 \paragraph{\product{dyncall} support}
 
-For MIPS 64-bit machines, dyncall supports the N64 calling conventions for calls and callbacks (for big- and little-endian targets).
+For MIPS 64-bit machines, dyncall supports the N64 calling conventions for calls and callbacks (for all four combinations of big/little-endian, and soft/hard-float targets).
 The N32 calling convention might work - it used to, but hasn't been tested, recently.
 
 \subsubsection{MIPS N64 Calling Convention}
@@ -40,23 +40,23 @@ The N32 calling convention might work - it used to, but hasn't been tested, rece
 \begin{tabular*}{0.95\textwidth}{lll}
 Name                                   & Alias                & Brief description\\
 \hline
-{\bf \$0}                              & {\bf \$zero}         & Hardware zero \\
-{\bf \$1}                              & {\bf \$at}           & Assembler temporary \\
-{\bf \$2-\$3}                          & {\bf \$v0-\$v1}      & Integer results \\
-{\bf \$4-\$11}                         & {\bf \$a0-\$a7}      & Integer arguments, or double precision float arguments\\
-{\bf \$12-\$15,\$24}                   & {\bf \$t4-\$t7,\$t8} & Integer temporaries \\
-{\bf \$25}                             & {\bf \$t9}           & Integer temporary, hold the address of the called function for all PIC calls (by convention) \\
-{\bf \$16-\$23}                        & {\bf \$s0-\$s7}      & Preserved \\
-{\bf \$26,\$27}                        & {\bf \$kt0,\$kt1}    & Reserved for kernel \\
-{\bf \$28}                             & {\bf \$gp}           & Global pointer, preserve \\
-{\bf \$29}                             & {\bf \$sp}           & Stack pointer, preserve \\
-{\bf \$30}                             & {\bf \$s8}           & Frame pointer, preserve \\
-{\bf \$31}                             & {\bf \$ra}           & Return address, preserve \\
-{\bf hi, lo}                           &                      & Multiply/divide special registers \\
-{\bf \$f0,\$f2}                        &                      & Float results \\
-{\bf \$f1,\$f3,\$f4-\$f11,\$f20-\$f23} &                      & Float temporaries \\
-{\bf \$f12-\$f19}                      &                      & Float arguments \\
-{\bf \$f24-\$f31}                      &                      & Preserved \\%@@@on N32, this changes
+{\bf \$0}                              & {\bf \$zero}         & hardware zero \\
+{\bf \$1}                              & {\bf \$at}           & assembler temporary \\
+{\bf \$2-\$3}                          & {\bf \$v0-\$v1}      & return value (only integer on hard-float targets) \\
+{\bf \$4-\$11}                         & {\bf \$a0-\$a7}      & first arguments (only integer on hard-float targets) \\
+{\bf \$12-\$15,\$24}                   & {\bf \$t4-\$t7,\$t8} & temporaries, scratch \\
+{\bf \$25}                             & {\bf \$t9}           & temporary, holds the address of the called function for all PIC calls (by convention) \\
+{\bf \$16-\$23}                        & {\bf \$s0-\$s7}      & preserved \\
+{\bf \$26,\$27}                        & {\bf \$kt0,\$kt1}    & reserved for kernel \\
+{\bf \$28}                             & {\bf \$gp}           & global pointer, preserve \\
+{\bf \$29}                             & {\bf \$sp}           & stack pointer, preserve \\
+{\bf \$30}                             & {\bf \$s8}           & frame pointer, preserve \\
+{\bf \$31}                             & {\bf \$ra}           & return address, preserve \\
+{\bf hi, lo}                           &                      & multiply/divide special registers \\
+{\bf \$f0,\$f2}                        &                      & only on hard-float targets: float results \\
+{\bf \$f1,\$f3,\$f4-\$f11,\$f20-\$f23} &                      & only on hard-float targets: float temporaries \\
+{\bf \$f12-\$f19}                      &                      & only on hard-float targets: float arguments \\
+{\bf \$f24-\$f31}                      &                      & only on hard-float targets: preserved \\%@@@on N32, this changes
 \end{tabular*}
 \caption{Register usage on MIPS N64 calling convention}
 \end{table}
@@ -67,12 +67,14 @@ Name                                   & Alias                & Brief descriptio
 \item Stack grows down
 \item Stack parameter order: right-to-left
 \item Caller cleans up the stack
-\item first 8 params \textgreater=\ 64-bit are passed in registers \$a0-\$a7 for integers and \$f12-\$f19 for floats - with mixed float and int parameters,
-some registers are left out (e.g. first parameter ends up in \$a0 or \$f12, second in \$a1 or \$f13, etc.)
+\item generally, first 8 params \textgreater=\ 64-bit are passed via registers
+\item for hard-float targets: register arguments are passed via \$a0-\$a7 for integers and \$f12-\$f19 for floats - with mixed float and int parameters, some registers are left out (e.g. first parameter ends up in \$a0 or \$f12, second in \$a1 or \$f13, etc.)
+\item for soft-float targets: register arguments are passed via \$a0-\$a7
 \item subsequent arguments are pushed onto the stack
 \item all stack entries are 64-bit aligned
 \item all stack regions are 16-byte aligned
 \item results are returned in \$v0, and for a second one \$v1 is used
+\item only on hard-float targets: floating point results are returned in \$f0
 \item float arguments passed in the variable part of a vararg call are passed like integers
 \item quad precision float arguments are passed in even-odd register pairs, skipping one register if needed
 \item integer parameters \textless\ 64 bit are right-justified (meaning occupy higher-address bytes) in their 8-byte slot on the stack, requiring extra-care for big-endian targets
@@ -82,7 +84,7 @@ some registers are left out (e.g. first parameter ends up in \$a0 or \$f12, seco
 \paragraph{Stack layout}
 
 Stack directly after function prolog:\\
-@@@ WIP, might be wrong
+@@@ might be wrong
 
 \begin{figure}[h]
 \begin{tabular}{5|3|1 1}

@@ -150,7 +150,7 @@ Name                         & Alias                & Brief description\\
 \item Stack grows down
 \item Stack parameter order: right-to-left
 \item Caller cleans up the stack
-\item Caller is required to always leave a 16-byte spill area for \$a0-\$a3 at the and of {\bf its} frame, to be used and spilled to by the callee, if needed
+\item Caller is required to always leave a 16-byte spill area for \$a0-\$a3 at the end of {\bf its} frame, to be used and spilled to by the callee, if needed
 \item The different stack areas (local data, register save area, parameter area) are each aligned to 8 bytes
 \item generally, first four 32bit arguments are passed in registers \$a0-\$a3, respectively (only on hard-float targets: see below for exceptions if first arg is a float)
 \item subsequent parameters are passed vie the stack

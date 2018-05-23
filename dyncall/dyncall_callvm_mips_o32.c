@@ -118,10 +118,11 @@ static void dc_callvm_argFloat_mips_o32(DCCallVM* in_self, DCfloat x)
 
 #if defined(DC__ABI_HARDFLOAT)
   if (self->mArgCount < 2) {
+    /* @@@ unsure if we should zero init, here; seems to work as-is */
 # if defined(DC__Endian_LITTLE)
     self->mRegData.u[self->mArgCount].f[0] = x;
 # else
-    self->mRegData.u[self->mArgCount].f[1] = x;
+    self->mRegData.u[self->mArgCount].f[1] = x; // floats in regs always right justified
 # endif
 # if 0
     self->mRegData.u[self->mArgCount].f[1] = x;
