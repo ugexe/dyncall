@@ -125,10 +125,10 @@ Name                         & Alias                & Brief description\\
 \hline                                                             
 {\bf \$0}                    & {\bf \$zero}         & hardware zero \\
 {\bf \$1}                    & {\bf \$at}           & assembler temporary \\
-{\bf \$2-\$3}                & {\bf \$v0-\$v1}      & return value (only integer, on hard-float targets), scratch \\
-{\bf \$4-\$7}                & {\bf \$a0-\$a3}      & first arguments (only integer, on hard-float targets), scratch\\
+{\bf \$2-\$3}                & {\bf \$v0-\$v1}      & return value (only integer on hard-float targets), scratch \\
+{\bf \$4-\$7}                & {\bf \$a0-\$a3}      & first arguments (only integer on hard-float targets), scratch\\
 {\bf \$8-\$15,\$24}          & {\bf \$t0-\$t7,\$t8} & temporaries, scratch \\
-{\bf \$25}                   & {\bf \$t9}           & temporary, hold the address of the called function for all PIC calls (by convention) \\
+{\bf \$25}                   & {\bf \$t9}           & temporary, holds address of called function for PIC calls (by convention) \\
 {\bf \$16-\$23}              & {\bf \$s0-\$s7}      & preserved \\
 {\bf \$26,\$27}              & {\bf \$k0,\$k1}      & reserved for kernel \\
 {\bf \$28}                   & {\bf \$gp}           & global pointer, preserved by caller \\
@@ -158,8 +158,9 @@ Name                         & Alias                & Brief description\\
 \item only on hard-float targets: if the very first call argument is a float, up to 2 floats or doubles can be passed via \$f12 and \$f14, respectively, for first and second argument
 \item only on hard-float targets: if any arguments are passed via float registers, skip \$a0-\$a3 for subsequent arguments as if the values were passed via them
 \item only on hard-float targets: note that if the first argument is not a float, but the second, it'll get passed via the \$a? registers
-\item results are returned in \$v0 and \$v1, with \$v0 for all values < 64bit (only integer, on hard-float targets)
+\item results are returned in \$v0 and \$v1, with \$v0 for all values < 64bit (only integer on hard-float targets)
 \item only on hard-float targets: floating point results are returned in \$f0 (32-bit float), or \$f0 and \$f3 (64bit float)
+\item single precision float parameters (32 bit) are right-justified in their 8-byte slot on the stack on big endian targets, as they aren't promoted @@@
 \end{itemize}
 
 \paragraph{Stack layout}
