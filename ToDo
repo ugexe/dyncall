@@ -1,6 +1,5 @@
 1.1:
 ----
-- support mips/softfloat: e.g. test freebsd/mips dynOS illegal instruction; compiler defines are: #define __mips_soft_float / __mips_hard_float 1
 - plain_cpp only supports windows; fix
 - ./configure on macOS does not pass CFLAGS etc.. to Makefile.config
 - support platforms without shared libraries so they can be built by just typing `./configure;make` (e.g. minix < 3.2.1)
@@ -26,6 +25,7 @@
 - autovar was never really pushed all the way through and still plays second
   fiddle to dyncall_macros.h, clean this all up, eventually (Tassilo: for now, I
   removed out of sync files to avoid confusion; but still probably duped code)
+- ppc32 callback fixes on bsd @@@
 - add portable "make install"
   * make install should also install manpages
 - mailing list announcements (html email?)
@@ -69,10 +69,10 @@ dyncall:
   * bsd
   * linux
 - other syscalls
-- MIPS32 softfloat support (-msoft-float)
 - test MIPS32 eabi big endian (current port works on psp, which is little endian)
 - implement MIPS64 N32 (gcc -mabi=n32); both, little and big-endian (looks like NetNBSD on and
   EdgeRouter lite uses this: https://blog.netbsd.org/tnf/entry/hands_on_experience_with_edgerouter)
+- MIPS64 n32 softfloat support (-msoft-float)
 - implement MIPS64 EABI (gcc -mabi=eabi); both, little and big-endian
 - support for Minix/arm
 - improve ellipsis test:
@@ -113,10 +113,10 @@ dyncallback:
   see above under 1.1 items
   * check other platforms also, if asm stub initializes retval space, correctly
 - finish PPC32 callbacks (see bugs section, below, BSD not working)
-- MIPS32 softfloat support (-msoft-float)
 - test MIPS32 eabi big endian (current port works on psp, which is little endian)
 - implement MIPS64 N32 (gcc -mabi=n32); both, little and big-endian (looks like NetNBSD on and
   EdgeRouter lite uses this: https://blog.netbsd.org/tnf/entry/hands_on_experience_with_edgerouter)
+- MIPS64 n32 softfloat support (-msoft-float)
 - implement MIPS64 EABI (gcc -mabi=eabi); both, little and big-endian
 - support for Minix/arm
 
