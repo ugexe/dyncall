@@ -36,6 +36,15 @@
 #endif
 
 
+int strlen_utf8(const char *s)
+{
+  int i=0, j=0;
+  while(s[i])
+    j += ((s[i++] & 0xc0) != 0x80);
+  return j;
+}
+
+
 int main(int argc, char* argv[])
 {
   int r = 0, i;
@@ -47,7 +56,7 @@ int main(int argc, char* argv[])
   /* can be specified in Makefile; this avoids trying to write portable directory traversal stuff */
   const char* clibs[] = {
 #if defined(DEF_C_DYLIB)
-	DEF_C_DYLIB,
+    DEF_C_DYLIB,
 #endif
     "/lib/libc.so",
     "/lib32/libc.so",
@@ -90,8 +99,8 @@ int main(int argc, char* argv[])
 
       bs = dlGetLibraryPath(pLib, queriedPath, 200);
       if(bs && bs <= 200) {
-	    struct stat st0, st1; /* to check if same file */
-        int b;
+        struct stat st0, st1; /* to check if same file */
+        int b, bs_;
         printf("path of lib looked up via handle: %s\n", queriedPath);
         b = (stat(path, &st0) != -1) && (stat(queriedPath, &st1) != -1);
         printf("lib (inode:%d) and looked up lib (inode:%d) are same: %d\n", b?st0.st_ino:-1, b?st1.st_ino:-1, b && (st0.st_ino == st1.st_ino)); //@@@ on windows, inode numbers returned here are always 0
@@ -100,13 +109,59 @@ int main(int argc, char* argv[])
 
         /* check correct bufsize retval */
         b = (bs == strlen(queriedPath) + 1);
-        printf("looked up path's needed buffer size (%d) computed correctly: %d\n", bs, b);
+        printf("looked up path's needed buffer size (%d) computed correctly 1/2: %d\n", bs, b);
+        r += b;
+
+        /* check perfect fitting bufsize */
+        queriedPath[0] = 0;
+        bs_ = dlGetLibraryPath(pLib, queriedPath, bs);
+        b = (bs == bs_ && bs_ == strlen(queriedPath) + 1);
+        printf("looked up path's needed buffer size (%d) computed correctly 2/2: %d\n", bs_, b);
+        r += b;
+
+        /* check if dlGetLibraryPath returns size required if bufsize too small */
+        queriedPath[0] = 0;
+        bs_ = dlGetLibraryPath(pLib, queriedPath, 1);  /* tiny max buffer size */
+        b = (bs == bs_ && strlen(queriedPath) == 0);   /* nothing copied */
+        printf("path lookup size requirement (%d) correctly returned: %d\n", bs_, b);
         r += b;
       }
       else
         printf("failed to query lib path using lib's handle\n");
 
       dlFreeLibrary(pLib);
+
+      /* check if dlGetLibraryPath returns 0 when trying to lookup dummy */
+      bs = dlGetLibraryPath((DLLib*)1234, queriedPath, 200);
+      printf("path lookup failed as expected with bad lib handle: %d\n", bs == 0);
+      r += (bs == 0);
+
+      /* test UTF-8 path through dummy library that's created by this test's build */
+      {
+        static const char* pathU8 = "./dynload_plain_\xc3\x9f_test";
+		int nu8c, b;
+
+        //cp(pathU8, "/lib/libz.so.6");
+        pLib = dlLoadLibrary(pathU8); /* check if we can load a lib with a UTF-8 path */
+        printf("pLib (loaded w/ UTF-8 path %s) handle: %p\n", pathU8, pLib);
+        r += (p != NULL);
+
+        if(pLib) {
+          /* get UTF-8 path back */
+          bs = dlGetLibraryPath((DLLib*)pLib, queriedPath, 200);
+          if(bs && bs <= 200) {
+            nu8c = strlen_utf8(queriedPath); /* num of UTF-8 chars is as big as ... */
+            b = (bs > 0) && (nu8c == bs-2);   /* ... buffer size minus 2 (b/c of one 2-byte UTF-8 char and "\0") */
+            printf("UTF-8 path of lib looked up via handle: %s\n", queriedPath);
+            printf("looked up UTF-8 path's needed buffer size (%d) for %d UTF-8 char string computed correctly: %d\n", bs, nu8c, b);
+            r += b;
+ 
+            dlFreeLibrary(pLib);
+          }
+          else
+            printf("failed to query UTF-8 lib path using lib's handle\n");
+        }
+      }
     }
     else
       printf("unable to open library %s\n", path);
@@ -145,15 +200,15 @@ int main(int argc, char* argv[])
         name = dlSymsNameFromValue(pSyms, p);
         printf("printf symbol name by its own address (%p): %s\n", p, name?name:"");
         if(name) {
-			if(strcmp(name, "printf") == 0)
-      			++r;
-			else {
-				/* Symbol name returned might be an "alias". In that case, check address again (full lookup to be sure). */
-				void* p0 = dlFindSymbol(pLib, name);
-        		printf("lookup by address returned different name (%s), which is alias of printf: %d\n", name, (p==p0));
-        		r += (p == p0);
-			}
-		}
+          if(strcmp(name, "printf") == 0)
+            ++r;
+          else {
+            /* Symbol name returned might be an "alias". In that case, check address again (full lookup to be sure). */
+            void* p0 = dlFindSymbol(pLib, name);
+            printf("lookup by address returned different name (%s), which is alias of printf: %d\n", name, (p==p0));
+            r += (p == p0);
+          }
+        }
         dlFreeLibrary(pLib);
       }
 
@@ -164,7 +219,7 @@ int main(int argc, char* argv[])
   }
 
   /* Check final score of right ones to see if all worked */
-  r = (r == 10);
+  r = (r == 15);
   printf("result: dynload_plain: %d\n", r);
   return !r;
 }

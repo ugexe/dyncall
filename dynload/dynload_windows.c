@@ -35,13 +35,37 @@
 
 
 #include "dynload.h"
+#include "dynload_alloc.h"
 
 #include <windows.h>
 
 
 DLLib* dlLoadLibrary(const char* libPath)
 {
-  return (DLLib*)(libPath != NULL ? LoadLibraryA(libPath) : GetModuleHandle(NULL));
+  if(libPath == NULL)
+    return (DLLib*)GetModuleHandle(NULL);
+  else {
+    /* convert from UTF-8 to wide chars, so count required size... */
+    DLLib* pLib;
+    wchar_t* ws;
+    int r = MultiByteToWideChar(CP_UTF8, 0, libPath, -1, NULL, 0);
+    if(!r) {
+      return NULL;
+    }
+
+    /* ... reserve temp space, ... */
+    ws = (wchar_t*)dlAllocMem(r * sizeof(wchar_t));
+    if(!ws)
+      return NULL;
+
+    /* ... convert (and use r as success flag), ... */
+    r = (MultiByteToWideChar(CP_UTF8, 0, libPath, -1, ws, r) == r);
+    pLib = (DLLib*)(r ? LoadLibraryW(ws) : NULL);/*@@@ testcode of unicode path*/
+
+    /* ... free temp space and return handle */
+    dlFreeMem(ws);
+    return pLib;
+  }
 }
 
 
@@ -59,6 +83,48 @@ void dlFreeLibrary(DLLib* pLib)
 
 int dlGetLibraryPath(DLLib* pLib, char* sOut, int bufSize)
 {
-  return GetModuleFileNameA((HMODULE)pLib, sOut, bufSize)+1; /* strlen + '\0' */
+  /* get the path name as wide chars, then convert to UTF-8; we need   */
+  /* some trial and error to figure out needed wide char string length */
+
+  wchar_t* ws;
+  int r;
+
+  /* num chars to alloc temp space for, and upper limit, must be both power */
+  /* of 2s for loop to be precise and to test allow testing up to 32768 chars */
+  /* (including \0), which is the extended path ("\\?\...") maximum */
+  static const int MAX_EXT_PATH = 1<<15; /* max extended path length (32768) */
+  int nc = 1<<6;                         /* guess start buffer size, */
+
+  while(nc <= MAX_EXT_PATH)/*@@@ testcode*/
+  {
+    ws = (wchar_t*)dlAllocMem(nc * sizeof(wchar_t));
+    if(!ws)
+      break;
+
+    r = GetModuleFileNameW((HMODULE)pLib, ws, nc);
+
+    /* r == nc if string was truncated, double temp buffer size */
+    if(r == nc) {
+      nc <<= 1;/*@@@ testcode*/
+      dlFreeMem(ws);
+      continue;
+    }
+    /* error if r is 0 */
+    else if(!r) {
+      dlFreeMem(ws);
+      break;
+    }
+
+    /* check if output buffer is big enough */
+    r = WideCharToMultiByte(CP_UTF8, 0, ws, -1, NULL, 0, NULL, NULL);
+    if(r <= bufSize)
+      r = WideCharToMultiByte(CP_UTF8, 0, ws, -1, sOut, bufSize, NULL, NULL);
+
+    /* cleanup and return either size of copied bytes or needed buffer size */
+    dlFreeMem(ws);
+    return r;
+  }
+
+  return 0;
 }
 
