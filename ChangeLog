@@ -5,8 +5,12 @@ dyncall:
   o support for soft-float MIPS o32 & n64 (big- and little-endian, each)
 dyncallback:
   o support for soft-float MIPS o32 & n64 (big- and little-endian, each)
+dynload:
+  o added UTF-8 support for pathnames on windows
 doc:
   o more detail in support matrix for bi-endian platforms
+tests:
+  o dynload_plain test extended to test UTF-8 library paths
 buildsys:
   o default ./configure: FreeBSD/mips*hf needed -mhard-float compiler flag set explicitly
   o better MacOS Mojave support in ./configure (Mojave dropped i386 builds)
