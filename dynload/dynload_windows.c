@@ -60,7 +60,7 @@ DLLib* dlLoadLibrary(const char* libPath)
 
     /* ... convert (and use r as success flag), ... */
     r = (MultiByteToWideChar(CP_UTF8, 0, libPath, -1, ws, r) == r);
-    pLib = (DLLib*)(r ? LoadLibraryW(ws) : NULL);/*@@@ testcode of unicode path*/
+    pLib = (DLLib*)(r ? LoadLibraryW(ws) : NULL);
 
     /* ... free temp space and return handle */
     dlFreeMem(ws);
@@ -95,7 +95,7 @@ int dlGetLibraryPath(DLLib* pLib, char* sOut, int bufSize)
   static const int MAX_EXT_PATH = 1<<15; /* max extended path length (32768) */
   int nc = 1<<6;                         /* guess start buffer size, */
 
-  while(nc <= MAX_EXT_PATH)/*@@@ testcode*/
+  while(nc <= MAX_EXT_PATH)/*@@@ add testcode for super long paths*/
   {
     ws = (wchar_t*)dlAllocMem(nc * sizeof(wchar_t));
     if(!ws)
@@ -105,7 +105,7 @@ int dlGetLibraryPath(DLLib* pLib, char* sOut, int bufSize)
 
     /* r == nc if string was truncated, double temp buffer size */
     if(r == nc) {
-      nc <<= 1;/*@@@ testcode*/
+      nc <<= 1;
       dlFreeMem(ws);
       continue;
     }
