@@ -88,9 +88,11 @@ void dlFreeLibrary(DLLib* pLib)
 
 int dlGetLibraryPath(DLLib* pLib, char* sOut, int bufSize)
 {
-  struct link_map* p;
+  struct link_map* p = NULL;
   int l = -1;
-  if(dlinfo(pLib, RTLD_DI_LINKMAP, &p) == 0) {
+  /* on some platforms dlinfo() "succeeds" for any handle, returning a */
+  /* legit pointer to a struct w/o any fields set; fail if unset */
+  if(dlinfo(pLib, RTLD_DI_LINKMAP, &p) == 0 && p && p->l_name) {
     l = strlen(p->l_name);
     if(l < bufSize) /* l+'\0' <= bufSize */
       strcpy(sOut, p->l_name);

@@ -132,7 +132,7 @@ int main(int argc, char* argv[])
       dlFreeLibrary(pLib);
 
       /* check if dlGetLibraryPath returns 0 when trying to lookup dummy */
-      bs = dlGetLibraryPath((DLLib*)&r/*dummy addr in own addr space to avoid segv*/, queriedPath, 200);
+      bs = dlGetLibraryPath((DLLib*)&r/*dummy addr*/, queriedPath, 200);
       printf("path lookup failed as expected with bad lib handle: %d\n", bs == 0);
       r += (bs == 0);
 
