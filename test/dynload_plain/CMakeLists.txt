@@ -6,7 +6,7 @@ set_target_properties(x PROPERTIES OUTPUT_NAME "dynload_plain_ß_test")
 set_target_properties(x PROPERTIES PREFIX "")
 set_target_properties(x PROPERTIES SUFFIX "")
 if(${UNIX})
-exec_program("((ls /lib*/libc.so* || ls /usr/lib/libc.so*) | grep -v '\\.a\$' | (sort -V -r || sort -t . -n -k 2)) 2>/dev/null | head -1" OUTPUT_VARIABLE DEF_C_DYLIB)
+exec_program("((ldd `which ls` | grep -o '/.*/libc.so[^ ]*' || ls /lib*/libc.so* || ls /usr/lib/libc.so*) | grep -v '\\.a\$' | (sort -V -r || sort -t . -n -k 2)) 2>/dev/null | head -1" OUTPUT_VARIABLE DEF_C_DYLIB)
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DDEF_C_DYLIB=\\\"${DEF_C_DYLIB}\\\"")
 endif()
 

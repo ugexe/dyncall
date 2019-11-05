@@ -58,16 +58,17 @@ int main(int argc, char* argv[])
 #if defined(DEF_C_DYLIB)
     DEF_C_DYLIB,
 #endif
+	/* fallback guessing if not provided by Makefile */
     "/lib/libc.so",
     "/lib32/libc.so",
     "/lib64/libc.so",
     "/usr/lib/libc.so",
     "/usr/lib/system/libsystem_c.dylib", /* macos */
     "/usr/lib/libc.dylib",
-    "/boot/system/lib/libroot.so", /* Haiku */
-    "\\ReactOS\\system32\\msvcrt.dll", /* ReactOS */
+    "/boot/system/lib/libroot.so",       /* Haiku */
+    "\\ReactOS\\system32\\msvcrt.dll",   /* ReactOS */
     "C:\\ReactOS\\system32\\msvcrt.dll",
-    "\\Windows\\system32\\msvcrt.dll", /* Windows */
+    "\\Windows\\system32\\msvcrt.dll",   /* Windows */
     "C:\\Windows\\system32\\msvcrt.dll"
   };
 
