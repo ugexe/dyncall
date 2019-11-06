@@ -39,7 +39,7 @@
 #include <string.h>
 
 #if defined(__GLIBC__)
-/* @@@ version check glibc correctly... dl_iterate_phdr(): glibc ver >= 2.2.4*/
+/* @@@ version check glibc more precisely... dl_iterate_phdr(): glibc ver >= 2.2.4*/
 #if (__GLIBC__ >= 2) && (__GLIBC_MINOR__ >= 3)
 #  define DL_USE_GLIBC_ITER_PHDR
 #endif
@@ -83,11 +83,20 @@ void dlFreeLibrary(DLLib* pLib)
 #endif
 
 
+/* helper copying string if buffer big enough, returning length (without \0) */
+static int dl_strlen_strcpy(char* dst, const char* src, int dstSize)
+{
+  int l = strlen(src);
+  if(l < dstSize) /* l+'\0' <= bufSize */
+    strcpy(dst, src);
+  return l;
+}
+
 /* code for dlGetLibraryPath() is platform specific */
 
 /* if dlinfo() exists use it (except on glibc, where it exists since version
  * 2.3.3, but its implementation is dangerous, as no checks are done whether
- * the handle is valid, thus rendering the returned values useless): check for
+ * the handle is valid, thus rendering the returned values useless) check for
  * RTLD_DI_LINKMAP which is a #define for dlinfo() on most supported targets,
  * or specifically check the OS (e.g. dlinfo() is originally from Solaris) */
 #if (defined(RTLD_DI_LINKMAP) || defined(OS_SunOS)) && !defined(DL_USE_GLIBC_ITER_PHDR)
@@ -98,11 +107,9 @@ int dlGetLibraryPath(DLLib* pLib, char* sOut, int bufSize)
 {
   struct link_map* p = NULL;
   int l = -1;
-  if(dlinfo(pLib, RTLD_DI_LINKMAP, &p) == 0 && p) {
-    l = strlen(p->l_name);
-    if(l < bufSize) /* l+'\0' <= bufSize */
-      strcpy(sOut, p->l_name);
-  }
+  if(dlinfo(pLib ? pLib : RTLD_SELF, RTLD_DI_LINKMAP, &p) == 0)
+    l = dl_strlen_strcpy(sOut, p->l_name, bufSize);
+
   return l+1; /* strlen + '\0' */
 }
 
@@ -118,26 +125,30 @@ int dlGetLibraryPath(DLLib* pLib, char* sOut, int bufSize)
   uint32_t i;
   int l = -1;
 
-  /*if(pLib == RTLD_DEFAULT)
-    return NULL; @@@ return exec's path */
+  /* request info about own process? lookup first loaded image */
+  if(pLib == NULL) {
+    const char* libPath = _dyld_get_image_name(0); //@@@ consider using _NSGetExecutablePath()
+    if(libPath)
+      l = dl_strlen_strcpy(sOut, libPath, bufSize);
+  }
+  else {
+    /* Darwin's code doesn't come with (non-standard) dlinfo(), so use dyld(1)
+     * code. There doesn't seem to be a direct way to query the library path,
+     * so "double-load" temporarily all already loaded images (just increases
+     * ref count) and compare handles until we found ours. Return the name. */
+    for(i=_dyld_image_count(); i>0;) /* backwards, ours is more likely at end */
+    {
+      const char* libPath = _dyld_get_image_name(--i);
+      void* lib = dlopen(libPath, RTLD_LIGHTEST);
+      if(lib) {
+        dlclose(lib);
 
-  /* Darwin's code doesn't come with (non-standard) dlinfo(), so use dyld(1) */
-  /* code. There doesn't seem to be a direct way to query the library path,  */
-  /* so "double-load" temporarily all already loaded images (just increases  */
-  /* ref count) and compare handles until we found ours. Return the name.    */
-  for(i=_dyld_image_count(); i>0;) /* backwards, ours is more likely at end */
-  {
-    const char* libPath = _dyld_get_image_name(--i);
-    void* lib = dlopen(libPath, RTLD_LIGHTEST);
-    if(lib) {
-      dlclose(lib);
-      /* compare handle pointers' high bits (in low 2 bits some flags might */
-      /* be stored - should be safe b/c address needs alignment, anywas) */
-      if(((intptr_t)pLib ^ (intptr_t)lib) < 4) {
-        l = strlen(libPath);
-        if(l < bufSize) /* l+'\0' <= bufSize */
-          strcpy(sOut, libPath);
-        break;
+        /* compare handle pointers' high bits (in low 2 bits some flags might */
+        /* be stored - should be safe b/c address needs alignment, anyways) */
+        if(((intptr_t)pLib ^ (intptr_t)lib) < 4) {
+          l = dl_strlen_strcpy(sOut, libPath, bufSize);
+          break;
+        }
       }
     }
   }
@@ -164,18 +175,32 @@ static int iter_phdr_cb(struct dl_phdr_info* info, size_t size, void* data)
 {
   int l = -1;
   iter_phdr_data* d = (iter_phdr_data*)data;
-  /* unable to relate info->dlpi_addr directly to our dlopen handle, let's */
-  /* do what we do on macOS above, re-dlopen the already loaded lib (just  */
-  /* increases ref count) and compare handles. */
-  void* lib = dlopen(info->dlpi_name, RTLD_LIGHTEST);
-  if(lib) {
-    dlclose(lib);
-    if(lib == (void*)d->pLib) {
-      l = strlen(info->dlpi_name);
-      if(l < d->bufSize) /* l+'\0' <= bufSize */
-        strcpy(d->sOut, info->dlpi_name);
+  void* lib = NULL;
+
+  /* get loaded object's handle if not requesting info about process itself */
+  if(d->pLib != NULL) {
+    /* unable to relate info->dlpi_addr directly to our dlopen handle, let's
+     * do what we do on macOS above, re-dlopen the already loaded lib (just
+     * increases ref count) and compare handles */
+    lib = dlopen(info->dlpi_name, RTLD_LIGHTEST);
+    if(lib)
+      dlclose(lib);
+  }
+
+  /* compare handles and get name if found; if d->pLib == NULL this will
+     enter info on first iterated object, which is the process itself */
+  if(lib == (void*)d->pLib) {
+    l = dl_strlen_strcpy(d->sOut, info->dlpi_name, d->bufSize);
+
+    /* on some platforms (e.g. Linux) dlpi_name is empty for the main process'
+       object, but dlpi_addr is given, in that case lookup name via dladdr */
+    if(l == 0 && d->pLib == NULL && (void*)info->dlpi_addr != NULL) {
+      Dl_info i;
+      if(dladdr((void*)info->dlpi_addr, &i) != 0)
+        l = dl_strlen_strcpy(d->sOut, i.dli_fname, d->bufSize);
     }
   }
+
   return l+1; /* strlen + '\0'; is 0 if lib not found, which continues iter */
 }
 
@@ -206,16 +231,14 @@ int dlGetLibraryPath(DLLib* pLib, char* sOut, int bufSize)
 
 int dlGetLibraryPath(DLLib* pLib, char* sOut, int bufSize)
 {
+/*@@@ missing handler for pLib == NULL*/
   /* cross fingers that shared object is standard ELF and look for _fini */
   int l = -1;
   void* s = dlsym((void*)pLib, "_fini");
   if(s) {
     Dl_info i;
-    if(dladdr(s, &i) != 0) {
-      l = strlen(i.dli_fname);
-      if(l < bufSize) /* l+'\0' <= bufSize */
-        strcpy(sOut, i.dli_fname);
-    }
+    if(dladdr(s, &i) != 0)
+      l = dl_strlen_strcpy(sOut, i.dli_fname, bufSize);
   }
   return l+1; /* strlen + '\0' */
 }
