@@ -38,7 +38,12 @@
 
 #include <string.h>
 
-#if defined(__GLIBC__) /* to access dlinfo */
+#if defined(__GLIBC__)
+/* @@@ version check glibc correctly... dl_iterate_phdr(): glibc ver >= 2.2.4*/
+#if (__GLIBC__ >= 2) && (__GLIBC_MINOR__ >= 3)
+#  define DL_USE_GLIBC_ITER_PHDR
+#endif
+/* to access dl_iterate_phdr(), and related w/ glibc */
 #  define _GNU_SOURCE
 #  define __USE_GNU
 #endif
@@ -69,20 +74,23 @@ void dlFreeLibrary(DLLib* pLib)
 
 
 
-/* for dlopen-based dlGetLibraryPath impls below, prefer RTLD_NOLOAD */
-/* that merely checks lib names */
+/* for dlopen-based dlGetLibraryPath impls below, prefer RTLD_NOLOAD that
+ * merely checks lib names */
 #if defined(RTLD_NOLOAD)
-#  define RTLD_LIGHTEST RTLD_NOLOAD
+#  define RTLD_LIGHTEST RTLD_LAZY|RTLD_NOLOAD
 #else
 #  define RTLD_LIGHTEST RTLD_LAZY
 #endif
 
 
-/* code for dlGetLibraryPath is platform specific - if dlinfo() exists use */
-/* that: check for RTLD_DI_LINKMAP (#define for dlinfo()), or if GNU C Lib */
-/* is used (where RTLD_DI_LINKMAP is an enum), or by OS (dlinfo comes from */
-/* Solaris), etc. */
-#if defined(RTLD_DI_LINKMAP) || defined(OS_SunOS) || defined(__GLIBC__) /* @@@ dlinfo() was introduced in glibc 2.3.3 (in 2003), somehow check for that, also */
+/* code for dlGetLibraryPath() is platform specific */
+
+/* if dlinfo() exists use it (except on glibc, where it exists since version
+ * 2.3.3, but its implementation is dangerous, as no checks are done whether
+ * the handle is valid, thus rendering the returned values useless): check for
+ * RTLD_DI_LINKMAP which is a #define for dlinfo() on most supported targets,
+ * or specifically check the OS (e.g. dlinfo() is originally from Solaris) */
+#if (defined(RTLD_DI_LINKMAP) || defined(OS_SunOS)) && !defined(DL_USE_GLIBC_ITER_PHDR)
 
 #include <link.h>
 
@@ -90,9 +98,7 @@ int dlGetLibraryPath(DLLib* pLib, char* sOut, int bufSize)
 {
   struct link_map* p = NULL;
   int l = -1;
-  /* on some platforms dlinfo() "succeeds" for any handle, returning a */
-  /* legit pointer to a struct w/o any fields set; fail if unset */
-  if(dlinfo(pLib, RTLD_DI_LINKMAP, &p) == 0 && p && p->l_name) {
+  if(dlinfo(pLib, RTLD_DI_LINKMAP, &p) == 0 && p) {
     l = strlen(p->l_name);
     if(l < bufSize) /* l+'\0' <= bufSize */
       strcpy(sOut, p->l_name);
@@ -119,7 +125,7 @@ int dlGetLibraryPath(DLLib* pLib, char* sOut, int bufSize)
   /* code. There doesn't seem to be a direct way to query the library path,  */
   /* so "double-load" temporarily all already loaded images (just increases  */
   /* ref count) and compare handles until we found ours. Return the name.    */
-  for(i=_dyld_image_count(); i>0;) /* iterate libs from end, more likely ours */
+  for(i=_dyld_image_count(); i>0;) /* backwards, ours is more likely at end */
   {
     const char* libPath = _dyld_get_image_name(--i);
     void* lib = dlopen(libPath, RTLD_LIGHTEST);
@@ -140,9 +146,10 @@ int dlGetLibraryPath(DLLib* pLib, char* sOut, int bufSize)
 }
 
 
-/* OpenBSD >= 3.7 has dl_iterate_phdr(), use it if not explicitly requesting */
-/* to use dladdr()-based guessing (set by configure) -----> */
-#elif defined(OS_OpenBSD) && !defined(DL_DLADDR_TO_LIBPATH)
+/* OpenBSD >= 3.7 has dl_iterate_phdr(), as well as glibc >= 2.2.4, however
+ * skip and use on dladdr()-based guessing if if explicitly requested, e.g. by
+ * ./configure */
+#elif !defined(DL_DLADDR_TO_LIBPATH) && (defined(OS_OpenBSD) || defined(DL_USE_GLIBC_ITER_PHDR))
 
 #include <sys/types.h>
 #include <link.h>
@@ -179,8 +186,15 @@ int dlGetLibraryPath(DLLib* pLib, char* sOut, int bufSize)
 }
 
 
+/* glibc with neither dl_iterate_phdr() nor dlinfo() (latter introduced after former) @@@
+#elif defined(__GLIBC__) && !defined(DL_USE_GLIBC_ITER_PHDR)
+
+@@@impl */
+
 /* fallback to dladdr() hack */
 #else
+
+#warning "Using non-optimal code for dlGetLibraryPath() b/c of platform limitations."
 
 /* if nothing else is available, fall back to guessing using dladdr() - this */
 /* might not always work, as it's trying to getit via the _fini() symbol,    */

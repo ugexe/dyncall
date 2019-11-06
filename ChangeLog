@@ -7,6 +7,9 @@ dyncallback:
   o support for soft-float MIPS o32 & n64 (big- and little-endian, each)
 dynload:
   o added UTF-8 support for pathnames on windows
+  o reliability/stability fix for dlGetLibraryPath() on glibc based platforms (avoiding
+    internal use of glibc's bad impl of dlinfo() which doesn't do any error checking at all)
+  o support for dlGetLibraryPath() on glibc platforms with glibc vesions <= 2.3.3
 doc:
   o more detail in support matrix for bi-endian platforms
 tests:

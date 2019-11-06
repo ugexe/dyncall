@@ -34,6 +34,7 @@
 #else
 #  include <unistd.h>
 #endif
+#include <libgen.h>
 
 
 int strlen_utf8(const char *s)
@@ -58,7 +59,7 @@ int main(int argc, char* argv[])
 #if defined(DEF_C_DYLIB)
     DEF_C_DYLIB,
 #endif
-	/* fallback guessing if not provided by Makefile */
+    /* fallback guessing if not provided by Makefile */
     "/lib/libc.so",
     "/lib32/libc.so",
     "/lib64/libc.so",
@@ -137,14 +138,24 @@ int main(int argc, char* argv[])
       printf("path lookup failed as expected with bad lib handle: %d\n", bs == 0);
       r += (bs == 0);
 
+      /* test getting own path */
+      {
+        /* get own exec's path */
+        bs = dlGetLibraryPath(NULL, queriedPath, 200);
+        printf("dynload_plain's own path is: %s\n", queriedPath);
+        r += (bs != 0 && strlen(queriedPath) > 0);
+
+        /* change working dir to where our executable is,  for following test */
+        chdir(dirname(queriedPath));
+      }
+
       /* test UTF-8 path through dummy library that's created by this test's build */
       {
         static const char* pathU8 = "./dynload_plain_\xc3\x9f_test";
-		int nu8c, b;
+        int nu8c, b;
 
-        //cp(pathU8, "/lib/libz.so.6");
         pLib = dlLoadLibrary(pathU8); /* check if we can load a lib with a UTF-8 path */
-        printf("pLib (loaded w/ UTF-8 path %s) handle: %p\n", pathU8, pLib);
+        printf("pLib (loaded w/ UTF-8 path %s with wd being exec's dir) handle: %p\n", pathU8, pLib);
         r += (p != NULL);
 
         if(pLib) {
@@ -220,7 +231,7 @@ int main(int argc, char* argv[])
   }
 
   /* Check final score of right ones to see if all worked */
-  r = (r == 15);
+  r = (r == 16);
   printf("result: dynload_plain: %d\n", r);
   return !r;
 }
