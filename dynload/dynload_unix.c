@@ -182,6 +182,7 @@ static int iter_phdr_cb(struct dl_phdr_info* info, size_t size, void* data)
     /* unable to relate info->dlpi_addr directly to our dlopen handle, let's
      * do what we do on macOS above, re-dlopen the already loaded lib (just
      * increases ref count) and compare handles */
+	/* @@@ might be b/c it's the reloc addr... see below */
     lib = dlopen(info->dlpi_name, RTLD_LIGHTEST);
     if(lib)
       dlclose(lib);
@@ -192,12 +193,20 @@ static int iter_phdr_cb(struct dl_phdr_info* info, size_t size, void* data)
   if(lib == (void*)d->pLib) {
     l = dl_strlen_strcpy(d->sOut, info->dlpi_name, d->bufSize);
 
-    /* on some platforms (e.g. Linux) dlpi_name is empty for the main process'
-       object, but dlpi_addr is given, in that case lookup name via dladdr */
-    if(l == 0 && d->pLib == NULL && (void*)info->dlpi_addr != NULL) {
-      Dl_info i;
-      if(dladdr((void*)info->dlpi_addr, &i) != 0)
-        l = dl_strlen_strcpy(d->sOut, i.dli_fname, d->bufSize);
+    /* if dlpi_name is empty, lookup name via dladdr(proc_load_addr, ...) */
+    if(l == 0 && d->pLib == NULL) {
+      /* dlpi_addr is the reloc base (0 if PIE), find real virtual load addr */
+      void* vladdr = (void*)info->dlpi_addr;
+      int i = 0;
+      for(; i < info->dlpi_phnum; ++i) {
+        if(info->dlpi_phdr[i].p_type == PT_LOAD) {
+          vladdr = (void*)(info->dlpi_addr + info->dlpi_phdr[i].p_vaddr);
+          break;
+        }
+      }
+      Dl_info di;
+      if(dladdr(vladdr, &di) != 0)
+        l = dl_strlen_strcpy(d->sOut, di.dli_fname, d->bufSize);
     }
   }
 

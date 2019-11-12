@@ -82,7 +82,7 @@ is a pointer to a buffer of size
 .Ar sOut .
 If it returns 0, the library name wasn't able to be found. Please note that this might happen in some rare cases, so make sure to always check. Passing a null pointer as
 .Ar pLib
-returns the path to the executable (not guaranteed to be absolute).
+returns the path to the executable (not guaranteed to be absolute - if it isn't it's relative to the working directory the process was started in, not the current one).
 .Pp
 The dlSyms* functions can be used to iterate over symbols. Since they can be used on libraries that are not linked, they are made
 for symbol name lookups, not to get symbols' addresses. For that refer to
