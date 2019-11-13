@@ -9,7 +9,10 @@ dynload:
   o added UTF-8 support for pathnames on windows
   o reliability/stability fix for dlGetLibraryPath() on glibc based platforms (avoiding
     internal use of glibc's bad impl of dlinfo() which doesn't do any error checking at all)
+  o Darwin/macos fix for dlGetLibraryPath() to correctly fail on bogus handles (did return
+    paths to random libraries under some circumstances, instead of returning an error)
   o support for dlGetLibraryPath() on glibc platforms with glibc vesions <= 2.3.3
+  o dlGetLibraryPath() now accepts NULL as argument to return path to executable
 doc:
   o more detail in support matrix for bi-endian platforms
 tests:

@@ -145,7 +145,7 @@ int dlGetLibraryPath(DLLib* pLib, char* sOut, int bufSize)
 
         /* compare handle pointers' high bits (in low 2 bits some flags might */
         /* be stored - should be safe b/c address needs alignment, anyways) */
-        if(((intptr_t)pLib ^ (intptr_t)lib) < 4) {
+        if(((uintptr_t)pLib ^ (uintptr_t)lib) < 4) {
           l = dl_strlen_strcpy(sOut, libPath, bufSize);
           break;
         }
