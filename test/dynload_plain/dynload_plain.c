@@ -34,7 +34,21 @@
 #else
 #  include <unistd.h>
 #endif
-#include <libgen.h>
+
+#if defined(DC_WINDOWS)
+char* dirname(char* path)
+{
+  static const char dot[] = ".";
+  char* p = strrchr(path, '\\');
+  if(p)
+    *p = '\0';
+  else
+    path = (char*)dot;
+  return path;
+}
+#else
+#  include <libgen.h>
+#endif
 
 
 int strlen_utf8(const char *s)
