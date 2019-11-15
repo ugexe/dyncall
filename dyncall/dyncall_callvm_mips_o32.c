@@ -172,11 +172,9 @@ static void dc_callvm_argDouble_mips_o32(DCCallVM* in_self, DCdouble x)
 void dc_callvm_call_mips_o32(DCCallVM* in_self, DCpointer target)
 {
   DCCallVM_mips_o32* self = (DCCallVM_mips_o32*)in_self;
-  /* at minimum provide 16-bytes
-     which hold the first four integer register as spill area 
-     and are automatically loaded to $4-$7
-   */
 
+  /* provide multiple of 8 (reflecting stack area alignment requirement), and
+     minimum of 16-bytes (to hold first 4 int regis as spill area ($4-$7)) */
   size_t size = DC_MAX(16, ( ( (unsigned) dcVecSize(&self->mVecHead) ) +7UL ) & (-8UL) );
 
   dcCall_mips_o32(target, &self->mRegData, size, dcVecData(&self->mVecHead));
