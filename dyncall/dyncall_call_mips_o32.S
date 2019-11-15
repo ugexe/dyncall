@@ -24,7 +24,7 @@
 */
 	/* $4   target function */
 	/* $5   register data */
-	/* $6   stack size (min 16-byte aligned to 8-bytes already) */
+	/* $6   stack size (guaranteed to be >= 16b and multiple of 8b) */
 	/* $7   stack data */
 
 
@@ -43,11 +43,11 @@ dcCall_mips_o32:
 	.fmask  0x00000000,0
 	.set    noreorder
 	
-	addiu   $sp,$sp,-8
-	sw      $31,4($sp)      /* save link register */
-	sw      $fp,0($sp)      /* save frame pointer */
+	addiu   $sp, $sp, -8
+	sw      $31, 4($sp)     /* save link register */
+	sw      $fp, 0($sp)     /* save frame pointer */
 	nop
-	move    $fp,$sp         /* frame pointer = sp */
+	move    $fp, $sp        /* frame pointer = sp */
 	sub     $sp, $sp, $6    /* increment stack */
 
 	/* copy stack data */
@@ -56,18 +56,18 @@ dcCall_mips_o32:
 	/* $14  destination (stack pointer) */
 	/* $6   byte count */
 
-	move    $12, $7
-	move    $14, $sp
+	move    $12,  $7
+	move    $14,  $sp
 
 .next:
-	beq     $6, $0, .skip
+	beq     $6,  $0, .skip
 	nop
-	lw      $2, 0($12)
+	lw      $2,  0($12)
 	nop
-	sw      $2, 0($14)
-	addiu   $12,$12, 4
-	addiu   $14,$14, 4
-	addiu   $6, $6, -4
+	sw      $2,  0($14)
+	addiu   $12, $12, 4
+	addiu   $14, $14, 4
+	addiu   $6,  $6, -4
 	j       .next
 	nop
 .skip:
@@ -81,26 +81,26 @@ dcCall_mips_o32:
 
 	/* prepare call */
 
-	move    $12, $7        /* $12  stack data */
-	move    $25, $4        /* $25  target function */
+	move    $12,  $7        /* $12  stack data */
+	move    $25,  $4        /* $25  target function */
 
 	/* load first four integer arguments ($4-$7) */
 
-	lw      $4, 0($12)
-	lw      $5, 4($12)
-	lw      $6, 8($12)
-	lw      $7,12($12)
+	lw      $4,  0($12)
+	lw      $5,  4($12)
+	lw      $6,  8($12)
+	lw      $7, 12($12)
 
 	/* call target function */
 
 	jalr    $25
 	nop
-	move    $sp,$fp        /* restore stack pointer */
+	move    $sp, $fp        /* restore stack pointer */
 	nop
-	lw      $31,4($sp)     /* restore return address */
-	lw      $fp,0($sp)     /* restore frame pointer */
-	addiu   $sp,$sp,8      /* end stack frame */
-	j       $31            /* return */
+	lw      $31, 4($sp)     /* restore return address */
+	lw      $fp, 0($sp)     /* restore frame pointer */
+	addiu   $sp, $sp, 8     /* end stack frame */
+	j       $31             /* return */
 	nop
 
 	.set    reorder
