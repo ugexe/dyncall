@@ -3,10 +3,11 @@
  Package: dyncall
  Library: test
  File: test/plain/test_structs.c
- Description: 
+ Description:
  License:
 
    Copyright (c) 2010-2015 Olivier Chafik <olivier.chafik@gmail.com>
+                      2019 Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
    purpose with or without fee is hereby granted, provided that the above
@@ -25,7 +26,6 @@
 
 
 
-#include "../common/test_framework.h"
 #include "../../dyncall/dyncall.h"
 #include "../../dyncall/dyncall_signature.h"
 #include "../../dyncall/dyncall_struct.h"
@@ -34,14 +34,16 @@
 #define DC_TEST_INT_EQUAL(expected, computed) { \
 	if (expected != computed) \
 		printf("expected = %d, computed = %d\n\n", (int)expected, (int)computed); \
-	DC_TEST(expected == computed); \
+	ret = (expected == computed) && ret; \
 }
 #define DC_TEST_STRUCT_SIZE(type, s) { \
 	DCsize expected = sizeof(type), computed = dcStructSize(s);\
 	DC_TEST_INT_EQUAL(expected, computed); \
 }
 
-DC_DEFINE_TEST_FUNC_BEGIN(testStructSizes)
+int testStructSizes()
+{
+	int ret = 1;
 
 	{
 		typedef struct {
@@ -128,7 +130,8 @@ DC_DEFINE_TEST_FUNC_BEGIN(testStructSizes)
 	TEST_MONO_STRUCT(float,              DC_SIGCHAR_FLOAT);
 	TEST_MONO_STRUCT(double,             DC_SIGCHAR_DOUBLE);
 
-DC_DEFINE_TEST_FUNC_END
+	return ret;
+}
 
 
 
@@ -156,7 +159,9 @@ double sum_SomeValues(SomeValues values)
 }
 
 
-DC_DEFINE_TEST_FUNC_BEGIN(testCallStructs)
+int testCallStructs()
+{
+	int ret = 1;
 
 	DCCallVM* pc = dcNewCallVM(4096);
 	{
@@ -214,5 +219,6 @@ DC_DEFINE_TEST_FUNC_BEGIN(testCallStructs)
 
 	dcFree(pc);
 
-DC_DEFINE_TEST_FUNC_END
+	return ret;
+}
 
