@@ -1,0 +1,130 @@
+; #include <stdlib.h>
+; 
+; void leaf_call(int b, int c, int d, int e, int f, int g, int h)
+; {
+; }
+; 
+; void nonleaf_call(int a, int b, int c, int d, int e, int f, int g, int h)
+; {
+; 	/* use some local data */
+; 	*(char*)alloca(220) = 'L';
+; 	leaf_call(b, c, d, e, f, g, h);
+; }
+; 
+; int main()
+; {
+; 	nonleaf_call(0, 1, 2, 3, 4, 5, 6, 7);
+; 	return 0;
+; }
+
+
+
+; output from freebsd-11.0-ppc64 w/ gcc 4.2.1
+
+0000000000000000 <.leaf_call>:
+   0:	fb e1 ff f8 	std     r31,-8(r1)
+   4:	f8 21 ff c1 	stdu    r1,-64(r1)
+   8:	7c 3f 0b 78 	mr      r31,r1
+   c:	7c 60 1b 78 	mr      r0,r3
+  10:	7c 8b 23 78 	mr      r11,r4
+  14:	7c aa 2b 78 	mr      r10,r5
+  18:	90 1f 00 70 	stw     r0,112(r31)
+  1c:	91 7f 00 78 	stw     r11,120(r31)
+  20:	91 5f 00 80 	stw     r10,128(r31)
+  24:	90 df 00 88 	stw     r6,136(r31)
+  28:	90 ff 00 90 	stw     r7,144(r31)
+  2c:	91 1f 00 98 	stw     r8,152(r31)
+  30:	91 3f 00 a0 	stw     r9,160(r31)
+  34:	e8 21 00 00 	ld      r1,0(r1)
+  38:	eb e1 ff f8 	ld      r31,-8(r1)
+  3c:	4e 80 00 20 	blr
+	...
+  48:	80 01 00 01 	lwz     r0,1(r1)
+
+000000000000004c <.nonleaf_call>:
+  4c:	7c 08 02 a6 	mflr    r0
+  50:	fb e1 ff f8 	std     r31,-8(r1)
+  54:	f8 01 00 10 	std     r0,16(r1)
+  58:	f8 21 ff 71 	stdu    r1,-144(r1)
+  5c:	7c 3f 0b 78 	mr      r31,r1
+  60:	7c 60 1b 78 	mr      r0,r3
+  64:	7c 8b 23 78 	mr      r11,r4
+  68:	90 1f 00 c0 	stw     r0,192(r31)
+  6c:	91 7f 00 c8 	stw     r11,200(r31)
+  70:	90 bf 00 d0 	stw     r5,208(r31)
+  74:	90 df 00 d8 	stw     r6,216(r31)
+  78:	90 ff 00 e0 	stw     r7,224(r31)
+  7c:	91 1f 00 e8 	stw     r8,232(r31)
+  80:	91 3f 00 f0 	stw     r9,240(r31)
+  84:	91 5f 00 f8 	stw     r10,248(r31)
+  88:	e8 01 00 00 	ld      r0,0(r1)
+  8c:	f8 01 ff 11 	stdu    r0,-240(r1)
+  90:	39 21 00 70 	addi    r9,r1,112
+  94:	f9 3f 00 70 	std     r9,112(r31)
+  98:	e9 3f 00 70 	ld      r9,112(r31)
+  9c:	38 09 00 0f 	addi    r0,r9,15
+  a0:	78 00 e1 02 	rldicl  r0,r0,60,4
+  a4:	78 00 26 e4 	rldicr  r0,r0,4,59
+  a8:	f8 1f 00 70 	std     r0,112(r31)
+  ac:	e9 3f 00 70 	ld      r9,112(r31)
+  b0:	38 00 00 4c 	li      r0,76
+  b4:	98 09 00 00 	stb     r0,0(r9)
+  b8:	80 1f 00 c8 	lwz     r0,200(r31)
+  bc:	7c 08 07 b4 	extsw   r8,r0
+  c0:	80 1f 00 d0 	lwz     r0,208(r31)
+  c4:	7c 07 07 b4 	extsw   r7,r0
+  c8:	80 1f 00 d8 	lwz     r0,216(r31)
+  cc:	7c 06 07 b4 	extsw   r6,r0
+  d0:	80 1f 00 e0 	lwz     r0,224(r31)
+  d4:	7c 09 07 b4 	extsw   r9,r0
+  d8:	80 1f 00 e8 	lwz     r0,232(r31)
+  dc:	7c 0b 07 b4 	extsw   r11,r0
+  e0:	80 1f 00 f0 	lwz     r0,240(r31)
+  e4:	7c 0a 07 b4 	extsw   r10,r0
+  e8:	80 1f 00 f8 	lwz     r0,248(r31)
+  ec:	7c 00 07 b4 	extsw   r0,r0
+  f0:	7d 03 43 78 	mr      r3,r8
+  f4:	7c e4 3b 78 	mr      r4,r7
+  f8:	7c c5 33 78 	mr      r5,r6
+  fc:	7d 26 4b 78 	mr      r6,r9
+ 100:	7d 67 5b 78 	mr      r7,r11
+ 104:	7d 48 53 78 	mr      r8,r10
+ 108:	7c 09 03 78 	mr      r9,r0
+ 10c:	48 00 00 01 	bl      10c <.nonleaf_call+0xc0>
+ 110:	e8 21 00 00 	ld      r1,0(r1)
+ 114:	e8 01 00 10 	ld      r0,16(r1)
+ 118:	7c 08 03 a6 	mtlr    r0
+ 11c:	eb e1 ff f8 	ld      r31,-8(r1)
+ 120:	4e 80 00 20 	blr
+ 124:	00 00 00 00 	.long 0x0
+ 128:	00 00 00 01 	.long 0x1
+ 12c:	80 01 00 01 	lwz     r0,1(r1)
+
+0000000000000130 <.main>:
+ 130:	7c 08 02 a6 	mflr    r0
+ 134:	fb e1 ff f8 	std     r31,-8(r1)
+ 138:	f8 01 00 10 	std     r0,16(r1)
+ 13c:	f8 21 ff 81 	stdu    r1,-128(r1)
+ 140:	7c 3f 0b 78 	mr      r31,r1
+ 144:	38 60 00 00 	li      r3,0
+ 148:	38 80 00 01 	li      r4,1
+ 14c:	38 a0 00 02 	li      r5,2
+ 150:	38 c0 00 03 	li      r6,3
+ 154:	38 e0 00 04 	li      r7,4
+ 158:	39 00 00 05 	li      r8,5
+ 15c:	39 20 00 06 	li      r9,6
+ 160:	39 40 00 07 	li      r10,7
+ 164:	48 00 00 01 	bl      164 <.main+0x34>
+ 168:	38 00 00 00 	li      r0,0
+ 16c:	7c 03 03 78 	mr      r3,r0
+ 170:	e8 21 00 00 	ld      r1,0(r1)
+ 174:	e8 01 00 10 	ld      r0,16(r1)
+ 178:	7c 08 03 a6 	mtlr    r0
+ 17c:	eb e1 ff f8 	ld      r31,-8(r1)
+ 180:	4e 80 00 20 	blr
+ 184:	00 00 00 00 	.long 0x0
+ 188:	00 00 00 01 	.long 0x1
+ 18c:	80 01 00 01 	lwz     r0,1(r1)
+
+; vim: ft=asm
+
