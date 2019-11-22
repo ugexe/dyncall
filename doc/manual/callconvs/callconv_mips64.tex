@@ -1,6 +1,6 @@
 %//////////////////////////////////////////////////////////////////////////////
 %
-% Copyright (c) 2007-2016 Daniel Adler <dadler@uni-goettingen.de>,
+% Copyright (c) 2007-2019 Daniel Adler <dadler@uni-goettingen.de>,
 %                         Tassilo Philipp <tphilipp@potion-studios.com>
 %
 % Permission to use, copy, modify, and distribute this software for any
@@ -17,7 +17,7 @@
 %
 %//////////////////////////////////////////////////////////////////////////////
 
-\subsection{MIPS64 Calling Convention}
+\subsection{MIPS64 Calling Conventions}
 
 \paragraph{Overview}
 
@@ -25,7 +25,7 @@ There are two main ABIs in use for MIPS64 chips, \emph{N64}\cite{MIPSn32/n64} an
 basically the same, except that N32 uses 32-bit pointers and long integers, instead of 64. All registers of a MIPS64 chip are considered
 to be 64-bit wide, even for the N32 calling convention.\\
 The word size is defined to be 32 bits, a dword 64 bits. Note that this is due to historical reasons (terminology didn't change from MIPS32).\\
-Other than that there are 64-bit versions of the other ABIs found for MIPS32, e.g. the EABI\cite{MIPSeabi} and O64\cite{MIPSo64}.
+Other than that there are correspoding 64-bit versions other MIPS32 ABIs, e.g. the EABI\cite{MIPSeabi} and O64\cite{MIPSo64}.
 
 \paragraph{\product{dyncall} support}
 
@@ -41,21 +41,21 @@ The N32 calling convention might work - it used to, but hasn't been tested, rece
 Name                                   & Alias                & Brief description\\
 \hline
 {\bf \$0}                              & {\bf \$zero}         & hardware zero \\
-{\bf \$1}                              & {\bf \$at}           & assembler temporary \\
-{\bf \$2-\$3}                          & {\bf \$v0-\$v1}      & return value (only integer on hard-float targets) \\
-{\bf \$4-\$11}                         & {\bf \$a0-\$a7}      & first arguments (only integer on hard-float targets) \\
+{\bf \$1}                              & {\bf \$at}           & assembler temporary, scratch \\
+{\bf \$2-\$3}                          & {\bf \$v0-\$v1}      & return value (only integer on hard-float targets), scratch \\
+{\bf \$4-\$11}                         & {\bf \$a0-\$a7}      & first arguments (only integer on hard-float targets), scratch \\
 {\bf \$12-\$15,\$24}                   & {\bf \$t4-\$t7,\$t8} & temporaries, scratch \\
-{\bf \$25}                             & {\bf \$t9}           & temporary, holds the address of the called function for all PIC calls (by convention) \\
-{\bf \$16-\$23}                        & {\bf \$s0-\$s7}      & preserved \\
+{\bf \$25}                             & {\bf \$t9}           & temporary, address callee for all PIC calls (by convention), scratch \\
+{\bf \$16-\$23}                        & {\bf \$s0-\$s7}      & preserve \\
 {\bf \$26,\$27}                        & {\bf \$kt0,\$kt1}    & reserved for kernel \\
 {\bf \$28}                             & {\bf \$gp}           & global pointer, preserve \\
 {\bf \$29}                             & {\bf \$sp}           & stack pointer, preserve \\
 {\bf \$30}                             & {\bf \$s8}           & frame pointer, preserve \\
 {\bf \$31}                             & {\bf \$ra}           & return address, preserve \\
 {\bf hi, lo}                           &                      & multiply/divide special registers \\
-{\bf \$f0,\$f2}                        &                      & only on hard-float targets: float results \\
-{\bf \$f1,\$f3,\$f4-\$f11,\$f20-\$f23} &                      & only on hard-float targets: float temporaries \\
-{\bf \$f12-\$f19}                      &                      & only on hard-float targets: float arguments \\
+{\bf \$f0,\$f2}                        &                      & only on hard-float targets: float results, scratch \\
+{\bf \$f1,\$f3,\$f4-\$f11,\$f20-\$f23} &                      & only on hard-float targets: float temporaries, scratch \\
+{\bf \$f12-\$f19}                      &                      & only on hard-float targets: float arguments, scratch \\
 {\bf \$f24-\$f31}                      &                      & only on hard-float targets: preserved \\%@@@on N32, this changes
 \end{tabular*}
 \caption{Register usage on MIPS N64 calling convention}
@@ -75,43 +75,42 @@ Name                                   & Alias                & Brief descriptio
 \item all stack regions are 16-byte aligned
 \item results are returned in \$v0, and for a second one \$v1 is used
 \item only on hard-float targets: floating point results are returned in \$f0
-\item float arguments passed in the variable part of a vararg call are passed like integers
+\item if the callee takes the address of one of the parameters and uses it to address other unnamed parameters (e.g. varargs) it has to copy - in its prolog - the the argument registers to a reserved stack area adjacent to the other parameters on the stack (only the unnamed integer parameters require saving, though) % @@@ seems to *ONLY* spill with varargs, never for any other reason
+\item float arguments passed in the variable part of a vararg call are passed like integers, meaning float registers don't ever need to be saved that way, so only \$a0-\$a7 are need to be spilled
 \item quad precision float arguments are passed in even-odd register pairs, skipping one register if needed
 \item integer parameters \textless\ 64 bit are right-justified (meaning occupy higher-address bytes) in their 8-byte slot on the stack, requiring extra-care for big-endian targets
 \item single precision float parameters (32 bit) are left-justified in their 8-byte slot on the stack, but are right justified in fp-registers on big endian targets, as they aren't promoted @@@doc says "undecided", but openbsd/octeon(mipseb) has it as described here
 \end{itemize}
+% maybe note somewhere that "prolog-based" spilling is neat for dyncall, as we don't have to care
 
 \paragraph{Stack layout}
 
+% verified/amended: TP nov 2019 (see also doc/disas_examples/mips64.n64.disas)
 Stack directly after function prolog:\\
-@@@ might be wrong
 
 \begin{figure}[h]
 \begin{tabular}{5|3|1 1}
-\hhline{~-~~}
-                                & \vdots       &                                &                              \\
+                                         & \vdots                   &                                      &                              \\
 \hhline{~=~~}                            
-register save area              & \hspace{4cm} &                                & \mrrbrace{5}{caller's frame} \\
+register save area                       & \hspace{4cm}             &                                      & \mrrbrace{5}{caller's frame} \\
 \hhline{~-~~}                            
-local data                      &              &                                &                              \\
+local data                               &                          &                                      &                              \\
 \hhline{~-~~}                            
-\mrlbrace{3}{parameter area}    & \ldots       & \mrrbrace{3}{stack parameters} &                              \\
-                                & \ldots       &                                &                              \\
-                                & \ldots       &                                &                              \\
+\mrlbrace{6}{parameter area}             & arg n-1                  & \mrrbrace{3}{stack parameters}       &                              \\
+                                         & \ldots                   &                                      &                              \\
+                                         & arg 8                    &                                      &                              \\
 \hhline{~=~~}
-register save area              & padding      &                                & \mrrbrace{7}{current frame}  \\
-                                & \$ra         &                                &                              \\
-                                & \$s8         &                                &                              \\
-                                & \$gp         &                                &                              \\
+                                         & \$a7                     & \mrrbrace{3}{spill area (if needed)} & \mrrbrace{6}{current frame}  \\
+                                         & \ldots                   &                                      &                              \\
+                                         & \$a? (first unnamed reg) &                                      &                              \\
+\hhline{~-~~}                                                                             
+register save area (with return address) &                          &                                      &                              \\
 \hhline{~-~~}
-local data                      &              &                                &                              \\
+local data                               &                          &                                      &                              \\
 \hhline{~-~~}
-parameter area                  &              &                                &                              \\
-\hhline{~-~~}
-                                & \vdots       &                                &                              \\
-\hhline{~-~~}
+parameter area                           & \vdots                   &                                      &                              \\
 \end{tabular}
-\caption{Stack layout on mips64 n64 calling convention}
+\caption{Stack layout on MIPS N64 calling convention}
 \end{figure}
 
 
