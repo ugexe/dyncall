@@ -135,6 +135,7 @@ manual:
 - introduce doc overview tables and common vocab for calling convention specifics, following example of table on page 13 of https://www.linux-mips.org/pub/linux/mips/doc/ABI/MIPS-N32-ABI-Handbook.pdf; also as inspiration, e.g. user 'preserved' instead of 'permanent', etc. https://developer.apple.com/library/content/documentation/Xcode/Conceptual/iPhoneOSABIReference/Articles/ARMv6FunctionCallingConventions.html#//apple_ref/doc/uid/TP40009021-SW4
   * also, get inspiration for naming for GCC predefs as talked about in https://stffrdhrn.github.io/software/embedded/openrisc/2018/06/08/gcc_stack_frames.html
 - make stack layout diagrams better, e.g. add grow direction (example: https://developer.apple.com/library/content/documentation/Xcode/Conceptual/iPhoneOSABIReference/art/arm_stack.jpg on https://developer.apple.com/library/content/documentation/Xcode/Conceptual/iPhoneOSABIReference/Articles/ARMv6FunctionCallingConventions.html#//apple_ref/doc/uid/TP40009021-SW1)
+  * another example, chapter 3 of: ftp://www.sourceware.org/pub/binutils/ppc-docs/ppc-poweropen/
 - provide more examples on how to use dyncall, dynload and dyncallback
   * e.g. enhance manual with a couple of examples (e.g. calling MessageBoxA on windows, etc.)
 - manuals for bindings (as stated in bindings-section, above)

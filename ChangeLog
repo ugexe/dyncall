@@ -15,8 +15,13 @@ dynload:
   o dlGetLibraryPath() now accepts NULL as argument to return path to executable
 doc:
   o more detail in support matrix for bi-endian platforms
+  o improvements/corrections to calling convention appendix
+  o PPC64 calling convention description
+  o man page additions for clarity
 tests:
   o dynload_plain test extended to test UTF-8 library paths
+  o better output for plain test
+  o better output and *nix fix for plain_c++ test
 buildsys:
   o default ./configure: FreeBSD/mips*hf needed -mhard-float compiler flag set explicitly
   o better MacOS Mojave support in ./configure (Mojave dropped i386 builds)
