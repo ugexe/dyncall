@@ -499,7 +499,7 @@
   90:   c4 27 a7 fb     st  %g2, [ %fp + 0x7fb ]        ; ... copied to local space (0x7fb - bias = -4) helper var (probably int g)
   94:   82 00 60 08     add  %g1, 8, %g1                ; point read ptr in g1 to second unnamed param (float, promoted to double), ...
   98:   c2 77 a7 e7     stx  %g1, [ %fp + 0x7e7 ]       ; ... store in local space (0x7fb - bias = -24)
-  9c:   91 d0 20 05     ta  5                           ; trap - not sure what else is involved (objdump was made from .o, not finally linked exec)
+  9c:   91 d0 20 05     ta  5                           ; trap - not sure what else is involved (objdump was made from .o, not finally linked exec) - maybe just b/c objdump skipped this for the output?
 
 00000000000000a0 <main>:
   a0:   9d e3 bf 30     save  %sp, -208, %sp            ; prolog

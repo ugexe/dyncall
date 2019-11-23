@@ -28,9 +28,10 @@
 \item Word size is 32 bits
 \item Big endian (MSB) and litte endian (LSB) operating modes.
 \item Processor operates on floats in double precision floating point arithmetc (IEEE-754) values directly (single precision is converted on the fly)
-\item Apple Mac OS X/Darwin PPC is specified in "Mac OS X ABI Function Call Guide"\cite{ppcMacOSX}. It uses Big Endian (MSB).
-\item Linux PPC 32-bit ABI is specified in "LSB for PPC"\cite{ppc32LSB} which is based on "System V ABI". It uses Big Endian (MSB).
-\item PowerPC EABI is defined in the "PowerPC Embedded Application Binary Interface 32-Bit Implementation".
+\item Apple macos/Mac OS X/Darwin PPC is specified in "Mac OS X ABI Function Call Guide"\cite{ppcMacOSX}. It uses Big Endian (MSB)
+\item Linux PPC 32-bit ABI is specified in "LSB for PPC"\cite{ppc32LSB} which is based on "System V ABI". It uses Big Endian (MSB)
+\item PowerPC EABI is defined in the "PowerPC Embedded Application Binary Interface 32-Bit Implementation"\cite{ppceabi}
+\item There is also the "PowerOpen ABI"\cite{poabi}, a nearly identical version of it is used in AIX % more info: http://www.ingallegri.com/public/ppc.html
 \end{itemize}
 
 \paragraph{\product{dyncall} support}
@@ -76,19 +77,19 @@ Name                & Brief description\\
 \item stack parameter order: right-to-left
 \item caller cleans up the stack
 \item the first 8 integer parameters are passed in registers gpr3-gpr10
-\item the first 12 floating point parameters are passed in registers fpr1-fpr13
+\item the first 13 floating point parameters are passed in registers fpr1-fpr13
 \item 64 bit arguments are passed as if they were two 32 bit arguments, without skipping registers for alignment (this means passing half via a register and half via the stack is allowed)
 \item if a float parameter is passed via a register, gpr registers are skipped for subsequent integer parameters (based on the size of
 the float - 1 register for single precision and 2 for double precision floating point values)
 \item the caller pushes subsequent parameters onto the stack
 \item for every parameter passed via a register, space is reserved in the stack parameter area (in order to spill the parameters if
 needed - e.g. varargs)
-\item ellipsis calls take floating point values in int and float registers (single precision floats are promoted to double precision
-as defined for ellipsis calls)
+\item ellipsis calls take floating point values in int and float registers (single precision floats are promoted to double precision as
+required by ellipsis calls)
 \item all nonvector parameters are aligned on 4-byte boundaries
 \item vector parameters are aligned on 16-byte boundaries
 \item composite parameters with size of 1 or 2 bytes occupy low-order bytes of their 4-byte area. INCONSISTENT with other 32-bit PPC
-binary interfaces. In AIX and OS 9, padding bytes always follow the data structure
+binary interfaces. In AIX and mac OS 9, padding bytes always follow the data structure
 \item composite parameters 3 bytes or larger in size occupy high-order bytes
 \item integer parameters \textless\ 32 bit are right-justified (meaning occupy higher-address bytes) in their 4-byte slot on the stack, requiring extra-care for big-endian targets
 \end{itemize}

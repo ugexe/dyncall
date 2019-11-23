@@ -50,7 +50,7 @@ _nonleaf_call:
       5c:       91 1e 00 7c     stw 8, 124(30)  ; |
       60:       91 3e 00 80     stw 9, 128(30)  ; |
       64:       91 5e 00 84     stw 10, 132(30) ; |
-      68:       80 01 00 00     lwz 0, 0(1)     ; fetch sp saved on stack of top by prolog -> gpr0, and ...
+      68:       80 01 00 00     lwz 0, 0(1)     ; fetch back-chain ptr (parent frame's sp) from stack of top by prolog -> gpr0, and ...
       6c:       94 01 ff 10     stwu 0, -240(1) ; ... update it further up the stack for alloca(220) - with padding to guarantee alignment
       70:       38 41 00 40     addi 2, 1, 64   ; |
       74:       38 02 00 0f     addi 0, 2, 15   ; | start of alloca()'d memory -> gpr2, by ...
@@ -152,7 +152,7 @@ _nonleaf_call:
       60:       91 1e 00 8c     stw 8, 140(30)  ; |
       64:       91 3e 00 90     stw 9, 144(30)  ; |
       68:       91 5e 00 94     stw 10, 148(30) ; |
-      6c:       80 01 00 00     lwz 0, 0(1)     ; fetch sp saved on stack of top by prolog -> gpr0, and ...
+      6c:       80 01 00 00     lwz 0, 0(1)     ; fetch back-chain ptr (parent frame's sp) from stack of top by prolog -> gpr0, and ...
       70:       94 01 ff 10     stwu 0, -240(1) ; ... update it further up the stack for alloca(220) - with padding to guarantee alignment
       74:       38 41 00 50     addi 2, 1, 80   ; |
       78:       38 02 00 0f     addi 0, 2, 15   ; | start of alloca()'d memory -> gpr2, by ...
@@ -335,7 +335,7 @@ _nonleaf_call:
      150:       c8 09 00 00     lfd 0, 0(9)     ; |
      154:       fc 00 00 18     frsp 0, 0       ; |
      158:       d0 1e 00 70     stfs 0, 112(30) ; /
-     15c:       80 01 00 00     lwz 0, 0(1)     ; fetch sp saved on stack of top by prolog -> g
+     15c:       80 01 00 00     lwz 0, 0(1)     ; fetch back-chain ptr (parent frame's sp) from stack of top by prolog -> gpr0, and ...
      160:       94 01 ff 10     stwu 0, -240(1) ; ... update it further up the stack for alloca
      164:       38 41 00 50     addi 2, 1, 80   ; |
      168:       38 02 00 0f     addi 0, 2, 15   ; | start of alloca()'d memory -> gpr2, by ...
