@@ -37,6 +37,13 @@
 	ret = (expected == computed) && ret; \
 }
 
+/* @@@ incomplete and should be makde generally available in dyncall once struct support will make it in */
+#if defined(DC__OS_Plan9)
+#  define DEFAULT_STRUCT_ALIGNMENT 4
+#else
+#  define DEFAULT_STRUCT_ALIGNMENT DEFAULT_ALIGNMENT
+#endif
+
 int testStructSizes()
 {
 	int ret = 1;
@@ -47,7 +54,7 @@ int testStructSizes()
 		} S;
 
 		size_t size;
-		DCstruct* s = dcNewStruct(2, DEFAULT_ALIGNMENT);
+		DCstruct* s = dcNewStruct(2, DEFAULT_STRUCT_ALIGNMENT);
 		dcStructField(s, DC_SIGCHAR_CHAR, DEFAULT_ALIGNMENT, 1);
 		dcStructField(s, DC_SIGCHAR_CHAR, DEFAULT_ALIGNMENT, 1);
 		dcCloseStruct(s);
@@ -61,7 +68,7 @@ int testStructSizes()
 		} S;
 
 		size_t size;
-		DCstruct* s = dcNewStruct(3, DEFAULT_ALIGNMENT);
+		DCstruct* s = dcNewStruct(3, DEFAULT_STRUCT_ALIGNMENT);
 		dcStructField(s, DC_SIGCHAR_CHAR, DEFAULT_ALIGNMENT, 1);
 		dcStructField(s, DC_SIGCHAR_CHAR, DEFAULT_ALIGNMENT, 1);
 		dcStructField(s, DC_SIGCHAR_CHAR, DEFAULT_ALIGNMENT, 1);
@@ -77,7 +84,7 @@ int testStructSizes()
 		} S;
 
 		size_t size;
-		DCstruct* s = dcNewStruct(2, DEFAULT_ALIGNMENT);
+		DCstruct* s = dcNewStruct(2, DEFAULT_STRUCT_ALIGNMENT);
 		dcStructField(s, DC_SIGCHAR_CHAR, DEFAULT_ALIGNMENT, 1);
 		dcStructField(s, DC_SIGCHAR_SHORT, DEFAULT_ALIGNMENT, 1);
 		dcCloseStruct(s);
@@ -91,7 +98,7 @@ int testStructSizes()
 		} S;
 
 		size_t size;
-		DCstruct* s = dcNewStruct(4, DEFAULT_ALIGNMENT);
+		DCstruct* s = dcNewStruct(4, DEFAULT_STRUCT_ALIGNMENT);
 		dcStructField(s, DC_SIGCHAR_DOUBLE, DEFAULT_ALIGNMENT, 1);
 		dcStructField(s, DC_SIGCHAR_DOUBLE, DEFAULT_ALIGNMENT, 1);
 		dcStructField(s, DC_SIGCHAR_DOUBLE, DEFAULT_ALIGNMENT, 1);
@@ -108,7 +115,7 @@ int testStructSizes()
 		} S;
 
 		size_t size;
-		DCstruct* s = dcNewStruct(3, DEFAULT_ALIGNMENT);
+		DCstruct* s = dcNewStruct(3, DEFAULT_STRUCT_ALIGNMENT);
 		dcStructField(s, DC_SIGCHAR_CHAR, DEFAULT_ALIGNMENT, 1);
 		dcStructField(s, DC_SIGCHAR_CHAR, DEFAULT_ALIGNMENT, 1);
 		dcStructField(s, DC_SIGCHAR_POINTER, DEFAULT_ALIGNMENT, 3);
@@ -128,9 +135,9 @@ int testStructSizes()
 		} S;
 	 	
 		size_t size;
-		DCstruct* s = dcNewStruct(3, DEFAULT_ALIGNMENT);
+		DCstruct* s = dcNewStruct(3, DEFAULT_STRUCT_ALIGNMENT);
 		dcStructField(s, DC_SIGCHAR_SHORT, DEFAULT_ALIGNMENT, 1);
-		dcSubStruct(s, 3, DEFAULT_ALIGNMENT, 1);
+		dcSubStruct(s, 3, DEFAULT_STRUCT_ALIGNMENT, 1);
 		dcStructField(s, DC_SIGCHAR_CHAR, DEFAULT_ALIGNMENT, 1);
 		dcStructField(s, DC_SIGCHAR_CHAR, DEFAULT_ALIGNMENT, 1);
 		dcStructField(s, DC_SIGCHAR_POINTER, DEFAULT_ALIGNMENT, 3);
@@ -148,7 +155,7 @@ int testStructSizes()
 			type v; \
 		} S; \
 		 \
-		DCstruct* s = dcNewStruct(1, DEFAULT_ALIGNMENT); \
+		DCstruct* s = dcNewStruct(1, DEFAULT_STRUCT_ALIGNMENT); \
 		dcStructField(s, sigchar, DEFAULT_ALIGNMENT, 1); \
 		dcCloseStruct(s); \
 		 \
@@ -207,7 +214,7 @@ double sum_SomeValues(SomeValues values)
 	{
 		FewValues values;
 		double calledSum, expectedSum;
-		DCstruct* s = dcNewStruct(3, DEFAULT_ALIGNMENT);
+		DCstruct* s = dcNewStruct(3, DEFAULT_STRUCT_ALIGNMENT);
 		dcStructField(s, DC_SIGCHAR_CHAR, DEFAULT_ALIGNMENT, 1);
 		dcStructField(s, DC_SIGCHAR_CHAR, DEFAULT_ALIGNMENT, 1);
 		dcStructField(s, DC_SIGCHAR_CHAR, DEFAULT_ALIGNMENT, 1);
@@ -233,7 +240,7 @@ double sum_SomeValues(SomeValues values)
 	{
 		SomeValues values;
 		double calledSum, expectedSum;
-		DCstruct* s = dcNewStruct(3, DEFAULT_ALIGNMENT);
+		DCstruct* s = dcNewStruct(3, DEFAULT_STRUCT_ALIGNMENT);
 		dcStructField(s, DC_SIGCHAR_CHAR, DEFAULT_ALIGNMENT, 1);
 		dcStructField(s, DC_SIGCHAR_CHAR, DEFAULT_ALIGNMENT, 1);
 		dcStructField(s, DC_SIGCHAR_DOUBLE, DEFAULT_ALIGNMENT, 10);
