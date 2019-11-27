@@ -1,6 +1,6 @@
 %//////////////////////////////////////////////////////////////////////////////
 %
-% Copyright (c) 2007,2009 Daniel Adler <dadler@uni-goettingen.de>, 
+% Copyright (c) 2007-2019 Daniel Adler <dadler@uni-goettingen.de>, 
 %                         Tassilo Philipp <tphilipp@potion-studios.com>
 %
 % Permission to use, copy, modify, and distribute this software for any
@@ -117,9 +117,10 @@ double call_as_sqrt(void* funptr, double x)
 }
 \end{lstlisting}
 
-As you can see, this is more code after all, but completely dynamic.
-And definitely less than generated glue-code for each function call, if
-used correctly.
+This is more code than a direct, hardcoded function call, however it's completely dynamic.
+Also, despite this coming with an overhead of more executed code per single function call,
+compared to function interface wrapper tools that generate per call glue-code less code is
+used overall, . % might want to test this claim against swig, etc.
 
 The following are examples from script bindings:
 
@@ -155,28 +156,14 @@ Please note that a green cell (even a light-green one) doesn't imply that all ex
 important). The rightmost column gives a brief info about calling convention support or other notes.
 For detailed info about a platform's support consult the calling convention appendix.
 
-% OLD support matrix
-%\begin{table}[h]
-%\begin{tabular}{r|*{3}{c!{\color{gray2}\vrule}}*{4}{c!{\color{gray2}\vrule}}*{11}{c!{\color{gray2}\vrule}}}
-%                              & \ninety{\bf Alpha} & \ninety{\bf ARM} & \ninety{\bf ARM64} & \multicolumn{2}{c!{\color{gray2}\vrule}}{\ninety{\bf MIPS}} & \multicolumn{2}{c!{\color{gray2}\vrule}}{\ninety{\bf MIPS64}} & \ninety{\bf SuperH} & \ninety{\bf PowerPC} & \ninety{\bf PowerPC64} & \ninety{\bf m68k} & \ninety{\bf m88k} & \ninety{\bf x86} & \ninety{\bf x64} & \ninety{\bf Itanium} & \ninety{\bf SPARC} & \ninety{\bf SPARC64} & \ninety{\bf RISC-V} \\
-%                              &                    &                  &                    & \ninety{\tiny EB} & \ninety{\tiny EL}                       & \ninety{\tiny EB} & \ninety{\tiny EL}                         &                     &                      &                        &                   &                   &                  &                  &                      &                    &                      &                     \\
-%\hline                                                                                                                                                                                                                                                                                                                                                                                                                                          
-%{\bf Windows family}          & \marknotx          & \markunkn        & \marknotx          & \marknotx         & \marknotx                               & \marknotx         & \marknotx                                 & \marknotx           & \marknotx            & \marknotx              & \marknotx         & \marknotx         & \markcmpl        & \markcmpl        & \marknimp            & \marknotx          & \marknotx            & \marknotx           \\
-%{\bf Linux}                   & \marknimp          & \markcmpl        & \markcmpl          & \markcmpl         & \markunkn                               & \markunkn         & \markcmpl                                 & \marknimp           & \markcmpl            & \markcmpl              & \marknimp         & \marknimp         & \markcmpl        & \markcmpl        & \marknimp            & \markcmpl          & \markcmpl            & \marknimp           \\
-%{\bf macOS / iOS / Darwin}    & \marknotx          & \markcmpl        & \markcmpl          & \marknotx         & \marknotx                               & \marknotx         & \marknotx                                 & \marknotx           & \markcmpl            & \markunkn              & \marknotx         & \marknotx         & \markcmpl        & \markcmpl        & \marknotx            & \marknotx          & \marknotx            & \marknotx           \\
-%{\bf FreeBSD}                 & \marknimp          & \markcmpl        & \markcmpl          & \markunkn         & \markunkn                               & \markunkn         & \markunkn                                 & \marknotx           & \markimpl            & \markcmpl              & \marknotx         & \marknotx         & \markcmpl        & \markcmpl        & \marknimp            & \marknotx          & \markcmpl            & \marknimp           \\
-%{\bf NetBSD}                  & \marknimp          & \markcmpl        & \marknotx          & \markunkn         & \markcmpl                               & \markunkn         & \markunkn                                 & \marknimp           & \markimpl            & \marknotx              & \marknimp         & \marknimp         & \markcmpl        & \markcmpl        & \marknimp            & \markcmpl          & \markcmpl            & \marknimp           \\
-%{\bf OpenBSD}                 & \marknimp          & \markcmpl        & \markunkn          & \markunkn         & \markunkn                               & \markcmpl         & \markunkn                                 & \marknimp           & \markunkn            & \marknotx              & \marknimp         & \marknimp         & \markcmpl        & \markcmpl        & \marknimp            & \markcmpl          & \markcmpl            & \marknotx           \\
-%{\bf DragonFlyBSD}            & \marknotx          & \marknotx        & \marknotx          & \marknotx         & \marknotx                               & \marknotx         & \marknotx                                 & \marknotx           & \marknotx            & \marknotx              & \marknotx         & \marknotx         & \markcmpl        & \markcmpl        & \marknotx            & \marknotx          & \marknotx            & \marknotx           \\
-%{\bf Solaris / SunOS}         & \marknotx          & \marknotx        & \marknotx          & \marknotx         & \marknotx                               & \marknotx         & \marknotx                                 & \marknotx           & \marknotx            & \marknotx              & \marknotx         & \marknotx         & \markcmpl        & \markcmpl        & \marknotx            & \markcmpl          & \markimpl            & \marknotx           \\
-%{\bf Plan 9 / 9front}         & \marknimp          & \marknimp        & \marknotx          & \marknimp         & \marknimp                               & \marknotx         & \marknotx                                 & \marknotx           & \marknimp            & \marknotx              & \marknotx         & \marknotx         & \markcmpl        & \marknimp        & \marknotx            & \marknimp          & \marknotx            & \marknotx           \\
-%{\bf Haiku / BeOS}            & \marknotx          & \marknotx        & \marknotx          & \marknotx         & \marknotx                               & \marknotx         & \marknotx                                 & \marknotx           & \marknotx            & \marknotx              & \marknotx         & \marknotx         & \markcmpl        & \marknotx        & \marknotx            & \marknotx          & \marknotx            & \marknotx           \\
-%{\bf Minix}                   & \marknotx          & \markunkn        & \marknotx          & \marknotx         & \marknotx                               & \marknotx         & \marknotx                                 & \marknotx           & \marknotx            & \marknotx              & \marknotx         & \marknotx         & \markcmpl        & \marknotx        & \marknotx            & \marknotx          & \marknotx            & \marknotx           \\
-%{\bf Playstation Portable}    & \marknotx          & \marknotx        & \marknotx          & \marknotx         & \markcmpl                               & \marknotx         & \marknotx                                 & \marknotx           & \marknotx            & \marknotx              & \marknotx         & \marknotx         & \marknotx        & \marknotx        & \marknotx            & \marknotx          & \marknotx            & \marknotx           \\
-%{\bf Nintendo DS}             & \marknotx          & \markcmpl        & \marknotx          & \marknotx         & \marknotx                               & \marknotx         & \marknotx                                 & \marknotx           & \marknotx            & \marknotx              & \marknotx         & \marknotx         & \marknotx        & \marknotx        & \marknotx            & \marknotx          & \marknotx            & \marknotx           \\
-%\end{tabular}
-%\caption{Supported platforms}%
-%\end{table}
+
+% colors used to signalize undefined, not used, supported, etc. states.
+\newcommand{\marknull}{\cellcolor{white}}
+\newcommand{\markcmpl}{\cellcolor{lightgreen}}
+\newcommand{\markimpl}{\cellcolor{darkgreen}}
+\newcommand{\marknimp}{\cellcolor{red}}
+\newcommand{\markunkn}{\cellcolor{yellow}}
+\newcommand{\marknotx}{\cellcolor{gray1}}
 
 \newcommand{\OSwinfam} {\ninety{Windows family}      }
 \newcommand{\OSlinux}  {\ninety{Linux}               }
@@ -244,6 +231,29 @@ RISC-V                     &    & \marknotx  & \marknimp  & \marknotx  & \markni
 \end{tabular}
 \caption{Supported platforms}%
 \end{table}
+
+% OLD support matrix
+%\begin{table}[h]
+%\begin{tabular}{r|*{3}{c!{\color{gray2}\vrule}}*{4}{c!{\color{gray2}\vrule}}*{11}{c!{\color{gray2}\vrule}}}
+%                              & \ninety{\bf Alpha} & \ninety{\bf ARM} & \ninety{\bf ARM64} & \multicolumn{2}{c!{\color{gray2}\vrule}}{\ninety{\bf MIPS}} & \multicolumn{2}{c!{\color{gray2}\vrule}}{\ninety{\bf MIPS64}} & \ninety{\bf SuperH} & \ninety{\bf PowerPC} & \ninety{\bf PowerPC64} & \ninety{\bf m68k} & \ninety{\bf m88k} & \ninety{\bf x86} & \ninety{\bf x64} & \ninety{\bf Itanium} & \ninety{\bf SPARC} & \ninety{\bf SPARC64} & \ninety{\bf RISC-V} \\
+%                              &                    &                  &                    & \ninety{\tiny EB} & \ninety{\tiny EL}                       & \ninety{\tiny EB} & \ninety{\tiny EL}                         &                     &                      &                        &                   &                   &                  &                  &                      &                    &                      &                     \\
+%\hline                                                                                                                                                                                                                                                                                                                                                                                                                                          
+%{\bf Windows family}          & \marknotx          & \markunkn        & \marknotx          & \marknotx         & \marknotx                               & \marknotx         & \marknotx                                 & \marknotx           & \marknotx            & \marknotx              & \marknotx         & \marknotx         & \markcmpl        & \markcmpl        & \marknimp            & \marknotx          & \marknotx            & \marknotx           \\
+%{\bf Linux}                   & \marknimp          & \markcmpl        & \markcmpl          & \markcmpl         & \markunkn                               & \markunkn         & \markcmpl                                 & \marknimp           & \markcmpl            & \markcmpl              & \marknimp         & \marknimp         & \markcmpl        & \markcmpl        & \marknimp            & \markcmpl          & \markcmpl            & \marknimp           \\
+%{\bf macOS / iOS / Darwin}    & \marknotx          & \markcmpl        & \markcmpl          & \marknotx         & \marknotx                               & \marknotx         & \marknotx                                 & \marknotx           & \markcmpl            & \markunkn              & \marknotx         & \marknotx         & \markcmpl        & \markcmpl        & \marknotx            & \marknotx          & \marknotx            & \marknotx           \\
+%{\bf FreeBSD}                 & \marknimp          & \markcmpl        & \markcmpl          & \markunkn         & \markunkn                               & \markunkn         & \markunkn                                 & \marknotx           & \markimpl            & \markcmpl              & \marknotx         & \marknotx         & \markcmpl        & \markcmpl        & \marknimp            & \marknotx          & \markcmpl            & \marknimp           \\
+%{\bf NetBSD}                  & \marknimp          & \markcmpl        & \marknotx          & \markunkn         & \markcmpl                               & \markunkn         & \markunkn                                 & \marknimp           & \markimpl            & \marknotx              & \marknimp         & \marknimp         & \markcmpl        & \markcmpl        & \marknimp            & \markcmpl          & \markcmpl            & \marknimp           \\
+%{\bf OpenBSD}                 & \marknimp          & \markcmpl        & \markunkn          & \markunkn         & \markunkn                               & \markcmpl         & \markunkn                                 & \marknimp           & \markunkn            & \marknotx              & \marknimp         & \marknimp         & \markcmpl        & \markcmpl        & \marknimp            & \markcmpl          & \markcmpl            & \marknotx           \\
+%{\bf DragonFlyBSD}            & \marknotx          & \marknotx        & \marknotx          & \marknotx         & \marknotx                               & \marknotx         & \marknotx                                 & \marknotx           & \marknotx            & \marknotx              & \marknotx         & \marknotx         & \markcmpl        & \markcmpl        & \marknotx            & \marknotx          & \marknotx            & \marknotx           \\
+%{\bf Solaris / SunOS}         & \marknotx          & \marknotx        & \marknotx          & \marknotx         & \marknotx                               & \marknotx         & \marknotx                                 & \marknotx           & \marknotx            & \marknotx              & \marknotx         & \marknotx         & \markcmpl        & \markcmpl        & \marknotx            & \markcmpl          & \markimpl            & \marknotx           \\
+%{\bf Plan 9 / 9front}         & \marknimp          & \marknimp        & \marknotx          & \marknimp         & \marknimp                               & \marknotx         & \marknotx                                 & \marknotx           & \marknimp            & \marknotx              & \marknotx         & \marknotx         & \markcmpl        & \marknimp        & \marknotx            & \marknimp          & \marknotx            & \marknotx           \\
+%{\bf Haiku / BeOS}            & \marknotx          & \marknotx        & \marknotx          & \marknotx         & \marknotx                               & \marknotx         & \marknotx                                 & \marknotx           & \marknotx            & \marknotx              & \marknotx         & \marknotx         & \markcmpl        & \marknotx        & \marknotx            & \marknotx          & \marknotx            & \marknotx           \\
+%{\bf Minix}                   & \marknotx          & \markunkn        & \marknotx          & \marknotx         & \marknotx                               & \marknotx         & \marknotx                                 & \marknotx           & \marknotx            & \marknotx              & \marknotx         & \marknotx         & \markcmpl        & \marknotx        & \marknotx            & \marknotx          & \marknotx            & \marknotx           \\
+%{\bf Playstation Portable}    & \marknotx          & \marknotx        & \marknotx          & \marknotx         & \markcmpl                               & \marknotx         & \marknotx                                 & \marknotx           & \marknotx            & \marknotx              & \marknotx         & \marknotx         & \marknotx        & \marknotx        & \marknotx            & \marknotx          & \marknotx            & \marknotx           \\
+%{\bf Nintendo DS}             & \marknotx          & \markcmpl        & \marknotx          & \marknotx         & \marknotx                               & \marknotx         & \marknotx                                 & \marknotx           & \marknotx            & \marknotx              & \marknotx         & \marknotx         & \marknotx        & \marknotx        & \marknotx            & \marknotx          & \marknotx            & \marknotx           \\
+%\end{tabular}
+%\caption{Supported platforms}%
+%\end{table}
 
 
 \subsection{Build Requirements}
