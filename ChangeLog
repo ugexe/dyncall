@@ -17,6 +17,7 @@ doc:
   o more detail in support matrix for bi-endian platforms
   o improvements/corrections to calling convention appendix
   o PPC64 calling convention description
+  o MIPS64/N32 calling convention description
   o man page additions for clarity
 tests:
   o dynload_plain test extended to test UTF-8 library paths

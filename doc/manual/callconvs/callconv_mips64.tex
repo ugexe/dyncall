@@ -21,11 +21,15 @@
 
 \paragraph{Overview}
 
-There are two main ABIs in use for MIPS64 chips, \emph{N64}\cite{MIPSn32/n64} and \emph{N32}\cite{MIPSn32/n64}. Both are
-basically the same, except that N32 uses 32-bit pointers and long integers, instead of 64. All registers of a MIPS64 chip are considered
-to be 64-bit wide, even for the N32 calling convention.\\
-The word size is defined to be 32 bits, a dword 64 bits. Note that this is due to historical reasons (terminology didn't change from MIPS32).\\
-Other than that there are correspoding 64-bit versions other MIPS32 ABIs, e.g. the EABI\cite{MIPSeabi} and O64\cite{MIPSo64}.
+There are two main ABIs in use for MIPS64 chips, \emph{N64}\cite{MIPSn32/n64}
+and \emph{N32}\cite{MIPSn32/n64}. Both are basically the same, except that N32
+uses ILP32 as programming model (32-bit pointers and long integers), whereas
+N64 uses LP64 (64-bit pointers and long integers). All registers of a MIPS64
+chip are considered to be 64-bit wide, even for the N32 calling convention.\\
+The word size is defined to be 32 bits, a dword 64 bits. Note that this is due
+to historical reasons (terminology didn't change from MIPS32).\\
+Other than that there are correspoding 64-bit versions other MIPS32 ABIs, e.g.
+the EABI\cite{MIPSeabi} and O64\cite{MIPSo64}.
 
 \paragraph{\product{dyncall} support}
 
@@ -38,25 +42,26 @@ The N32 calling convention might work - it used to, but hasn't been tested, rece
 
 \begin{table}[h]
 \begin{tabular*}{0.95\textwidth}{lll}
-Name                                   & Alias                & Brief description\\
+Name                       & Alias                & Brief description\\
 \hline
-{\bf \$0}                              & {\bf \$zero}         & hardware zero \\
-{\bf \$1}                              & {\bf \$at}           & assembler temporary, scratch \\
-{\bf \$2-\$3}                          & {\bf \$v0-\$v1}      & return value (only integer on hard-float targets), scratch \\
-{\bf \$4-\$11}                         & {\bf \$a0-\$a7}      & first arguments (only integer on hard-float targets), scratch \\
-{\bf \$12-\$15,\$24}                   & {\bf \$t4-\$t7,\$t8} & temporaries, scratch \\
-{\bf \$25}                             & {\bf \$t9}           & temporary, address callee for all PIC calls (by convention), scratch \\
-{\bf \$16-\$23}                        & {\bf \$s0-\$s7}      & preserve \\
-{\bf \$26,\$27}                        & {\bf \$kt0,\$kt1}    & reserved for kernel \\
-{\bf \$28}                             & {\bf \$gp}           & global pointer, preserve \\
-{\bf \$29}                             & {\bf \$sp}           & stack pointer, preserve \\
-{\bf \$30}                             & {\bf \$s8}           & frame pointer, preserve \\
-{\bf \$31}                             & {\bf \$ra}           & return address, preserve \\
-{\bf hi, lo}                           &                      & multiply/divide special registers \\
-{\bf \$f0,\$f2}                        &                      & only on hard-float targets: float results, scratch \\
-{\bf \$f1,\$f3,\$f4-\$f11,\$f20-\$f23} &                      & only on hard-float targets: float temporaries, scratch \\
-{\bf \$f12-\$f19}                      &                      & only on hard-float targets: float arguments, scratch \\
-{\bf \$f24-\$f31}                      &                      & only on hard-float targets: preserved \\%@@@on N32, this changes
+{\bf \$0}                  & {\bf \$zero}         & hardware zero \\
+{\bf \$1}                  & {\bf \$at}           & assembler temporary, scratch \\
+{\bf \$2-\$3}              & {\bf \$v0-\$v1}      & return value (only integer on hard-float targets), scratch \\
+{\bf \$4-\$11}             & {\bf \$a0-\$a7}      & first arguments (only integer on hard-float targets), scratch \\
+{\bf \$12-\$15,\$24}       & {\bf \$t4-\$t7,\$t8} & temporaries, scratch \\
+{\bf \$25}                 & {\bf \$t9}           & temporary, address callee for all PIC calls (by convention), scratch \\
+{\bf \$16-\$23}            & {\bf \$s0-\$s7}      & preserve \\
+{\bf \$26,\$27}            & {\bf \$kt0,\$kt1}    & reserved for kernel \\
+{\bf \$28}                 & {\bf \$gp}           & global pointer, preserve \\
+{\bf \$29}                 & {\bf \$sp}           & stack pointer, preserve \\
+{\bf \$30}                 & {\bf \$s8}           & frame pointer, preserve \\
+{\bf \$31}                 & {\bf \$ra}           & return address, preserve \\
+{\bf hi, lo}               &                      & multiply/divide special registers \\
+{\bf \$f0,\$f2}            &                      & only on hard-float targets: float results, scratch \\
+{\bf \$f1,\$f3,\$f4-\$f11} &                      & only on hard-float targets: float temporaries, scratch \\
+{\bf \$f12-\$f19}          &                      & only on hard-float targets: float arguments, scratch \\
+{\bf \$f20-\$f23}          &                      & only on hard-float targets: float temporaries, scratch \\
+{\bf \$f24-\$f31}          &                      & only on hard-float targets: preserved \\
 \end{tabular*}
 \caption{Register usage on MIPS N64 calling convention}
 \end{table}
@@ -79,7 +84,7 @@ Name                                   & Alias                & Brief descriptio
 \item float arguments passed in the variable part of a vararg call are passed like integers, meaning float registers don't ever need to be saved that way, so only \$a0-\$a7 are need to be spilled
 \item quad precision float arguments are passed in even-odd register pairs, skipping one register if needed
 \item integer parameters \textless\ 64 bit are right-justified (meaning occupy higher-address bytes) in their 8-byte slot on the stack, requiring extra-care for big-endian targets
-\item single precision float parameters (32 bit) are left-justified in their 8-byte slot on the stack, but are right justified in fp-registers on big endian targets, as they aren't promoted @@@doc says "undecided", but openbsd/octeon(mipseb) has it as described here
+\item single precision float parameters (32 bit) are left-justified in their 8-byte slot on the stack, but are right justified in fp-registers on big endian targets, as they aren't promoted (actually, official docs says "undecided", but real world implementations seem to use what is described here)
 \end{itemize}
 % maybe note somewhere that "prolog-based" spilling is neat for dyncall, as we don't have to care
 
@@ -116,5 +121,12 @@ parameter area                           & \vdots                   &           
 
 \subsubsection{MIPS N32 Calling Convention}
 
-@@@
+Despite what one might think given the name, this is a MIPS 64-bit calling
+convention. As mentioned in the overview of this chapter, it is nearly
+identical to the N64 one, the differences being:
+
+\begin{itemize}
+\item uses ILP32 as programming model instead of LP64
+\item floating point registers \$f20-\$f23 are to be preserved
+\end{itemize}
 
