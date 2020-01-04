@@ -153,8 +153,8 @@ END_PROC(dcCall_x64_win64)
 
 */
 	
-GLOBAL(dcCall_x64_sys_syscall_sysv)
-BEGIN_PROC(dcCall_x64_sys_syscall_sysv)
+GLOBAL(dcCall_x64_syscall_sysv)
+BEGIN_PROC(dcCall_x64_syscall_sysv)
 
 	MOV(RSI,RAX)			/* load system call id. */
 	MOV(QWORD(RDI,40),R9)		/* copy first six int/pointer arguments to RDI, RSI, RDX, R10, R8, R9. */
@@ -166,7 +166,7 @@ BEGIN_PROC(dcCall_x64_sys_syscall_sysv)
 	SYSCALL
 	RET()
 
-END_PROC(dcCall_x64_sys_syscall_sysv)
+END_PROC(dcCall_x64_syscall_sysv)
 
 END_ASM
 

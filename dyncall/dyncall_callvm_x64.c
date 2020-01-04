@@ -192,17 +192,17 @@ DCCallVM_vt gVT_x64 =
 /* --- syscall ------------------------------------------------------------- */
 
 #include <assert.h>
-void dc_callvm_call_x64_sys_syscall_sysv(DCCallVM* in_self, DCpointer target)
+void dc_callvm_call_x64_syscall_sysv(DCCallVM* in_self, DCpointer target)
 {
   /* syscalls can have up to 6 args, required to be "Only values of class INTEGER or class MEMORY" (from */
   /* SysV manual), so we can use self->mRegData.i directly; verify this holds at least 6 values, though. */
   assert(numIntRegs >= 6);
 
   DCCallVM_x64* self = (DCCallVM_x64*)in_self;
-  dcCall_x64_sys_syscall_sysv(self->mRegData.i, target);
+  dcCall_x64_syscall_sysv(self->mRegData.i, target);
 }
 
-DCCallVM_vt gVT_x64_sys_syscall_sysv =
+DCCallVM_vt gVT_x64_syscall_sysv =
 {
   &dc_callvm_free_x64
 , &dc_callvm_reset_x64
@@ -217,16 +217,16 @@ DCCallVM_vt gVT_x64_sys_syscall_sysv =
 , &dc_callvm_argDouble_x64
 , &dc_callvm_argPointer_x64
 , NULL /* argStruct */
-, (DCvoidvmfunc*)       &dc_callvm_call_x64_sys_syscall_sysv
-, (DCboolvmfunc*)       &dc_callvm_call_x64_sys_syscall_sysv
-, (DCcharvmfunc*)       &dc_callvm_call_x64_sys_syscall_sysv
-, (DCshortvmfunc*)      &dc_callvm_call_x64_sys_syscall_sysv
-, (DCintvmfunc*)        &dc_callvm_call_x64_sys_syscall_sysv
-, (DClongvmfunc*)       &dc_callvm_call_x64_sys_syscall_sysv
-, (DClonglongvmfunc*)   &dc_callvm_call_x64_sys_syscall_sysv
-, (DCfloatvmfunc*)      &dc_callvm_call_x64_sys_syscall_sysv
-, (DCdoublevmfunc*)     &dc_callvm_call_x64_sys_syscall_sysv
-, (DCpointervmfunc*)    &dc_callvm_call_x64_sys_syscall_sysv
+, (DCvoidvmfunc*)       &dc_callvm_call_x64_syscall_sysv
+, (DCboolvmfunc*)       &dc_callvm_call_x64_syscall_sysv
+, (DCcharvmfunc*)       &dc_callvm_call_x64_syscall_sysv
+, (DCshortvmfunc*)      &dc_callvm_call_x64_syscall_sysv
+, (DCintvmfunc*)        &dc_callvm_call_x64_syscall_sysv
+, (DClongvmfunc*)       &dc_callvm_call_x64_syscall_sysv
+, (DClonglongvmfunc*)   &dc_callvm_call_x64_syscall_sysv
+, (DCfloatvmfunc*)      &dc_callvm_call_x64_syscall_sysv
+, (DCdoublevmfunc*)     &dc_callvm_call_x64_syscall_sysv
+, (DCpointervmfunc*)    &dc_callvm_call_x64_syscall_sysv
 , NULL /* callStruct */
 };
 
@@ -253,7 +253,7 @@ static void dc_callvm_mode_x64(DCCallVM* in_self, DCint mode)
     case DC_CALL_SYS_DEFAULT:
 # if defined DC_UNIX
     case DC_CALL_SYS_X64_SYSCALL_SYSV:
-      vt = &gVT_x64_sys_syscall_sysv; break;
+      vt = &gVT_x64_syscall_sysv; break;
 # else
       self->mInterface.mError = DC_ERROR_UNSUPPORTED_MODE; return;
 # endif

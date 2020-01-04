@@ -54,7 +54,7 @@ extern "C" {
 
 void dcCall_x64_sysv(DCsize stacksize, DCpointer stackdata, DCpointer regdata_i, DCpointer regdata_f, DCpointer target);
 void dcCall_x64_win64(DCsize stacksize, DCpointer stackdata, DCpointer regdata, DCpointer target);
-void dcCall_x64_sys_syscall_sysv(DCpointer argdata, DCpointer target);
+void dcCall_x64_syscall_sysv(DCpointer argdata, DCpointer target);
 
 #ifdef __cplusplus
 }
