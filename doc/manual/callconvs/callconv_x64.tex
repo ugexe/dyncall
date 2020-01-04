@@ -46,10 +46,9 @@ registers r8-r15.\\
 
 \paragraph{\product{dyncall} support}
 
-\product{dyncall} supports the MS Windows and System V calling convention.\\
-\\
-
-
+Currently, the MS Windows and System V calling conventions are supported.\\
+\product{Dyncall} can also be used to issue syscalls on System V platforms by
+using the syscall number as target parameter and selecting the correct mode.
 
 \subsubsection{MS Windows}
 
@@ -240,4 +239,20 @@ parameter area               &                &                                &
 \end{tabular}
 \caption{Stack layout on x64 System V (Linux/*BSD)}
 \end{figure}
+
+
+\newpage
+
+\subsubsection{System V syscalls}
+
+\paragraph{Parameter passing}
+
+\begin{itemize}
+\item syscall is issued via the {\em syscall} instruction
+\item kernel destroys registers rcx and r11
+\item syscall number is set in rax
+\item up to 6 params are passed in the following registers in this order: rdi, rsi, rdx, rcx, r8, r9
+\item no stack in use, meaning syscalls are limited to six arguments
+\item register rax holds the return value (values in between -4095 and -1 indicate errors)
+\end{itemize}
 

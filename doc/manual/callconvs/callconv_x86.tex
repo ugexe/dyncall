@@ -60,7 +60,8 @@ plan9call        & 0          & 0           & $\leftarrow$  & caller  & -       
 
 Currently cdecl, stdcall, fastcall (MS and GNU), thiscall (MS and GNU) and
 plan9call are supported.\\
-\\
+\product{Dyncall} can also be used to issue syscalls on Linux and *BSD by using
+the syscall number as target parameter and selecting the correct mode.
 
 
 \newpage
@@ -805,4 +806,23 @@ parameter area                    &                &                            
 \end{tabular}
 \caption{Stack layout on x86 plan9call calling convention}
 \end{figure}
+
+
+%@@@ \newpage
+%@@@ 
+%@@@ \subsubsection{Linux syscalls}
+%@@@ 
+%@@@ \paragraph{Parameter passing}
+%@@@ 
+%@@@ \begin{itemize}
+%@@@ \item ...
+%@@@ \end{itemize}
+%@@@ 
+%@@@ \subsubsection{*BSD syscalls}
+%@@@ 
+%@@@ \paragraph{Parameter passing}
+%@@@ 
+%@@@ \begin{itemize}
+%@@@ \item ...
+%@@@ \end{itemize}
 
