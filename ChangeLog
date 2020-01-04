@@ -3,6 +3,7 @@ This file lists bigger/noteworthy changes, only...
 Version 1.1 (upcoming)
 dyncall:
   o support for soft-float MIPS o32 & n64 (big- and little-endian, each)
+  o x64 System V syscall support
 dyncallback:
   o support for soft-float MIPS o32 & n64 (big- and little-endian, each)
 dynload:

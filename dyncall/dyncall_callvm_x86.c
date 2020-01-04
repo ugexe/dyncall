@@ -6,7 +6,7 @@
  Description: Call VM for x86 architecture implementation
  License:
 
-   Copyright (c) 2007-2018 Daniel Adler <dadler@uni-goettingen.de>, 
+   Copyright (c) 2007-2020 Daniel Adler <dadler@uni-goettingen.de>, 
                            Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
@@ -592,7 +592,7 @@ void dc_callvm_mode_x86(DCCallVM* in_self, DCint mode)
     case DC_CALL_C_X86_WIN32_THIS_MS:  vt = &gVT_x86_win32_this_ms;  break;
     case DC_CALL_C_X86_WIN32_FAST_GNU: vt = &gVT_x86_win32_fast_gnu; break;
     case DC_CALL_C_X86_WIN32_THIS_GNU: vt = &gVT_x86_cdecl;          break;
-    case DC_CALL_SYS_DEFAULT:         
+    case DC_CALL_SYS_DEFAULT:
 # if defined DC_UNIX
 #   if defined DC__OS_Linux
       vt = &gVT_x86_sys_int80h_linux; break;
