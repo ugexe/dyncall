@@ -36,7 +36,10 @@
 
 \paragraph{\product{dyncall} support}
 
-\product{Dyncall} and \product{dyncallback} are supported for PowerPC (32bit) Big Endian (MSB), for Darwin's and System V's calling convention.
+\product{Dyncall} and \product{dyncallback} are supported for PowerPC (32bit)
+Big Endian (MSB), for Darwin's and System V's calling convention.\\
+\product{Dyncall} can also be used to issue syscalls by using the syscall
+number as target parameter and selecting the correct mode.
 
 
 \subsubsection{Mac OS X/Darwin}
@@ -244,4 +247,20 @@ parameter area                    &                               &             
 \end{tabular}
 \caption{Stack layout on System V ABI for PowerPC 32-bit calling convention}
 \end{figure}
+
+
+\newpage
+
+\subsubsection{System V syscalls}
+
+\paragraph{Parameter passing}
+
+\begin{itemize}
+\item syscall is issued via the {\em sc} instruction
+\item kernel destroys registers r13
+\item syscall number is set in r0
+\item params are passed in registers r3 through r10
+\item no stack in use, meaning syscalls are in theory limited to eight arguments
+\item register r3 holds the return value, overflow flag in conditional register cr0 signals errors in syscall
+\end{itemize}
 

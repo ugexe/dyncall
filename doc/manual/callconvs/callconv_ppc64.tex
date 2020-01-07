@@ -33,7 +33,11 @@
 
 \paragraph{\product{dyncall} support}
 
-\product{Dyncall} supports PowerPC (64bit) Big Endian and Little Endian ELF ABIs on System V systems (Linux, etc.), including syscalls. Mac OS X is not supported.
+\product{Dyncall} and \product{dyncallback} are supported for PowerPC (64bit)
+Big Endian and Little Endian ELF ABIs on System V systems. Mac OS X is not
+supported.\\
+\product{Dyncall} can also be used to issue syscalls by using the syscall
+number as target parameter and selecting the correct mode.
 
 
 \subsubsection{PPC64 ELF ABI}
@@ -151,4 +155,20 @@ linkage area                      & \vdots                        &             
 \end{tabular}
 \caption{Stack layout on ppc64 ELF ABI}
 \end{figure}
+
+
+\newpage
+
+\subsubsection{System V syscalls}
+
+\paragraph{Parameter passing}
+
+\begin{itemize}
+\item syscall is issued via the {\em sc} instruction
+\item kernel destroys registers r13
+\item syscall number is set in r0
+\item params are passed in registers r3 through r10
+\item no stack in use, meaning syscalls are in theory limited to eight arguments
+\item register r3 holds the return value, overflow flag in conditional register cr0 signals errors in syscall
+\end{itemize}
 
