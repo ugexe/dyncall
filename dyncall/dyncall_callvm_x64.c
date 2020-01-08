@@ -194,11 +194,13 @@ DCCallVM_vt gVT_x64 =
 #include <assert.h>
 void dc_callvm_call_x64_syscall_sysv(DCCallVM* in_self, DCpointer target)
 {
+  DCCallVM_x64* self;
+
   /* syscalls can have up to 6 args, required to be "Only values of class INTEGER or class MEMORY" (from */
-  /* SysV manual), so we can use self->mRegData.i directly; verify this holds at least 6 values, though. */
+  /* SysV manual), so we can use self->mRegData.i directly; verify this has space for at least 6 values, though. */
   assert(numIntRegs >= 6);
 
-  DCCallVM_x64* self = (DCCallVM_x64*)in_self;
+  self = (DCCallVM_x64*)in_self;
   dcCall_x64_syscall_sysv(self->mRegData.i, target);
 }
 
