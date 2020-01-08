@@ -141,7 +141,7 @@ int testCallC()
 }
 
 
-#ifdef DC__OS_Win32
+#if defined(DC__OS_Win32)
 /* win32 __stdcall */
 
 DEF_FUNCS(__stdcall,std)
@@ -235,7 +235,7 @@ int testCallStd()
 #endif
 
 
-#ifdef DC__OS_Win32
+#if defined(DC__OS_Win32)
 /* win32 __fastcall */
 
 DEF_FUNCS(__fastcall,fast)

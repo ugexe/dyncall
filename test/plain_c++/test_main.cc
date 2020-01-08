@@ -267,7 +267,7 @@ bool testCallValue(DCCallVM* pc, const char* name)
 }
 
 
-#ifdef DC__OS_Win32
+#if defined(DC__OS_Win32)
 
 int testCallThisMS()
 {
@@ -311,7 +311,7 @@ int main(int argc, char* argv[])
   bool r = true;
 
   r = testCallThisC() && r;
-#if defined(DC__C_MSVC)
+#if defined(DC__OS_Win32)
   r = testCallThisMS() && r;
 #endif
 
