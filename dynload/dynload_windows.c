@@ -6,7 +6,7 @@
  Description: 
  License:
 
-   Copyright (c) 2007-2018 Daniel Adler <dadler@uni-goettingen.de>, 
+   Copyright (c) 2007-2020 Daniel Adler <dadler@uni-goettingen.de>,
                            Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
@@ -45,7 +45,7 @@ DLLib* dlLoadLibrary(const char* libPath)
   if(libPath == NULL)
     return (DLLib*)GetModuleHandle(NULL);
   else {
-    /* convert from UTF-8 to wide chars, so count required size... */
+    /* convert from UTF-8 to wide chars, so count required size */
     DLLib* pLib;
     wchar_t* ws;
     int r = MultiByteToWideChar(CP_UTF8, 0, libPath, -1, NULL, 0);
@@ -53,14 +53,21 @@ DLLib* dlLoadLibrary(const char* libPath)
       return NULL;
     }
 
-    /* ... reserve temp space, ... */
-    ws = (wchar_t*)dlAllocMem(r * sizeof(wchar_t));
+    /* Reserve temp space with room for extra '.' suffix (see below) */
+    ws = (wchar_t*)dlAllocMem((r+1) * sizeof(wchar_t));
     if(!ws)
       return NULL;
 
-    /* ... convert (and use r as success flag), ... */
-    r = (MultiByteToWideChar(CP_UTF8, 0, libPath, -1, ws, r) == r);
-    pLib = (DLLib*)(r ? LoadLibraryW(ws) : NULL);
+    /* Convert path and add a '.' suffix, needed to tell windows not to add
+       .dll to any path that doesn't have it (see MS doc for LoadLibraryW).
+       This is to get same behaviour as on other platforms which don't  do any
+       magic like this. Library search path behaviour stays unaffected, though */
+    pLib = NULL;
+    if(MultiByteToWideChar(CP_UTF8, 0, libPath, -1, ws, r) == r) {
+        ws[r-1] = '.';
+        ws[r] = 0;
+        pLib = (DLLib*)LoadLibraryW(ws);
+    }
 
     /* ... free temp space and return handle */
     dlFreeMem(ws);
