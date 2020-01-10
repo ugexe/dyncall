@@ -1,6 +1,6 @@
 This file lists bigger/noteworthy changes, only...
 
-Version 1.1 (upcoming)
+Version 1.1 (2020/01/11)
 dyncall:
   o support for soft-float MIPS o32 & n64 (big- and little-endian, each)
   o x64 System V syscall support
@@ -14,6 +14,8 @@ dynload:
     paths to random libraries under some circumstances, instead of returning an error)
   o support for dlGetLibraryPath() on glibc platforms with glibc vesions <= 2.3.3
   o dlGetLibraryPath() now accepts NULL as argument to return path to executable
+  o dlLoadLibrary() on windows: no more auto-suffixing of the .dll file ext anymore, to be
+    more in line with other platforms (not affecting OS specific library search behaviour)
 doc:
   o more detail in support matrix for bi-endian platforms
   o improvements/corrections to calling convention appendix
