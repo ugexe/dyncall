@@ -1,5 +1,12 @@
-1.1:
+1.2:
 ----
+- openbsd-4.0-* test/resolve_self fails, but unsure why. dlopen correctly returns RTLD_DEFAULT, which
+  should lookup via dlsym the function in the object itself, but cannot. So... some compiler flag might
+  be missing to keep symbol names, or some prefixing happens
+- dyncall/dyncall_call*h could probably be all removed, as forward declarations in corresponding .c
+  files would be enough; no headers are needed b/c those functions declared in there are of no public use
+- test/thunk win/x64 doesn't output anything decent for stack test (neither sigsegv nor output), which can create a problem for test log file as it'll mess with the subsequent test's output)
+- remove test/gen-masm alltogether
 - test code: add sparc tests for when out of register windows, meaning multiple layers deep in the call stack
 - ./configure on macOS does not pass CFLAGS etc.. to Makefile.config
 - support platforms without shared libraries so they can be built by just typing `./configure;make` (e.g. minix < 3.2.1)
