@@ -1,7 +1,8 @@
 This file lists bigger/noteworthy changes, only...
 
 Version 1.2 (upcoming)
-  ...
+dynload:
+  o fix to build with musl libc
 
 Version 1.1 (2020/01/11)
 dyncall:
