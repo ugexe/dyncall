@@ -1,8 +1,14 @@
 This file lists bigger/noteworthy changes, only...
 
 Version 1.2 (upcoming)
+dyncall:
+  o extended signature with more chars for calling convention switching (only for modes
+    that coexist on a platform with other conventions)
+  o made "formatted" call interface use calling convention signature chars
 dynload:
   o fix to build with musl libc
+tests:
+  o extended callf testcode with to test calling convention mode switch signature chars
 
 Version 1.1 (2020/01/11)
 dyncall:

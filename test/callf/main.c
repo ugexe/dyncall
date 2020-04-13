@@ -31,6 +31,8 @@
 #include "../common/platformInit.h"
 #include "../common/platformInit.c" /* Impl. for functions only used in this translation unit */
 
+#include <stdarg.h>
+
 
 /* sample void function */
 
@@ -44,6 +46,27 @@ int vf_iii(int x,int y,int z)
 int vf_ffiffiffi(float a, float b, int c, float d, float e, int f, float g, float h, int i)
 {
   int r = (a == 1.f && b == 2.f && c == 3 && d == 4.f && e == 5.f && f == 6 && g == 7.f && h == 8.f && i == 9);
+  printf("%f %f %d %f %f %d %f %f %d: %d", a, b, c, d, e, f, g, h, i, r);
+  return r;
+}
+
+int vf_ffiV(float a, float b, int c, ...)
+{
+  va_list ap;
+  double d, e, g, h;
+  int f, i;
+  int r;
+
+  va_start(ap, c);
+  d = va_arg(ap, double);
+  e = va_arg(ap, double);
+  f = va_arg(ap, int);
+  g = va_arg(ap, double);
+  h = va_arg(ap, double);
+  i = va_arg(ap, int);
+  va_end(ap);
+
+  r = (a == 1.f && b == 2.f && c == 3 && d == 4. && e == 5. && f == 6 && g == 7. && h == 8. && i == 9);
   printf("%f %f %d %f %f %d %f %f %d: %d", a, b, c, d, e, f, g, h, i, r);
   return r;
 }
@@ -73,6 +96,17 @@ int main(int argc, char* argv[])
   dcCallF(vm, &ret, (void*)&vf_ffiffiffi, "ffiffiffi)i", 1.f, 2.f, 3, 4.f, 5.f, 6, 7.f, 8.f, 9);
   r = ret.i && r;
 
+  /* same but with calling convention prefix */
+  dcReset(vm);
+  printf("\ncallf _:ffiffiffi)i: ");
+  dcCallF(vm, &ret, (void*)&vf_ffiffiffi, "_:ffiffiffi)i", 1.f, 2.f, 3, 4.f, 5.f, 6, 7.f, 8.f, 9);
+  r = ret.i && r;
+
+  /* vararg call */
+  dcReset(vm);
+  printf("\ncallf _effi_.ddiddi)i: ");
+  dcCallF(vm, &ret, (void*)&vf_ffiV, "_effi_.ddiddi)i", 1.f, 2.f, 3, 4., 5., 6, 7., 8., 9);
+  r = ret.i && r;
 
   /* arg binding then call using 'formatted' API */
   dcReset(vm);

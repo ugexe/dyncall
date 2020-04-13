@@ -203,10 +203,15 @@ void dcbInitCallback(DCCallback* pcb, const char* signature, DCCallbackHandler* 
     ptr++;
     ch = *ptr++;
     switch(ch) {
+      case DC_SIGCHAR_CC_DEFAULT:      mode = DC_CALL_C_DEFAULT;            break;
+	  /*@@@ add ellipsis?*/
+      case DC_SIGCHAR_CC_CDECL:        mode = DC_CALL_C_X86_CDECL;          break;
       case DC_SIGCHAR_CC_STDCALL:      mode = DC_CALL_C_X86_WIN32_STD;      break;
-      case DC_SIGCHAR_CC_THISCALL_MS:  mode = DC_CALL_C_X86_WIN32_THIS_MS;  break;
-      case DC_SIGCHAR_CC_FASTCALL_GNU: mode = DC_CALL_C_X86_WIN32_FAST_GNU; break;
       case DC_SIGCHAR_CC_FASTCALL_MS:  mode = DC_CALL_C_X86_WIN32_FAST_MS;  break;
+      case DC_SIGCHAR_CC_FASTCALL_GNU: mode = DC_CALL_C_X86_WIN32_FAST_GNU; break;
+      case DC_SIGCHAR_CC_THISCALL_MS:  mode = DC_CALL_C_X86_WIN32_THIS_MS;  break;
+      case DC_SIGCHAR_CC_THISCALL_GNU: mode = DC_CALL_C_X86_WIN32_THIS_GNU; break;
+      case DC_SIGCHAR_CC_SYSCALL:      mode = DC_CALL_SYS_DEFAULT;          break;
     }
   }
 

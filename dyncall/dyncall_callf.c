@@ -35,6 +35,7 @@ static void dcArgF_impl(DCCallVM* vm, const DCsigchar** sigptr, va_list args)
   dcReset(vm);
   while((ch=*(*sigptr)++) != '\0' && ch != DC_SIGCHAR_ENDARG) {
     switch(ch) {
+      /* types */
       case DC_SIGCHAR_BOOL:      dcArgBool    (vm, (DCbool)           va_arg(args, DCint     )); break;
       case DC_SIGCHAR_CHAR:      dcArgChar    (vm, (DCchar)           va_arg(args, DCint     )); break;
       case DC_SIGCHAR_UCHAR:     dcArgChar    (vm, (DCchar)(DCuchar)  va_arg(args, DCint     )); break;
@@ -50,6 +51,24 @@ static void dcArgF_impl(DCCallVM* vm, const DCsigchar** sigptr, va_list args)
       case DC_SIGCHAR_DOUBLE:    dcArgDouble  (vm, (DCdouble)         va_arg(args, DCdouble  )); break;
       case DC_SIGCHAR_POINTER:   dcArgPointer (vm, (DCpointer)        va_arg(args, DCpointer )); break;
       case DC_SIGCHAR_STRING:    dcArgPointer (vm, (DCpointer)        va_arg(args, DCpointer )); break;
+      /* calling convention modes */
+      case DC_SIGCHAR_CC_PREFIX:
+      {
+        switch(*(*sigptr)++) {
+          case DC_SIGCHAR_CC_DEFAULT:          dcMode(vm, DC_CALL_C_DEFAULT           ); break;
+          case DC_SIGCHAR_CC_ELLIPSIS:         dcMode(vm, DC_CALL_C_ELLIPSIS          ); break;
+          case DC_SIGCHAR_CC_ELLIPSIS_VARARGS: dcMode(vm, DC_CALL_C_ELLIPSIS_VARARGS  ); break;
+          case DC_SIGCHAR_CC_CDECL:            dcMode(vm, DC_CALL_C_X86_CDECL         ); break;
+          case DC_SIGCHAR_CC_STDCALL:          dcMode(vm, DC_CALL_C_X86_WIN32_STD     ); break;
+          case DC_SIGCHAR_CC_FASTCALL_MS:      dcMode(vm, DC_CALL_C_X86_WIN32_FAST_MS ); break;
+          case DC_SIGCHAR_CC_FASTCALL_GNU:     dcMode(vm, DC_CALL_C_X86_WIN32_FAST_GNU); break;
+          case DC_SIGCHAR_CC_THISCALL_MS:      dcMode(vm, DC_CALL_C_X86_WIN32_THIS_MS ); break;
+          case DC_SIGCHAR_CC_THISCALL_GNU:     dcMode(vm, DC_CALL_C_X86_WIN32_THIS_GNU); break;
+          case DC_SIGCHAR_CC_ARM_ARM:          dcMode(vm, DC_CALL_C_ARM_ARM           ); break;
+          case DC_SIGCHAR_CC_ARM_THUMB:        dcMode(vm, DC_CALL_C_ARM_THUMB         ); break;
+          case DC_SIGCHAR_CC_SYSCALL:          dcMode(vm, DC_CALL_SYS_DEFAULT         ); break;
+        }
+      }
     }
   }
 }
