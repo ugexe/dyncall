@@ -287,7 +287,7 @@ void dcVCallF(DCCallVM* vm, DCValue* result, DCpointer funcptr,
 
 These functions can be used to operate \product{dyncall} via a printf-style
 functional interface, using a signature string encoding the argument types and 
-return type.
+return type (and optionally also the calling convention used).
 \capi{dcArgF()} and \capi{dcVArgF()} just bind arguments to the \capi{DCCallVM}
 object, so any return value specified in the signature is ignored. \capi{dcCallF()}
 and \capi{dcVCallF()} also take a function pointer to call after binding the arguments.

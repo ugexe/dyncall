@@ -7,6 +7,12 @@ dyncall:
   o made "formatted" call interface use calling convention signature chars
 dynload:
   o fix to build with musl libc
+doc:
+  o manual now specifying calling convention signature chars
+bindings:
+  o python: Python 3 support, Python 2 unicode support, added get_path function, changing
+    'Z' conversions to only immutable types and 'p' to mutable types (and handles), bytearray
+	support, support to specify calling convention
 tests:
   o extended callf testcode with to test calling convention mode switch signature chars
 
