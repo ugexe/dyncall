@@ -32,6 +32,9 @@
 #include "../common/platformInit.c" /* Impl. for functions only used in this translation unit */
 
 #include <stdarg.h>
+#if defined(DC_UNIX)
+#include <sys/syscall.h> 
+#endif
 
 
 /* sample void function */
@@ -129,6 +132,14 @@ int main(int argc, char* argv[])
   dcArgF(vm, "ffiffiffi", 1.f, 2.f, 3, 4.f, 5.f, 6, 7.f, 8.f, 9);
   r = r && dcCallInt(vm, (void*)&vf_ffiffiffi);
 
+#if defined(DC_UNIX)
+  /* testing syscall using calling convention prefix - not available on all platforms */
+  dcReset(vm);
+  printf("\ncallf _$ipi)i");
+  fflush(NULL); /* needed before syscall write as it's immediate, or order might be incorrect */
+  dcCallF(vm, &ret, (DCpointer)(ptrdiff_t)SYS_write, "_$ipi)i", 1/*stdout*/, " = syscall: 1", 13);
+  r = ret.i == 13 && r;
+#endif
 
   /* free vm */
   dcFree(vm);

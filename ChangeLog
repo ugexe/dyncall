@@ -5,6 +5,7 @@ dyncall:
   o extended signature with more chars for calling convention switching (only for modes
     that coexist on a platform with other conventions)
   o made "formatted" call interface use calling convention signature chars
+  o added helper function dcGetModeFromCCSigChar() mapping callconv sig chars to respective mode
 dynload:
   o fix to build with musl libc
 doc:
@@ -14,7 +15,7 @@ bindings:
     'Z' conversions to only immutable types and 'p' to mutable types (and handles), bytearray
 	support, support to specify calling convention
 tests:
-  o extended callf testcode with to test calling convention mode switch signature chars
+  o extended callf testcode to test callconv mode switch signature chars (including syscalls)
 
 Version 1.1 (2020/01/11)
 dyncall:
