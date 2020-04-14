@@ -13,7 +13,9 @@ doc:
 bindings:
   o python: Python 3 support, Python 2 unicode support, added get_path function, changing
     'Z' conversions to only immutable types and 'p' to mutable types (and handles), bytearray
-	support, support to specify calling convention
+    support, support to specify calling convention
+  o shell: can reference own executable now and support for more calling conventions
+  o shell: syscall support
 tests:
   o extended callf testcode to test callconv mode switch signature chars (including syscalls)
 

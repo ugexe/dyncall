@@ -135,9 +135,9 @@ int main(int argc, char* argv[])
 #if defined(DC_UNIX)
   /* testing syscall using calling convention prefix - not available on all platforms */
   dcReset(vm);
-  printf("\ncallf _$ipi)i");
+  printf("\ncallf _$iZi)i");
   fflush(NULL); /* needed before syscall write as it's immediate, or order might be incorrect */
-  dcCallF(vm, &ret, (DCpointer)(ptrdiff_t)SYS_write, "_$ipi)i", 1/*stdout*/, " = syscall: 1", 13);
+  dcCallF(vm, &ret, (DCpointer)(ptrdiff_t)SYS_write, "_$iZi)i", 1/*stdout*/, " = syscall: 1", 13);
   r = ret.i == 13 && r;
 #endif
 
