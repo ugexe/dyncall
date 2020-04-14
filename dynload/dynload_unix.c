@@ -105,6 +105,7 @@ static int dl_strlen_strcpy(char* dst, const char* src, int dstSize)
 
 #include <link.h>
 
+/* @@@ if called from within a .so, passing NULL will return .so name, whereas passing result of dlLoadLibrary(NULL) returns process' name */
 int dlGetLibraryPath(DLLib* pLib, char* sOut, int bufSize)
 {
   struct link_map* p = NULL;
