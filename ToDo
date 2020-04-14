@@ -1,5 +1,9 @@
 1.2:
 ----
+- test atpcs thumb on arm and verify if ellipsis and C++ thiscalls work, if so adapt doc appendix
+- test eabi thumb on arm and verify if ellipsis and C++ thiscalls work, if so adapt doc appendix
+- new platform matrix
+  * check dark green cells and validate in general
 - openbsd-4.0-* test/resolve_self fails, but unsure why. dlopen correctly returns RTLD_DEFAULT, which
   should lookup via dlsym the function in the object itself, but cannot. So... some compiler flag might
   be missing to keep symbol names, or some prefixing happens
@@ -15,6 +19,7 @@
   prototype exist (e.g. just calling some pointer), without any declaration... even possible in C, as one has
   to cast to the function type? need to support?
 
+- dyncall sparc v7/v8: -xO3 on SunPro segfaults in tests (observed years ago)
 
 - dyncallback's "stack_cleanup" can be removed from non x86 impls... test if they still work
 - target a minimum c version, for use with -pedantic, etc.? Right now we use e.g. extensions
@@ -60,6 +65,12 @@ portasm:
 
 dyncall:
 --------
+- callbacks and use of CC signature characters (only x86 has any support for different CCs for callbacks):
+  * support for arm (arm/thumb on same platform)
+  * check if ellipsis support is needed (is there any need for calling back into an ellipse function?)
+  * check if syscalls support is needed (is there any need for calling back into a syscall?)
+- think about using 'inline' for all/most dyncall_api.c functions?
+- support for where syscalls originate from on OpenBSD: http://undeadly.org/cgi?action=article;sid=20191202105849
 - merge arm32_thumb_{gas/apple} and include thumb support for portasm
 - x64 verification: return values are passed via RAX and RDX, and XMM0 and XMM1.
 - find big endian arm box (also hardfloat), e.g. cubietruck: http://blog.netbsd.org/tnf/entry/working_arm_multiprocessor_support

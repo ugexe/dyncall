@@ -58,7 +58,7 @@ typedef struct DCstruct_    DCstruct;
 #define DC_CALL_C_X86_WIN32_FAST_MS     3
 #define DC_CALL_C_X86_WIN32_FAST_GNU    4
 #define DC_CALL_C_X86_WIN32_THIS_MS     5
-#define DC_CALL_C_X86_WIN32_THIS_GNU    6
+#define DC_CALL_C_X86_WIN32_THIS_GNU    DC_CALL_C_X86_CDECL /* alias - identical to cdecl (w/ this-ptr as 1st arg) */
 #define DC_CALL_C_X64_WIN64             7
 #define DC_CALL_C_X64_SYSV              8
 #define DC_CALL_C_PPC32_DARWIN          9

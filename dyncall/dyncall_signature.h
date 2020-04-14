@@ -70,7 +70,7 @@ typedef char DCsigchar;
 #define DC_SIGCHAR_CC_FASTCALL_MS      'F'
 #define DC_SIGCHAR_CC_FASTCALL_GNU     'f'
 #define DC_SIGCHAR_CC_THISCALL_MS      '+'
-#define DC_SIGCHAR_CC_THISCALL_GNU     '#'
+#define DC_SIGCHAR_CC_THISCALL_GNU     '#' /* GNU thiscalls are cdecl, but keep specific sig char for clarity */
 #define DC_SIGCHAR_CC_ARM_ARM          'A'
 #define DC_SIGCHAR_CC_ARM_THUMB        'a'
 #define DC_SIGCHAR_CC_SYSCALL          '$'
