@@ -7,6 +7,9 @@ dyncall:
   o made "formatted" call interface use calling convention signature chars
   o added helper function dcGetModeFromCCSigChar() mapping callconv sig chars to respective mode
   o removed some unnecessary headers (only contained internal used forward declarations)
+  o support clang's integrated as (didn't build on non-Darwin PPC32 platforms)
+dyncallback:
+  o support clang's integrated as (didn't build on non-Darwin PPC32 platforms)
 dynload:
   o fix to build with musl libc
 doc:
