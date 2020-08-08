@@ -23,7 +23,7 @@
 
 */
 
-.machine ppc
+/* .machine ppc /* clang's integrated as doesn't handle this on anything but Darwin (at least for clang <= 9) */
 .text
 .align 2
 
