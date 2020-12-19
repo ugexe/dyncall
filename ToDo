@@ -1,5 +1,6 @@
 1.2:
 ----
+- macOS ARM support (e.g. Apple M1 - might already work) + manual overview + appendix update
 - test atpcs thumb on arm and verify if ellipsis and C++ thiscalls work, if so adapt doc appendix
 - test eabi thumb on arm and verify if ellipsis and C++ thiscalls work, if so adapt doc appendix
 - new platform matrix
@@ -16,9 +17,6 @@
 - dyncall supports calls to functions where prototype exists (with and without varargs); however not when no
   prototype exist (e.g. just calling some pointer), without any declaration... even possible in C, as one has
   to cast to the function type? need to support?
-
-- dyncall sparc v7/v8: -xO3 on SunPro segfaults in tests (observed years ago)
-
 - dyncallback's "stack_cleanup" can be removed from non x86 impls... test if they still work
 - target a minimum c version, for use with -pedantic, etc.? Right now we use e.g. extensions
   for anon structs, etc. -> we do now target c99
@@ -37,7 +35,6 @@
   removed out of sync files to avoid confusion; but still probably duped code)
 - add portable "make install"
   * make install should also install manpages
-- mailing list announcements (html email?)
 - fix for NDS:
   * ARM:
     - callback_plain retval wrong (not only platform), area on stack where
@@ -50,10 +47,8 @@
 - make sure selinux works (esp. regarding NX bits)
   Daniel has a patch for it, if needed, implementing allocwx with two memory blocks, one for w^x, mmaped to one for r|x
 - support /SAFESEH on cl/win32
-- test code functions should be in .so files, optionally, so the suites can directly
-  be used to test dycnall bindings
+- test code functions should be in .so files, optionally, so the suites can directly be used to test dyncall bindings
 - pkg-config support?
-- quadmath support (long double)
 - add tests using alloca(), as this might depend on the frame pointer being correctly set (we don't
   check for this, currently, at all - but might not affect dyncall's stubs, anyways) - verify
 
@@ -63,6 +58,8 @@ portasm:
 
 dyncall:
 --------
+- callf test crashing on OmniOS
+- dyncall sparc v7/v8: -xO3 on SunPro segfaults in tests (observed years ago)
 - callbacks and use of CC signature characters (only x86 has any support for different CCs for callbacks):
   * support for arm (arm/thumb on same platform)
   * check if ellipsis support is needed (is there any need for calling back into an ellipse function?)
@@ -75,7 +72,9 @@ dyncall:
 - test if armhf/thumb is actually working... pulls in arm mode code in dyncall_callvm.c
 - dyncall_call_mips_n32.h and dyncall_call_mips_n64.h are pretty much the same, share code
 - support for return values: aggregate return values
-- support for argument values: structures, half-precision, vector types, long double
+- support for argument values: structures, half-precision, vector types, long double (c89)
+- support for argument values: _Complex (c99)
+- support for argument values: Fixed-width integer types (c99) - could be just aliases but would help abstracting it away from library users
   * make sure that struct support for ellipsis calls are not forgotten (copy everything by value)
 - consider automatic type-promotion for arguments passed through DC_CALL_C_ELLIPSIS_VARARGS;
   this would make it easier to just pass arguments instead of having to know about the C
