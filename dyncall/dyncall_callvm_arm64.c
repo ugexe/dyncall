@@ -26,6 +26,7 @@
 
 #include "dyncall_callvm_arm64.h"
 #include "dyncall_alloc.h"
+#include "dyncall_macros.h"
 
 
 void dcCall_arm64(DCpointer target, DCpointer data, DCsize size, DCpointer regdata);
@@ -74,7 +75,7 @@ static void a_float(DCCallVM* in_p, DCfloat x)
     p->f++;
   } else {
     dcVecAppend(&p->mVecHead, &x, sizeof(DCfloat));
-    dcVecSkip(&p->mVecHead, 4);	/* align to 8-bytes */
+    dcVecSkip(&p->mVecHead, 4);  /* align to 8-bytes */
   }
 }
 
@@ -130,16 +131,69 @@ DCCallVM_vt vt_arm64 =
 , NULL /* callStruct */
 };
 
+#ifdef DC__OS_Win64
+/* for variadic, allocate arguments to an imaginary stack, where the first 64 bytes of
+   the stack are loaded into x0-x7, and any remaining arguments on the stack */
+
+static void var_bool    (DCCallVM* in_p, DCbool    x) { a_i64( in_p, ((DClonglong) x) ); }
+static void var_char    (DCCallVM* in_p, DCchar    x) { a_i64( in_p, ((DClonglong) x) ); }
+static void var_short   (DCCallVM* in_p, DCshort   x) { a_i64( in_p, ((DClonglong) x) ); }
+static void var_int     (DCCallVM* in_p, DCint     x) { a_i64( in_p, ((DClonglong) x) ); }
+static void var_long    (DCCallVM* in_p, DClong    x) { a_i64( in_p, ((DClonglong) x) ); }
+static void var_pointer (DCCallVM* in_p, DCpointer x) { a_i64( in_p, ((DClonglong) x) ); }
+static void var_float   (DCCallVM* in_p, DCfloat   x) {
+  DClonglong tmp = 0;
+  memcpy(&tmp, &x, sizeof(DCfloat));
+  a_i64(in_p, tmp);
+}
+static void var_double  (DCCallVM* in_p, DCdouble  x) {
+  a_i64(in_p, *(DClonglong *)&x);
+}
+
+DCCallVM_vt vt_arm64_win_varargs =
+{
+  &deinit
+, &reset
+, &mode
+, &var_bool
+, &var_char
+, &var_short
+, &var_int
+, &var_long
+, &a_i64
+, &var_float
+, &var_double
+, &var_pointer
+, NULL /* argStruct */
+, (DCvoidvmfunc*)       &call
+, (DCboolvmfunc*)       &call
+, (DCcharvmfunc*)       &call
+, (DCshortvmfunc*)      &call
+, (DCintvmfunc*)        &call
+, (DClongvmfunc*)       &call
+, (DClonglongvmfunc*)   &call
+, (DCfloatvmfunc*)      &call
+, (DCdoublevmfunc*)     &call
+, (DCpointervmfunc*)    &call
+, NULL /* callStruct */
+};
+#endif
+
 static void mode(DCCallVM* in_self, DCint mode)
 {
   DCCallVM_arm64* self = (DCCallVM_arm64*)in_self;
   DCCallVM_vt* vt;
 
   switch(mode) {
-    case DC_CALL_C_DEFAULT:        
-    case DC_CALL_C_ARM64:        
     case DC_CALL_C_ELLIPSIS:
     case DC_CALL_C_ELLIPSIS_VARARGS:
+#ifdef DC__OS_Win64
+      vt = &vt_arm64_win_varargs;
+      break;
+#endif /* if not win64, use below */
+    case DC_CALL_SYS_DEFAULT:
+    case DC_CALL_C_DEFAULT:        
+    case DC_CALL_C_ARM64:        
       vt = &vt_arm64;
       break;
     default: 

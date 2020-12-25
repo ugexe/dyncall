@@ -48,7 +48,7 @@
 # if defined(__thumb__)
 #   define ARCH_THUMB
 # endif
-#elif defined(__aarch64__) || defined(__arm64) || defined(__arm64__)
+#elif defined(_M_ARM64) || defined(__aarch64__) || defined(__arm64) || defined(__arm64__)
 # define ARCH_ARM64
 #elif defined(__sh__)
 # define ARCH_SH

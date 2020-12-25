@@ -6,7 +6,7 @@
  Description: 
  License:
 
-   Copyright (c) 2007-2018 Daniel Adler <dadler@uni-goettingen.de>, 
+   Copyright (c) 2007-2020 Daniel Adler <dadler@uni-goettingen.de>, 
                            Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
@@ -113,6 +113,8 @@ int main(int argc, char* argv[])
 
   /* arg binding then call using 'formatted' API */
   dcReset(vm);
+  /* reset calling convention too */
+  dcMode(vm, DC_CALL_C_DEFAULT);
   printf("\nargf iii)i       then call: ");
   dcArgF(vm, "iii)i", 1, 2, 3);
   r = r && dcCallInt(vm, (void*)&vf_iii);
@@ -132,7 +134,7 @@ int main(int argc, char* argv[])
   dcArgF(vm, "ffiffiffi", 1.f, 2.f, 3, 4.f, 5.f, 6, 7.f, 8.f, 9);
   r = r && dcCallInt(vm, (void*)&vf_ffiffiffi);
 
-#if defined(DC_UNIX)
+#if defined(DC_UNIX) && !defined(DC__OS_MacOSX) && !defined(DC__OS_SunOS)
   /* testing syscall using calling convention prefix - not available on all platforms */
   dcReset(vm);
   printf("\ncallf _$iZi)i");

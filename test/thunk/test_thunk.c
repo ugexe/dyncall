@@ -6,7 +6,7 @@
  Description: 
  License:
 
-   Copyright (c) 2011-2018 Daniel Adler <dadler@uni-goettingen.de>,
+   Copyright (c) 2011-2020 Daniel Adler <dadler@uni-goettingen.de>,
                            Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
@@ -116,7 +116,19 @@ int main()
 {
   dcTest_initPlatform();
 
+#if defined(DC__OS_MacOSX)
+  /* Memory access errors can result into SIGBUS */
+  signal(SIGBUS, segv_handler);
+
+  struct sigaction sigAct;
+  sigfillset(&(sigAct.sa_mask));
+  sigAct.sa_sigaction = segv_handler;
+  /* we need to enable SA_ONSTACK which allows faulting on the stack */
+  sigAct.sa_flags = SA_SIGINFO|SA_RESTART|SA_ONSTACK;
+  sigaction(SIGSEGV, &sigAct, NULL);
+#else
   signal(SIGSEGV, segv_handler);
+#endif
 
   printf("Allocating ...\n");
   printf("... W^X memory: ");

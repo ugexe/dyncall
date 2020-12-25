@@ -238,6 +238,7 @@ static void mode(DCCallVM* in_self, DCint mode)
   DCCallVM_vt* vt;
 
   switch(mode) {
+    case DC_CALL_SYS_DEFAULT:
     case DC_CALL_C_DEFAULT:        
     case DC_CALL_C_ARM64:
     case DC_CALL_C_ELLIPSIS:

@@ -189,7 +189,7 @@
 # define DC__Arch_MIPS
 #elif defined(__arm__)
 # define DC__Arch_ARM
-#elif defined(__aarch64__) || defined(__arm64) || defined(__arm64__)
+#elif defined(_M_ARM64) || defined(__aarch64__) || defined(__arm64) || defined(__arm64__)
 # define DC__Arch_ARM64
 #elif defined(__sh__)
 # define DC__Arch_SuperH
