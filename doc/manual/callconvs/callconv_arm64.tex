@@ -1,6 +1,6 @@
 %//////////////////////////////////////////////////////////////////////////////
 %
-% Copyright (c) 2014-2019 Daniel Adler <dadler@uni-goettingen.de>, 
+% Copyright (c) 2014-2020 Daniel Adler <dadler@uni-goettingen.de>, 
 %                         Tassilo Philipp <tphilipp@potion-studios.com>
 %
 % Permission to use, copy, modify, and distribute this software for any
@@ -30,7 +30,7 @@ For more details, take a look at the Procedure Call Standard for the ARM 64-bit 
 
 \paragraph{\product{dyncall} support}
 
-The \product{dyncall} library supports the ARM 64-bit AArch64 PCS ABI, as well as Apple's convention derived from it, for calls and callbacks.
+The \product{dyncall} library supports the ARM 64-bit AArch64 PCS ABI, as well as Apple's and Microsoft's conventions which are derived from it, for both, calls and callbacks.
 
 \subsubsection{AAPCS64 Calling Convention}
 
@@ -122,7 +122,7 @@ parameter area                           & \vdots                 &             
 \newpage
 
 
-\subsubsection{Apple's ARM64 Function Calling Conventions}
+\subsubsection{Apple's ARM64 Function Calling Convention}
 
 \paragraph{Overview}
 
@@ -130,7 +130,19 @@ Apple's ARM64 calling convention is based on the AAPCS64 standard, however, dive
 Only the differences are listed here, for more details, take a look at Apple's official documentation \cite{AppleARM64}.
 
 \begin{itemize}
-\item arguments passed via stack use only the space they need, but are subject to the type alignment requirements (which is 1 byte for char and bool, 2 for short, 4 for int and 8 for every other type)
+\item arguments passed via stack use only the space they need, but are subject to type alignment requirements (which is 1 byte for char and bool, 2 for short, 4 for int and 8 for every other type)
 \item caller is required to sign and zero-extend arguments smaller than 32bits
+\end{itemize}
+
+
+\subsubsection{Microsoft's ARM64 Function Calling Convention}
+
+\paragraph{Overview}
+
+Microsoft's ARM64 calling convention is based on the AAPCS64 standard, however, diverges for variadic functions.
+Only the differences are listed here, for more details, take a look at Microsoft's official documentation \cite{MicrosoftARM64}.
+
+\begin{itemize}
+\item variadic function calls do not use any SIMD or floating point registers (for fixed and variable args), meaning first 8 params are passed via x0-x7, the rest via the stack
 \end{itemize}
 
