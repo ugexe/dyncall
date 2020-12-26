@@ -57,7 +57,6 @@ portasm:
 
 dyncall:
 --------
-- callf test crashing on OmniOS
 - dyncall sparc v7/v8: -xO3 on SunPro segfaults in tests (observed years ago)
 - callbacks and use of CC signature characters (only x86 has any support for different CCs for callbacks):
   * support for arm (arm/thumb on same platform)
