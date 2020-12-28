@@ -3,7 +3,7 @@
  Package: dyncall
  Library: portasm
  File: portasm/portasm-arm.S
- Description: 
+ Description:
  License:
 
    Copyright (c) 2020 Bernhard Urban-Forster <beurba@microsoft.com>

@@ -3,10 +3,10 @@
  Package: dyncall
  Library: test
  File: test/callf/main.c
- Description: 
+ Description:
  License:
 
-   Copyright (c) 2007-2020 Daniel Adler <dadler@uni-goettingen.de>, 
+   Copyright (c) 2007-2020 Daniel Adler <dadler@uni-goettingen.de>,
                            Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
@@ -33,7 +33,7 @@
 
 #include <stdarg.h>
 #if defined(DC_UNIX)
-#include <sys/syscall.h> 
+#include <sys/syscall.h>
 #endif
 
 
@@ -149,7 +149,7 @@ int main(int argc, char* argv[])
   printf("\nresult: callf: %d\n", r);
 
   dcTest_deInitPlatform();
-  
+
   return 0;
 }
 
