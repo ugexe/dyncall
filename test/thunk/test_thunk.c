@@ -116,19 +116,9 @@ int main()
 {
   dcTest_initPlatform();
 
-#if defined(DC__OS_MacOSX)
-  /* Memory access errors can result into SIGBUS */
-  signal(SIGBUS, segv_handler);
-
-  struct sigaction sigAct;
-  sigfillset(&(sigAct.sa_mask));
-  sigAct.sa_sigaction = segv_handler;
-  /* we need to enable SA_ONSTACK which allows faulting on the stack */
-  sigAct.sa_flags = SA_SIGINFO|SA_RESTART|SA_ONSTACK;
-  sigaction(SIGSEGV, &sigAct, NULL);
-#else
+  /* handle possible mem access errors */
+  signal(SIGBUS,  segv_handler);
   signal(SIGSEGV, segv_handler);
-#endif
 
   printf("Allocating ...\n");
   printf("... W^X memory: ");
