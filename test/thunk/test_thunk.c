@@ -117,8 +117,10 @@ int main()
   dcTest_initPlatform();
 
   /* handle possible mem access errors */
-  signal(SIGBUS,  segv_handler);
   signal(SIGSEGV, segv_handler);
+#if !defined(DC_WINDOWS)
+  signal(SIGBUS, segv_handler);
+#endif
 
   printf("Allocating ...\n");
   printf("... W^X memory: ");
