@@ -16,8 +16,11 @@ dyncallback:
   o support clang's integrated as (didn't build on non-Darwin PPC32 platforms)
 dynload:
   o fix to build with musl libc
+  o support for loading macos >= 11.0.1 (Big Sur) dylibs provided by system's "built-in dynamic
+    linker cache of all system-provided libraries" (those dylibs are no longer present on the fs)
 doc:
   o manual now specifying calling convention signature chars
+  o dynload(3) note about macos >= 11.0.1 cached dylib support (see above)
 bindings:
   o python: Python 3 support, Python 2 unicode support, added get_path function, changing
     'Z' conversions to only immutable types and 'p' to mutable types (and handles), support
@@ -27,6 +30,9 @@ bindings:
 tests:
   o extended callf testcode to test callconv mode switch signature chars (including syscalls)
   o robustness fixes (thanks Bernhard!)
+  o dynload_plain test fix on macos >= 11.0.1 (Big Sur)
+  o made inode testing of dynload_plain optional, depending on platform support or if macos
+    dylib not on fs but provided through system's cache
 buildsys:
   o cmake support of armasm64 on windows (thanks Bernhard!)
 

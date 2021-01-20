@@ -67,6 +67,8 @@ int main(int argc, char* argv[])
   DLLib* pLib;
   DLSyms* pSyms;
   const char* path = NULL;
+  int cmp_inode = 1;
+
   /* hacky/lazy list of some clib paths per platform - more/others, like version-suffixed ones */
   /* can be specified in Makefile; this avoids trying to write portable directory traversal stuff */
   const char* clibs[] = {
@@ -78,7 +80,7 @@ int main(int argc, char* argv[])
     "/lib32/libc.so",
     "/lib64/libc.so",
     "/usr/lib/libc.so",
-    "/usr/lib/system/libsystem_c.dylib", /* macos */
+    "/usr/lib/system/libsystem_c.dylib", /* macos - note: not on fs w/ macos >= 11.0.1 */
     "/usr/lib/libc.dylib",
     "/boot/system/lib/libroot.so",       /* Haiku */
     "\\ReactOS\\system32\\msvcrt.dll",   /* ReactOS */
@@ -93,6 +95,15 @@ int main(int argc, char* argv[])
       path = clibs[i];
       break;
     }
+#if defined(DC__OS_Darwin)
+    /* macos >= 11.0.1 (Big Sur) dylibs might not be on disk but in a sys cache, so dlopen works but not fs checks */
+    else if((pLib = dlLoadLibrary(clibs[i]))) {
+      cmp_inode = 0; /* not dealing with files but dylib sys cache */
+      dlFreeLibrary(pLib);
+      path = clibs[i];
+      break;
+    }
+#endif
   }
 
   if(path) {
@@ -115,13 +126,35 @@ int main(int argc, char* argv[])
 
       bs = dlGetLibraryPath(pLib, queriedPath, 200);
       if(bs && bs <= 200) {
-        struct stat st0, st1; /* to check if same file */
         int b, bs_;
         printf("path of lib looked up via handle: %s\n", queriedPath);
-        b = (stat(path, &st0) != -1) && (stat(queriedPath, &st1) != -1);
-        printf("lib (inode:%d) and looked up lib (inode:%d) are same: %d\n", b?st0.st_ino:-1, b?st1.st_ino:-1, b && (st0.st_ino == st1.st_ino)); //@@@ on windows, inode numbers returned here are always 0
-        r += b && (st0.st_ino == st1.st_ino); /* compare if same lib using inode */
+
 /*@@@ check if resolved path is absolute*/
+
+#if defined(DC_WINDOWS)
+        /* on windows, inode numbers returned by stat(2) tests below are always 0, so don't use those */
+        cmp_inode = 0;
+#endif
+
+        /* path based check if same lib */
+        if(cmp_inode)
+        {
+          struct stat st0, st1; /* to check if same file */
+          b = (stat(path, &st0) != -1) && (stat(queriedPath, &st1) != -1);
+          printf("lib (inode:%d) and looked up lib (inode:%d) are same: %d\n", b?(int)st0.st_ino:-1, b?(int)st1.st_ino:-1, b && (st0.st_ino == st1.st_ino));
+          r += b && (st0.st_ino == st1.st_ino); /* compare if same lib using inode */
+        }
+        else
+          printf("-- skipping inode based check (doesn't apply to this platform or we are dealing with macos dylib that isn't on fs) --\n");
+
+        /* just load lib with queried path and compare handle */
+        {
+          DLLib* pLib_ = dlLoadLibrary(queriedPath);
+          b = (pLib == pLib_); /* pLib guaranteed to not be NULL, here, so no explicit !pLib_ check */
+          printf("lib (handle:%p) and looked up lib (handle:%p) are same: %d\n", pLib, pLib_, b);
+          r += b;
+          dlFreeLibrary(pLib_); /* dec ref count */
+        }
 
         /* check correct bufsize retval */
         b = (bs == strlen(queriedPath) + 1);
@@ -245,7 +278,7 @@ int main(int argc, char* argv[])
   }
 
   /* Check final score of right ones to see if all worked */
-  r = (r == 16);
+  r = (r == 16 + cmp_inode);
   printf("result: dynload_plain: %d\n", r);
   return !r;
 }
