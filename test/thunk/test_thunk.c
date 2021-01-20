@@ -44,9 +44,11 @@
 
 jmp_buf jbuf;
 
+static int last_sig;
 
 void segv_handler(int sig)
 {
+  last_sig = sig;
   longjmp(jbuf, 1);
 }
 
@@ -64,7 +66,7 @@ void test_stack()
   dcbInitThunk(&t, &my_entry);
   fp = (printfun*)&t;
   if(setjmp(jbuf) != 0)
-    printf("sigsegv\n");
+    printf(last_sig == SIGSEGV ? "sigsegv\n" : "sigbus\n");
   else
     fp("stack");
 }
@@ -82,7 +84,7 @@ void test_heap()
   dcbInitThunk(p, &my_entry);
   fp = (printfun*)p;
   if(setjmp(jbuf) != 0)
-    printf("sigsegv\n");
+    printf(last_sig == SIGSEGV ? "sigsegv\n" : "sigbus\n");
   else
     fp("heap");
   free(p);
@@ -106,7 +108,7 @@ void test_wx()
   }
   fp = (printfun*)p;
   if(setjmp(jbuf) != 0)
-    printf("sigsegv\n");
+    printf(last_sig == SIGSEGV ? "sigsegv\n" : "sigbus\n");
   else
     fp("wx");
   dcFreeWX((void*)p, sizeof(DCThunk));
@@ -116,11 +118,28 @@ int main()
 {
   dcTest_initPlatform();
 
-  /* handle possible mem access errors */
+  /* handle sigsegv and sigbus (latter used on some platforms for some mem */
+  /* access errors); use more complex setup if SA_ONSTACK is available */
+
+#if defined(SA_ONSTACK)
+  /* notes:
+     - use sigaction(2) to pass SA_ONSTACK, to handle segfaults on stack (as
+       handler would use same stack, this needs to be requested explicitly)
+     - not using sigaltstack(2), as no need in our case
+  */
+  struct sigaction sigAct;
+  sigfillset(&(sigAct.sa_mask));
+  sigAct.sa_sigaction = segv_handler;
+  sigAct.sa_flags = SA_ONSTACK;
+  sigaction(SIGSEGV, &sigAct, NULL);
+  sigaction(SIGBUS,  &sigAct, NULL);
+#else
   signal(SIGSEGV, segv_handler);
 #if !defined(DC_WINDOWS)
-  signal(SIGBUS, segv_handler);
+  signal(SIGBUS,  segv_handler);
 #endif
+#endif
+
 
   printf("Allocating ...\n");
   printf("... W^X memory: ");
