@@ -7,7 +7,7 @@
  License:
 
    Copyright (c) 2007-2015 Olivier Chafik <olivier.chafik@gmail.com>,
-                 2017-2018 refactored completely for stability, API
+                 2017-2021 refactored completely for stability, API
                            consistency and portability by Tassilo Philipp.
 
    Permission to use, copy, modify, and distribute this software for any

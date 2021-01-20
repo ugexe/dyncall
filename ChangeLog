@@ -1,7 +1,7 @@
 This file lists bigger/noteworthy changes, only...
 
 
-Version 1.2 (upcoming)
+Version 1.2
 
 dyncall:
   o windows arm64 support (thanks Bernhard!)
