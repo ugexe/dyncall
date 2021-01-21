@@ -43,8 +43,6 @@
 #  include <elf.h>
 #elif defined(OS_SunOS)
 #  include <libelf.h>
-#elif defined(OS_BeOS)
-#  include <elf32.h>
 #else
 #  include <elf.h>
 #endif
