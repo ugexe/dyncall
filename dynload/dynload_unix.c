@@ -162,8 +162,9 @@ int dlGetLibraryPath(DLLib* pLib, char* sOut, int bufSize)
 /* - OpenBSD >= 3.7 has dl_iterate_phdr(), as well as glibc >= 2.2.4
    - also some libc impls (like musl) provide dlinfo(), but not RTLD_SELF (see above), however they might come
      with dl_iterate_phdr (which comes from ELF program header iteration), so base it on that
-   - skip and use dladdr()-based guessing (see below) if explicitly requested, e.g. by ./configure */
-#elif !defined(DL_DLADDR_TO_LIBPATH) && (defined(OS_OpenBSD) || defined(DL_USE_GLIBC_ITER_PHDR) || (!defined(RTLD_SELF) && defined(__ELF__)))
+   - skip and use dladdr()-based guessing (see below) if explicitly requested, e.g. by ./configure
+   - Haiku/BeOS does have the headers but no implementation of dl_iterate_phdr() (at least as of 2021) */
+#elif !defined(DL_DLADDR_TO_LIBPATH) && (defined(OS_OpenBSD) || defined(DL_USE_GLIBC_ITER_PHDR) || (!defined(RTLD_SELF) && defined(__ELF__))) && !defined(OS_BeOS)
 
 #include <sys/types.h>
 #include <link.h>
