@@ -6,7 +6,7 @@
  Description:
  License:
 
-   Copyright (c) 2007-2020 Daniel Adler <dadler@uni-goettingen.de>,
+   Copyright (c) 2007-2021 Daniel Adler <dadler@uni-goettingen.de>,
                            Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
@@ -32,7 +32,7 @@
 #include "../common/platformInit.c" /* Impl. for functions only used in this translation unit */
 
 #include <stdarg.h>
-#if defined(DC_UNIX)
+#if defined(DC_UNIX) && !defined(DC__OS_BeOS)
 #include <sys/syscall.h>
 #endif
 
@@ -134,7 +134,7 @@ int main(int argc, char* argv[])
   dcArgF(vm, "ffiffiffi", 1.f, 2.f, 3, 4.f, 5.f, 6, 7.f, 8.f, 9);
   r = r && dcCallInt(vm, (void*)&vf_ffiffiffi);
 
-#if defined(DC_UNIX) && !defined(DC__OS_MacOSX) && !defined(DC__OS_SunOS)
+#if defined(DC_UNIX) && !defined(DC__OS_MacOSX) && !defined(DC__OS_SunOS) && !defined(DC__OS_BeOS)
   /* testing syscall using calling convention prefix - not available on all platforms */
   dcReset(vm);
   printf("\ncallf _$iZi)i");
