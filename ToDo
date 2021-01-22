@@ -159,12 +159,8 @@ manual:
 
 regressions:
 ------------
-- Haiku/gmake build doesn't build dynload due to the fact, that elf.h is not found
-  on default installations (one has to install the system headers)
-  * add to doc
 - Solaris/gmake build doesn't build dynload and tests anymore (maybe not even dyncallback)
 - look over code and fix TODO or @@@ marks
-- add ppc-support to doc (both, 32 and 64, as well as little and big endian remarks)
 
 nice to have:
 -------------
