@@ -18,6 +18,7 @@ dynload:
   o fix to build with musl libc
   o support for loading macos >= 11.0.1 (Big Sur) dylibs provided by system's "built-in dynamic
     linker cache of all system-provided libraries" (those dylibs are no longer present on the fs)
+  o fix to work on recent Haiku versions (r1 beta versions)
 doc:
   o manual now specifying calling convention signature chars
   o dynload(3) note about macos >= 11.0.1 cached dylib support (see above)
