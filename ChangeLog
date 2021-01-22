@@ -22,12 +22,13 @@ dynload:
 doc:
   o manual now specifying calling convention signature chars
   o dynload(3) note about macos >= 11.0.1 cached dylib support (see above)
+  o marked Haiku/x64 as supported and tested
 bindings:
-  o python: Python 3 support, Python 2 unicode support, added get_path function, changing
+  o pydc: Python 3 support, Python 2 unicode support, added get_path function, changing
     'Z' conversions to only immutable types and 'p' to mutable types (and handles), support
     passing None for 'Z' and 'p', bytearray support, support to specify calling convention
-  o shell: can reference own executable now and support for more calling conventions
-  o shell: syscall support
+  o shdc: can reference own executable now and support for more calling conventions
+  o shdc: syscall support
 tests:
   o extended callf testcode to test callconv mode switch signature chars (including syscalls)
   o robustness fixes (thanks Bernhard!)
