@@ -81,16 +81,6 @@ typedef Elf64_Sxword Elf_tag;
 typedef Elf64_Addr   Elf_Addr;
 
 #  else
-#    if defined(OS_BeOS)
-typedef struct Elf32_Ehdr   Elf_Ehdr;
-typedef struct Elf32_Phdr   Elf_Phdr;
-typedef struct Elf32_Shdr   Elf_Shdr;
-typedef struct Elf32_Sym    Elf_Sym;
-typedef struct Elf32_Dyn    Elf_Dyn;
-typedef        Elf32_Sword  Elf_tag;
-typedef        Elf32_Addr   Elf_Addr;
-
-#    else
 
 typedef Elf32_Ehdr   Elf_Ehdr;
 typedef Elf32_Phdr   Elf_Phdr;
@@ -102,7 +92,6 @@ typedef Elf32_Dyn    Elf_Dyn;
 typedef Elf32_Sword  Elf_tag;
 typedef Elf32_Addr   Elf_Addr;
 
-#    endif
 #  endif
 #endif
 
