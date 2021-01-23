@@ -37,7 +37,7 @@ TARGETS = callback_suite.exe
 OBJS = env.obj handler.obj sigstrings.obj invokers.obj do_test.obj main.obj print.obj signature_utils.obj
 $(TARGETS): $(OBJS)
 	echo Linking $@ ...
-	$(LD) /OUT:"$@" $(LDFLAGS) $(OBJS) $(TOP)\dyncall\libdyncall_s.lib $(TOP)\dyncallback\libdyncallback_s.lib
+	$(LD) /OUT:"$@" $(LDFLAGS) $(OBJS) $(TOP)\dyncall\dyncall_s.lib $(TOP)\dyncallback\dyncallback_s.lib
 
 
 !ELSE IF "$(BUILD_OS)" == "nds"
