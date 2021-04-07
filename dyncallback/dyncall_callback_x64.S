@@ -51,10 +51,7 @@ SET(CTX_handler,24)
 SET(CTX_userdata,32)
 SET(DCCallback_size,40)
 
-/* character constants */
 
-#define ASCII_f 102
-#define ASCII_d 100
 
 GLOBAL(dcCallback_x64_sysv)
 BEGIN_PROC(dcCallback_x64_sysv)
