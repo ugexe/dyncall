@@ -4,6 +4,7 @@ This file lists bigger/noteworthy changes, only...
 Version 1.3 (upcoming)
 
 dynload:
+  o Haiku/x86 build fix
   o dynload fix for PE files that do not contain a symbol export directory (thanks Ashok!)
 buildsys:
   o windows/nmake based builds: output library name changes to follow conventions of the native
