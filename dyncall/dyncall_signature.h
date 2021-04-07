@@ -55,7 +55,7 @@ typedef char DCsigchar;
 #define DC_SIGCHAR_FLOAT        'f'
 #define DC_SIGCHAR_DOUBLE       'd'
 #define DC_SIGCHAR_POINTER      'p'
-#define DC_SIGCHAR_STRING       'Z'
+#define DC_SIGCHAR_STRING       'Z' /* in theory same as 'p', but convenient to disambiguate */
 #define DC_SIGCHAR_STRUCT       'T'
 #define DC_SIGCHAR_ENDARG       ')' /* also works for end struct */
 
