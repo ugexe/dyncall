@@ -4,7 +4,7 @@ This file lists bigger/noteworthy changes, only...
 Version 1.3 (upcoming)
 
 dynload:
-  o Haiku/x86 build fix
+  o dynload fix for PE files that do not contain a symbol export directory (thanks Ashok!)
 
 
 Version 1.2 (2021/01/23)
