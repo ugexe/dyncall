@@ -56,7 +56,7 @@ dcCallbackThunkEntry:
 #if defined(DC__ABI_ARM_HF)
 	stmdb	r13!, {r4}					/* Init freg_count and dreg_count to 0 */
 	stmdb	r13!, {r4}
-	fstmdbd	r13!, {d0-d7}				/* Store all fp-registers in DCArgs' f[16] */
+	vstmdb	r13!, {d0-d7}				/* Store all fp-registers in DCArgs' f[16] */
 #endif
 	stmdb	r13!, {r0-r4, r11}			/* Spill first 4 args to DCArgs, along with reg_count (init to 0) and (stack) pointer to remaining args. */
 
@@ -75,7 +75,7 @@ dcCallbackThunkEntry:
 	/* Return value. */
 	ldmia	r13, {r0, r1}				/* Load return value in r0 and r1. */
 #if defined(DC__ABI_ARM_HF)
-	fldmiad	r13, {d0}					/* Same for floating point return value (if any). */
+	vldmia	r13, {d0}					/* Same for floating point return value (if any). */
 #endif
 
 	/* Epilog. */
