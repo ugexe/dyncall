@@ -6,6 +6,10 @@ Version 1.3 (upcoming)
 dynload:
   o Haiku/x86 build fix
   o dynload fix for PE files that do not contain a symbol export directory (thanks Ashok!)
+dyncall:
+  o build fix when using clang's integrated assembler on arm32 hard-float platforms
+dyncallback:
+  o build fix when using clang's integrated assembler on arm32 hard-float platforms
 buildsys:
   o windows/nmake based builds: output library name changes to follow conventions of the native
     platform and be in line with cmake based builds
@@ -20,10 +24,10 @@ dyncall:
   o made "formatted" call interface use calling convention signature chars
   o added helper function dcGetModeFromCCSigChar() mapping callconv sig chars to respective mode
   o removed some unnecessary headers (only contained internal used forward declarations)
-  o support clang's integrated as (didn't build on non-Darwin PPC32 platforms)
+  o build fix when using clang's integrated assembler on non-Darwin PPC32 platforms
 dyncallback:
   o windows arm64 support (thanks Bernhard!)
-  o support clang's integrated as (didn't build on non-Darwin PPC32 platforms)
+  o build fix when using clang's integrated assembler on non-Darwin PPC32 platforms
 dynload:
   o fix to build with musl libc
   o support for loading macos >= 11.0.1 (Big Sur) dylibs provided by system's "built-in dynamic
