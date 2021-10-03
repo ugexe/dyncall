@@ -46,14 +46,21 @@
 **
 ** - hybrid return-type call (bool ... pointer)
 **
-** Note the return type of this declaration is intentially of double-word size (despite
-** the return value not being used in the code below).
-** On some platforms (FreeBSD/arm, Nintendo DS, ...) the compiler generates cleanup code
-** in the caller (dc_callvm_call_arm32_thumb) that reuses, thus overwrites r0 and r1.
+** Note: return types of this decl and func below are of double-word size, intentionally
+** to keep some platforms' compilers from generating code in the callers that reuse, and
+** thus overwrite, r0 and r1 directly after the call.
 ** With this "hint", we preserve those registers by letting the compiler assume both
 ** registers are used for the return type.
 */
 DClonglong dcCall_arm32_thumb(DCpointer target, DCpointer stackdata, DCsize size);
+
+
+/* Call. */
+DClonglong dc_callvm_call_arm32_thumb(DCCallVM* in_self, DCpointer target)
+{
+  DCCallVM_arm32_thumb* self = (DCCallVM_arm32_thumb*)in_self;
+  return dcCall_arm32_thumb(target, dcVecData(&self->mVecHead), dcVecSize(&self->mVecHead));
+}
 
 
 static void dc_callvm_mode_arm32_thumb(DCCallVM* in_self,DCint mode);
@@ -147,14 +154,6 @@ static void dc_callvm_argPointer_arm32_thumb(DCCallVM* in_self, DCpointer x)
 {
   DCCallVM_arm32_thumb* self = (DCCallVM_arm32_thumb*)in_self;
   dcVecAppend(&self->mVecHead, &x, sizeof(DCpointer));
-}
-
-
-/* Call. */
-void dc_callvm_call_arm32_thumb(DCCallVM* in_self, DCpointer target)
-{
-  DCCallVM_arm32_thumb* self = (DCCallVM_arm32_thumb*)in_self;
-  dcCall_arm32_thumb(target, dcVecData(&self->mVecHead), dcVecSize(&self->mVecHead));
 }
 
 

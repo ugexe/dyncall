@@ -7,6 +7,7 @@ dynload:
   o Haiku/x86 build fix
   o dynload fix for PE files that do not contain a symbol export directory (thanks Ashok!)
 dyncall:
+  o fixed broken return values w/ arm32/thumb mode (only affected some platforms)
   o build fix when using clang's integrated assembler on arm32 hard-float platforms
 dyncallback:
   o build fix when using clang's integrated assembler on arm32 hard-float platforms
