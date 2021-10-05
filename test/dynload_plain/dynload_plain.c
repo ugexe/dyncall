@@ -6,7 +6,7 @@
  Description: 
  License:
 
-   Copyright (c) 2017-2018 Tassilo Philipp <tphilipp@potion-studios.com>
+   Copyright (c) 2017-2021 Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
    purpose with or without fee is hereby granted, provided that the above
@@ -25,6 +25,7 @@
 
 #include "../../dynload/dynload.h"
 #include "../common/platformInit.h"
+#include "../common/platformInit.c" /* Impl. for functions only used in this translation unit */
 
 #include <string.h>
 #include <sys/stat.h>
@@ -88,6 +89,8 @@ int main(int argc, char* argv[])
     "\\Windows\\system32\\msvcrt.dll",   /* Windows */
     "C:\\Windows\\system32\\msvcrt.dll"
   };
+
+  dcTest_initPlatform();
 
   /* use first matching path of hacky hardcoded list, above */
   for(i=0; i<(sizeof(clibs)/sizeof(const char*)); ++i) {
@@ -280,6 +283,9 @@ int main(int argc, char* argv[])
   /* Check final score of right ones to see if all worked */
   r = (r == 16 + cmp_inode);
   printf("result: dynload_plain: %d\n", r);
+
+  dcTest_deInitPlatform();
+
   return !r;
 }
 

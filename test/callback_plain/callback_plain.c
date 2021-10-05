@@ -6,7 +6,7 @@
  Description: 
  License:
 
-   Copyright (c) 2011-2018 Daniel Adler <dadler@uni-goettingen.de>,
+   Copyright (c) 2011-2021 Daniel Adler <dadler@uni-goettingen.de>,
                            Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
@@ -74,10 +74,11 @@ int main()
   printf("successfully returned from callback\n");
   printf("return value (should be 1234): %d\n", result);
 
-  printf("result: callback_plain: %s\n", (userdata == 6) && (result == 1234) ? "1" : "0");
+  result = (userdata == 6) && (result == 1234);
+  printf("result: callback_plain: %d\n", result);
 
   dcTest_deInitPlatform();
 
-  return 0;
+  return !result;
 }
 

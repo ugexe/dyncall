@@ -1,5 +1,5 @@
 APP = callback_suite
-OBJS = env.o handler.o sigstrings.o invokers.o do_test.o main.o print.o signature_utils.o
+OBJS = env.o handler.o sigstrings.o invokers.o do_test.o main.o signature_utils.o
 
 SRCTOP   = ../..
 BLDTOP   = ${SRCTOP}

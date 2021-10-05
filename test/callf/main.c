@@ -150,6 +150,6 @@ int main(int argc, char* argv[])
 
   dcTest_deInitPlatform();
 
-  return 0;
+  return !r;
 }
 

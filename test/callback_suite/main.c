@@ -6,7 +6,7 @@
  Description: 
  License:
 
-   Copyright (c) 2011-2018 Daniel Adler <dadler@uni-goettingen.de>,
+   Copyright (c) 2011-2021 Daniel Adler <dadler@uni-goettingen.de>,
                            Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
@@ -27,9 +27,23 @@
 #include <stdlib.h>
 #include "_auto_config.h"
 #include "env.h"
-#include "print.h"
 #include "../common/platformInit.h"
 #include "../common/platformInit.c" /* Impl. for functions only used in this translation unit */
+
+
+void PrintUsage(const char* appName)
+{
+  printf("usage:\n\
+%s [ -v ] [ from [to] ]\n\
+where\n\
+  from, to: test range\n\
+options\n\
+  -v        verbose reports\n\
+  -h        help on usage\n\
+\n\
+", appName);
+}
+
 
 
 const char* appname = "unknown";
@@ -101,13 +115,13 @@ int main(int argc, char* argv[] )
 
   ncases = (to - from) + 1;
 
-  PrintHeader();
+  printf("case\tsignat.\tresult\n");
   TestRange(from, to);
-  totalResult = (totalErrorCodes[1] == ncases) ? 1 : 0; 
-  PrintTotalResult(totalResult);
+  totalResult = (totalErrorCodes[1] == ncases);
+  printf("result: callback_suite: %d\n", totalResult);
 
   dcTest_deInitPlatform();
 
-  return 0;
+  return !totalResult;
 }
 

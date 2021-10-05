@@ -30,7 +30,6 @@
 #include "sigstrings.h"
 #include "signature_utils.h"
 #include "env.h"
-#include "print.h"
 #include "../common/platformInit.h"
 
 int CompareValues(char type, DCValue* a, DCValue* b)
@@ -115,13 +114,13 @@ int DoTest(int id)
   index = id - 1;
   
   signature = GetSignature(index);
-  PrintCaseInfo(id,signature);
+  printf("f%d(\t%s", id, signature);
 
   pcb = dcbNewCallback( signature, handler, (void*) signature );
   assert(pcb != NULL);
   DoInvoke(index, (void*) pcb);
   result = Compare(signature); 
-  PrintCaseResult(result);
+  printf(" :%d\n", result);
   dcbFreeCallback(pcb);
   return result;
 }

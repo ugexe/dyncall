@@ -14,6 +14,8 @@ dyncallback:
 buildsys:
   o windows/nmake based builds: output library name changes to follow conventions of the native
     platform and be in line with cmake based builds
+tests:
+  o fixed status codes of some tests to actually depend on results (for consistency and automation)
 
 
 Version 1.2 (2021/01/23)

@@ -3,10 +3,10 @@
  Package: dyncall
  Library: test
  File: test/suite_x86win32fast/main.cc
- Description: 
+ Description:
  License:
 
-   Copyright (c) 2007-2018 Daniel Adler <dadler@uni-goettingen.de>, 
+   Copyright (c) 2007-2018 Daniel Adler <dadler@uni-goettingen.de>,
                            Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
@@ -80,13 +80,13 @@ void init()
     valueDouble[i] = DCdouble(i);
     valuePointer[i] = DCpointer(i);
     valueFloat[i] = DCfloat(i);
-  } 
+  }
 }
 
 
 void push(DCCallVM* pCall, int select, int pos)
 {
-  switch(select) 
+  switch(select)
   {
     case 0: dcArgBool( pCall, valueBool[pos] ); break;
     case 1: dcArgInt( pCall, valueInt[pos] ); break;
@@ -98,7 +98,7 @@ void push(DCCallVM* pCall, int select, int pos)
 }
 
 
-#define assert(x) if (!(x)) return false
+#define test(x) if (!(x)) return false
 
 
 bool test(int x)
@@ -116,21 +116,21 @@ bool test(int x)
   int y = x;
   int selects[NARGS] = { 0, };
   int pos = 0;
-  for(pos = 0;y>0;++pos) 
+  for(pos = 0;y>0;++pos)
   {
-    int select = (y-1) % NTYPES; 
+    int select = (y-1) % NTYPES;
     selects[pos] = select;
     push(pCall,select,pos);
     y = (y-1) / NTYPES;
   }
   dcCallVoid(pCall,getFunc(x));
-  
-  assert( getId() == x );
-  
+
+  test( getId() == x );
+
   for(int i = 0;i<pos;++i) {
-    assert( equals( selects[i], i, getArg(i) ) );      
+    test( equals( selects[i], i, getArg(i) ) );
   }
-  
+
   dcFree(pCall);
   return true;
 }
@@ -167,7 +167,7 @@ int main(int argc, char* argv[])
   init();
   if (argc == 2) {
     int index = atoi(argv[1]);
-    success = run_range( index, index+1 ); 
+    success = run_range( index, index+1 );
   } else if (argc == 3) {
     int from = atoi(argv[1]);
     int to   = atoi(argv[2])+1;
@@ -176,12 +176,12 @@ int main(int argc, char* argv[])
     int ncalls = powerfact(NTYPES,NARGS)+1;
     success = run_range(0,ncalls);
   }
-  
-  printf("result: suite_x86win32fast: %s\n", success ? "1" : "0");
+
+  printf("result: suite_x86win32fast: %d\n", success);
 
   dcTest_deInitPlatform();
 
-  return (success) ? 0 : -1;
+  return !success;
 }
 
 }  // extern "C"
