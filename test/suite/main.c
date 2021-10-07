@@ -110,7 +110,7 @@ void push(DCCallVM* pCall, int select, int pos)
 #define test(x) if (!(x)) return DC_FALSE
 
 
-DCbool test(int x)
+DCbool test_case(int x)
 {
   int y = x;
   int selects[NARGS] = { 0, };
@@ -153,7 +153,7 @@ DCbool run_range(int from, int to)
   int i;
   for(i=from; i<to; ++i) {
     printf("%d:",i);
-    r = test(i);
+    r = test_case(i);
     printf("%d\n", r);
     tr &= r;
   }

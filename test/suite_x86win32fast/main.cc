@@ -101,7 +101,7 @@ void push(DCCallVM* pCall, int select, int pos)
 #define test(x) if (!(x)) return false
 
 
-bool test(int x)
+bool test_case(int x)
 {
   clearValues();
 
@@ -150,7 +150,7 @@ bool run_range(int from, int to)
   bool tr = true;
   for (int i = from ; i < to ; ++i ) {
     printf("%d:",i);
-    bool r = test(i);
+    bool r = test_case(i);
     printf("%d\n", r);
     tr &= r;
   }
