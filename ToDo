@@ -140,7 +140,7 @@ bindings:
 - add godoc for godc
 - add javadoc to java
 - add more bindings
-- add callback support for erlang, go, java, lua, python and ruby (and shell? how?)
+- add callback support for erlang, go, java, lua and ruby (and shell? how?)
 - add call-conv-mode-support for rbdc through signature
 
 manual:
