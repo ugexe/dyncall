@@ -153,7 +153,7 @@ that is currently unsupported. Gray cells are combinations that don't exist
 at the time of writing, or that are not taken into account.\\
 Light green cells mark complete feature support, as in dyncall and dyncallback. Dark green means basic support but lacking features (e.g. dyncall support, but not dyncallback).
 Please note that a green cell (even a light-green one) doesn't imply that all existing calling conventions/features/build tools are supported for that platform (but the most
-important).
+important). % @@@ The rightmost column gives a brief info about calling convention support or other notes.
 For detailed info about a platform's support consult the calling convention appendix.
 
 
@@ -208,7 +208,7 @@ For detailed info about a platform's support consult the calling convention appe
 \hhline{*{1}{|~}*{14}{|-}}%       ^- checked   ^- dynOS     ^-dynOS      ^- checked   ^- checked   ^- checked   ^- checked   ^- checked   ^- checked   ^- checked   ^- checked   ^- checked   ^- checked
                            & EL & \marknotx  & \markunkn  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& \\
 \hline%                           ^- checked   ^- find@@@   ^- checked   ^- checked   ^- checked   ^- checked   ^- checked   ^- checked   ^- checked   ^- checked   ^- checked   ^- checked   ^- checked
-\multirow{2}{*}{PowerPC64} & EB & \marknotx  & \markcmpl  & \markunkn  & \markcmpl  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknimp  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& \multirow{2}{*}{elf} \\
+\multirow{2}{*}{PowerPC64} & EB & \marknotx  & \markcmpl  & \markunkn  & \markcmpl  & \marknotx  & \markunkn  & \marknotx  & \marknotx  & \marknimp  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& \multirow{2}{*}{elf} \\
 \hhline{*{1}{|~}*{14}{|-}}%       ^- checked   ^- masanori@ ^- checked   ^- dynOS     ^- checked   ^- checked   ^- checked   ^- checked   ^- checked   ^- checked   ^- checked   ^- checked   ^- checked
                            & EL & \marknotx  & \markcmpl  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& \\
 \hline%                           ^- checked   ^- masanori@ ^- checked   ^- checked   ^- checked   ^- checked   ^- checked   ^- checked   ^- checked   ^- checked   ^- checked   ^- checked   ^- checked
@@ -226,7 +226,9 @@ SPARC                      &    & \marknotx  & \markcmpl  & \marknotx  & \markno
 \hline
 SPARC64                    &    & \marknotx  & \markcmpl  & \marknotx  & \markcmpl  & \markcmpl  & \markcmpl  & \marknotx  & \markimpl  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& v9 \\
 \hline
-RISC-V                     &    & \marknotx  & \marknimp  & \marknotx  & \marknimp  & \marknimp  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& \\
+RISC-V                     &    & \marknotx  & \marknimp  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& \\
+\hline
+RISC-V 64                  &    & \marknotx  & \marknimp  & \marknotx  & \marknimp  & \marknotx  & \marknimp  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx  & \marknotx \\%& \\
 
 \end{tabular}
 \caption{Supported platforms}%
