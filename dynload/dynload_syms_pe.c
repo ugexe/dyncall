@@ -61,7 +61,7 @@ DLSyms* dlSymsInit(const char* libPath)
   pNTHeader       = (IMAGE_NT_HEADERS*)(base + pDOSHeader->e_lfanew);
 
   /* optional header present and big enough? this header should exist as it's only optional for object files */
-  if(pNTHeader->FileHeader.SizeOfOptionalHeader < (&pNTHeader->OptionalHeader.DataDirectory - &pNTHeader->OptionalHeader))
+  if(pNTHeader->FileHeader.SizeOfOptionalHeader < ((char*)&pNTHeader->OptionalHeader.DataDirectory - (char*)&pNTHeader->OptionalHeader))
       return NULL;
 
   /* export table available? */
