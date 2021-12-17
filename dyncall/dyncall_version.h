@@ -38,7 +38,7 @@
    this macro was introduced while working on v1.3, (so 0x130c)
 */
 
-#define DYNCALL_VERSION  0x130c
+#define DYNCALL_VERSION  0x130f
 
 #endif /* DYNCALL_VERSION_H */
 

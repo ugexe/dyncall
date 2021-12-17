@@ -1,4 +1,4 @@
-1.3:
+1.4:
 ----
 - test atpcs thumb on arm and verify if ellipsis and C++ thiscalls work, if so adapt doc appendix
 - test eabi thumb on arm and verify if ellipsis and C++ thiscalls work, if so adapt doc appendix
