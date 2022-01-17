@@ -31,8 +31,6 @@
 DEF_TYPES
 #undef X
 
-int       fid;
-
 double rand_d() { return ( ( (double) rand() )  / ( (double) RAND_MAX ) ); }
 
 void init_K()

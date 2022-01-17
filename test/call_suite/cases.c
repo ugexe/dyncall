@@ -34,7 +34,6 @@
 #define ret_p(X) return(K_p[X]);
 #define ret_f(X) return(K_f[X]);
 #define ret_d(X) return(K_d[X]);
-extern int fid;
 
 #define v void
 #define c char
