@@ -3,4 +3,5 @@ minargs  = 0
 maxargs  = 64
 ncases   = 400
 types    = "csijlpfd"
+seed     = 2342
 

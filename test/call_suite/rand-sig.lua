@@ -2,8 +2,7 @@ require"config"
 
 rtypes   = "v"..types
 
-math.randomseed(2342)
-local sigs = { }
+math.randomseed(seed)
 local id
 for i = 1, ncases do
   id = math.random(#rtypes)
