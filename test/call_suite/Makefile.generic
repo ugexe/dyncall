@@ -1,5 +1,5 @@
 APP     = call_suite
-OBJS    = globals.o invoke.o cases.o main.o
+OBJS    = globals.o cases.o main.o
 SRCTOP  = ${VPATH}/../..
 BLDTOP  = ../..
 CFLAGS += -I${SRCTOP}/dyncall
