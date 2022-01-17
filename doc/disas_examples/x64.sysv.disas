@@ -1,16 +1,16 @@
 ; #include <stdlib.h>
-; 
+;
 ; void leaf_call(int b, int c, int d, int e, int f, int g, int h)
 ; {
 ; }
-; 
+;
 ; void nonleaf_call(int a, int b, int c, int d, int e, int f, int g, int h)
 ; {
 ; 	/* use some local data */
 ; 	*(char*)alloca(10) = 'L';
 ; 	leaf_call(b, c, d, e, f, g, h);
 ; }
-; 
+;
 ; int main()
 ; {
 ; 	nonleaf_call(0, 1, 2, 3, 4, 5, 6, 7);
@@ -156,6 +156,292 @@
   d0:   b8 00 00 00 00          mov    $0x0,%eax
   d5:   c9                      leaveq
   d6:   c3                      retq
+
+
+
+; ---------- structs by value, struct in first call on reg arg boundary ---------->
+;
+; #include <stdlib.h>
+;
+; struct A { int i, j; long long l; };
+;
+; void leaf_call(int b, int c, int d, int e, struct A f, int g, int h)
+; {
+; }
+;
+; void nonleaf_call(int a, int b, int c, int d, int e, struct A f, int g, int h)
+; {
+;     /* use some local data */
+;     *(char*)alloca(220) = 'L';
+;     leaf_call(b, c, d, e, f, g, h);
+; }
+;
+; int main()
+; {
+;     nonleaf_call(0, 1, 2, 3, 4, (struct A){5, 6, 7ll}, 8, 9);
+;     return 0;
+; }
+
+
+
+; output from freebsd-12.2-x64 w/ clang 10.0.1
+
+0000000000201920 <leaf_call>:
+  201920:       55                            push   %rbp
+  201921:       48 89 e5                      mov    %rsp,%rbp
+  201924:       8b 45 18                      mov    0x18(%rbp),%eax
+  201927:       44 8b 55 10                   mov    0x10(%rbp),%r10d
+  20192b:       4c 89 45 f0                   mov    %r8,-0x10(%rbp)
+  20192f:       4c 89 4d f8                   mov    %r9,-0x8(%rbp)
+  201933:       89 7d ec                      mov    %edi,-0x14(%rbp)
+  201936:       89 75 e8                      mov    %esi,-0x18(%rbp)
+  201939:       89 55 e4                      mov    %edx,-0x1c(%rbp)
+  20193c:       89 4d e0                      mov    %ecx,-0x20(%rbp)
+  20193f:       5d                            pop    %rbp
+  201940:       c3                            retq
+  201941:       66 2e 0f 1f 84 00 00 00 00 00 nopw   %cs:0x0(%rax,%rax,1)
+  20194b:       0f 1f 44 00 00                nopl   0x0(%rax,%rax,1)
+
+0000000000201950 <nonleaf_call>:
+  201950:       55                            push   %rbp                   ; |
+  201951:       48 89 e5                      mov    %rsp,%rbp              ; | prolog
+  201954:       53                            push   %rbx                   ; |
+  201955:       48 81 ec 18 01 00 00          sub    $0x118,%rsp            ; |           open frame *with* static alloca() size included
+  20195c:       8b 45 20                      mov    0x20(%rbp),%eax        ; unsure... stack param from prev frame into some scratch reg... but why? see below @@@
+  20195f:       4c 8d 55 10                   lea    0x10(%rbp),%r10        ; ptr to struct on stack -> r10
+  201963:       89 7d f4                      mov    %edi,-0xc(%rbp)        ; |
+  201966:       89 75 f0                      mov    %esi,-0x10(%rbp)       ; |
+  201969:       89 55 ec                      mov    %edx,-0x14(%rbp)       ; |
+  20196c:       89 4d e8                      mov    %ecx,-0x18(%rbp)       ; | in args (regs) -> local area (as temp store, mem order 8,4,3,2,1,0)
+  20196f:       44 89 45 e4                   mov    %r8d,-0x1c(%rbp)       ; |
+  201973:       44 89 4d e0                   mov    %r9d,-0x20(%rbp)       ; |
+  201977:       c6 85 00 ff ff ff 4c          movb   $0x4c,-0x100(%rbp)     ; 'L' -> local area (of alloca()'d space)
+  20197e:       8b 7d f0                      mov    -0x10(%rbp),%edi       ; arg 0
+  201981:       8b 75 ec                      mov    -0x14(%rbp),%esi       ; arg 1
+  201984:       8b 55 e8                      mov    -0x18(%rbp),%edx       ; arg 2
+  201987:       8b 4d e4                      mov    -0x1c(%rbp),%ecx       ; arg 3
+  20198a:       44 8b 45 e0                   mov    -0x20(%rbp),%r8d       ; in arg 6 (local copy) -> r8             pointless, free regs available and using arg reg as temporary, needs freeing below
+  20198e:       44 8b 4d 20                   mov    0x20(%rbp),%r9d        ; in arg 7 (stack)      -> r9             pointless, free regs available and using arg reg as temporary, needs freeing below
+  201992:       4d 8b 1a                      mov    (%r10),%r11            ; in arg 5 (A.i, A.j) -> hold in scratch reg
+  201995:       4d 8b 52 08                   mov    0x8(%r10),%r10         ; in arg 5 (A.l)      -> hold in scratch reg
+  201999:       44 89 85 fc fe ff ff          mov    %r8d,-0x104(%rbp)      ; 'free' r8, temp store content
+  2019a0:       4d 89 d8                      mov    %r11,%r8               ; arg 4 (A.i, A.j)
+  2019a3:       44 89 8d f8 fe ff ff          mov    %r9d,-0x108(%rbp)      ; 'free' r9, temp store content
+  2019aa:       4d 89 d1                      mov    %r10,%r9               ; arg 4 (A.l)
+  2019ad:       8b 9d fc fe ff ff             mov    -0x104(%rbp),%ebx      ; \
+  2019b3:       89 1c 24                      mov    %ebx,(%rsp)            ; / arg 5 (fetch from temp store, pushed)   pointless, could've been pushed, directly
+  2019b6:       8b 9d f8 fe ff ff             mov    -0x108(%rbp),%ebx      ; \
+  2019bc:       89 5c 24 08                   mov    %ebx,0x8(%rsp)         ; / arg 6 (fetch from temp store, pushed)   pointless, could've been pushed, directly
+  2019c0:       89 85 f4 fe ff ff             mov    %eax,-0x10c(%rbp)      ; unsure... write something to local area @@@?
+  2019c6:       e8 55 ff ff ff                callq  201920 <leaf_call>     ; push return addr and call
+  2019cb:       48 81 c4 18 01 00 00          add    $0x118,%rsp            ; |
+  2019d2:       5b                            pop    %rbx                   ; |
+  2019d3:       5d                            pop    %rbp                   ; | epilog
+  2019d4:       c3                            retq                          ; |
+  2019d5:       66 2e 0f 1f 84 00 00 00 00 00 nopw   %cs:0x0(%rax,%rax,1)   ; garbage data
+  2019df:       90                            nop                           ; garbage data
+
+00000000002019e0 <main>:
+  2019e0:       55                            push   %rbp                   ; |
+  2019e1:       48 89 e5                      mov    %rsp,%rbp              ; | prolog
+  2019e4:       48 83 ec 30                   sub    $0x30,%rsp             ; |
+  2019e8:       31 ff                         xor    %edi,%edi              ; arg 0
+  2019ea:       c7 45 fc 00 00 00 00          movl   $0x0,-0x4(%rbp)        ; unsure... write 0 to local area @@@?
+  2019f1:       c7 45 e8 05 00 00 00          movl   $0x5,-0x18(%rbp)       ; |                              field i
+  2019f8:       c7 45 ec 06 00 00 00          movl   $0x6,-0x14(%rbp)       ; | fill struct A (local area)   field j
+  2019ff:       48 c7 45 f0 07 00 00 00       movq   $0x7,-0x10(%rbp)       ; |                              field l
+  201a07:       be 01 00 00 00                mov    $0x1,%esi              ; arg 1
+  201a0c:       ba 02 00 00 00                mov    $0x2,%edx              ; arg 2
+  201a11:       b9 03 00 00 00                mov    $0x3,%ecx              ; arg 3
+  201a16:       41 b8 04 00 00 00             mov    $0x4,%r8d              ; arg 4
+  201a1c:       48 8d 45 e8                   lea    -0x18(%rbp),%rax       ; |
+  201a20:       4c 8b 08                      mov    (%rax),%r9             ; |
+  201a23:       4c 89 0c 24                   mov    %r9,(%rsp)             ; | arg 5 (struct, pushed onto stack, as not enough regs)
+  201a27:       48 8b 40 08                   mov    0x8(%rax),%rax         ; |
+  201a2b:       48 89 44 24 08                mov    %rax,0x8(%rsp)         ; |
+  201a30:       41 b9 08 00 00 00             mov    $0x8,%r9d              ; arg 6 (in reg)
+  201a36:       c7 44 24 10 09 00 00 00       movl   $0x9,0x10(%rsp)        ; arg 7 (pushed)
+  201a3e:       e8 0d ff ff ff                callq  201950 <nonleaf_call>  ; push return addr and call
+  201a43:       31 c0                         xor    %eax,%eax              ; return value
+  201a45:       48 83 c4 30                   add    $0x30,%rsp             ; |
+  201a49:       5d                            pop    %rbp                   ; | epilog
+  201a4a:       c3                            retq                          ; |
+
+
+; ---------- structs by value, complex example (multiple structs, partly passed via regs) ---------->
+;
+; #include <stdlib.h>
+;
+; struct A { int i, j; float f; };
+; struct B { double d; long long l; };
+;
+; void leaf_call(int b, struct A c, struct B d, int e, int f, struct A g, struct B h, int i, int j)
+; {
+; }
+;
+; void nonleaf_call(int a, int b, struct A c, struct B d, int e, int f, struct A g, struct B h, int i, int j)
+; {
+;     /* use some local data */
+;     *(char*)alloca(220) = 'L';
+;     leaf_call(b, c, d, e, f, g, h, i, j);
+; }
+;
+; int main()
+; {
+;     nonleaf_call(0, 1, (struct A){2, 3, 4.f}, (struct B){5., 6ll}, 7, 8, (struct A){9, 10, 11.f}, (struct B){12., 13ll}, 14, 15);
+;     return 0;
+; }
+
+
+
+; output from freebsd-12.2-x64 w/ clang 10.0.1
+
+0000000000201940 <leaf_call>:
+  201940:   55                            push   %rbp
+  201941:   48 89 e5                      mov    %rsp,%rbp
+  201944:   8b 45 28                      mov    0x28(%rbp),%eax
+  201947:   44 8b 55 20                   mov    0x20(%rbp),%r10d
+  20194b:   48 89 75 e0                   mov    %rsi,-0x20(%rbp)
+  20194f:   f3 0f 11 45 e8                movss  %xmm0,-0x18(%rbp)
+  201954:   48 8b 75 e0                   mov    -0x20(%rbp),%rsi
+  201958:   48 89 75 f0                   mov    %rsi,-0x10(%rbp)
+  20195c:   44 8b 5d e8                   mov    -0x18(%rbp),%r11d
+  201960:   44 89 5d f8                   mov    %r11d,-0x8(%rbp)
+  201964:   f2 0f 11 4d d0                movsd  %xmm1,-0x30(%rbp)
+  201969:   48 89 55 d8                   mov    %rdx,-0x28(%rbp)
+  20196d:   4c 89 4d b0                   mov    %r9,-0x50(%rbp)
+  201971:   f3 0f 11 55 b8                movss  %xmm2,-0x48(%rbp)
+  201976:   48 8b 55 b0                   mov    -0x50(%rbp),%rdx
+  20197a:   48 89 55 c0                   mov    %rdx,-0x40(%rbp)
+  20197e:   44 8b 5d b8                   mov    -0x48(%rbp),%r11d
+  201982:   44 89 5d c8                   mov    %r11d,-0x38(%rbp)
+  201986:   89 7d ac                      mov    %edi,-0x54(%rbp)
+  201989:   89 4d a8                      mov    %ecx,-0x58(%rbp)
+  20198c:   44 89 45 a4                   mov    %r8d,-0x5c(%rbp)
+  201990:   5d                            pop    %rbp
+  201991:   c3                            retq
+  201992:   66 2e 0f 1f 84 00 00 00 00 00 nopw   %cs:0x0(%rax,%rax,1)
+  20199c:   0f 1f 40 00                   nopl   0x0(%rax)
+
+00000000002019a0 <nonleaf_call>:
+  2019a0:   55                            push   %rbp                     ; |
+  2019a1:   48 89 e5                      mov    %rsp,%rbp                ; |
+  2019a4:   41 57                         push   %r15                     ; |
+  2019a6:   41 56                         push   %r14                     ; | prolog
+  2019a8:   41 54                         push   %r12                     ; |
+  2019aa:   53                            push   %rbx                     ; |
+  2019ab:   48 81 ec 70 01 00 00          sub    $0x170,%rsp              ; |           open frame *with* static alloca() size included
+  2019b2:   8b 45 38                      mov    0x38(%rbp),%eax          ; unsure... get last (15) stack param from prev frame into some scratch reg... but why? see below @@@
+  2019b5:   44 8b 55 30                   mov    0x30(%rbp),%r10d         ; unsure... get one to last (14) stack param from prev frame into some scratch reg... but why? see below @@@
+  2019b9:   4c 8d 5d 20                   lea    0x20(%rbp),%r11          ; ptr to struct B on stack -> rbx
+  2019bd:   48 8d 5d 10                   lea    0x10(%rbp),%rbx          ; ptr to struct A on stack -> r11
+  2019c1:   48 89 55 c0                   mov    %rdx,-0x40(%rbp)         ; |                    \                                                 i, j
+  2019c5:   f3 0f 11 45 c8                movss  %xmm0,-0x38(%rbp)        ; |                    / reassemble first struct A in mem (local area)   f
+  2019ca:   48 8b 55 c0                   mov    -0x40(%rbp),%rdx         ; .                    \                 pointless reload of rdx w/ same val from same addr
+  2019ce:   48 89 55 d0                   mov    %rdx,-0x30(%rbp)         ; .                    |
+  2019d2:   44 8b 75 c8                   mov    -0x38(%rbp),%r14d        ; .                    | copy of just reassembled A (local area)  @@@ unsure why (@@@ I think we need copies of the structs, all the time)
+  2019d6:   44 89 75 d8                   mov    %r14d,-0x28(%rbp)        ; .                    /
+  2019da:   f2 0f 11 4d b0                movsd  %xmm1,-0x50(%rbp)        ; |                    \                                                 d
+  2019df:   48 89 4d b8                   mov    %rcx,-0x48(%rbp)         ; |                    / reassemble first struct B in mem (local area)   l
+  2019e3:   89 7d ac                      mov    %edi,-0x54(%rbp)         ; |                                                                           (0)
+  2019e6:   89 75 a8                      mov    %esi,-0x58(%rbp)         ; | in args (regs) -> local area (as temp store, mem order 8,7,1,0,B,A,A')    (1)
+  2019e9:   44 89 45 a4                   mov    %r8d,-0x5c(%rbp)         ; |                                                                           (7)
+  2019ed:   44 89 4d a0                   mov    %r9d,-0x60(%rbp)         ; |                                                                           (8)
+  2019f1:   c6 85 a0 fe ff ff 4c          movb   $0x4c,-0x160(%rbp)       ; 'L' -> local area (of alloca()'d space)
+  2019f8:   8b 7d a8                      mov    -0x58(%rbp),%edi         ; arg 0
+  2019fb:   8b 4d a4                      mov    -0x5c(%rbp),%ecx         ; arg 3
+  2019fe:   44 8b 45 a0                   mov    -0x60(%rbp),%r8d         ; arg 4
+  201a02:   8b 75 30                      mov    0x30(%rbp),%esi          ; in arg 9 -> hold in scratch reg
+  201a05:   44 8b 4d 38                   mov    0x38(%rbp),%r9d          ; in arg 8 -> hold in scratch reg
+  201a09:   48 8b 55 d0                   mov    -0x30(%rbp),%rdx         ; |                 again pointless reload of rdx w/ same val from same addr
+  201a0d:   48 89 55 90                   mov    %rdx,-0x70(%rbp)         ; |
+  201a11:   44 8b 75 d8                   mov    -0x28(%rbp),%r14d        ; | *another* copy of copy of A (local area)  @@@ unsure why
+  201a15:   44 89 75 98                   mov    %r14d,-0x68(%rbp)        ; |
+  201a19:   48 8b 55 90                   mov    -0x70(%rbp),%rdx         ; pointless reload of rdx
+  201a1d:   f3 0f 10 45 98                movss  -0x68(%rbp),%xmm0        ; arg 1 (A.f)                                 @@@ unsure why from copy
+  201a22:   f2 0f 10 4d b0                movsd  -0x50(%rbp),%xmm1        ; arg 2 (B.d)
+  201a27:   4c 8b 7d b8                   mov    -0x48(%rbp),%r15         ; in arg arg 3 (B.l) -> hold in scratch reg
+  201a2b:   4c 8b 23                      mov    (%rbx),%r12              ; |
+  201a2e:   4c 89 65 80                   mov    %r12,-0x80(%rbp)         ; |
+  201a32:   44 8b 73 08                   mov    0x8(%rbx),%r14d          ; | copy of in arg 6 (struct A on stack) -> local area
+  201a36:   44 89 75 88                   mov    %r14d,-0x78(%rbp)        ; |
+  201a3a:   48 8b 5d 80                   mov    -0x80(%rbp),%rbx         ; in arg 6 (A.i, A.j) -> rbx
+  201a3e:   f3 0f 10 55 88                movss  -0x78(%rbp),%xmm2        ; arg 5 (A.f)
+  201a43:   89 b5 9c fe ff ff             mov    %esi,-0x164(%rbp)        ; in arg 9 -> temp (at end of frame, a bit pointless as could be pushed directly)
+  201a49:   48 89 d6                      mov    %rdx,%rsi                ; arg 1 (A.i, A.j)
+  201a4c:   4c 89 fa                      mov    %r15,%rdx                ; arg 2 (B.l)
+  201a4f:   44 89 8d 98 fe ff ff          mov    %r9d,-0x168(%rbp)        ; in arg 8 -> temp (at end of frame, a bit pointless as could be pushed directly)
+  201a56:   49 89 d9                      mov    %rbx,%r9                 ; arg 5 (A.i, A.j)
+  201a59:   49 8b 1b                      mov    (%r11),%rbx              ; \
+  201a5c:   48 89 1c 24                   mov    %rbx,(%rsp)              ; / arg 6 (B.d) (pushed)
+  201a60:   4d 8b 5b 08                   mov    0x8(%r11),%r11           ; \
+  201a64:   4c 89 5c 24 08                mov    %r11,0x8(%rsp)           ; / arg 6 (B.l) (pushed)
+  201a69:   44 8b b5 9c fe ff ff          mov    -0x164(%rbp),%r14d       ; \
+  201a70:   44 89 74 24 10                mov    %r14d,0x10(%rsp)         ; / arg 7 (pushed, aligned)
+  201a75:   44 8b b5 98 fe ff ff          mov    -0x168(%rbp),%r14d       ; \
+  201a7c:   44 89 74 24 18                mov    %r14d,0x18(%rsp)         ; / arg 8 (pushed, aligned)
+  201a81:   89 85 94 fe ff ff             mov    %eax,-0x16c(%rbp)        ; unsure... write something to local area @@@?
+  201a87:   44 89 95 90 fe ff ff          mov    %r10d,-0x170(%rbp)       ; unsure... write something to local area @@@?
+  201a8e:   e8 ad fe ff ff                callq  201940 <leaf_call>       ; push return addr and call
+  201a93:   48 81 c4 70 01 00 00          add    $0x170,%rsp              ; |
+  201a9a:   5b                            pop    %rbx                     ; |
+  201a9b:   41 5c                         pop    %r12                     ; |
+  201a9d:   41 5e                         pop    %r14                     ; | epilog
+  201a9f:   41 5f                         pop    %r15                     ; |
+  201aa1:   5d                            pop    %rbp                     ; |
+  201aa2:   c3                            retq                            ; |
+  201aa3:   66 2e 0f 1f 84 00 00 00 00 00 nopw   %cs:0x0(%rax,%rax,1)     ; garbage data
+  201aad:   0f 1f 00                      nopl   (%rax)                   ; garbage data
+
+0000000000201ab0 <main>:
+  201ab0:   55                            push   %rbp                     ; |
+  201ab1:   48 89 e5                      mov    %rsp,%rbp                ; | prolog
+  201ab4:   48 81 ec 80 00 00 00          sub    $0x80,%rsp               ; |
+  201abb:   31 ff                         xor    %edi,%edi                ; arg 0
+  201abd:   f2 0f 10 05 2b ea ff ff       movsd  -0x15d5(%rip),%xmm0      ; not arg: prep to fill struct B field d (12.0)
+  201ac5:   f3 0f 10 0d 2f ea ff ff       movss  -0x15d1(%rip),%xmm1      ; not arg: prep to fill struct A field f (11.f)
+  201acd:   f2 0f 10 15 13 ea ff ff       movsd  -0x15ed(%rip),%xmm2      ; not arg: prep to fill struct B field d (5.0)
+  201ad5:   f3 0f 10 1d 1b ea ff ff       movss  -0x15e5(%rip),%xmm3      ; not arg: prep to fill struct A field f (4.f)
+  201add:   c7 45 fc 00 00 00 00          movl   $0x0,-0x4(%rbp)          ; unsure... write 0 to local area @@@?
+  201ae4:   c7 45 f0 02 00 00 00          movl   $0x2,-0x10(%rbp)         ; \                                    field i
+  201aeb:   c7 45 f4 03 00 00 00          movl   $0x3,-0xc(%rbp)          ; | fill first struct A (local area)   field j
+  201af2:   f3 0f 11 5d f8                movss  %xmm3,-0x8(%rbp)         ; /                                    field f
+  201af7:   f2 0f 11 55 e0                movsd  %xmm2,-0x20(%rbp)        ; \                                    field d
+  201afc:   48 c7 45 e8 06 00 00 00       movq   $0x6,-0x18(%rbp)         ; / fill first struct B (local area)   field l
+  201b04:   c7 45 d0 09 00 00 00          movl   $0x9,-0x30(%rbp)         ; \                                   field i
+  201b0b:   c7 45 d4 0a 00 00 00          movl   $0xa,-0x2c(%rbp)         ; | fill last struct A (local area)   field j
+  201b12:   f3 0f 11 4d d8                movss  %xmm1,-0x28(%rbp)        ; /                                   field f
+  201b17:   f2 0f 11 45 c0                movsd  %xmm0,-0x40(%rbp)        ; \                                   field d
+  201b1c:   48 c7 45 c8 0d 00 00 00       movq   $0xd,-0x38(%rbp)         ; / fill last struct B (local area)   field l
+  201b24:   48 8b 45 f0                   mov    -0x10(%rbp),%rax         ; \
+  201b28:   48 89 45 b0                   mov    %rax,-0x50(%rbp)         ; | unsure ... make copy of first struct A (local area) @@@
+  201b2c:   8b 4d f8                      mov    -0x8(%rbp),%ecx          ; |
+  201b2f:   89 4d b8                      mov    %ecx,-0x48(%rbp)         ; /
+  201b32:   48 8b 55 b0                   mov    -0x50(%rbp),%rdx         ; arg 2 (A.i, A.j) @@@ unsure why from copy made above
+  201b36:   f3 0f 10 45 b8                movss  -0x48(%rbp),%xmm0        ; arg 2 (A.f)      @@@ unsure why from copy made above
+  201b3b:   f2 0f 10 4d e0                movsd  -0x20(%rbp),%xmm1        ; arg 3 (B.d)
+  201b40:   48 8b 4d e8                   mov    -0x18(%rbp),%rcx         ; arg 3 (B.l)
+  201b44:   be 01 00 00 00                mov    $0x1,%esi                ; arg 1
+  201b49:   41 b8 07 00 00 00             mov    $0x7,%r8d                ; arg 4
+  201b4f:   41 b9 08 00 00 00             mov    $0x8,%r9d                ; arg 5
+  201b55:   48 8d 45 d0                   lea    -0x30(%rbp),%rax         ; \                                              \
+  201b59:   4c 8b 10                      mov    (%rax),%r10              ; |                                              | i, j
+  201b5c:   4c 89 14 24                   mov    %r10,(%rsp)              ; | arg 6   (last struct A, *pushed* by value)   /
+  201b60:   44 8b 58 08                   mov    0x8(%rax),%r11d          ; |                                              \ f
+  201b64:   44 89 5c 24 08                mov    %r11d,0x8(%rsp)          ; /                                              /
+  201b69:   48 8d 45 c0                   lea    -0x40(%rbp),%rax         ; \                                              \
+  201b6d:   4c 8b 10                      mov    (%rax),%r10              ; |                                              | d (aligned)
+  201b70:   4c 89 54 24 10                mov    %r10,0x10(%rsp)          ; | arg 7   (last struct B, *pushed* by value)   /
+  201b75:   48 8b 40 08                   mov    0x8(%rax),%rax           ; |                                              \ l
+  201b79:   48 89 44 24 18                mov    %rax,0x18(%rsp)          ; /                                              /
+  201b7e:   c7 44 24 20 0e 00 00 00       movl   $0xe,0x20(%rsp)          ; arg 8 (pushed, aligned)
+  201b86:   c7 44 24 28 0f 00 00 00       movl   $0xf,0x28(%rsp)          ; arg 9 (pushed, aligned)
+  201b8e:   e8 0d fe ff ff                callq  2019a0 <nonleaf_call>    ; push return addr and call
+  201b93:   31 c0                         xor    %eax,%eax                ; return value
+  201b95:   48 81 c4 80 00 00 00          add    $0x80,%rsp               ; |
+  201b9c:   5d                            pop    %rbp                     ; | epilog
+  201b9d:   c3                            retq                            ; |
+
 
 ; vim: ft=asm
 
