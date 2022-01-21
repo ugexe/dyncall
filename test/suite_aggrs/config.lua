@@ -1,0 +1,18 @@
+-- user config for rand-sig.lua:
+minargs      = 0
+maxargs      = 32
+maxaggrdepth = 3    -- max nesting depth of aggregates, 1 = no nesting
+ncases       = 400
+types        = "csijlpfd{}"
+seed         = 2108
+
+-- specify types more than once to increase relative occurance, e.g.:
+
+-- this favors non-struct args, especially ints (and also increases avg num of struct fields):
+--types       = "ccssiiiiijjllpfd{}"
+
+-- this heavily favors nested structs:
+--types       = "csijlpfd{{{{{{}"
+
+-- this heavily favors flat and short/empty structs:
+--types       = "csijlpfd{}}}}}}"
