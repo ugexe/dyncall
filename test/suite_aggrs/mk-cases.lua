@@ -9,14 +9,13 @@ local seen_aggrs = { }
 function trim(l) return l:gsub("^%s+",""):gsub("%s+$","") end
 function mkcase(id,sig)
   local sig = trim(sig)
-  -- @@@ return value hard-guessed by first char, doesn't hold anymore
-  local h = { "/* ",id,":",sig," */ ",sig:sub(1,1), " f", id,"(","" }
+  local h = { "/* ",id,":",sig," */ " }
   local t = { "" }
-  local pos = 1
+  local pos = 0
   local n_nest = 0
   local aggr
   local aggr_sig = ''
-  for i = 2, #sig do 
+  for i = 1, #sig do
     local name = "a"..pos
     local ch   = sig:sub(i,i)
 
@@ -51,20 +50,33 @@ function mkcase(id,sig)
     if n_nest == 0 then
       -- struct types (more than one char) need copying via a func
       if #ch > 1 then
-        h[#h+1] = 'struct '..ch.." "..name
+        h[#h+1] = 'struct '..ch
         t[#t+1] = 'f_cp'..ch..'(V_a['..pos.."],&"..name..");"
       else
-        h[#h+1] = ch.." "..name
+        h[#h+1] = ch
         t[#t+1] = "V_"..ch.."["..pos.."]="..name..";"
       end
-      h[#h+1] = ","
+
+      -- is return type or func arg?
+      if pos == 0 then
+        h[#h+1] = " f"..id.."("
+        h[#h+1] = ''
+        t[#t] = ''  -- clear; aggr return type handled explicitly
+      else
+        h[#h+1] = ' '..name
+        h[#h+1] = ","
+      end
 
       pos = pos + 1
     end
   end
   maxargs = max(maxargs, pos-1)
   h[#h] = "){"
-  t[#t+1] = "ret_"..sig:sub(1,1).."("..(pos-1)..")}\n"
+  if #h[6] == 1 then
+    t[#t+1] = "ret_"..h[6].."("..(pos-1)..")}\n"
+  else
+    t[#t+1] = "ret_a("..(pos-1)..","..h[6]..")}\n"
+  end
   return table.concat(h,"")..table.concat(t,"")
 end
 
@@ -141,13 +153,18 @@ function mkall()
     io.write(" dcCloseStruct(st); return st; };\n")
   end
 
+  -- make table.concat work
+  if #agg_names > 0 then
+    table.insert(agg_names, 1, '')
+  end
+
   io.write(cases)
   io.write(mkfuntab(lineno))
   io.write(mksigtab(sigtab))
   io.write('const char* G_agg_sigs[]  = {\n\t"'..table.concat(agg_sigs, '",\n\t"')..'"\n};\n')
   io.write('int G_agg_sizes[] = {\n\t'..table.concat(agg_sizes, ',\n\t')..'\n};\n')
-  io.write('funptr G_agg_newdcstfuncs[] = {\n\t(funptr)&f_newdcst'..table.concat(agg_names, ',\n\t(funptr)&f_newdcst')..'\n};\n')
-  io.write('funptr G_agg_cmpfuncs[] = {\n\t(funptr)&f_cmp'..table.concat(agg_names, ',\n\t(funptr)&f_cmp')..'\n};\n')
+  io.write('funptr G_agg_newdcstfuncs[] = {'..string.sub(table.concat(agg_names, ',\n\t(funptr)&f_newdcst'),2)..'\n};\n')
+  io.write('funptr G_agg_cmpfuncs[] = {'..string.sub(table.concat(agg_names, ',\n\t(funptr)&f_cmp'),2)..'\n};\n')
   io.write("int G_maxargs = "..maxargs..";\n")
 end
 
