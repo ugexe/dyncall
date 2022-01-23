@@ -1,10 +1,10 @@
 -- user config for rand-sig.lua:
 minargs      = 0
-maxargs      = 32
+maxargs      = 16
 maxaggrdepth = 3    -- max nesting depth of aggregates, 1 = no nesting
-ncases       = 400
+ncases       = 800
 types        = "csijlpfd{}"
-seed         = 2108
+seed         = 2112
 
 -- specify types more than once to increase relative occurance, e.g.:
 

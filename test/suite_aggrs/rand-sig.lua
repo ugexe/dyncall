@@ -3,27 +3,28 @@ require"config"
 -- assure aggr chars are present in pairs (can be weighted, though), to avoid
 -- inf loops
 if string.match(types,'{') and not string.match(types,'}') then types = types..'}' end
+-- @@@ unions, arrays
 
 rtypes   = "v"..types
 
 
-function mkstruct(n_nest)
+function mkstruct(n_nest, maxdepth)
   local s = "{"
 
   repeat
     local id = math.random(#types)
     local t = types:sub(id,id)
-    s = s..mktype(t, n_nest)
+    s = s..mktype(t, n_nest, maxdepth)
   until t == '}'
 
   return s
 end
 
-function mktype(t, n_nest)
+function mktype(t, n_nest, maxdepth)
   -- ignore new structs if above depth limit
   if t == '{' then
-    if n_nest < maxaggrdepth then
-      return mkstruct(n_nest + 1)
+    if n_nest < maxdepth then
+      return mkstruct(n_nest + 1, maxdepth)
     else
       return ''
     end
@@ -41,14 +42,18 @@ end
 math.randomseed(seed)
 local id
 for i = 1, ncases do
-  id = math.random(#rtypes)
   local nargs = math.random(minargs,maxargs)
-  local sig   = { mktype(rtypes:sub(id,id), 0) }
-  for j = 1, nargs do
-    id = math.random(#types)
-    sig[#sig+1] = mktype(types:sub(id,id), 0)
-  end
-  io.write(table.concat(sig))
-  io.write("\n")
+  local l = ''
+  repeat
+    id = math.random(#rtypes)
+    local sig = { mktype(rtypes:sub(id,id), 0, math.random(maxaggrdepth)) } -- random depth avoids excessive nesting
+    for j = 1, nargs do
+      id = math.random(#types)
+      sig[#sig+1] = mktype(types:sub(id,id), 0, math.random(maxaggrdepth)) -- random depth avoids excessive nesting
+    end
+	l = table.concat(sig)
+    -- reject sigs without any aggregate, as this is about aggrs after all
+  until string.match(l, '{') ~= nil
+  io.write(l.."\n")
 end
 

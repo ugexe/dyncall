@@ -44,7 +44,7 @@ static int find_agg_idx(int* len, const char* sig)
   return -1;
 }
 
-int invoke(char const* signature, void* t)
+static int invoke(char const* signature, void* t)
 {
   DCCallVM   * p = (DCCallVM*) G_callvm;
   char const * sig = signature;
@@ -71,7 +71,7 @@ int invoke(char const* signature, void* t)
     sig += len;
 
 	rtype_st_cmp = G_agg_cmpfuncs[i];
-    rtype_st = ((DCstruct*(*)())G_agg_newdcstfuncs[i])();
+    rtype_st = ((DCstruct*(*)())G_agg_newdcstfuncs[i])(NULL);
     dcBeginCallStruct(p, rtype_st, DC_FALSE);
   }
   else
@@ -98,7 +98,7 @@ int invoke(char const* signature, void* t)
           printf("unknown sig at '%s' ;", sig);
           return 0;
         }
-        DCstruct *st = ((DCstruct*(*)())G_agg_newdcstfuncs[i])();
+        DCstruct *st = ((DCstruct*(*)())G_agg_newdcstfuncs[i])(NULL);
         dcArgStruct(p, st, K_a[pos]);
         sig += len-1; /* advance to next arg char */
         break;
