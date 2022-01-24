@@ -161,12 +161,10 @@ function mkall()
     end
 
     -- convenient dcnewstruct helper funcs
-    io.write('static int nfields'..v[2]..' = '..(#v[1]>>1)..';\n')
-    io.write('DCstruct* f_newdcst'..v[2]..'(DCstruct* parent) {\n\tDCstruct* st = parent;\n\tif(!st) st = dcNewStruct(nfields'..v[2]..', sizeof('..st..'), 0, 1);\n\t')
+    io.write('DCstruct* f_newdcst'..v[2]..'() {\n\tDCstruct* st = dcNewStruct('..(#v[1]>>1)..', sizeof('..st..'), 0, 1);\n\t')
     for i = 1, #v[1], 2 do
       if string.match(v[1][i], '^struct') then
-	    io.write('dcSubStruct(st, nfields'..v[1][i]:sub(8)..', offsetof('..st..', '..v[1][i+1]..'), sizeof('..v[1][i]..'), 0, DC_TRUE, 1);\n\t')
-        io.write("f_newdcst"..v[1][i]:sub(8)..'(st);\n\t')
+	    io.write('dcStructField(st, DC_SIGCHAR_STRUCT, offsetof('..st..', '..v[1][i+1]..'), 1, f_newdcst'..v[1][i]:sub(8)..'());\n\t')
 	  else
         io.write("dcStructField(st, '"..v[1][i].."', offsetof("..st..', '..v[1][i+1]..'), 1);\n\t')
 	  end

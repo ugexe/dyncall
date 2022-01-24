@@ -71,7 +71,7 @@ static int invoke(char const* signature, void* t)
     sig += len;
 
 	rtype_st_cmp = G_agg_cmpfuncs[i];
-    rtype_st = ((DCstruct*(*)())G_agg_newdcstfuncs[i])(NULL);
+    rtype_st = ((DCstruct*(*)())G_agg_newdcstfuncs[i])();
     dcBeginCallStruct(p, rtype_st, DC_FALSE);
   }
   else
@@ -98,7 +98,7 @@ static int invoke(char const* signature, void* t)
           printf("unknown sig at '%s' ;", sig);
           return 0;
         }
-        DCstruct *st = ((DCstruct*(*)())G_agg_newdcstfuncs[i])(NULL);
+        DCstruct *st = ((DCstruct*(*)())G_agg_newdcstfuncs[i])();
         dcArgStruct(p, st, K_a[pos]);
         sig += len-1; /* advance to next arg char */
         break;
