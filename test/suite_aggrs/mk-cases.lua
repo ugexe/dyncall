@@ -143,7 +143,7 @@ function mkall()
       'void f_cp'..v[2]..'('..st..' *x, const '..st..' *y) { ',
       'int f_cmp'..v[2]..'(const '..st..' *x, const '..st..' *y) { return '
     }
-    o = { '=', '==', 'f_cp', 'f_cmp', '; ', ' && '  }
+    o = { '=', '==', 'f_cp', 'f_cmp', '; ', ' && ', '', '1' }
     for t = 1, 2 do
       io.write(s[t])
       b = {}
@@ -154,8 +154,8 @@ function mkall()
           b[#b+1] = 'x->'..v[1][i+1]..' '..o[t]..' y->'..v[1][i+1];
 		end
       end
-      if #b == 0 then
-        b[1] = '1'  -- to handle empty structs
+      if #b == 0 then  -- to handle empty structs
+        b[1] = o[t+6]
       end
       io.write(table.concat(b,o[t+4]).."; };\n")
     end
