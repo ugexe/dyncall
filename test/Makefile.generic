@@ -1,5 +1,5 @@
-ALL=call_suite callback_suite plain plain_c++ suite suite2 suite3 suite_floats ellipsis callf syscall dynload_plain resolve_self thunk malloc_wx callback_plain
-PACK=call_suite callback_suite plain plain_c++ suite suite2 suite3 suite_floats ellipsis callf dynload_plain resolve_self callback_plain
+ALL=call_suite callback_suite plain plain_c++ suite suite2 suite3 suite_floats suite_aggrs ellipsis callf syscall dynload_plain resolve_self thunk malloc_wx callback_plain
+PACK=call_suite callback_suite plain plain_c++ suite suite2 suite3 suite_floats suite_aggrs ellipsis callf dynload_plain resolve_self callback_plain
 .PHONY: all clean run-tests install distclean ${ALL} 
 all clean install: 
 	${MAKE} TARGET=$@ ${ALL}
@@ -11,6 +11,7 @@ all-c:
 	cd plain && ${MAKE}
 	cd call_suite && ${MAKE}
 	cd suite && ${MAKE}
+	cd suite_aggrs && ${MAKE_CMD}
 	cd callf && ${MAKE}
 	cd syscall && ${MAKE}
 	cd dynload_plain && ${MAKE}
@@ -37,6 +38,7 @@ all-dyncall:
 	cd suite2 && ${MAKE}
 	cd suite3 && ${MAKE}
 	cd suite_floats && ${MAKE}
+	cd suite_aggrs && ${MAKE_CMD}
 	cd ellipsis && ${MAKE}
 	cd callf && ${MAKE}
 	cd syscall && ${MAKE}
@@ -48,6 +50,7 @@ run-dyncall:
 	suite2/suite2
 	suite3/suite3
 	suite_floats/suite_floats
+	suite_aggrs/suite_aggrs
 	ellipsis/ellipsis
 	callf/callf
 	syscall/syscall
