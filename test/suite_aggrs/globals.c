@@ -60,7 +60,7 @@ DEF_TYPES
     K_l[i] = (long long) (((rand_d()-0.5)*2) * (1LL<<(sizeof(long long)*8-2)));
     K_p[i] = (void*)     (long) (((rand_d()-0.5)*2) * (1LL<<(sizeof(void*)*8-1)));
     K_f[i] = (float)     (rand_d() * FLT_MAX);
-    K_d[i] = (double)    (((rand_d()-0.5)*2) * 1.7976931348623157E+308/*__DBL_MAX__*/); /* Plan9 doesn't know the macro. */
+    K_d[i] = (double)    (((rand_d()-0.5)*2) * DBL_MAX);
     K_a[i] = malloc(maxaggrsize+AGGR_MISALIGN);
     rand_mem(K_a[i], maxaggrsize+AGGR_MISALIGN);
     K_a[i] = (char*)K_a[i]+AGGR_MISALIGN;
