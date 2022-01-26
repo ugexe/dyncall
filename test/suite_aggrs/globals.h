@@ -2,7 +2,7 @@
 
  Package: dyncall
  Library: test
- File: test/call_aggrs/globals.h
+ File: test/suite_aggrs/globals.h
  Description: 
  License:
 

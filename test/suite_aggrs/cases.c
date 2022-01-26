@@ -2,7 +2,7 @@
 
  Package: dyncall
  Library: test
- File: test/call_aggrs/cases.c
+ File: test/suite_aggrs/cases.c
  Description: 
  License:
 

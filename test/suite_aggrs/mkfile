@@ -22,7 +22,7 @@ TOP		= ../..
 
 
 UNITS       = globals cases main
-APPLICATION = call_aggrs
+APPLICATION = suite_aggrs
 LIBS        = $TOP/dyncall/libdyncall_s.a$O
 
 #.PHONY: config 
