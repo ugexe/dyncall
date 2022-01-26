@@ -30,7 +30,7 @@
 #include "../common/platformInit.c" /* Impl. for functions only used in this translation unit */
 
 
-void* G_callvm;
+static void* G_callvm;
 
 
 static int invoke(char const* signature, void* t)
