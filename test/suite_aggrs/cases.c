@@ -46,7 +46,7 @@
 #define d double
 #define a void*  /* all generated aggregates */
 
-#include "dyncall_struct.h"
+#include "dyncall.h"
 #include "cases.h"
 
 int G_ncases = sizeof(G_sigtab)/sizeof(G_sigtab[0]);

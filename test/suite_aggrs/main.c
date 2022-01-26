@@ -23,7 +23,6 @@
 */
 
 #include "dyncall.h"
-#include "dyncall_struct.h"
 #include "globals.h"
 #include <string.h>
 #include "../common/platformInit.h"
