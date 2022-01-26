@@ -2,6 +2,7 @@
 minargs      = 0
 maxargs      = 16
 maxaggrdepth = 3    -- max nesting depth of aggregates, 1 = no nesting
+emptyaggrs   = true -- whether to allow empty aggregates or not
 ncases       = 800
 types        = "csijlpfd{}"
 seed         = 2112

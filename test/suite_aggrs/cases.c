@@ -47,7 +47,13 @@
 #define a void*  /* all generated aggregates */
 
 #include "dyncall.h"
-#include "cases.h"
+
+#if defined(DC__OS_Plan9)
+/* Plan9 pcc does not allow empty structs */
+#  include "nonemptystructs.h"
+#else
+#  include "cases.h"
+#endif
 
 int G_ncases = sizeof(G_sigtab)/sizeof(G_sigtab[0]);
 int G_naggs  = sizeof(G_agg_sigs)/sizeof(G_agg_sigs[0]);

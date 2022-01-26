@@ -52,8 +52,8 @@ for i = 1, ncases do
       sig[#sig+1] = mktype(types:sub(id,id), 0, math.random(maxaggrdepth)) -- random depth avoids excessive nesting
     end
     l = table.concat(sig)
-    -- reject dupes and sigs without any aggregate, as this is about aggrs after all
-  until string.match(l, '{') ~= nil and uniq_sigs[l] == nil
+    -- reject dupes, sigs without any aggregate (as this is about aggrs after all), and empty ones (if not wanted)
+  until string.match(l, '{') ~= nil and uniq_sigs[l] == nil and (emptyaggrs or string.match(l, '{}') == nil)
   uniq_sigs[l] = 1
   io.write(l.."\n")
 end
