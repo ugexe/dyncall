@@ -3,7 +3,7 @@ OBJS    = callback_plain.o
 SRCTOP  = ${VPATH}/../..
 BLDTOP  = ../..
 CFLAGS += -I${SRCTOP}/dyncall
-LDLIBS  += -L${BLDTOP}/dyncall -ldyncall_s -L${BLDTOP}/dyncallback -ldyncallback_s
+LDLIBS  += -L${BLDTOP}/dyncall -L${BLDTOP}/dyncallback -ldyncallback_s
 .PHONY: all clean install
 all: ${APP}
 ${APP}: ${OBJS} 
