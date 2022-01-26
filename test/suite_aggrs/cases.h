@@ -2,274 +2,331 @@
 struct A1 { };
 void f_cpA1(struct A1 *x, const struct A1 *y) { 1; };
 int f_cmpA1(const struct A1 *x, const struct A1 *y) { return 1; };
-DCstruct* f_newdcstA1() {
-	DCstruct* st = dcNewStruct(0, sizeof(struct A1), 0, 1);
-	dcCloseStruct(st);
+DCstruct* f_touchdcstA1() {
+	static DCstruct* st = NULL;
+	if(!st) {
+		st = dcNewStruct(0, sizeof(struct A1), DC_TRUE);
+		dcCloseStruct(st);
+	}
 	return st;
 };
 /* {i} */
 struct A2 { i m0; };
 void f_cpA2(struct A2 *x, const struct A2 *y) { x->m0 = y->m0; };
 int f_cmpA2(const struct A2 *x, const struct A2 *y) { return x->m0 == y->m0; };
-DCstruct* f_newdcstA2() {
-	DCstruct* st = dcNewStruct(1, sizeof(struct A2), 0, 1);
-	dcStructField(st, 'i', offsetof(struct A2, m0), 1);
-	dcCloseStruct(st);
+DCstruct* f_touchdcstA2() {
+	static DCstruct* st = NULL;
+	if(!st) {
+		st = dcNewStruct(1, sizeof(struct A2), DC_TRUE);
+		dcStructField(st, 'i', offsetof(struct A2, m0), 1);
+		dcCloseStruct(st);
+	}
 	return st;
 };
 /* {s} */
 struct A3 { s m0; };
 void f_cpA3(struct A3 *x, const struct A3 *y) { x->m0 = y->m0; };
 int f_cmpA3(const struct A3 *x, const struct A3 *y) { return x->m0 == y->m0; };
-DCstruct* f_newdcstA3() {
-	DCstruct* st = dcNewStruct(1, sizeof(struct A3), 0, 1);
-	dcStructField(st, 's', offsetof(struct A3, m0), 1);
-	dcCloseStruct(st);
+DCstruct* f_touchdcstA3() {
+	static DCstruct* st = NULL;
+	if(!st) {
+		st = dcNewStruct(1, sizeof(struct A3), DC_TRUE);
+		dcStructField(st, 's', offsetof(struct A3, m0), 1);
+		dcCloseStruct(st);
+	}
 	return st;
 };
 /* {dlclpfifpifsf} */
 struct A4 { d m0; l m1; c m2; l m3; p m4; f m5; i m6; f m7; p m8; i m9; f m10; s m11; f m12; };
 void f_cpA4(struct A4 *x, const struct A4 *y) { x->m0 = y->m0; x->m1 = y->m1; x->m2 = y->m2; x->m3 = y->m3; x->m4 = y->m4; x->m5 = y->m5; x->m6 = y->m6; x->m7 = y->m7; x->m8 = y->m8; x->m9 = y->m9; x->m10 = y->m10; x->m11 = y->m11; x->m12 = y->m12; };
 int f_cmpA4(const struct A4 *x, const struct A4 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11 && x->m12 == y->m12; };
-DCstruct* f_newdcstA4() {
-	DCstruct* st = dcNewStruct(13, sizeof(struct A4), 0, 1);
-	dcStructField(st, 'd', offsetof(struct A4, m0), 1);
-	dcStructField(st, 'l', offsetof(struct A4, m1), 1);
-	dcStructField(st, 'c', offsetof(struct A4, m2), 1);
-	dcStructField(st, 'l', offsetof(struct A4, m3), 1);
-	dcStructField(st, 'p', offsetof(struct A4, m4), 1);
-	dcStructField(st, 'f', offsetof(struct A4, m5), 1);
-	dcStructField(st, 'i', offsetof(struct A4, m6), 1);
-	dcStructField(st, 'f', offsetof(struct A4, m7), 1);
-	dcStructField(st, 'p', offsetof(struct A4, m8), 1);
-	dcStructField(st, 'i', offsetof(struct A4, m9), 1);
-	dcStructField(st, 'f', offsetof(struct A4, m10), 1);
-	dcStructField(st, 's', offsetof(struct A4, m11), 1);
-	dcStructField(st, 'f', offsetof(struct A4, m12), 1);
-	dcCloseStruct(st);
+DCstruct* f_touchdcstA4() {
+	static DCstruct* st = NULL;
+	if(!st) {
+		st = dcNewStruct(13, sizeof(struct A4), DC_TRUE);
+		dcStructField(st, 'd', offsetof(struct A4, m0), 1);
+		dcStructField(st, 'l', offsetof(struct A4, m1), 1);
+		dcStructField(st, 'c', offsetof(struct A4, m2), 1);
+		dcStructField(st, 'l', offsetof(struct A4, m3), 1);
+		dcStructField(st, 'p', offsetof(struct A4, m4), 1);
+		dcStructField(st, 'f', offsetof(struct A4, m5), 1);
+		dcStructField(st, 'i', offsetof(struct A4, m6), 1);
+		dcStructField(st, 'f', offsetof(struct A4, m7), 1);
+		dcStructField(st, 'p', offsetof(struct A4, m8), 1);
+		dcStructField(st, 'i', offsetof(struct A4, m9), 1);
+		dcStructField(st, 'f', offsetof(struct A4, m10), 1);
+		dcStructField(st, 's', offsetof(struct A4, m11), 1);
+		dcStructField(st, 'f', offsetof(struct A4, m12), 1);
+		dcCloseStruct(st);
+	}
 	return st;
 };
 /* {dijpiccjpf} */
 struct A5 { d m0; i m1; j m2; p m3; i m4; c m5; c m6; j m7; p m8; f m9; };
 void f_cpA5(struct A5 *x, const struct A5 *y) { x->m0 = y->m0; x->m1 = y->m1; x->m2 = y->m2; x->m3 = y->m3; x->m4 = y->m4; x->m5 = y->m5; x->m6 = y->m6; x->m7 = y->m7; x->m8 = y->m8; x->m9 = y->m9; };
 int f_cmpA5(const struct A5 *x, const struct A5 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCstruct* f_newdcstA5() {
-	DCstruct* st = dcNewStruct(10, sizeof(struct A5), 0, 1);
-	dcStructField(st, 'd', offsetof(struct A5, m0), 1);
-	dcStructField(st, 'i', offsetof(struct A5, m1), 1);
-	dcStructField(st, 'j', offsetof(struct A5, m2), 1);
-	dcStructField(st, 'p', offsetof(struct A5, m3), 1);
-	dcStructField(st, 'i', offsetof(struct A5, m4), 1);
-	dcStructField(st, 'c', offsetof(struct A5, m5), 1);
-	dcStructField(st, 'c', offsetof(struct A5, m6), 1);
-	dcStructField(st, 'j', offsetof(struct A5, m7), 1);
-	dcStructField(st, 'p', offsetof(struct A5, m8), 1);
-	dcStructField(st, 'f', offsetof(struct A5, m9), 1);
-	dcCloseStruct(st);
+DCstruct* f_touchdcstA5() {
+	static DCstruct* st = NULL;
+	if(!st) {
+		st = dcNewStruct(10, sizeof(struct A5), DC_TRUE);
+		dcStructField(st, 'd', offsetof(struct A5, m0), 1);
+		dcStructField(st, 'i', offsetof(struct A5, m1), 1);
+		dcStructField(st, 'j', offsetof(struct A5, m2), 1);
+		dcStructField(st, 'p', offsetof(struct A5, m3), 1);
+		dcStructField(st, 'i', offsetof(struct A5, m4), 1);
+		dcStructField(st, 'c', offsetof(struct A5, m5), 1);
+		dcStructField(st, 'c', offsetof(struct A5, m6), 1);
+		dcStructField(st, 'j', offsetof(struct A5, m7), 1);
+		dcStructField(st, 'p', offsetof(struct A5, m8), 1);
+		dcStructField(st, 'f', offsetof(struct A5, m9), 1);
+		dcCloseStruct(st);
+	}
 	return st;
 };
 /* {lcpfcflpsiilfsjp} */
 struct A6 { l m0; c m1; p m2; f m3; c m4; f m5; l m6; p m7; s m8; i m9; i m10; l m11; f m12; s m13; j m14; p m15; };
 void f_cpA6(struct A6 *x, const struct A6 *y) { x->m0 = y->m0; x->m1 = y->m1; x->m2 = y->m2; x->m3 = y->m3; x->m4 = y->m4; x->m5 = y->m5; x->m6 = y->m6; x->m7 = y->m7; x->m8 = y->m8; x->m9 = y->m9; x->m10 = y->m10; x->m11 = y->m11; x->m12 = y->m12; x->m13 = y->m13; x->m14 = y->m14; x->m15 = y->m15; };
 int f_cmpA6(const struct A6 *x, const struct A6 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11 && x->m12 == y->m12 && x->m13 == y->m13 && x->m14 == y->m14 && x->m15 == y->m15; };
-DCstruct* f_newdcstA6() {
-	DCstruct* st = dcNewStruct(16, sizeof(struct A6), 0, 1);
-	dcStructField(st, 'l', offsetof(struct A6, m0), 1);
-	dcStructField(st, 'c', offsetof(struct A6, m1), 1);
-	dcStructField(st, 'p', offsetof(struct A6, m2), 1);
-	dcStructField(st, 'f', offsetof(struct A6, m3), 1);
-	dcStructField(st, 'c', offsetof(struct A6, m4), 1);
-	dcStructField(st, 'f', offsetof(struct A6, m5), 1);
-	dcStructField(st, 'l', offsetof(struct A6, m6), 1);
-	dcStructField(st, 'p', offsetof(struct A6, m7), 1);
-	dcStructField(st, 's', offsetof(struct A6, m8), 1);
-	dcStructField(st, 'i', offsetof(struct A6, m9), 1);
-	dcStructField(st, 'i', offsetof(struct A6, m10), 1);
-	dcStructField(st, 'l', offsetof(struct A6, m11), 1);
-	dcStructField(st, 'f', offsetof(struct A6, m12), 1);
-	dcStructField(st, 's', offsetof(struct A6, m13), 1);
-	dcStructField(st, 'j', offsetof(struct A6, m14), 1);
-	dcStructField(st, 'p', offsetof(struct A6, m15), 1);
-	dcCloseStruct(st);
+DCstruct* f_touchdcstA6() {
+	static DCstruct* st = NULL;
+	if(!st) {
+		st = dcNewStruct(16, sizeof(struct A6), DC_TRUE);
+		dcStructField(st, 'l', offsetof(struct A6, m0), 1);
+		dcStructField(st, 'c', offsetof(struct A6, m1), 1);
+		dcStructField(st, 'p', offsetof(struct A6, m2), 1);
+		dcStructField(st, 'f', offsetof(struct A6, m3), 1);
+		dcStructField(st, 'c', offsetof(struct A6, m4), 1);
+		dcStructField(st, 'f', offsetof(struct A6, m5), 1);
+		dcStructField(st, 'l', offsetof(struct A6, m6), 1);
+		dcStructField(st, 'p', offsetof(struct A6, m7), 1);
+		dcStructField(st, 's', offsetof(struct A6, m8), 1);
+		dcStructField(st, 'i', offsetof(struct A6, m9), 1);
+		dcStructField(st, 'i', offsetof(struct A6, m10), 1);
+		dcStructField(st, 'l', offsetof(struct A6, m11), 1);
+		dcStructField(st, 'f', offsetof(struct A6, m12), 1);
+		dcStructField(st, 's', offsetof(struct A6, m13), 1);
+		dcStructField(st, 'j', offsetof(struct A6, m14), 1);
+		dcStructField(st, 'p', offsetof(struct A6, m15), 1);
+		dcCloseStruct(st);
+	}
 	return st;
 };
 /* {jdcfcsdjjlcdjlipfji} */
 struct A7 { j m0; d m1; c m2; f m3; c m4; s m5; d m6; j m7; j m8; l m9; c m10; d m11; j m12; l m13; i m14; p m15; f m16; j m17; i m18; };
 void f_cpA7(struct A7 *x, const struct A7 *y) { x->m0 = y->m0; x->m1 = y->m1; x->m2 = y->m2; x->m3 = y->m3; x->m4 = y->m4; x->m5 = y->m5; x->m6 = y->m6; x->m7 = y->m7; x->m8 = y->m8; x->m9 = y->m9; x->m10 = y->m10; x->m11 = y->m11; x->m12 = y->m12; x->m13 = y->m13; x->m14 = y->m14; x->m15 = y->m15; x->m16 = y->m16; x->m17 = y->m17; x->m18 = y->m18; };
 int f_cmpA7(const struct A7 *x, const struct A7 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11 && x->m12 == y->m12 && x->m13 == y->m13 && x->m14 == y->m14 && x->m15 == y->m15 && x->m16 == y->m16 && x->m17 == y->m17 && x->m18 == y->m18; };
-DCstruct* f_newdcstA7() {
-	DCstruct* st = dcNewStruct(19, sizeof(struct A7), 0, 1);
-	dcStructField(st, 'j', offsetof(struct A7, m0), 1);
-	dcStructField(st, 'd', offsetof(struct A7, m1), 1);
-	dcStructField(st, 'c', offsetof(struct A7, m2), 1);
-	dcStructField(st, 'f', offsetof(struct A7, m3), 1);
-	dcStructField(st, 'c', offsetof(struct A7, m4), 1);
-	dcStructField(st, 's', offsetof(struct A7, m5), 1);
-	dcStructField(st, 'd', offsetof(struct A7, m6), 1);
-	dcStructField(st, 'j', offsetof(struct A7, m7), 1);
-	dcStructField(st, 'j', offsetof(struct A7, m8), 1);
-	dcStructField(st, 'l', offsetof(struct A7, m9), 1);
-	dcStructField(st, 'c', offsetof(struct A7, m10), 1);
-	dcStructField(st, 'd', offsetof(struct A7, m11), 1);
-	dcStructField(st, 'j', offsetof(struct A7, m12), 1);
-	dcStructField(st, 'l', offsetof(struct A7, m13), 1);
-	dcStructField(st, 'i', offsetof(struct A7, m14), 1);
-	dcStructField(st, 'p', offsetof(struct A7, m15), 1);
-	dcStructField(st, 'f', offsetof(struct A7, m16), 1);
-	dcStructField(st, 'j', offsetof(struct A7, m17), 1);
-	dcStructField(st, 'i', offsetof(struct A7, m18), 1);
-	dcCloseStruct(st);
+DCstruct* f_touchdcstA7() {
+	static DCstruct* st = NULL;
+	if(!st) {
+		st = dcNewStruct(19, sizeof(struct A7), DC_TRUE);
+		dcStructField(st, 'j', offsetof(struct A7, m0), 1);
+		dcStructField(st, 'd', offsetof(struct A7, m1), 1);
+		dcStructField(st, 'c', offsetof(struct A7, m2), 1);
+		dcStructField(st, 'f', offsetof(struct A7, m3), 1);
+		dcStructField(st, 'c', offsetof(struct A7, m4), 1);
+		dcStructField(st, 's', offsetof(struct A7, m5), 1);
+		dcStructField(st, 'd', offsetof(struct A7, m6), 1);
+		dcStructField(st, 'j', offsetof(struct A7, m7), 1);
+		dcStructField(st, 'j', offsetof(struct A7, m8), 1);
+		dcStructField(st, 'l', offsetof(struct A7, m9), 1);
+		dcStructField(st, 'c', offsetof(struct A7, m10), 1);
+		dcStructField(st, 'd', offsetof(struct A7, m11), 1);
+		dcStructField(st, 'j', offsetof(struct A7, m12), 1);
+		dcStructField(st, 'l', offsetof(struct A7, m13), 1);
+		dcStructField(st, 'i', offsetof(struct A7, m14), 1);
+		dcStructField(st, 'p', offsetof(struct A7, m15), 1);
+		dcStructField(st, 'f', offsetof(struct A7, m16), 1);
+		dcStructField(st, 'j', offsetof(struct A7, m17), 1);
+		dcStructField(st, 'i', offsetof(struct A7, m18), 1);
+		dcCloseStruct(st);
+	}
 	return st;
 };
 /* {jjlff{jdcfcsdjjlcdjlipfji}csijld} */
 struct A8 { j m0; j m1; l m2; f m3; f m4; struct A7 m5; c m6; s m7; i m8; j m9; l m10; d m11; };
 void f_cpA8(struct A8 *x, const struct A8 *y) { x->m0 = y->m0; x->m1 = y->m1; x->m2 = y->m2; x->m3 = y->m3; x->m4 = y->m4; f_cpA7(&x->m5, &y->m5); x->m6 = y->m6; x->m7 = y->m7; x->m8 = y->m8; x->m9 = y->m9; x->m10 = y->m10; x->m11 = y->m11; };
 int f_cmpA8(const struct A8 *x, const struct A8 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA7(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCstruct* f_newdcstA8() {
-	DCstruct* st = dcNewStruct(12, sizeof(struct A8), 0, 1);
-	dcStructField(st, 'j', offsetof(struct A8, m0), 1);
-	dcStructField(st, 'j', offsetof(struct A8, m1), 1);
-	dcStructField(st, 'l', offsetof(struct A8, m2), 1);
-	dcStructField(st, 'f', offsetof(struct A8, m3), 1);
-	dcStructField(st, 'f', offsetof(struct A8, m4), 1);
-	dcStructField(st, DC_SIGCHAR_STRUCT, offsetof(struct A8, m5), 1, f_newdcstA7());
-	dcStructField(st, 'c', offsetof(struct A8, m6), 1);
-	dcStructField(st, 's', offsetof(struct A8, m7), 1);
-	dcStructField(st, 'i', offsetof(struct A8, m8), 1);
-	dcStructField(st, 'j', offsetof(struct A8, m9), 1);
-	dcStructField(st, 'l', offsetof(struct A8, m10), 1);
-	dcStructField(st, 'd', offsetof(struct A8, m11), 1);
-	dcCloseStruct(st);
+DCstruct* f_touchdcstA8() {
+	static DCstruct* st = NULL;
+	if(!st) {
+		st = dcNewStruct(12, sizeof(struct A8), DC_TRUE);
+		dcStructField(st, 'j', offsetof(struct A8, m0), 1);
+		dcStructField(st, 'j', offsetof(struct A8, m1), 1);
+		dcStructField(st, 'l', offsetof(struct A8, m2), 1);
+		dcStructField(st, 'f', offsetof(struct A8, m3), 1);
+		dcStructField(st, 'f', offsetof(struct A8, m4), 1);
+		dcStructField(st, DC_SIGCHAR_STRUCT, offsetof(struct A8, m5), 1, f_touchdcstA7());
+		dcStructField(st, 'c', offsetof(struct A8, m6), 1);
+		dcStructField(st, 's', offsetof(struct A8, m7), 1);
+		dcStructField(st, 'i', offsetof(struct A8, m8), 1);
+		dcStructField(st, 'j', offsetof(struct A8, m9), 1);
+		dcStructField(st, 'l', offsetof(struct A8, m10), 1);
+		dcStructField(st, 'd', offsetof(struct A8, m11), 1);
+		dcCloseStruct(st);
+	}
 	return st;
 };
 /* {c} */
 struct A9 { c m0; };
 void f_cpA9(struct A9 *x, const struct A9 *y) { x->m0 = y->m0; };
 int f_cmpA9(const struct A9 *x, const struct A9 *y) { return x->m0 == y->m0; };
-DCstruct* f_newdcstA9() {
-	DCstruct* st = dcNewStruct(1, sizeof(struct A9), 0, 1);
-	dcStructField(st, 'c', offsetof(struct A9, m0), 1);
-	dcCloseStruct(st);
+DCstruct* f_touchdcstA9() {
+	static DCstruct* st = NULL;
+	if(!st) {
+		st = dcNewStruct(1, sizeof(struct A9), DC_TRUE);
+		dcStructField(st, 'c', offsetof(struct A9, m0), 1);
+		dcCloseStruct(st);
+	}
 	return st;
 };
 /* {cjilpcp} */
 struct A10 { c m0; j m1; i m2; l m3; p m4; c m5; p m6; };
 void f_cpA10(struct A10 *x, const struct A10 *y) { x->m0 = y->m0; x->m1 = y->m1; x->m2 = y->m2; x->m3 = y->m3; x->m4 = y->m4; x->m5 = y->m5; x->m6 = y->m6; };
 int f_cmpA10(const struct A10 *x, const struct A10 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCstruct* f_newdcstA10() {
-	DCstruct* st = dcNewStruct(7, sizeof(struct A10), 0, 1);
-	dcStructField(st, 'c', offsetof(struct A10, m0), 1);
-	dcStructField(st, 'j', offsetof(struct A10, m1), 1);
-	dcStructField(st, 'i', offsetof(struct A10, m2), 1);
-	dcStructField(st, 'l', offsetof(struct A10, m3), 1);
-	dcStructField(st, 'p', offsetof(struct A10, m4), 1);
-	dcStructField(st, 'c', offsetof(struct A10, m5), 1);
-	dcStructField(st, 'p', offsetof(struct A10, m6), 1);
-	dcCloseStruct(st);
+DCstruct* f_touchdcstA10() {
+	static DCstruct* st = NULL;
+	if(!st) {
+		st = dcNewStruct(7, sizeof(struct A10), DC_TRUE);
+		dcStructField(st, 'c', offsetof(struct A10, m0), 1);
+		dcStructField(st, 'j', offsetof(struct A10, m1), 1);
+		dcStructField(st, 'i', offsetof(struct A10, m2), 1);
+		dcStructField(st, 'l', offsetof(struct A10, m3), 1);
+		dcStructField(st, 'p', offsetof(struct A10, m4), 1);
+		dcStructField(st, 'c', offsetof(struct A10, m5), 1);
+		dcStructField(st, 'p', offsetof(struct A10, m6), 1);
+		dcCloseStruct(st);
+	}
 	return st;
 };
 /* {ddd} */
 struct A11 { d m0; d m1; d m2; };
 void f_cpA11(struct A11 *x, const struct A11 *y) { x->m0 = y->m0; x->m1 = y->m1; x->m2 = y->m2; };
 int f_cmpA11(const struct A11 *x, const struct A11 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCstruct* f_newdcstA11() {
-	DCstruct* st = dcNewStruct(3, sizeof(struct A11), 0, 1);
-	dcStructField(st, 'd', offsetof(struct A11, m0), 1);
-	dcStructField(st, 'd', offsetof(struct A11, m1), 1);
-	dcStructField(st, 'd', offsetof(struct A11, m2), 1);
-	dcCloseStruct(st);
+DCstruct* f_touchdcstA11() {
+	static DCstruct* st = NULL;
+	if(!st) {
+		st = dcNewStruct(3, sizeof(struct A11), DC_TRUE);
+		dcStructField(st, 'd', offsetof(struct A11, m0), 1);
+		dcStructField(st, 'd', offsetof(struct A11, m1), 1);
+		dcStructField(st, 'd', offsetof(struct A11, m2), 1);
+		dcCloseStruct(st);
+	}
 	return st;
 };
 /* {dd} */
 struct A12 { d m0; d m1; };
 void f_cpA12(struct A12 *x, const struct A12 *y) { x->m0 = y->m0; x->m1 = y->m1; };
 int f_cmpA12(const struct A12 *x, const struct A12 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCstruct* f_newdcstA12() {
-	DCstruct* st = dcNewStruct(2, sizeof(struct A12), 0, 1);
-	dcStructField(st, 'd', offsetof(struct A12, m0), 1);
-	dcStructField(st, 'd', offsetof(struct A12, m1), 1);
-	dcCloseStruct(st);
+DCstruct* f_touchdcstA12() {
+	static DCstruct* st = NULL;
+	if(!st) {
+		st = dcNewStruct(2, sizeof(struct A12), DC_TRUE);
+		dcStructField(st, 'd', offsetof(struct A12, m0), 1);
+		dcStructField(st, 'd', offsetof(struct A12, m1), 1);
+		dcCloseStruct(st);
+	}
 	return st;
 };
 /* {ii} */
 struct A13 { i m0; i m1; };
 void f_cpA13(struct A13 *x, const struct A13 *y) { x->m0 = y->m0; x->m1 = y->m1; };
 int f_cmpA13(const struct A13 *x, const struct A13 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCstruct* f_newdcstA13() {
-	DCstruct* st = dcNewStruct(2, sizeof(struct A13), 0, 1);
-	dcStructField(st, 'i', offsetof(struct A13, m0), 1);
-	dcStructField(st, 'i', offsetof(struct A13, m1), 1);
-	dcCloseStruct(st);
+DCstruct* f_touchdcstA13() {
+	static DCstruct* st = NULL;
+	if(!st) {
+		st = dcNewStruct(2, sizeof(struct A13), DC_TRUE);
+		dcStructField(st, 'i', offsetof(struct A13, m0), 1);
+		dcStructField(st, 'i', offsetof(struct A13, m1), 1);
+		dcCloseStruct(st);
+	}
 	return st;
 };
 /* {ici} */
 struct A14 { i m0; c m1; i m2; };
 void f_cpA14(struct A14 *x, const struct A14 *y) { x->m0 = y->m0; x->m1 = y->m1; x->m2 = y->m2; };
 int f_cmpA14(const struct A14 *x, const struct A14 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCstruct* f_newdcstA14() {
-	DCstruct* st = dcNewStruct(3, sizeof(struct A14), 0, 1);
-	dcStructField(st, 'i', offsetof(struct A14, m0), 1);
-	dcStructField(st, 'c', offsetof(struct A14, m1), 1);
-	dcStructField(st, 'i', offsetof(struct A14, m2), 1);
-	dcCloseStruct(st);
+DCstruct* f_touchdcstA14() {
+	static DCstruct* st = NULL;
+	if(!st) {
+		st = dcNewStruct(3, sizeof(struct A14), DC_TRUE);
+		dcStructField(st, 'i', offsetof(struct A14, m0), 1);
+		dcStructField(st, 'c', offsetof(struct A14, m1), 1);
+		dcStructField(st, 'i', offsetof(struct A14, m2), 1);
+		dcCloseStruct(st);
+	}
 	return st;
 };
 /* {il} */
 struct A15 { i m0; l m1; };
 void f_cpA15(struct A15 *x, const struct A15 *y) { x->m0 = y->m0; x->m1 = y->m1; };
 int f_cmpA15(const struct A15 *x, const struct A15 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCstruct* f_newdcstA15() {
-	DCstruct* st = dcNewStruct(2, sizeof(struct A15), 0, 1);
-	dcStructField(st, 'i', offsetof(struct A15, m0), 1);
-	dcStructField(st, 'l', offsetof(struct A15, m1), 1);
-	dcCloseStruct(st);
+DCstruct* f_touchdcstA15() {
+	static DCstruct* st = NULL;
+	if(!st) {
+		st = dcNewStruct(2, sizeof(struct A15), DC_TRUE);
+		dcStructField(st, 'i', offsetof(struct A15, m0), 1);
+		dcStructField(st, 'l', offsetof(struct A15, m1), 1);
+		dcCloseStruct(st);
+	}
 	return st;
 };
 /* {li} */
 struct A16 { l m0; i m1; };
 void f_cpA16(struct A16 *x, const struct A16 *y) { x->m0 = y->m0; x->m1 = y->m1; };
 int f_cmpA16(const struct A16 *x, const struct A16 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCstruct* f_newdcstA16() {
-	DCstruct* st = dcNewStruct(2, sizeof(struct A16), 0, 1);
-	dcStructField(st, 'l', offsetof(struct A16, m0), 1);
-	dcStructField(st, 'i', offsetof(struct A16, m1), 1);
-	dcCloseStruct(st);
+DCstruct* f_touchdcstA16() {
+	static DCstruct* st = NULL;
+	if(!st) {
+		st = dcNewStruct(2, sizeof(struct A16), DC_TRUE);
+		dcStructField(st, 'l', offsetof(struct A16, m0), 1);
+		dcStructField(st, 'i', offsetof(struct A16, m1), 1);
+		dcCloseStruct(st);
+	}
 	return st;
 };
 /* {ps} */
 struct A17 { p m0; s m1; };
 void f_cpA17(struct A17 *x, const struct A17 *y) { x->m0 = y->m0; x->m1 = y->m1; };
 int f_cmpA17(const struct A17 *x, const struct A17 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCstruct* f_newdcstA17() {
-	DCstruct* st = dcNewStruct(2, sizeof(struct A17), 0, 1);
-	dcStructField(st, 'p', offsetof(struct A17, m0), 1);
-	dcStructField(st, 's', offsetof(struct A17, m1), 1);
-	dcCloseStruct(st);
+DCstruct* f_touchdcstA17() {
+	static DCstruct* st = NULL;
+	if(!st) {
+		st = dcNewStruct(2, sizeof(struct A17), DC_TRUE);
+		dcStructField(st, 'p', offsetof(struct A17, m0), 1);
+		dcStructField(st, 's', offsetof(struct A17, m1), 1);
+		dcCloseStruct(st);
+	}
 	return st;
 };
 /* {iii} */
 struct A18 { i m0; i m1; i m2; };
 void f_cpA18(struct A18 *x, const struct A18 *y) { x->m0 = y->m0; x->m1 = y->m1; x->m2 = y->m2; };
 int f_cmpA18(const struct A18 *x, const struct A18 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCstruct* f_newdcstA18() {
-	DCstruct* st = dcNewStruct(3, sizeof(struct A18), 0, 1);
-	dcStructField(st, 'i', offsetof(struct A18, m0), 1);
-	dcStructField(st, 'i', offsetof(struct A18, m1), 1);
-	dcStructField(st, 'i', offsetof(struct A18, m2), 1);
-	dcCloseStruct(st);
+DCstruct* f_touchdcstA18() {
+	static DCstruct* st = NULL;
+	if(!st) {
+		st = dcNewStruct(3, sizeof(struct A18), DC_TRUE);
+		dcStructField(st, 'i', offsetof(struct A18, m0), 1);
+		dcStructField(st, 'i', offsetof(struct A18, m1), 1);
+		dcStructField(st, 'i', offsetof(struct A18, m2), 1);
+		dcCloseStruct(st);
+	}
 	return st;
 };
 /* {iiii} */
 struct A19 { i m0; i m1; i m2; i m3; };
 void f_cpA19(struct A19 *x, const struct A19 *y) { x->m0 = y->m0; x->m1 = y->m1; x->m2 = y->m2; x->m3 = y->m3; };
 int f_cmpA19(const struct A19 *x, const struct A19 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCstruct* f_newdcstA19() {
-	DCstruct* st = dcNewStruct(4, sizeof(struct A19), 0, 1);
-	dcStructField(st, 'i', offsetof(struct A19, m0), 1);
-	dcStructField(st, 'i', offsetof(struct A19, m1), 1);
-	dcStructField(st, 'i', offsetof(struct A19, m2), 1);
-	dcStructField(st, 'i', offsetof(struct A19, m3), 1);
-	dcCloseStruct(st);
+DCstruct* f_touchdcstA19() {
+	static DCstruct* st = NULL;
+	if(!st) {
+		st = dcNewStruct(4, sizeof(struct A19), DC_TRUE);
+		dcStructField(st, 'i', offsetof(struct A19, m0), 1);
+		dcStructField(st, 'i', offsetof(struct A19, m1), 1);
+		dcStructField(st, 'i', offsetof(struct A19, m2), 1);
+		dcStructField(st, 'i', offsetof(struct A19, m3), 1);
+		dcCloseStruct(st);
+	}
 	return st;
 };
 /* 0:pscd{}pclc{i}scli */ p f0(s a1,c a2,d a3,struct A1 a4,p a5,c a6,l a7,c a8,struct A2 a9,s a10,c a11,l a12,i a13){V_s[1]=a1;V_c[2]=a2;V_d[3]=a3;f_cpA1(V_a[4],&a4);V_p[5]=a5;V_c[6]=a6;V_l[7]=a7;V_c[8]=a8;f_cpA2(V_a[9],&a9);V_s[10]=a10;V_c[11]=a11;V_l[12]=a12;V_i[13]=a13;ret_p(13)}
@@ -369,6 +426,7 @@ DCstruct* f_newdcstA19() {
 /* 94:f{iii}ijf */ f f94(struct A18 a1,i a2,j a3,f a4){f_cpA18(V_a[1],&a1);V_i[2]=a2;V_j[3]=a3;V_f[4]=a4;ret_f(4)}
 /* 95:f{iiii}ijf */ f f95(struct A19 a1,i a2,j a3,f a4){f_cpA19(V_a[1],&a1);V_i[2]=a2;V_j[3]=a3;V_f[4]=a4;ret_f(4)}
 /* 96:ss{ii}ijf */ s f96(s a1,struct A13 a2,i a3,j a4,f a5){V_s[1]=a1;f_cpA13(V_a[2],&a2);V_i[3]=a3;V_j[4]=a4;V_f[5]=a5;ret_s(5)}
+/* 97:{ii}ijf */ struct A13 f97(i a1,j a2,f a3){V_i[1]=a1;V_j[2]=a2;V_f[3]=a3;ret_a(3,struct A13)}
 funptr G_funtab[] = {
 	(funptr)&f0,
 	(funptr)&f1,
@@ -467,6 +525,7 @@ funptr G_funtab[] = {
 	(funptr)&f94,
 	(funptr)&f95,
 	(funptr)&f96,
+	(funptr)&f97,
 };
 char const * G_sigtab[] = {
 	"pscd{}pclc{i}scli",
@@ -566,6 +625,7 @@ char const * G_sigtab[] = {
 	"f{iii}ijf",
 	"f{iiii}ijf",
 	"ss{ii}ijf",
+	"{ii}ijf",
 };
 const char* G_agg_sigs[]  = {
 	"{}",
@@ -609,26 +669,26 @@ int G_agg_sizes[] = {
 	sizeof(struct A18),
 	sizeof(struct A19)
 };
-funptr G_agg_newdcstfuncs[] = {
-	(funptr)&f_newdcstA1,
-	(funptr)&f_newdcstA2,
-	(funptr)&f_newdcstA3,
-	(funptr)&f_newdcstA4,
-	(funptr)&f_newdcstA5,
-	(funptr)&f_newdcstA6,
-	(funptr)&f_newdcstA7,
-	(funptr)&f_newdcstA8,
-	(funptr)&f_newdcstA9,
-	(funptr)&f_newdcstA10,
-	(funptr)&f_newdcstA11,
-	(funptr)&f_newdcstA12,
-	(funptr)&f_newdcstA13,
-	(funptr)&f_newdcstA14,
-	(funptr)&f_newdcstA15,
-	(funptr)&f_newdcstA16,
-	(funptr)&f_newdcstA17,
-	(funptr)&f_newdcstA18,
-	(funptr)&f_newdcstA19
+funptr G_agg_touchdcstfuncs[] = {
+	(funptr)&f_touchdcstA1,
+	(funptr)&f_touchdcstA2,
+	(funptr)&f_touchdcstA3,
+	(funptr)&f_touchdcstA4,
+	(funptr)&f_touchdcstA5,
+	(funptr)&f_touchdcstA6,
+	(funptr)&f_touchdcstA7,
+	(funptr)&f_touchdcstA8,
+	(funptr)&f_touchdcstA9,
+	(funptr)&f_touchdcstA10,
+	(funptr)&f_touchdcstA11,
+	(funptr)&f_touchdcstA12,
+	(funptr)&f_touchdcstA13,
+	(funptr)&f_touchdcstA14,
+	(funptr)&f_touchdcstA15,
+	(funptr)&f_touchdcstA16,
+	(funptr)&f_touchdcstA17,
+	(funptr)&f_touchdcstA18,
+	(funptr)&f_touchdcstA19
 };
 funptr G_agg_cmpfuncs[] = {
 	(funptr)&f_cmpA1,

@@ -38,11 +38,11 @@ extern int          G_ncases;
 extern int          G_maxargs;
 extern char const * G_agg_sigs[];
 extern int          G_agg_sizes[];
-extern funptr       G_agg_newdcstfuncs[];
+extern funptr       G_agg_touchdcstfuncs[];
 extern funptr       G_agg_cmpfuncs[];
 extern int          G_naggs;
 
-void init_K();
-void init_T();
+void init_test_data();
+void deinit_test_data();
 void clear_V();
 

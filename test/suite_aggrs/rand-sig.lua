@@ -3,7 +3,6 @@ require"config"
 -- assure aggr chars are present in pairs (can be weighted, though), to avoid
 -- inf loops
 if string.match(types,'{') and not string.match(types,'}') then types = types..'}' end
--- @@@ unions, arrays
 
 rtypes   = "v"..types
 
@@ -41,6 +40,7 @@ end
 
 math.randomseed(seed)
 local id
+local uniq_sigs = { }
 for i = 1, ncases do
   local nargs = math.random(minargs,maxargs)
   local l = ''
@@ -51,9 +51,10 @@ for i = 1, ncases do
       id = math.random(#types)
       sig[#sig+1] = mktype(types:sub(id,id), 0, math.random(maxaggrdepth)) -- random depth avoids excessive nesting
     end
-	l = table.concat(sig)
-    -- reject sigs without any aggregate, as this is about aggrs after all
-  until string.match(l, '{') ~= nil
+    l = table.concat(sig)
+    -- reject dupes and sigs without any aggregate, as this is about aggrs after all
+  until string.match(l, '{') ~= nil and uniq_sigs[l] == nil
+  uniq_sigs[l] = 1
   io.write(l.."\n")
 end
 

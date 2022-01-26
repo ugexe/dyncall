@@ -42,14 +42,13 @@ static int calc_max_aggr_size()
   return s;
 }
 
-void init_K()
+void init_test_data()
 {
   int i;
   int maxaggrsize = calc_max_aggr_size();
 #define X(CH,T) V_##CH = (T*) malloc(sizeof(T)*(G_maxargs+1)); K_##CH = (T*) malloc(sizeof(T)*(G_maxargs+1));
 DEF_TYPES
 #undef X
-
 
   for(i=0;i<G_maxargs+1;++i) {
     K_c[i] = (char)      (((rand_d()-0.5)*2) * (1<<7));
@@ -59,7 +58,7 @@ DEF_TYPES
     K_l[i] = (long long) (((rand_d()-0.5)*2) * (1LL<<(sizeof(long long)*8-2)));
     K_p[i] = (void*)     (long) (((rand_d()-0.5)*2) * (1LL<<(sizeof(void*)*8-1)));
     K_f[i] = (float)     (rand_d() * FLT_MAX);
-    K_d[i] = (double)    (((rand_d()-0.5)*2) * 1.7976931348623157E+308/*__DBL_MAX__*/);	/* Plan9 doesn't know the macro. */
+    K_d[i] = (double)    (((rand_d()-0.5)*2) * 1.7976931348623157E+308/*__DBL_MAX__*/); /* Plan9 doesn't know the macro. */
     K_a[i] = malloc(maxaggrsize); rand_mem(K_a[i], maxaggrsize);
   }
 }
@@ -72,12 +71,25 @@ void clear_V()
   int i;
   for(i=0;i<G_maxargs+1;++i) {
     if(aggr_init)
-	  free(V_a[i]);
+      free(V_a[i]);
 #define X(CH,T) V_##CH[i] = (T) 0;
 DEF_TYPES
 #undef X
     V_a[i] = malloc(maxaggrsize);
   }
   aggr_init = 1;
+}
+
+void deinit_test_data()
+{
+  int i;
+  for(i=0;i<G_maxargs+1;++i) {
+    free(V_a[i]);
+    free(K_a[i]);
+  }
+
+#define X(CH,T) free(V_##CH); free(K_##CH);
+DEF_TYPES
+#undef X
 }
 

@@ -161,15 +161,15 @@ function mkall()
     end
 
     -- convenient dcnewstruct helper funcs
-    io.write('DCstruct* f_newdcst'..v[2]..'() {\n\tDCstruct* st = dcNewStruct('..(#v[1]>>1)..', sizeof('..st..'), 0, 1);\n\t')
+    io.write('DCstruct* f_touchdcst'..v[2]..'() {\n\tstatic DCstruct* st = NULL;\n\tif(!st) {\n\t\tst = dcNewStruct('..(#v[1]>>1)..', sizeof('..st..'), DC_TRUE);\n\t\t')
     for i = 1, #v[1], 2 do
       if string.match(v[1][i], '^struct') then
-	    io.write('dcStructField(st, DC_SIGCHAR_STRUCT, offsetof('..st..', '..v[1][i+1]..'), 1, f_newdcst'..v[1][i]:sub(8)..'());\n\t')
+	    io.write('dcStructField(st, DC_SIGCHAR_STRUCT, offsetof('..st..', '..v[1][i+1]..'), 1, f_touchdcst'..v[1][i]:sub(8)..'());\n\t\t')
 	  else
-        io.write("dcStructField(st, '"..v[1][i].."', offsetof("..st..', '..v[1][i+1]..'), 1);\n\t')
+        io.write("dcStructField(st, '"..v[1][i].."', offsetof("..st..', '..v[1][i+1]..'), 1);\n\t\t')
 	  end
     end
-    io.write("dcCloseStruct(st);\n\treturn st;\n};\n")
+    io.write("dcCloseStruct(st);\n\t}\n\treturn st;\n};\n")
   end
 
   -- make table.concat work
@@ -182,7 +182,7 @@ function mkall()
   io.write(mksigtab(sigtab))
   io.write('const char* G_agg_sigs[]  = {\n\t"'..table.concat(agg_sigs, '",\n\t"')..'"\n};\n')
   io.write('int G_agg_sizes[] = {\n\t'..table.concat(agg_sizes, ',\n\t')..'\n};\n')
-  io.write('funptr G_agg_newdcstfuncs[] = {'..string.sub(table.concat(agg_names, ',\n\t(funptr)&f_newdcst'),2)..'\n};\n')
+  io.write('funptr G_agg_touchdcstfuncs[] = {'..string.sub(table.concat(agg_names, ',\n\t(funptr)&f_touchdcst'),2)..'\n};\n')
   io.write('funptr G_agg_cmpfuncs[] = {'..string.sub(table.concat(agg_names, ',\n\t(funptr)&f_cmp'),2)..'\n};\n')
   io.write("int G_maxargs = "..maxargs..";\n")
 end

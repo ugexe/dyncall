@@ -30,7 +30,7 @@
 #include "../common/platformInit.c" /* Impl. for functions only used in this translation unit */
 
 
-void* G_callvm;
+static void* G_callvm;
 
 
 static int find_agg_idx(int* len, const char* sig)
@@ -70,9 +70,9 @@ static int invoke(char const* signature, void* t)
     rtype = *sig;
     sig += len;
 
-	rtype_st_cmp = G_agg_cmpfuncs[i];
-    rtype_st = ((DCstruct*(*)())G_agg_newdcstfuncs[i])();
-    dcBeginCallStruct(p, rtype_st, DC_FALSE);
+    rtype_st_cmp = G_agg_cmpfuncs[i];
+    rtype_st = ((DCstruct*(*)())G_agg_touchdcstfuncs[i])();
+    dcBeginCallStruct(p, rtype_st);
   }
   else
     rtype = *sig++;
@@ -98,7 +98,7 @@ static int invoke(char const* signature, void* t)
           printf("unknown sig at '%s' ;", sig);
           return 0;
         }
-        DCstruct *st = ((DCstruct*(*)())G_agg_newdcstfuncs[i])();
+        DCstruct *st = ((DCstruct*(*)())G_agg_touchdcstfuncs[i])();
         dcArgStruct(p, st, K_a[pos]);
         sig += len-1; /* advance to next arg char */
         break;
@@ -120,9 +120,9 @@ static int invoke(char const* signature, void* t)
     case 'f': s = (dcCallFloat   (p,t) == K_f[pos]) ; break;
     case 'd': s = (dcCallDouble  (p,t) == K_d[pos]) ; break;
     case '{': {
-      s = ((int(*)())rtype_st_cmp)(dcCallStruct(p,t,rtype_st, V_a[pos]), K_a[pos]);
-	  break;
-	}
+      s = ((int(*)(const void*,const void*))rtype_st_cmp)(dcCallStruct(p,t,rtype_st, V_a[pos]), K_a[pos]);
+      break;
+    }
     default: printf("unknown rtype '%c'", rtype); return 0;
   }
 
@@ -145,7 +145,7 @@ static int invoke(char const* signature, void* t)
         /* no check: guaranteed to exist, or invoke func would've exited when passing args, above */
         int len;
         int i = find_agg_idx(&len, sig);
-        s = ((int(*)())G_agg_cmpfuncs[i])(V_a[pos], K_a[pos]);
+        s = ((int(*)(const void*,const void*))G_agg_cmpfuncs[i])(V_a[pos], K_a[pos]);
         if (!s) printf("'{':%d:  *%p != *%p ; ", pos, V_a[pos], K_a[pos]);
         sig += len-1; /* advance to next arg char */
         break;
@@ -187,14 +187,23 @@ int run_all()
 
 int main(int argc, char* argv[])
 {
-  int total;
+  int total, i;
 
   dcTest_initPlatform();
 
-  init_K(G_maxargs);
+  init_test_data(G_maxargs);
   G_callvm = (DCCallVM*) dcNewCallVM(32768);
+
   dcReset(G_callvm);
   total = run_all();
+
+  /* free all DCstructs created on the fly */
+  for(i=0; i<G_naggs; ++i)
+    dcFreeStruct(((DCstruct*(*)())G_agg_touchdcstfuncs[i])());
+
+  dcFree(G_callvm);
+  deinit_test_data(G_maxargs);
+
   printf("result: call_aggrs: %d\n", total);
 
   dcTest_deInitPlatform();
