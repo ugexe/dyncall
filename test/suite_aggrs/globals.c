@@ -30,8 +30,10 @@
 DEF_TYPES
 #undef X
 
+#define AGGR_MISALIGN 0
+
 static double rand_d()                    { return ( ( (double) rand() )  / ( (double) RAND_MAX ) ); }
-static void   rand_mem(void* p, size_t s) { for(int i=0; i<s; ++i) ((char*)p)[i] = (char)rand(); }
+static void   rand_mem(void* p, size_t s) { for(int i=0; i<s; ++i) ((char*)p)[i] = (char)rand(); } /* byte by byte is slow, but whatev  */
 
 static int calc_max_aggr_size()
 {
@@ -59,7 +61,9 @@ DEF_TYPES
     K_p[i] = (void*)     (long) (((rand_d()-0.5)*2) * (1LL<<(sizeof(void*)*8-1)));
     K_f[i] = (float)     (rand_d() * FLT_MAX);
     K_d[i] = (double)    (((rand_d()-0.5)*2) * 1.7976931348623157E+308/*__DBL_MAX__*/); /* Plan9 doesn't know the macro. */
-    K_a[i] = malloc(maxaggrsize); rand_mem(K_a[i], maxaggrsize);
+    K_a[i] = malloc(maxaggrsize+AGGR_MISALIGN);
+    rand_mem(K_a[i], maxaggrsize+AGGR_MISALIGN);
+    K_a[i] = (char*)K_a[i]+AGGR_MISALIGN;
   }
 }
 
@@ -71,11 +75,12 @@ void clear_V()
   int i;
   for(i=0;i<G_maxargs+1;++i) {
     if(aggr_init)
-      free(V_a[i]);
+      free((char*)V_a[i]-AGGR_MISALIGN);
 #define X(CH,T) V_##CH[i] = (T) 0;
 DEF_TYPES
 #undef X
-    V_a[i] = malloc(maxaggrsize);
+    V_a[i] = malloc(maxaggrsize+AGGR_MISALIGN);
+    V_a[i] = (char*)V_a[i]+AGGR_MISALIGN;
   }
   aggr_init = 1;
 }
@@ -84,8 +89,8 @@ void deinit_test_data()
 {
   int i;
   for(i=0;i<G_maxargs+1;++i) {
-    free(V_a[i]);
-    free(K_a[i]);
+    free((char*)V_a[i]-AGGR_MISALIGN);
+    free((char*)K_a[i]-AGGR_MISALIGN);
   }
 
 #define X(CH,T) free(V_##CH); free(K_##CH);
