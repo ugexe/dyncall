@@ -6,7 +6,7 @@
  Description: 
  License:
 
-   Copyright (c) 2011-2018 Daniel Adler <dadler@uni-goettingen.de>,
+   Copyright (c) 2011-2022 Daniel Adler <dadler@uni-goettingen.de>,
                            Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
@@ -37,7 +37,7 @@ extern char const * G_sigtab[];
 extern int          G_ncases;
 extern int          G_maxargs;
 
-void init_K();
-void init_T();
+void init_test_data();
+void deinit_test_data();
 void clear_V();
 

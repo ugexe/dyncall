@@ -6,7 +6,7 @@
  Description: 
  License:
 
-   Copyright (c) 2011-2018 Daniel Adler <dadler@uni-goettingen.de>,
+   Copyright (c) 2011-2022 Daniel Adler <dadler@uni-goettingen.de>,
                            Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
@@ -33,7 +33,7 @@
 void* G_callvm;
 
 
-int invoke(char const* signature, void* t)
+static int invoke(char const* signature, void* t)
 {
   DCCallVM   * p = (DCCallVM*) G_callvm;
   char const * sig = signature;
@@ -82,14 +82,14 @@ int invoke(char const* signature, void* t)
   pos = 1;
   while ( (atype = *sig++) != '\0') {
     switch(atype) {
-      case 'c': s = ( V_c[pos] == K_c[pos] ); if (!s) printf("'c':%d: %d != %d ; ", pos, V_c[pos], K_c[pos]); break;
-      case 's': s = ( V_s[pos] == K_s[pos] ); if (!s) printf("'s':%d: %d != %d ; ", pos, V_s[pos], K_s[pos]); break;
-      case 'i': s = ( V_i[pos] == K_i[pos] ); if (!s) printf("'i':%d: %d != %d ; ", pos, V_i[pos], K_i[pos]); break;
-      case 'j': s = ( V_j[pos] == K_j[pos] ); if (!s) printf("'j':%d: %ld != %ld ; ", pos, V_j[pos], K_j[pos]); break;
+      case 'c': s = ( V_c[pos] == K_c[pos] ); if (!s) printf("'c':%d: %d != %d ; ",     pos, V_c[pos], K_c[pos]); break;
+      case 's': s = ( V_s[pos] == K_s[pos] ); if (!s) printf("'s':%d: %d != %d ; ",     pos, V_s[pos], K_s[pos]); break;
+      case 'i': s = ( V_i[pos] == K_i[pos] ); if (!s) printf("'i':%d: %d != %d ; ",     pos, V_i[pos], K_i[pos]); break;
+      case 'j': s = ( V_j[pos] == K_j[pos] ); if (!s) printf("'j':%d: %ld != %ld ; ",   pos, V_j[pos], K_j[pos]); break;
       case 'l': s = ( V_l[pos] == K_l[pos] ); if (!s) printf("'l':%d: %lld != %lld ; ", pos, V_l[pos], K_l[pos]); break;
-      case 'p': s = ( V_p[pos] == K_p[pos] ); if (!s) printf("'p':%d: %lld != %lld ; ", pos, (long long) V_p[pos], (long long) K_p[pos]); break;
-      case 'f': s = ( V_f[pos] == K_f[pos] ); if (!s) printf("'f':%d: %f != %f ; ", pos, V_f[pos], K_f[pos]); break;
-      case 'd': s = ( V_d[pos] == K_d[pos] ); if (!s) printf("'d':%d: %f != %f ; ", pos, V_d[pos], K_d[pos]); break;
+      case 'p': s = ( V_p[pos] == K_p[pos] ); if (!s) printf("'p':%d: %p != %p ; ",     pos, V_p[pos], K_p[pos]); break;
+      case 'f': s = ( V_f[pos] == K_f[pos] ); if (!s) printf("'f':%d: %f != %f ; ",     pos, V_f[pos], K_f[pos]); break;
+      case 'd': s = ( V_d[pos] == K_d[pos] ); if (!s) printf("'d':%d: %f != %f ; ",     pos, V_d[pos], K_d[pos]); break;
       default: printf("unknown atype '%c' ; ", atype); return 0;
     }
     if (!s) {
@@ -130,10 +130,13 @@ int main(int argc, char* argv[])
 
   dcTest_initPlatform();
 
-  init_K(G_maxargs);
+  init_test_data(G_maxargs);
   G_callvm = (DCCallVM*) dcNewCallVM(4096);
   dcReset(G_callvm);
   total = run_all();
+  dcFree(G_callvm);
+  deinit_test_data(G_maxargs);
+
   printf("result: call_suite: %d\n", total);
 
   dcTest_deInitPlatform();

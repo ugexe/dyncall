@@ -6,7 +6,7 @@
  Description: 
  License:
 
-   Copyright (c) 2011-2018 Daniel Adler <dadler@uni-goettingen.de>,
+   Copyright (c) 2011-2022 Daniel Adler <dadler@uni-goettingen.de>,
                            Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
@@ -31,9 +31,9 @@
 DEF_TYPES
 #undef X
 
-double rand_d() { return ( ( (double) rand() )  / ( (double) RAND_MAX ) ); }
+static double rand_d() { return ( ( (double) rand() )  / ( (double) RAND_MAX ) ); }
 
-void init_K()
+void init_test_data()
 {
   int i;
 #define X(CH,T) V_##CH = (T*) malloc(sizeof(T)*(G_maxargs+1)); K_##CH = (T*) malloc(sizeof(T)*(G_maxargs+1));
@@ -61,3 +61,9 @@ DEF_TYPES
   }
 }
 
+void deinit_test_data()
+{
+#define X(CH,T) free(V_##CH); free(K_##CH);
+DEF_TYPES
+#undef X
+}
