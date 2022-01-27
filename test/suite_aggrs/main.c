@@ -204,7 +204,7 @@ int main(int argc, char* argv[])
   dcFree(G_callvm);
   deinit_test_data(G_maxargs);
 
-  printf("result: call_aggrs: %d\n", total);
+  printf("result: suite_aggrs: %d\n", total);
 
   dcTest_deInitPlatform();
 
