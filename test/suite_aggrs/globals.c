@@ -33,7 +33,7 @@ DEF_TYPES
 #define AGGR_MISALIGN 0
 
 static double rand_d()                    { return ( ( (double) rand() )  / ( (double) RAND_MAX ) ); }
-static void   rand_mem(void* p, size_t s) { for(int i=0; i<s; ++i) ((char*)p)[i] = (char)rand(); } /* byte by byte is slow, but whatev  */
+static void   rand_mem(void* p, size_t s) { int i; for(i=0; i<s; ++i) ((char*)p)[i] = (char)rand(); } /* byte by byte is slow, but whatev  */
 
 static int calc_max_aggr_size()
 {
