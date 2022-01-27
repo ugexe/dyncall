@@ -34,7 +34,8 @@ static void* G_callvm;
 
 static int find_agg_idx(int* len, const char* sig)
 {
-  for(int i=0; i<G_naggs; ++i) {
+  int i;
+  for(i=0; i<G_naggs; ++i) {
     const char* agg_sig = G_agg_sigs[i];
     *len = strlen(agg_sig);
     if(strncmp(agg_sig, sig, *len) == 0)
