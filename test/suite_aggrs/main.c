@@ -93,12 +93,13 @@ static int invoke(char const* signature, void* t)
       case '{': {
         /* find struct sig */
         int len;
+        DCstruct *st;
         int i = find_agg_idx(&len, sig);
         if(i == -1) {
           printf("unknown sig at '%s' ;", sig);
           return 0;
         }
-        DCstruct *st = ((DCstruct*(*)())G_agg_touchdcstfuncs[i])();
+        st = ((DCstruct*(*)())G_agg_touchdcstfuncs[i])();
         dcArgStruct(p, st, K_a[pos]);
         sig += len-1; /* advance to next arg char */
         break;
