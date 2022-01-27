@@ -11,7 +11,7 @@ all-c:
 	cd plain && ${MAKE}
 	cd call_suite && ${MAKE}
 	cd suite && ${MAKE}
-	cd suite_aggrs && ${MAKE_CMD}
+	cd suite_aggrs && ${MAKE}
 	cd callf && ${MAKE}
 	cd syscall && ${MAKE}
 	cd dynload_plain && ${MAKE}
@@ -38,7 +38,7 @@ all-dyncall:
 	cd suite2 && ${MAKE}
 	cd suite3 && ${MAKE}
 	cd suite_floats && ${MAKE}
-	cd suite_aggrs && ${MAKE_CMD}
+	cd suite_aggrs && ${MAKE}
 	cd ellipsis && ${MAKE}
 	cd callf && ${MAKE}
 	cd syscall && ${MAKE}
