@@ -32,8 +32,22 @@ DEF_TYPES
 
 #define AGGR_MISALIGN 0
 
-static double rand_d()                    { return ( ( (double) rand() )  / ( (double) RAND_MAX ) ); }
-static void   rand_mem(void* p, size_t s) { int i; for(i=0; i<s; ++i) ((char*)p)[i] = (char)rand(); } /* byte by byte is slow, but whatev  */
+static double rand_d()      { return ( ( (double) rand() )  / ( (double) RAND_MAX ) ); }
+
+/* fill mem with random values, make sure no float aligned memory location
+ * results in a NaN, as they always compare to false; so avaid all ones in
+ * exporent (for simplicity we just look at first 7 exponent bits and make sure
+ * they aren't all set, which would work for all IEEE754 precision formats) */
+static void rand_mem__fp_friendly(void* p, size_t s)
+{
+  int i;
+  for(i = 0; i<s; ++i) {
+    char* c = (char*)p;
+    c[i] = (char)rand(); /* slowish, byte by byte, but whatev */
+    if((c[i]&0x7f) == 0x7f)
+      c[i] ^= 1;
+  }
+}
 
 static int calc_max_aggr_size()
 {
@@ -62,7 +76,7 @@ DEF_TYPES
     K_f[i] = (float)     (rand_d() * FLT_MAX);
     K_d[i] = (double)    (((rand_d()-0.5)*2) * DBL_MAX);
     K_a[i] = malloc(maxaggrsize+AGGR_MISALIGN);
-    rand_mem(K_a[i], maxaggrsize+AGGR_MISALIGN);
+    rand_mem__fp_friendly(K_a[i], maxaggrsize+AGGR_MISALIGN);
     K_a[i] = (char*)K_a[i]+AGGR_MISALIGN;
   }
 }
