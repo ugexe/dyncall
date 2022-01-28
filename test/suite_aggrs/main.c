@@ -121,7 +121,7 @@ static int invoke(char const* signature, void* t)
     case 'f': s = (dcCallFloat   (p,t) == K_f[pos]) ; break;
     case 'd': s = (dcCallDouble  (p,t) == K_d[pos]) ; break;
     case '{': {
-      s = ((int(*)(const void*,const void*))rtype_st_cmp)(dcCallStruct(p,t,rtype_st, V_a[pos]), K_a[pos]);
+      s = ((int(*)(const void*,const void*))rtype_st_cmp)(dcCallStruct(p,t,rtype_st, V_a[0]/*unused space for retval*/), K_a[pos]);
       break;
     }
     default: printf("unknown rtype '%c'", rtype); return 0;
