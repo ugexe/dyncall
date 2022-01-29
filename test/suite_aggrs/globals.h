@@ -46,3 +46,4 @@ void init_test_data();
 void deinit_test_data();
 void clear_V();
 
+int get_max_aggr_size();

@@ -51,6 +51,7 @@ static int invoke(char const* signature, void* t)
   char const * sig_args;
   char         rtype;
   DCstruct *   rtype_st = NULL;
+  int          rtype_size = 0;
   funptr       rtype_st_cmp = NULL;
   char         atype;
   int          pos = 0;
@@ -70,6 +71,7 @@ static int invoke(char const* signature, void* t)
     rtype = *sig;
     sig += len;
 
+    rtype_size = G_agg_sizes[i];
     rtype_st_cmp = G_agg_cmpfuncs[i];
     rtype_st = ((DCstruct*(*)())G_agg_touchdcstfuncs[i])();
     dcBeginCallStruct(p, rtype_st);
@@ -121,7 +123,17 @@ static int invoke(char const* signature, void* t)
     case 'f': s = (dcCallFloat   (p,t) == K_f[pos]) ; break;
     case 'd': s = (dcCallDouble  (p,t) == K_d[pos]) ; break;
     case '{': {
-      s = ((int(*)(const void*,const void*))rtype_st_cmp)(dcCallStruct(p,t,rtype_st, V_a[0]/*unused space for retval*/), K_a[pos]);
+      /* bound check memory adjacent to returned struct, to check for overflows by dcCallStruct */
+      long long* adj_ll = (get_max_aggr_size() - rtype_size) > sizeof(long long) ? (long long*)((char*)V_a[0] + rtype_size) : NULL;
+      if(adj_ll)
+        *adj_ll = 0x0123456789abcdef;
+
+      s = ((int(*)(const void*,const void*))rtype_st_cmp)(dcCallStruct(p, t, rtype_st, V_a[0]), K_a[pos]);
+
+      if(*adj_ll != 0x0123456789abcdef) {
+        printf("writing rval overflowed into adjacent memory;");
+        return 0;
+      }
       break;
     }
     default: printf("unknown rtype '%c'", rtype); return 0;

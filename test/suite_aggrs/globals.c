@@ -49,19 +49,22 @@ static void rand_mem__fp_friendly(void* p, size_t s)
   }
 }
 
-static int calc_max_aggr_size()
+int get_max_aggr_size()
 {
-  int i, s = 0;
-  for(i=0; i<G_naggs; ++i)
-    if(G_agg_sizes[i] > s)
-      s = G_agg_sizes[i];
+  static int s = 0;
+  int i;
+  if(s == 0) {
+    for(i=0; i<G_naggs; ++i)
+      if(G_agg_sizes[i] > s)
+        s = G_agg_sizes[i];
+  }
   return s;
 }
 
 void init_test_data()
 {
   int i;
-  int maxaggrsize = calc_max_aggr_size();
+  int maxaggrsize = get_max_aggr_size();
 #define X(CH,T) V_##CH = (T*) malloc(sizeof(T)*(G_maxargs+1)); K_##CH = (T*) malloc(sizeof(T)*(G_maxargs+1));
 DEF_TYPES
 #undef X
@@ -84,7 +87,7 @@ DEF_TYPES
 void clear_V()
 {
   static int aggr_init = 0;
-  int maxaggrsize = calc_max_aggr_size();
+  int maxaggrsize = get_max_aggr_size();
 
   int i;
   for(i=0;i<G_maxargs+1;++i) {
@@ -94,6 +97,7 @@ void clear_V()
 DEF_TYPES
 #undef X
     V_a[i] = malloc(maxaggrsize+AGGR_MISALIGN);
+    memset(V_a[i], 0, maxaggrsize+AGGR_MISALIGN);
     V_a[i] = (char*)V_a[i]+AGGR_MISALIGN;
   }
   aggr_init = 1;
