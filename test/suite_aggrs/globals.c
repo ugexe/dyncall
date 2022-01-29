@@ -25,6 +25,7 @@
 #include <stdlib.h>
 #include "globals.h"
 #include <float.h>
+#include <string.h>
 
 #define X(CH,T) T *V_##CH; T *K_##CH; 
 DEF_TYPES
