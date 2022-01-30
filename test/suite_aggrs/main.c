@@ -130,7 +130,7 @@ static int invoke(char const* signature, void* t)
 
       s = ((int(*)(const void*,const void*))rtype_st_cmp)(dcCallStruct(p, t, rtype_st, V_a[0]), K_a[pos]);
 
-      if(*adj_ll != 0x0123456789abcdef) {
+      if(adj_ll && *adj_ll != 0x0123456789abcdef) {
         printf("writing rval overflowed into adjacent memory;");
         return 0;
       }
