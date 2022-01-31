@@ -61,7 +61,7 @@ static int invoke(char const* signature, void* t)
 
   dcReset(p);
 
-  if(*sig == '{') {
+  if(*sig == '{' || *sig == '<') {
     int len;
     int i = find_agg_idx(&len, sig);
     if(i == -1) {
@@ -92,8 +92,10 @@ static int invoke(char const* signature, void* t)
       case 'p': dcArgPointer (p,K_p[pos]); break;
       case 'f': dcArgFloat   (p,K_f[pos]); break;
       case 'd': dcArgDouble  (p,K_d[pos]); break;
-      case '{': {
-        /* find struct sig */
+      case '<': /* union */
+      case '{': /* struct */
+	  {
+        /* find aggregate sig */
         int len;
         DCstruct *st;
         int i = find_agg_idx(&len, sig);
@@ -122,8 +124,10 @@ static int invoke(char const* signature, void* t)
     case 'p': s = (dcCallPointer (p,t) == K_p[pos]) ; break;
     case 'f': s = (dcCallFloat   (p,t) == K_f[pos]) ; break;
     case 'd': s = (dcCallDouble  (p,t) == K_d[pos]) ; break;
-    case '{': {
-      /* bound check memory adjacent to returned struct, to check for overflows by dcCallStruct */
+    case '<': /* union */
+    case '{': /* struct */
+	{
+      /* bound check memory adjacent to returned aggregate, to check for overflows by dcCallStruct */
       long long* adj_ll = (get_max_aggr_size() - rtype_size) > sizeof(long long) ? (long long*)((char*)V_a[0] + rtype_size) : NULL;
       if(adj_ll)
         *adj_ll = 0x0123456789abcdef;
@@ -154,12 +158,14 @@ static int invoke(char const* signature, void* t)
       case 'p': s = ( V_p[pos] == K_p[pos] ); if (!s) printf("'p':%d: %p != %p ; ",     pos, V_p[pos], K_p[pos]); break;
       case 'f': s = ( V_f[pos] == K_f[pos] ); if (!s) printf("'f':%d: %f != %f ; ",     pos, V_f[pos], K_f[pos]); break;
       case 'd': s = ( V_d[pos] == K_d[pos] ); if (!s) printf("'d':%d: %f != %f ; ",     pos, V_d[pos], K_d[pos]); break;
-      case '{': {
+      case '<': /* union */
+      case '{': /* struct */
+	  {
         /* no check: guaranteed to exist, or invoke func would've exited when passing args, above */
         int len;
         int i = find_agg_idx(&len, sig);
         s = ((int(*)(const void*,const void*))G_agg_cmpfuncs[i])(V_a[pos], K_a[pos]);
-        if (!s) printf("'{':%d:  *%p != *%p ; ", pos, V_a[pos], K_a[pos]);
+        if (!s) printf("'%c':%d:  *%p != *%p ; ", atype, pos, V_a[pos], K_a[pos]);
         sig += len-1; /* advance to next arg char */
         break;
       }
@@ -217,7 +223,7 @@ int main(int argc, char* argv[])
   dcFree(G_callvm);
   deinit_test_data(G_maxargs);
 
-  printf("result: suite_aggrs: %d\n", total);
+  printf("result: suite_aggrs: %d %d\n", total, get_max_aggr_size());
 
   dcTest_deInitPlatform();
 

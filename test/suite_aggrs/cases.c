@@ -48,8 +48,8 @@
 
 #include "dyncall.h"
 
+/* Plan9 pcc and MSVC (when using C) do not allow empty structs */
 #if defined(DC__C_MSVC) || defined(DC__OS_Plan9)
-/* Plan9 pcc does not allow empty structs */
 #  include "nonemptystructs.h"
 #else
 #  include "cases.h"
