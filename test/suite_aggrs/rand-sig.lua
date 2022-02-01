@@ -6,6 +6,8 @@ require"config"
 pairs_op = { '{', '<' } --, '[' }
 pairs_cl = { '}', '>' } --, ']' }
 
+aggr_op_pattern = '[%'..table.concat(pairs_op,'%')..']'
+
 for i = 1, #pairs_op do
   if string.find(types, '%'..pairs_op[i]) and not string.find(types, '%'..pairs_cl[i]) then
     types = types..pairs_cl[i]
@@ -21,6 +23,11 @@ function mkaggr(n_nest, maxdepth, o, c)
     local id = math.random(#types)
     local t = types:sub(id,id)
     s = s..mktype(t, n_nest, maxdepth, o)
+
+    -- member (which cannot be first char) as array? Disallow multidimensional arrays
+    if #s > 1 and t ~= c and s:sub(-1) ~= ']' and math.random(arraydice) == 1 then
+      s = s..'['..math.random(maxarraylen)..']'
+    end
   until t == c
 
   return s
@@ -73,7 +80,6 @@ end
 math.randomseed(seed)
 local id
 local uniq_sigs = { }
-local aggr_op_pattern = '[%'..table.concat(pairs_op,'%')..']'
 for i = 1, ncases do
   local l = ''
   repeat

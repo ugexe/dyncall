@@ -1,6 +1,8 @@
 -- user config for rand-sig.lua:
 minargs      = 0
 maxargs      = 16
+maxarraylen  = 16   -- note some callconvs pass structs via regs, so using big numbers here will reduce those cases
+arraydice    = 40   -- how often to turn a member into an array (1 out of arraydice-times)
 maxaggrdepth = 3    -- max nesting depth of aggregates, 1 = no nesting
 emptyaggrs   = true -- whether to allow empty aggregates or not
 ncases       = 400

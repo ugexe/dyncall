@@ -94,7 +94,7 @@ static int invoke(char const* signature, void* t)
       case 'd': dcArgDouble  (p,K_d[pos]); break;
       case '<': /* union */
       case '{': /* struct */
-	  {
+      {
         /* find aggregate sig */
         int len;
         DCstruct *st;
@@ -126,7 +126,7 @@ static int invoke(char const* signature, void* t)
     case 'd': s = (dcCallDouble  (p,t) == K_d[pos]) ; break;
     case '<': /* union */
     case '{': /* struct */
-	{
+    {
       /* bound check memory adjacent to returned aggregate, to check for overflows by dcCallStruct */
       long long* adj_ll = (get_max_aggr_size() - rtype_size) > sizeof(long long) ? (long long*)((char*)V_a[0] + rtype_size) : NULL;
       if(adj_ll)
@@ -160,7 +160,7 @@ static int invoke(char const* signature, void* t)
       case 'd': s = ( V_d[pos] == K_d[pos] ); if (!s) printf("'d':%d: %f != %f ; ",     pos, V_d[pos], K_d[pos]); break;
       case '<': /* union */
       case '{': /* struct */
-	  {
+      {
         /* no check: guaranteed to exist, or invoke func would've exited when passing args, above */
         int len;
         int i = find_agg_idx(&len, sig);
@@ -223,7 +223,7 @@ int main(int argc, char* argv[])
   dcFree(G_callvm);
   deinit_test_data(G_maxargs);
 
-  printf("result: suite_aggrs: %d %d\n", total, get_max_aggr_size());
+  printf("result: suite_aggrs: %d\n", total);
 
   dcTest_deInitPlatform();
 
