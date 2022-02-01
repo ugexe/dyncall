@@ -18,11 +18,22 @@ rtypes   = "v"..types
 
 function mkaggr(n_nest, maxdepth, o, c)
   local s = o
+  local nfields = 0
 
   repeat
-    local id = math.random(#types)
-    local t = types:sub(id,id)
-    s = s..mktype(t, n_nest, maxdepth, o)
+    local t = c
+    if nfields < maxaggrfields then
+	  repeat
+        local id = math.random(#types)
+        t = types:sub(id,id)
+      until t ~= c or nfields >= minaggrfields
+    end
+
+    s_ = mktype(t, n_nest, maxdepth, o)
+	if(#s_ > 0) then
+      nfields = nfields + 1
+	end
+    s = s..s_
 
     -- member (which cannot be first char) as array? Disallow multidimensional arrays
     if #s > 1 and t ~= c and s:sub(-1) ~= ']' and math.random(arraydice) == 1 then
@@ -68,15 +79,6 @@ function mktype(t, n_nest, maxdepth, aggr_open)
   return t
 end
 
-function contains_empty_aggr(s)
-  for i = 1, #pairs_op do
-    if string.match(s, '%'..pairs_op[i]..'%'..pairs_cl[i]) ~= nil then
-      return true
-    end
-  end
-  return false
-end
-
 math.randomseed(seed)
 local id
 local uniq_sigs = { }
@@ -92,7 +94,7 @@ for i = 1, ncases do
     end
     l = table.concat(sig)
     -- reject dupes, sigs without any aggregate (as this is about aggrs after all), and empty ones (if not wanted)
-  until string.match(l, aggr_op_pattern) ~= nil and uniq_sigs[l] == nil and (emptyaggrs or not contains_empty_aggr(l))
+  until string.match(l, aggr_op_pattern) ~= nil and uniq_sigs[l] == nil
   uniq_sigs[l] = 1
   io.write(l.."\n")
 end
