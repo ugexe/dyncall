@@ -35,7 +35,7 @@ typedef int DCerror;
 extern "C" {
 #endif
 
-// returns 0 on success
+/* returns 0 on success */
 DCerror dcAllocWX   (DCsize size, void** p);
 DCerror dcInitExecWX(void* p, DCsize size);
 void    dcFreeWX    (void* p, DCsize size);

@@ -47,7 +47,7 @@ DCValue* getArg(int pos) { return &mValue[pos]; }
 int gID;
 int getId() { return gID; }
 
-// Generate function definitions.
+/* Generate function definitions. */
 #define VF0( id,                               S)  void S(                                                              ) {gID=id;                                                                                                                                    }
 #define VF1( id,A1,                            S)  void S(A1 a1                                                         ) {gID=id;g_##A1(a1,0);                                                                                                                       }
 #define VF2( id,A1,A2,                         S)  void S(A1 a1, A2 a2                                                  ) {gID=id;g_##A1(a1,0);g_##A2(a2,1);                                                                                                          }
@@ -62,7 +62,7 @@ int getId() { return gID; }
 #include "case.h"
 
 
-// Generate function pointer table used for loop.
+/* Generate function pointer table used for loop. */
 #undef VF0
 #undef VF1
 #undef VF2

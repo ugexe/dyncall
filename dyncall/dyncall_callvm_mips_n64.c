@@ -150,7 +150,7 @@ static void dc_callvm_argFloat_mips_n64(DCCallVM* in_self, DCfloat x)
 #else
   DCfloat f[] = {x,0.f};
 # if defined(DC__Endian_BIG)
-  // floats in regs always right justified
+  /* floats in regs always right justified */
   if (((DCCallVM_mips_n64*)in_self)->mRegCount < 8) {
     f[1] = f[0];
     f[0] = 0.f;

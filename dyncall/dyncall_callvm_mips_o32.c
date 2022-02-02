@@ -125,7 +125,7 @@ static void dc_callvm_argFloat_mips_o32(DCCallVM* in_self, DCfloat x)
 # if defined(DC__Endian_LITTLE)
     self->mRegData.u[self->mArgCount].f[0] = x;
 # else
-    self->mRegData.u[self->mArgCount].f[1] = x; // floats in regs always right justified
+    self->mRegData.u[self->mArgCount].f[1] = x; /* floats in regs always right justified */
 # endif
 # if 0
     self->mRegData.u[self->mArgCount].f[1] = x;

@@ -33,9 +33,9 @@ extern void dcCallbackThunkEntry();
 
 struct DCCallback
 {
-  DCThunk  	         thunk;    // offset 0
-  DCCallbackHandler* handler;  // offset 12
-  void*              userdata; // offset 16
+  DCThunk            thunk;    /* offset  0 */
+  DCCallbackHandler* handler;  /* offset 12 */
+  void*              userdata; /* offset 16 */
 };
 
 
