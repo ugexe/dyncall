@@ -443,5 +443,76 @@
   201b9d:   c3                            retq                            ; |
 
 
+
+; ---------- returning tiny struct by value (passes via regs) ---------->
+;
+; struct A { unsigned char a; };
+;
+; struct A call(unsigned char c)
+; {
+; 	return (struct A){c};
+; }
+;
+; int main()
+; {
+; 	struct A a = call(123);
+; 	return 0;
+; }
+
+
+
+; output from freebsd-12.2-x64 w/ clang 10.0.1
+
+00000000002018f0 <call>:
+  2018f0:       55                              push   %rbp                 ; |
+  2018f1:       48 89 e5                        mov    %rsp,%rbp            ; | prolog
+  2018f4:       40 88 7d f7                     mov    %dil,-0x9(%rbp)      ; in arg 0 -> local area, ...             | a bit pointless, could've been
+  2018f8:       8a 45 f7                        mov    -0x9(%rbp),%al       ; ... from local area -> eax, then ...    | moved to -0x8(%rbp) directly
+  2018fb:       88 45 f8                        mov    %al,-0x8(%rbp)       ; ... to struct in local area
+  2018fe:       8a 45 f8                        mov    -0x8(%rbp),%al       ; return value
+  201901:       5d                              pop    %rbp                 ; | epilog
+  201902:       c3                              retq                        ; |
+  201903:       66 2e 0f 1f 84 00 00 00 00 00   nopw   %cs:0x0(%rax,%rax,1) ; garbage data
+  20190d:       0f 1f 00                        nopl   (%rax)               ; garbage data
+
+0000000000201910 <main>:
+  201910:       55                              push   %rbp                 ; |
+  201911:       48 89 e5                        mov    %rsp,%rbp            ; | prolog
+  201914:       48 83 ec 10                     sub    $0x10,%rsp           ; |
+  201918:       c7 45 fc 00 00 00 00            movl   $0x0,-0x4(%rbp)      ; @@@ unsure, clears dword of local area
+  20191f:       bf 7b 00 00 00                  mov    $0x7b,%edi           ; arg 0 (123)
+  201924:       e8 c7 ff ff ff                  callq  2018f0 <call>        ; push return addr and call
+  201929:       31 c9                           xor    %ecx,%ecx            ; return value prep (a bit pointless)
+  20192b:       88 45 f8                        mov    %al,-0x8(%rbp)       ; write struct data to local area (123)
+  20192e:       89 c8                           mov    %ecx,%eax            ; return value
+  201930:       48 83 c4 10                     add    $0x10,%rsp           ; |
+  201934:       5d                              pop    %rbp                 ; | epilog
+  201935:       c3                              retq                        ; |
+
+
+
+; output from freebsd-12.2-x64 w/ gcc 10.3.0
+
+00000000004007a5 <call>:
+  4007a5:       55                      push   %rbp                ; |
+  4007a6:       48 89 e5                mov    %rsp,%rbp           ; | prolog
+  4007a9:       89 f8                   mov    %edi,%eax           ; in arg 0 ...
+  4007ab:       88 45 fc                mov    %al,-0x4(%rbp)      ; ... -> struct in local area
+  4007ae:       0f b6 45 fc             movzbl -0x4(%rbp),%eax     ; return value (entire struct in eax)
+  4007b2:       5d                      pop    %rbp                ; | epilog
+  4007b3:       c3                      retq                       ; |
+
+00000000004007b4 <main>:
+  4007b4:       55                      push   %rbp                ; |
+  4007b5:       48 89 e5                mov    %rsp,%rbp           ; | prolog
+  4007b8:       48 83 ec 10             sub    $0x10,%rsp          ; |
+  4007bc:       bf 7b 00 00 00          mov    $0x7b,%edi          ; arg 0 (123)
+  4007c1:       e8 df ff ff ff          callq  4007a5 <call>       ; push return addr and call
+  4007c6:       88 45 ff                mov    %al,-0x1(%rbp)      ; write struct data to local area (123)
+  4007c9:       b8 00 00 00 00          mov    $0x0,%eax           ; return value
+  4007ce:       c9                      leaveq                     ; |
+  4007cf:       c3                      retq                       ; | epilog
+
+
 ; vim: ft=asm
 
