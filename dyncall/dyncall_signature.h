@@ -62,15 +62,16 @@ typedef char DCsigchar;
 /* calling convention / mode signatures */
 
 #define DC_SIGCHAR_CC_PREFIX           '_'
-#define DC_SIGCHAR_CC_DEFAULT          ':'
+#define DC_SIGCHAR_CC_DEFAULT          ':' /* default calling conv (platform native) */
+#define DC_SIGCHAR_CC_THISCALL         '*' /* C++ this calls (platform native) */
 #define DC_SIGCHAR_CC_ELLIPSIS         'e'
 #define DC_SIGCHAR_CC_ELLIPSIS_VARARGS '.'
-#define DC_SIGCHAR_CC_CDECL            'c'
-#define DC_SIGCHAR_CC_STDCALL          's'
-#define DC_SIGCHAR_CC_FASTCALL_MS      'F'
-#define DC_SIGCHAR_CC_FASTCALL_GNU     'f'
-#define DC_SIGCHAR_CC_THISCALL_MS      '+'
-#define DC_SIGCHAR_CC_THISCALL_GNU     '#' /* GNU thiscalls are cdecl, but keep specific sig char for clarity */
+#define DC_SIGCHAR_CC_CDECL            'c' /* x86 specific */
+#define DC_SIGCHAR_CC_STDCALL          's' /* x86 specific */
+#define DC_SIGCHAR_CC_FASTCALL_MS      'F' /* x86 specific */
+#define DC_SIGCHAR_CC_FASTCALL_GNU     'f' /* x86 specific */
+#define DC_SIGCHAR_CC_THISCALL_MS      '+' /* x86 specific, MS C++ this calls */
+#define DC_SIGCHAR_CC_THISCALL_GNU     '#' /* x86 specific, GNU C++ this calls are cdecl, but keep specific sig char for clarity */
 #define DC_SIGCHAR_CC_ARM_ARM          'A'
 #define DC_SIGCHAR_CC_ARM_THUMB        'a'
 #define DC_SIGCHAR_CC_SYSCALL          '$'

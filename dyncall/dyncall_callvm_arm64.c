@@ -6,7 +6,7 @@
  Description: ARM 64-bit ABI implementation
  License:
 
-   Copyright (c) 2015-2020 Daniel Adler <dadler@uni-goettingen.de>, 
+   Copyright (c) 2015-2020 Daniel Adler <dadler@uni-goettingen.de>,
                            Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
@@ -84,7 +84,7 @@ static void a_double(DCCallVM* in_p, DCdouble x)
   DCCallVM_arm64* p = (DCCallVM_arm64*)in_p;
   if (p->f < 8) {
     p->u.D[ p->f ] = x;
-    p->f++; 
+    p->f++;
   } else {
     dcVecAppend(&p->mVecHead, &x, sizeof(DCdouble));
   }
@@ -93,11 +93,11 @@ static void a_double(DCCallVM* in_p, DCdouble x)
 void call(DCCallVM* in_p, DCpointer target)
 {
   DCCallVM_arm64* p = (DCCallVM_arm64*)in_p;
-  
+
   /*
   ** copy 'size' argument is given in number of 16-byte 'pair' blocks.
   */
-  
+
   dcCall_arm64(target, dcVecData(&p->mVecHead), ( dcVecSize(&p->mVecHead) + 15 ) & -16, &p->u.S[0]);
 }
 
@@ -110,7 +110,7 @@ DCCallVM_vt vt_arm64 =
 , &mode
 , &a_bool
 , &a_char
-, &a_short 
+, &a_short
 , &a_int
 , &a_long
 , &a_i64
@@ -180,19 +180,20 @@ static void mode(DCCallVM* in_self, DCint mode)
       vt = &vt_arm64_win_varargs;
       break;
 #endif /* if not win64, use below */
-    case DC_CALL_C_DEFAULT:        
-    case DC_CALL_C_ARM64:        
+    case DC_CALL_C_DEFAULT:
+    case DC_CALL_C_DEFAULT_THIS:
+    case DC_CALL_C_ARM64:
       vt = &vt_arm64;
       break;
-    default: 
-      self->mInterface.mError = DC_ERROR_UNSUPPORTED_MODE; 
+    default:
+      self->mInterface.mError = DC_ERROR_UNSUPPORTED_MODE;
       return;
   }
   dc_callvm_base_init(&self->mInterface, vt);
 }
 
 /* Public API. */
-DCCallVM* dcNewCallVM(DCsize size) 
+DCCallVM* dcNewCallVM(DCsize size)
 {
   DCCallVM_arm64* p = (DCCallVM_arm64*)dcAllocMem(sizeof(DCCallVM_arm64)+size);
 

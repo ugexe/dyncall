@@ -6,7 +6,7 @@
  Description: Implementation of Call VM for mips "eabi" abi.
  License:
 
-   Copyright (c) 2007-2020 Daniel Adler <dadler@uni-goettingen.de>, 
+   Copyright (c) 2007-2020 Daniel Adler <dadler@uni-goettingen.de>,
                            Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
@@ -132,7 +132,7 @@ DCCallVM_vt gVT_mips_eabi =
 , &dc_callvm_mode_mips_eabi
 , &dc_callvm_argBool_mips_eabi
 , &dc_callvm_argChar_mips_eabi
-, &dc_callvm_argShort_mips_eabi 
+, &dc_callvm_argShort_mips_eabi
 , &dc_callvm_argInt_mips_eabi
 , &dc_callvm_argLong_mips_eabi
 , &dc_callvm_argLongLong_mips_eabi
@@ -161,13 +161,14 @@ static void dc_callvm_mode_mips_eabi(DCCallVM* in_self, DCint mode)
 
   switch(mode) {
     case DC_CALL_C_DEFAULT:
+    case DC_CALL_C_DEFAULT_THIS:
     case DC_CALL_C_MIPS32_EABI:
     case DC_CALL_C_ELLIPSIS:
     case DC_CALL_C_ELLIPSIS_VARARGS:
       vt = &gVT_mips_eabi;
       break;
     default:
-      self->mInterface.mError = DC_ERROR_UNSUPPORTED_MODE; 
+      self->mInterface.mError = DC_ERROR_UNSUPPORTED_MODE;
       return;
   }
   dc_callvm_base_init(&self->mInterface, vt);

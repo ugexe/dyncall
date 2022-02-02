@@ -6,7 +6,7 @@
  Description: public header for library dyncall
  License:
 
-   Copyright (c) 2007-2020 Daniel Adler <dadler@uni-goettingen.de>, 
+   Copyright (c) 2007-2020 Daniel Adler <dadler@uni-goettingen.de>,
                            Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
@@ -24,17 +24,6 @@
 */
 
 
-/*
-
-  dyncall C API
-
-  REVISION
-  2015/07/08 added SYS_PPC64 system call
-  2015/01/16 added SYS_PPC32 system call
-  2007/12/11 initial
-  
-*/
-
 #ifndef DYNCALL_H
 #define DYNCALL_H
 
@@ -43,7 +32,7 @@
 
 #ifdef __cplusplus
 extern "C" {
-#endif 
+#endif
 
 typedef struct DCCallVM_    DCCallVM;
 typedef struct DCstruct_    DCstruct;
@@ -51,6 +40,7 @@ typedef struct DCstruct_    DCstruct;
 /* Supported Calling Convention Modes */
 
 #define DC_CALL_C_DEFAULT               0
+#define DC_CALL_C_DEFAULT_THIS         99
 #define DC_CALL_C_ELLIPSIS            100
 #define DC_CALL_C_ELLIPSIS_VARARGS    101
 #define DC_CALL_C_X86_CDECL             1
@@ -60,7 +50,9 @@ typedef struct DCstruct_    DCstruct;
 #define DC_CALL_C_X86_WIN32_THIS_MS     5
 #define DC_CALL_C_X86_WIN32_THIS_GNU    DC_CALL_C_X86_CDECL /* alias - identical to cdecl (w/ this-ptr as 1st arg) */
 #define DC_CALL_C_X64_WIN64             7
+#define DC_CALL_C_X64_WIN64_THIS       70   /* only needed when using aggregate by value as return type    @@@STRUCT implement */
 #define DC_CALL_C_X64_SYSV              8
+#define DC_CALL_C_X64_SYSV_THIS         DC_CALL_C_X64_SYSV  /* alias */
 #define DC_CALL_C_PPC32_DARWIN          9
 #define DC_CALL_C_PPC32_OSX            DC_CALL_C_PPC32_DARWIN /* alias */
 #define DC_CALL_C_ARM_ARM_EABI         10
@@ -93,45 +85,45 @@ typedef struct DCstruct_    DCstruct;
 #define DC_ERROR_NONE                0
 #define DC_ERROR_UNSUPPORTED_MODE   -1
 
-DC_API DCCallVM*  dcNewCallVM     (DCsize size);
-DC_API void       dcFree          (DCCallVM* vm);
-DC_API void       dcReset         (DCCallVM* vm);
+DC_API DCCallVM*  dcNewCallVM       (DCsize size);
+DC_API void       dcFree            (DCCallVM* vm);
+DC_API void       dcReset           (DCCallVM* vm);
 
-DC_API void       dcMode          (DCCallVM* vm, DCint mode);
+DC_API void       dcMode            (DCCallVM* vm, DCint mode);
 
-DC_API void       dcArgBool       (DCCallVM* vm, DCbool     value);
-DC_API void       dcArgChar       (DCCallVM* vm, DCchar     value);
-DC_API void       dcArgShort      (DCCallVM* vm, DCshort    value);
-DC_API void       dcArgInt        (DCCallVM* vm, DCint      value);
-DC_API void       dcArgLong       (DCCallVM* vm, DClong     value);
-DC_API void       dcArgLongLong   (DCCallVM* vm, DClonglong value);
-DC_API void       dcArgFloat      (DCCallVM* vm, DCfloat    value);
-DC_API void       dcArgDouble     (DCCallVM* vm, DCdouble   value);
-DC_API void       dcArgPointer    (DCCallVM* vm, DCpointer  value);
+DC_API void       dcArgBool         (DCCallVM* vm, DCbool     value);
+DC_API void       dcArgChar         (DCCallVM* vm, DCchar     value);
+DC_API void       dcArgShort        (DCCallVM* vm, DCshort    value);
+DC_API void       dcArgInt          (DCCallVM* vm, DCint      value);
+DC_API void       dcArgLong         (DCCallVM* vm, DClong     value);
+DC_API void       dcArgLongLong     (DCCallVM* vm, DClonglong value);
+DC_API void       dcArgFloat        (DCCallVM* vm, DCfloat    value);
+DC_API void       dcArgDouble       (DCCallVM* vm, DCdouble   value);
+DC_API void       dcArgPointer      (DCCallVM* vm, DCpointer  value);
 DC_API void       dcArgStruct     (DCCallVM* vm, DCstruct* s, DCpointer value);
 
-DC_API void       dcCallVoid      (DCCallVM* vm, DCpointer funcptr);
-DC_API DCbool     dcCallBool      (DCCallVM* vm, DCpointer funcptr);
-DC_API DCchar     dcCallChar      (DCCallVM* vm, DCpointer funcptr);
-DC_API DCshort    dcCallShort     (DCCallVM* vm, DCpointer funcptr);
-DC_API DCint      dcCallInt       (DCCallVM* vm, DCpointer funcptr);
-DC_API DClong     dcCallLong      (DCCallVM* vm, DCpointer funcptr);
-DC_API DClonglong dcCallLongLong  (DCCallVM* vm, DCpointer funcptr);
-DC_API DCfloat    dcCallFloat     (DCCallVM* vm, DCpointer funcptr);
-DC_API DCdouble   dcCallDouble    (DCCallVM* vm, DCpointer funcptr);
-DC_API DCpointer  dcCallPointer   (DCCallVM* vm, DCpointer funcptr);
+DC_API void       dcCallVoid        (DCCallVM* vm, DCpointer funcptr);
+DC_API DCbool     dcCallBool        (DCCallVM* vm, DCpointer funcptr);
+DC_API DCchar     dcCallChar        (DCCallVM* vm, DCpointer funcptr);
+DC_API DCshort    dcCallShort       (DCCallVM* vm, DCpointer funcptr);
+DC_API DCint      dcCallInt         (DCCallVM* vm, DCpointer funcptr);
+DC_API DClong     dcCallLong        (DCCallVM* vm, DCpointer funcptr);
+DC_API DClonglong dcCallLongLong    (DCCallVM* vm, DCpointer funcptr);
+DC_API DCfloat    dcCallFloat       (DCCallVM* vm, DCpointer funcptr);
+DC_API DCdouble   dcCallDouble      (DCCallVM* vm, DCpointer funcptr);
+DC_API DCpointer  dcCallPointer     (DCCallVM* vm, DCpointer funcptr);
 DC_API void       dcCallStruct    (DCCallVM* vm, DCpointer funcptr, DCstruct* s, DCpointer returnValue);
 
-DC_API DCint      dcGetError      (DCCallVM* vm);
+DC_API DCint      dcGetError        (DCCallVM* vm);
 
 #define DEFAULT_ALIGNMENT 0
 DC_API DCstruct*  dcNewStruct      (DCsize fieldCount, DCint alignment);
 DC_API void       dcStructField    (DCstruct* s, DCint type, DCint alignment, DCsize arrayLength);
-DC_API void       dcSubStruct      (DCstruct* s, DCsize fieldCount, DCint alignment, DCsize arrayLength);  	
+DC_API void       dcSubStruct      (DCstruct* s, DCsize fieldCount, DCint alignment, DCsize arrayLength);
 /* Each dcNewStruct or dcSubStruct call must be paired with a dcCloseStruct. */
-DC_API void       dcCloseStruct    (DCstruct* s);  	
-DC_API DCsize     dcStructSize     (DCstruct* s);  	
-DC_API DCsize     dcStructAlignment(DCstruct* s);  	
+DC_API void       dcCloseStruct    (DCstruct* s);
+DC_API DCsize     dcStructSize     (DCstruct* s);
+DC_API DCsize     dcStructAlignment(DCstruct* s);
 DC_API void       dcFreeStruct     (DCstruct* s);
 
 DC_API DCstruct*  dcDefineStruct  (const char* signature);

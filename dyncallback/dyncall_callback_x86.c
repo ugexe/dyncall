@@ -186,31 +186,20 @@ static int dcbCleanupSize_x86_fast_gnu(const char* signature)
 void dcbInitCallback(DCCallback* pcb, const char* signature, DCCallbackHandler* handler, void* userdata)
 {
   const char* ptr;
-  char  ch;
   int mode;
   pcb->handler = handler;
   pcb->userdata = userdata;
 
   ptr = signature;
-  ch = *ptr;
 
   /* x86 hints: */
 
   mode = DC_CALL_C_X86_CDECL;
 
-  if(ch == DC_SIGCHAR_CC_PREFIX)
+  if(*ptr == DC_SIGCHAR_CC_PREFIX)
   {
-    ptr++;
-    ch = *ptr++;
-    switch(ch) {
-      case DC_SIGCHAR_CC_DEFAULT:      mode = DC_CALL_C_DEFAULT;            break;
-      case DC_SIGCHAR_CC_THISCALL_GNU: // == cdecl
-      case DC_SIGCHAR_CC_CDECL:        mode = DC_CALL_C_X86_CDECL;          break;
-      case DC_SIGCHAR_CC_STDCALL:      mode = DC_CALL_C_X86_WIN32_STD;      break;
-      case DC_SIGCHAR_CC_FASTCALL_MS:  mode = DC_CALL_C_X86_WIN32_FAST_MS;  break;
-      case DC_SIGCHAR_CC_FASTCALL_GNU: mode = DC_CALL_C_X86_WIN32_FAST_GNU; break;
-      case DC_SIGCHAR_CC_THISCALL_MS:  mode = DC_CALL_C_X86_WIN32_THIS_MS;  break;
-    }
+    mode = dcGetModeFromCCSigChar(ptr[1]);
+    ptr += 2;
   }
 
   /* x86 configuration: */
@@ -262,7 +251,6 @@ void dcbInitCallback(DCCallback* pcb, const char* signature, DCCallbackHandler* 
 /*
  * callback constructor
  */
-
 DCCallback* dcbNewCallback(const char* signature, DCCallbackHandler* handler, void* userdata)
 {
   int err;

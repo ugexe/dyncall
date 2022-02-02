@@ -255,6 +255,7 @@ static void dc_callvm_mode_x64(DCCallVM* in_self, DCint mode)
 
   switch(mode) {
     case DC_CALL_C_DEFAULT:
+	case DC_CALL_C_DEFAULT_THIS:
 #if defined(DC_UNIX)
     case DC_CALL_C_X64_SYSV:
 #else
@@ -265,12 +266,12 @@ static void dc_callvm_mode_x64(DCCallVM* in_self, DCint mode)
       vt = &gVT_x64;
       break;
     case DC_CALL_SYS_DEFAULT:
-# if defined DC_UNIX
+#if defined(DC_UNIX)
     case DC_CALL_SYS_X64_SYSCALL_SYSV:
       vt = &gVT_x64_syscall_sysv; break;
-# else
+#else
       self->mInterface.mError = DC_ERROR_UNSUPPORTED_MODE; return;
-# endif
+#endif
     default:
       self->mInterface.mError = DC_ERROR_UNSUPPORTED_MODE; 
       return;

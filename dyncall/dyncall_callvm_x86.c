@@ -6,7 +6,7 @@
  Description: Call VM for x86 architecture implementation
  License:
 
-   Copyright (c) 2007-2020 Daniel Adler <dadler@uni-goettingen.de>, 
+   Copyright (c) 2007-2020 Daniel Adler <dadler@uni-goettingen.de>,
                            Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
@@ -29,8 +29,8 @@
 #include "dyncall_alloc.h"
 
 
-/* 
-** x86 calling convention calls 
+/*
+** x86 calling convention calls
 **
 ** - hybrid return-type call (bool ... pointer)
 **
@@ -171,7 +171,7 @@ DCCallVM_vt gVT_x86_plan9 =
 , &dc_callvm_mode_x86
 , &dc_callvm_argBool_x86
 , &dc_callvm_argChar_x86
-, &dc_callvm_argShort_x86 
+, &dc_callvm_argShort_x86
 , &dc_callvm_argInt_x86
 , &dc_callvm_argLong_x86
 , &dc_callvm_argLongLong_x86
@@ -211,7 +211,7 @@ DCCallVM_vt gVT_x86_cdecl =
 , &dc_callvm_mode_x86
 , &dc_callvm_argBool_x86
 , &dc_callvm_argChar_x86
-, &dc_callvm_argShort_x86 
+, &dc_callvm_argShort_x86
 , &dc_callvm_argInt_x86
 , &dc_callvm_argLong_x86
 , &dc_callvm_argLongLong_x86
@@ -599,6 +599,9 @@ void dc_callvm_mode_x86(DCCallVM* in_self, DCint mode)
 
   switch(mode) {
     case DC_CALL_C_DEFAULT:
+#if !defined(DC__C_MSVC)
+    case DC_CALL_C_DEFAULT_THIS:
+#endif
     case DC_CALL_C_ELLIPSIS:
     case DC_CALL_C_ELLIPSIS_VARARGS:
 /* Plan9 (and forks) have their own calling convention (and no support for foreign ones). */
@@ -608,6 +611,9 @@ void dc_callvm_mode_x86(DCCallVM* in_self, DCint mode)
     case DC_CALL_C_X86_CDECL:          vt = &gVT_x86_cdecl;          break; /* also handles DC_CALL_C_X86_WIN32_THIS_GNU */
     case DC_CALL_C_X86_WIN32_STD:      vt = &gVT_x86_win32_std;      break;
     case DC_CALL_C_X86_WIN32_FAST_MS:  vt = &gVT_x86_win32_fast_ms;  break;
+#if defined(DC__C_MSVC)
+    case DC_CALL_C_DEFAULT_THIS:
+#endif
     case DC_CALL_C_X86_WIN32_THIS_MS:  vt = &gVT_x86_win32_this_ms;  break;
     case DC_CALL_C_X86_WIN32_FAST_GNU: vt = &gVT_x86_win32_fast_gnu; break;
     case DC_CALL_SYS_DEFAULT:
@@ -623,7 +629,7 @@ void dc_callvm_mode_x86(DCCallVM* in_self, DCint mode)
     case DC_CALL_SYS_X86_INT80H_LINUX: vt = &gVT_x86_syscall_int80h_linux; break;
     case DC_CALL_SYS_X86_INT80H_BSD:   vt = &gVT_x86_syscall_int80h_bsd;   break;
 #endif
-    default: 
+    default:
       self->mInterface.mError = DC_ERROR_UNSUPPORTED_MODE;
       return;
   }

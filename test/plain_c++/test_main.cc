@@ -290,6 +290,7 @@ int testCallThisC()
 {
   bool r = false;
   DCCallVM* pc = dcNewCallVM(4096);
+  dcMode(pc, DC_CALL_C_DEFAULT_THIS);
   dcReset(pc);
   if(setjmp(jbuf) != 0)
     printf("sigsegv\n");
