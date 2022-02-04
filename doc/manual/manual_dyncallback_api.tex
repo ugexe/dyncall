@@ -17,7 +17,7 @@
 %
 %//////////////////////////////////////////////////////////////////////////////
 
-\newpage
+\clearpage
 \section{\emph{Dyncallback} C library API}
 
 This library extends \product{dyncall} with function callback support, allowing
@@ -60,7 +60,8 @@ issue a call.
 \begin{lstlisting}[language=c]
 DCCallback* dcbNewCallback(const char*        signature,
                            DCCallbackHandler* funcptr,
-                           void*              userdata);
+                           void*              userdata,
+                           DCaggr**           aggrs);
 void dcbFreeCallback(DCCallback* pcb);
 \end{lstlisting}
 

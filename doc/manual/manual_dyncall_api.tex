@@ -17,7 +17,7 @@
 %
 %//////////////////////////////////////////////////////////////////////////////
 
-\newpage
+\clearpage
 \section{\emph{Dyncall} C library API}
 
 The library provides low-level functionality to make foreign function calls
@@ -155,17 +155,20 @@ platform) and are silently ignored.
 Constant & Description\\
 \hline
 \lstinline@DC_CALL_C_DEFAULT@            & C default function call for current platform\\
+\lstinline@DC_CALL_C_DEFAULT_THIS@       & C++ default function call for current platform\\
 \lstinline@DC_CALL_C_ELLIPSIS@           & C ellipsis function call (named arguments (before '...'))\\
 \lstinline@DC_CALL_C_ELLIPSIS_VARARGS@   & C ellipsis function call (variable/unnamed arguments (after '...'))\\
 \lstinline@DC_CALL_C_X86_CDECL@          & C x86 platforms standard call\\
 \lstinline@DC_CALL_C_X86_WIN32_STD@      & C x86 Windows standard call\\
 \lstinline@DC_CALL_C_X86_WIN32_FAST_MS@  & C x86 Windows Microsoft fast call\\
 \lstinline@DC_CALL_C_X86_WIN32_FAST_GNU@ & C x86 Windows GCC fast call\\
-\lstinline@DC_CALL_C_X86_WIN32_THIS_MS@  & C x86 Windows Microsoft this call\\
+\lstinline@DC_CALL_C_X86_WIN32_THIS_MS@  & C++ x86 Windows Microsoft thiscall\\
 \lstinline@DC_CALL_C_X86_WIN32_THIS_GNU@ & alias for DC\_CALL\_C\_X86\_CDECL (GNU thiscalls identical to cdecl)\\
 \lstinline@DC_CALL_C_X86_PLAN9@          & C x86 Plan9 call\\
 \lstinline@DC_CALL_C_X64_WIN64@          & C x64 Windows standard call\\
+\lstinline@DC_CALL_C_X64_WIN64_THIS@     & C++ x64 Windows thiscall\\
 \lstinline@DC_CALL_C_X64_SYSV@           & C x64 System V standard call\\
+\lstinline@DC_CALL_C_X64_SYSV_THIS@      & C++ x64 System V thiscall\\
 \lstinline@DC_CALL_C_PPC32_DARWIN@       & C ppc32 Mac OS X standard call\\
 \lstinline@DC_CALL_C_PPC32_OSX@          & alias for DC\_CALL\_C\_PPC32\_DARWIN\\
 \lstinline@DC_CALL_C_PPC32_SYSV@         & C ppc32 SystemV standard call\\

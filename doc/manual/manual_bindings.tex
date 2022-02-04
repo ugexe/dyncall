@@ -17,7 +17,7 @@
 %
 %//////////////////////////////////////////////////////////////////////////////
 
-\newpage
+\clearpage
 \section{Bindings to programming languages}
 
 Through binding of the \product{dyncall} library into a scripting environment,
@@ -234,31 +234,31 @@ temporary string, free it using {\tt FreeCString(value unsafe.Pointer)}.
 \subsection{Python language bindings}
 
 The python module {\tt pydc} implements the Python language bindings,
-namely {\tt load}, {\tt find}, {\tt free}, {\tt call}.
+namely {\tt load}, {\tt find}, {\tt free}, {\tt call}, {\tt new\_callback}, {\tt free\_callback}.
 
 \begin{table}[h]
 \begin{center}
 \begin{tabular*}{0.75\textwidth}{lll}
 Signature character & accepted Python 2 types & accepted Python 3 types \\
 \hline
-\sigchar{v}              & no return type                 & no return type                    \\
-\sigchar{B}              & bool                           & bool                              \\
-\sigchar{c}, \sigchar{C} & int, string (with single char) & int, string (with single char)    \\
-\sigchar{s}, \sigchar{S} & int                            & int                               \\
-\sigchar{i}, \sigchar{I} & int                            & int                               \\
-\sigchar{j}, \sigchar{J} & int                            & int                               \\
-\sigchar{l}, \sigchar{L} & int, long                      & int                               \\
-\sigchar{f}              & float                          & float                             \\
-\sigchar{d}              & double                         & double                            \\
-\sigchar{p}              & bytearray, int, long           & bytearray (mutable in C), int     \\
-\sigchar{Z}              & string, unicode, bytearray     & string, bytearray (all immutable) \\
+\sigchar{v}              & no return type                                     & no return type                                \\
+\sigchar{B}              & bool                                               & bool                                          \\
+\sigchar{c}, \sigchar{C} & int, string (with single char)                     & int, string (with single char)                \\
+\sigchar{s}, \sigchar{S} & int                                                & int                                           \\
+\sigchar{i}, \sigchar{I} & int                                                & int                                           \\
+\sigchar{j}, \sigchar{J} & int                                                & int                                           \\
+\sigchar{l}, \sigchar{L} & int, long                                          & int                                           \\
+\sigchar{f}              & float                                              & float                                         \\
+\sigchar{d}              & float                                              & float                                         \\
+\sigchar{p}              & bytearray, int, long, None, (PyCObject, PyCapsule) & bytearray, int, None, (PyCObject, PyCapsule)  \\
+\sigchar{Z}              & string, unicode, bytearray                         & string, bytes, bytearray                      \\
 \end{tabular*}
 \caption{Type signature encoding for Python bindings}
 \label{Pysigchar}
 \end{center}
 \end{table}
 
-For more details, refer to the README.txt file of the binding.
+This is a very brief description that omits many details. For more, refer to the README.txt file of the binding.
 
 \pagebreak
 
