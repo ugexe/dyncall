@@ -6,15 +6,15 @@
 ;
 ; void nonleaf_call(int a, int b, int c, int d, int e, int f, int g, int h)
 ; {
-; 	/* use some local data */
-; 	*(char*)alloca(10) = 'L';
-; 	leaf_call(b, c, d, e, f, g, h);
+;     /* use some local data */
+;     *(char*)alloca(10) = 'L';
+;     leaf_call(b, c, d, e, f, g, h);
 ; }
 ;
 ; int main()
 ; {
-; 	nonleaf_call(0, 1, 2, 3, 4, 5, 6, 7);
-; 	return 0;
+;     nonleaf_call(0, 1, 2, 3, 4, 5, 6, 7);
+;     return 0;
 ; }
 
 
@@ -450,13 +450,13 @@
 ;
 ; struct A call(unsigned char c)
 ; {
-; 	return (struct A){c};
+;     return (struct A){c};
 ; }
 ;
 ; int main()
 ; {
-; 	struct A a = call(123);
-; 	return 0;
+;     struct A a = call(123);
+;     return 0;
 ; }
 
 
