@@ -1,0 +1,188 @@
+; #include <stdlib.h>
+;
+; void leaf_call(int b, int c, int d, int e, int f, int g, int h)
+; {
+; }
+;
+; void nonleaf_call(int a, int b, int c, int d, int e, int f, int g, int h)
+; {
+; 	/* use some local data */
+; 	*(char*)alloca(220) = 'L';
+; 	leaf_call(b, c, d, e, f, g, h);
+; }
+;
+; int main()
+; {
+; 	nonleaf_call(0, 1, 2, 3, 4, 5, 6, 7);
+; 	return 0;
+; }
+
+
+
+; output from godbolt compiler explorer w/ msvc 19.0 (/Gr for fastcall)
+
+_b$ = -8
+_c$ = -4
+@leaf_call@28 PROC
+        push    ebp
+        mov     ebp, esp
+        sub     esp, 8
+        mov     DWORD PTR _c$[ebp], edx
+        mov     DWORD PTR _b$[ebp], ecx
+        mov     esp, ebp
+        pop     ebp
+        ret     20
+@leaf_call@28 ENDP
+
+_a$ = -8
+_b$ = -4
+_c$ = 8
+_d$ = 12
+_e$ = 16
+_f$ = 20
+_g$ = 24
+_h$ = 28
+@nonleaf_call@32 PROC
+        push    ebp                      ; |
+        mov     ebp, esp                 ; | prolog
+        sub     esp, 8                   ; |
+        mov     DWORD PTR _b$[ebp], edx  ; in arg 1 -> local area on stack
+        mov     DWORD PTR _a$[ebp], ecx  ; in arg 0 -> local area on stack
+        mov     ecx, 220                 ; |
+        call    @alloca@4                ; | call alloca(220)   (ecx = arg)
+        mov     BYTE PTR [eax], 76       ; 'L' -> alloca()'d space (pointed to by alloca's retval in eax)
+        mov     eax, DWORD PTR _h$[ebp]  ; |
+        push    eax                      ; |
+        mov     ecx, DWORD PTR _g$[ebp]  ; |
+        push    ecx                      ; |
+        mov     edx, DWORD PTR _f$[ebp]  ; | read in args 3-7 from prev frame's param area, and ...
+        push    edx                      ; | ... "push" onto stack as arg 2-6
+        mov     eax, DWORD PTR _e$[ebp]  ; |
+        push    eax                      ; |
+        mov     ecx, DWORD PTR _d$[ebp]  ; |
+        push    ecx                      ; |
+        mov     edx, DWORD PTR _c$[ebp]  ; arg 1        | read from prev frame's param
+        mov     ecx, DWORD PTR _b$[ebp]  ; arg 0        | area and put in regs
+        call    @leaf_call@28            ; push return address and call
+        mov     esp, ebp                 ; |
+        pop     ebp                      ; | epilog
+        ret     24                       ; |
+@nonleaf_call@32 ENDP
+
+_main   PROC
+        push    ebp                      ; | prolog
+        mov     ebp, esp                 ; |
+        push    7                        ; arg 7
+        push    6                        ; arg 6
+        push    5                        ; arg 5
+        push    4                        ; arg 4
+        push    3                        ; arg 3
+        push    2                        ; arg 2
+        mov     edx, 1                   ; arg 1 (via reg)
+        xor     ecx, ecx                 ; arg 0 (via reg)
+        call    @nonleaf_call@32         ; push return address and call
+        xor     eax, eax                 ; return value
+        pop     ebp                      ; |
+        ret     0                        ; | epilog
+_main   ENDP
+
+
+
+; ---------- structs by value, struct in first call on reg arg boundary ---------->
+;
+; struct A { int x; short y; char z; long long t; };
+;
+; struct A leaf_call(struct A a, short b, long long c, char d, int e, int f, int g, long long h)
+; {
+;     a.x += 1;
+;     return a;
+; }
+;
+; int main()
+; {
+;   struct A a ={9, 99, 23, 12LL};
+;   leaf_call(a, 1, 2, 3, 4, 5, 6, 7LL);
+;   return 0;
+; }
+
+
+
+; output from godbolt compiler explorer w/ msvc 19.0 (/Gr for fastcall)
+
+_b$ = -8
+_d$ = -4
+$T1 = 8
+_a$ = 12
+_c$ = 28
+_e$ = 36
+_f$ = 40
+_g$ = 44
+_h$ = 48
+@leaf_call@52 PROC
+        push    ebp                        ; |
+        mov     ebp, esp                   ; | prolog
+        sub     esp, 8                     ; |
+        mov     BYTE PTR _d$[ebp], dl      ; in arg 3 -> local area on stack
+        mov     WORD PTR _b$[ebp], cx      ; in arg 1 -> local area on stack
+        mov     eax, DWORD PTR _a$[ebp]    ; \
+        add     eax, 1                     ; |  get struct's x (from stack args), add 1 and write back
+        mov     DWORD PTR _a$[ebp], eax    ; /
+        mov     ecx, DWORD PTR $T1[ebp]    ; get ptr to retval struct passed as hidden arg (+8 to skip retval and saved ebp)
+        mov     edx, DWORD PTR _a$[ebp]    ; |
+        mov     DWORD PTR [ecx], edx       ; |
+        mov     eax, DWORD PTR _a$[ebp+4]  ; |
+        mov     DWORD PTR [ecx+4], eax     ; | copy modified (b/c of x+=1) struct arg to space of retval
+        mov     edx, DWORD PTR _a$[ebp+8]  ; |
+        mov     DWORD PTR [ecx+8], edx     ; |
+        mov     eax, DWORD PTR _a$[ebp+12] ; |
+        mov     DWORD PTR [ecx+12], eax    ; |
+        mov     eax, DWORD PTR $T1[ebp]    ; return value (= ptr to struct that was passed-in as hidden arg)
+        mov     esp, ebp                   ; |
+        pop     ebp                        ; | epilog
+        ret     48                         ; |
+@leaf_call@52 ENDP
+
+$T1 = -32
+_a$ = -16
+_main   PROC
+        push    ebp                        ; |
+        mov     ebp, esp                   ; | prolog
+        sub     esp, 32                    ; /         32 = 16b local area for struct + 16b space used for retval struct
+        mov     DWORD PTR _a$[ebp], 9      ; \                               int x
+        mov     eax, 99                    ; |                               |
+        mov     WORD PTR _a$[ebp+4], ax    ; | struct values (local area)    | short y
+        mov     BYTE PTR _a$[ebp+6], 23    ; |                               char z
+        mov     DWORD PTR _a$[ebp+8], 12   ; |                               |
+        mov     DWORD PTR _a$[ebp+12], 0   ; /                               | long long t
+        push    0                          ; |
+        push    7                          ; | arg 7
+        push    6                          ; arg 6
+        push    5                          ; arg 5
+        push    4                          ; arg 4
+        push    0                          ; |
+        push    2                          ; / arg 2 (via stack b/c not first arg and > 32 bits)
+        sub     esp, 16                    ; \
+        mov     ecx, esp                   ; |
+        mov     edx, DWORD PTR _a$[ebp]    ; |
+        mov     DWORD PTR [ecx], edx       ; |
+        mov     eax, DWORD PTR _a$[ebp+4]  ; |
+        mov     DWORD PTR [ecx+4], eax     ; | arg 0 (struct), "pushed" onto stack (fetched from local area)
+        mov     edx, DWORD PTR _a$[ebp+8]  ; |
+        mov     DWORD PTR [ecx+8], edx     ; |
+        mov     eax, DWORD PTR _a$[ebp+12] ; |
+        mov     DWORD PTR [ecx+12], eax    ; /
+        lea     ecx, DWORD PTR $T1[ebp]    ; \ ptr to space used for struct retval (pushed as hidden first arg)
+        push    ecx                        ; |
+        mov     dl, 3                      ; arg 3 (via reg)
+        mov     ecx, 1                     ; arg 1 (via reg)
+        call    @leaf_call@52              ; push return address and call
+        xor     eax, eax                   ; return value
+        mov     esp, ebp                   ; |
+        pop     ebp                        ; | epilog
+        ret     0                          ; |
+_main   ENDP
+
+
+
+; vim: ft=asm
+
