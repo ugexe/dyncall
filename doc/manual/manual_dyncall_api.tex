@@ -155,9 +155,9 @@ platform) and are silently ignored.
 Constant & Description\\
 \hline
 \lstinline@DC_CALL_C_DEFAULT@            & C default function call for current platform\\
-\lstinline@DC_CALL_C_DEFAULT_THIS@       & C++ default function call for current platform\\
-\lstinline@DC_CALL_C_ELLIPSIS@           & C ellipsis function call (named arguments (before '...'))\\
-\lstinline@DC_CALL_C_ELLIPSIS_VARARGS@   & C ellipsis function call (variable/unnamed arguments (after '...'))\\
+\lstinline@DC_CALL_C_DEFAULT_THIS@       & C++ default method call for current platform\\
+\lstinline@DC_CALL_C_ELLIPSIS@           & C ellipsis function call (named arguments (before '...', but after hidden args))\\
+\lstinline@DC_CALL_C_ELLIPSIS_VARARGS@   & C ellipsis function call (variable/unnamed arguments (starting with '...'))\\
 \lstinline@DC_CALL_C_X86_CDECL@          & C x86 platforms standard call\\
 \lstinline@DC_CALL_C_X86_WIN32_STD@      & C x86 Windows standard call\\
 \lstinline@DC_CALL_C_X86_WIN32_FAST_MS@  & C x86 Windows Microsoft fast call\\

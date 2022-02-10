@@ -280,12 +280,111 @@
 0011b2 e86afeffff             (17)      CALL                        ,1021+nonleaf_call
 0011b7 31c0                   (18)      MOVL                        $0,AX
 0011b9 83c464                 (18)      ADDL                        $100,SP
-0011bc c3                     (18)      RET                          ,
+0011bc c3                     (18)      RET                         ,
 
 002000 0000000000001040       (17)      DATA $0.40100000+0(SB)/8,$(40100000,00000000)
 002008 0000000000001440       (17)      DATA $0.40140000+0(SB)/8,$(40140000,00000000)
 002010 0000000000002640       (17)      DATA $0.40260000+0(SB)/8,$(40260000,00000000)
 002018 0000000000002840       (17)      DATA $0.40280000+0(SB)/8,$(40280000,00000000)
+
+
+
+; ---------- returning qwords ---------->
+;
+; long long f()
+; {
+;     return 7171LL;
+; }
+;
+; int main()
+; {
+;     return (int)f();
+; }
+
+; output from plan9-4th_edition-x86 w/ 8c x.c && 8l -a x.8
+
+001020                  (2)     TEXT f1+0(SB),$0
+001020 8b442404         (4)     MOVL                 .ret+4(FP),AX   ; ptr to retval space -> eax
+001024 c700031c0000     (4)     MOVL                 $7171,(AX)      ; |
+00102a c7400400000000   (4)     MOVL                 $0,4(AX)        ; | return value
+001031 c3               (4)     RET                  ,
+
+001032                  (7)     TEXT main+0(SB),$16
+001032 83ec10           (7)     SUBL                 $16,SP          ; prolog
+001035 8d4c2408         (9)     LEAL                 .safe+8(SP),CX  ; | ptr to space for return value ...
+001039 890c24           (9)     MOVL                 CX,(SP)         ; | ... pushed as implicit first arg
+00103c e8dfffffff       (9)     CALL                 ,1020+f1        ; push return address and call
+001041 8b442408         (9)     MOVL                 .safe+8(SP),AX  ; return value
+001045 8b54240c         (9)     MOVL                 .safe+12(SP),DX ; @@@ unsure, b/c we have a cast
+001049 83c410           (9)     ADDL                 $16,SP          ; |
+00104c c3               (9)     RET                  ,               ; | epilog
+
+
+
+; ---------- returning structs by value ---------->
+;
+; struct Small { char x; };
+; struct Big { long long i; long j; };
+;
+; struct Small f0()
+; {
+;     struct Small s = { 132 };
+;     return s;
+; }
+;
+; struct Big f1()
+; {
+;     struct Big b = { 7171LL, 232 };
+;     return b;
+; }
+;
+; int main()
+; {
+;     struct Small s = f0();
+;     struct Big b = f1();
+;     return b.j + s.x;
+; }
+
+; output from plan9-4th_edition-x86 w/ 8c x.c && 8l -a x.8
+
+001020                  (5)     TEXT f0+0 (SB),$16
+001020 83ec08           (5)     SUBL                $8,SP          ; prolog
+001023 c644240484       (7)     MOVB                $-124,s+4(SP)  ; struct data in  local area (s.x)
+001028 8b7c240c         (8)     MOVL                .ret+12(FP),DI ; \
+00102c 8d742404         (8)     LEAL                s+4(SP),SI     ; |
+001030 b901000000       (8)     MOVL                $1,CX          ; | copy struct in local area to return
+001035 fc               (8)     CLD                 ,              ; | value (pointed to by implicit first arg)
+001036 f3               (8)     REP                 ,              ; |
+001037 a5               (8)     MOVSL               ,              ; /
+001038 83c408           (8)     ADDL                $8,SP          ; \
+00103b c3               (8)     RET                 ,              ; | epilog
+
+00103c                  (11)    TEXT f1+0(SB),$16
+00103c 83ec10           (11)    SUBL                $16,SP         ; prolog
+00103f c7442404031c0000 (13)    MOVL                $7171,b+4(SP)  ; |                               |
+001047 c744240800000000 (13)    MOVL                $0,b+8(SP)     ; | struct data in local area     | b.i
+00104f c744240ce8000000 (13)    MOVL                $232,b+12(SP)  ; /                               b.j
+001057 8b7c2414         (14)    MOVL                .ret+20(FP),DI ; \
+00105b 8d742404         (14)    LEAL                b+4(SP),SI     ; |
+00105f b903000000       (14)    MOVL                $3,CX          ; | copy struct in local area to return
+001064 fc               (14)    CLD                 ,              ; | value (pointed to by implicit first arg)
+001065 f3               (14)    REP                 ,              ; |
+001066 a5               (14)    MOVSL               ,              ; /
+001067 83c410           (14)    ADDL                $16,SP         ; \
+00106a c3               (14)    RET                 ,              ; | epilog
+
+00106b                  (17)    TEXT main+0(SB),$28
+00106b 83ec1c           (17)    SUBL                $28,SP         ; prolog
+00106e 8d442418         (19)    LEAL                s+24(SP),AX    ; | ptr to space for return value ...
+001072 890424           (19)    MOVL                AX,(SP)        ; | ... pushed as implicit first arg
+001075 e8a6ffffff       (19)    CALL                ,1020+f0       ; push return address and call
+00107a 8d44240c         (20)    LEAL                b+12(SP),AX    ; | ptr to space for return value ...
+00107e 890424           (20)    MOVL                AX,(SP)        ; | ... pushed as implicit first arg
+001081 e8b6ffffff       (20)    CALL                ,103c+f1       ; push return address and call
+001086 0fbe442418       (21)    MOVBLSX             s+24(SP),AX    ; |
+00108b 03442414         (21)    ADDL                b+20(SP),AX    ; / return value
+00108f 83c41c           (21)    ADDL                $28,SP         ; \
+001092 c3               (21)    RET                 ,              ; | epilog
 
 
 
