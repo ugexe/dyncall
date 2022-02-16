@@ -73,7 +73,7 @@
 ; void nonleaf_call(int a, int b, int c, int d, int e, struct A f, int g, int h)
 ; {
 ;     /* use some local data */
-;     char l[100] = 'L';
+;     char l[100] = { 'L' };
 ;     leaf_call(b, c, d, e, f, g, h);
 ; }
 ;
@@ -165,7 +165,7 @@
 ; void nonleaf_call(int a, int b, struct A c, struct B d, int e, int f, struct A g, struct B h, int i, int j)
 ; {
 ;     /* use some local data */
-;     char l[100] = 'L';
+;     char l[100] = { 'L' };
 ;     leaf_call(b, c, d, e, f, g, h, i, j);
 ; }
 ;
@@ -301,6 +301,8 @@
 ;     return (int)f();
 ; }
 
+
+
 ; output from plan9-4th_edition-x86 w/ 8c x.c && 8l -a x.8
 
 001020                  (2)     TEXT f1+0(SB),$0
@@ -344,6 +346,8 @@
 ;     struct Big b = f1();
 ;     return b.j + s.x;
 ; }
+
+
 
 ; output from plan9-4th_edition-x86 w/ 8c x.c && 8l -a x.8
 

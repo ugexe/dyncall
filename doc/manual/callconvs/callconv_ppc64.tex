@@ -1,6 +1,6 @@
 %//////////////////////////////////////////////////////////////////////////////
 %
-% Copyright (c) 2007-2019 Daniel Adler <dadler@uni-goettingen.de>, 
+% Copyright (c) 2007-2022 Daniel Adler <dadler@uni-goettingen.de>, 
 %                         Tassilo Philipp <tphilipp@potion-studios.com>
 %
 % Permission to use, copy, modify, and distribute this software for any
@@ -26,6 +26,7 @@
 
 \begin{itemize}
 \item Word size is 32 bits for historical reasons
+\item Doublework size is 64 bits.
 \item Big endian (MSB) and litte endian (LSB) operating modes.
 \item Apple Mac OS X/Darwin PPC is specified in "Mac OS X ABI Function Call Guide"\cite{ppcMacOSX}. It uses Big Endian (MSB).
 \item Linux PPC 64-bit ABI is specified in "64-bit PowerPC ELF Application Binary Interface Supplement"\cite{ppcelf64abi} which is based on "System V ABI".
@@ -103,6 +104,7 @@ needed - e.g. varargs), meaning a minimum of 64 bytes to hold gpr3-gpr10
 \item all nonvector parameters are aligned on 8-byte boundaries
 \item vector parameters are aligned on 16-byte boundaries
 \item integer parameters \textless\ 64 bit are right-justified (meaning occupy higher-address bytes) in their 8-byte slot on the stack, requiring extra-care for big-endian targets
+\item aggregates (struct, union) are passed as a sequence of doublewords (following above rules for doublewords)
 \end{itemize}
 
 
@@ -112,8 +114,8 @@ needed - e.g. varargs), meaning a minimum of 64 bytes to hold gpr3-gpr10
 \item return values of integer \textless=\ 32bit or pointer type use gpr3 and are zero or sign extended depending on their type
 \item 64 bit integers use gpr3
 \item floating point values are returned via fpr1
-\item character arrays \textless=\ 8 bytes use gpr3, and are right justified
-\item for all structs/unions (regardless of size) or character arrays \textgreater\ 8 bytes, a secret first parameter with an address to a caller allocated space is passed as first argument to the function (meaning in gpr3), which is written to by the callee
+\item for aggregates (struct, union) of any size, a secret first parameter with an address
+to a caller allocated space is passed to the function (in gpr3), which is written to by the callee
 \end{itemize}
 
 
