@@ -73,13 +73,16 @@ Name                          & Alias                          & Brief descripti
 \item all arguments \textless=\ 64 bit are passed as 64 bit values
 \item minimum stack size is 128 bytes, b/c stack pointer must always point at enough space to store all \%i* and \%l* registers, used when running out of register windows
 \item if needed, register spill area (both, integer and float arguments are spilled in order) is adjacent to parameters
-\item aggregates (struct, union) \textless=\ 16 bytes are passed field-by-field, {\bf however} evaluated as a sequence of 8-byte parameter slots
+\item structs with only one field are passed as if the param would be the field itself
+\item structs \textless=\ 16 bytes (which have more than one field) are passed field-by-field, {\bf however} evaluated as a sequence of 8-byte parameter slots
 \begin{itemize}
+\item note that due to aggregate alignment rules, any floating point value is either the entire slot (for double precision) or exactly one half
 \item fields are left justified in register or stack slots
 \item integers in a slot are passed as such (either via \%o* registers or the stack)
 \item single precision floats (using half of the slot) use even numbered \%f* registers when they occupy the left half, odd numbered ones otherwise (no register skipping logic applied within a slot)
-\item splitting aggregates between registers and stack is allowed
+\item splitting struct fields between registers and stack is allowed
 \end{itemize}
+\item unions \textless=\ 16 bytes passed by-value are passed like integers in left-justified 8-byte slots (either via \%o* registers or the stack)
 \item aggregates (struct, union) and types \textgreater\ 16 bytes are passed indirectly, as a pointer to a correctly aligned copy of the data (that copy can be avoided under certain conditions)
 % from spec:
 %Structure or union types up to eight bytes in size are assigned to one parameter array word, and align to eight-byte
