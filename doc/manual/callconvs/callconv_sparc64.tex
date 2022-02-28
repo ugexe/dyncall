@@ -112,9 +112,9 @@ Name                          & Alias                          & Brief descripti
 \begin{itemize}
 \item results are expected by caller to be returned in \%o0-\%o3 (after reg window restore, meaning callee writes to \%i0-\%i3) for integers
 \item \%d0,\%d2,\%d4,\%d6 are used for floating point values
-\item the fields of aggregates (struct, union) \textless 32 bytes are returned via registers registers mentioned above (which are
+\item the fields of aggregates (struct, union) \textless= 32 bytes are returned via registers mentioned above (which are
 assigned following the same logic as when passing the aggregate as a first argument to a function)
-\item aggregates (struct, union) \textgreater= 32 bytes are returned in a space allocated by the caller, with a pointer to it
+\item aggregates (struct, union) \textgreater 32 bytes are returned in a space allocated by the caller, with a pointer to it
 passed as first parameter to the function called (meaning in \%o0)
 % from spec:
 %Structure and union return types up to thirty-two bytes in size are returned in registers. The registers are assigned as if
