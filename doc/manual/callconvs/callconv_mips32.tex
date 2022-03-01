@@ -88,12 +88,17 @@ Name                                   & Alias                & Brief descriptio
 \item if either integer or float registers are used up, the stack is used
 \item if the callee takes the address of one of the parameters and uses it to address other unnamed parameters (e.g. varargs) it has to copy - in its prolog - the the argument registers to a reserved stack area adjacent to the other parameters on the stack (only the unnamed integer parameters require saving, though) % @@@ seems to *ONLY* spill with varargs, never for any other reason
 \item float registers don't seem to ever need to be saved that way, because floats passed to an ellipsis function are promoted to doubles, which in turn are passed in a? register pairs, so only \$a0-\$a7 are need to be spilled
+\item aggregates (struct, union) \textless=\ 32bit are passed like an integer
+\item all other aggregates (struct, union) are passed indirectly, as a pointer to a copy (if needed, and for vararg arguments required to be copied by the caller) of the struct
 \end{itemize}
 
 \paragraph{Return values}
 
 \begin{itemize}
 \item results are returned in \$v0 (32-bit), \$v0 and \$v1 (64-bit), \$f0 or \$f0 and \$f2 (2 $\times$ 32 bit float e.g. complex)
+\item aggregates (struct, union) \textless=\ 64bit are returned like an integer (aligned within the register according to endianness)
+\item all other aggregates (struct, union) are returned in a space allocated by the caller, with a pointer to it
+passed as first parameter to the function called (meaning in \%a0)
 \end{itemize}
 
 \paragraph{Stack layout}
