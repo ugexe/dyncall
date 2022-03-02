@@ -1976,6 +1976,7 @@ main:
         ENDP  ; |main|
 
 
+
 ; ---------- single-field structs by values (and small array fields) ---------->
 ;
 ; struct C { char c; };

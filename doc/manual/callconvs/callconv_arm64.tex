@@ -81,7 +81,7 @@ and 8 floating-point registers to a reserved stack area adjacent to the other pa
 \item other aggregates (struct, union) \textgreater\ 16 bytes in size are passed indirectly, as a pointer to a copy (if needed)
 \item all other aggregates (struct, union), after rounding up the size to the nearest multiple of 8, are passed as a sequence of dwords, like integers
 \item aggregates are never split across registers and stack, so if not enough registers are available an aggregated is passed via the stack (for aggregates that
-would've been passed as floating point values, and any still unused float registers will be skipped for any subsequent arg)
+would've been passed as floating point values, any still unused float registers will be skipped for any subsequent arg)
 \item stack is required throughout to be eight-byte aligned
 \end{itemize}
 
@@ -91,7 +91,7 @@ would've been passed as floating point values, and any still unused float regist
 \item integer return values use x0
 \item floating-point return values use d0
 \item aggregates (struct, union) that would be passed via registers if passed as a first param, are returned via those registers
-\item otherwise (e.g. if regs exhausted, or \textgreater\ 16b, ...), the caller allocates space, passes pointer to it to the callee through
+\item for aggregates not returnable via registers (e.g. if regs exhausted, or \textgreater\ 16b, ...), the caller allocates space, passes pointer to it to the callee through
 x8, and callee writes return value to this space (note that this is not a hidden first param, as x8 is not used for passing params); the ptr to the aggregate is returned in x0
 \end{itemize}
 
