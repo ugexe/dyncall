@@ -3,7 +3,7 @@ minargs      = 0
 maxargs      = 16
 minaggrfields= 0    -- 0 allows for empty structs/unions
 maxaggrfields= 12
-maxarraylen  = 16   -- note some callconvs pass structs via regs, so using big numbers here will reduce those cases
+maxarraylen  = 16   -- see 1)
 arraydice    = 40   -- how often to turn a member into an array (1 out of arraydice-times)
 maxaggrdepth = 3    -- max nesting depth of aggregates, 1 = no nesting
 ncases       = 400
@@ -20,3 +20,25 @@ seed         = 2112
 
 -- this heavily favors flat and short/empty aggregates:
 --types       = "csijlpfd{}}}}}}<>>>>>"
+
+
+-- 1) note some callconvs pass structs via regs, so using big numbers here will
+--    reduce those cases; however special alignment rules are specified in some
+--    ABIs for bigger arrays, which is also worth testing
+
+
+-- user config for mk-cases.lua
+
+-- if true, aggregates are copied via = operator, otherwise field by field
+aggrcpsimple = true
+
+-- if true, aggregate params are modified in called function, to test whether
+-- they are passed "by value" (important for verifying by-value semantics for
+-- callconvs where hidden pointers are used instead of real copies; aggregate
+-- passing implementations must use of temporary copies in those cases)
+aggrmutabletest = true
+
+-- force aggregate packing, 0=off, pos values set fixed packing, neg values
+-- set a random power-of-2 packing per aggregate, within [1,abs(aggrpacking)]
+aggrpacking = 0
+

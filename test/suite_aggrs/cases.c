@@ -46,7 +46,12 @@
 #define d double
 #define a void*  /* all generated aggregates */
 
+#define AF(c,t,i,n)   dcAggrField(at,c,offsetof(t,i),n);
+#define AFa(t,i,n,f)  dcAggrField(at,DC_SIGCHAR_AGGREGATE,offsetof(t,i),n,f_touchdcst##f());
+
 #include "dyncall.h"
+#include <string.h>
+ 
 
 /* Plan9 pcc and MSVC (when using C) do not allow empty structs */
 #if defined(DC__C_MSVC) || defined(DC__OS_Plan9)

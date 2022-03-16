@@ -31,7 +31,7 @@
 DEF_TYPES
 #undef X
 
-#define AGGR_MISALIGN 0
+#define AGGR_MISALIGN 1
 
 static double rand_d()      { return ( ( (double) rand() )  / ( (double) RAND_MAX ) ); }
 

@@ -1,6 +1,6 @@
+require"config"
 require"math"
-local max = math.max
-local maxargs = 0
+local max_numargs = 0
 
 local aggrs = { }
 local seen_aggrs = { }
@@ -66,9 +66,16 @@ function mkcase(id,sig)
       -- no nesting (= actual func args), generate case code
       if n_nest == 0 then
         h[#h+1] = canon_type(ch)
-        -- aggregate types (more than one char) need copying via a func
+        -- aggregate types have more than one
         if #h[#h] > 1 then
-          t[#t+1] = 'f_cp'..h[#h]:sub(8)..'(V_a['..pos.."],&"..name..");"
+          if aggrcpsimple then
+            t[#t+1] = '*('..h[#h]..'*)V_a['..pos.."]="..name..";"
+          else
+            t[#t+1] = 'f_cp'..h[#h]:sub(8)..'(V_a['..pos.."],&"..name..");"
+          end
+          if aggrmutabletest then
+            t[#t] = t[#t]..'memset(&'..name..',0,sizeof('..name..'));'
+          end
         else
           t[#t+1] = "V_"..ch.."["..pos.."]="..name..";"
         end
@@ -87,7 +94,7 @@ function mkcase(id,sig)
       end
     end
   end
-  maxargs = max(maxargs, pos-1)
+  max_numargs = math.max(max_numargs, pos-1)
   h[#h] = "){"
   if #h[6] == 1 then
     t[#t+1] = "ret_"..h[6].."("..(pos-1)..")}\n"
@@ -152,11 +159,23 @@ function mkall()
 
     -- aggregate def
     io.write('/* '..k..' */\n')
+    if aggrpacking ~= 0 then
+      local pack = aggrpacking
+      if pack < 0 then
+        pack = math.floor(math.pow(2,math.floor(math.log(math.random(math.abs(pack)),2))))
+      end
+      io.write('#pragma pack(push,'..pack..')\n')
+    end
+
     io.write(at..' { ')
     for i = 1, #am, 2 do
       io.write(am[i]..' '..am[i+1]..'; ')
     end
     io.write("};\n")
+
+    if aggrpacking ~= 0 then
+      io.write('#pragma pack(pop)\n')
+    end
 
     -- aggregate cp and cmp funcs
     s = {
@@ -165,46 +184,50 @@ function mkall()
     }
     o = { '=', '==', 'f_cp', 'f_cmp', '; ', ' && ', '', '1' }
     for t = 1, 2 do
-      io.write(s[t])
-      local b = {}
-      for i = 1, #am, 2 do
-        local m = split_array_decl(am[i+1])
-        local fmt = ''
-        if m[2] ~= nil then -- need array suffixes?
-          fmt = '[%d]'
-        else
-          m[2] = 1
-        end
-
-        for j = 1, m[2] do
-          name = m[1]..string.format(fmt, j-1)
-          if string.match(am[i], ' ') then -- aggregate canonical types contain at least one space
-            b[#b+1] = o[t+2]..am[i]:sub(8)..'(&x->'..name..', &y->'..name..')'
+      if t ~= 1 or aggrcpsimple == false then
+        io.write(s[t])
+        local b = {}
+        for i = 1, #am, 2 do
+          local m = split_array_decl(am[i+1])
+          local fmt = ''
+          if m[2] ~= nil then -- need array suffixes?
+            fmt = '[%d]'
           else
-            b[#b+1] = 'x->'..name..' '..o[t]..' y->'..name
+            m[2] = 1
+          end
+       
+          for j = 1, m[2] do
+            name = m[1]..string.format(fmt, j-1)
+            if string.match(am[i], ' ') then -- aggregate canonical types contain at least one space
+              b[#b+1] = o[t+2]..am[i]:sub(8)..'(&x->'..name..', &y->'..name..')'
+            else
+              b[#b+1] = 'x->'..name..' '..o[t]..' y->'..name
+            end
           end
         end
+        if #b == 0 then  -- to handle empty aggregates
+          b[1] = o[t+6]
+        end
+        io.write(table.concat(b,o[t+4]).."; };\n")
       end
-      if #b == 0 then  -- to handle empty aggregates
-        b[1] = o[t+6]
-      end
-      io.write(table.concat(b,o[t+4]).."; };\n")
     end
 
     -- convenient dcnewstruct helper funcs
-    io.write('DCstruct* f_touchdcst'..at:sub(8)..'() {\n\tstatic DCstruct* at = NULL;\n\tif(!at) {\n\t\tat = dcNewStruct('..(#am>>1)..', sizeof('..at..'), DC_TRUE);\n\t\t')
+    io.write('DCaggr* f_touchdcst'..at:sub(8)..'() {\n\tstatic DCaggr* at = NULL;\n\tif(!at) {\n\t\tat = dcNewAggr('..(#am>>1)..', sizeof('..at..'), DC_TRUE);\n\t\t')
     for i = 1, #am, 2 do
       local m = split_array_decl(am[i+1])
       if m[2] == nil then -- need array suffixes?
         m[2] = 1
       end
       if string.match(am[i], ' ') then -- aggregate canonical types contain at least one space
-        io.write('dcStructField(at, DC_SIGCHAR_STRUCT, offsetof('..at..', '..m[1]..'), '..m[2]..', f_touchdcst'..am[i]:sub(8)..'());\n\t\t')
+        --io.write('dcAggrField(at, DC_SIGCHAR_AGGREGATE, offsetof('..at..', '..m[1]..'), '..m[2]..', f_touchdcst'..am[i]:sub(8)..'());\n\t\t')
+        io.write("AFa("..at..','..m[1]..','..m[2]..','..am[i]:sub(8)..')\n\t\t')
       else
-        io.write("dcStructField(at, '"..am[i].."', offsetof("..at..', '..m[1]..'), '..m[2]..');\n\t\t')
+        --io.write("dcAggrField(at, '"..am[i].."', offsetof("..at..', '..m[1]..'), '..m[2]..');\n\t\t')
+        io.write("AF('"..am[i].."',"..at..','..m[1]..','..m[2]..')\n\t\t')
       end
     end
-    io.write("dcCloseStruct(at);\n\t}\n\treturn at;\n};\n")
+    io.write("dcCloseAggr(at);\n\t}\n\treturn at;\n};\n")
   end
 
   -- make table.concat work
@@ -219,8 +242,9 @@ function mkall()
   io.write('int G_agg_sizes[] = {\n\t'..table.concat(agg_sizes, ',\n\t')..'\n};\n')
   io.write('funptr G_agg_touchdcstfuncs[] = {'..string.sub(table.concat(agg_names, ',\n\t(funptr)&f_touchdcst'),2)..'\n};\n')
   io.write('funptr G_agg_cmpfuncs[] = {'..string.sub(table.concat(agg_names, ',\n\t(funptr)&f_cmp'),2)..'\n};\n')
-  io.write("int G_maxargs = "..maxargs..";\n")
+  io.write("int G_maxargs = "..max_numargs..";\n")
 end
 
+math.randomseed(seed)
 mkall()
 

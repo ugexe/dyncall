@@ -50,9 +50,9 @@ static int invoke(char const* signature, void* t)
   char const * sig = signature;
   char const * sig_args;
   char         rtype;
-  DCstruct *   rtype_st = NULL;
+  DCaggr *     rtype_a = NULL;
   int          rtype_size = 0;
-  funptr       rtype_st_cmp = NULL;
+  funptr       rtype_a_cmp = NULL;
   char         atype;
   int          pos = 0;
   int          s = 0;
@@ -72,9 +72,9 @@ static int invoke(char const* signature, void* t)
     sig += len;
 
     rtype_size = G_agg_sizes[i];
-    rtype_st_cmp = G_agg_cmpfuncs[i];
-    rtype_st = ((DCstruct*(*)())G_agg_touchdcstfuncs[i])();
-    dcBeginCallStruct(p, rtype_st);
+    rtype_a_cmp = G_agg_cmpfuncs[i];
+    rtype_a = ((DCaggr*(*)())G_agg_touchdcstfuncs[i])();
+    dcBeginCallAggr(p, rtype_a);
   }
   else
     rtype = *sig++;
@@ -97,14 +97,14 @@ static int invoke(char const* signature, void* t)
       {
         /* find aggregate sig */
         int len;
-        DCstruct *st;
+        DCaggr *ag;
         int i = find_agg_idx(&len, sig);
         if(i == -1) {
           printf("unknown sig at '%s' ;", sig);
           return 0;
         }
-        st = ((DCstruct*(*)())G_agg_touchdcstfuncs[i])();
-        dcArgStruct(p, st, K_a[pos]);
+        ag = ((DCaggr*(*)())G_agg_touchdcstfuncs[i])();
+        dcArgAggr(p, ag, K_a[pos]);
         sig += len-1; /* advance to next arg char */
         break;
       }
@@ -127,12 +127,12 @@ static int invoke(char const* signature, void* t)
     case '<': /* union */
     case '{': /* struct */
     {
-      /* bound check memory adjacent to returned aggregate, to check for overflows by dcCallStruct */
+      /* bound check memory adjacent to returned aggregate, to check for overflows by dcCallAggr */
       long long* adj_ll = (get_max_aggr_size() - rtype_size) > sizeof(long long) ? (long long*)((char*)V_a[0] + rtype_size) : NULL;
       if(adj_ll)
         *adj_ll = 0x0123456789abcdef;
 
-      s = ((int(*)(const void*,const void*))rtype_st_cmp)(dcCallStruct(p, t, rtype_st, V_a[0]), K_a[pos]);
+      s = ((int(*)(const void*,const void*))rtype_a_cmp)(dcCallAggr(p, t, rtype_a, V_a[0]), K_a[pos]);
 
       if(adj_ll && *adj_ll != 0x0123456789abcdef) {
         printf("writing rval overflowed into adjacent memory;");
@@ -216,9 +216,9 @@ int main(int argc, char* argv[])
   dcReset(G_callvm);
   total = run_all();
 
-  /* free all DCstructs created on the fly */
+  /* free all DCaggrs created on the fly */
   for(i=0; i<G_naggs; ++i)
-    dcFreeStruct(((DCstruct*(*)())G_agg_touchdcstfuncs[i])());
+    dcFreeAggr(((DCaggr*(*)())G_agg_touchdcstfuncs[i])());
 
   dcFree(G_callvm);
   deinit_test_data(G_maxargs);
