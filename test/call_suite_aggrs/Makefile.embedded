@@ -1,4 +1,4 @@
-TARGET	= suite_aggrs ${OBJS} 
+TARGET	= call_suite_aggrs ${OBJS} 
 OBJS	= globals.o cases.o main.o
 
 SRCDIR 	= ../..
@@ -12,7 +12,7 @@ LDLIBS		+= -ldyncall_s
 .PHONY: all clean config config-random
 
 all: ${TARGET}
-suite_aggrs: ${OBJS}
+call_suite_aggrs: ${OBJS}
 	${CC} ${OBJS} ${LDFLAGS} ${LDLIBS} -o $@
 config:
 	${LUA} mk-cases.lua <design.txt >cases.h

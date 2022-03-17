@@ -2,7 +2,7 @@
 
  Package: dyncall
  Library: test
- File: test/suite_aggrs/main.c
+ File: test/call_suite_aggrs/main.c
  Description: 
  License:
 
@@ -223,7 +223,7 @@ int main(int argc, char* argv[])
   dcFree(G_callvm);
   deinit_test_data(G_maxargs);
 
-  printf("result: suite_aggrs: %d\n", total);
+  printf("result: call_suite_aggrs: %d\n", total);
 
   dcTest_deInitPlatform();
 

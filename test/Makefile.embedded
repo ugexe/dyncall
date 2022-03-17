@@ -10,7 +10,7 @@ all-dyncall:
 	cd suite2 && ${MAKE_CMD}
 	cd suite3 && ${MAKE_CMD}
 	cd suite_floats && ${MAKE_CMD}
-	cd suite_aggrs && ${MAKE_CMD}
+	cd call_suite_aggrs && ${MAKE_CMD}
 	cd callf && ${MAKE_CMD}
 	cd plain && ${MAKE_CMD}
 	cd plain_c++ && ${MAKE_CMD}
@@ -25,7 +25,7 @@ all-c:
 	cd syscall && ${MAKE_CMD}
 	cd suite && ${MAKE_CMD}
 	cd call_suite && ${MAKE_CMD}
-	cd suite_aggrs && ${MAKE_CMD}
+	cd call_suite_aggrs && ${MAKE_CMD}
 	cd callf && ${MAKE_CMD}
 	cd dynload_plain && ${MAKE_CMD}
 	cd resolve_self && ${MAKE_CMD}
@@ -54,7 +54,7 @@ clean:
 	cd suite2 && ${MAKE_CMD} clean
 	cd suite3 && ${MAKE_CMD} clean
 	cd suite_floats && ${MAKE_CMD} clean
-	cd suite_aggrs && ${MAKE_CMD} clean
+	cd call_suite_aggrs && ${MAKE_CMD} clean
 	cd callback_plain && ${MAKE_CMD} clean
 	cd callback_suite && ${MAKE_CMD} clean
 	cd ellipsis && ${MAKE_CMD} clean

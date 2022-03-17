@@ -1,4 +1,4 @@
-suite_aggrs for dyncall written in C and Lua.
+call_suite_aggrs for dyncall written in C and Lua.
 
 Tests aggregates (structs, unions and arrays) passed by value, along with
 other, non-aggregate args. Note, arrays are only passed/returned by value as
