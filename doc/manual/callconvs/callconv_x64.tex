@@ -106,10 +106,9 @@ required by ellipsis calls)
 \paragraph{Return values}
 
 \begin{itemize}
-\item return values of pointer or integral type (\textless=\ 64 bits) are returned via the rax register
+\item return values of pointer, integral or aggregate (structs and unions) type (\textless=\ 64 bits) are returned via the rax register
 \item floating point types are returned via the xmm0 register
-\item aggregates (structs and unions) \textless\ 64 bits are returned via the rax register
-\item for types \textgreater\ 64 bits, a hidden first parameter, with an address to the return value is passed (for C++ thiscalls it is passed as {\bf second} parameter, after the this pointer)
+\item for any other type \textgreater\ 64 bits, a hidden first parameter, with an address to the return value is passed (for C++ thiscalls it is passed as {\bf second} parameter, after the this pointer)
 \end{itemize}
 
 
