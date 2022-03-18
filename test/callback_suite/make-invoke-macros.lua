@@ -15,8 +15,8 @@ for i = minargs, maxargs do
         argdef = argdef .. ","
         argset = argset .. ","
       end
-      argdef = argdef .. "A" .. j
-      argset = argset .. "A[" .. j .. "].A" .. j
+      argdef = argdef .. "M" .. j
+      argset = argset .. "M[" .. j .. "].M" .. j
     end
   end
   line = line .. argdef .. ") void ID(void* addr) { Result.R = ((CONFIG_API R(*)("  .. argdef .. "))addr)(" .. argset .. ");}\n"

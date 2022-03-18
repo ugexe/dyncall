@@ -24,43 +24,48 @@
 */
 
 #include <assert.h>
-#include "_auto_config.h"
+#include <stdint.h>
 #include "dyncall_signature.h"
 #include "env.h"
 
 DCValueSet ValueMatrix[CONFIG_MAXARGS];
-DCValue    Args[CONFIG_MAXARGS];
-DCValue    Result;
 
-DCValueSet K;
+static DCValueSet K = {
+  .B = DC_TRUE,
+  .c =  13,
+  .C =  19,
+  .s = -23,
+  .S =  41,
+  .i = 134,
+  .I = 257,
+  .j = -12357,
+  .J = 356,
+  .l = -1234556687721LL,
+  .L = 23564634576581ULL,
+  .f = 1.20432545f,
+  .d = 1.0123456,
+  .p = (void*)0x1020345
+};
 
 void GetReferenceArg(DCValue* output, char ch, int pos)
 {
-/*
-static const int Ki = 134;
-static const double Kd = 1.012356;
-static const float Kf = 1.20432545f; 
-static const int Kp = 0x1020345;
-static const DClonglong Kl = 24534543;
-*/
-
   output->L = 0xCAFEBABEDEADC0DELL;
   pos = pos + 2;
   switch(ch) {
-    case DC_SIGCHAR_BOOL:     output->B = ( (pos*K.i) % 2) ? DC_TRUE : DC_FALSE ; break;
-    case DC_SIGCHAR_CHAR:     output->c = pos*K.c; break;
-    case DC_SIGCHAR_UCHAR:    output->C = pos*K.C; break;
-    case DC_SIGCHAR_SHORT:    output->s = pos*K.s; break;
-    case DC_SIGCHAR_USHORT:   output->S = pos*K.S; break;
-    case DC_SIGCHAR_INT:      output->i = pos*K.i; break;
-    case DC_SIGCHAR_UINT:     output->I = pos*K.I; break;
-    case DC_SIGCHAR_LONG:     output->j = pos*K.j; break;
-    case DC_SIGCHAR_ULONG:    output->J = pos*K.J; break;
-    case DC_SIGCHAR_LONGLONG: output->l = ( (long long) pos ) * K.l; break;
-    case DC_SIGCHAR_ULONGLONG:output->L = pos*K.L; break;
-    case DC_SIGCHAR_FLOAT:    output->f = ( (float) pos ) * K.f; break;
-    case DC_SIGCHAR_DOUBLE:   output->d = ( (double) pos ) * K.d; break;
-    case DC_SIGCHAR_POINTER:  output->p = (DCpointer) (unsigned long) (pos* ( (unsigned long) K.p ) ); break;
+    case DC_SIGCHAR_BOOL:     output->B = ((pos*K.i) & 1) ? DC_TRUE : DC_FALSE ; break;
+    case DC_SIGCHAR_CHAR:     output->c =             pos *           K.c;       break;
+    case DC_SIGCHAR_UCHAR:    output->C =             pos *           K.C;       break;
+    case DC_SIGCHAR_SHORT:    output->s =             pos *           K.s;       break;
+    case DC_SIGCHAR_USHORT:   output->S =             pos *           K.S;       break;
+    case DC_SIGCHAR_INT:      output->i =             pos *           K.i;       break;
+    case DC_SIGCHAR_UINT:     output->I =             pos *           K.I;       break;
+    case DC_SIGCHAR_LONG:     output->j =             pos *           K.j;       break;
+    case DC_SIGCHAR_ULONG:    output->J =             pos *           K.J;       break;
+    case DC_SIGCHAR_LONGLONG: output->l =             pos *           K.l;       break;
+    case DC_SIGCHAR_ULONGLONG:output->L =             pos *           K.L;       break;
+    case DC_SIGCHAR_FLOAT:    output->f =      (float)pos *           K.f;       break;
+    case DC_SIGCHAR_DOUBLE:   output->d =     (double)pos *           K.d;       break;
+    case DC_SIGCHAR_POINTER:  output->p = (DCpointer)(pos * (intptr_t)K.p);      break;
     default: assert(0);
   }
 }
@@ -73,22 +78,6 @@ void GetReferenceResult(DCValue* output, char ch)
 void InitEnv()
 {
   int pos;
-  
-  K.B = DC_TRUE;
-  K.c =  13;
-  K.C =  19;
-  K.s = -23;
-  K.S =  41;
-  K.i = 134;
-  K.I = 257;
-  K.j = -12357;
-  K.J = 356;
-  K.l = -1234556687721LL;
-  K.L = 23564634576581ULL;
-  K.f = 1.20432545f;
-  K.d = 1.0123456;
-  K.p = (void*) 0x1020345;
-  
   for(pos = 0 ;pos < CONFIG_MAXARGS ;++pos) {
     DCValue ref;
     GetReferenceArg( &ref, DC_SIGCHAR_BOOL     , pos); ValueMatrix[pos].B = ref.B;

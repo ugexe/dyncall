@@ -23,15 +23,14 @@
 
 */
 
-#include <assert.h>
+#include <stdio.h>
 #include <stdlib.h>
-#include "_auto_config.h"
 #include "env.h"
 #include "../common/platformInit.h"
 #include "../common/platformInit.c" /* Impl. for functions only used in this translation unit */
 
 
-void PrintUsage(const char* appName)
+static void PrintUsage(const char* appName)
 {
   printf("usage:\n\
 %s [ -v ] [ from [to] ]\n\
@@ -45,36 +44,15 @@ options\n\
 }
 
 
-
-const char* appname = "unknown";
-
 /* test one case, returns error code */
 int DoTest(int id);
 
-/* capture total results for failure (0) and success (1) */
-int totalErrorCodes[2] = { 0, 0 };
-
-void TestRange(int from, int to)
-{
-  int i;
-  for(i = from ; i <= to ; ++i )
-  {
-    int status = DoTest(i);
-    totalErrorCodes[status]++;
-  }
-}
-
 void InitEnv();
 
-void ExitWithUsage()
-{
-  PrintUsage(appname);
-  exit(0);
-}
         
-#define Error(X, Y) fprintf(stderr, X, Y); ExitWithUsage()
+#define Error(X, Y, N) { fprintf(stderr, X, Y); PrintUsage(N); exit(1); }
 
-int main(int argc, char* argv[] )
+int main(int argc, char* argv[])
 {
   int from = 1;
   int to = CONFIG_NSIGS;
@@ -82,41 +60,52 @@ int main(int argc, char* argv[] )
 
   int i;
   int pos;
-  int number;
   int totalResult;
+
+  /* capture total results for failure (0) and success (1) */
+  int totalErrorCodes[2] = { 0, 0 };
 
   dcTest_initPlatform();
 
   InitEnv();
-  appname = argv[0];
 
   pos = 0;
-  for(i = 1 ; i < argc ; ++i ) {
+  for(i = 1 ; i < argc ; ++i)
+  {
+    int number;
 
-    if ( argv[i][0] == '-' ) {
+    if(argv[i][0] == '-')
+	{
       switch(argv[i][1]) {
-        case 'v': OptionVerbose = 1; continue;
-        case 'h': PrintUsage(appname); return 0;
-        default: Error("invalid option: %s", argv[i]);
+        case 'v':
+		  OptionVerbose = 1;
+		  continue;
+        case 'h':
+        case '?':
+		  PrintUsage(argv[0]);
+		  return 0;
+        default: Error("invalid option: %s\n\n", argv[i], argv[0]);
       }      
     }
 
     number = atoi(argv[i]);
-    switch(pos) {
-      case 0: to   = from = number; ++pos; break;
-      case 1: to   = number; break;
-      default: Error("too many arguments%s", "");
+    switch(pos++) {
+      case 0: to = from = number; break;
+      case 1: to =        number; break;
+      default: Error("too many arguments (%d given, 2 allowed)\n\n", pos, argv[0]);
     }
   }
 
-  assert(from > 0);
-  assert(to   <= CONFIG_NSIGS);
-  assert(from <= to);
+  if(from <= 0 || to > CONFIG_NSIGS || from > to)
+      Error("invalid arguments (provided from or to not in order or outside of range [1,%d])\n\n", CONFIG_NSIGS, argv[0]);
 
   ncases = (to - from) + 1;
 
   printf("case\tsignat.\tresult\n");
-  TestRange(from, to);
+
+  for(i = from ; i <= to ; ++i )
+    ++totalErrorCodes[!!DoTest(i)];
+
   totalResult = (totalErrorCodes[1] == ncases);
   printf("result: callback_suite: %d\n", totalResult);
 
