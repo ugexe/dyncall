@@ -30,22 +30,7 @@
 
 DCValueSet ValueMatrix[CONFIG_MAXARGS];
 
-static DCValueSet K = {
-  .B = DC_TRUE,
-  .c =  13,
-  .C =  19,
-  .s = -23,
-  .S =  41,
-  .i = 134,
-  .I = 257,
-  .j = -12357,
-  .J = 356,
-  .l = -1234556687721LL,
-  .L = 23564634576581ULL,
-  .f = 1.20432545f,
-  .d = 1.0123456,
-  .p = (void*)0x1020345
-};
+static DCValueSet K;
 
 void GetReferenceArg(DCValue* output, char ch, int pos)
 {
@@ -78,6 +63,22 @@ void GetReferenceResult(DCValue* output, char ch)
 void InitEnv()
 {
   int pos;
+
+  K.B = DC_TRUE;
+  K.c =  13;
+  K.C =  19;
+  K.s = -23;
+  K.S =  41;
+  K.i = 134;
+  K.I = 257;
+  K.j = -12357;
+  K.J = 356;
+  K.l = -1234556687721LL;
+  K.L = 23564634576581ULL;
+  K.f = 1.20432545f;
+  K.d = 1.0123456;
+  K.p = (void*)0x1020345;
+
   for(pos = 0 ;pos < CONFIG_MAXARGS ;++pos) {
     DCValue ref;
     GetReferenceArg( &ref, DC_SIGCHAR_BOOL     , pos); ValueMatrix[pos].B = ref.B;
