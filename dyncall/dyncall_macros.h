@@ -45,7 +45,8 @@
 #define DYNCALL_MACROS_H
 
 
-/* Platform specific defines. */
+
+/* -- Platform specific #defines ------------------------------------ */
 
 /* MS Windows XP x64/Vista64 or later. */
 #if defined(WIN64) || defined(_WIN64) || defined(__WIN64__)
@@ -130,8 +131,9 @@
 
 
 
-/* Compiler specific defines. Do not change the order, because  */
-/* some of the compilers define flags for compatible ones, too. */
+/* -- Compiler specific #defines ------------------------------------ */
+
+/* Don't change the order, b/c some compilers use same #defines compatibility */
 
 /* Intel's C/C++ compiler. */
 #if defined(__INTEL_COMPILER)
@@ -168,7 +170,7 @@
 
 
 
-/* Architecture. */
+/* -- Architecture -------------------------------------------------- */
 
 /* Check architecture. */
 #if defined(_M_X64_) || defined(_M_AMD64) || defined(__amd64__) || defined(__amd64) || defined(__x86_64__) || defined(__x86_64) 
@@ -203,7 +205,7 @@
 
 
 
-/* Rough OS classification. */
+/* -- Rough OS classification --------------------------------------- */
 
 #if defined(DC__OS_Win32) || defined(DC__OS_Win64)
 # define DC_WINDOWS
@@ -217,7 +219,7 @@
 
 
 
-/* Misc machine-dependent modes, ABIs, etc.. */
+/* -- Misc machine-dependent modes, ABIs, etc. ---------------------- */
 
 #if defined(__arm__) && !defined(__thumb__)
 # define DC__Arch_ARM_ARM
@@ -264,7 +266,9 @@
 #endif /* PPC64 */
 
 
-/* Endian detection. */
+
+/* -- Endianness detection ------------------------------------------ */
+
 #if defined(DC__Arch_Intel_x86) || defined(DC__Arch_AMD64) /* always little */
 # define DC__Endian_LITTLE
 #elif defined(DC__Arch_Sparc)                              /* always purely big until v9 */
@@ -292,10 +296,30 @@ DC__Arch_SuperH
 #endif
 
 
-/* Internal macro/tag. */
+
+/* -- Internal macro/tag -------------------------------------------- */
+
 #if !defined(DC_API)
 # define DC_API
 #endif
+
+
+
+/* -- Library feature support macors -------------------------------- */
+
+/* macros for specifying lesser used feature support (main features like basic
+   call and callback support are required for a platform implementation */
+
+/* syscalls */
+#if defined(DC__Arch_Intel_x86) || (defined(DC__Arch_AMD64) && defined(DC_UNIX)) || defined(DC__Arch_PPC32) || defined(DC__Arch_PPC64)
+#  define DC__Feature_Syscall
+#endif
+
+/* aggregate (struct, union) by value */
+#if defined(DC__Arch_AMD64)
+#  define DC__Feature_AggrByVal
+#endif
+
 
 #endif /* DYNCALL_MACROS_H */
 
