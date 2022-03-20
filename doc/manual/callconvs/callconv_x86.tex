@@ -64,8 +64,8 @@ plan9call are supported.\\
 the syscall number as target parameter and selecting the correct mode.
 
 
-\clearpage
 
+\pagebreak
 
 \subsubsection{cdecl}
 
@@ -142,8 +142,7 @@ parameter area                    &                &                            
 \end{figure}
 
 
-\clearpage
-
+\pagebreak
 
 \subsubsection{MS fastcall}
 
@@ -179,6 +178,8 @@ Name          & Brief description\\
 \item aggregates (structs, unions) are pushed as a sequence of dwords, but are never split between registers and stack (if registers are still available and
 aggregate doesn't fit entirely into ecx and edx, it is passed via the stack and remaining registers are free for subsequent arguments)
 \end{itemize}
+
+\clearpage
 
 \paragraph{Return values}
 
@@ -245,6 +246,9 @@ Name          & Brief description\\
 \caption{Register usage on x86 fastcall (GNU) calling convention}
 \end{table}
 
+
+\clearpage
+
 \paragraph{Parameter passing}
 
 \begin{itemize}
@@ -268,8 +272,6 @@ passing a pointer to the callee as a new, implicit first parameter (always via e
 \item floating point types are returned via the st0
 \end{itemize}
 
-
-\pagebreak
 
 \paragraph{Stack layout}
 
@@ -300,6 +302,8 @@ parameter area                    &                            &                
 \caption{Stack layout on x86 fastcall (GNU) calling convention}
 \end{figure}
 
+
+\pagebreak
 
 \subsubsection{Borland fastcall}
 
@@ -339,8 +343,6 @@ Name          & Brief description\\
 \item the direction flag is clear on entry and must be returned clear % mention it first, above @@@
 \end{itemize}
 
-
-\pagebreak
 
 \paragraph{Return values}
 
@@ -383,6 +385,8 @@ parameter area                    &                            &                
 \caption{Stack layout on x86 fastcall (Borland) calling convention}
 \end{figure}
 
+
+\pagebreak
 
 \subsubsection{Watcom fastcall}
 
@@ -460,6 +464,7 @@ parameter area                    &                            &                
 \end{figure}
 
 
+\pagebreak
 
 \subsubsection{win32 stdcall}
 
@@ -537,6 +542,9 @@ parameter area                    &                &                            
 \caption{Stack layout on x86 stdcall calling convention}
 \end{figure}
 
+
+\pagebreak
+
 \subsubsection{MS thiscall}
 
 \paragraph{Registers and register usage}
@@ -558,8 +566,6 @@ Name          & Brief description\\
 \end{tabular*}
 \caption{Register usage on x86 thiscall (MS) calling convention}
 \end{table}
-
-\clearpage
 
 
 \paragraph{Parameter passing}
@@ -699,8 +705,6 @@ further detail, here.
 
 
 
-\clearpage
-
 \subsubsection{plan9call}
 
 \paragraph{Registers and register usage}
@@ -734,7 +738,6 @@ Name          & Brief description\\
 \item aggregates (structs, unions) are pushed as a sequence of dwords
 \end{itemize}
 
-\pagebreak
 
 \paragraph{Return values}
 
@@ -773,8 +776,6 @@ parameter area                    &                &                            
 \end{figure}
 
 
-\clearpage
-
 \subsubsection{Linux syscalls}
 
 \paragraph{Parameter passing}
@@ -786,6 +787,7 @@ parameter area                    &                &                            
 \item for more than six arguments, ebx points to the list of further arguments (not used in practice, as Linux syscalls use a maximum of 5 arguments)
 \item register eax holds the return value
 \end{itemize}
+
 
 \subsubsection{*BSD syscalls}
 

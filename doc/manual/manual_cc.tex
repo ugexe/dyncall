@@ -17,11 +17,7 @@
 %
 %//////////////////////////////////////////////////////////////////////////////
 
-\clearpage
-
-% ==================================================
-% Calling Conventions
-% ==================================================
+\newpage
 
 \section{Calling Conventions}
 
@@ -30,10 +26,10 @@
 It is important to understand that this section isn't a general
 purpose description of the present calling conventions.
 It merely explains the calling conventions \textbf{for the parameter/return types
-supported by \dc}, not for aggregates (structures, unions and classes), SIMD
-data types (\_\_m64, \_\_m128, \_\_m128i, \_\_m128d), etc.\\
-We strongly advise the reader not to use this document as a general purpose
-calling convention reference.
+supported by \dc} (not for e.g. unsupported types like SIMD data types
+(\_\_m64, \_\_m128, \_\_m128i, \_\_m128d), etc.).\\ We strongly advise the
+reader not to use this document as a general purpose calling convention
+reference.
 
 \input{callconvs/callconv_x86}\clearpage
 \input{callconvs/callconv_x64}\clearpage
