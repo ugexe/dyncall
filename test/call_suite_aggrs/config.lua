@@ -6,6 +6,7 @@ maxaggrfields= 12
 maxarraylen  = 16   -- see 1)
 arraydice    = 40   -- how often to turn a member into an array (1 out of arraydice-times)
 maxaggrdepth = 3    -- max nesting depth of aggregates, 1 = no nesting
+reqaggrinsig = true -- require that every generated signature has at least one aggregate
 ncases       = 400
 types        = "csijlCSIJLpfd{}<>"  -- {...} for structs, <...> for unions
 seed         = 2112

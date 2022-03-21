@@ -2,6 +2,6 @@
 minargs  = 0
 maxargs  = 64
 ncases   = 400
-types    = "csijCSIJLlpfd"
+types    = "csijlCSIJLpfd"
 seed     = 2342
 
