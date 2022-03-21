@@ -423,5 +423,80 @@ main    PROC
 main    ENDP
 
 
+
+; ---------- C++ trivial and non-trivial aggrs passed to C funcs ---------->
+;
+; struct Trivial { int a; };
+; struct NonTrivial { int a; NonTrivial() : a(0) {} NonTrivial(const NonTrivial& rhs) : a(rhs.a) { } };
+;
+; extern "C" {
+; 
+;     void f1(struct Trivial s)    { }
+;     void f2(struct NonTrivial s) { }
+;
+;     void f()
+;     {
+;         struct Trivial t;
+;         struct NonTrivial n;
+;         int a=1;
+;         a += 123;
+;         f1(t);
+;         a -= 123;
+;         f2(n);
+;         a -= 12;
+;     }
+; }
+
+
+
+; output from godbolt compiler explorer w/ msvc 19.0
+
+        ; ... snip, removed code of ctor and copy ctor ...
+
+f1      PROC
+        mov     DWORD PTR [rsp+8], ecx
+        ret     0
+f1      ENDP
+
+f2      PROC
+        mov     QWORD PTR [rsp+8], rcx
+        ret     0
+f2      ENDP
+
+a$ = 32
+n$ = 36
+t$ = 40
+$T1 = 44
+$T2 = 48
+f       PROC
+$LN3:
+        sub     rsp, 72                                    ; prolog
+        lea     rcx, QWORD PTR n$[rsp]                     ; \ this ptr (NULL)
+        call    NonTrivial::NonTrivial(void)               ; | NonTrivial::NonTrivial() / ctor
+        mov     DWORD PTR a$[rsp], 1                       ; a = 1
+        mov     eax, DWORD PTR a$[rsp]                     ; |
+        add     eax, 123                                   ; | a += 123
+        mov     DWORD PTR a$[rsp], eax                     ; /
+        mov     ecx, DWORD PTR t$[rsp]                     ; f1 arg 0 (struct Trivial), via reg as small struct
+        call    f1                                         ; call f1(struct Trivial)
+        mov     eax, DWORD PTR a$[rsp]                     ; |
+        sub     eax, 123                                   ; | a -= 123
+        mov     DWORD PTR a$[rsp], eax                     ; /
+        lea     rax, QWORD PTR $T1[rsp]                    ; @@@ unsure
+        mov     QWORD PTR $T2[rsp], rax                    ; ... @@@
+        lea     rdx, QWORD PTR n$[rsp]                     ; \               ptr to dest of copy of n
+        mov     rcx, QWORD PTR $T2[rsp]                    ; | copy n        ptr to n
+        call    NonTrivial::NonTrivial(NonTrivial const &) ; /               NonTrivial::NonTrivial(const NonTrivial&) / copy ctor
+        mov     rcx, rax                                   ; f2 arg 0 (ptr to copy of struct NonTrivial), via ptr as non-trivial
+        call    f2                                         ; call f2(struct NonTrivial)
+        mov     eax, DWORD PTR a$[rsp]                     ; |
+        sub     eax, 12                                    ; | a -= 12
+        mov     DWORD PTR a$[rsp], eax                     ; /
+        add     rsp, 72                                    ; \
+        ret     0                                          ; | epilog
+f       ENDP
+
+
+
 ; vim: ft=asm
 

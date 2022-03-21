@@ -514,5 +514,79 @@
   4007cf:       c3                      retq                       ; | epilog
 
 
+
+; ---------- C++ trivial and non-trivial aggrs passed to C funcs ---------->
+;
+; struct Trivial { int a; };
+; struct NonTrivial { int a; NonTrivial() : a(0) {} NonTrivial(const NonTrivial& rhs) : a(rhs.a) { } };
+;
+; extern "C" {
+; 
+;     void f1(struct Trivial s)    { }
+;     void f2(struct NonTrivial s) { }
+;
+;     void f()
+;     {
+;         struct Trivial t;
+;         struct NonTrivial n;
+;         int a=1;
+;         a += 123;
+;         f1(t);
+;         a -= 123;
+;         f2(n);
+;         a -= 12;
+;     }
+; }
+
+
+
+; output from freebsd-12.2-x64 w/ clang 10.0.1
+
+0000000000000000 <f1>:
+   0:   55                      push   %rbp             ; | prolog
+   1:   48 89 e5                mov    %rsp,%rbp        ; |
+   4:   89 7d f8                mov    %edi,-0x8(%rbp)  ; local copy of trivial struct
+   7:   5d                      pop    %rbp             ; |
+   8:   c3                      retq                    ; | epilog
+
+0000000000000010 <f2>:
+  10:   55                      push   %rbp             ; | prolog
+  11:   48 89 e5                mov    %rsp,%rbp        ; /
+  14:   5d                      pop    %rbp             ; \         note: no local copy as non-trivial
+  15:   c3                      retq                    ; | epilog
+
+0000000000000020 <f>:
+  20:   55                      push   %rbp             ; |
+  21:   48 89 e5                mov    %rsp,%rbp        ; | prolog
+  24:   48 83 ec 20             sub    $0x20,%rsp       ; /
+  28:   48 8d 7d f0             lea    -0x10(%rbp),%rdi ; \ this ptr (NULL)
+  2c:   e8 00 00 00 00          callq  31 <f+0x11>      ; | NonTrivial::NonTrivial() / ctor
+  31:   c7 45 ec 01 00 00 00    movl   $0x1,-0x14(%rbp) ; a = 1
+  38:   8b 45 ec                mov    -0x14(%rbp),%eax ; |
+  3b:   83 c0 7b                add    $0x7b,%eax       ; | a += 123
+  3e:   89 45 ec                mov    %eax,-0x14(%rbp) ; /
+  41:   8b 45 f8                mov    -0x8(%rbp),%eax  ; \
+  44:   89 45 e8                mov    %eax,-0x18(%rbp) ; / local copy of t (struct Trivial)
+  47:   8b 7d e8                mov    -0x18(%rbp),%edi ; f1 arg 0 (struct Trivial), via reg as small struct
+  4a:   e8 00 00 00 00          callq  4f <f+0x2f>      ; call f1(struct Trivial)
+  4f:   8b 45 ec                mov    -0x14(%rbp),%eax ; |
+  52:   83 e8 7b                sub    $0x7b,%eax       ; | a -= 123
+  55:   89 45 ec                mov    %eax,-0x14(%rbp) ; /
+  58:   48 8d 7d e0             lea    -0x20(%rbp),%rdi ; \               ptr to dest of copy of n
+  5c:   48 8d 75 f0             lea    -0x10(%rbp),%rsi ; | copy n        ptr to n
+  60:   e8 00 00 00 00          callq  65 <f+0x45>      ; /               NonTrivial::NonTrivial(const NonTrivial&) / copy ctor
+  65:   48 8d 7d e0             lea    -0x20(%rbp),%rdi ; f2 arg 0 (ptr to copy of struct NonTrivial), via ptr as non-trivial
+  69:   e8 00 00 00 00          callq  6e <f+0x4e>      ; call f2(struct NonTrivial)
+  6e:   8b 45 ec                mov    -0x14(%rbp),%eax ; |
+  71:   83 e8 0c                sub    $0xc,%eax        ; | a -= 12
+  74:   89 45 ec                mov    %eax,-0x14(%rbp) ; /
+  77:   48 83 c4 20             add    $0x20,%rsp       ; \
+  7b:   5d                      pop    %rbp             ; | epilog
+  7c:   c3                      retq                    ; |
+
+  ; ... snip, removed code of ctor and copy ctor ...
+
+
+
 ; vim: ft=asm
 
