@@ -63,7 +63,7 @@ function mkaggr(n_nest, maxdepth, o, c)
     end
     s = s..s_
 
-    -- member (which cannot be first char) as array? Disallow multidimensional arrays @@@STRUCT allow multidim?
+    -- member (which cannot be first char) as array? Disallow multidimensional arrays
     if #s > 1 and t ~= c and s:sub(-1) ~= ']' and math.random(arraydice) == 1 then
       s = s..'['..math.random(maxarraylen)..']'
     end
@@ -117,24 +117,22 @@ for i = 1, ncases do
   local l = ''
   repeat
     local nargs = math.random(minargs,maxargs)
-    id = math.random(#rtypes)
-    local sig = { mktype(rtypes:sub(id,id), 0, math.random(maxaggrdepth), nil) } -- random depth avoids excessive nesting
+    local sig = { }
     for j = 1, nargs do
       id = math.random(#types)
       sig[#sig+1] = mktype(types:sub(id,id), 0, math.random(maxaggrdepth), nil) -- random depth avoids excessive nesting
     end
+	r = ''
+	repeat
+      id = math.random(#rtypes)
+	  r = mktype(rtypes:sub(id,id), 0, math.random(maxaggrdepth), nil) -- random depth avoids excessive nesting
+	until r ~= ''
+	sig[#sig+1] = ')'..r
     l = table.concat(sig)
     -- reject dupes, sigs without any aggregate (as this is about aggrs after all), and empty ones (if not wanted)
   until (reqaggrinsig ~= true or string.match(l, aggr_op_pattern) ~= nil) and uniq_sigs[l] == nil
   uniq_sigs[l] = 1
 
-  -- @@@ hack: if included from callback_suite, 'mode' is set, and has value "random"; make sig
-  --           be in expected format
-  -- @@@ all sigs should follow that dyncally format
-  if mode ~= nil and mode == 'random' then
-    io.write(l:sub(2)..')'..l:sub(1,1).."\n")
-  else
-    io.write(l.."\n")
-  end
+  io.write(l.."\n")
 end
 

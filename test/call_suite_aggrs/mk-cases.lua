@@ -15,9 +15,15 @@ function canon_type(t)
   return t
 end
 
+function put_sig_rtype_first(sig)
+  return sig:sub(sig:find(')')+1,-1)..sig:sub(1,sig:find(')')-1)
+end
+
+
 function trim(l) return l:gsub("^%s+",""):gsub("%s+$","") end
 function mkcase(id,sig)
   local sig = trim(sig)
+  local fsig = put_sig_rtype_first(sig)
   local h = { "/* ",id,":",sig," */ " }
   local t = { "" }
   local pos = 0
@@ -26,9 +32,9 @@ function mkcase(id,sig)
   local aggr_sig = { }
   aggr[0] = { }     -- non-sequential [0] collects all non-aggr types
   aggr_sig[0] = ''
-  for i = 1, #sig do
+  for i = 1, #fsig do
     local name = "a"..pos
-    local ch   = sig:sub(i,i)
+    local ch   = fsig:sub(i,i)
 
 
     -- aggregate nest level change?
@@ -140,7 +146,7 @@ function mkall()
   for line in io.lines() do
     local sig = trim(line)
     cases = cases..mkcase(lineno,sig)
-    sigtab[#sigtab+1] = sig
+    sigtab[#sigtab+1] = put_sig_rtype_first(sig)
     lineno = lineno + 1
   end
 

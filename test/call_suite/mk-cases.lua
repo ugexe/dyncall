@@ -5,12 +5,12 @@ local maxargs = 0
 function trim(l) return l:gsub("^%s+",""):gsub("%s+$","") end
 function mkcase(id,sig)
   local sig = trim(sig)
-  local h = { "/* ",id,":",sig," */ ",sig:sub(1,1), " f", id,"(","" }
+  local h = { "/* ",id,":",sig," */ ",sig:sub(-1), " f", id,"(","" }
   local t = { "" }
   local pos = 0
-  maxargs = max(maxargs, #sig-1)
-  for i = 2, #sig do 
-    pos = tostring(i-1)
+  maxargs = max(maxargs, #sig-2)
+  for i = 1, #sig-2 do 
+    pos = tostring(i)
     local name = "a"..pos
     local ch   = sig:sub(i,i)
     h[#h+1] = ch.." "..name
@@ -18,7 +18,7 @@ function mkcase(id,sig)
     t[#t+1] = "V_"..ch.."["..pos.."]="..name..";"
   end
   h[#h] = "){"
-  t[#t+1] = "ret_"..sig:sub(1,1).."("..pos..")}\n"
+  t[#t+1] = "ret_"..sig:sub(-1).."("..pos..")}\n"
   return table.concat(h,"")..table.concat(t,"")
 end
 
@@ -34,7 +34,7 @@ end
 function mksigtab(sigs)
   local s = { "char const * G_sigtab[] = {\n"}
   for k,v in pairs(sigs) do
-    s[#s+1] = '\t"'..v..'",\n'
+    s[#s+1] = '\t"'..v:sub(-1)..v:sub(1,-3)..'",\n'
   end
   s[#s+1] = "};\n"
   return table.concat(s,"")
