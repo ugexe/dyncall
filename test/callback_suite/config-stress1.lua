@@ -11,15 +11,15 @@ function nlines()
   return cnt
 end
 
-nsigs     = nlines()    -- number of test cases
+ncases    = nlines()    -- number of test cases
 
 minargs   = 0           -- minimum num. of supported arguments (>= 0)
 maxargs   = 20          -- maximum num. of supported arguments (>= minargs)
 
 -- section 'types' (not used by 'designed') ------------------------------------
 
-argtypes  = "BcCsSiIjJlLpfd" -- "BcCsSiIjJlLpfd"    -- supported argument types
-rettypes  = argtypes    -- supported return types (currently no void support)
+types     = "BcCsSiIjJlLpfd" -- "BcCsSiIjJlLpfd"    -- supported argument types
+rtypes    = types    -- supported return types (currently no void support)
 
 
 -- section 'ordered' -----------------------------------------------------------

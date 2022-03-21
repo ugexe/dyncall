@@ -7,6 +7,9 @@
 -- types
 -- seed
 
+-- optional:
+-- rtypes (if not set, it'll be 'v'..types)
+
 -- optional (when including aggregate generation):
 -- minaggrfields
 -- maxaggrfields
@@ -36,7 +39,10 @@ for i = 1, #pairs_op do
 end
 
 
-rtypes   = "v"..types
+if rtypes == nil then
+  rtypes = "v"..types
+end
+
 
 function mkaggr(n_nest, maxdepth, o, c)
   local s = o
@@ -45,16 +51,16 @@ function mkaggr(n_nest, maxdepth, o, c)
   repeat
     local t = c
     if nfields < maxaggrfields then
-	  repeat
+      repeat
         local id = math.random(#types)
         t = types:sub(id,id)
       until t ~= c or nfields >= minaggrfields
     end
 
     s_ = mktype(t, n_nest, maxdepth, o)
-	if(#s_ > 0) then
+    if(#s_ > 0) then
       nfields = nfields + 1
-	end
+    end
     s = s..s_
 
     -- member (which cannot be first char) as array? Disallow multidimensional arrays @@@STRUCT allow multidim?
@@ -121,6 +127,14 @@ for i = 1, ncases do
     -- reject dupes, sigs without any aggregate (as this is about aggrs after all), and empty ones (if not wanted)
   until (reqaggrinsig ~= true or string.match(l, aggr_op_pattern) ~= nil) and uniq_sigs[l] == nil
   uniq_sigs[l] = 1
-  io.write(l.."\n")
+
+  -- @@@ hack: if included from callback_suite, 'mode' is set, and has value "random"; make sig
+  --           be in expected format
+  -- @@@ all sigs should follow that dyncally format
+  if mode ~= nil and mode == 'random' then
+    io.write(l:sub(2)..')'..l:sub(1,1).."\n")
+  else
+    io.write(l.."\n")
+  end
 end
 

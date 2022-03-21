@@ -75,15 +75,15 @@ int main(int argc, char* argv[])
     int number;
 
     if(argv[i][0] == '-')
-	{
+    {
       switch(argv[i][1]) {
         case 'v':
-		  OptionVerbose = 1;
-		  continue;
+          OptionVerbose = 1;
+          continue;
         case 'h':
         case '?':
-		  PrintUsage(argv[0]);
-		  return 0;
+          PrintUsage(argv[0]);
+          return 0;
         default: Error("invalid option: %s\n\n", argv[i], argv[0]);
       }      
     }

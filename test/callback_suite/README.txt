@@ -58,9 +58,9 @@ Tssting for exotic calling conventions on Windows:
 Specify 'api' and 'ccprefix' accordingly:
 
 
-"__stdcall"	"_s"
-"__fastcall"	"_f" for gcc compiler
-		"_F" for microsoft compiler
+"__stdcall"  "_s"
+"__fastcall" "_f" for gcc compiler
+             "_F" for microsoft compiler
 
 
 

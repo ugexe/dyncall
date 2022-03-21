@@ -2,46 +2,36 @@ require "config"
 require "math"
 require "string"
 
-local nargtypes = string.len(argtypes)
-local nrettypes = string.len(rettypes)
-local argrange  = maxargs - minargs
-math.randomseed(seed)
 
-function randomSignatures(nsigs)
-  local i 
-  for i = 1, nsigs do
-    local nargs = minargs + math.random(argrange+1) - 1 
-    local signature = ""
-    for j = 1, nargs do
-      local typeindex = math.random(nargtypes)
-      signature = signature .. string.sub(argtypes, typeindex, typeindex)
-    end
-    local rtypeindex = math.random(nrettypes)
-    signature = signature .. ")" .. string.sub(rettypes, rtypeindex, rtypeindex)
-    io.write(signature .. "\n")
-  end
+function randomSignatures()
+  package.path = '../common/?.lua;' .. package.path
+  require"rand-sig"
 end
+
 
 function orderedSignature(x)
   local signature = ""
   local typeindex
+  local nargtypes = string.len(types)
   while true do
     if x < nargtypes then break end
     typeindex = 1 + math.mod(x, nargtypes)
-    signature = signature .. string.sub(argtypes, typeindex, typeindex)
+    signature = signature .. string.sub(types, typeindex, typeindex)
     x = math.floor( x / nargtypes )
   end
   typeindex = 1 + x
-  signature = signature .. ")" .. string.sub(argtypes, typeindex, typeindex)
+  signature = signature .. ")" .. string.sub(types, typeindex, typeindex)
   return signature
 end
 
-function orderedSignatures(nsigs)
+
+function orderedSignatures()
   local i 
-  for i = 1, nsigs do
+  for i = 1, ncases do
     io.write( orderedSignature(offset+i*step) .. "\n" )
   end
 end
+
 
 function designedSignatures()
  for line in io.lines(designfile) do
@@ -50,14 +40,15 @@ function designedSignatures()
  end
 end
 
+
 if mode == "random" then
-  randomSignatures(nsigs)
+  randomSignatures()
 elseif mode == "ordered" then
-  orderedSignatures(nsigs)
+  orderedSignatures()
 elseif mode == "designed" then
   designedSignatures()
 else
-  error("'mode' must be 'random' or 'ordered'")
+  error("'mode' must be 'random', 'ordered' or 'designed'")
 end
 
 io.flush()

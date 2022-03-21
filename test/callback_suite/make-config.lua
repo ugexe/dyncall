@@ -2,7 +2,7 @@ require "config"
 
 local defs = {
   MAXARGS = maxargs,
-  NSIGS   = nsigs,
+  NSIGS   = ncases,
   API     = api
 }
 
