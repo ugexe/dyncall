@@ -71,14 +71,19 @@ DEF_TYPES
 #undef X
 
   for(i=0;i<G_maxargs+1;++i) {
-    K_c[i] = (char)      (((rand_d()-0.5)*2) * (1<<7));
-    K_s[i] = (short)     (((rand_d()-0.5)*2) * (1<<(sizeof(short)*8-1)));
-    K_i[i] = (int)       (((rand_d()-0.5)*2) * (1<<(sizeof(int)*8-2)));
-    K_j[i] = (long)      (((rand_d()-0.5)*2) * (1L<<(sizeof(long)*8-2)));
-    K_l[i] = (long long) (((rand_d()-0.5)*2) * (1LL<<(sizeof(long long)*8-2)));
-    K_p[i] = (void*)     (long) (((rand_d()-0.5)*2) * (1LL<<(sizeof(void*)*8-1)));
-    K_f[i] = (float)     (rand_d() * FLT_MAX);
-    K_d[i] = (double)    (((rand_d()-0.5)*2) * DBL_MAX);
+    K_c[i] = (char)              (((rand_d()-0.5)*2) * (1<<7));
+    K_s[i] = (short)             (((rand_d()-0.5)*2) * (1<<(sizeof(short)*8-1)));
+    K_i[i] = (int)               (((rand_d()-0.5)*2) * (1<<(sizeof(int)*8-2)));
+    K_j[i] = (long)              (((rand_d()-0.5)*2) * (1L<<(sizeof(long)*8-2)));
+    K_l[i] = (long long)         (((rand_d()-0.5)*2) * (1LL<<(sizeof(long long)*8-2)));
+    K_C[i] = (unsigned char)     (((rand_d()-0.5)*2) * (1<<7));
+    K_S[i] = (unsigned short)    (((rand_d()-0.5)*2) * (1<<(sizeof(short)*8-1)));
+    K_I[i] = (unsigned int)      (((rand_d()-0.5)*2) * (1<<(sizeof(int)*8-2)));
+    K_J[i] = (unsigned long)     (((rand_d()-0.5)*2) * (1L<<(sizeof(long)*8-2)));
+    K_L[i] = (unsigned long long)(((rand_d()-0.5)*2) * (1LL<<(sizeof(long long)*8-2)));
+    K_p[i] = (void*)(long)       (((rand_d()-0.5)*2) * (1LL<<(sizeof(void*)*8-1)));
+    K_f[i] = (float)             (rand_d() * FLT_MAX);
+    K_d[i] = (double)            (((rand_d()-0.5)*2) * DBL_MAX);
     K_a[i] = malloc(maxaggrsize+AGGR_MISALIGN);
     rand_mem__fp_friendly(K_a[i], maxaggrsize+AGGR_MISALIGN);
     K_a[i] = (char*)K_a[i]+AGGR_MISALIGN;

@@ -30,21 +30,21 @@
 #define ret_i(X)   return(K_i[X]);
 #define ret_j(X)   return(K_j[X]);
 #define ret_l(X)   return(K_l[X]);
+#define ret_C(X)   return(K_C[X]);
+#define ret_S(X)   return(K_S[X]);
+#define ret_I(X)   return(K_I[X]);
+#define ret_J(X)   return(K_J[X]);
+#define ret_L(X)   return(K_L[X]);
 #define ret_p(X)   return(K_p[X]);
 #define ret_f(X)   return(K_f[X]);
 #define ret_d(X)   return(K_d[X]);
 #define ret_a(X,t) return(*(t*)K_a[X]);
 
 #define v void
-#define c char
-#define s short
-#define i int
-#define j long
-#define l long long
-#define p void*
-#define f float
-#define d double
-#define a void*  /* all generated aggregates */
+#define X(CH,T) typedef T CH;
+DEF_TYPES
+#undef X
+
 
 #define AF(c,t,i,n)   dcAggrField(at,c,offsetof(t,i),n);
 #define AFa(t,i,n,f)  dcAggrField(at,DC_SIGCHAR_AGGREGATE,offsetof(t,i),n,f_touchdcst##f());

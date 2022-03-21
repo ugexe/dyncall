@@ -7,7 +7,7 @@ maxarraylen  = 16   -- see 1)
 arraydice    = 40   -- how often to turn a member into an array (1 out of arraydice-times)
 maxaggrdepth = 3    -- max nesting depth of aggregates, 1 = no nesting
 ncases       = 400
-types        = "csijlpfd{}<>"  -- {...} for structs, <...> for unions
+types        = "csijlCSIJLpfd{}<>"  -- {...} for structs, <...> for unions
 seed         = 2112
 
 -- specify types more than once to increase relative occurance, e.g.:

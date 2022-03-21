@@ -24,7 +24,7 @@
 
 
 /* the 'a'ggregate type points to memory with random data that is big enough to hold all different struct types */
-#define DEF_TYPES X(c,char) X(s,short) X(i,int) X(j,long) X(l,long long) X(p,void*) X(f,float) X(d,double) X(a,void*)
+#define DEF_TYPES X(c,char) X(s,short) X(i,int) X(j,long) X(l,long long) X(C,unsigned char) X(S,unsigned short) X(I,unsigned int) X(J,unsigned long) X(L,unsigned long long) X(p,void*) X(f,float) X(d,double) X(a,void*)
 
 #define X(CH,T) extern T *K_##CH; extern T *V_##CH;
 DEF_TYPES
