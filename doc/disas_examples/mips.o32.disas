@@ -1779,7 +1779,7 @@
 
 
 
-; output from freebsd-12.0_r333647-malta_mipsebhf w/ gcc 4.2.1 *and* -mhard-float ----->
+; output from freebsd-12.0_r333647-malta_mipsebhf w/ gcc 4.2.1
 
 004008c0 <f1>:
   4008c0:       3c1c0002        lui     gp,0x2

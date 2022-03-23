@@ -3258,7 +3258,7 @@
 
 
 
-; output from freebsd-12.0_r333647-malta_mips64ebhf w/ gcc 4.2.1 *and* -mhard-float
+; output from freebsd-12.0_r333647-malta_mips64ebhf w/ gcc 4.2.1
 
 0000000120000b70 <f1>:
    120000b70:   67bdffe0        daddiu  sp,sp,-32
