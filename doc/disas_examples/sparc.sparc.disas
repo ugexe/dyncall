@@ -1000,5 +1000,86 @@
 
 
 
+; ---------- C++ trivial and non-trivial aggrs passed to C funcs ---------->
+;
+; struct Trivial { int a; };
+; struct NonTrivial { int a; NonTrivial() : a(0) {} NonTrivial(const NonTrivial& rhs) : a(rhs.a) { } };
+;
+; extern "C" {
+; 
+;     void f1(struct Trivial s)    { }
+;     void f2(struct NonTrivial s) { }
+;
+;     void f()
+;     {
+;         struct Trivial t;
+;         struct NonTrivial n;
+;         int a=1;
+;         a += 123;
+;         f1(t);
+;         a -= 123;
+;         f2(n);
+;         a -= 12;
+;     }
+; }
+
+
+
+; output from debian-4.0_r3-sparc w/ gcc 4.1.2
+
+00010484 <f1>:
+   10484:       9d e3 bf 98     save  %sp, -104, %sp
+   10488:       81 e8 00 00     restore
+   1048c:       81 c3 e0 08     retl
+   10490:       01 00 00 00     nop
+
+00010494 <f2>:
+   10494:       9d e3 bf 98     save  %sp, -104, %sp
+   10498:       f0 27 a0 44     st  %i0, [ %fp + 0x44 ]
+   1049c:       81 e8 00 00     restore
+   104a0:       81 c3 e0 08     retl
+   104a4:       01 00 00 00     nop
+
+000104a8 <f>:
+   104a8:       9d e3 bf 80     save  %sp, -128, %sp                 ;
+   104ac:       82 07 bf e8     add  %fp, -24, %g1                   ;
+   104b0:       90 10 00 01     mov  %g1, %o0                        ;
+   104b4:       40 00 00 26     call  1054c <_ZN10NonTrivialC1Ev>    ; NonTrivial::NonTrivial() / ctor
+   104b8:       01 00 00 00     nop                                  ;
+   104bc:       82 10 20 01     mov  1, %g1     ! 1 <_init-0x102cb>  ;
+   104c0:       c2 27 bf f4     st  %g1, [ %fp + -12 ]               ;
+   104c4:       c2 07 bf f4     ld  [ %fp + -12 ], %g1               ;
+   104c8:       82 00 60 7b     add  %g1, 0x7b, %g1                  ;
+   104cc:       c2 27 bf f4     st  %g1, [ %fp + -12 ]               ;
+   104d0:       c2 07 bf ec     ld  [ %fp + -20 ], %g1               ;
+   104d4:       c2 27 bf e4     st  %g1, [ %fp + -28 ]               ;
+   104d8:       82 07 bf e4     add  %fp, -28, %g1                   ;
+   104dc:       90 10 00 01     mov  %g1, %o0                        ;
+   104e0:       7f ff ff e9     call  10484 <f1>                     ; call f1(struct Trivial)
+   104e4:       01 00 00 00     nop                                  ;
+   104e8:       c2 07 bf f4     ld  [ %fp + -12 ], %g1               ;
+   104ec:       82 00 7f 85     add  %g1, -123, %g1                  ;
+   104f0:       c2 27 bf f4     st  %g1, [ %fp + -12 ]               ;
+   104f4:       82 07 bf f0     add  %fp, -16, %g1                   ;
+   104f8:       84 07 bf e8     add  %fp, -24, %g2                   ;
+   104fc:       90 10 00 01     mov  %g1, %o0                        ; |               ptr to dest of copy of n
+   10500:       92 10 00 02     mov  %g2, %o1                        ; | copy n        ptr to n
+   10504:       40 00 00 19     call  10568 <_ZN10NonTrivialC1ERKS_> ; |               NonTrivial::NonTrivial(const NonTrivial&) / copy ctor
+   10508:       01 00 00 00     nop                                  ;
+   1050c:       82 07 bf f0     add  %fp, -16, %g1                   ; |
+   10510:       90 10 00 01     mov  %g1, %o0                        ; | f2 arg 0 (ptr to copy of struct NonTrivial), via ptr as non-trivial
+   10514:       7f ff ff e0     call  10494 <f2>                     ; call f2(struct NonTrivial)
+   10518:       01 00 00 00     nop                                  ;
+   1051c:       c2 07 bf f4     ld  [ %fp + -12 ], %g1               ;
+   10520:       82 00 7f f4     add  %g1, -12, %g1                   ;
+   10524:       c2 27 bf f4     st  %g1, [ %fp + -12 ]               ;
+   10528:       81 e8 00 00     restore                              ;
+   1052c:       81 c3 e0 08     retl                                 ;
+   10530:       01 00 00 00     nop                                  ;
+
+  ; ... snip, removed code of ctor and copy ctor ...
+
+
+
 ; vim: ft=asm
 

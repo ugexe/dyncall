@@ -2168,5 +2168,94 @@ main:
 
 
 
+; ---------- C++ trivial and non-trivial aggrs passed to C funcs ---------->
+;
+; struct Trivial { int a; };
+; struct NonTrivial { int a; NonTrivial() : a(0) {} NonTrivial(const NonTrivial& rhs) : a(rhs.a) { } };
+;
+; extern "C" {
+; 
+;     void f1(struct Trivial s)    { }
+;     void f2(struct NonTrivial s) { }
+;
+;     void f()
+;     {
+;         struct Trivial t;
+;         struct NonTrivial n;
+;         int a=1;
+;         a += 123;
+;         f1(t);
+;         a -= 123;
+;         f2(n);
+;         a -= 12;
+;     }
+; }
+
+
+
+; output from freebsd-13.0_r348764-arm64 w/ clang 8.0.0
+
+0000000000210250 f1:
+  210250:       ff 43 00 d1     sub     sp, sp, #16
+  210254:       e8 33 00 91     add     x8, sp, #12
+  210258:       e9 03 00 2a     mov     w9, w0
+  21025c:       09 01 00 b9     str     w9, [x8]
+  210260:       ff 43 00 91     add     sp, sp, #16
+  210264:       c0 03 5f d6     ret
+
+0000000000210268 f2:
+  210268:       c0 03 5f d6     ret
+
+000000000021026c f:
+  21026c:       ff 43 01 d1     sub     sp, sp, #80                  ;
+  210270:       fd 7b 04 a9     stp     x29, x30, [sp, #64]          ;
+  210274:       fd 03 01 91     add     x29, sp, #64                 ;
+  210278:       e8 03 00 32     orr     w8, wzr, #0x1                ;
+  21027c:       e2 03 7e b2     orr     x2, xzr, #0x4                ;
+  210280:       a1 13 00 d1     sub     x1, x29, #4                  ;
+  210284:       a9 23 00 d1     sub     x9, x29, #8                  ;
+  210288:       aa 43 00 d1     sub     x10, x29, #16                ;
+  21028c:       ab 53 00 d1     sub     x11, x29, #20                ;
+  210290:       e0 03 09 aa     mov     x0, x9                       ;
+  210294:       a8 83 1e b8     stur    w8, [x29, #-24]              ;
+  210298:       e2 13 00 f9     str     x2, [sp, #32]                ;
+  21029c:       e1 0f 00 f9     str     x1, [sp, #24]                ;
+  2102a0:       e9 0b 00 f9     str     x9, [sp, #16]                ;
+  2102a4:       ea 07 00 f9     str     x10, [sp, #8]                ;
+  2102a8:       eb 03 00 f9     str     x11, [sp]                    ;
+  2102ac:       1f 00 00 94     bl      #124 <_ZN10NonTrivialC2Ev>   ;
+  2102b0:       a8 83 5e b8     ldur    w8, [x29, #-24]              ;
+  2102b4:       a8 43 1f b8     stur    w8, [x29, #-12]              ;
+  2102b8:       ac 43 5f b8     ldur    w12, [x29, #-12]             ;
+  2102bc:       8c ed 01 11     add     w12, w12, #123               ;
+  2102c0:       ac 43 1f b8     stur    w12, [x29, #-12]             ;
+  2102c4:       e0 07 40 f9     ldr     x0, [sp, #8]                 ;
+  2102c8:       e1 0f 40 f9     ldr     x1, [sp, #24]                ;
+  2102cc:       e2 13 40 f9     ldr     x2, [sp, #32]                ;
+  2102d0:       50 00 00 94     bl      #320 <memcpy@plt>            ;
+  2102d4:       e9 07 40 f9     ldr     x9, [sp, #8]                 ;
+  2102d8:       28 01 40 b9     ldr     w8, [x9]                     ;
+  2102dc:       ea 03 08 2a     mov     w10, w8                      ;
+  2102e0:       40 7d 40 d3     ubfx    x0, x10, #0, #32             ;
+  2102e4:       db ff ff 97     bl      #-148 <f1>                   ;
+  2102e8:       a8 43 5f b8     ldur    w8, [x29, #-12]              ;
+  2102ec:       08 ed 01 71     subs    w8, w8, #123                 ;
+  2102f0:       a8 43 1f b8     stur    w8, [x29, #-12]              ;
+  2102f4:       e0 03 40 f9     ldr     x0, [sp]                     ; |               ptr to dest of copy of n
+  2102f8:       e1 0b 40 f9     ldr     x1, [sp, #16]                ; | copy n        ptr to n
+  2102fc:       11 00 00 94     bl      #68 <_ZN10NonTrivialC2ERKS_> ; |               NonTrivial::NonTrivial(const NonTrivial&) / copy ctor
+  210300:       e0 03 40 f9     ldr     x0, [sp]                     ; f2 arg 0 (ptr to copy of struct NonTrivial), via ptr as non-trivial
+  210304:       d9 ff ff 97     bl      #-156 <f2>                   ; call f2(struct NonTrivial)
+  210308:       a8 43 5f b8     ldur    w8, [x29, #-12]              ;
+  21030c:       08 31 00 71     subs    w8, w8, #12                  ;
+  210310:       a8 43 1f b8     stur    w8, [x29, #-12]              ;
+  210314:       fd 7b 44 a9     ldp     x29, x30, [sp, #64]          ;
+  210318:       ff 43 01 91     add     sp, sp, #80                  ;
+  21031c:       c0 03 5f d6     ret                                  ;
+
+  ; ... snip, removed code of ctor and copy ctor ...
+
+
+
 ; vim: ft=asm68k
 

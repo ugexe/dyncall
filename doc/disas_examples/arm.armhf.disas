@@ -613,5 +613,88 @@
 
 
 
+; ---------- C++ trivial and non-trivial aggrs passed to C funcs ---------->
+;
+; struct Trivial { int a; };
+; struct NonTrivial { int a; NonTrivial() : a(0) {} NonTrivial(const NonTrivial& rhs) : a(rhs.a) { } };
+;
+; extern "C" {
+; 
+;     void f1(struct Trivial s)    { }
+;     void f2(struct NonTrivial s) { }
+;
+;     void f()
+;     {
+;         struct Trivial t;
+;         struct NonTrivial n;
+;         int a=1;
+;         a += 123;
+;         f1(t);
+;         a -= 123;
+;         f2(n);
+;         a -= 12;
+;     }
+; }
+
+
+
+; output from raspbian-11-armelhf w/ gcc 10.2.1
+
+00000000 <f1>:
+   0:   e52db004        push    {fp}
+   4:   e28db000        add     fp, sp, #0
+   8:   e24dd00c        sub     sp, sp, #12
+   c:   e50b0008        str     r0, [fp, #-8]
+  10:   e1a00000        nop
+  14:   e28bd000        add     sp, fp, #0
+  18:   e49db004        pop     {fp}
+  1c:   e12fff1e        bx      lr
+
+00000020 <f2>:
+  20:   e52db004        push    {fp}
+  24:   e28db000        add     fp, sp, #0
+  28:   e24dd00c        sub     sp, sp, #12
+  2c:   e50b0008        str     r0, [fp, #-8]
+  30:   e1a00000        nop
+  34:   e28bd000        add     sp, fp, #0
+  38:   e49db004        pop     {fp}
+  3c:   e12fff1e        bx      lr
+
+00000040 <f>:
+  40:   e92d4800        push    {fp, lr}                   ; |
+  44:   e28db004        add     fp, sp, #4                 ; | prolog
+  48:   e24dd010        sub     sp, sp, #16                ; /
+  4c:   e24b3014        sub     r3, fp, #20                ; \
+  50:   e1a00003        mov     r0, r3                     ; | this ptr (ptr to n's (NonTrivial) space)
+  54:   ebfffffe        bl      0 <_ZN10NonTrivialC1Ev>    ; | NonTrivial::NonTrivial() / ctor
+  58:   e3a03001        mov     r3, #1                     ; a = 1
+  5c:   e50b3008        str     r3, [fp, #-8]              ; |
+  60:   e51b3008        ldr     r3, [fp, #-8]              ; | a += 123
+  64:   e283307b        add     r3, r3, #123               ; |
+  68:   e50b3008        str     r3, [fp, #-8]              ; |
+  6c:   e51b0010        ldr     r0, [fp, #-16]             ; f1 arg 0 (struct Trivial), via reg as small struct
+  70:   ebfffffe        bl      0 <f1>                     ; call f1(struct Trivial)
+  74:   e51b3008        ldr     r3, [fp, #-8]              ; |
+  78:   e243307b        sub     r3, r3, #123               ; | a -= 123
+  7c:   e50b3008        str     r3, [fp, #-8]              ; /
+  80:   e24b2014        sub     r2, fp, #20                ; \
+  84:   e24b300c        sub     r3, fp, #12                ; |
+  88:   e1a01002        mov     r1, r2                     ; |               ptr to n
+  8c:   e1a00003        mov     r0, r3                     ; | copy n        ptr to dest of copy of n
+  90:   ebfffffe        bl      0 <_ZN10NonTrivialC1ERKS_> ; /               NonTrivial::NonTrivial(const NonTrivial&) / copy ctor
+  94:   e24b300c        sub     r3, fp, #12                ; \
+  98:   e1a00003        mov     r0, r3                     ; | f2 arg 0 (ptr to copy of struct NonTrivial), via ptr as non-trivial
+  9c:   ebfffffe        bl      20 <f2>                    ; call f2(struct NonTrivial)
+  a0:   e51b3008        ldr     r3, [fp, #-8]              ; |
+  a4:   e243300c        sub     r3, r3, #12                ; | a -= 12
+  a8:   e50b3008        str     r3, [fp, #-8]              ; /
+  ac:   e1a00000        nop                                ; \
+  b0:   e24bd004        sub     sp, fp, #4                 ; | epilog
+  b4:   e8bd8800        pop     {fp, pc}                   ; |
+
+  ; ... snip, removed code of ctor and copy ctor ...
+
+
+
 ; vim: ft=asm68k
 

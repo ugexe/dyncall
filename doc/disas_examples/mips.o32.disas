@@ -1754,5 +1754,113 @@
 
 
 
+; ---------- C++ trivial and non-trivial aggrs passed to C funcs ---------->
+;
+; struct Trivial { int a; };
+; struct NonTrivial { int a; NonTrivial() : a(0) {} NonTrivial(const NonTrivial& rhs) : a(rhs.a) { } };
+;
+; extern "C" {
+; 
+;     void f1(struct Trivial s)    { }
+;     void f2(struct NonTrivial s) { }
+;
+;     void f()
+;     {
+;         struct Trivial t;
+;         struct NonTrivial n;
+;         int a=1;
+;         a += 123;
+;         f1(t);
+;         a -= 123;
+;         f2(n);
+;         a -= 12;
+;     }
+; }
+
+
+
+; output from freebsd-12.0_r333647-malta_mipsebhf w/ gcc 4.2.1 *and* -mhard-float ----->
+
+004008c0 <f1>:
+  4008c0:       3c1c0002        lui     gp,0x2
+  4008c4:       279c8330        addiu   gp,gp,-31952
+  4008c8:       0399e021        addu    gp,gp,t9
+  4008cc:       27bdfff8        addiu   sp,sp,-8
+  4008d0:       afbe0000        sw      s8,0(sp)
+  4008d4:       03a0f021        move    s8,sp
+  4008d8:       afc40008        sw      a0,8(s8)
+  4008dc:       03c0e821        move    sp,s8
+  4008e0:       8fbe0000        lw      s8,0(sp)
+  4008e4:       03e00008        jr      ra
+  4008e8:       27bd0008        addiu   sp,sp,8
+
+004008ec <f2>:
+  4008ec:       3c1c0002        lui     gp,0x2
+  4008f0:       279c8304        addiu   gp,gp,-31996
+  4008f4:       0399e021        addu    gp,gp,t9
+  4008f8:       27bdfff8        addiu   sp,sp,-8
+  4008fc:       afbe0000        sw      s8,0(sp)
+  400900:       03a0f021        move    s8,sp
+  400904:       afc40008        sw      a0,8(s8)
+  400908:       03c0e821        move    sp,s8
+  40090c:       8fbe0000        lw      s8,0(sp)
+  400910:       03e00008        jr      ra
+  400914:       27bd0008        addiu   sp,sp,8
+
+00400918 <f>:
+  400918:       3c1c0002        lui     gp,0x2        ;
+  40091c:       279c82d8        addiu   gp,gp,-32040  ;
+  400920:       0399e021        addu    gp,gp,t9      ;
+  400924:       27bdffd0        addiu   sp,sp,-48     ;
+  400928:       afbf002c        sw      ra,44(sp)     ;
+  40092c:       afbe0028        sw      s8,40(sp)     ;
+  400930:       03a0f021        move    s8,sp         ;
+  400934:       afbc0010        sw      gp,16(sp)     ;
+  400938:       27c20024        addiu   v0,s8,36      ;
+  40093c:       00402021        move    a0,v0         ;
+  400940:       8f998064        lw      t9,-32668(gp) ; |
+  400944:       0320f809        jalr    t9            ; | NonTrivial::NonTrivial() / ctor
+  400948:       00000000        nop                   ;
+  40094c:       8fdc0010        lw      gp,16(s8)     ;
+  400950:       24020001        li      v0,1          ;
+  400954:       afc20018        sw      v0,24(s8)     ;
+  400958:       8fc20018        lw      v0,24(s8)     ;
+  40095c:       2442007b        addiu   v0,v0,123     ;
+  400960:       afc20018        sw      v0,24(s8)     ;
+  400964:       8fc40020        lw      a0,32(s8)     ;
+  400968:       8f998060        lw      t9,-32672(gp) ; |
+  40096c:       0320f809        jalr    t9            ; | call f1(struct Trivial)
+  400970:       00000000        nop                   ;
+  400974:       8fdc0010        lw      gp,16(s8)     ;
+  400978:       8fc20018        lw      v0,24(s8)     ;
+  40097c:       2442ff85        addiu   v0,v0,-123    ;
+  400980:       afc20018        sw      v0,24(s8)     ;
+  400984:       27c2001c        addiu   v0,s8,28      ;
+  400988:       27c30024        addiu   v1,s8,36      ;
+  40098c:       00402021        move    a0,v0         ; |               ptr to dest of copy of n
+  400990:       00602821        move    a1,v1         ; |               ptr to n
+  400994:       8f998050        lw      t9,-32688(gp) ; | copy n        |
+  400998:       0320f809        jalr    t9            ; |               | NonTrivial::NonTrivial(const NonTrivial&) / copy ctor
+  40099c:       00000000        nop                   ;
+  4009a0:       8fdc0010        lw      gp,16(s8)     ;
+  4009a4:       27c2001c        addiu   v0,s8,28      ; get ptr to copy of n -> v0
+  4009a8:       00402021        move    a0,v0         ; f2 arg 0 (ptr to copy of struct NonTrivial), via ptr as non-trivial
+  4009ac:       8f998058        lw      t9,-32680(gp) ; |
+  4009b0:       0320f809        jalr    t9            ; | call f2(struct NonTrivial)
+  4009b4:       00000000        nop                   ;
+  4009b8:       8fdc0010        lw      gp,16(s8)     ;
+  4009bc:       8fc20018        lw      v0,24(s8)     ;
+  4009c0:       2442fff4        addiu   v0,v0,-12     ;
+  4009c4:       afc20018        sw      v0,24(s8)     ;
+  4009c8:       03c0e821        move    sp,s8         ;
+  4009cc:       8fbf002c        lw      ra,44(sp)     ;
+  4009d0:       8fbe0028        lw      s8,40(sp)     ;
+  4009d4:       03e00008        jr      ra            ;
+  4009d8:       27bd0030        addiu   sp,sp,48      ;
+
+  ; ... snip, removed code of ctor and copy ctor ...
+
+
+
 ; vim: ft=asm
 

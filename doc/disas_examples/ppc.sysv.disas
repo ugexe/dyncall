@@ -1114,5 +1114,95 @@
 
 
 
+; ---------- C++ trivial and non-trivial aggrs passed to C funcs ---------->
+;
+; struct Trivial { int a; };
+; struct NonTrivial { int a; NonTrivial() : a(0) {} NonTrivial(const NonTrivial& rhs) : a(rhs.a) { } };
+;
+; extern "C" {
+; 
+;     void f1(struct Trivial s)    { }
+;     void f2(struct NonTrivial s) { }
+;
+;     void f()
+;     {
+;         struct Trivial t;
+;         struct NonTrivial n;
+;         int a=1;
+;         a += 123;
+;         f1(t);
+;         a -= 123;
+;         f2(n);
+;         a -= 12;
+;     }
+; }
+
+
+
+; output from debian-4.1.1-21-ppc w/ gcc 4.1.2
+
+100003e0 <f1>:
+100003e0:       94 21 ff f0     stwu    r1,-16(r1)
+100003e4:       93 e1 00 0c     stw     r31,12(r1)
+100003e8:       7c 3f 0b 78     mr      r31,r1
+100003ec:       81 61 00 00     lwz     r11,0(r1)
+100003f0:       83 eb ff fc     lwz     r31,-4(r11)
+100003f4:       7d 61 5b 78     mr      r1,r11
+100003f8:       4e 80 00 20     blr
+
+100003fc <f2>:
+100003fc:       94 21 ff e0     stwu    r1,-32(r1)
+10000400:       93 e1 00 1c     stw     r31,28(r1)
+10000404:       7c 3f 0b 78     mr      r31,r1
+10000408:       90 7f 00 08     stw     r3,8(r31)
+1000040c:       81 61 00 00     lwz     r11,0(r1)
+10000410:       83 eb ff fc     lwz     r31,-4(r11)
+10000414:       7d 61 5b 78     mr      r1,r11
+10000418:       4e 80 00 20     blr
+
+1000041c <f>:
+1000041c:       94 21 ff d0     stwu    r1,-48(r1)                        ;
+10000420:       7c 08 02 a6     mflr    r0                                ;
+10000424:       93 e1 00 2c     stw     r31,44(r1)                        ;
+10000428:       90 01 00 34     stw     r0,52(r1)                         ;
+1000042c:       7c 3f 0b 78     mr      r31,r1                            ;
+10000430:       38 1f 00 14     addi    r0,r31,20                         ;
+10000434:       7c 03 03 78     mr      r3,r0                             ;
+10000438:       48 00 00 a1     bl      100004d8 <_ZN10NonTrivialC1Ev>    ; NonTrivial::NonTrivial() / ctor
+1000043c:       38 00 00 01     li      r0,1                              ;
+10000440:       90 1f 00 08     stw     r0,8(r31)                         ;
+10000444:       81 3f 00 08     lwz     r9,8(r31)                         ;
+10000448:       38 09 00 7b     addi    r0,r9,123                         ;
+1000044c:       90 1f 00 08     stw     r0,8(r31)                         ;
+10000450:       80 1f 00 10     lwz     r0,16(r31)                        ;
+10000454:       90 1f 00 18     stw     r0,24(r31)                        ;
+10000458:       38 1f 00 18     addi    r0,r31,24                         ;
+1000045c:       7c 03 03 78     mr      r3,r0                             ;
+10000460:       4b ff ff 81     bl      100003e0 <f1>                     ; call f1(struct Trivial)
+10000464:       81 3f 00 08     lwz     r9,8(r31)                         ;
+10000468:       38 09 ff 85     addi    r0,r9,-123                        ;
+1000046c:       90 1f 00 08     stw     r0,8(r31)                         ;
+10000470:       38 1f 00 0c     addi    r0,r31,12                         ;
+10000474:       39 3f 00 14     addi    r9,r31,20                         ;
+10000478:       7c 03 03 78     mr      r3,r0                             ; |               ptr to dest of copy of n
+1000047c:       7d 24 4b 78     mr      r4,r9                             ; | copy n        ptr to n
+10000480:       48 00 00 85     bl      10000504 <_ZN10NonTrivialC1ERKS_> ; /               NonTrivial::NonTrivial(const NonTrivial&) / copy ctor
+10000484:       38 1f 00 0c     addi    r0,r31,12                         ; \
+10000488:       7c 03 03 78     mr      r3,r0                             ; | f2 arg 0 (ptr to copy of struct NonTrivial), via ptr as non-trivial
+1000048c:       4b ff ff 71     bl      100003fc <f2>                     ; call f2(struct NonTrivial)
+10000490:       81 3f 00 08     lwz     r9,8(r31)                         ;
+10000494:       38 09 ff f4     addi    r0,r9,-12                         ;
+10000498:       90 1f 00 08     stw     r0,8(r31)                         ;
+1000049c:       81 61 00 00     lwz     r11,0(r1)                         ;
+100004a0:       80 0b 00 04     lwz     r0,4(r11)                         ;
+100004a4:       7c 08 03 a6     mtlr    r0                                ;
+100004a8:       83 eb ff fc     lwz     r31,-4(r11)                       ;
+100004ac:       7d 61 5b 78     mr      r1,r11                            ;
+100004b0:       4e 80 00 20     blr                                       ;
+
+  ; ... snip, removed code of ctor and copy ctor ...
+
+
+
 ; vim: ft=asm68k
 

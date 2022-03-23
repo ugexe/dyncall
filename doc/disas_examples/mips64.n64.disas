@@ -3233,5 +3233,118 @@
 
 
 
+; ---------- C++ trivial and non-trivial aggrs passed to C funcs ---------->
+;
+; struct Trivial { int a; };
+; struct NonTrivial { int a; NonTrivial() : a(0) {} NonTrivial(const NonTrivial& rhs) : a(rhs.a) { } };
+;
+; extern "C" {
+; 
+;     void f1(struct Trivial s)    { }
+;     void f2(struct NonTrivial s) { }
+;
+;     void f()
+;     {
+;         struct Trivial t;
+;         struct NonTrivial n;
+;         int a=1;
+;         a += 123;
+;         f1(t);
+;         a -= 123;
+;         f2(n);
+;         a -= 12;
+;     }
+; }
+
+
+
+; output from freebsd-12.0_r333647-malta_mips64ebhf w/ gcc 4.2.1 *and* -mhard-float
+
+0000000120000b70 <f1>:
+   120000b70:   67bdffe0        daddiu  sp,sp,-32
+   120000b74:   ffbe0018        sd      s8,24(sp)
+   120000b78:   ffbc0010        sd      gp,16(sp)
+   120000b7c:   03a0f02d        move    s8,sp
+   120000b80:   3c1c0002        lui     gp,0x2
+   120000b84:   0399e02d        daddu   gp,gp,t9
+   120000b88:   679c84e0        daddiu  gp,gp,-31520
+   120000b8c:   ffc40000        sd      a0,0(s8)
+   120000b90:   03c0e82d        move    sp,s8
+   120000b94:   dfbe0018        ld      s8,24(sp)
+   120000b98:   dfbc0010        ld      gp,16(sp)
+   120000b9c:   03e00008        jr      ra
+   120000ba0:   67bd0020        daddiu  sp,sp,32
+   120000ba4:   00000000        nop
+
+0000000120000ba8 <f2>:
+   120000ba8:   67bdffe0        daddiu  sp,sp,-32
+   120000bac:   ffbe0018        sd      s8,24(sp)
+   120000bb0:   ffbc0010        sd      gp,16(sp)
+   120000bb4:   03a0f02d        move    s8,sp
+   120000bb8:   3c1c0002        lui     gp,0x2
+   120000bbc:   0399e02d        daddu   gp,gp,t9
+   120000bc0:   679c84a8        daddiu  gp,gp,-31576
+   120000bc4:   ffc40000        sd      a0,0(s8)
+   120000bc8:   03c0e82d        move    sp,s8
+   120000bcc:   dfbe0018        ld      s8,24(sp)
+   120000bd0:   dfbc0010        ld      gp,16(sp)
+   120000bd4:   03e00008        jr      ra
+   120000bd8:   67bd0020        daddiu  sp,sp,32
+   120000bdc:   00000000        nop
+
+0000000120000be0 <f>:
+   120000be0:   67bdffd0        daddiu  sp,sp,-48     ;
+   120000be4:   ffbf0020        sd      ra,32(sp)     ;
+   120000be8:   ffbe0018        sd      s8,24(sp)     ;
+   120000bec:   ffbc0010        sd      gp,16(sp)     ;
+   120000bf0:   03a0f02d        move    s8,sp         ;
+   120000bf4:   3c1c0002        lui     gp,0x2        ;
+   120000bf8:   0399e02d        daddu   gp,gp,t9      ;
+   120000bfc:   679c8470        daddiu  gp,gp,-31632  ;
+   120000c00:   67c2000c        daddiu  v0,s8,12      ;
+   120000c04:   0040202d        move    a0,v0         ;
+   120000c08:   df9980e8        ld      t9,-32536(gp) ;
+   120000c0c:   0320f809        jalr    t9            ;
+   120000c10:   00000000        nop                   ;
+   120000c14:   24020001        li      v0,1          ;
+   120000c18:   afc20000        sw      v0,0(s8)      ;
+   120000c1c:   8fc20000        lw      v0,0(s8)      ;
+   120000c20:   2442007b        addiu   v0,v0,123     ;
+   120000c24:   afc20000        sw      v0,0(s8)      ;
+   120000c28:   8fc40008        lw      a0,8(s8)      ;
+   120000c2c:   0004203c        dsll32  a0,a0,0x0     ;
+   120000c30:   df9980e0        ld      t9,-32544(gp) ;
+   120000c34:   0320f809        jalr    t9            ;
+   120000c38:   00000000        nop                   ;
+   120000c3c:   8fc20000        lw      v0,0(s8)      ;
+   120000c40:   2442ff85        addiu   v0,v0,-123    ;
+   120000c44:   afc20000        sw      v0,0(s8)      ;
+   120000c48:   67c20004        daddiu  v0,s8,4       ;
+   120000c4c:   67c3000c        daddiu  v1,s8,12      ;
+   120000c50:   0040202d        move    a0,v0         ; |               ptr to dest of copy of n
+   120000c54:   0060282d        move    a1,v1         ; |               ptr to n
+   120000c58:   df9980c0        ld      t9,-32576(gp) ; | copy n        |
+   120000c5c:   0320f809        jalr    t9            ; |               | NonTrivial::NonTrivial(const NonTrivial&) / copy ctor
+   120000c60:   00000000        nop                   ;
+   120000c64:   67c20004        daddiu  v0,s8,4       ; get ptr to copy of n -> v0
+   120000c68:   0040202d        move    a0,v0         ; f2 arg 0 (ptr to copy of struct NonTrivial), via ptr as non-trivial
+   120000c6c:   df9980d0        ld      t9,-32560(gp) ; |
+   120000c70:   0320f809        jalr    t9            ; | call f2(struct NonTrivial)
+   120000c74:   00000000        nop                   ;
+   120000c78:   8fc20000        lw      v0,0(s8)      ;
+   120000c7c:   2442fff4        addiu   v0,v0,-12     ;
+   120000c80:   afc20000        sw      v0,0(s8)      ;
+   120000c84:   03c0e82d        move    sp,s8         ;
+   120000c88:   dfbf0020        ld      ra,32(sp)     ;
+   120000c8c:   dfbe0018        ld      s8,24(sp)     ;
+   120000c90:   dfbc0010        ld      gp,16(sp)     ;
+   120000c94:   03e00008        jr      ra            ;
+   120000c98:   67bd0030        daddiu  sp,sp,48      ;
+   120000c9c:   00000000        nop                   ;
+
+  ; ... snip, removed code of ctor and copy ctor ...
+
+
+
 ; vim: ft=asm
 

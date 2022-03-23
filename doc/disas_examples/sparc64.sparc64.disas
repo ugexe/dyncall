@@ -1609,5 +1609,118 @@
 
 
 
+; ---------- C++ trivial and non-trivial aggrs passed to C funcs ---------->
+;
+; struct Trivial { int a; };
+; struct NonTrivial { int a; NonTrivial() : a(0) {} NonTrivial(const NonTrivial& rhs) : a(rhs.a) { } };
+;
+; extern "C" {
+; 
+;     void f1(struct Trivial s)    { }
+;     void f2(struct NonTrivial s) { }
+;
+;     void f()
+;     {
+;         struct Trivial t;
+;         struct NonTrivial n;
+;         int a=1;
+;         a += 123;
+;         f1(t);
+;         a -= 123;
+;         f2(n);
+;         a -= 12;
+;     }
+; }
+
+
+
+; output from openbsd-6.0-sparc64 w/ gcc 4.2.1
+
+0000000000000d20 <f1>:
+ d20:   9d e3 bf 30     save  %sp, -208, %sp
+ d24:   82 10 00 18     mov  %i0, %g1
+ d28:   83 38 70 20     srax  %g1, 0x20, %g1
+ d2c:   c4 07 a8 7f     ld  [ %fp + 0x87f ], %g2
+ d30:   84 08 a0 00     and  %g2, 0, %g2
+ d34:   82 10 80 01     or  %g2, %g1, %g1
+ d38:   c2 27 a8 7f     st  %g1, [ %fp + 0x87f ]
+ d3c:   81 cf e0 08     rett  %i7 + 8
+ d40:   01 00 00 00     nop
+
+0000000000000d44 <f2>:
+ d44:   9d e3 bf 30     save  %sp, -208, %sp
+ d48:   f0 77 a8 7f     stx  %i0, [ %fp + 0x87f ]
+ d4c:   81 cf e0 08     rett  %i7 + 8
+ d50:   01 00 00 00     nop
+ d54:   ae 03 c0 17     add  %o7, %l7, %l7
+ d58:   81 c3 e0 08     retl
+ d5c:   01 00 00 00     nop
+
+0000000000000d60 <f>:
+ d60:   9d e3 bf 20     save  %sp, -224, %sp                      ;
+ d64:   2f 00 0c 00     sethi  %hi(0x300000), %l7                 ;
+ d68:   ae 05 e2 ac     add  %l7, 0x2ac, %l7                      ;
+ d6c:   7f ff ff fa     call  d54 <f2+0x10>                       ;
+ d70:   01 00 00 00     nop                                       ;
+ d74:   03 00 00 00     sethi  %hi(0), %g1                        ;
+ d78:   82 10 60 48     or  %g1, 0x48, %g1                        ;
+ d7c:   c2 5d c0 01     ldx  [ %l7 + %g1 ], %g1                   ;
+ d80:   c4 58 40 00     ldx  [ %g1 ], %g2                         ;
+ d84:   c4 77 a7 e7     stx  %g2, [ %fp + 0x7e7 ]                 ;
+ d88:   84 10 20 00     clr  %g2                                  ;
+ d8c:   82 07 a7 df     add  %fp, 0x7df, %g1                      ;
+ d90:   90 10 00 01     mov  %g1, %o0                             ;
+ d94:   40 14 01 13     call  5011e0 <_ZN10NonTrivialC1Ev@plt>    ; NonTrivial::NonTrivial() / ctor
+ d98:   01 00 00 00     nop                                       ;
+ d9c:   82 10 20 01     mov  1, %g1                               ;
+ da0:   c2 27 a7 db     st  %g1, [ %fp + 0x7db ]                  ;
+ da4:   c2 07 a7 db     ld  [ %fp + 0x7db ], %g1                  ;
+ da8:   82 00 60 7b     add  %g1, 0x7b, %g1                       ;
+ dac:   c2 27 a7 db     st  %g1, [ %fp + 0x7db ]                  ;
+ db0:   c2 07 a7 e3     ld  [ %fp + 0x7e3 ], %g1                  ;
+ db4:   83 30 60 00     srl  %g1, 0, %g1                          ;
+ db8:   83 28 70 20     sllx  %g1, 0x20, %g1                      ;
+ dbc:   90 10 00 01     mov  %g1, %o0                             ;
+ dc0:   40 14 01 30     call  501280 <f1@plt>                     ; call f1(struct Trivial)
+ dc4:   01 00 00 00     nop                                       ;
+ dc8:   c2 07 a7 db     ld  [ %fp + 0x7db ], %g1                  ;
+ dcc:   82 00 7f 85     add  %g1, -123, %g1                       ;
+ dd0:   c2 27 a7 db     st  %g1, [ %fp + 0x7db ]                  ;
+ dd4:   82 07 a7 d7     add  %fp, 0x7d7, %g1                      ;
+ dd8:   84 07 a7 df     add  %fp, 0x7df, %g2                      ;
+ ddc:   90 10 00 01     mov  %g1, %o0                             ; |               ptr to dest of copy of n
+ de0:   92 10 00 02     mov  %g2, %o1                             ; | copy n        ptr to n
+ de4:   40 14 00 e7     call  501180 <_ZN10NonTrivialC1ERKS_@plt> ; |               NonTrivial::NonTrivial(const NonTrivial&) / copy ctor
+ de8:   01 00 00 00     nop                                       ;
+ dec:   82 07 a7 d7     add  %fp, 0x7d7, %g1                      ; |
+ df0:   90 10 00 01     mov  %g1, %o0                             ; | f2 arg 0 (ptr to copy of struct NonTrivial), via ptr as non-trivial
+ df4:   40 14 01 03     call  501200 <f2@plt>                     ; call f2(struct NonTrivial)
+ df8:   01 00 00 00     nop                                       ;
+ dfc:   c2 07 a7 db     ld  [ %fp + 0x7db ], %g1                  ;
+ e00:   82 00 7f f4     add  %g1, -12, %g1                        ;
+ e04:   c2 27 a7 db     st  %g1, [ %fp + 0x7db ]                  ;
+ e08:   03 00 00 00     sethi  %hi(0), %g1                        ;
+ e0c:   82 10 60 48     or  %g1, 0x48, %g1                        ;
+ e10:   c2 5d c0 01     ldx  [ %l7 + %g1 ], %g1                   ;
+ e14:   c6 5f a7 e7     ldx  [ %fp + 0x7e7 ], %g3                 ;
+ e18:   c4 58 40 00     ldx  [ %g1 ], %g2                         ;
+ e1c:   86 18 c0 02     xor  %g3, %g2, %g3                        ;
+ e20:   84 10 20 00     clr  %g2                                  ;
+ e24:   82 10 00 03     mov  %g3, %g1                             ;
+ e28:   02 c8 40 08     brz  %g1, e48 <f+0xe8>                    ;
+ e2c:   01 00 00 00     nop                                       ;
+ e30:   03 00 00 00     sethi  %hi(0), %g1                        ;
+ e34:   82 10 60 40     or  %g1, 0x40, %g1                        ;
+ e38:   c2 5d c0 01     ldx  [ %l7 + %g1 ], %g1                   ;
+ e3c:   90 10 00 01     mov  %g1, %o0                             ;
+ e40:   40 14 00 d8     call  5011a0 <__stack_smash_handler@plt>  ;
+ e44:   01 00 00 00     nop                                       ;
+ e48:   81 cf e0 08     rett  %i7 + 8                             ;
+ e4c:   01 00 00 00     nop                                       ;
+
+  ; ... snip, removed code of ctor and copy ctor ...
+
+
+
 ; vim: ft=asm
 
