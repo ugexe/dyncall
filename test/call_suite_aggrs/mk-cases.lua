@@ -219,7 +219,7 @@ function mkall()
     end
 
     -- convenient dcnewstruct helper funcs
-    io.write('DCaggr* f_touchdcst'..at:sub(8)..'() {\n\tstatic DCaggr* at = NULL;\n\tif(!at) {\n\t\tat = dcNewAggr('..(#am>>1)..', sizeof('..at..'), DC_TRUE);\n\t\t')
+    io.write('DCaggr* f_touchdcst'..at:sub(8)..'() {\n\tstatic DCaggr* at = NULL;\n\tif(!at) {\n\t\tat = dcNewAggr('..(#am>>1)..', sizeof('..at..'));\n\t\t')
     for i = 1, #am, 2 do
       local m = split_array_decl(am[i+1])
       if m[2] == nil then -- need array suffixes?

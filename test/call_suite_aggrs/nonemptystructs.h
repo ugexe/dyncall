@@ -4,7 +4,7 @@ int f_cmpA1(const union  A1 *x, const union  A1 *y) { return x->m0 == y->m0 && x
 DCaggr* f_touchdcstA1() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A1), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A1));
 		AF('l',union  A1,m0,1)
 		AF('f',union  A1,m1,1)
 		AF('I',union  A1,m2,1)
@@ -23,7 +23,7 @@ int f_cmpA2(const struct A2 *x, const struct A2 *y) { return x->m0 == y->m0 && x
 DCaggr* f_touchdcstA2() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A2), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A2));
 		AF('S',struct A2,m0,1)
 		AF('c',struct A2,m1,1)
 		AF('d',struct A2,m2,1)
@@ -42,7 +42,7 @@ int f_cmpA3(const union  A3 *x, const union  A3 *y) { return x->m0 == y->m0 && x
 DCaggr* f_touchdcstA3() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(union  A3), DC_TRUE);
+		at = dcNewAggr(11, sizeof(union  A3));
 		AF('c',union  A3,m0,1)
 		AF('l',union  A3,m1,1)
 		AF('I',union  A3,m2,1)
@@ -64,7 +64,7 @@ int f_cmpA4(const struct A4 *x, const struct A4 *y) { return x->m0 == y->m0 && x
 DCaggr* f_touchdcstA4() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A4), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A4));
 		AF('I',struct A4,m0,1)
 		AF('i',struct A4,m1,1)
 		AF('j',struct A4,m2,1)
@@ -78,7 +78,7 @@ int f_cmpA5(const struct A5 *x, const struct A5 *y) { return x->m0 == y->m0 && x
 DCaggr* f_touchdcstA5() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A5), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A5));
 		AF('s',struct A5,m0,1)
 		AF('d',struct A5,m1,1)
 		AF('j',struct A5,m2,1)
@@ -93,7 +93,7 @@ int f_cmpA6(const struct A6 *x, const struct A6 *y) { return x->m0 == y->m0 && x
 DCaggr* f_touchdcstA6() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A6), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A6));
 		AF('J',struct A6,m0,1)
 		AF('S',struct A6,m1,1)
 		AF('f',struct A6,m2,1)
@@ -116,7 +116,7 @@ int f_cmpA7(const union  A7 *x, const union  A7 *y) { return x->m0 == y->m0 && x
 DCaggr* f_touchdcstA7() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A7), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A7));
 		AF('S',union  A7,m0,1)
 		AF('f',union  A7,m1,1)
 		dcCloseAggr(at);
@@ -129,7 +129,7 @@ int f_cmpA8(const union  A8 *x, const union  A8 *y) { return x->m0 == y->m0 && x
 DCaggr* f_touchdcstA8() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A8), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A8));
 		AF('p',union  A8,m0,1)
 		AF('i',union  A8,m1,1)
 		AF('I',union  A8,m2,1)
@@ -152,7 +152,7 @@ int f_cmpA9(const struct A9 *x, const struct A9 *y) { return f_cmpA8(&x->m0, &y-
 DCaggr* f_touchdcstA9() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A9), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A9));
 		AFa(struct A9,m0,1,A8)
 		AF('L',struct A9,m1,1)
 		AF('i',struct A9,m2,1)
@@ -175,7 +175,7 @@ int f_cmpA10(const struct A10 *x, const struct A10 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA10() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A10), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A10));
 		AF('J',struct A10,m0,1)
 		AF('s',struct A10,m1,1)
 		AF('l',struct A10,m2,1)
@@ -198,7 +198,7 @@ int f_cmpA11(const union  A11 *x, const union  A11 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA11() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(union  A11), DC_TRUE);
+		at = dcNewAggr(9, sizeof(union  A11));
 		AF('c',union  A11,m0,1)
 		AF('C',union  A11,m1,1)
 		AF('c',union  A11,m2,1)
@@ -218,7 +218,7 @@ int f_cmpA12(const union  A12 *x, const union  A12 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA12() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A12), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A12));
 		AF('p',union  A12,m0,1)
 		AF('j',union  A12,m1,1)
 		AF('L',union  A12,m2,1)
@@ -241,7 +241,7 @@ int f_cmpA13(const union  A13 *x, const union  A13 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA13() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A13), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A13));
 		AF('c',union  A13,m0,1)
 		AF('S',union  A13,m1,1)
 		AF('j',union  A13,m2,1)
@@ -264,7 +264,7 @@ int f_cmpA14(const union  A14 *x, const union  A14 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA14() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A14), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A14));
 		AF('I',union  A14,m0,1)
 		AF('i',union  A14,m1,1)
 		AFa(union  A14,m2,1,A13)
@@ -287,7 +287,7 @@ int f_cmpA15(const union  A15 *x, const union  A15 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA15() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A15), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A15));
 		AF('f',union  A15,m0,1)
 		AF('l',union  A15,m1,1)
 		AF('p',union  A15,m2,1)
@@ -304,7 +304,7 @@ int f_cmpA16(const struct A16 *x, const struct A16 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA16() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A16), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A16));
 		AF('c',struct A16,m0,1)
 		AF('l',struct A16,m1,1)
 		AF('L',struct A16,m2,1)
@@ -327,7 +327,7 @@ int f_cmpA17(const union  A17 *x, const union  A17 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA17() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A17), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A17));
 		AF('I',union  A17,m0,1)
 		AF('c',union  A17,m1,1)
 		AF('f',union  A17,m2,1)
@@ -350,7 +350,7 @@ int f_cmpA18(const union  A18 *x, const union  A18 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA18() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A18), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A18));
 		AF('L',union  A18,m0,1)
 		AF('j',union  A18,m1,1)
 		AF('I',union  A18,m2,1)
@@ -365,7 +365,7 @@ int f_cmpA19(const struct A19 *x, const struct A19 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA19() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A19), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A19));
 		AF('I',struct A19,m0,1)
 		AF('j',struct A19,m1,1)
 		AF('j',struct A19,m2,1)
@@ -385,7 +385,7 @@ int f_cmpA20(const union  A20 *x, const union  A20 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA20() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A20), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A20));
 		AF('L',union  A20,m0,1)
 		AF('f',union  A20,m1,1)
 		AF('c',union  A20,m2,1)
@@ -400,7 +400,7 @@ int f_cmpA21(const union  A21 *x, const union  A21 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA21() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A21), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A21));
 		AF('L',union  A21,m0,1)
 		AFa(union  A21,m1,1,A19)
 		AFa(union  A21,m2,1,A20)
@@ -423,7 +423,7 @@ int f_cmpA22(const struct A22 *x, const struct A22 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA22() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(struct A22), DC_TRUE);
+		at = dcNewAggr(11, sizeof(struct A22));
 		AF('I',struct A22,m0,1)
 		AF('I',struct A22,m1,1)
 		AF('c',struct A22,m2,1)
@@ -445,7 +445,7 @@ int f_cmpA23(const struct A23 *x, const struct A23 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA23() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A23), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A23));
 		AF('L',struct A23,m0,1)
 		AF('j',struct A23,m1,1)
 		AF('j',struct A23,m2,1)
@@ -468,7 +468,7 @@ int f_cmpA24(const struct A24 *x, const struct A24 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA24() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A24), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A24));
 		AF('c',struct A24,m0,1)
 		AF('l',struct A24,m1,1)
 		dcCloseAggr(at);
@@ -481,7 +481,7 @@ int f_cmpA25(const union  A25 *x, const union  A25 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA25() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A25), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A25));
 		AF('l',union  A25,m0,1)
 		AFa(union  A25,m1,1,A22)
 		AF('p',union  A25,m2,1)
@@ -504,7 +504,7 @@ int f_cmpA26(const union  A26 *x, const union  A26 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA26() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A26), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A26));
 		AF('l',union  A26,m0,1)
 		AF('s',union  A26,m1,1)
 		AF('i',union  A26,m2,1)
@@ -527,7 +527,7 @@ int f_cmpA27(const struct A27 *x, const struct A27 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA27() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A27), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A27));
 		AF('i',struct A27,m0,1)
 		AF('i',struct A27,m1,1)
 		AF('i',struct A27,m2,3)
@@ -543,7 +543,7 @@ int f_cmpA28(const union  A28 *x, const union  A28 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA28() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A28), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A28));
 		AF('s',union  A28,m0,1)
 		AF('S',union  A28,m1,1)
 		AF('c',union  A28,m2,1)
@@ -559,7 +559,7 @@ int f_cmpA29(const union  A29 *x, const union  A29 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA29() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A29), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A29));
 		AF('L',union  A29,m0,1)
 		AF('C',union  A29,m1,1)
 		AF('I',union  A29,m2,1)
@@ -582,7 +582,7 @@ int f_cmpA30(const union  A30 *x, const union  A30 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA30() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A30), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A30));
 		AF('s',union  A30,m0,1)
 		AF('L',union  A30,m1,1)
 		AF('s',union  A30,m2,1)
@@ -605,7 +605,7 @@ int f_cmpA31(const union  A31 *x, const union  A31 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA31() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A31), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A31));
 		AF('S',union  A31,m0,1)
 		AF('L',union  A31,m1,1)
 		AF('c',union  A31,m2,1)
@@ -622,7 +622,7 @@ int f_cmpA32(const struct A32 *x, const struct A32 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA32() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A32), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A32));
 		AF('i',struct A32,m0,1)
 		AF('S',struct A32,m1,1)
 		AFa(struct A32,m2,1,A30)
@@ -645,7 +645,7 @@ int f_cmpA33(const union  A33 *x, const union  A33 *y) { return x->m0 == y->m0; 
 DCaggr* f_touchdcstA33() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(union  A33), DC_TRUE);
+		at = dcNewAggr(1, sizeof(union  A33));
 		AF('J',union  A33,m0,1)
 		dcCloseAggr(at);
 	}
@@ -657,7 +657,7 @@ int f_cmpA34(const union  A34 *x, const union  A34 *y) { return f_cmpA33(&x->m0,
 DCaggr* f_touchdcstA34() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A34), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A34));
 		AFa(union  A34,m0,1,A33)
 		AF('J',union  A34,m1,1)
 		AF('l',union  A34,m2,1)
@@ -671,7 +671,7 @@ int f_cmpA35(const struct A35 *x, const struct A35 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA35() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A35), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A35));
 		AF('f',struct A35,m0,1)
 		AF('J',struct A35,m1,1)
 		AF('p',struct A35,m2,1)
@@ -694,7 +694,7 @@ int f_cmpA36(const struct A36 *x, const struct A36 *y) { return x->m0 == y->m0; 
 DCaggr* f_touchdcstA36() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(struct A36), DC_TRUE);
+		at = dcNewAggr(1, sizeof(struct A36));
 		AF('i',struct A36,m0,1)
 		dcCloseAggr(at);
 	}
@@ -706,7 +706,7 @@ int f_cmpA37(const struct A37 *x, const struct A37 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA37() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A37), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A37));
 		AF('l',struct A37,m0,1)
 		AF('S',struct A37,m1,1)
 		AF('l',struct A37,m2,1)
@@ -729,7 +729,7 @@ int f_cmpA38(const union  A38 *x, const union  A38 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA38() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A38), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A38));
 		AF('j',union  A38,m0,1)
 		AF('S',union  A38,m1,1)
 		dcCloseAggr(at);
@@ -742,7 +742,7 @@ int f_cmpA39(const union  A39 *x, const union  A39 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA39() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A39), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A39));
 		AF('J',union  A39,m0,1)
 		AF('p',union  A39,m1,1)
 		AF('I',union  A39,m2,1)
@@ -765,7 +765,7 @@ int f_cmpA40(const struct A40 *x, const struct A40 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA40() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A40), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A40));
 		AF('L',struct A40,m0,1)
 		AF('S',struct A40,m1,1)
 		AFa(struct A40,m2,1,A39)
@@ -781,7 +781,7 @@ int f_cmpA41(const struct A41 *x, const struct A41 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA41() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A41), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A41));
 		AF('L',struct A41,m0,1)
 		AF('S',struct A41,m1,1)
 		AF('L',struct A41,m2,1)
@@ -796,7 +796,7 @@ int f_cmpA42(const union  A42 *x, const union  A42 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA42() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A42), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A42));
 		AF('L',union  A42,m0,1)
 		AF('i',union  A42,m1,1)
 		AF('i',union  A42,m2,1)
@@ -819,7 +819,7 @@ int f_cmpA43(const struct A43 *x, const struct A43 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA43() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A43), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A43));
 		AF('s',struct A43,m0,1)
 		AF('c',struct A43,m1,1)
 		AF('j',struct A43,m2,1)
@@ -842,7 +842,7 @@ int f_cmpA44(const union  A44 *x, const union  A44 *y) { return x->m0[0] == y->m
 DCaggr* f_touchdcstA44() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A44), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A44));
 		AF('J',union  A44,m0,2)
 		AFa(union  A44,m1,1,A42)
 		AF('c',union  A44,m2,1)
@@ -858,7 +858,7 @@ int f_cmpA45(const struct A45 *x, const struct A45 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA45() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A45), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A45));
 		AF('d',struct A45,m0,1)
 		AF('C',struct A45,m1,1)
 		AF('j',struct A45,m2,1)
@@ -881,7 +881,7 @@ int f_cmpA46(const union  A46 *x, const union  A46 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA46() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A46), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A46));
 		AF('J',union  A46,m0,1)
 		AF('p',union  A46,m1,1)
 		AF('I',union  A46,m2,1)
@@ -902,7 +902,7 @@ int f_cmpA47(const union  A47 *x, const union  A47 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA47() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A47), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A47));
 		AF('s',union  A47,m0,1)
 		AF('J',union  A47,m1,1)
 		AF('C',union  A47,m2,1)
@@ -925,7 +925,7 @@ int f_cmpA48(const struct A48 *x, const struct A48 *y) { return f_cmpA44(&x->m0,
 DCaggr* f_touchdcstA48() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A48), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A48));
 		AFa(struct A48,m0,1,A44)
 		AF('L',struct A48,m1,1)
 		AF('j',struct A48,m2,1)
@@ -944,7 +944,7 @@ int f_cmpA49(const union  A49 *x, const union  A49 *y) { return x->m0 == y->m0; 
 DCaggr* f_touchdcstA49() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(union  A49), DC_TRUE);
+		at = dcNewAggr(1, sizeof(union  A49));
 		AF('S',union  A49,m0,1)
 		dcCloseAggr(at);
 	}
@@ -956,7 +956,7 @@ int f_cmpA50(const union  A50 *x, const union  A50 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA50() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A50), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A50));
 		AF('C',union  A50,m0,1)
 		AF('C',union  A50,m1,1)
 		AF('c',union  A50,m2,1)
@@ -973,7 +973,7 @@ int f_cmpA51(const union  A51 *x, const union  A51 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA51() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A51), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A51));
 		AF('c',union  A51,m0,1)
 		AFa(union  A51,m1,1,A49)
 		AF('d',union  A51,m2,3)
@@ -996,7 +996,7 @@ int f_cmpA52(const union  A52 *x, const union  A52 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA52() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A52), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A52));
 		AF('i',union  A52,m0,1)
 		AF('j',union  A52,m1,1)
 		AF('C',union  A52,m2,1)
@@ -1010,7 +1010,7 @@ int f_cmpA53(const union  A53 *x, const union  A53 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA53() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A53), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A53));
 		AF('s',union  A53,m0,1)
 		AF('J',union  A53,m1,1)
 		AF('i',union  A53,m2,1)
@@ -1028,7 +1028,7 @@ int f_cmpA54(const struct A54 *x, const struct A54 *y) { return x->m0 == y->m0; 
 DCaggr* f_touchdcstA54() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(struct A54), DC_TRUE);
+		at = dcNewAggr(1, sizeof(struct A54));
 		AF('L',struct A54,m0,1)
 		dcCloseAggr(at);
 	}
@@ -1040,7 +1040,7 @@ int f_cmpA55(const union  A55 *x, const union  A55 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA55() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(union  A55), DC_TRUE);
+		at = dcNewAggr(11, sizeof(union  A55));
 		AF('s',union  A55,m0,1)
 		AF('c',union  A55,m1,1)
 		AFa(union  A55,m2,1,A53)
@@ -1062,7 +1062,7 @@ int f_cmpA56(const struct A56 *x, const struct A56 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA56() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A56), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A56));
 		AF('J',struct A56,m0,1)
 		AF('C',struct A56,m1,1)
 		dcCloseAggr(at);
@@ -1075,7 +1075,7 @@ int f_cmpA57(const union  A57 *x, const union  A57 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA57() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(union  A57), DC_TRUE);
+		at = dcNewAggr(11, sizeof(union  A57));
 		AF('c',union  A57,m0,1)
 		AF('L',union  A57,m1,1)
 		AF('J',union  A57,m2,1)
@@ -1097,7 +1097,7 @@ int f_cmpA58(const union  A58 *x, const union  A58 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA58() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A58), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A58));
 		AF('L',union  A58,m0,1)
 		AF('f',union  A58,m1,1)
 		AF('d',union  A58,m2,1)
@@ -1120,7 +1120,7 @@ int f_cmpA59(const struct A59 *x, const struct A59 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA59() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A59), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A59));
 		AF('i',struct A59,m0,1)
 		AF('S',struct A59,m1,1)
 		AF('f',struct A59,m2,1)
@@ -1143,7 +1143,7 @@ int f_cmpA60(const union  A60 *x, const union  A60 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA60() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A60), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A60));
 		AF('i',union  A60,m0,1)
 		AF('J',union  A60,m1,1)
 		AF('s',union  A60,m2,1)
@@ -1166,7 +1166,7 @@ int f_cmpA61(const struct A61 *x, const struct A61 *y) { return x->m0 == y->m0; 
 DCaggr* f_touchdcstA61() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(struct A61), DC_TRUE);
+		at = dcNewAggr(1, sizeof(struct A61));
 		AF('c',struct A61,m0,1)
 		dcCloseAggr(at);
 	}
@@ -1178,7 +1178,7 @@ int f_cmpA62(const union  A62 *x, const union  A62 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA62() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A62), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A62));
 		AF('l',union  A62,m0,1)
 		AF('c',union  A62,m1,1)
 		AF('p',union  A62,m2,1)
@@ -1201,7 +1201,7 @@ int f_cmpA63(const struct A63 *x, const struct A63 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA63() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A63), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A63));
 		AF('L',struct A63,m0,1)
 		AF('S',struct A63,m1,1)
 		AF('S',struct A63,m2,1)
@@ -1224,7 +1224,7 @@ int f_cmpA64(const union  A64 *x, const union  A64 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA64() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A64), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A64));
 		AF('l',union  A64,m0,1)
 		AF('c',union  A64,m1,1)
 		dcCloseAggr(at);
@@ -1237,7 +1237,7 @@ int f_cmpA65(const struct A65 *x, const struct A65 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA65() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A65), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A65));
 		AF('p',struct A65,m0,1)
 		AF('C',struct A65,m1,1)
 		AF('L',struct A65,m2,1)
@@ -1252,7 +1252,7 @@ int f_cmpA66(const union  A66 *x, const union  A66 *y) { return f_cmpA64(&x->m0,
 DCaggr* f_touchdcstA66() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A66), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A66));
 		AFa(union  A66,m0,1,A64)
 		AF('L',union  A66,m1,1)
 		AF('f',union  A66,m2,1)
@@ -1275,7 +1275,7 @@ int f_cmpA67(const union  A67 *x, const union  A67 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA67() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A67), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A67));
 		AF('f',union  A67,m0,1)
 		AF('f',union  A67,m1,1)
 		AF('f',union  A67,m2,1)
@@ -1298,7 +1298,7 @@ int f_cmpA68(const struct A68 *x, const struct A68 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA68() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A68), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A68));
 		AF('s',struct A68,m0,1)
 		AF('S',struct A68,m1,1)
 		AF('l',struct A68,m2,1)
@@ -1321,7 +1321,7 @@ int f_cmpA69(const struct A69 *x, const struct A69 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA69() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A69), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A69));
 		AF('j',struct A69,m0,1)
 		AF('c',struct A69,m1,1)
 		AF('f',struct A69,m2,1)
@@ -1344,7 +1344,7 @@ int f_cmpA70(const union  A70 *x, const union  A70 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA70() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A70), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A70));
 		AF('L',union  A70,m0,1)
 		AF('s',union  A70,m1,1)
 		AF('L',union  A70,m2,1)
@@ -1362,7 +1362,7 @@ int f_cmpA71(const union  A71 *x, const union  A71 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA71() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A71), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A71));
 		AF('l',union  A71,m0,1)
 		AF('j',union  A71,m1,1)
 		AF('S',union  A71,m2,1)
@@ -1385,7 +1385,7 @@ int f_cmpA72(const union  A72 *x, const union  A72 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA72() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A72), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A72));
 		AF('I',union  A72,m0,1)
 		AF('s',union  A72,m1,1)
 		AFa(union  A72,m2,1,A70)
@@ -1408,7 +1408,7 @@ int f_cmpA73(const union  A73 *x, const union  A73 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA73() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A73), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A73));
 		AF('S',union  A73,m0,1)
 		AF('J',union  A73,m1,1)
 		AF('f',union  A73,m2,1)
@@ -1424,7 +1424,7 @@ int f_cmpA74(const struct A74 *x, const struct A74 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA74() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A74), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A74));
 		AF('p',struct A74,m0,1)
 		AF('c',struct A74,m1,1)
 		AF('S',struct A74,m2,1)
@@ -1447,7 +1447,7 @@ int f_cmpA75(const union  A75 *x, const union  A75 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA75() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A75), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A75));
 		AF('C',union  A75,m0,1)
 		AF('J',union  A75,m1,1)
 		AF('C',union  A75,m2,1)
@@ -1470,7 +1470,7 @@ int f_cmpA76(const union  A76 *x, const union  A76 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA76() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A76), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A76));
 		AF('C',union  A76,m0,1)
 		AF('c',union  A76,m1,13)
 		AF('C',union  A76,m2,1)
@@ -1485,7 +1485,7 @@ int f_cmpA77(const union  A77 *x, const union  A77 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA77() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(union  A77), DC_TRUE);
+		at = dcNewAggr(9, sizeof(union  A77));
 		AF('l',union  A77,m0,1)
 		AFa(union  A77,m1,1,A76)
 		AF('l',union  A77,m2,1)
@@ -1505,7 +1505,7 @@ int f_cmpA78(const union  A78 *x, const union  A78 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA78() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A78), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A78));
 		AF('d',union  A78,m0,1)
 		AF('C',union  A78,m1,1)
 		AF('I',union  A78,m2,1)
@@ -1523,7 +1523,7 @@ int f_cmpA79(const union  A79 *x, const union  A79 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA79() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A79), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A79));
 		AF('S',union  A79,m0,1)
 		AF('J',union  A79,m1,1)
 		AF('s',union  A79,m2,1)
@@ -1546,7 +1546,7 @@ int f_cmpA80(const struct A80 *x, const struct A80 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA80() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A80), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A80));
 		AF('S',struct A80,m0,1)
 		AF('p',struct A80,m1,1)
 		dcCloseAggr(at);
@@ -1559,7 +1559,7 @@ int f_cmpA81(const union  A81 *x, const union  A81 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA81() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A81), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A81));
 		AF('L',union  A81,m0,1)
 		AF('j',union  A81,m1,1)
 		AF('j',union  A81,m2,1)
@@ -1576,7 +1576,7 @@ int f_cmpA82(const union  A82 *x, const union  A82 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA82() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A82), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A82));
 		AF('C',union  A82,m0,1)
 		AF('s',union  A82,m1,1)
 		AF('C',union  A82,m2,1)
@@ -1594,7 +1594,7 @@ int f_cmpA83(const struct A83 *x, const struct A83 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA83() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A83), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A83));
 		AF('d',struct A83,m0,1)
 		AF('s',struct A83,m1,1)
 		AF('d',struct A83,m2,1)
@@ -1613,7 +1613,7 @@ int f_cmpA84(const union  A84 *x, const union  A84 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA84() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A84), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A84));
 		AF('l',union  A84,m0,1)
 		AF('j',union  A84,m1,1)
 		AF('f',union  A84,m2,1)
@@ -1636,7 +1636,7 @@ int f_cmpA85(const struct A85 *x, const struct A85 *y) { return f_cmpA82(&x->m0,
 DCaggr* f_touchdcstA85() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A85), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A85));
 		AFa(struct A85,m0,1,A82)
 		AF('c',struct A85,m1,1)
 		AF('s',struct A85,m2,1)
@@ -1659,7 +1659,7 @@ int f_cmpA86(const struct A86 *x, const struct A86 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA86() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A86), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A86));
 		AF('J',struct A86,m0,1)
 		AF('p',struct A86,m1,1)
 		AF('l',struct A86,m2,1)
@@ -1675,7 +1675,7 @@ int f_cmpA87(const union  A87 *x, const union  A87 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA87() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A87), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A87));
 		AF('p',union  A87,m0,1)
 		AF('L',union  A87,m1,1)
 		AF('L',union  A87,m2,1)
@@ -1698,7 +1698,7 @@ int f_cmpA88(const struct A88 *x, const struct A88 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA88() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A88), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A88));
 		AF('I',struct A88,m0,1)
 		AF('s',struct A88,m1,1)
 		dcCloseAggr(at);
@@ -1711,7 +1711,7 @@ int f_cmpA89(const struct A89 *x, const struct A89 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA89() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A89), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A89));
 		AF('f',struct A89,m0,1)
 		AF('i',struct A89,m1,1)
 		AF('i',struct A89,m2,1)
@@ -1725,7 +1725,7 @@ int f_cmpA90(const struct A90 *x, const struct A90 *y) { return x->m0 == y->m0; 
 DCaggr* f_touchdcstA90() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(struct A90), DC_TRUE);
+		at = dcNewAggr(1, sizeof(struct A90));
 		AF('j',struct A90,m0,1)
 		dcCloseAggr(at);
 	}
@@ -1737,7 +1737,7 @@ int f_cmpA91(const union  A91 *x, const union  A91 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA91() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A91), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A91));
 		AF('C',union  A91,m0,1)
 		AF('f',union  A91,m1,1)
 		AF('l',union  A91,m2,1)
@@ -1760,7 +1760,7 @@ int f_cmpA92(const struct A92 *x, const struct A92 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA92() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A92), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A92));
 		AF('J',struct A92,m0,1)
 		AF('c',struct A92,m1,1)
 		AF('l',struct A92,m2,1)
@@ -1783,7 +1783,7 @@ int f_cmpA93(const union  A93 *x, const union  A93 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA93() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A93), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A93));
 		AF('d',union  A93,m0,1)
 		AF('L',union  A93,m1,1)
 		AF('c',union  A93,m2,1)
@@ -1798,7 +1798,7 @@ int f_cmpA94(const struct A94 *x, const struct A94 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA94() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A94), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A94));
 		AF('f',struct A94,m0,1)
 		AF('S',struct A94,m1,1)
 		AF('j',struct A94,m2,1)
@@ -1821,7 +1821,7 @@ int f_cmpA95(const struct A95 *x, const struct A95 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA95() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A95), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A95));
 		AF('f',struct A95,m0,1)
 		AF('d',struct A95,m1,1)
 		AF('f',struct A95,m2,1)
@@ -1844,7 +1844,7 @@ int f_cmpA96(const union  A96 *x, const union  A96 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA96() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A96), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A96));
 		AF('c',union  A96,m0,1)
 		AF('f',union  A96,m1,1)
 		AF('j',union  A96,m2,1)
@@ -1867,7 +1867,7 @@ int f_cmpA97(const struct A97 *x, const struct A97 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA97() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A97), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A97));
 		AF('i',struct A97,m0,1)
 		AF('C',struct A97,m1,1)
 		AF('C',struct A97,m2,1)
@@ -1890,7 +1890,7 @@ int f_cmpA98(const union  A98 *x, const union  A98 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA98() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A98), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A98));
 		AF('L',union  A98,m0,1)
 		AF('i',union  A98,m1,1)
 		AF('i',union  A98,m2,1)
@@ -1905,7 +1905,7 @@ int f_cmpA99(const union  A99 *x, const union  A99 *y) { return x->m0 == y->m0 &
 DCaggr* f_touchdcstA99() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A99), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A99));
 		AF('f',union  A99,m0,1)
 		AFa(union  A99,m1,1,A96)
 		AF('I',union  A99,m2,1)
@@ -1928,7 +1928,7 @@ int f_cmpA100(const union  A100 *x, const union  A100 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA100() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(union  A100), DC_TRUE);
+		at = dcNewAggr(11, sizeof(union  A100));
 		AF('j',union  A100,m0,1)
 		AF('c',union  A100,m1,1)
 		AF('d',union  A100,m2,1)
@@ -1950,7 +1950,7 @@ int f_cmpA101(const union  A101 *x, const union  A101 *y) { return x->m0[0] == y
 DCaggr* f_touchdcstA101() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A101), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A101));
 		AF('d',union  A101,m0,2)
 		AF('C',union  A101,m1,1)
 		AF('S',union  A101,m2,1)
@@ -1965,7 +1965,7 @@ int f_cmpA102(const union  A102 *x, const union  A102 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA102() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A102), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A102));
 		AF('p',union  A102,m0,1)
 		AF('L',union  A102,m1,1)
 		AF('p',union  A102,m2,1)
@@ -1988,7 +1988,7 @@ int f_cmpA103(const union  A103 *x, const union  A103 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA103() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A103), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A103));
 		AF('C',union  A103,m0,1)
 		AF('I',union  A103,m1,1)
 		AF('j',union  A103,m2,1)
@@ -2011,7 +2011,7 @@ int f_cmpA104(const struct A104 *x, const struct A104 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA104() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A104), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A104));
 		AF('I',struct A104,m0,1)
 		AF('s',struct A104,m1,10)
 		AF('I',struct A104,m2,1)
@@ -2034,7 +2034,7 @@ int f_cmpA105(const struct A105 *x, const struct A105 *y) { return f_cmpA101(&x-
 DCaggr* f_touchdcstA105() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A105), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A105));
 		AFa(struct A105,m0,1,A101)
 		AFa(struct A105,m1,1,A102)
 		AFa(struct A105,m2,1,A103)
@@ -2057,7 +2057,7 @@ int f_cmpA106(const union  A106 *x, const union  A106 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA106() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A106), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A106));
 		AF('S',union  A106,m0,1)
 		AF('j',union  A106,m1,1)
 		AF('l',union  A106,m2,1)
@@ -2080,7 +2080,7 @@ int f_cmpA107(const struct A107 *x, const struct A107 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA107() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A107), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A107));
 		AF('J',struct A107,m0,1)
 		AF('S',struct A107,m1,1)
 		AF('c',struct A107,m2,1)
@@ -2103,7 +2103,7 @@ int f_cmpA108(const struct A108 *x, const struct A108 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA108() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A108), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A108));
 		AF('S',struct A108,m0,1)
 		AF('S',struct A108,m1,1)
 		AF('d',struct A108,m2,1)
@@ -2117,7 +2117,7 @@ int f_cmpA109(const struct A109 *x, const struct A109 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA109() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A109), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A109));
 		AF('J',struct A109,m0,1)
 		AF('c',struct A109,m1,1)
 		AF('d',struct A109,m2,1)
@@ -2140,7 +2140,7 @@ int f_cmpA110(const struct A110 *x, const struct A110 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA110() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A110), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A110));
 		AF('s',struct A110,m0,1)
 		AF('i',struct A110,m1,1)
 		AF('s',struct A110,m2,1)
@@ -2163,7 +2163,7 @@ int f_cmpA111(const union  A111 *x, const union  A111 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA111() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A111), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A111));
 		AF('d',union  A111,m0,1)
 		AFa(union  A111,m1,1,A109)
 		AF('s',union  A111,m2,1)
@@ -2186,7 +2186,7 @@ int f_cmpA112(const union  A112 *x, const union  A112 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA112() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(union  A112), DC_TRUE);
+		at = dcNewAggr(9, sizeof(union  A112));
 		AF('j',union  A112,m0,1)
 		AF('S',union  A112,m1,1)
 		AF('S',union  A112,m2,9)
@@ -2206,7 +2206,7 @@ int f_cmpA113(const union  A113 *x, const union  A113 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA113() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A113), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A113));
 		AF('i',union  A113,m0,1)
 		AF('C',union  A113,m1,1)
 		AF('s',union  A113,m2,1)
@@ -2229,7 +2229,7 @@ int f_cmpA114(const union  A114 *x, const union  A114 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA114() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A114), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A114));
 		AF('j',union  A114,m0,1)
 		AF('J',union  A114,m1,1)
 		dcCloseAggr(at);
@@ -2242,7 +2242,7 @@ int f_cmpA115(const struct A115 *x, const struct A115 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA115() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A115), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A115));
 		AF('d',struct A115,m0,1)
 		AF('s',struct A115,m1,1)
 		AF('i',struct A115,m2,1)
@@ -2265,7 +2265,7 @@ int f_cmpA116(const union  A116 *x, const union  A116 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA116() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A116), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A116));
 		AF('J',union  A116,m0,1)
 		AF('C',union  A116,m1,1)
 		AF('d',union  A116,m2,1)
@@ -2280,7 +2280,7 @@ int f_cmpA117(const struct A117 *x, const struct A117 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA117() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A117), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A117));
 		AF('L',struct A117,m0,1)
 		AF('L',struct A117,m1,1)
 		AF('J',struct A117,m2,1)
@@ -2295,7 +2295,7 @@ int f_cmpA118(const union  A118 *x, const union  A118 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA118() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A118), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A118));
 		AF('p',union  A118,m0,1)
 		AF('I',union  A118,m1,1)
 		AF('S',union  A118,m2,1)
@@ -2309,7 +2309,7 @@ int f_cmpA119(const union  A119 *x, const union  A119 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA119() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A119), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A119));
 		AF('J',union  A119,m0,1)
 		AF('i',union  A119,m1,1)
 		AF('s',union  A119,m2,1)
@@ -2332,7 +2332,7 @@ int f_cmpA120(const struct A120 *x, const struct A120 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA120() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A120), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A120));
 		AF('L',struct A120,m0,1)
 		AF('d',struct A120,m1,1)
 		AF('L',struct A120,m2,1)
@@ -2348,7 +2348,7 @@ int f_cmpA121(const union  A121 *x, const union  A121 *y) { return f_cmpA118(&x-
 DCaggr* f_touchdcstA121() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A121), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A121));
 		AFa(union  A121,m0,1,A118)
 		AF('l',union  A121,m1,1)
 		AF('c',union  A121,m2,1)
@@ -2371,7 +2371,7 @@ int f_cmpA122(const struct A122 *x, const struct A122 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA122() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A122), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A122));
 		AF('L',struct A122,m0,1)
 		AF('I',struct A122,m1,1)
 		AF('f',struct A122,m2,1)
@@ -2394,7 +2394,7 @@ int f_cmpA123(const struct A123 *x, const struct A123 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA123() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(struct A123), DC_TRUE);
+		at = dcNewAggr(1, sizeof(struct A123));
 		AF('s',struct A123,m0,1)
 		dcCloseAggr(at);
 	}
@@ -2406,7 +2406,7 @@ int f_cmpA124(const union  A124 *x, const union  A124 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA124() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A124), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A124));
 		AF('d',union  A124,m0,1)
 		AF('d',union  A124,m1,1)
 		AF('f',union  A124,m2,1)
@@ -2422,7 +2422,7 @@ int f_cmpA125(const struct A125 *x, const struct A125 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA125() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(struct A125), DC_TRUE);
+		at = dcNewAggr(7, sizeof(struct A125));
 		AF('I',struct A125,m0,1)
 		AF('J',struct A125,m1,1)
 		AF('c',struct A125,m2,1)
@@ -2440,7 +2440,7 @@ int f_cmpA126(const union  A126 *x, const union  A126 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA126() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A126), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A126));
 		AF('p',union  A126,m0,1)
 		AF('L',union  A126,m1,1)
 		AF('S',union  A126,m2,1)
@@ -2463,7 +2463,7 @@ int f_cmpA127(const struct A127 *x, const struct A127 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA127() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(struct A127), DC_TRUE);
+		at = dcNewAggr(7, sizeof(struct A127));
 		AF('L',struct A127,m0,1)
 		AF('I',struct A127,m1,1)
 		AF('J',struct A127,m2,1)
@@ -2481,7 +2481,7 @@ int f_cmpA128(const struct A128 *x, const struct A128 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA128() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(struct A128), DC_TRUE);
+		at = dcNewAggr(1, sizeof(struct A128));
 		AF('f',struct A128,m0,1)
 		dcCloseAggr(at);
 	}
@@ -2493,7 +2493,7 @@ int f_cmpA129(const struct A129 *x, const struct A129 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA129() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(struct A129), DC_TRUE);
+		at = dcNewAggr(11, sizeof(struct A129));
 		AF('f',struct A129,m0,1)
 		AFa(struct A129,m1,1,A128)
 		AF('p',struct A129,m2,1)
@@ -2515,7 +2515,7 @@ int f_cmpA130(const struct A130 *x, const struct A130 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA130() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A130), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A130));
 		AF('j',struct A130,m0,1)
 		AF('s',struct A130,m1,1)
 		AF('i',struct A130,m2,1)
@@ -2538,7 +2538,7 @@ int f_cmpA131(const struct A131 *x, const struct A131 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA131() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A131), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A131));
 		AF('d',struct A131,m0,1)
 		AFa(struct A131,m1,1,A130)
 		AF('C',struct A131,m2,1)
@@ -2557,7 +2557,7 @@ int f_cmpA132(const union  A132 *x, const union  A132 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA132() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A132), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A132));
 		AF('I',union  A132,m0,1)
 		AFa(union  A132,m1,1,A131)
 		AF('c',union  A132,m2,1)
@@ -2571,7 +2571,7 @@ int f_cmpA133(const struct A133 *x, const struct A133 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA133() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A133), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A133));
 		AF('l',struct A133,m0,1)
 		AF('s',struct A133,m1,1)
 		AF('s',struct A133,m2,1)
@@ -2594,7 +2594,7 @@ int f_cmpA134(const union  A134 *x, const union  A134 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA134() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A134), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A134));
 		AF('S',union  A134,m0,1)
 		AF('J',union  A134,m1,1)
 		AF('I',union  A134,m2,1)
@@ -2617,7 +2617,7 @@ int f_cmpA135(const union  A135 *x, const union  A135 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA135() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A135), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A135));
 		AF('f',union  A135,m0,1)
 		AF('d',union  A135,m1,1)
 		AF('p',union  A135,m2,1)
@@ -2631,7 +2631,7 @@ int f_cmpA136(const union  A136 *x, const union  A136 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA136() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A136), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A136));
 		AF('c',union  A136,m0,1)
 		AF('c',union  A136,m1,1)
 		AF('C',union  A136,m2,1)
@@ -2654,7 +2654,7 @@ int f_cmpA137(const union  A137 *x, const union  A137 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA137() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A137), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A137));
 		AF('J',union  A137,m0,1)
 		AF('L',union  A137,m1,1)
 		AF('c',union  A137,m2,1)
@@ -2671,7 +2671,7 @@ int f_cmpA138(const struct A138 *x, const struct A138 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA138() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A138), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A138));
 		AF('c',struct A138,m0,1)
 		AF('j',struct A138,m1,1)
 		AF('d',struct A138,m2,1)
@@ -2694,7 +2694,7 @@ int f_cmpA139(const union  A139 *x, const union  A139 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA139() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A139), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A139));
 		AF('p',union  A139,m0,1)
 		AFa(union  A139,m1,1,A137)
 		AF('S',union  A139,m2,1)
@@ -2712,7 +2712,7 @@ int f_cmpA140(const union  A140 *x, const union  A140 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA140() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A140), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A140));
 		AF('C',union  A140,m0,1)
 		AF('c',union  A140,m1,12)
 		AF('S',union  A140,m2,1)
@@ -2735,7 +2735,7 @@ int f_cmpA141(const union  A141 *x, const union  A141 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA141() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A141), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A141));
 		AF('I',union  A141,m0,1)
 		AF('i',union  A141,m1,1)
 		AF('c',union  A141,m2,1)
@@ -2750,7 +2750,7 @@ int f_cmpA142(const struct A142 *x, const struct A142 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA142() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A142), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A142));
 		AF('j',struct A142,m0,1)
 		AF('j',struct A142,m1,1)
 		AF('d',struct A142,m2,1)
@@ -2773,7 +2773,7 @@ int f_cmpA143(const union  A143 *x, const union  A143 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA143() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A143), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A143));
 		AF('C',union  A143,m0,1)
 		AF('J',union  A143,m1,1)
 		AF('s',union  A143,m2,1)
@@ -2796,7 +2796,7 @@ int f_cmpA144(const union  A144 *x, const union  A144 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA144() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A144), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A144));
 		AF('S',union  A144,m0,1)
 		AF('C',union  A144,m1,1)
 		AF('i',union  A144,m2,1)
@@ -2819,7 +2819,7 @@ int f_cmpA145(const union  A145 *x, const union  A145 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA145() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A145), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A145));
 		AF('S',union  A145,m0,1)
 		AF('d',union  A145,m1,1)
 		AF('J',union  A145,m2,1)
@@ -2842,7 +2842,7 @@ int f_cmpA146(const union  A146 *x, const union  A146 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA146() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(union  A146), DC_TRUE);
+		at = dcNewAggr(1, sizeof(union  A146));
 		AF('l',union  A146,m0,1)
 		dcCloseAggr(at);
 	}
@@ -2854,7 +2854,7 @@ int f_cmpA147(const union  A147 *x, const union  A147 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA147() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(union  A147), DC_TRUE);
+		at = dcNewAggr(1, sizeof(union  A147));
 		AF('L',union  A147,m0,1)
 		dcCloseAggr(at);
 	}
@@ -2866,7 +2866,7 @@ int f_cmpA148(const struct A148 *x, const struct A148 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA148() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(struct A148), DC_TRUE);
+		at = dcNewAggr(1, sizeof(struct A148));
 		AF('I',struct A148,m0,1)
 		dcCloseAggr(at);
 	}
@@ -2878,7 +2878,7 @@ int f_cmpA149(const struct A149 *x, const struct A149 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA149() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A149), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A149));
 		AF('d',struct A149,m0,1)
 		AF('i',struct A149,m1,1)
 		AF('s',struct A149,m2,1)
@@ -2901,7 +2901,7 @@ int f_cmpA150(const union  A150 *x, const union  A150 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA150() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A150), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A150));
 		AF('i',union  A150,m0,1)
 		AF('J',union  A150,m1,1)
 		AF('c',union  A150,m2,1)
@@ -2924,7 +2924,7 @@ int f_cmpA151(const struct A151 *x, const struct A151 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA151() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A151), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A151));
 		AF('d',struct A151,m0,1)
 		AF('p',struct A151,m1,1)
 		AF('I',struct A151,m2,1)
@@ -2947,7 +2947,7 @@ int f_cmpA152(const union  A152 *x, const union  A152 *y) { return x->m0[0] == y
 DCaggr* f_touchdcstA152() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A152), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A152));
 		AF('f',union  A152,m0,6)
 		AF('f',union  A152,m1,1)
 		AF('J',union  A152,m2,1)
@@ -2970,7 +2970,7 @@ int f_cmpA153(const union  A153 *x, const union  A153 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA153() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A153), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A153));
 		AF('c',union  A153,m0,1)
 		AF('I',union  A153,m1,1)
 		AF('C',union  A153,m2,1)
@@ -2991,7 +2991,7 @@ int f_cmpA154(const struct A154 *x, const struct A154 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA154() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A154), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A154));
 		AF('J',struct A154,m0,1)
 		AF('f',struct A154,m1,1)
 		AF('f',struct A154,m2,1)
@@ -3010,7 +3010,7 @@ int f_cmpA155(const union  A155 *x, const union  A155 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA155() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A155), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A155));
 		AF('J',union  A155,m0,1)
 		AF('I',union  A155,m1,1)
 		AF('i',union  A155,m2,1)
@@ -3033,7 +3033,7 @@ int f_cmpA156(const union  A156 *x, const union  A156 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA156() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A156), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A156));
 		AF('C',union  A156,m0,1)
 		AF('j',union  A156,m1,1)
 		dcCloseAggr(at);
@@ -3046,7 +3046,7 @@ int f_cmpA157(const union  A157 *x, const union  A157 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA157() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A157), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A157));
 		AF('i',union  A157,m0,1)
 		AFa(union  A157,m1,1,A154)
 		AF('C',union  A157,m2,1)
@@ -3069,7 +3069,7 @@ int f_cmpA158(const struct A158 *x, const struct A158 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA158() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A158), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A158));
 		AF('f',struct A158,m0,1)
 		AF('C',struct A158,m1,1)
 		AF('S',struct A158,m2,1)
@@ -3092,7 +3092,7 @@ int f_cmpA159(const struct A159 *x, const struct A159 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA159() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A159), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A159));
 		AF('j',struct A159,m0,1)
 		AF('j',struct A159,m1,1)
 		AF('L',struct A159,m2,1)
@@ -3106,7 +3106,7 @@ int f_cmpA160(const union  A160 *x, const union  A160 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA160() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A160), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A160));
 		AF('j',union  A160,m0,1)
 		AF('L',union  A160,m1,1)
 		AF('I',union  A160,m2,1)
@@ -3129,7 +3129,7 @@ int f_cmpA161(const struct A161 *x, const struct A161 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA161() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A161), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A161));
 		AF('l',struct A161,m0,1)
 		AF('l',struct A161,m1,1)
 		AF('d',struct A161,m2,1)
@@ -3152,7 +3152,7 @@ int f_cmpA162(const union  A162 *x, const union  A162 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA162() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A162), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A162));
 		AF('c',union  A162,m0,1)
 		AF('J',union  A162,m1,1)
 		AF('i',union  A162,m2,1)
@@ -3175,7 +3175,7 @@ int f_cmpA163(const struct A163 *x, const struct A163 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA163() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A163), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A163));
 		AF('c',struct A163,m0,1)
 		AF('C',struct A163,m1,1)
 		AF('f',struct A163,m2,1)
@@ -3198,7 +3198,7 @@ int f_cmpA164(const union  A164 *x, const union  A164 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA164() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A164), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A164));
 		AF('s',union  A164,m0,1)
 		AFa(union  A164,m1,1,A162)
 		AF('s',union  A164,m2,1)
@@ -3221,7 +3221,7 @@ int f_cmpA165(const union  A165 *x, const union  A165 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA165() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(union  A165), DC_TRUE);
+		at = dcNewAggr(1, sizeof(union  A165));
 		AF('j',union  A165,m0,1)
 		dcCloseAggr(at);
 	}
@@ -3233,7 +3233,7 @@ int f_cmpA166(const struct A166 *x, const struct A166 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA166() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A166), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A166));
 		AF('S',struct A166,m0,1)
 		AF('d',struct A166,m1,12)
 		AF('I',struct A166,m2,1)
@@ -3250,7 +3250,7 @@ int f_cmpA167(const struct A167 *x, const struct A167 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA167() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A167), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A167));
 		AF('j',struct A167,m0,1)
 		AF('I',struct A167,m1,1)
 		AF('L',struct A167,m2,1)
@@ -3273,7 +3273,7 @@ int f_cmpA168(const struct A168 *x, const struct A168 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA168() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A168), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A168));
 		AF('J',struct A168,m0,1)
 		AF('c',struct A168,m1,1)
 		AF('I',struct A168,m2,1)
@@ -3289,7 +3289,7 @@ int f_cmpA169(const union  A169 *x, const union  A169 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA169() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A169), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A169));
 		AF('i',union  A169,m0,1)
 		AF('S',union  A169,m1,1)
 		AFa(union  A169,m2,1,A166)
@@ -3312,7 +3312,7 @@ int f_cmpA170(const struct A170 *x, const struct A170 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA170() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(struct A170), DC_TRUE);
+		at = dcNewAggr(10, sizeof(struct A170));
 		AF('J',struct A170,m0,1)
 		AF('L',struct A170,m1,1)
 		AF('c',struct A170,m2,1)
@@ -3333,7 +3333,7 @@ int f_cmpA171(const union  A171 *x, const union  A171 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA171() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A171), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A171));
 		AF('I',union  A171,m0,1)
 		AF('J',union  A171,m1,1)
 		AF('d',union  A171,m2,1)
@@ -3348,7 +3348,7 @@ int f_cmpA172(const struct A172 *x, const struct A172 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA172() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A172), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A172));
 		AF('J',struct A172,m0,1)
 		AFa(struct A172,m1,1,A170)
 		AF('S',struct A172,m2,1)
@@ -3365,7 +3365,7 @@ int f_cmpA173(const union  A173 *x, const union  A173 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA173() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A173), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A173));
 		AF('I',union  A173,m0,1)
 		AF('J',union  A173,m1,1)
 		AF('S',union  A173,m2,1)
@@ -3388,7 +3388,7 @@ int f_cmpA174(const union  A174 *x, const union  A174 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA174() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(union  A174), DC_TRUE);
+		at = dcNewAggr(1, sizeof(union  A174));
 		AF('f',union  A174,m0,1)
 		dcCloseAggr(at);
 	}
@@ -3400,7 +3400,7 @@ int f_cmpA175(const struct A175 *x, const struct A175 *y) { return f_cmpA174(&x-
 DCaggr* f_touchdcstA175() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A175), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A175));
 		AFa(struct A175,m0,1,A174)
 		AF('f',struct A175,m1,1)
 		dcCloseAggr(at);
@@ -3413,7 +3413,7 @@ int f_cmpA176(const union  A176 *x, const union  A176 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA176() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A176), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A176));
 		AF('S',union  A176,m0,1)
 		AF('f',union  A176,m1,1)
 		AF('j',union  A176,m2,1)
@@ -3429,7 +3429,7 @@ int f_cmpA177(const struct A177 *x, const struct A177 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA177() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A177), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A177));
 		AF('j',struct A177,m0,1)
 		AF('I',struct A177,m1,1)
 		AF('j',struct A177,m2,1)
@@ -3449,7 +3449,7 @@ int f_cmpA178(const union  A178 *x, const union  A178 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA178() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A178), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A178));
 		AF('c',union  A178,m0,1)
 		AF('s',union  A178,m1,1)
 		AF('j',union  A178,m2,1)
@@ -3465,7 +3465,7 @@ int f_cmpA179(const union  A179 *x, const union  A179 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA179() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A179), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A179));
 		AF('J',union  A179,m0,1)
 		AF('d',union  A179,m1,1)
 		AF('j',union  A179,m2,1)
@@ -3488,7 +3488,7 @@ int f_cmpA180(const union  A180 *x, const union  A180 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA180() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A180), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A180));
 		AF('j',union  A180,m0,1)
 		AF('j',union  A180,m1,1)
 		AF('I',union  A180,m2,1)
@@ -3511,7 +3511,7 @@ int f_cmpA181(const union  A181 *x, const union  A181 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA181() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A181), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A181));
 		AF('d',union  A181,m0,1)
 		AF('i',union  A181,m1,1)
 		AF('p',union  A181,m2,1)
@@ -3530,7 +3530,7 @@ int f_cmpA182(const union  A182 *x, const union  A182 *y) { return x->m0[0] == y
 DCaggr* f_touchdcstA182() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A182), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A182));
 		AF('j',union  A182,m0,1)
 		AF('i',union  A182,m1,1)
 		AF('c',union  A182,m2,1)
@@ -3553,7 +3553,7 @@ int f_cmpA183(const union  A183 *x, const union  A183 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA183() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A183), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A183));
 		AF('j',union  A183,m0,1)
 		AF('p',union  A183,m1,1)
 		dcCloseAggr(at);
@@ -3566,7 +3566,7 @@ int f_cmpA184(const struct A184 *x, const struct A184 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA184() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A184), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A184));
 		AF('p',struct A184,m0,1)
 		AF('p',struct A184,m1,1)
 		AF('C',struct A184,m2,1)
@@ -3589,7 +3589,7 @@ int f_cmpA185(const struct A185 *x, const struct A185 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA185() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A185), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A185));
 		AF('j',struct A185,m0,1)
 		AF('I',struct A185,m1,1)
 		AF('j',struct A185,m2,1)
@@ -3608,7 +3608,7 @@ int f_cmpA186(const union  A186 *x, const union  A186 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA186() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A186), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A186));
 		AF('p',union  A186,m0,1)
 		AF('J',union  A186,m1,1)
 		AF('L',union  A186,m2,1)
@@ -3631,7 +3631,7 @@ int f_cmpA187(const struct A187 *x, const struct A187 *y) { return x->m0[0] == y
 DCaggr* f_touchdcstA187() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A187), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A187));
 		AF('S',struct A187,m0,7)
 		AF('f',struct A187,m1,1)
 		AF('c',struct A187,m2,1)
@@ -3654,7 +3654,7 @@ int f_cmpA188(const union  A188 *x, const union  A188 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA188() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A188), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A188));
 		AF('f',union  A188,m0,1)
 		AF('I',union  A188,m1,1)
 		AF('I',union  A188,m2,1)
@@ -3677,7 +3677,7 @@ int f_cmpA189(const union  A189 *x, const union  A189 *y) { return f_cmpA90(&x->
 DCaggr* f_touchdcstA189() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A189), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A189));
 		AFa(union  A189,m0,1,A90)
 		AF('I',union  A189,m1,1)
 		AF('f',union  A189,m2,1)
@@ -3700,7 +3700,7 @@ int f_cmpA190(const union  A190 *x, const union  A190 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA190() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A190), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A190));
 		AF('I',union  A190,m0,1)
 		AF('p',union  A190,m1,1)
 		AF('C',union  A190,m2,4)
@@ -3723,7 +3723,7 @@ int f_cmpA191(const struct A191 *x, const struct A191 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA191() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A191), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A191));
 		AF('i',struct A191,m0,1)
 		AF('I',struct A191,m1,1)
 		AF('c',struct A191,m2,1)
@@ -3746,7 +3746,7 @@ int f_cmpA192(const union  A192 *x, const union  A192 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA192() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A192), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A192));
 		AF('J',union  A192,m0,1)
 		AF('C',union  A192,m1,1)
 		AF('S',union  A192,m2,1)
@@ -3769,7 +3769,7 @@ int f_cmpA193(const struct A193 *x, const struct A193 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA193() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A193), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A193));
 		AF('c',struct A193,m0,1)
 		AF('j',struct A193,m1,1)
 		AF('j',struct A193,m2,1)
@@ -3786,7 +3786,7 @@ int f_cmpA194(const union  A194 *x, const union  A194 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA194() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(union  A194), DC_TRUE);
+		at = dcNewAggr(11, sizeof(union  A194));
 		AF('d',union  A194,m0,1)
 		AFa(union  A194,m1,1,A191)
 		AF('d',union  A194,m2,1)
@@ -3808,7 +3808,7 @@ int f_cmpA195(const struct A195 *x, const struct A195 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA195() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A195), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A195));
 		AF('I',struct A195,m0,1)
 		AF('d',struct A195,m1,1)
 		AF('J',struct A195,m2,1)
@@ -3831,7 +3831,7 @@ int f_cmpA196(const union  A196 *x, const union  A196 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA196() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A196), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A196));
 		AF('S',union  A196,m0,1)
 		AF('C',union  A196,m1,1)
 		AF('S',union  A196,m2,1)
@@ -3846,7 +3846,7 @@ int f_cmpA197(const struct A197 *x, const struct A197 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA197() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A197), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A197));
 		AF('j',struct A197,m0,1)
 		AF('p',struct A197,m1,1)
 		AF('C',struct A197,m2,1)
@@ -3869,7 +3869,7 @@ int f_cmpA198(const struct A198 *x, const struct A198 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA198() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A198), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A198));
 		AF('c',struct A198,m0,1)
 		AF('s',struct A198,m1,1)
 		AF('d',struct A198,m2,1)
@@ -3884,7 +3884,7 @@ int f_cmpA199(const struct A199 *x, const struct A199 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA199() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A199), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A199));
 		AF('f',struct A199,m0,1)
 		AFa(struct A199,m1,1,A196)
 		AFa(struct A199,m2,1,A197)
@@ -3907,7 +3907,7 @@ int f_cmpA200(const struct A200 *x, const struct A200 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA200() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A200), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A200));
 		AF('S',struct A200,m0,1)
 		AF('c',struct A200,m1,1)
 		AF('f',struct A200,m2,1)
@@ -3922,7 +3922,7 @@ int f_cmpA201(const union  A201 *x, const union  A201 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA201() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A201), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A201));
 		AF('S',union  A201,m0,1)
 		AF('d',union  A201,m1,1)
 		AF('I',union  A201,m2,1)
@@ -3945,7 +3945,7 @@ int f_cmpA202(const union  A202 *x, const union  A202 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA202() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A202), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A202));
 		AF('S',union  A202,m0,1)
 		AF('l',union  A202,m1,1)
 		AF('j',union  A202,m2,1)
@@ -3968,7 +3968,7 @@ int f_cmpA203(const union  A203 *x, const union  A203 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA203() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A203), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A203));
 		AF('C',union  A203,m0,1)
 		AF('p',union  A203,m1,1)
 		AF('p',union  A203,m2,1)
@@ -3991,7 +3991,7 @@ int f_cmpA204(const union  A204 *x, const union  A204 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA204() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A204), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A204));
 		AF('l',union  A204,m0,1)
 		AF('C',union  A204,m1,1)
 		AF('c',union  A204,m2,1)
@@ -4014,7 +4014,7 @@ int f_cmpA205(const union  A205 *x, const union  A205 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA205() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A205), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A205));
 		AF('J',union  A205,m0,1)
 		AF('L',union  A205,m1,1)
 		AF('C',union  A205,m2,1)
@@ -4030,7 +4030,7 @@ int f_cmpA206(const union  A206 *x, const union  A206 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA206() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A206), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A206));
 		AF('f',union  A206,m0,1)
 		AF('d',union  A206,m1,1)
 		AF('c',union  A206,m2,1)
@@ -4053,7 +4053,7 @@ int f_cmpA207(const union  A207 *x, const union  A207 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA207() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(union  A207), DC_TRUE);
+		at = dcNewAggr(11, sizeof(union  A207));
 		AF('J',union  A207,m0,1)
 		AF('I',union  A207,m1,1)
 		AF('d',union  A207,m2,1)
@@ -4075,7 +4075,7 @@ int f_cmpA208(const struct A208 *x, const struct A208 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA208() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A208), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A208));
 		AF('l',struct A208,m0,1)
 		AF('f',struct A208,m1,1)
 		AF('J',struct A208,m2,2)
@@ -4089,7 +4089,7 @@ int f_cmpA209(const union  A209 *x, const union  A209 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA209() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(union  A209), DC_TRUE);
+		at = dcNewAggr(9, sizeof(union  A209));
 		AF('s',union  A209,m0,1)
 		AF('i',union  A209,m1,1)
 		AF('d',union  A209,m2,1)
@@ -4109,7 +4109,7 @@ int f_cmpA210(const struct A210 *x, const struct A210 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA210() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A210), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A210));
 		AF('C',struct A210,m0,1)
 		AF('l',struct A210,m1,1)
 		AF('J',struct A210,m2,1)
@@ -4132,7 +4132,7 @@ int f_cmpA211(const union  A211 *x, const union  A211 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA211() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A211), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A211));
 		AF('j',union  A211,m0,1)
 		AF('I',union  A211,m1,1)
 		AF('J',union  A211,m2,1)
@@ -4151,7 +4151,7 @@ int f_cmpA212(const struct A212 *x, const struct A212 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA212() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(struct A212), DC_TRUE);
+		at = dcNewAggr(10, sizeof(struct A212));
 		AF('j',struct A212,m0,1)
 		AF('f',struct A212,m1,1)
 		AF('L',struct A212,m2,1)
@@ -4172,7 +4172,7 @@ int f_cmpA213(const union  A213 *x, const union  A213 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA213() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A213), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A213));
 		AF('i',union  A213,m0,1)
 		AF('f',union  A213,m1,1)
 		AF('s',union  A213,m2,1)
@@ -4193,7 +4193,7 @@ int f_cmpA214(const union  A214 *x, const union  A214 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA214() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A214), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A214));
 		AF('c',union  A214,m0,1)
 		AF('i',union  A214,m1,1)
 		AFa(union  A214,m2,1,A212)
@@ -4216,7 +4216,7 @@ int f_cmpA215(const union  A215 *x, const union  A215 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA215() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A215), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A215));
 		AF('L',union  A215,m0,1)
 		AF('d',union  A215,m1,1)
 		AF('C',union  A215,m2,1)
@@ -4230,7 +4230,7 @@ int f_cmpA216(const union  A216 *x, const union  A216 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA216() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A216), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A216));
 		AF('l',union  A216,m0,1)
 		AF('C',union  A216,m1,1)
 		AF('c',union  A216,m2,1)
@@ -4253,7 +4253,7 @@ int f_cmpA217(const struct A217 *x, const struct A217 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA217() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A217), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A217));
 		AF('i',struct A217,m0,1)
 		AF('d',struct A217,m1,1)
 		AF('C',struct A217,m2,1)
@@ -4276,7 +4276,7 @@ int f_cmpA218(const union  A218 *x, const union  A218 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA218() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A218), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A218));
 		AF('c',union  A218,m0,1)
 		AF('L',union  A218,m1,1)
 		AF('J',union  A218,m2,1)
@@ -4290,7 +4290,7 @@ int f_cmpA219(const struct A219 *x, const struct A219 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA219() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A219), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A219));
 		AF('l',struct A219,m0,1)
 		AF('I',struct A219,m1,1)
 		AF('L',struct A219,m2,1)
@@ -4305,7 +4305,7 @@ int f_cmpA220(const struct A220 *x, const struct A220 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA220() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A220), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A220));
 		AF('C',struct A220,m0,1)
 		AF('l',struct A220,m1,1)
 		AF('I',struct A220,m2,1)
@@ -4328,7 +4328,7 @@ int f_cmpA221(const struct A221 *x, const struct A221 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA221() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A221), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A221));
 		AF('S',struct A221,m0,1)
 		AF('c',struct A221,m1,1)
 		AF('l',struct A221,m2,1)
@@ -4351,7 +4351,7 @@ int f_cmpA222(const union  A222 *x, const union  A222 *y) { return f_cmpA221(&x-
 DCaggr* f_touchdcstA222() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A222), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A222));
 		AFa(union  A222,m0,1,A221)
 		AF('c',union  A222,m1,1)
 		AF('p',union  A222,m2,1)
@@ -4374,7 +4374,7 @@ int f_cmpA223(const union  A223 *x, const union  A223 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA223() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A223), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A223));
 		AF('j',union  A223,m0,1)
 		AF('s',union  A223,m1,1)
 		AF('S',union  A223,m2,1)
@@ -4391,7 +4391,7 @@ int f_cmpA224(const struct A224 *x, const struct A224 *y) { return f_cmpA220(&x-
 DCaggr* f_touchdcstA224() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(struct A224), DC_TRUE);
+		at = dcNewAggr(11, sizeof(struct A224));
 		AFa(struct A224,m0,1,A220)
 		AFa(struct A224,m1,1,A222)
 		AFa(struct A224,m2,1,A223)
@@ -4413,7 +4413,7 @@ int f_cmpA225(const struct A225 *x, const struct A225 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA225() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A225), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A225));
 		AF('S',struct A225,m0,1)
 		AF('J',struct A225,m1,1)
 		AF('l',struct A225,m2,1)
@@ -4427,7 +4427,7 @@ int f_cmpA226(const struct A226 *x, const struct A226 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA226() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A226), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A226));
 		AF('J',struct A226,m0,1)
 		AF('c',struct A226,m1,11)
 		AF('C',struct A226,m2,1)
@@ -4447,7 +4447,7 @@ int f_cmpA227(const union  A227 *x, const union  A227 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA227() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A227), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A227));
 		AF('l',union  A227,m0,1)
 		AF('l',union  A227,m1,1)
 		AF('d',union  A227,m2,1)
@@ -4470,7 +4470,7 @@ int f_cmpA228(const struct A228 *x, const struct A228 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA228() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A228), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A228));
 		AF('S',struct A228,m0,1)
 		AF('L',struct A228,m1,1)
 		AF('l',struct A228,m2,1)
@@ -4493,7 +4493,7 @@ int f_cmpA229(const union  A229 *x, const union  A229 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA229() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A229), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A229));
 		AF('L',union  A229,m0,1)
 		AF('L',union  A229,m1,1)
 		AF('J',union  A229,m2,1)
@@ -4512,7 +4512,7 @@ int f_cmpA230(const union  A230 *x, const union  A230 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA230() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A230), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A230));
 		AF('l',union  A230,m0,1)
 		AF('S',union  A230,m1,1)
 		AF('s',union  A230,m2,1)
@@ -4535,7 +4535,7 @@ int f_cmpA231(const struct A231 *x, const struct A231 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA231() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A231), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A231));
 		AF('c',struct A231,m0,1)
 		AF('L',struct A231,m1,1)
 		AF('l',struct A231,m2,1)
@@ -4558,7 +4558,7 @@ int f_cmpA232(const struct A232 *x, const struct A232 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA232() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A232), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A232));
 		AF('p',struct A232,m0,1)
 		AF('j',struct A232,m1,1)
 		AF('S',struct A232,m2,1)
@@ -4573,7 +4573,7 @@ int f_cmpA233(const union  A233 *x, const union  A233 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA233() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A233), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A233));
 		AF('c',union  A233,m0,1)
 		AF('I',union  A233,m1,1)
 		AF('d',union  A233,m2,1)
@@ -4588,7 +4588,7 @@ int f_cmpA234(const struct A234 *x, const struct A234 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA234() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A234), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A234));
 		AF('f',struct A234,m0,1)
 		AFa(struct A234,m1,1,A229)
 		AF('j',struct A234,m2,1)
@@ -4611,7 +4611,7 @@ int f_cmpA235(const union  A235 *x, const union  A235 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA235() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A235), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A235));
 		AF('d',union  A235,m0,1)
 		AF('S',union  A235,m1,1)
 		AF('p',union  A235,m2,1)
@@ -4634,7 +4634,7 @@ int f_cmpA236(const union  A236 *x, const union  A236 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA236() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A236), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A236));
 		AF('p',union  A236,m0,1)
 		AF('C',union  A236,m1,1)
 		AF('I',union  A236,m2,1)
@@ -4657,7 +4657,7 @@ int f_cmpA237(const union  A237 *x, const union  A237 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA237() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A237), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A237));
 		AF('f',union  A237,m0,1)
 		AF('J',union  A237,m1,1)
 		AF('S',union  A237,m2,1)
@@ -4680,7 +4680,7 @@ int f_cmpA238(const union  A238 *x, const union  A238 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA238() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A238), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A238));
 		AF('S',union  A238,m0,1)
 		AF('f',union  A238,m1,1)
 		AF('c',union  A238,m2,1)
@@ -4703,7 +4703,7 @@ int f_cmpA239(const struct A239 *x, const struct A239 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA239() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A239), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A239));
 		AF('d',struct A239,m0,1)
 		AF('f',struct A239,m1,1)
 		AF('I',struct A239,m2,1)
@@ -4726,7 +4726,7 @@ int f_cmpA240(const union  A240 *x, const union  A240 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA240() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A240), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A240));
 		AF('J',union  A240,m0,1)
 		AF('i',union  A240,m1,1)
 		AF('f',union  A240,m2,1)
@@ -4749,7 +4749,7 @@ int f_cmpA241(const struct A241 *x, const struct A241 *y) { return f_cmpA237(&x-
 DCaggr* f_touchdcstA241() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A241), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A241));
 		AFa(struct A241,m0,1,A237)
 		AFa(struct A241,m1,1,A238)
 		AFa(struct A241,m2,1,A239)
@@ -4772,7 +4772,7 @@ int f_cmpA242(const union  A242 *x, const union  A242 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA242() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A242), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A242));
 		AF('I',union  A242,m0,1)
 		AF('l',union  A242,m1,1)
 		AF('C',union  A242,m2,1)
@@ -4791,7 +4791,7 @@ int f_cmpA243(const union  A243 *x, const union  A243 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA243() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A243), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A243));
 		AF('j',union  A243,m0,1)
 		AF('d',union  A243,m1,1)
 		AF('J',union  A243,m2,1)
@@ -4814,7 +4814,7 @@ int f_cmpA244(const union  A244 *x, const union  A244 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA244() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A244), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A244));
 		AF('S',union  A244,m0,1)
 		AF('l',union  A244,m1,1)
 		AF('f',union  A244,m2,1)
@@ -4837,7 +4837,7 @@ int f_cmpA245(const union  A245 *x, const union  A245 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA245() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(union  A245), DC_TRUE);
+		at = dcNewAggr(11, sizeof(union  A245));
 		AF('d',union  A245,m0,1)
 		AF('p',union  A245,m1,1)
 		AF('f',union  A245,m2,1)
@@ -4859,7 +4859,7 @@ int f_cmpA246(const struct A246 *x, const struct A246 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA246() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A246), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A246));
 		AF('s',struct A246,m0,1)
 		AF('S',struct A246,m1,1)
 		AF('L',struct A246,m2,1)
@@ -4878,7 +4878,7 @@ int f_cmpA247(const union  A247 *x, const union  A247 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA247() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A247), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A247));
 		AF('p',union  A247,m0,1)
 		AF('l',union  A247,m1,1)
 		AF('i',union  A247,m2,1)
@@ -4901,7 +4901,7 @@ int f_cmpA248(const union  A248 *x, const union  A248 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA248() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A248), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A248));
 		AF('f',union  A248,m0,1)
 		AF('p',union  A248,m1,1)
 		AF('L',union  A248,m2,1)
@@ -4916,7 +4916,7 @@ int f_cmpA249(const union  A249 *x, const union  A249 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA249() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A249), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A249));
 		AF('i',union  A249,m0,1)
 		AF('j',union  A249,m1,1)
 		AF('S',union  A249,m2,1)
@@ -4939,7 +4939,7 @@ int f_cmpA250(const union  A250 *x, const union  A250 *y) { return f_cmpA249(&x-
 DCaggr* f_touchdcstA250() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A250), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A250));
 		AFa(union  A250,m0,1,A249)
 		AF('I',union  A250,m1,1)
 		AF('J',union  A250,m2,1)
@@ -4962,7 +4962,7 @@ int f_cmpA251(const union  A251 *x, const union  A251 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA251() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A251), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A251));
 		AF('i',union  A251,m0,1)
 		AF('I',union  A251,m1,1)
 		dcCloseAggr(at);
@@ -4975,7 +4975,7 @@ int f_cmpA252(const struct A252 *x, const struct A252 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA252() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A252), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A252));
 		AF('I',struct A252,m0,1)
 		AF('S',struct A252,m1,1)
 		AF('c',struct A252,m2,1)
@@ -4990,7 +4990,7 @@ int f_cmpA253(const union  A253 *x, const union  A253 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA253() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A253), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A253));
 		AF('J',union  A253,m0,1)
 		AF('i',union  A253,m1,1)
 		AF('p',union  A253,m2,1)
@@ -5013,7 +5013,7 @@ int f_cmpA254(const union  A254 *x, const union  A254 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA254() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A254), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A254));
 		AF('S',union  A254,m0,1)
 		AF('L',union  A254,m1,1)
 		dcCloseAggr(at);
@@ -5026,7 +5026,7 @@ int f_cmpA255(const union  A255 *x, const union  A255 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA255() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A255), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A255));
 		AF('S',union  A255,m0,1)
 		AF('d',union  A255,m1,1)
 		AF('p',union  A255,m2,1)
@@ -5049,7 +5049,7 @@ int f_cmpA256(const union  A256 *x, const union  A256 *y) { return f_cmpA255(&x-
 DCaggr* f_touchdcstA256() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A256), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A256));
 		AFa(union  A256,m0,1,A255)
 		AF('p',union  A256,m1,15)
 		dcCloseAggr(at);
@@ -5062,7 +5062,7 @@ int f_cmpA257(const union  A257 *x, const union  A257 *y) { return f_cmpA256(&x-
 DCaggr* f_touchdcstA257() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A257), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A257));
 		AFa(union  A257,m0,2,A256)
 		AF('S',union  A257,m1,1)
 		AF('J',union  A257,m2,1)
@@ -5085,7 +5085,7 @@ int f_cmpA258(const union  A258 *x, const union  A258 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA258() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A258), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A258));
 		AF('l',union  A258,m0,1)
 		AF('s',union  A258,m1,1)
 		AF('p',union  A258,m2,1)
@@ -5099,7 +5099,7 @@ int f_cmpA259(const union  A259 *x, const union  A259 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA259() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A259), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A259));
 		AF('f',union  A259,m0,1)
 		AF('J',union  A259,m1,1)
 		AF('p',union  A259,m2,1)
@@ -5122,7 +5122,7 @@ int f_cmpA260(const union  A260 *x, const union  A260 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA260() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(union  A260), DC_TRUE);
+		at = dcNewAggr(1, sizeof(union  A260));
 		AF('C',union  A260,m0,1)
 		dcCloseAggr(at);
 	}
@@ -5134,7 +5134,7 @@ int f_cmpA261(const struct A261 *x, const struct A261 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA261() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A261), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A261));
 		AF('c',struct A261,m0,1)
 		AF('j',struct A261,m1,1)
 		AF('I',struct A261,m2,1)
@@ -5157,7 +5157,7 @@ int f_cmpA262(const struct A262 *x, const struct A262 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA262() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A262), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A262));
 		AF('l',struct A262,m0,1)
 		AFa(struct A262,m1,1,A261)
 		AF('C',struct A262,m2,1)
@@ -5172,7 +5172,7 @@ int f_cmpA263(const struct A263 *x, const struct A263 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA263() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(struct A263), DC_TRUE);
+		at = dcNewAggr(10, sizeof(struct A263));
 		AF('L',struct A263,m0,1)
 		AF('J',struct A263,m1,1)
 		AF('I',struct A263,m2,1)
@@ -5193,7 +5193,7 @@ int f_cmpA264(const struct A264 *x, const struct A264 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA264() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A264), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A264));
 		AF('p',struct A264,m0,1)
 		AF('S',struct A264,m1,1)
 		AF('p',struct A264,m2,1)
@@ -5216,7 +5216,7 @@ int f_cmpA265(const union  A265 *x, const union  A265 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA265() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A265), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A265));
 		AF('d',union  A265,m0,1)
 		AF('i',union  A265,m1,1)
 		AF('j',union  A265,m2,1)
@@ -5239,7 +5239,7 @@ int f_cmpA266(const union  A266 *x, const union  A266 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA266() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A266), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A266));
 		AF('f',union  A266,m0,1)
 		AF('C',union  A266,m1,1)
 		AF('d',union  A266,m2,1)
@@ -5254,7 +5254,7 @@ int f_cmpA267(const union  A267 *x, const union  A267 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA267() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A267), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A267));
 		AF('l',union  A267,m0,1)
 		AF('l',union  A267,m1,1)
 		dcCloseAggr(at);
@@ -5267,7 +5267,7 @@ int f_cmpA268(const union  A268 *x, const union  A268 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA268() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A268), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A268));
 		AF('s',union  A268,m0,1)
 		AF('j',union  A268,m1,1)
 		AF('s',union  A268,m2,1)
@@ -5290,7 +5290,7 @@ int f_cmpA269(const struct A269 *x, const struct A269 *y) { return f_cmpA268(&x-
 DCaggr* f_touchdcstA269() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A269), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A269));
 		AFa(struct A269,m0,1,A268)
 		AF('S',struct A269,m1,1)
 		dcCloseAggr(at);
@@ -5303,7 +5303,7 @@ int f_cmpA270(const struct A270 *x, const struct A270 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA270() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A270), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A270));
 		AF('s',struct A270,m0,1)
 		AF('p',struct A270,m1,1)
 		AF('c',struct A270,m2,1)
@@ -5317,7 +5317,7 @@ int f_cmpA271(const struct A271 *x, const struct A271 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA271() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(struct A271), DC_TRUE);
+		at = dcNewAggr(1, sizeof(struct A271));
 		AF('l',struct A271,m0,1)
 		dcCloseAggr(at);
 	}
@@ -5329,7 +5329,7 @@ int f_cmpA272(const struct A272 *x, const struct A272 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA272() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A272), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A272));
 		AF('p',struct A272,m0,1)
 		AF('i',struct A272,m1,1)
 		AF('d',struct A272,m2,1)
@@ -5344,7 +5344,7 @@ int f_cmpA273(const struct A273 *x, const struct A273 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA273() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A273), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A273));
 		AF('s',struct A273,m0,1)
 		AF('i',struct A273,m1,1)
 		AF('i',struct A273,m2,1)
@@ -5361,7 +5361,7 @@ int f_cmpA274(const union  A274 *x, const union  A274 *y) { return x->m0[0] == y
 DCaggr* f_touchdcstA274() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(union  A274), DC_TRUE);
+		at = dcNewAggr(1, sizeof(union  A274));
 		AF('j',union  A274,m0,1)
 		dcCloseAggr(at);
 	}
@@ -5373,7 +5373,7 @@ int f_cmpA275(const struct A275 *x, const struct A275 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA275() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A275), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A275));
 		AF('c',struct A275,m0,1)
 		AF('j',struct A275,m1,1)
 		AF('j',struct A275,m2,1)
@@ -5388,7 +5388,7 @@ int f_cmpA276(const union  A276 *x, const union  A276 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA276() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A276), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A276));
 		AF('j',union  A276,m0,1)
 		AF('p',union  A276,m1,1)
 		AF('L',union  A276,m2,1)
@@ -5411,7 +5411,7 @@ int f_cmpA277(const struct A277 *x, const struct A277 *y) { return x->m0[0] == y
 DCaggr* f_touchdcstA277() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A277), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A277));
 		AF('d',struct A277,m0,12)
 		AF('s',struct A277,m1,1)
 		dcCloseAggr(at);
@@ -5424,7 +5424,7 @@ int f_cmpA278(const union  A278 *x, const union  A278 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA278() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A278), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A278));
 		AF('S',union  A278,m0,1)
 		AF('I',union  A278,m1,1)
 		AF('S',union  A278,m2,1)
@@ -5441,7 +5441,7 @@ int f_cmpA279(const struct A279 *x, const struct A279 *y) { return f_cmpA277(&x-
 DCaggr* f_touchdcstA279() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A279), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A279));
 		AFa(struct A279,m0,1,A277)
 		AF('s',struct A279,m1,1)
 		AF('L',struct A279,m2,1)
@@ -5464,7 +5464,7 @@ int f_cmpA280(const union  A280 *x, const union  A280 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA280() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A280), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A280));
 		AF('L',union  A280,m0,1)
 		AF('S',union  A280,m1,1)
 		AF('L',union  A280,m2,1)
@@ -5487,7 +5487,7 @@ int f_cmpA281(const union  A281 *x, const union  A281 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA281() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A281), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A281));
 		AF('C',union  A281,m0,1)
 		AF('I',union  A281,m1,1)
 		AF('p',union  A281,m2,1)
@@ -5502,7 +5502,7 @@ int f_cmpA282(const struct A282 *x, const struct A282 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA282() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A282), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A282));
 		AF('j',struct A282,m0,1)
 		AF('f',struct A282,m1,1)
 		AF('s',struct A282,m2,1)
@@ -5525,7 +5525,7 @@ int f_cmpA283(const struct A283 *x, const struct A283 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA283() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A283), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A283));
 		AF('I',struct A283,m0,1)
 		AF('I',struct A283,m1,1)
 		AF('l',struct A283,m2,1)
@@ -5542,7 +5542,7 @@ int f_cmpA284(const union  A284 *x, const union  A284 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA284() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A284), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A284));
 		AF('J',union  A284,m0,1)
 		AF('i',union  A284,m1,1)
 		AF('l',union  A284,m2,1)
@@ -5565,7 +5565,7 @@ int f_cmpA285(const union  A285 *x, const union  A285 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA285() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A285), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A285));
 		AF('L',union  A285,m0,1)
 		AF('p',union  A285,m1,1)
 		AF('i',union  A285,m2,1)
@@ -5588,7 +5588,7 @@ int f_cmpA286(const struct A286 *x, const struct A286 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA286() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A286), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A286));
 		AF('s',struct A286,m0,1)
 		AF('I',struct A286,m1,1)
 		AF('l',struct A286,m2,1)
@@ -5611,7 +5611,7 @@ int f_cmpA287(const struct A287 *x, const struct A287 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA287() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A287), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A287));
 		AF('c',struct A287,m0,1)
 		AF('s',struct A287,m1,1)
 		AF('I',struct A287,m2,1)
@@ -5631,7 +5631,7 @@ int f_cmpA288(const struct A288 *x, const struct A288 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA288() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A288), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A288));
 		AF('C',struct A288,m0,1)
 		AF('S',struct A288,m1,1)
 		AF('l',struct A288,m2,1)
@@ -5654,7 +5654,7 @@ int f_cmpA289(const union  A289 *x, const union  A289 *y) { return x->m0[0] == y
 DCaggr* f_touchdcstA289() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A289), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A289));
 		AF('S',union  A289,m0,12)
 		AF('l',union  A289,m1,1)
 		AF('i',union  A289,m2,1)
@@ -5669,7 +5669,7 @@ int f_cmpA290(const union  A290 *x, const union  A290 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA290() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(union  A290), DC_TRUE);
+		at = dcNewAggr(9, sizeof(union  A290));
 		AF('s',union  A290,m0,1)
 		AF('S',union  A290,m1,1)
 		AF('p',union  A290,m2,1)
@@ -5689,7 +5689,7 @@ int f_cmpA291(const struct A291 *x, const struct A291 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA291() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A291), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A291));
 		AF('p',struct A291,m0,1)
 		AF('s',struct A291,m1,1)
 		dcCloseAggr(at);
@@ -5702,7 +5702,7 @@ int f_cmpA292(const union  A292 *x, const union  A292 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA292() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A292), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A292));
 		AF('j',union  A292,m0,1)
 		AF('S',union  A292,m1,1)
 		AF('l',union  A292,m2,1)
@@ -5725,7 +5725,7 @@ int f_cmpA293(const union  A293 *x, const union  A293 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA293() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A293), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A293));
 		AF('J',union  A293,m0,1)
 		AF('C',union  A293,m1,1)
 		AF('f',union  A293,m2,1)
@@ -5748,7 +5748,7 @@ int f_cmpA294(const struct A294 *x, const struct A294 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA294() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A294), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A294));
 		AF('J',struct A294,m0,1)
 		AF('f',struct A294,m1,16)
 		AF('I',struct A294,m2,1)
@@ -5771,7 +5771,7 @@ int f_cmpA295(const union  A295 *x, const union  A295 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA295() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A295), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A295));
 		AF('l',union  A295,m0,1)
 		AF('I',union  A295,m1,1)
 		AF('i',union  A295,m2,1)
@@ -5794,7 +5794,7 @@ int f_cmpA296(const struct A296 *x, const struct A296 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA296() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A296), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A296));
 		AF('d',struct A296,m0,1)
 		AFa(struct A296,m1,1,A292)
 		AF('d',struct A296,m2,1)
@@ -5817,7 +5817,7 @@ int f_cmpA297(const union  A297 *x, const union  A297 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA297() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A297), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A297));
 		AF('c',union  A297,m0,1)
 		AF('f',union  A297,m1,1)
 		AF('S',union  A297,m2,1)
@@ -5840,7 +5840,7 @@ int f_cmpA298(const struct A298 *x, const struct A298 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA298() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A298), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A298));
 		AF('c',struct A298,m0,1)
 		AF('l',struct A298,m1,1)
 		AF('s',struct A298,m2,1)
@@ -5856,7 +5856,7 @@ int f_cmpA299(const struct A299 *x, const struct A299 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA299() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A299), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A299));
 		AF('f',struct A299,m0,1)
 		AF('J',struct A299,m1,1)
 		AF('s',struct A299,m2,1)
@@ -5879,7 +5879,7 @@ int f_cmpA300(const union  A300 *x, const union  A300 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA300() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A300), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A300));
 		AF('I',union  A300,m0,1)
 		AF('L',union  A300,m1,1)
 		AF('c',union  A300,m2,1)
@@ -5894,7 +5894,7 @@ int f_cmpA301(const struct A301 *x, const struct A301 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA301() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A301), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A301));
 		AF('L',struct A301,m0,1)
 		AF('f',struct A301,m1,1)
 		AF('C',struct A301,m2,1)
@@ -5910,7 +5910,7 @@ int f_cmpA302(const union  A302 *x, const union  A302 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA302() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(union  A302), DC_TRUE);
+		at = dcNewAggr(9, sizeof(union  A302));
 		AF('f',union  A302,m0,1)
 		AF('s',union  A302,m1,1)
 		AF('p',union  A302,m2,1)
@@ -5930,7 +5930,7 @@ int f_cmpA303(const union  A303 *x, const union  A303 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA303() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A303), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A303));
 		AF('S',union  A303,m0,1)
 		AFa(union  A303,m1,1,A300)
 		AF('d',union  A303,m2,1)
@@ -5953,7 +5953,7 @@ int f_cmpA304(const struct A304 *x, const struct A304 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA304() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A304), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A304));
 		AF('i',struct A304,m0,1)
 		AF('c',struct A304,m1,1)
 		AF('S',struct A304,m2,1)
@@ -5976,7 +5976,7 @@ int f_cmpA305(const union  A305 *x, const union  A305 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA305() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A305), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A305));
 		AF('L',union  A305,m0,1)
 		AF('L',union  A305,m1,1)
 		AF('p',union  A305,m2,1)
@@ -5990,7 +5990,7 @@ int f_cmpA306(const union  A306 *x, const union  A306 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA306() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A306), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A306));
 		AF('j',union  A306,m0,1)
 		AF('l',union  A306,m1,1)
 		AF('L',union  A306,m2,1)
@@ -6008,7 +6008,7 @@ int f_cmpA307(const struct A307 *x, const struct A307 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA307() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A307), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A307));
 		AF('I',struct A307,m0,1)
 		AF('d',struct A307,m1,1)
 		AF('d',struct A307,m2,1)
@@ -6023,7 +6023,7 @@ int f_cmpA308(const struct A308 *x, const struct A308 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA308() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A308), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A308));
 		AF('J',struct A308,m0,1)
 		AFa(struct A308,m1,1,A307)
 		AF('c',struct A308,m2,1)
@@ -6046,7 +6046,7 @@ int f_cmpA309(const struct A309 *x, const struct A309 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA309() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A309), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A309));
 		AF('j',struct A309,m0,1)
 		AF('J',struct A309,m1,1)
 		AF('C',struct A309,m2,1)
@@ -6061,7 +6061,7 @@ int f_cmpA310(const union  A310 *x, const union  A310 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA310() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(union  A310), DC_TRUE);
+		at = dcNewAggr(1, sizeof(union  A310));
 		AF('i',union  A310,m0,1)
 		dcCloseAggr(at);
 	}
@@ -6073,7 +6073,7 @@ int f_cmpA311(const union  A311 *x, const union  A311 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA311() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A311), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A311));
 		AF('C',union  A311,m0,1)
 		AF('l',union  A311,m1,1)
 		AF('S',union  A311,m2,1)
@@ -6096,7 +6096,7 @@ int f_cmpA312(const struct A312 *x, const struct A312 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA312() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A312), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A312));
 		AF('f',struct A312,m0,1)
 		AF('s',struct A312,m1,1)
 		AF('d',struct A312,m2,1)
@@ -6119,7 +6119,7 @@ int f_cmpA313(const union  A313 *x, const union  A313 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA313() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A313), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A313));
 		AF('d',union  A313,m0,1)
 		AF('l',union  A313,m1,1)
 		AF('l',union  A313,m2,1)
@@ -6142,7 +6142,7 @@ int f_cmpA314(const union  A314 *x, const union  A314 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA314() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A314), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A314));
 		AF('i',union  A314,m0,1)
 		AF('I',union  A314,m1,1)
 		AF('S',union  A314,m2,1)
@@ -6158,7 +6158,7 @@ int f_cmpA315(const union  A315 *x, const union  A315 *y) { return x->m0[0] == y
 DCaggr* f_touchdcstA315() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A315), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A315));
 		AF('l',union  A315,m0,2)
 		AFa(union  A315,m1,1,A312)
 		AF('J',union  A315,m2,1)
@@ -6181,7 +6181,7 @@ int f_cmpA316(const union  A316 *x, const union  A316 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA316() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A316), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A316));
 		AF('p',union  A316,m0,1)
 		AF('S',union  A316,m1,1)
 		AF('s',union  A316,m2,1)
@@ -6204,7 +6204,7 @@ int f_cmpA317(const struct A317 *x, const struct A317 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA317() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(struct A317), DC_TRUE);
+		at = dcNewAggr(10, sizeof(struct A317));
 		AF('J',struct A317,m0,1)
 		AF('s',struct A317,m1,1)
 		AF('L',struct A317,m2,1)
@@ -6225,7 +6225,7 @@ int f_cmpA318(const struct A318 *x, const struct A318 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA318() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A318), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A318));
 		AF('p',struct A318,m0,1)
 		AF('f',struct A318,m1,1)
 		AF('d',struct A318,m2,1)
@@ -6244,7 +6244,7 @@ int f_cmpA319(const union  A319 *x, const union  A319 *y) { return f_cmpA318(&x-
 DCaggr* f_touchdcstA319() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A319), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A319));
 		AFa(union  A319,m0,1,A318)
 		AF('s',union  A319,m1,1)
 		AF('I',union  A319,m2,1)
@@ -6262,7 +6262,7 @@ int f_cmpA320(const struct A320 *x, const struct A320 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA320() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A320), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A320));
 		AF('c',struct A320,m0,1)
 		AF('i',struct A320,m1,1)
 		AF('C',struct A320,m2,1)
@@ -6279,7 +6279,7 @@ int f_cmpA321(const union  A321 *x, const union  A321 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA321() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A321), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A321));
 		AF('J',union  A321,m0,1)
 		AFa(union  A321,m1,1,A33)
 		AF('I',union  A321,m2,1)
@@ -6294,7 +6294,7 @@ int f_cmpA322(const struct A322 *x, const struct A322 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA322() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A322), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A322));
 		AF('c',struct A322,m0,1)
 		AF('J',struct A322,m1,1)
 		AFa(struct A322,m2,1,A321)
@@ -6317,7 +6317,7 @@ int f_cmpA323(const struct A323 *x, const struct A323 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA323() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A323), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A323));
 		AF('f',struct A323,m0,1)
 		AF('I',struct A323,m1,1)
 		AF('c',struct A323,m2,1)
@@ -6331,7 +6331,7 @@ int f_cmpA324(const union  A324 *x, const union  A324 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA324() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A324), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A324));
 		AF('C',union  A324,m0,1)
 		AF('J',union  A324,m1,1)
 		AF('J',union  A324,m2,1)
@@ -6349,7 +6349,7 @@ int f_cmpA325(const union  A325 *x, const union  A325 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA325() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A325), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A325));
 		AF('L',union  A325,m0,1)
 		AF('i',union  A325,m1,1)
 		AF('j',union  A325,m2,2)
@@ -6372,7 +6372,7 @@ int f_cmpA326(const struct A326 *x, const struct A326 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA326() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A326), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A326));
 		AF('f',struct A326,m0,1)
 		AF('d',struct A326,m1,3)
 		AF('L',struct A326,m2,1)
@@ -6395,7 +6395,7 @@ int f_cmpA327(const union  A327 *x, const union  A327 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA327() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(union  A327), DC_TRUE);
+		at = dcNewAggr(9, sizeof(union  A327));
 		AF('l',union  A327,m0,1)
 		AF('f',union  A327,m1,1)
 		AF('i',union  A327,m2,1)
@@ -6415,7 +6415,7 @@ int f_cmpA328(const union  A328 *x, const union  A328 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA328() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A328), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A328));
 		AF('I',union  A328,m0,1)
 		AF('s',union  A328,m1,1)
 		AFa(union  A328,m2,1,A327)
@@ -6436,7 +6436,7 @@ int f_cmpA329(const struct A329 *x, const struct A329 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA329() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A329), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A329));
 		AF('c',struct A329,m0,1)
 		AF('C',struct A329,m1,1)
 		AF('p',struct A329,m2,1)
@@ -6459,7 +6459,7 @@ int f_cmpA330(const union  A330 *x, const union  A330 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA330() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A330), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A330));
 		AF('s',union  A330,m0,1)
 		AF('f',union  A330,m1,1)
 		AF('L',union  A330,m2,1)
@@ -6478,7 +6478,7 @@ int f_cmpA331(const union  A331 *x, const union  A331 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA331() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A331), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A331));
 		AF('s',union  A331,m0,1)
 		AF('i',union  A331,m1,1)
 		AF('C',union  A331,m2,1)
@@ -6501,7 +6501,7 @@ int f_cmpA332(const struct A332 *x, const struct A332 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA332() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(struct A332), DC_TRUE);
+		at = dcNewAggr(11, sizeof(struct A332));
 		AF('S',struct A332,m0,1)
 		AF('I',struct A332,m1,1)
 		AF('f',struct A332,m2,1)
@@ -6523,7 +6523,7 @@ int f_cmpA333(const union  A333 *x, const union  A333 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA333() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A333), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A333));
 		AF('S',union  A333,m0,1)
 		AF('C',union  A333,m1,1)
 		AF('p',union  A333,m2,1)
@@ -6546,7 +6546,7 @@ int f_cmpA334(const struct A334 *x, const struct A334 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA334() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A334), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A334));
 		AF('S',struct A334,m0,1)
 		AF('s',struct A334,m1,6)
 		AF('L',struct A334,m2,1)
@@ -6569,7 +6569,7 @@ int f_cmpA335(const union  A335 *x, const union  A335 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA335() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A335), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A335));
 		AF('s',union  A335,m0,1)
 		AF('i',union  A335,m1,1)
 		dcCloseAggr(at);
@@ -6582,7 +6582,7 @@ int f_cmpA336(const union  A336 *x, const union  A336 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA336() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A336), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A336));
 		AF('S',union  A336,m0,1)
 		AF('j',union  A336,m1,1)
 		AF('C',union  A336,m2,1)
@@ -6605,7 +6605,7 @@ int f_cmpA337(const union  A337 *x, const union  A337 *y) { return f_cmpA335(&x-
 DCaggr* f_touchdcstA337() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A337), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A337));
 		AFa(union  A337,m0,1,A335)
 		AFa(union  A337,m1,1,A251)
 		AFa(union  A337,m2,1,A336)
@@ -6619,7 +6619,7 @@ int f_cmpA338(const struct A338 *x, const struct A338 *y) { return f_cmpA337(&x-
 DCaggr* f_touchdcstA338() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A338), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A338));
 		AFa(struct A338,m0,1,A337)
 		AF('p',struct A338,m1,1)
 		AF('d',struct A338,m2,1)
@@ -6642,7 +6642,7 @@ int f_cmpA339(const struct A339 *x, const struct A339 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA339() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A339), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A339));
 		AF('C',struct A339,m0,1)
 		AF('f',struct A339,m1,1)
 		AF('j',struct A339,m2,1)
@@ -6665,7 +6665,7 @@ int f_cmpA340(const struct A340 *x, const struct A340 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA340() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A340), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A340));
 		AF('C',struct A340,m0,1)
 		AF('S',struct A340,m1,1)
 		AF('i',struct A340,m2,1)
@@ -6688,7 +6688,7 @@ int f_cmpA341(const struct A341 *x, const struct A341 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA341() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A341), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A341));
 		AF('j',struct A341,m0,1)
 		AF('L',struct A341,m1,1)
 		AF('C',struct A341,m2,1)
@@ -6711,7 +6711,7 @@ int f_cmpA342(const union  A342 *x, const union  A342 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA342() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(union  A342), DC_TRUE);
+		at = dcNewAggr(11, sizeof(union  A342));
 		AF('p',union  A342,m0,1)
 		AF('J',union  A342,m1,1)
 		AF('p',union  A342,m2,1)
@@ -6733,7 +6733,7 @@ int f_cmpA343(const struct A343 *x, const struct A343 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA343() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A343), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A343));
 		AF('l',struct A343,m0,1)
 		AF('l',struct A343,m1,1)
 		AF('j',struct A343,m2,1)
@@ -6756,7 +6756,7 @@ int f_cmpA344(const union  A344 *x, const union  A344 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA344() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A344), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A344));
 		AF('J',union  A344,m0,1)
 		AF('l',union  A344,m1,1)
 		AF('S',union  A344,m2,1)
@@ -6779,7 +6779,7 @@ int f_cmpA345(const struct A345 *x, const struct A345 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA345() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(struct A345), DC_TRUE);
+		at = dcNewAggr(7, sizeof(struct A345));
 		AF('s',struct A345,m0,1)
 		AF('f',struct A345,m1,1)
 		AFa(struct A345,m2,1,A342)
@@ -6797,7 +6797,7 @@ int f_cmpA346(const struct A346 *x, const struct A346 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA346() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A346), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A346));
 		AF('c',struct A346,m0,1)
 		AF('J',struct A346,m1,3)
 		AF('L',struct A346,m2,1)
@@ -6811,7 +6811,7 @@ int f_cmpA347(const union  A347 *x, const union  A347 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA347() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A347), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A347));
 		AF('d',union  A347,m0,1)
 		AF('d',union  A347,m1,16)
 		AF('d',union  A347,m2,1)
@@ -6834,7 +6834,7 @@ int f_cmpA348(const struct A348 *x, const struct A348 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA348() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A348), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A348));
 		AF('I',struct A348,m0,1)
 		AF('i',struct A348,m1,1)
 		AF('j',struct A348,m2,1)
@@ -6857,7 +6857,7 @@ int f_cmpA349(const union  A349 *x, const union  A349 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA349() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A349), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A349));
 		AF('j',union  A349,m0,1)
 		AF('f',union  A349,m1,1)
 		AF('C',union  A349,m2,6)
@@ -6880,7 +6880,7 @@ int f_cmpA350(const union  A350 *x, const union  A350 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA350() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A350), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A350));
 		AF('L',union  A350,m0,1)
 		AF('j',union  A350,m1,1)
 		AF('S',union  A350,m2,1)
@@ -6899,7 +6899,7 @@ int f_cmpA351(const union  A351 *x, const union  A351 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA351() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A351), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A351));
 		AF('f',union  A351,m0,1)
 		AF('S',union  A351,m1,1)
 		AF('I',union  A351,m2,1)
@@ -6922,7 +6922,7 @@ int f_cmpA352(const union  A352 *x, const union  A352 *y) { return f_cmpA348(&x-
 DCaggr* f_touchdcstA352() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A352), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A352));
 		AFa(union  A352,m0,1,A348)
 		AF('C',union  A352,m1,1)
 		AF('s',union  A352,m2,1)
@@ -6945,7 +6945,7 @@ int f_cmpA353(const struct A353 *x, const struct A353 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA353() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A353), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A353));
 		AF('J',struct A353,m0,1)
 		AF('L',struct A353,m1,1)
 		AF('s',struct A353,m2,1)
@@ -6959,7 +6959,7 @@ int f_cmpA354(const union  A354 *x, const union  A354 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA354() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A354), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A354));
 		AF('L',union  A354,m0,1)
 		AF('S',union  A354,m1,1)
 		AF('C',union  A354,m2,1)
@@ -6978,7 +6978,7 @@ int f_cmpA355(const struct A355 *x, const struct A355 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA355() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A355), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A355));
 		AF('j',struct A355,m0,1)
 		AF('S',struct A355,m1,1)
 		AF('S',struct A355,m2,1)
@@ -7001,7 +7001,7 @@ int f_cmpA356(const struct A356 *x, const struct A356 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA356() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A356), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A356));
 		AF('f',struct A356,m0,1)
 		AF('I',struct A356,m1,1)
 		AF('L',struct A356,m2,1)
@@ -7020,7 +7020,7 @@ int f_cmpA357(const union  A357 *x, const union  A357 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA357() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A357), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A357));
 		AF('C',union  A357,m0,1)
 		AF('L',union  A357,m1,1)
 		AF('S',union  A357,m2,1)
@@ -7035,7 +7035,7 @@ int f_cmpA358(const struct A358 *x, const struct A358 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA358() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A358), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A358));
 		AF('C',struct A358,m0,1)
 		AF('I',struct A358,m1,1)
 		AF('c',struct A358,m2,1)
@@ -7049,7 +7049,7 @@ int f_cmpA359(const union  A359 *x, const union  A359 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA359() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A359), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A359));
 		AF('j',union  A359,m0,1)
 		AF('c',union  A359,m1,1)
 		AF('J',union  A359,m2,1)
@@ -7072,7 +7072,7 @@ int f_cmpA360(const struct A360 *x, const struct A360 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA360() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A360), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A360));
 		AF('C',struct A360,m0,1)
 		AF('p',struct A360,m1,1)
 		AF('L',struct A360,m2,1)
@@ -7087,7 +7087,7 @@ int f_cmpA361(const struct A361 *x, const struct A361 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA361() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A361), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A361));
 		AF('l',struct A361,m0,1)
 		AFa(struct A361,m1,1,A359)
 		AF('l',struct A361,m2,1)
@@ -7110,7 +7110,7 @@ int f_cmpA362(const union  A362 *x, const union  A362 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA362() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A362), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A362));
 		AF('f',union  A362,m0,1)
 		AF('C',union  A362,m1,1)
 		AF('f',union  A362,m2,1)
@@ -7133,7 +7133,7 @@ int f_cmpA363(const union  A363 *x, const union  A363 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA363() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A363), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A363));
 		AF('j',union  A363,m0,1)
 		AF('d',union  A363,m1,1)
 		AF('S',union  A363,m2,1)
@@ -7156,7 +7156,7 @@ int f_cmpA364(const struct A364 *x, const struct A364 *y) { return f_cmpA363(&x-
 DCaggr* f_touchdcstA364() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A364), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A364));
 		AFa(struct A364,m0,1,A363)
 		AF('I',struct A364,m1,1)
 		dcCloseAggr(at);
@@ -7169,7 +7169,7 @@ int f_cmpA365(const struct A365 *x, const struct A365 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA365() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A365), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A365));
 		AF('L',struct A365,m0,1)
 		AF('f',struct A365,m1,1)
 		AF('i',struct A365,m2,1)
@@ -7185,7 +7185,7 @@ int f_cmpA366(const struct A366 *x, const struct A366 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA366() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A366), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A366));
 		AF('p',struct A366,m0,1)
 		AF('C',struct A366,m1,1)
 		AFa(struct A366,m2,1,A365)
@@ -7208,7 +7208,7 @@ int f_cmpA367(const struct A367 *x, const struct A367 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA367() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A367), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A367));
 		AF('d',struct A367,m0,1)
 		AF('f',struct A367,m1,1)
 		AF('i',struct A367,m2,1)
@@ -7231,7 +7231,7 @@ int f_cmpA368(const struct A368 *x, const struct A368 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA368() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A368), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A368));
 		AF('f',struct A368,m0,1)
 		AF('j',struct A368,m1,1)
 		AF('l',struct A368,m2,1)
@@ -7254,7 +7254,7 @@ int f_cmpA369(const struct A369 *x, const struct A369 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA369() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A369), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A369));
 		AF('I',struct A369,m0,1)
 		AF('S',struct A369,m1,1)
 		AF('J',struct A369,m2,1)
@@ -7277,7 +7277,7 @@ int f_cmpA370(const struct A370 *x, const struct A370 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA370() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A370), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A370));
 		AF('s',struct A370,m0,1)
 		AF('S',struct A370,m1,1)
 		AF('p',struct A370,m2,1)
@@ -7293,7 +7293,7 @@ int f_cmpA371(const struct A371 *x, const struct A371 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA371() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A371), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A371));
 		AF('d',struct A371,m0,1)
 		AF('f',struct A371,m1,1)
 		AF('f',struct A371,m2,1)
@@ -7312,7 +7312,7 @@ int f_cmpA372(const struct A372 *x, const struct A372 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA372() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A372), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A372));
 		AF('c',struct A372,m0,1)
 		AF('p',struct A372,m1,1)
 		AF('i',struct A372,m2,1)
@@ -7331,7 +7331,7 @@ int f_cmpA373(const union  A373 *x, const union  A373 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA373() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A373), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A373));
 		AF('l',union  A373,m0,1)
 		AF('i',union  A373,m1,1)
 		AF('S',union  A373,m2,1)
@@ -7348,7 +7348,7 @@ int f_cmpA374(const struct A374 *x, const struct A374 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA374() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A374), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A374));
 		AF('S',struct A374,m0,1)
 		AF('s',struct A374,m1,1)
 		AF('j',struct A374,m2,1)
@@ -7371,7 +7371,7 @@ int f_cmpA375(const union  A375 *x, const union  A375 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA375() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A375), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A375));
 		AF('p',union  A375,m0,1)
 		AF('j',union  A375,m1,6)
 		AF('J',union  A375,m2,1)
@@ -7387,7 +7387,7 @@ int f_cmpA376(const struct A376 *x, const struct A376 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA376() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A376), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A376));
 		AF('f',struct A376,m0,1)
 		AF('C',struct A376,m1,1)
 		AFa(struct A376,m2,1,A374)
@@ -7410,7 +7410,7 @@ int f_cmpA377(const struct A377 *x, const struct A377 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA377() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A377), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A377));
 		AF('s',struct A377,m0,1)
 		AF('j',struct A377,m1,1)
 		AF('J',struct A377,m2,1)
@@ -7425,7 +7425,7 @@ int f_cmpA378(const struct A378 *x, const struct A378 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA378() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(struct A378), DC_TRUE);
+		at = dcNewAggr(1, sizeof(struct A378));
 		AF('S',struct A378,m0,1)
 		dcCloseAggr(at);
 	}
@@ -7437,7 +7437,7 @@ int f_cmpA379(const union  A379 *x, const union  A379 *y) { return f_cmpA377(&x-
 DCaggr* f_touchdcstA379() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A379), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A379));
 		AFa(union  A379,m0,1,A377)
 		AFa(union  A379,m1,1,A378)
 		AF('I',union  A379,m2,1)
@@ -7458,7 +7458,7 @@ int f_cmpA380(const union  A380 *x, const union  A380 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA380() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(union  A380), DC_TRUE);
+		at = dcNewAggr(11, sizeof(union  A380));
 		AF('p',union  A380,m0,1)
 		AF('d',union  A380,m1,6)
 		AF('p',union  A380,m2,1)
@@ -7480,7 +7480,7 @@ int f_cmpA381(const union  A381 *x, const union  A381 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA381() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(union  A381), DC_TRUE);
+		at = dcNewAggr(11, sizeof(union  A381));
 		AF('d',union  A381,m0,1)
 		AF('l',union  A381,m1,1)
 		AF('C',union  A381,m2,1)
@@ -7502,7 +7502,7 @@ int f_cmpA382(const struct A382 *x, const struct A382 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA382() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A382), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A382));
 		AF('c',struct A382,m0,1)
 		AF('S',struct A382,m1,1)
 		AF('s',struct A382,m2,1)
@@ -7525,7 +7525,7 @@ int f_cmpA383(const struct A383 *x, const struct A383 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA383() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(struct A383), DC_TRUE);
+		at = dcNewAggr(1, sizeof(struct A383));
 		AF('J',struct A383,m0,1)
 		dcCloseAggr(at);
 	}
@@ -7537,7 +7537,7 @@ int f_cmpA384(const struct A384 *x, const struct A384 *y) { return f_cmpA380(&x-
 DCaggr* f_touchdcstA384() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A384), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A384));
 		AFa(struct A384,m0,1,A380)
 		AFa(struct A384,m1,1,A381)
 		AF('f',struct A384,m2,1)
@@ -7560,7 +7560,7 @@ int f_cmpA385(const union  A385 *x, const union  A385 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA385() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A385), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A385));
 		AF('j',union  A385,m0,1)
 		AF('S',union  A385,m1,1)
 		AF('p',union  A385,m2,1)
@@ -7577,7 +7577,7 @@ int f_cmpA386(const union  A386 *x, const union  A386 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA386() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A386), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A386));
 		AF('J',union  A386,m0,1)
 		AF('J',union  A386,m1,1)
 		AF('C',union  A386,m2,1)
@@ -7600,7 +7600,7 @@ int f_cmpA387(const struct A387 *x, const struct A387 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA387() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A387), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A387));
 		AF('I',struct A387,m0,1)
 		AF('J',struct A387,m1,1)
 		AF('I',struct A387,m2,1)
@@ -7623,7 +7623,7 @@ int f_cmpA388(const struct A388 *x, const struct A388 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA388() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(struct A388), DC_TRUE);
+		at = dcNewAggr(11, sizeof(struct A388));
 		AF('L',struct A388,m0,1)
 		AF('c',struct A388,m1,1)
 		AF('s',struct A388,m2,15)
@@ -7645,7 +7645,7 @@ int f_cmpA389(const struct A389 *x, const struct A389 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA389() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A389), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A389));
 		AF('j',struct A389,m0,1)
 		AF('j',struct A389,m1,1)
 		AF('f',struct A389,m2,1)
@@ -7668,7 +7668,7 @@ int f_cmpA390(const union  A390 *x, const union  A390 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA390() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A390), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A390));
 		AF('j',union  A390,m0,1)
 		AF('C',union  A390,m1,1)
 		AF('d',union  A390,m2,1)
@@ -7684,7 +7684,7 @@ int f_cmpA391(const union  A391 *x, const union  A391 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA391() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A391), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A391));
 		AF('C',union  A391,m0,1)
 		AF('L',union  A391,m1,1)
 		AF('C',union  A391,m2,1)
@@ -7707,7 +7707,7 @@ int f_cmpA392(const union  A392 *x, const union  A392 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA392() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A392), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A392));
 		AF('l',union  A392,m0,1)
 		AF('p',union  A392,m1,1)
 		dcCloseAggr(at);
@@ -7720,7 +7720,7 @@ int f_cmpA393(const struct A393 *x, const struct A393 *y) { return x->m0[0] == y
 DCaggr* f_touchdcstA393() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A393), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A393));
 		AF('l',struct A393,m0,11)
 		AF('p',struct A393,m1,1)
 		AFa(struct A393,m2,1,A392)
@@ -7734,7 +7734,7 @@ int f_cmpA394(const struct A394 *x, const struct A394 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA394() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A394), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A394));
 		AF('f',struct A394,m0,1)
 		AF('d',struct A394,m1,1)
 		AF('C',struct A394,m2,1)
@@ -7751,7 +7751,7 @@ int f_cmpA395(const struct A395 *x, const struct A395 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA395() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A395), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A395));
 		AF('S',struct A395,m0,1)
 		AF('C',struct A395,m1,1)
 		AF('p',struct A395,m2,1)
@@ -7774,7 +7774,7 @@ int f_cmpA396(const union  A396 *x, const union  A396 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA396() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A396), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A396));
 		AF('p',union  A396,m0,1)
 		AF('f',union  A396,m1,1)
 		AF('p',union  A396,m2,1)
@@ -7797,7 +7797,7 @@ int f_cmpA397(const struct A397 *x, const struct A397 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA397() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(struct A397), DC_TRUE);
+		at = dcNewAggr(11, sizeof(struct A397));
 		AF('J',struct A397,m0,1)
 		AF('p',struct A397,m1,1)
 		AF('S',struct A397,m2,1)
@@ -7819,7 +7819,7 @@ int f_cmpA398(const union  A398 *x, const union  A398 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA398() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A398), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A398));
 		AF('J',union  A398,m0,1)
 		AF('f',union  A398,m1,1)
 		AF('c',union  A398,m2,1)
@@ -7842,7 +7842,7 @@ int f_cmpA399(const struct A399 *x, const struct A399 *y) { return f_cmpA397(&x-
 DCaggr* f_touchdcstA399() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A399), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A399));
 		AFa(struct A399,m0,1,A397)
 		AF('j',struct A399,m1,1)
 		AF('L',struct A399,m2,1)
@@ -7865,7 +7865,7 @@ int f_cmpA400(const union  A400 *x, const union  A400 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA400() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A400), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A400));
 		AF('C',union  A400,m0,1)
 		AF('l',union  A400,m1,1)
 		AF('d',union  A400,m2,1)
@@ -7880,7 +7880,7 @@ int f_cmpA401(const struct A401 *x, const struct A401 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA401() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A401), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A401));
 		AF('C',struct A401,m0,1)
 		AF('p',struct A401,m1,1)
 		AF('l',struct A401,m2,1)
@@ -7903,7 +7903,7 @@ int f_cmpA402(const union  A402 *x, const union  A402 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA402() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A402), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A402));
 		AF('f',union  A402,m0,1)
 		AF('p',union  A402,m1,1)
 		AF('i',union  A402,m2,1)
@@ -7926,7 +7926,7 @@ int f_cmpA403(const union  A403 *x, const union  A403 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA403() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A403), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A403));
 		AF('S',union  A403,m0,1)
 		AF('C',union  A403,m1,1)
 		AF('c',union  A403,m2,1)
@@ -7943,7 +7943,7 @@ int f_cmpA404(const union  A404 *x, const union  A404 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA404() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A404), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A404));
 		AF('s',union  A404,m0,1)
 		AF('c',union  A404,m1,1)
 		AF('l',union  A404,m2,1)
@@ -7966,7 +7966,7 @@ int f_cmpA405(const struct A405 *x, const struct A405 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA405() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A405), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A405));
 		AF('i',struct A405,m0,1)
 		AF('j',struct A405,m1,1)
 		AF('C',struct A405,m2,1)
@@ -7989,7 +7989,7 @@ int f_cmpA406(const union  A406 *x, const union  A406 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA406() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A406), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A406));
 		AF('f',union  A406,m0,1)
 		AF('S',union  A406,m1,1)
 		AF('s',union  A406,m2,1)
@@ -8007,7 +8007,7 @@ int f_cmpA407(const struct A407 *x, const struct A407 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA407() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A407), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A407));
 		AF('L',struct A407,m0,1)
 		AF('p',struct A407,m1,1)
 		AFa(struct A407,m2,1,A403)
@@ -8030,7 +8030,7 @@ int f_cmpA408(const union  A408 *x, const union  A408 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA408() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A408), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A408));
 		AF('C',union  A408,m0,1)
 		AF('c',union  A408,m1,1)
 		AF('C',union  A408,m2,16)
@@ -8045,7 +8045,7 @@ int f_cmpA409(const union  A409 *x, const union  A409 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA409() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(union  A409), DC_TRUE);
+		at = dcNewAggr(1, sizeof(union  A409));
 		AF('s',union  A409,m0,1)
 		dcCloseAggr(at);
 	}
@@ -8057,7 +8057,7 @@ int f_cmpA410(const union  A410 *x, const union  A410 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA410() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A410), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A410));
 		AF('i',union  A410,m0,1)
 		AF('s',union  A410,m1,1)
 		AF('J',union  A410,m2,1)
@@ -8080,7 +8080,7 @@ int f_cmpA411(const struct A411 *x, const struct A411 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA411() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A411), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A411));
 		AF('S',struct A411,m0,1)
 		AF('l',struct A411,m1,1)
 		AF('s',struct A411,m2,1)
@@ -8103,7 +8103,7 @@ int f_cmpA412(const struct A412 *x, const struct A412 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA412() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A412), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A412));
 		AF('l',struct A412,m0,1)
 		AF('s',struct A412,m1,1)
 		AF('c',struct A412,m2,1)
@@ -8126,7 +8126,7 @@ int f_cmpA413(const struct A413 *x, const struct A413 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA413() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A413), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A413));
 		AF('d',struct A413,m0,1)
 		AFa(struct A413,m1,1,A409)
 		AF('S',struct A413,m2,1)
@@ -8149,7 +8149,7 @@ int f_cmpA414(const union  A414 *x, const union  A414 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA414() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(union  A414), DC_TRUE);
+		at = dcNewAggr(1, sizeof(union  A414));
 		AF('d',union  A414,m0,1)
 		dcCloseAggr(at);
 	}
@@ -8161,7 +8161,7 @@ int f_cmpA415(const union  A415 *x, const union  A415 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA415() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A415), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A415));
 		AF('S',union  A415,m0,1)
 		AF('j',union  A415,m1,16)
 		AF('I',union  A415,m2,1)
@@ -8184,7 +8184,7 @@ int f_cmpA416(const struct A416 *x, const struct A416 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA416() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A416), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A416));
 		AF('j',struct A416,m0,1)
 		AF('I',struct A416,m1,1)
 		AF('J',struct A416,m2,1)
@@ -8207,7 +8207,7 @@ int f_cmpA417(const struct A417 *x, const struct A417 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA417() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A417), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A417));
 		AF('d',struct A417,m0,1)
 		AF('d',struct A417,m1,1)
 		AF('L',struct A417,m2,1)
@@ -8230,7 +8230,7 @@ int f_cmpA418(const union  A418 *x, const union  A418 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA418() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A418), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A418));
 		AF('i',union  A418,m0,1)
 		AF('C',union  A418,m1,1)
 		AF('s',union  A418,m2,1)
@@ -8253,7 +8253,7 @@ int f_cmpA419(const union  A419 *x, const union  A419 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA419() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A419), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A419));
 		AF('I',union  A419,m0,1)
 		AF('s',union  A419,m1,1)
 		AF('s',union  A419,m2,1)
@@ -8276,7 +8276,7 @@ int f_cmpA420(const union  A420 *x, const union  A420 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA420() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A420), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A420));
 		AF('s',union  A420,m0,1)
 		AF('c',union  A420,m1,1)
 		AF('C',union  A420,m2,1)
@@ -8299,7 +8299,7 @@ int f_cmpA421(const union  A421 *x, const union  A421 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA421() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A421), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A421));
 		AF('p',union  A421,m0,1)
 		AF('C',union  A421,m1,1)
 		AFa(union  A421,m2,1,A417)
@@ -8322,7 +8322,7 @@ int f_cmpA422(const union  A422 *x, const union  A422 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA422() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A422), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A422));
 		AF('C',union  A422,m0,1)
 		AF('p',union  A422,m1,1)
 		dcCloseAggr(at);
@@ -8335,7 +8335,7 @@ int f_cmpA423(const union  A423 *x, const union  A423 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA423() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A423), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A423));
 		AF('I',union  A423,m0,1)
 		AF('S',union  A423,m1,1)
 		dcCloseAggr(at);
@@ -8348,7 +8348,7 @@ int f_cmpA424(const union  A424 *x, const union  A424 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA424() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A424), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A424));
 		AF('L',union  A424,m0,1)
 		AF('d',union  A424,m1,1)
 		AF('j',union  A424,m2,1)
@@ -8371,7 +8371,7 @@ int f_cmpA425(const union  A425 *x, const union  A425 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA425() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A425), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A425));
 		AF('p',union  A425,m0,1)
 		AF('l',union  A425,m1,1)
 		AF('C',union  A425,m2,1)
@@ -8394,7 +8394,7 @@ int f_cmpA426(const union  A426 *x, const union  A426 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA426() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A426), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A426));
 		AF('f',union  A426,m0,1)
 		AF('C',union  A426,m1,1)
 		AF('d',union  A426,m2,1)
@@ -8417,7 +8417,7 @@ int f_cmpA427(const union  A427 *x, const union  A427 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA427() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A427), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A427));
 		AF('I',union  A427,m0,1)
 		AF('S',union  A427,m1,1)
 		AF('d',union  A427,m2,10)
@@ -8440,7 +8440,7 @@ int f_cmpA428(const struct A428 *x, const struct A428 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA428() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A428), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A428));
 		AF('S',struct A428,m0,1)
 		AFa(struct A428,m1,1,A426)
 		AF('j',struct A428,m2,1)
@@ -8463,7 +8463,7 @@ int f_cmpA429(const union  A429 *x, const union  A429 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA429() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A429), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A429));
 		AF('L',union  A429,m0,1)
 		AF('I',union  A429,m1,1)
 		AF('i',union  A429,m2,1)
@@ -8486,7 +8486,7 @@ int f_cmpA430(const struct A430 *x, const struct A430 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA430() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A430), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A430));
 		AF('s',struct A430,m0,1)
 		AF('c',struct A430,m1,1)
 		AF('J',struct A430,m2,1)
@@ -8509,7 +8509,7 @@ int f_cmpA431(const struct A431 *x, const struct A431 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA431() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A431), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A431));
 		AF('L',struct A431,m0,1)
 		AF('f',struct A431,m1,10)
 		AF('d',struct A431,m2,1)
@@ -8532,7 +8532,7 @@ int f_cmpA432(const struct A432 *x, const struct A432 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA432() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A432), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A432));
 		AF('p',struct A432,m0,1)
 		AF('d',struct A432,m1,1)
 		dcCloseAggr(at);
@@ -8545,7 +8545,7 @@ int f_cmpA433(const struct A433 *x, const struct A433 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA433() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A433), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A433));
 		AF('J',struct A433,m0,1)
 		AFa(struct A433,m1,1,A432)
 		AF('C',struct A433,m2,1)
@@ -8568,7 +8568,7 @@ int f_cmpA434(const struct A434 *x, const struct A434 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA434() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A434), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A434));
 		AF('f',struct A434,m0,1)
 		AF('i',struct A434,m1,1)
 		AF('C',struct A434,m2,1)
@@ -8591,7 +8591,7 @@ int f_cmpA435(const struct A435 *x, const struct A435 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA435() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A435), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A435));
 		AF('i',struct A435,m0,1)
 		AF('I',struct A435,m1,1)
 		dcCloseAggr(at);
@@ -8604,7 +8604,7 @@ int f_cmpA436(const union  A436 *x, const union  A436 *y) { return f_cmpA435(&x-
 DCaggr* f_touchdcstA436() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A436), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A436));
 		AFa(union  A436,m0,1,A435)
 		AF('l',union  A436,m1,1)
 		AF('f',union  A436,m2,1)
@@ -8618,7 +8618,7 @@ int f_cmpA437(const struct A437 *x, const struct A437 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA437() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A437), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A437));
 		AF('l',struct A437,m0,1)
 		AF('S',struct A437,m1,1)
 		AF('J',struct A437,m2,1)
@@ -8638,7 +8638,7 @@ int f_cmpA438(const struct A438 *x, const struct A438 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA438() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A438), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A438));
 		AF('S',struct A438,m0,1)
 		AF('I',struct A438,m1,1)
 		AF('C',struct A438,m2,1)
@@ -8658,7 +8658,7 @@ int f_cmpA439(const union  A439 *x, const union  A439 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA439() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A439), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A439));
 		AF('S',union  A439,m0,1)
 		AF('C',union  A439,m1,1)
 		AF('p',union  A439,m2,1)
@@ -8679,7 +8679,7 @@ int f_cmpA440(const struct A440 *x, const struct A440 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA440() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(struct A440), DC_TRUE);
+		at = dcNewAggr(11, sizeof(struct A440));
 		AF('c',struct A440,m0,1)
 		AF('S',struct A440,m1,7)
 		AFa(struct A440,m2,9,A437)
@@ -8701,7 +8701,7 @@ int f_cmpA441(const union  A441 *x, const union  A441 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA441() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A441), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A441));
 		AF('d',union  A441,m0,1)
 		AF('L',union  A441,m1,1)
 		AF('p',union  A441,m2,1)
@@ -8724,7 +8724,7 @@ int f_cmpA442(const struct A442 *x, const struct A442 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA442() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A442), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A442));
 		AF('S',struct A442,m0,1)
 		AFa(struct A442,m1,1,A409)
 		AF('d',struct A442,m2,1)
@@ -8747,7 +8747,7 @@ int f_cmpA443(const union  A443 *x, const union  A443 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA443() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A443), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A443));
 		AF('j',union  A443,m0,1)
 		AF('C',union  A443,m1,1)
 		dcCloseAggr(at);
@@ -8760,7 +8760,7 @@ int f_cmpA444(const union  A444 *x, const union  A444 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA444() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A444), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A444));
 		AF('f',union  A444,m0,1)
 		AF('d',union  A444,m1,1)
 		AFa(union  A444,m2,1,A442)
@@ -8776,7 +8776,7 @@ int f_cmpA445(const struct A445 *x, const struct A445 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA445() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A445), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A445));
 		AF('s',struct A445,m0,1)
 		AF('J',struct A445,m1,1)
 		AF('S',struct A445,m2,1)
@@ -8799,7 +8799,7 @@ int f_cmpA446(const struct A446 *x, const struct A446 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA446() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A446), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A446));
 		AF('j',struct A446,m0,1)
 		AF('c',struct A446,m1,1)
 		dcCloseAggr(at);
@@ -8812,7 +8812,7 @@ int f_cmpA447(const union  A447 *x, const union  A447 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA447() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(union  A447), DC_TRUE);
+		at = dcNewAggr(1, sizeof(union  A447));
 		AF('c',union  A447,m0,1)
 		dcCloseAggr(at);
 	}
@@ -8824,7 +8824,7 @@ int f_cmpA448(const union  A448 *x, const union  A448 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA448() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A448), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A448));
 		AF('c',union  A448,m0,1)
 		AF('C',union  A448,m1,1)
 		AFa(union  A448,m2,1,A447)
@@ -8839,7 +8839,7 @@ int f_cmpA449(const struct A449 *x, const struct A449 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA449() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A449), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A449));
 		AF('p',struct A449,m0,1)
 		AF('p',struct A449,m1,1)
 		AF('L',struct A449,m2,1)
@@ -8862,7 +8862,7 @@ int f_cmpA450(const struct A450 *x, const struct A450 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA450() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A450), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A450));
 		AF('J',struct A450,m0,1)
 		AF('I',struct A450,m1,1)
 		AF('C',struct A450,m2,1)
@@ -8885,7 +8885,7 @@ int f_cmpA451(const union  A451 *x, const union  A451 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA451() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A451), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A451));
 		AF('j',union  A451,m0,1)
 		AF('J',union  A451,m1,1)
 		AF('S',union  A451,m2,1)
@@ -8899,7 +8899,7 @@ int f_cmpA452(const union  A452 *x, const union  A452 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA452() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A452), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A452));
 		AF('l',union  A452,m0,1)
 		AF('p',union  A452,m1,1)
 		AF('j',union  A452,m2,1)
@@ -8917,7 +8917,7 @@ int f_cmpA453(const union  A453 *x, const union  A453 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA453() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A453), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A453));
 		AF('J',union  A453,m0,1)
 		AF('p',union  A453,m1,1)
 		AF('L',union  A453,m2,1)
@@ -8934,7 +8934,7 @@ int f_cmpA454(const struct A454 *x, const struct A454 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA454() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A454), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A454));
 		AF('f',struct A454,m0,1)
 		AF('f',struct A454,m1,1)
 		AF('L',struct A454,m2,1)
@@ -8954,7 +8954,7 @@ int f_cmpA455(const union  A455 *x, const union  A455 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA455() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A455), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A455));
 		AF('d',union  A455,m0,1)
 		AFa(union  A455,m1,1,A454)
 		dcCloseAggr(at);
@@ -8967,7 +8967,7 @@ int f_cmpA456(const union  A456 *x, const union  A456 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA456() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A456), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A456));
 		AF('I',union  A456,m0,1)
 		AF('j',union  A456,m1,1)
 		dcCloseAggr(at);
@@ -8980,7 +8980,7 @@ int f_cmpA457(const struct A457 *x, const struct A457 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA457() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A457), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A457));
 		AF('d',struct A457,m0,1)
 		AF('I',struct A457,m1,1)
 		AF('j',struct A457,m2,1)
@@ -8997,7 +8997,7 @@ int f_cmpA458(const union  A458 *x, const union  A458 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA458() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A458), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A458));
 		AF('p',union  A458,m0,1)
 		AF('S',union  A458,m1,1)
 		dcCloseAggr(at);
@@ -9010,7 +9010,7 @@ int f_cmpA459(const union  A459 *x, const union  A459 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA459() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A459), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A459));
 		AF('i',union  A459,m0,1)
 		AF('i',union  A459,m1,1)
 		AF('p',union  A459,m2,1)
@@ -9025,7 +9025,7 @@ int f_cmpA460(const union  A460 *x, const union  A460 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA460() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(union  A460), DC_TRUE);
+		at = dcNewAggr(11, sizeof(union  A460));
 		AF('C',union  A460,m0,1)
 		AF('f',union  A460,m1,1)
 		AF('p',union  A460,m2,1)
@@ -9047,7 +9047,7 @@ int f_cmpA461(const union  A461 *x, const union  A461 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA461() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A461), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A461));
 		AF('p',union  A461,m0,1)
 		AF('l',union  A461,m1,1)
 		AF('p',union  A461,m2,1)
@@ -9062,7 +9062,7 @@ int f_cmpA462(const union  A462 *x, const union  A462 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA462() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A462), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A462));
 		AF('I',union  A462,m0,1)
 		AFa(union  A462,m1,1,A458)
 		AF('I',union  A462,m2,1)
@@ -9085,7 +9085,7 @@ int f_cmpA463(const union  A463 *x, const union  A463 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA463() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A463), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A463));
 		AF('s',union  A463,m0,1)
 		AF('I',union  A463,m1,1)
 		AF('L',union  A463,m2,1)
@@ -9101,7 +9101,7 @@ int f_cmpA464(const union  A464 *x, const union  A464 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA464() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A464), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A464));
 		AF('S',union  A464,m0,1)
 		AF('j',union  A464,m1,1)
 		AF('p',union  A464,m2,1)
@@ -9119,7 +9119,7 @@ int f_cmpA465(const struct A465 *x, const struct A465 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA465() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(struct A465), DC_TRUE);
+		at = dcNewAggr(10, sizeof(struct A465));
 		AF('J',struct A465,m0,1)
 		AF('l',struct A465,m1,1)
 		AF('J',struct A465,m2,1)
@@ -9140,7 +9140,7 @@ int f_cmpA466(const struct A466 *x, const struct A466 *y) { return f_cmpA464(&x-
 DCaggr* f_touchdcstA466() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A466), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A466));
 		AFa(struct A466,m0,1,A464)
 		AF('S',struct A466,m1,1)
 		AF('s',struct A466,m2,2)
@@ -9163,7 +9163,7 @@ int f_cmpA467(const union  A467 *x, const union  A467 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA467() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A467), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A467));
 		AF('s',union  A467,m0,1)
 		AF('p',union  A467,m1,1)
 		AF('c',union  A467,m2,1)
@@ -9186,7 +9186,7 @@ int f_cmpA468(const struct A468 *x, const struct A468 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA468() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A468), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A468));
 		AF('c',struct A468,m0,1)
 		AF('s',struct A468,m1,1)
 		AF('c',struct A468,m2,1)
@@ -9209,7 +9209,7 @@ int f_cmpA469(const struct A469 *x, const struct A469 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA469() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A469), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A469));
 		AF('p',struct A469,m0,1)
 		AF('f',struct A469,m1,1)
 		AF('s',struct A469,m2,1)
@@ -9232,7 +9232,7 @@ int f_cmpA470(const union  A470 *x, const union  A470 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA470() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A470), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A470));
 		AF('j',union  A470,m0,1)
 		AF('S',union  A470,m1,1)
 		AF('p',union  A470,m2,1)
@@ -9248,7 +9248,7 @@ int f_cmpA471(const struct A471 *x, const struct A471 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA471() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A471), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A471));
 		AF('J',struct A471,m0,1)
 		AF('i',struct A471,m1,1)
 		AF('l',struct A471,m2,1)
@@ -9271,7 +9271,7 @@ int f_cmpA472(const union  A472 *x, const union  A472 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA472() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A472), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A472));
 		AF('j',union  A472,m0,1)
 		AF('L',union  A472,m1,1)
 		AF('L',union  A472,m2,1)
@@ -9294,7 +9294,7 @@ int f_cmpA473(const struct A473 *x, const struct A473 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA473() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A473), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A473));
 		AF('s',struct A473,m0,1)
 		AF('s',struct A473,m1,1)
 		AFa(struct A473,m2,1,A471)
@@ -9317,7 +9317,7 @@ int f_cmpA474(const struct A474 *x, const struct A474 *y) { return f_cmpA470(&x-
 DCaggr* f_touchdcstA474() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A474), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A474));
 		AFa(struct A474,m0,1,A470)
 		AF('I',struct A474,m1,1)
 		AF('C',struct A474,m2,1)
@@ -9340,7 +9340,7 @@ int f_cmpA475(const struct A475 *x, const struct A475 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA475() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A475), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A475));
 		AF('f',struct A475,m0,1)
 		AF('i',struct A475,m1,1)
 		AF('C',struct A475,m2,1)
@@ -9363,7 +9363,7 @@ int f_cmpA476(const struct A476 *x, const struct A476 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA476() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A476), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A476));
 		AF('j',struct A476,m0,1)
 		AF('f',struct A476,m1,1)
 		AF('I',struct A476,m2,1)
@@ -9386,7 +9386,7 @@ int f_cmpA477(const struct A477 *x, const struct A477 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA477() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A477), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A477));
 		AF('J',struct A477,m0,1)
 		AF('S',struct A477,m1,1)
 		AF('s',struct A477,m2,1)
@@ -9409,7 +9409,7 @@ int f_cmpA478(const union  A478 *x, const union  A478 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA478() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A478), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A478));
 		AF('s',union  A478,m0,1)
 		AF('f',union  A478,m1,1)
 		AF('C',union  A478,m2,1)
@@ -9432,7 +9432,7 @@ int f_cmpA479(const struct A479 *x, const struct A479 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA479() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A479), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A479));
 		AF('l',struct A479,m0,1)
 		AF('C',struct A479,m1,1)
 		AF('S',struct A479,m2,1)
@@ -9455,7 +9455,7 @@ int f_cmpA480(const struct A480 *x, const struct A480 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA480() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A480), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A480));
 		AF('c',struct A480,m0,1)
 		AF('j',struct A480,m1,1)
 		AF('f',struct A480,m2,1)
@@ -9478,7 +9478,7 @@ int f_cmpA481(const struct A481 *x, const struct A481 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA481() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A481), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A481));
 		AF('c',struct A481,m0,1)
 		AF('L',struct A481,m1,1)
 		AF('L',struct A481,m2,1)
@@ -9501,7 +9501,7 @@ int f_cmpA482(const struct A482 *x, const struct A482 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA482() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A482), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A482));
 		AF('L',struct A482,m0,1)
 		AF('f',struct A482,m1,1)
 		AF('p',struct A482,m2,1)
@@ -9524,7 +9524,7 @@ int f_cmpA483(const union  A483 *x, const union  A483 *y) { return f_cmpA479(&x-
 DCaggr* f_touchdcstA483() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A483), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A483));
 		AFa(union  A483,m0,1,A479)
 		AFa(union  A483,m1,1,A481)
 		AF('d',union  A483,m2,1)
@@ -9547,7 +9547,7 @@ int f_cmpA484(const struct A484 *x, const struct A484 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA484() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A484), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A484));
 		AF('p',struct A484,m0,1)
 		AF('C',struct A484,m1,1)
 		AF('i',struct A484,m2,1)
@@ -9570,7 +9570,7 @@ int f_cmpA485(const union  A485 *x, const union  A485 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA485() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A485), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A485));
 		AF('s',union  A485,m0,1)
 		AF('s',union  A485,m1,1)
 		AF('s',union  A485,m2,3)
@@ -9587,7 +9587,7 @@ int f_cmpA486(const struct A486 *x, const struct A486 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA486() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A486), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A486));
 		AF('j',struct A486,m0,1)
 		AF('I',struct A486,m1,1)
 		AF('j',struct A486,m2,1)
@@ -9602,7 +9602,7 @@ int f_cmpA487(const struct A487 *x, const struct A487 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA487() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A487), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A487));
 		AF('i',struct A487,m0,1)
 		AF('p',struct A487,m1,1)
 		AF('s',struct A487,m2,1)
@@ -9625,7 +9625,7 @@ int f_cmpA488(const struct A488 *x, const struct A488 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA488() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A488), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A488));
 		AF('c',struct A488,m0,1)
 		AF('i',struct A488,m1,1)
 		AF('s',struct A488,m2,1)
@@ -9644,7 +9644,7 @@ int f_cmpA489(const struct A489 *x, const struct A489 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA489() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A489), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A489));
 		AF('c',struct A489,m0,1)
 		AF('l',struct A489,m1,1)
 		AF('l',struct A489,m2,1)
@@ -9667,7 +9667,7 @@ int f_cmpA490(const struct A490 *x, const struct A490 *y) { return f_cmpA489(&x-
 DCaggr* f_touchdcstA490() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A490), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A490));
 		AFa(struct A490,m0,1,A489)
 		AF('J',struct A490,m1,1)
 		AF('S',struct A490,m2,1)
@@ -9690,7 +9690,7 @@ int f_cmpA491(const union  A491 *x, const union  A491 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA491() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A491), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A491));
 		AF('d',union  A491,m0,1)
 		AF('L',union  A491,m1,1)
 		AFa(union  A491,m2,1,A490)
@@ -9713,7 +9713,7 @@ int f_cmpA492(const union  A492 *x, const union  A492 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA492() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A492), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A492));
 		AF('f',union  A492,m0,1)
 		AF('I',union  A492,m1,1)
 		AF('c',union  A492,m2,1)
@@ -9736,7 +9736,7 @@ int f_cmpA493(const struct A493 *x, const struct A493 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA493() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A493), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A493));
 		AF('I',struct A493,m0,1)
 		AF('l',struct A493,m1,1)
 		AF('J',struct A493,m2,1)
@@ -9750,7 +9750,7 @@ int f_cmpA494(const struct A494 *x, const struct A494 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA494() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A494), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A494));
 		AF('s',struct A494,m0,1)
 		AF('I',struct A494,m1,1)
 		AF('c',struct A494,m2,1)
@@ -9773,7 +9773,7 @@ int f_cmpA495(const union  A495 *x, const union  A495 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA495() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A495), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A495));
 		AF('j',union  A495,m0,1)
 		AF('c',union  A495,m1,1)
 		AF('j',union  A495,m2,1)
@@ -9789,7 +9789,7 @@ int f_cmpA496(const union  A496 *x, const union  A496 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA496() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A496), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A496));
 		AF('C',union  A496,m0,1)
 		AF('p',union  A496,m1,1)
 		AF('I',union  A496,m2,1)
@@ -9805,7 +9805,7 @@ int f_cmpA497(const union  A497 *x, const union  A497 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA497() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(union  A497), DC_TRUE);
+		at = dcNewAggr(11, sizeof(union  A497));
 		AF('c',union  A497,m0,1)
 		AF('S',union  A497,m1,1)
 		AF('c',union  A497,m2,1)
@@ -9827,7 +9827,7 @@ int f_cmpA498(const union  A498 *x, const union  A498 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA498() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A498), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A498));
 		AF('f',union  A498,m0,1)
 		AFa(union  A498,m1,1,A496)
 		AF('L',union  A498,m2,1)
@@ -9843,7 +9843,7 @@ int f_cmpA499(const union  A499 *x, const union  A499 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA499() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A499), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A499));
 		AF('f',union  A499,m0,1)
 		AF('C',union  A499,m1,1)
 		AF('d',union  A499,m2,1)
@@ -9866,7 +9866,7 @@ int f_cmpA500(const union  A500 *x, const union  A500 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA500() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A500), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A500));
 		AF('I',union  A500,m0,1)
 		AF('c',union  A500,m1,1)
 		AF('I',union  A500,m2,1)
@@ -9889,7 +9889,7 @@ int f_cmpA501(const union  A501 *x, const union  A501 *y) { return x->m0[0] == y
 DCaggr* f_touchdcstA501() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A501), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A501));
 		AF('I',union  A501,m0,8)
 		AF('c',union  A501,m1,1)
 		AF('L',union  A501,m2,1)
@@ -9912,7 +9912,7 @@ int f_cmpA502(const union  A502 *x, const union  A502 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA502() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A502), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A502));
 		AF('L',union  A502,m0,1)
 		AF('p',union  A502,m1,1)
 		AF('I',union  A502,m2,1)
@@ -9935,7 +9935,7 @@ int f_cmpA503(const union  A503 *x, const union  A503 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA503() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A503), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A503));
 		AF('i',union  A503,m0,1)
 		AF('J',union  A503,m1,1)
 		AF('s',union  A503,m2,1)
@@ -9953,7 +9953,7 @@ int f_cmpA504(const union  A504 *x, const union  A504 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA504() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A504), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A504));
 		AF('f',union  A504,m0,1)
 		AF('i',union  A504,m1,1)
 		AF('L',union  A504,m2,1)
@@ -9968,7 +9968,7 @@ int f_cmpA505(const struct A505 *x, const struct A505 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA505() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A505), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A505));
 		AF('s',struct A505,m0,1)
 		AF('j',struct A505,m1,1)
 		dcCloseAggr(at);
@@ -9981,7 +9981,7 @@ int f_cmpA506(const union  A506 *x, const union  A506 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA506() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A506), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A506));
 		AF('J',union  A506,m0,1)
 		AF('I',union  A506,m1,1)
 		AF('I',union  A506,m2,1)
@@ -10000,7 +10000,7 @@ int f_cmpA507(const union  A507 *x, const union  A507 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA507() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A507), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A507));
 		AF('l',union  A507,m0,1)
 		AFa(union  A507,m1,1,A498)
 		AF('J',union  A507,m2,1)
@@ -10023,7 +10023,7 @@ int f_cmpA508(const union  A508 *x, const union  A508 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA508() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A508), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A508));
 		AF('S',union  A508,m0,1)
 		AF('C',union  A508,m1,1)
 		AF('L',union  A508,m2,1)
@@ -10040,7 +10040,7 @@ int f_cmpA509(const struct A509 *x, const struct A509 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA509() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A509), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A509));
 		AF('S',struct A509,m0,1)
 		AF('S',struct A509,m1,1)
 		AF('I',struct A509,m2,1)
@@ -10063,7 +10063,7 @@ int f_cmpA510(const union  A510 *x, const union  A510 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA510() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A510), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A510));
 		AF('d',union  A510,m0,1)
 		AF('i',union  A510,m1,1)
 		AF('I',union  A510,m2,1)
@@ -10086,7 +10086,7 @@ int f_cmpA511(const union  A511 *x, const union  A511 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA511() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A511), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A511));
 		AF('p',union  A511,m0,1)
 		AF('s',union  A511,m1,1)
 		AF('f',union  A511,m2,1)
@@ -10109,7 +10109,7 @@ int f_cmpA512(const struct A512 *x, const struct A512 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA512() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A512), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A512));
 		AF('l',struct A512,m0,1)
 		AF('C',struct A512,m1,1)
 		AF('l',struct A512,m2,1)
@@ -10132,7 +10132,7 @@ int f_cmpA513(const struct A513 *x, const struct A513 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA513() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A513), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A513));
 		AF('p',struct A513,m0,1)
 		AF('j',struct A513,m1,1)
 		AF('p',struct A513,m2,1)
@@ -10155,7 +10155,7 @@ int f_cmpA514(const struct A514 *x, const struct A514 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA514() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A514), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A514));
 		AF('C',struct A514,m0,1)
 		AF('l',struct A514,m1,1)
 		AF('c',struct A514,m2,1)
@@ -10172,7 +10172,7 @@ int f_cmpA515(const union  A515 *x, const union  A515 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA515() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A515), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A515));
 		AF('f',union  A515,m0,1)
 		AF('S',union  A515,m1,1)
 		AF('i',union  A515,m2,1)
@@ -10195,7 +10195,7 @@ int f_cmpA516(const union  A516 *x, const union  A516 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA516() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A516), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A516));
 		AF('p',union  A516,m0,1)
 		AF('i',union  A516,m1,1)
 		AF('i',union  A516,m2,1)
@@ -10218,7 +10218,7 @@ int f_cmpA517(const union  A517 *x, const union  A517 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA517() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A517), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A517));
 		AF('c',union  A517,m0,1)
 		AF('s',union  A517,m1,1)
 		AF('f',union  A517,m2,1)
@@ -10232,7 +10232,7 @@ int f_cmpA518(const union  A518 *x, const union  A518 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA518() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A518), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A518));
 		AF('i',union  A518,m0,1)
 		AF('p',union  A518,m1,1)
 		AF('i',union  A518,m2,1)
@@ -10249,7 +10249,7 @@ int f_cmpA519(const struct A519 *x, const struct A519 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA519() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A519), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A519));
 		AF('c',struct A519,m0,1)
 		AFa(struct A519,m1,1,A516)
 		AF('C',struct A519,m2,1)
@@ -10272,7 +10272,7 @@ int f_cmpA520(const struct A520 *x, const struct A520 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA520() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A520), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A520));
 		AF('L',struct A520,m0,1)
 		AF('l',struct A520,m1,1)
 		AF('J',struct A520,m2,1)
@@ -10295,7 +10295,7 @@ int f_cmpA521(const union  A521 *x, const union  A521 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA521() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A521), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A521));
 		AF('C',union  A521,m0,1)
 		AF('f',union  A521,m1,1)
 		AF('f',union  A521,m2,3)
@@ -10316,7 +10316,7 @@ int f_cmpA522(const union  A522 *x, const union  A522 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA522() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A522), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A522));
 		AF('i',union  A522,m0,1)
 		AF('l',union  A522,m1,1)
 		AFa(union  A522,m2,1,A521)
@@ -10330,7 +10330,7 @@ int f_cmpA523(const union  A523 *x, const union  A523 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA523() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A523), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A523));
 		AF('L',union  A523,m0,1)
 		AF('C',union  A523,m1,1)
 		dcCloseAggr(at);
@@ -10343,7 +10343,7 @@ int f_cmpA524(const union  A524 *x, const union  A524 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA524() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A524), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A524));
 		AF('i',union  A524,m0,1)
 		AF('c',union  A524,m1,1)
 		AF('C',union  A524,m2,1)
@@ -10366,7 +10366,7 @@ int f_cmpA525(const union  A525 *x, const union  A525 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA525() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(union  A525), DC_TRUE);
+		at = dcNewAggr(11, sizeof(union  A525));
 		AF('J',union  A525,m0,1)
 		AFa(union  A525,m1,1,A523)
 		AF('S',union  A525,m2,1)
@@ -10388,7 +10388,7 @@ int f_cmpA526(const union  A526 *x, const union  A526 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA526() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A526), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A526));
 		AF('p',union  A526,m0,1)
 		AF('s',union  A526,m1,1)
 		AF('f',union  A526,m2,1)
@@ -10411,7 +10411,7 @@ int f_cmpA527(const union  A527 *x, const union  A527 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA527() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(union  A527), DC_TRUE);
+		at = dcNewAggr(1, sizeof(union  A527));
 		AF('I',union  A527,m0,1)
 		dcCloseAggr(at);
 	}
@@ -10423,7 +10423,7 @@ int f_cmpA528(const union  A528 *x, const union  A528 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA528() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A528), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A528));
 		AF('I',union  A528,m0,1)
 		AF('f',union  A528,m1,1)
 		AF('c',union  A528,m2,1)
@@ -10446,7 +10446,7 @@ int f_cmpA529(const union  A529 *x, const union  A529 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA529() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A529), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A529));
 		AF('l',union  A529,m0,1)
 		AF('d',union  A529,m1,1)
 		AF('j',union  A529,m2,1)
@@ -10469,7 +10469,7 @@ int f_cmpA530(const struct A530 *x, const struct A530 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA530() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A530), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A530));
 		AF('S',struct A530,m0,1)
 		AF('s',struct A530,m1,1)
 		AF('I',struct A530,m2,1)
@@ -10489,7 +10489,7 @@ int f_cmpA531(const union  A531 *x, const union  A531 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA531() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A531), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A531));
 		AF('J',union  A531,m0,1)
 		AF('f',union  A531,m1,1)
 		AF('L',union  A531,m2,1)
@@ -10504,7 +10504,7 @@ int f_cmpA532(const union  A532 *x, const union  A532 *y) { return f_cmpA383(&x-
 DCaggr* f_touchdcstA532() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A532), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A532));
 		AFa(union  A532,m0,1,A383)
 		AF('c',union  A532,m1,1)
 		AFa(union  A532,m2,1,A528)
@@ -10525,7 +10525,7 @@ int f_cmpA533(const struct A533 *x, const struct A533 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA533() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A533), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A533));
 		AF('d',struct A533,m0,1)
 		AF('l',struct A533,m1,1)
 		AF('j',struct A533,m2,1)
@@ -10539,7 +10539,7 @@ int f_cmpA534(const union  A534 *x, const union  A534 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA534() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A534), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A534));
 		AF('f',union  A534,m0,1)
 		AF('f',union  A534,m1,1)
 		AF('j',union  A534,m2,1)
@@ -10553,7 +10553,7 @@ int f_cmpA535(const struct A535 *x, const struct A535 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA535() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(struct A535), DC_TRUE);
+		at = dcNewAggr(7, sizeof(struct A535));
 		AF('d',struct A535,m0,1)
 		AF('d',struct A535,m1,1)
 		AF('p',struct A535,m2,1)
@@ -10571,7 +10571,7 @@ int f_cmpA536(const struct A536 *x, const struct A536 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA536() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A536), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A536));
 		AF('d',struct A536,m0,1)
 		AF('d',struct A536,m1,1)
 		AF('c',struct A536,m2,1)
@@ -10594,7 +10594,7 @@ int f_cmpA537(const struct A537 *x, const struct A537 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA537() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A537), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A537));
 		AF('S',struct A537,m0,1)
 		AF('s',struct A537,m1,1)
 		AFa(struct A537,m2,1,A534)
@@ -10617,7 +10617,7 @@ int f_cmpA538(const struct A538 *x, const struct A538 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA538() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A538), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A538));
 		AF('L',struct A538,m0,1)
 		AF('l',struct A538,m1,1)
 		AF('J',struct A538,m2,1)
@@ -10631,7 +10631,7 @@ int f_cmpA539(const union  A539 *x, const union  A539 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA539() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A539), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A539));
 		AF('C',union  A539,m0,1)
 		AF('l',union  A539,m1,1)
 		AF('d',union  A539,m2,1)
@@ -10650,7 +10650,7 @@ int f_cmpA540(const struct A540 *x, const struct A540 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA540() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A540), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A540));
 		AF('i',struct A540,m0,1)
 		AFa(struct A540,m1,1,A414)
 		AF('J',struct A540,m2,1)
@@ -10673,7 +10673,7 @@ int f_cmpA541(const union  A541 *x, const union  A541 *y) { return x->m0[0] == y
 DCaggr* f_touchdcstA541() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A541), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A541));
 		AF('S',union  A541,m0,14)
 		AF('C',union  A541,m1,1)
 		AF('d',union  A541,m2,1)
@@ -10689,7 +10689,7 @@ int f_cmpA542(const union  A542 *x, const union  A542 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA542() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A542), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A542));
 		AF('C',union  A542,m0,1)
 		AF('C',union  A542,m1,1)
 		dcCloseAggr(at);
@@ -10702,7 +10702,7 @@ int f_cmpA543(const struct A543 *x, const struct A543 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA543() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A543), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A543));
 		AF('j',struct A543,m0,1)
 		AF('C',struct A543,m1,1)
 		AFa(struct A543,m2,1,A542)
@@ -10725,7 +10725,7 @@ int f_cmpA544(const struct A544 *x, const struct A544 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA544() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A544), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A544));
 		AF('S',struct A544,m0,1)
 		AF('l',struct A544,m1,1)
 		AF('I',struct A544,m2,1)
@@ -10748,7 +10748,7 @@ int f_cmpA545(const union  A545 *x, const union  A545 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA545() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A545), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A545));
 		AF('f',union  A545,m0,1)
 		AF('C',union  A545,m1,1)
 		AF('I',union  A545,m2,1)
@@ -10771,7 +10771,7 @@ int f_cmpA546(const union  A546 *x, const union  A546 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA546() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A546), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A546));
 		AF('C',union  A546,m0,1)
 		AF('j',union  A546,m1,1)
 		AF('l',union  A546,m2,1)
@@ -10794,7 +10794,7 @@ int f_cmpA547(const union  A547 *x, const union  A547 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA547() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A547), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A547));
 		AF('f',union  A547,m0,1)
 		AF('I',union  A547,m1,1)
 		AF('L',union  A547,m2,1)
@@ -10811,7 +10811,7 @@ int f_cmpA548(const struct A548 *x, const struct A548 *y) { return f_cmpA546(&x-
 DCaggr* f_touchdcstA548() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(struct A548), DC_TRUE);
+		at = dcNewAggr(11, sizeof(struct A548));
 		AFa(struct A548,m0,1,A546)
 		AF('d',struct A548,m1,1)
 		AF('I',struct A548,m2,1)
@@ -10833,7 +10833,7 @@ int f_cmpA549(const struct A549 *x, const struct A549 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA549() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A549), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A549));
 		AF('C',struct A549,m0,1)
 		AF('I',struct A549,m1,1)
 		AF('f',struct A549,m2,1)
@@ -10853,7 +10853,7 @@ int f_cmpA550(const struct A550 *x, const struct A550 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA550() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A550), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A550));
 		AF('s',struct A550,m0,1)
 		AF('i',struct A550,m1,1)
 		AF('s',struct A550,m2,1)
@@ -10872,7 +10872,7 @@ int f_cmpA551(const struct A551 *x, const struct A551 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA551() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A551), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A551));
 		AF('S',struct A551,m0,1)
 		AF('j',struct A551,m1,1)
 		AF('s',struct A551,m2,1)
@@ -10895,7 +10895,7 @@ int f_cmpA552(const union  A552 *x, const union  A552 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA552() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A552), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A552));
 		AF('C',union  A552,m0,1)
 		AF('d',union  A552,m1,1)
 		AF('l',union  A552,m2,1)
@@ -10916,7 +10916,7 @@ int f_cmpA553(const union  A553 *x, const union  A553 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA553() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A553), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A553));
 		AF('I',union  A553,m0,1)
 		AF('d',union  A553,m1,1)
 		AF('C',union  A553,m2,1)
@@ -10939,7 +10939,7 @@ int f_cmpA554(const struct A554 *x, const struct A554 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA554() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A554), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A554));
 		AF('f',struct A554,m0,1)
 		AF('c',struct A554,m1,1)
 		AF('L',struct A554,m2,1)
@@ -10962,7 +10962,7 @@ int f_cmpA555(const struct A555 *x, const struct A555 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA555() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A555), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A555));
 		AF('p',struct A555,m0,1)
 		AF('s',struct A555,m1,10)
 		AF('J',struct A555,m2,1)
@@ -10982,7 +10982,7 @@ int f_cmpA556(const struct A556 *x, const struct A556 *y) { return x->m0[0] == y
 DCaggr* f_touchdcstA556() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A556), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A556));
 		AF('J',struct A556,m0,15)
 		AF('p',struct A556,m1,1)
 		dcCloseAggr(at);
@@ -10995,7 +10995,7 @@ int f_cmpA557(const union  A557 *x, const union  A557 *y) { return f_cmpA33(&x->
 DCaggr* f_touchdcstA557() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A557), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A557));
 		AFa(union  A557,m0,1,A33)
 		AF('i',union  A557,m1,1)
 		AF('j',union  A557,m2,1)
@@ -11016,7 +11016,7 @@ int f_cmpA558(const union  A558 *x, const union  A558 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA558() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A558), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A558));
 		AF('i',union  A558,m0,1)
 		AF('S',union  A558,m1,1)
 		AF('i',union  A558,m2,1)
@@ -11031,7 +11031,7 @@ int f_cmpA559(const union  A559 *x, const union  A559 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA559() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A559), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A559));
 		AF('l',union  A559,m0,1)
 		AF('p',union  A559,m1,1)
 		AF('L',union  A559,m2,1)
@@ -11054,7 +11054,7 @@ int f_cmpA560(const union  A560 *x, const union  A560 *y) { return f_cmpA558(&x-
 DCaggr* f_touchdcstA560() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A560), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A560));
 		AFa(union  A560,m0,1,A558)
 		AFa(union  A560,m1,1,A559)
 		AF('L',union  A560,m2,1)
@@ -11071,7 +11071,7 @@ int f_cmpA561(const struct A561 *x, const struct A561 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA561() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A561), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A561));
 		AF('C',struct A561,m0,1)
 		AF('c',struct A561,m1,1)
 		AF('j',struct A561,m2,1)
@@ -11094,7 +11094,7 @@ int f_cmpA562(const struct A562 *x, const struct A562 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA562() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A562), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A562));
 		AF('l',struct A562,m0,1)
 		AF('i',struct A562,m1,1)
 		AF('S',struct A562,m2,1)
@@ -11117,7 +11117,7 @@ int f_cmpA563(const struct A563 *x, const struct A563 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA563() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A563), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A563));
 		AF('i',struct A563,m0,1)
 		AF('J',struct A563,m1,1)
 		AF('I',struct A563,m2,1)
@@ -11131,7 +11131,7 @@ int f_cmpA564(const struct A564 *x, const struct A564 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA564() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A564), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A564));
 		AF('c',struct A564,m0,1)
 		AF('f',struct A564,m1,1)
 		AF('J',struct A564,m2,1)
@@ -11154,7 +11154,7 @@ int f_cmpA565(const union  A565 *x, const union  A565 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA565() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A565), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A565));
 		AF('f',union  A565,m0,1)
 		AF('p',union  A565,m1,1)
 		AF('J',union  A565,m2,1)
@@ -11177,7 +11177,7 @@ int f_cmpA566(const struct A566 *x, const struct A566 *y) { return x->m0[0] == y
 DCaggr* f_touchdcstA566() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(struct A566), DC_TRUE);
+		at = dcNewAggr(1, sizeof(struct A566));
 		AF('I',struct A566,m0,1)
 		dcCloseAggr(at);
 	}
@@ -11189,7 +11189,7 @@ int f_cmpA567(const struct A567 *x, const struct A567 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA567() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A567), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A567));
 		AF('C',struct A567,m0,1)
 		AF('f',struct A567,m1,1)
 		AF('f',struct A567,m2,1)
@@ -11212,7 +11212,7 @@ int f_cmpA568(const union  A568 *x, const union  A568 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA568() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A568), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A568));
 		AF('p',union  A568,m0,1)
 		AF('i',union  A568,m1,1)
 		AF('I',union  A568,m2,1)
@@ -11227,7 +11227,7 @@ int f_cmpA569(const struct A569 *x, const struct A569 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA569() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A569), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A569));
 		AF('c',struct A569,m0,1)
 		AF('j',struct A569,m1,1)
 		AF('J',struct A569,m2,1)
@@ -11250,7 +11250,7 @@ int f_cmpA570(const union  A570 *x, const union  A570 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA570() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A570), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A570));
 		AF('f',union  A570,m0,1)
 		AF('c',union  A570,m1,1)
 		AF('c',union  A570,m2,1)
@@ -11269,7 +11269,7 @@ int f_cmpA571(const struct A571 *x, const struct A571 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA571() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A571), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A571));
 		AF('i',struct A571,m0,1)
 		AF('c',struct A571,m1,1)
 		AFa(struct A571,m2,1,A570)
@@ -11292,7 +11292,7 @@ int f_cmpA572(const union  A572 *x, const union  A572 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA572() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A572), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A572));
 		AF('S',union  A572,m0,1)
 		AF('I',union  A572,m1,1)
 		AF('f',union  A572,m2,1)
@@ -11313,7 +11313,7 @@ int f_cmpA573(const union  A573 *x, const union  A573 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA573() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A573), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A573));
 		AF('l',union  A573,m0,1)
 		AF('j',union  A573,m1,1)
 		AF('p',union  A573,m2,1)
@@ -11331,7 +11331,7 @@ int f_cmpA574(const union  A574 *x, const union  A574 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA574() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A574), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A574));
 		AF('I',union  A574,m0,1)
 		AF('l',union  A574,m1,1)
 		AF('J',union  A574,m2,1)
@@ -11354,7 +11354,7 @@ int f_cmpA575(const union  A575 *x, const union  A575 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA575() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A575), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A575));
 		AF('c',union  A575,m0,1)
 		AF('p',union  A575,m1,1)
 		AF('j',union  A575,m2,1)
@@ -11368,7 +11368,7 @@ int f_cmpA576(const struct A576 *x, const struct A576 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA576() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A576), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A576));
 		AF('s',struct A576,m0,1)
 		AF('C',struct A576,m1,1)
 		AF('c',struct A576,m2,1)
@@ -11388,7 +11388,7 @@ int f_cmpA577(const struct A577 *x, const struct A577 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA577() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A577), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A577));
 		AF('L',struct A577,m0,1)
 		AF('f',struct A577,m1,1)
 		AF('f',struct A577,m2,1)
@@ -11403,7 +11403,7 @@ int f_cmpA578(const union  A578 *x, const union  A578 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA578() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A578), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A578));
 		AF('J',union  A578,m0,1)
 		AF('f',union  A578,m1,1)
 		AF('d',union  A578,m2,1)
@@ -11426,7 +11426,7 @@ int f_cmpA579(const union  A579 *x, const union  A579 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA579() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A579), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A579));
 		AF('j',union  A579,m0,1)
 		AF('L',union  A579,m1,1)
 		AF('c',union  A579,m2,1)
@@ -11447,7 +11447,7 @@ int f_cmpA580(const union  A580 *x, const union  A580 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA580() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A580), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A580));
 		AF('S',union  A580,m0,1)
 		AF('l',union  A580,m1,1)
 		AF('c',union  A580,m2,1)
@@ -11470,7 +11470,7 @@ int f_cmpA581(const struct A581 *x, const struct A581 *y) { return f_cmpA580(&x-
 DCaggr* f_touchdcstA581() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A581), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A581));
 		AFa(struct A581,m0,1,A580)
 		AF('p',struct A581,m1,1)
 		dcCloseAggr(at);
@@ -11483,7 +11483,7 @@ int f_cmpA582(const union  A582 *x, const union  A582 *y) { return f_cmpA581(&x-
 DCaggr* f_touchdcstA582() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A582), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A582));
 		AFa(union  A582,m0,1,A581)
 		AF('l',union  A582,m1,1)
 		AF('j',union  A582,m2,1)
@@ -11497,7 +11497,7 @@ int f_cmpA583(const struct A583 *x, const struct A583 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA583() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A583), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A583));
 		AF('j',struct A583,m0,1)
 		AF('l',struct A583,m1,1)
 		AF('c',struct A583,m2,1)
@@ -11520,7 +11520,7 @@ int f_cmpA584(const union  A584 *x, const union  A584 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA584() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A584), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A584));
 		AF('d',union  A584,m0,1)
 		AF('i',union  A584,m1,1)
 		AF('C',union  A584,m2,1)
@@ -11534,7 +11534,7 @@ int f_cmpA585(const struct A585 *x, const struct A585 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA585() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A585), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A585));
 		AF('I',struct A585,m0,1)
 		AF('S',struct A585,m1,1)
 		AF('s',struct A585,m2,1)
@@ -11550,7 +11550,7 @@ int f_cmpA586(const struct A586 *x, const struct A586 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA586() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(struct A586), DC_TRUE);
+		at = dcNewAggr(10, sizeof(struct A586));
 		AF('S',struct A586,m0,1)
 		AF('C',struct A586,m1,1)
 		AF('l',struct A586,m2,1)
@@ -11571,7 +11571,7 @@ int f_cmpA587(const struct A587 *x, const struct A587 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA587() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A587), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A587));
 		AF('s',struct A587,m0,1)
 		AF('L',struct A587,m1,1)
 		AF('p',struct A587,m2,1)
@@ -11585,7 +11585,7 @@ int f_cmpA588(const struct A588 *x, const struct A588 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA588() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A588), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A588));
 		AF('S',struct A588,m0,1)
 		AF('j',struct A588,m1,1)
 		AF('J',struct A588,m2,1)
@@ -11608,7 +11608,7 @@ int f_cmpA589(const struct A589 *x, const struct A589 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA589() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A589), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A589));
 		AF('S',struct A589,m0,1)
 		AF('I',struct A589,m1,1)
 		AF('I',struct A589,m2,1)
@@ -11631,7 +11631,7 @@ int f_cmpA590(const union  A590 *x, const union  A590 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA590() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A590), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A590));
 		AF('S',union  A590,m0,1)
 		AF('j',union  A590,m1,1)
 		AF('d',union  A590,m2,1)
@@ -11654,7 +11654,7 @@ int f_cmpA591(const struct A591 *x, const struct A591 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA591() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(struct A591), DC_TRUE);
+		at = dcNewAggr(11, sizeof(struct A591));
 		AF('i',struct A591,m0,1)
 		AF('c',struct A591,m1,1)
 		AF('p',struct A591,m2,1)
@@ -11676,7 +11676,7 @@ int f_cmpA592(const struct A592 *x, const struct A592 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA592() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A592), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A592));
 		AF('p',struct A592,m0,1)
 		AF('d',struct A592,m1,1)
 		AF('J',struct A592,m2,1)
@@ -11699,7 +11699,7 @@ int f_cmpA593(const struct A593 *x, const struct A593 *y) { return f_cmpA592(&x-
 DCaggr* f_touchdcstA593() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A593), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A593));
 		AFa(struct A593,m0,1,A592)
 		AF('C',struct A593,m1,1)
 		AF('c',struct A593,m2,1)
@@ -11714,7 +11714,7 @@ int f_cmpA594(const struct A594 *x, const struct A594 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA594() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A594), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A594));
 		AF('i',struct A594,m0,1)
 		AF('S',struct A594,m1,1)
 		AF('i',struct A594,m2,1)
@@ -11731,7 +11731,7 @@ int f_cmpA595(const union  A595 *x, const union  A595 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA595() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A595), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A595));
 		AF('S',union  A595,m0,1)
 		AF('c',union  A595,m1,1)
 		AF('s',union  A595,m2,1)
@@ -11748,7 +11748,7 @@ int f_cmpA596(const union  A596 *x, const union  A596 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA596() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A596), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A596));
 		AF('C',union  A596,m0,1)
 		AF('L',union  A596,m1,1)
 		dcCloseAggr(at);
@@ -11761,7 +11761,7 @@ int f_cmpA597(const union  A597 *x, const union  A597 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA597() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A597), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A597));
 		AF('l',union  A597,m0,1)
 		AF('f',union  A597,m1,1)
 		AF('J',union  A597,m2,1)
@@ -11784,7 +11784,7 @@ int f_cmpA598(const union  A598 *x, const union  A598 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA598() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A598), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A598));
 		AF('l',union  A598,m0,1)
 		AF('L',union  A598,m1,1)
 		AF('j',union  A598,m2,1)
@@ -11800,7 +11800,7 @@ int f_cmpA599(const struct A599 *x, const struct A599 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA599() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A599), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A599));
 		AF('J',struct A599,m0,1)
 		AF('p',struct A599,m1,1)
 		AF('d',struct A599,m2,1)
@@ -11816,7 +11816,7 @@ int f_cmpA600(const union  A600 *x, const union  A600 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA600() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A600), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A600));
 		AF('f',union  A600,m0,1)
 		AF('d',union  A600,m1,1)
 		AF('l',union  A600,m2,1)
@@ -11839,7 +11839,7 @@ int f_cmpA601(const union  A601 *x, const union  A601 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA601() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(union  A601), DC_TRUE);
+		at = dcNewAggr(11, sizeof(union  A601));
 		AF('C',union  A601,m0,1)
 		AF('l',union  A601,m1,1)
 		AF('L',union  A601,m2,1)
@@ -11861,7 +11861,7 @@ int f_cmpA602(const union  A602 *x, const union  A602 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA602() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A602), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A602));
 		AF('f',union  A602,m0,1)
 		AF('i',union  A602,m1,1)
 		AF('l',union  A602,m2,1)
@@ -11882,7 +11882,7 @@ int f_cmpA603(const union  A603 *x, const union  A603 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA603() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A603), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A603));
 		AF('C',union  A603,m0,1)
 		AF('f',union  A603,m1,1)
 		AF('f',union  A603,m2,1)
@@ -11905,7 +11905,7 @@ int f_cmpA604(const union  A604 *x, const union  A604 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA604() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A604), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A604));
 		AF('i',union  A604,m0,1)
 		AF('L',union  A604,m1,1)
 		AF('p',union  A604,m2,1)
@@ -11923,7 +11923,7 @@ int f_cmpA605(const struct A605 *x, const struct A605 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA605() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A605), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A605));
 		AF('i',struct A605,m0,1)
 		AF('C',struct A605,m1,1)
 		AF('s',struct A605,m2,1)
@@ -11937,7 +11937,7 @@ int f_cmpA606(const struct A606 *x, const struct A606 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA606() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(struct A606), DC_TRUE);
+		at = dcNewAggr(11, sizeof(struct A606));
 		AF('I',struct A606,m0,1)
 		AF('d',struct A606,m1,1)
 		AF('j',struct A606,m2,1)
@@ -11959,7 +11959,7 @@ int f_cmpA607(const struct A607 *x, const struct A607 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA607() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A607), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A607));
 		AF('c',struct A607,m0,1)
 		AF('p',struct A607,m1,1)
 		AF('d',struct A607,m2,1)
@@ -11982,7 +11982,7 @@ int f_cmpA608(const union  A608 *x, const union  A608 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA608() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A608), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A608));
 		AF('s',union  A608,m0,1)
 		AF('j',union  A608,m1,1)
 		dcCloseAggr(at);
@@ -11995,7 +11995,7 @@ int f_cmpA609(const struct A609 *x, const struct A609 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA609() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A609), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A609));
 		AF('l',struct A609,m0,1)
 		AF('c',struct A609,m1,1)
 		AF('J',struct A609,m2,1)
@@ -12018,7 +12018,7 @@ int f_cmpA610(const union  A610 *x, const union  A610 *y) { return f_cmpA609(&x-
 DCaggr* f_touchdcstA610() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A610), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A610));
 		AFa(union  A610,m0,1,A609)
 		AF('c',union  A610,m1,1)
 		AF('j',union  A610,m2,1)
@@ -12037,7 +12037,7 @@ int f_cmpA611(const union  A611 *x, const union  A611 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA611() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A611), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A611));
 		AF('s',union  A611,m0,1)
 		AF('l',union  A611,m1,1)
 		AF('I',union  A611,m2,1)
@@ -12060,7 +12060,7 @@ int f_cmpA612(const union  A612 *x, const union  A612 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA612() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A612), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A612));
 		AF('c',union  A612,m0,1)
 		AFa(union  A612,m1,1,A611)
 		dcCloseAggr(at);
@@ -12073,7 +12073,7 @@ int f_cmpA613(const union  A613 *x, const union  A613 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA613() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A613), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A613));
 		AF('S',union  A613,m0,1)
 		AF('f',union  A613,m1,1)
 		AF('J',union  A613,m2,1)
@@ -12096,7 +12096,7 @@ int f_cmpA614(const union  A614 *x, const union  A614 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA614() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A614), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A614));
 		AF('L',union  A614,m0,1)
 		AF('f',union  A614,m1,1)
 		AF('i',union  A614,m2,1)
@@ -12119,7 +12119,7 @@ int f_cmpA615(const struct A615 *x, const struct A615 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA615() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A615), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A615));
 		AF('s',struct A615,m0,1)
 		AF('f',struct A615,m1,1)
 		AFa(struct A615,m2,1,A612)
@@ -12142,7 +12142,7 @@ int f_cmpA616(const struct A616 *x, const struct A616 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA616() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A616), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A616));
 		AF('c',struct A616,m0,1)
 		AF('C',struct A616,m1,1)
 		AF('l',struct A616,m2,1)
@@ -12165,7 +12165,7 @@ int f_cmpA617(const struct A617 *x, const struct A617 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA617() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A617), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A617));
 		AF('S',struct A617,m0,1)
 		AF('I',struct A617,m1,1)
 		AF('i',struct A617,m2,1)
@@ -12182,7 +12182,7 @@ int f_cmpA618(const struct A618 *x, const struct A618 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA618() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(struct A618), DC_TRUE);
+		at = dcNewAggr(7, sizeof(struct A618));
 		AF('C',struct A618,m0,1)
 		AF('c',struct A618,m1,1)
 		AF('J',struct A618,m2,1)
@@ -12200,7 +12200,7 @@ int f_cmpA619(const struct A619 *x, const struct A619 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA619() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A619), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A619));
 		AF('c',struct A619,m0,1)
 		AF('I',struct A619,m1,1)
 		AF('S',struct A619,m2,1)
@@ -12220,7 +12220,7 @@ int f_cmpA620(const union  A620 *x, const union  A620 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA620() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A620), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A620));
 		AF('d',union  A620,m0,1)
 		AF('s',union  A620,m1,1)
 		AF('p',union  A620,m2,1)
@@ -12235,7 +12235,7 @@ int f_cmpA621(const union  A621 *x, const union  A621 *y) { return f_cmpA619(&x-
 DCaggr* f_touchdcstA621() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A621), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A621));
 		AFa(union  A621,m0,1,A619)
 		AF('S',union  A621,m1,1)
 		AFa(union  A621,m2,1,A620)
@@ -12258,7 +12258,7 @@ int f_cmpA622(const struct A622 *x, const struct A622 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA622() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(struct A622), DC_TRUE);
+		at = dcNewAggr(10, sizeof(struct A622));
 		AF('j',struct A622,m0,1)
 		AF('s',struct A622,m1,1)
 		AF('f',struct A622,m2,1)
@@ -12279,7 +12279,7 @@ int f_cmpA623(const struct A623 *x, const struct A623 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA623() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A623), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A623));
 		AF('f',struct A623,m0,1)
 		AF('l',struct A623,m1,1)
 		AF('i',struct A623,m2,1)
@@ -12298,7 +12298,7 @@ int f_cmpA624(const union  A624 *x, const union  A624 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA624() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A624), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A624));
 		AF('f',union  A624,m0,1)
 		AF('s',union  A624,m1,10)
 		AF('S',union  A624,m2,1)
@@ -12321,7 +12321,7 @@ int f_cmpA625(const struct A625 *x, const struct A625 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA625() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A625), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A625));
 		AF('s',struct A625,m0,1)
 		AF('S',struct A625,m1,1)
 		AF('S',struct A625,m2,1)
@@ -12344,7 +12344,7 @@ int f_cmpA626(const union  A626 *x, const union  A626 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA626() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A626), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A626));
 		AF('S',union  A626,m0,1)
 		AF('J',union  A626,m1,1)
 		AF('J',union  A626,m2,1)
@@ -12367,7 +12367,7 @@ int f_cmpA627(const union  A627 *x, const union  A627 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA627() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A627), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A627));
 		AF('i',union  A627,m0,1)
 		AF('L',union  A627,m1,1)
 		AFa(union  A627,m2,1,A623)
@@ -12390,7 +12390,7 @@ int f_cmpA628(const struct A628 *x, const struct A628 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA628() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A628), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A628));
 		AF('S',struct A628,m0,1)
 		AF('c',struct A628,m1,1)
 		dcCloseAggr(at);
@@ -12403,7 +12403,7 @@ int f_cmpA629(const struct A629 *x, const struct A629 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA629() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A629), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A629));
 		AF('l',struct A629,m0,1)
 		AF('C',struct A629,m1,1)
 		AF('I',struct A629,m2,1)
@@ -12423,7 +12423,7 @@ int f_cmpA630(const union  A630 *x, const union  A630 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA630() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A630), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A630));
 		AF('S',union  A630,m0,1)
 		AF('L',union  A630,m1,1)
 		AF('l',union  A630,m2,1)
@@ -12446,7 +12446,7 @@ int f_cmpA631(const union  A631 *x, const union  A631 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA631() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A631), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A631));
 		AF('s',union  A631,m0,1)
 		AF('c',union  A631,m1,1)
 		AF('I',union  A631,m2,1)
@@ -12469,7 +12469,7 @@ int f_cmpA632(const struct A632 *x, const struct A632 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA632() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A632), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A632));
 		AF('s',struct A632,m0,1)
 		AF('J',struct A632,m1,1)
 		AF('C',struct A632,m2,1)
@@ -12492,7 +12492,7 @@ int f_cmpA633(const union  A633 *x, const union  A633 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA633() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A633), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A633));
 		AF('j',union  A633,m0,1)
 		AF('j',union  A633,m1,1)
 		AF('c',union  A633,m2,1)
@@ -12508,7 +12508,7 @@ int f_cmpA634(const union  A634 *x, const union  A634 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA634() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(union  A634), DC_TRUE);
+		at = dcNewAggr(11, sizeof(union  A634));
 		AF('L',union  A634,m0,1)
 		AF('s',union  A634,m1,1)
 		AF('s',union  A634,m2,1)
@@ -12530,7 +12530,7 @@ int f_cmpA635(const struct A635 *x, const struct A635 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA635() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A635), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A635));
 		AF('s',struct A635,m0,1)
 		AF('s',struct A635,m1,1)
 		AF('f',struct A635,m2,1)
@@ -12550,7 +12550,7 @@ int f_cmpA636(const union  A636 *x, const union  A636 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA636() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A636), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A636));
 		AF('d',union  A636,m0,1)
 		AF('d',union  A636,m1,1)
 		dcCloseAggr(at);
@@ -12563,7 +12563,7 @@ int f_cmpA637(const union  A637 *x, const union  A637 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA637() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A637), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A637));
 		AF('c',union  A637,m0,1)
 		AF('l',union  A637,m1,1)
 		AF('f',union  A637,m2,1)
@@ -12577,7 +12577,7 @@ int f_cmpA638(const union  A638 *x, const union  A638 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA638() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A638), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A638));
 		AF('s',union  A638,m0,1)
 		AF('J',union  A638,m1,1)
 		AF('C',union  A638,m2,1)
@@ -12600,7 +12600,7 @@ int f_cmpA639(const struct A639 *x, const struct A639 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA639() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A639), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A639));
 		AF('i',struct A639,m0,1)
 		AF('s',struct A639,m1,1)
 		AFa(struct A639,m2,1,A638)
@@ -12616,7 +12616,7 @@ int f_cmpA640(const union  A640 *x, const union  A640 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA640() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A640), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A640));
 		AF('l',union  A640,m0,1)
 		AF('d',union  A640,m1,1)
 		AF('L',union  A640,m2,1)
@@ -12634,7 +12634,7 @@ int f_cmpA641(const union  A641 *x, const union  A641 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA641() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A641), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A641));
 		AF('L',union  A641,m0,1)
 		AF('L',union  A641,m1,1)
 		AF('C',union  A641,m2,1)
@@ -12650,7 +12650,7 @@ int f_cmpA642(const struct A642 *x, const struct A642 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA642() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A642), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A642));
 		AF('J',struct A642,m0,1)
 		AF('C',struct A642,m1,1)
 		AF('p',struct A642,m2,1)
@@ -12664,7 +12664,7 @@ int f_cmpA643(const union  A643 *x, const union  A643 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA643() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A643), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A643));
 		AF('I',union  A643,m0,1)
 		AF('C',union  A643,m1,1)
 		AF('j',union  A643,m2,1)
@@ -12679,7 +12679,7 @@ int f_cmpA644(const union  A644 *x, const union  A644 *y) { return f_cmpA642(&x-
 DCaggr* f_touchdcstA644() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A644), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A644));
 		AFa(union  A644,m0,1,A642)
 		AF('I',union  A644,m1,1)
 		AF('C',union  A644,m2,1)
@@ -12694,7 +12694,7 @@ int f_cmpA645(const union  A645 *x, const union  A645 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA645() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A645), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A645));
 		AF('J',union  A645,m0,1)
 		AF('f',union  A645,m1,1)
 		AF('c',union  A645,m2,1)
@@ -12717,7 +12717,7 @@ int f_cmpA646(const struct A646 *x, const struct A646 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA646() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A646), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A646));
 		AF('J',struct A646,m0,1)
 		AF('C',struct A646,m1,1)
 		AF('f',struct A646,m2,1)
@@ -12740,7 +12740,7 @@ int f_cmpA647(const struct A647 *x, const struct A647 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA647() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A647), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A647));
 		AF('s',struct A647,m0,1)
 		AF('J',struct A647,m1,1)
 		AF('i',struct A647,m2,1)
@@ -12763,7 +12763,7 @@ int f_cmpA648(const union  A648 *x, const union  A648 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA648() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(union  A648), DC_TRUE);
+		at = dcNewAggr(1, sizeof(union  A648));
 		AF('p',union  A648,m0,1)
 		dcCloseAggr(at);
 	}
@@ -12775,7 +12775,7 @@ int f_cmpA649(const union  A649 *x, const union  A649 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA649() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A649), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A649));
 		AF('l',union  A649,m0,1)
 		AF('j',union  A649,m1,1)
 		dcCloseAggr(at);
@@ -12788,7 +12788,7 @@ int f_cmpA650(const struct A650 *x, const struct A650 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA650() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A650), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A650));
 		AF('f',struct A650,m0,1)
 		AF('S',struct A650,m1,1)
 		AF('p',struct A650,m2,1)
@@ -12811,7 +12811,7 @@ int f_cmpA651(const union  A651 *x, const union  A651 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA651() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(union  A651), DC_TRUE);
+		at = dcNewAggr(9, sizeof(union  A651));
 		AF('s',union  A651,m0,1)
 		AF('I',union  A651,m1,1)
 		AF('S',union  A651,m2,1)
@@ -12831,7 +12831,7 @@ int f_cmpA652(const union  A652 *x, const union  A652 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA652() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(union  A652), DC_TRUE);
+		at = dcNewAggr(9, sizeof(union  A652));
 		AF('p',union  A652,m0,1)
 		AF('C',union  A652,m1,1)
 		AF('S',union  A652,m2,1)
@@ -12851,7 +12851,7 @@ int f_cmpA653(const union  A653 *x, const union  A653 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA653() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A653), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A653));
 		AF('l',union  A653,m0,1)
 		AF('S',union  A653,m1,1)
 		AF('C',union  A653,m2,1)
@@ -12874,7 +12874,7 @@ int f_cmpA654(const struct A654 *x, const struct A654 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA654() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A654), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A654));
 		AF('S',struct A654,m0,1)
 		AFa(struct A654,m1,1,A650)
 		AF('l',struct A654,m2,1)
@@ -12897,7 +12897,7 @@ int f_cmpA655(const struct A655 *x, const struct A655 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA655() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(struct A655), DC_TRUE);
+		at = dcNewAggr(11, sizeof(struct A655));
 		AF('C',struct A655,m0,1)
 		AF('d',struct A655,m1,1)
 		AF('d',struct A655,m2,1)
@@ -12919,7 +12919,7 @@ int f_cmpA656(const struct A656 *x, const struct A656 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA656() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A656), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A656));
 		AF('J',struct A656,m0,1)
 		AF('p',struct A656,m1,1)
 		AF('J',struct A656,m2,1)
@@ -12942,7 +12942,7 @@ int f_cmpA657(const struct A657 *x, const struct A657 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA657() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A657), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A657));
 		AF('j',struct A657,m0,1)
 		AF('S',struct A657,m1,1)
 		AF('J',struct A657,m2,1)
@@ -12965,7 +12965,7 @@ int f_cmpA658(const struct A658 *x, const struct A658 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA658() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A658), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A658));
 		AF('S',struct A658,m0,1)
 		AF('S',struct A658,m1,1)
 		AFa(struct A658,m2,1,A655)
@@ -12984,7 +12984,7 @@ int f_cmpA659(const union  A659 *x, const union  A659 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA659() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A659), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A659));
 		AF('l',union  A659,m0,1)
 		AF('j',union  A659,m1,1)
 		AF('J',union  A659,m2,1)
@@ -13007,7 +13007,7 @@ int f_cmpA660(const union  A660 *x, const union  A660 *y) { return x->m0[0] == y
 DCaggr* f_touchdcstA660() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A660), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A660));
 		AF('d',union  A660,m0,12)
 		AF('I',union  A660,m1,1)
 		AF('s',union  A660,m2,1)
@@ -13030,7 +13030,7 @@ int f_cmpA661(const union  A661 *x, const union  A661 *y) { return f_cmpA659(&x-
 DCaggr* f_touchdcstA661() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A661), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A661));
 		AFa(union  A661,m0,1,A659)
 		AFa(union  A661,m1,1,A660)
 		AF('L',union  A661,m2,1)
@@ -13053,7 +13053,7 @@ int f_cmpA662(const union  A662 *x, const union  A662 *y) { return f_cmpA649(&x-
 DCaggr* f_touchdcstA662() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A662), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A662));
 		AFa(union  A662,m0,1,A649)
 		AF('j',union  A662,m1,1)
 		AF('i',union  A662,m2,1)
@@ -13076,7 +13076,7 @@ int f_cmpA663(const union  A663 *x, const union  A663 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA663() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A663), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A663));
 		AF('p',union  A663,m0,1)
 		AF('f',union  A663,m1,1)
 		AF('c',union  A663,m2,1)
@@ -13095,7 +13095,7 @@ int f_cmpA664(const struct A664 *x, const struct A664 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA664() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A664), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A664));
 		AF('i',struct A664,m0,1)
 		AF('f',struct A664,m1,1)
 		AFa(struct A664,m2,1,A54)
@@ -13118,7 +13118,7 @@ int f_cmpA665(const union  A665 *x, const union  A665 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA665() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A665), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A665));
 		AF('I',union  A665,m0,1)
 		AF('I',union  A665,m1,1)
 		AF('p',union  A665,m2,1)
@@ -13134,7 +13134,7 @@ int f_cmpA666(const struct A666 *x, const struct A666 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA666() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A666), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A666));
 		AF('f',struct A666,m0,1)
 		AF('f',struct A666,m1,1)
 		AF('j',struct A666,m2,1)
@@ -13148,7 +13148,7 @@ int f_cmpA667(const union  A667 *x, const union  A667 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA667() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A667), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A667));
 		AF('S',union  A667,m0,1)
 		AF('L',union  A667,m1,1)
 		AF('c',union  A667,m2,1)
@@ -13171,7 +13171,7 @@ int f_cmpA668(const struct A668 *x, const struct A668 *y) { return f_cmpA666(&x-
 DCaggr* f_touchdcstA668() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A668), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A668));
 		AFa(struct A668,m0,1,A666)
 		AF('C',struct A668,m1,1)
 		AF('j',struct A668,m2,1)
@@ -13194,7 +13194,7 @@ int f_cmpA669(const struct A669 *x, const struct A669 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA669() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A669), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A669));
 		AF('d',struct A669,m0,1)
 		AF('d',struct A669,m1,1)
 		AF('j',struct A669,m2,1)
@@ -13217,7 +13217,7 @@ int f_cmpA670(const struct A670 *x, const struct A670 *y) { return x->m0[0] == y
 DCaggr* f_touchdcstA670() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A670), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A670));
 		AF('p',struct A670,m0,11)
 		AF('p',struct A670,m1,1)
 		AF('s',struct A670,m2,1)
@@ -13240,7 +13240,7 @@ int f_cmpA671(const struct A671 *x, const struct A671 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA671() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A671), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A671));
 		AF('s',struct A671,m0,1)
 		AF('j',struct A671,m1,1)
 		AF('J',struct A671,m2,1)
@@ -13263,7 +13263,7 @@ int f_cmpA672(const union  A672 *x, const union  A672 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA672() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A672), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A672));
 		AF('c',union  A672,m0,1)
 		AF('I',union  A672,m1,1)
 		AF('s',union  A672,m2,1)
@@ -13278,7 +13278,7 @@ int f_cmpA673(const union  A673 *x, const union  A673 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA673() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(union  A673), DC_TRUE);
+		at = dcNewAggr(11, sizeof(union  A673));
 		AF('i',union  A673,m0,1)
 		AF('j',union  A673,m1,1)
 		AF('p',union  A673,m2,1)
@@ -13300,7 +13300,7 @@ int f_cmpA674(const struct A674 *x, const struct A674 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA674() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(struct A674), DC_TRUE);
+		at = dcNewAggr(7, sizeof(struct A674));
 		AF('c',struct A674,m0,1)
 		AF('i',struct A674,m1,1)
 		AF('S',struct A674,m2,1)
@@ -13318,7 +13318,7 @@ int f_cmpA675(const struct A675 *x, const struct A675 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA675() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A675), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A675));
 		AF('i',struct A675,m0,1)
 		AF('L',struct A675,m1,1)
 		AF('p',struct A675,m2,1)
@@ -13341,7 +13341,7 @@ int f_cmpA676(const union  A676 *x, const union  A676 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA676() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A676), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A676));
 		AF('J',union  A676,m0,1)
 		AF('j',union  A676,m1,1)
 		AF('l',union  A676,m2,1)
@@ -13355,7 +13355,7 @@ int f_cmpA677(const struct A677 *x, const struct A677 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA677() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A677), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A677));
 		AF('c',struct A677,m0,1)
 		AF('s',struct A677,m1,1)
 		AF('I',struct A677,m2,1)
@@ -13378,7 +13378,7 @@ int f_cmpA678(const struct A678 *x, const struct A678 *y) { return f_cmpA676(&x-
 DCaggr* f_touchdcstA678() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A678), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A678));
 		AFa(struct A678,m0,1,A676)
 		AF('f',struct A678,m1,1)
 		AF('j',struct A678,m2,1)
@@ -13394,7 +13394,7 @@ int f_cmpA679(const union  A679 *x, const union  A679 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA679() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A679), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A679));
 		AF('s',union  A679,m0,1)
 		AF('J',union  A679,m1,1)
 		AF('d',union  A679,m2,1)
@@ -13417,7 +13417,7 @@ int f_cmpA680(const struct A680 *x, const struct A680 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA680() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A680), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A680));
 		AF('j',struct A680,m0,1)
 		AF('p',struct A680,m1,1)
 		AF('f',struct A680,m2,1)
@@ -13440,7 +13440,7 @@ int f_cmpA681(const struct A681 *x, const struct A681 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA681() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A681), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A681));
 		AF('f',struct A681,m0,1)
 		AFa(struct A681,m1,1,A679)
 		AF('p',struct A681,m2,1)
@@ -13463,7 +13463,7 @@ int f_cmpA682(const union  A682 *x, const union  A682 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA682() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A682), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A682));
 		AF('f',union  A682,m0,1)
 		AF('j',union  A682,m1,1)
 		AF('i',union  A682,m2,1)
@@ -13486,7 +13486,7 @@ int f_cmpA683(const union  A683 *x, const union  A683 *y) { return x->m0[0] == y
 DCaggr* f_touchdcstA683() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A683), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A683));
 		AF('s',union  A683,m0,9)
 		AF('i',union  A683,m1,1)
 		AF('j',union  A683,m2,1)
@@ -13509,7 +13509,7 @@ int f_cmpA684(const union  A684 *x, const union  A684 *y) { return f_cmpA682(&x-
 DCaggr* f_touchdcstA684() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A684), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A684));
 		AFa(union  A684,m0,1,A682)
 		AF('I',union  A684,m1,1)
 		AF('S',union  A684,m2,1)
@@ -13532,7 +13532,7 @@ int f_cmpA685(const union  A685 *x, const union  A685 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA685() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A685), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A685));
 		AF('I',union  A685,m0,1)
 		AF('S',union  A685,m1,1)
 		AF('s',union  A685,m2,1)
@@ -13555,7 +13555,7 @@ int f_cmpA686(const union  A686 *x, const union  A686 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA686() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A686), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A686));
 		AF('S',union  A686,m0,1)
 		AF('s',union  A686,m1,1)
 		dcCloseAggr(at);
@@ -13568,7 +13568,7 @@ int f_cmpA687(const union  A687 *x, const union  A687 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA687() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A687), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A687));
 		AF('C',union  A687,m0,1)
 		AF('C',union  A687,m1,1)
 		AF('d',union  A687,m2,1)
@@ -13584,7 +13584,7 @@ int f_cmpA688(const struct A688 *x, const struct A688 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA688() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A688), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A688));
 		AF('J',struct A688,m0,1)
 		AF('p',struct A688,m1,1)
 		dcCloseAggr(at);
@@ -13597,7 +13597,7 @@ int f_cmpA689(const struct A689 *x, const struct A689 *y) { return f_cmpA383(&x-
 DCaggr* f_touchdcstA689() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A689), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A689));
 		AFa(struct A689,m0,1,A383)
 		AF('p',struct A689,m1,1)
 		AF('J',struct A689,m2,1)
@@ -13613,7 +13613,7 @@ int f_cmpA690(const struct A690 *x, const struct A690 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA690() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A690), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A690));
 		AF('d',struct A690,m0,1)
 		AFa(struct A690,m1,1,A689)
 		AF('J',struct A690,m2,1)
@@ -13633,7 +13633,7 @@ int f_cmpA691(const struct A691 *x, const struct A691 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA691() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A691), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A691));
 		AF('c',struct A691,m0,1)
 		AF('f',struct A691,m1,1)
 		AF('J',struct A691,m2,1)
@@ -13656,7 +13656,7 @@ int f_cmpA692(const union  A692 *x, const union  A692 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA692() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A692), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A692));
 		AF('J',union  A692,m0,1)
 		AF('f',union  A692,m1,1)
 		AFa(union  A692,m2,1,A691)
@@ -13671,7 +13671,7 @@ int f_cmpA693(const union  A693 *x, const union  A693 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA693() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A693), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A693));
 		AF('i',union  A693,m0,1)
 		AF('l',union  A693,m1,1)
 		AF('p',union  A693,m2,1)
@@ -13694,7 +13694,7 @@ int f_cmpA694(const struct A694 *x, const struct A694 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA694() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A694), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A694));
 		AF('L',struct A694,m0,1)
 		AF('s',struct A694,m1,1)
 		AF('f',struct A694,m2,1)
@@ -13708,7 +13708,7 @@ int f_cmpA695(const struct A695 *x, const struct A695 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA695() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A695), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A695));
 		AF('j',struct A695,m0,1)
 		AF('j',struct A695,m1,1)
 		AF('j',struct A695,m2,1)
@@ -13731,7 +13731,7 @@ int f_cmpA696(const union  A696 *x, const union  A696 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA696() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A696), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A696));
 		AF('I',union  A696,m0,1)
 		AF('l',union  A696,m1,1)
 		AF('I',union  A696,m2,1)
@@ -13754,7 +13754,7 @@ int f_cmpA697(const union  A697 *x, const union  A697 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA697() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A697), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A697));
 		AF('s',union  A697,m0,1)
 		AF('c',union  A697,m1,1)
 		AF('l',union  A697,m2,1)
@@ -13777,7 +13777,7 @@ int f_cmpA698(const struct A698 *x, const struct A698 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA698() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A698), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A698));
 		AF('d',struct A698,m0,1)
 		AF('I',struct A698,m1,1)
 		AF('I',struct A698,m2,1)
@@ -13800,7 +13800,7 @@ int f_cmpA699(const union  A699 *x, const union  A699 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA699() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(union  A699), DC_TRUE);
+		at = dcNewAggr(9, sizeof(union  A699));
 		AF('J',union  A699,m0,1)
 		AF('L',union  A699,m1,1)
 		AF('c',union  A699,m2,1)
@@ -13820,7 +13820,7 @@ int f_cmpA700(const struct A700 *x, const struct A700 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA700() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A700), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A700));
 		AF('p',struct A700,m0,1)
 		AF('s',struct A700,m1,1)
 		AF('i',struct A700,m2,1)
@@ -13843,7 +13843,7 @@ int f_cmpA701(const union  A701 *x, const union  A701 *y) { return f_cmpA695(&x-
 DCaggr* f_touchdcstA701() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A701), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A701));
 		AFa(union  A701,m0,1,A695)
 		AF('J',union  A701,m1,1)
 		AFa(union  A701,m2,1,A697)
@@ -13866,7 +13866,7 @@ int f_cmpA702(const union  A702 *x, const union  A702 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA702() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A702), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A702));
 		AF('l',union  A702,m0,1)
 		AF('p',union  A702,m1,12)
 		AF('C',union  A702,m2,1)
@@ -13882,7 +13882,7 @@ int f_cmpA703(const union  A703 *x, const union  A703 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA703() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A703), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A703));
 		AF('C',union  A703,m0,1)
 		AF('j',union  A703,m1,1)
 		AF('p',union  A703,m2,1)
@@ -13897,7 +13897,7 @@ int f_cmpA704(const struct A704 *x, const struct A704 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA704() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A704), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A704));
 		AF('L',struct A704,m0,1)
 		AF('C',struct A704,m1,1)
 		AF('f',struct A704,m2,1)
@@ -13916,7 +13916,7 @@ int f_cmpA705(const union  A705 *x, const union  A705 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA705() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A705), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A705));
 		AF('d',union  A705,m0,1)
 		AF('S',union  A705,m1,1)
 		AF('f',union  A705,m2,1)
@@ -13930,7 +13930,7 @@ int f_cmpA706(const struct A706 *x, const struct A706 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA706() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A706), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A706));
 		AF('i',struct A706,m0,1)
 		AF('l',struct A706,m1,1)
 		AFa(struct A706,m2,1,A705)
@@ -13949,7 +13949,7 @@ int f_cmpA707(const struct A707 *x, const struct A707 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA707() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A707), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A707));
 		AF('j',struct A707,m0,1)
 		AF('d',struct A707,m1,1)
 		AF('L',struct A707,m2,1)
@@ -13972,7 +13972,7 @@ int f_cmpA708(const struct A708 *x, const struct A708 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA708() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A708), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A708));
 		AF('l',struct A708,m0,1)
 		AF('d',struct A708,m1,1)
 		AF('l',struct A708,m2,1)
@@ -13995,7 +13995,7 @@ int f_cmpA709(const struct A709 *x, const struct A709 *y) { return x->m0[0] == y
 DCaggr* f_touchdcstA709() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A709), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A709));
 		AF('J',struct A709,m0,8)
 		AF('c',struct A709,m1,1)
 		dcCloseAggr(at);
@@ -14008,7 +14008,7 @@ int f_cmpA710(const union  A710 *x, const union  A710 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA710() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A710), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A710));
 		AF('j',union  A710,m0,1)
 		AF('s',union  A710,m1,1)
 		dcCloseAggr(at);
@@ -14021,7 +14021,7 @@ int f_cmpA711(const struct A711 *x, const struct A711 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA711() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A711), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A711));
 		AF('i',struct A711,m0,1)
 		AF('j',struct A711,m1,1)
 		AF('j',struct A711,m2,1)
@@ -14038,7 +14038,7 @@ int f_cmpA712(const union  A712 *x, const union  A712 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA712() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A712), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A712));
 		AF('s',union  A712,m0,1)
 		AF('i',union  A712,m1,1)
 		AF('C',union  A712,m2,1)
@@ -14061,7 +14061,7 @@ int f_cmpA713(const struct A713 *x, const struct A713 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA713() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(struct A713), DC_TRUE);
+		at = dcNewAggr(10, sizeof(struct A713));
 		AF('J',struct A713,m0,1)
 		AF('C',struct A713,m1,1)
 		AF('I',struct A713,m2,1)
@@ -14082,7 +14082,7 @@ int f_cmpA714(const union  A714 *x, const union  A714 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA714() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A714), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A714));
 		AF('j',union  A714,m0,1)
 		AF('j',union  A714,m1,1)
 		AF('p',union  A714,m2,1)
@@ -14105,7 +14105,7 @@ int f_cmpA715(const union  A715 *x, const union  A715 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA715() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A715), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A715));
 		AF('j',union  A715,m0,1)
 		AF('f',union  A715,m1,1)
 		AF('S',union  A715,m2,1)
@@ -14128,7 +14128,7 @@ int f_cmpA716(const struct A716 *x, const struct A716 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA716() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A716), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A716));
 		AF('I',struct A716,m0,1)
 		AF('S',struct A716,m1,1)
 		AF('L',struct A716,m2,1)
@@ -14142,7 +14142,7 @@ int f_cmpA717(const struct A717 *x, const struct A717 *y) { return f_cmpA715(&x-
 DCaggr* f_touchdcstA717() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A717), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A717));
 		AFa(struct A717,m0,1,A715)
 		AF('p',struct A717,m1,1)
 		AF('l',struct A717,m2,1)
@@ -14165,7 +14165,7 @@ int f_cmpA718(const struct A718 *x, const struct A718 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA718() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A718), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A718));
 		AF('l',struct A718,m0,1)
 		AF('j',struct A718,m1,1)
 		AF('J',struct A718,m2,1)
@@ -14180,7 +14180,7 @@ int f_cmpA719(const union  A719 *x, const union  A719 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA719() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A719), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A719));
 		AF('L',union  A719,m0,1)
 		AF('c',union  A719,m1,1)
 		AF('l',union  A719,m2,1)
@@ -14201,7 +14201,7 @@ int f_cmpA720(const union  A720 *x, const union  A720 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA720() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A720), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A720));
 		AF('j',union  A720,m0,1)
 		AF('p',union  A720,m1,1)
 		AF('J',union  A720,m2,1)
@@ -14216,7 +14216,7 @@ int f_cmpA721(const struct A721 *x, const struct A721 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA721() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A721), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A721));
 		AF('I',struct A721,m0,1)
 		AF('d',struct A721,m1,1)
 		AF('s',struct A721,m2,1)
@@ -14232,7 +14232,7 @@ int f_cmpA722(const struct A722 *x, const struct A722 *y) { return f_cmpA720(&x-
 DCaggr* f_touchdcstA722() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A722), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A722));
 		AFa(struct A722,m0,1,A720)
 		AFa(struct A722,m1,1,A721)
 		AF('S',struct A722,m2,1)
@@ -14246,7 +14246,7 @@ int f_cmpA723(const union  A723 *x, const union  A723 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA723() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A723), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A723));
 		AF('d',union  A723,m0,1)
 		AF('j',union  A723,m1,1)
 		AF('p',union  A723,m2,1)
@@ -14261,7 +14261,7 @@ int f_cmpA724(const struct A724 *x, const struct A724 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA724() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A724), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A724));
 		AF('c',struct A724,m0,1)
 		AF('c',struct A724,m1,1)
 		AF('d',struct A724,m2,1)
@@ -14284,7 +14284,7 @@ int f_cmpA725(const struct A725 *x, const struct A725 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA725() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A725), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A725));
 		AF('S',struct A725,m0,1)
 		AF('C',struct A725,m1,1)
 		AF('L',struct A725,m2,1)
@@ -14300,7 +14300,7 @@ int f_cmpA726(const union  A726 *x, const union  A726 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA726() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A726), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A726));
 		AF('S',union  A726,m0,1)
 		AF('l',union  A726,m1,1)
 		AF('s',union  A726,m2,1)
@@ -14323,7 +14323,7 @@ int f_cmpA727(const union  A727 *x, const union  A727 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA727() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A727), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A727));
 		AF('j',union  A727,m0,1)
 		AF('I',union  A727,m1,1)
 		AF('c',union  A727,m2,1)
@@ -14346,7 +14346,7 @@ int f_cmpA728(const struct A728 *x, const struct A728 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA728() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A728), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A728));
 		AF('J',struct A728,m0,1)
 		AF('i',struct A728,m1,1)
 		AF('c',struct A728,m2,1)
@@ -14369,7 +14369,7 @@ int f_cmpA729(const struct A729 *x, const struct A729 *y) { return f_cmpA727(&x-
 DCaggr* f_touchdcstA729() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A729), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A729));
 		AFa(struct A729,m0,6,A727)
 		AF('s',struct A729,m1,1)
 		AF('S',struct A729,m2,1)
@@ -14392,7 +14392,7 @@ int f_cmpA730(const struct A730 *x, const struct A730 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA730() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A730), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A730));
 		AF('L',struct A730,m0,1)
 		AF('L',struct A730,m1,1)
 		dcCloseAggr(at);
@@ -14405,7 +14405,7 @@ int f_cmpA731(const struct A731 *x, const struct A731 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA731() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A731), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A731));
 		AF('C',struct A731,m0,1)
 		AF('d',struct A731,m1,1)
 		AF('p',struct A731,m2,1)
@@ -14428,7 +14428,7 @@ int f_cmpA732(const struct A732 *x, const struct A732 *y) { return f_cmpA310(&x-
 DCaggr* f_touchdcstA732() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A732), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A732));
 		AFa(struct A732,m0,1,A310)
 		AFa(struct A732,m1,1,A731)
 		AF('l',struct A732,m2,1)
@@ -14448,7 +14448,7 @@ int f_cmpA733(const union  A733 *x, const union  A733 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA733() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A733), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A733));
 		AF('J',union  A733,m0,1)
 		AF('f',union  A733,m1,1)
 		AF('f',union  A733,m2,1)
@@ -14471,7 +14471,7 @@ int f_cmpA734(const union  A734 *x, const union  A734 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA734() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A734), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A734));
 		AF('I',union  A734,m0,1)
 		AF('d',union  A734,m1,1)
 		AF('I',union  A734,m2,1)
@@ -14494,7 +14494,7 @@ int f_cmpA735(const struct A735 *x, const struct A735 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA735() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A735), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A735));
 		AF('I',struct A735,m0,1)
 		AF('c',struct A735,m1,1)
 		AF('s',struct A735,m2,1)
@@ -14517,7 +14517,7 @@ int f_cmpA736(const union  A736 *x, const union  A736 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA736() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A736), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A736));
 		AF('I',union  A736,m0,1)
 		AF('I',union  A736,m1,1)
 		AF('C',union  A736,m2,1)
@@ -14540,7 +14540,7 @@ int f_cmpA737(const union  A737 *x, const union  A737 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA737() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A737), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A737));
 		AF('c',union  A737,m0,1)
 		AF('d',union  A737,m1,1)
 		AF('I',union  A737,m2,1)
@@ -14563,7 +14563,7 @@ int f_cmpA738(const struct A738 *x, const struct A738 *y) { return f_cmpA735(&x-
 DCaggr* f_touchdcstA738() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(struct A738), DC_TRUE);
+		at = dcNewAggr(11, sizeof(struct A738));
 		AFa(struct A738,m0,1,A735)
 		AFa(struct A738,m1,1,A736)
 		AF('S',struct A738,m2,1)
@@ -14585,7 +14585,7 @@ int f_cmpA739(const struct A739 *x, const struct A739 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA739() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A739), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A739));
 		AF('j',struct A739,m0,1)
 		AF('J',struct A739,m1,1)
 		AF('J',struct A739,m2,1)
@@ -14608,7 +14608,7 @@ int f_cmpA740(const struct A740 *x, const struct A740 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA740() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A740), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A740));
 		AF('s',struct A740,m0,1)
 		AF('d',struct A740,m1,1)
 		AF('d',struct A740,m2,1)
@@ -14631,7 +14631,7 @@ int f_cmpA741(const union  A741 *x, const union  A741 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA741() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A741), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A741));
 		AF('p',union  A741,m0,1)
 		AF('l',union  A741,m1,1)
 		AF('S',union  A741,m2,1)
@@ -14647,7 +14647,7 @@ int f_cmpA742(const struct A742 *x, const struct A742 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA742() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A742), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A742));
 		AF('d',struct A742,m0,1)
 		AF('f',struct A742,m1,1)
 		AF('I',struct A742,m2,1)
@@ -14670,7 +14670,7 @@ int f_cmpA743(const struct A743 *x, const struct A743 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA743() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(struct A743), DC_TRUE);
+		at = dcNewAggr(1, sizeof(struct A743));
 		AF('p',struct A743,m0,1)
 		dcCloseAggr(at);
 	}
@@ -14682,7 +14682,7 @@ int f_cmpA744(const union  A744 *x, const union  A744 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA744() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A744), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A744));
 		AF('I',union  A744,m0,1)
 		AF('f',union  A744,m1,1)
 		AFa(union  A744,m2,1,A740)
@@ -14705,7 +14705,7 @@ int f_cmpA745(const union  A745 *x, const union  A745 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA745() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A745), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A745));
 		AF('c',union  A745,m0,1)
 		AF('f',union  A745,m1,1)
 		AF('S',union  A745,m2,1)
@@ -14728,7 +14728,7 @@ int f_cmpA746(const struct A746 *x, const struct A746 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA746() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A746), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A746));
 		AF('j',struct A746,m0,1)
 		AF('l',struct A746,m1,1)
 		AF('J',struct A746,m2,1)
@@ -14751,7 +14751,7 @@ int f_cmpA747(const union  A747 *x, const union  A747 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA747() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A747), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A747));
 		AF('s',union  A747,m0,1)
 		AF('j',union  A747,m1,1)
 		AF('S',union  A747,m2,1)
@@ -14767,7 +14767,7 @@ int f_cmpA748(const union  A748 *x, const union  A748 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA748() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A748), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A748));
 		AF('f',union  A748,m0,1)
 		AF('S',union  A748,m1,1)
 		AF('d',union  A748,m2,1)
@@ -14790,7 +14790,7 @@ int f_cmpA749(const struct A749 *x, const struct A749 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA749() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A749), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A749));
 		AF('l',struct A749,m0,1)
 		AF('s',struct A749,m1,1)
 		AF('I',struct A749,m2,1)
@@ -14813,7 +14813,7 @@ int f_cmpA750(const struct A750 *x, const struct A750 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA750() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A750), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A750));
 		AF('L',struct A750,m0,1)
 		AF('f',struct A750,m1,1)
 		AF('p',struct A750,m2,1)
@@ -14833,7 +14833,7 @@ int f_cmpA751(const struct A751 *x, const struct A751 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA751() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A751), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A751));
 		AF('s',struct A751,m0,1)
 		AF('I',struct A751,m1,1)
 		AF('l',struct A751,m2,1)
@@ -14852,7 +14852,7 @@ int f_cmpA752(const struct A752 *x, const struct A752 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA752() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A752), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A752));
 		AF('J',struct A752,m0,1)
 		AF('i',struct A752,m1,1)
 		AF('j',struct A752,m2,1)
@@ -14875,7 +14875,7 @@ int f_cmpA753(const struct A753 *x, const struct A753 *y) { return x->m0[0] == y
 DCaggr* f_touchdcstA753() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A753), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A753));
 		AF('L',struct A753,m0,2)
 		AF('c',struct A753,m1,1)
 		AF('S',struct A753,m2,1)
@@ -14898,7 +14898,7 @@ int f_cmpA754(const union  A754 *x, const union  A754 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA754() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A754), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A754));
 		AF('I',union  A754,m0,1)
 		AFa(union  A754,m1,1,A147)
 		AFa(union  A754,m2,1,A749)
@@ -14921,7 +14921,7 @@ int f_cmpA755(const struct A755 *x, const struct A755 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA755() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A755), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A755));
 		AF('d',struct A755,m0,1)
 		AF('f',struct A755,m1,1)
 		AF('i',struct A755,m2,1)
@@ -14944,7 +14944,7 @@ int f_cmpA756(const struct A756 *x, const struct A756 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA756() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A756), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A756));
 		AF('d',struct A756,m0,1)
 		AF('i',struct A756,m1,1)
 		AF('s',struct A756,m2,1)
@@ -14967,7 +14967,7 @@ int f_cmpA757(const struct A757 *x, const struct A757 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA757() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A757), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A757));
 		AF('l',struct A757,m0,1)
 		AF('c',struct A757,m1,1)
 		AF('C',struct A757,m2,1)
@@ -14981,7 +14981,7 @@ int f_cmpA758(const union  A758 *x, const union  A758 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA758() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A758), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A758));
 		AF('J',union  A758,m0,1)
 		AF('S',union  A758,m1,1)
 		AF('p',union  A758,m2,1)
@@ -15004,7 +15004,7 @@ int f_cmpA759(const union  A759 *x, const union  A759 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA759() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A759), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A759));
 		AF('l',union  A759,m0,1)
 		AF('L',union  A759,m1,1)
 		AF('s',union  A759,m2,1)
@@ -15027,7 +15027,7 @@ int f_cmpA760(const union  A760 *x, const union  A760 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA760() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A760), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A760));
 		AF('I',union  A760,m0,1)
 		AF('j',union  A760,m1,1)
 		AF('p',union  A760,m2,1)
@@ -15044,7 +15044,7 @@ int f_cmpA761(const union  A761 *x, const union  A761 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA761() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A761), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A761));
 		AF('l',union  A761,m0,1)
 		AF('j',union  A761,m1,1)
 		AF('S',union  A761,m2,1)
@@ -15067,7 +15067,7 @@ int f_cmpA762(const union  A762 *x, const union  A762 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA762() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A762), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A762));
 		AF('s',union  A762,m0,1)
 		AF('s',union  A762,m1,1)
 		AFa(union  A762,m2,1,A761)
@@ -15085,7 +15085,7 @@ int f_cmpA763(const struct A763 *x, const struct A763 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA763() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A763), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A763));
 		AF('p',struct A763,m0,1)
 		AF('j',struct A763,m1,1)
 		AF('L',struct A763,m2,1)
@@ -15108,7 +15108,7 @@ int f_cmpA764(const union  A764 *x, const union  A764 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA764() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A764), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A764));
 		AF('L',union  A764,m0,1)
 		AF('C',union  A764,m1,1)
 		AF('c',union  A764,m2,1)
@@ -15129,7 +15129,7 @@ int f_cmpA765(const union  A765 *x, const union  A765 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA765() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A765), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A765));
 		AF('f',union  A765,m0,1)
 		AF('l',union  A765,m1,1)
 		AF('J',union  A765,m2,1)
@@ -15152,7 +15152,7 @@ int f_cmpA766(const union  A766 *x, const union  A766 *y) { return f_cmpA762(&x-
 DCaggr* f_touchdcstA766() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A766), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A766));
 		AFa(union  A766,m0,1,A762)
 		AFa(union  A766,m1,1,A765)
 		AF('i',union  A766,m2,1)
@@ -15175,7 +15175,7 @@ int f_cmpA767(const struct A767 *x, const struct A767 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA767() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(struct A767), DC_TRUE);
+		at = dcNewAggr(1, sizeof(struct A767));
 		AF('d',struct A767,m0,1)
 		dcCloseAggr(at);
 	}
@@ -15187,7 +15187,7 @@ int f_cmpA768(const union  A768 *x, const union  A768 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA768() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A768), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A768));
 		AF('J',union  A768,m0,1)
 		AF('p',union  A768,m1,2)
 		AF('J',union  A768,m2,1)
@@ -15210,7 +15210,7 @@ int f_cmpA769(const union  A769 *x, const union  A769 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA769() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A769), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A769));
 		AF('c',union  A769,m0,1)
 		AF('L',union  A769,m1,1)
 		AF('p',union  A769,m2,1)
@@ -15233,7 +15233,7 @@ int f_cmpA770(const union  A770 *x, const union  A770 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA770() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A770), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A770));
 		AF('c',union  A770,m0,1)
 		AF('l',union  A770,m1,1)
 		AF('j',union  A770,m2,1)
@@ -15256,7 +15256,7 @@ int f_cmpA771(const struct A771 *x, const struct A771 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA771() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A771), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A771));
 		AF('l',struct A771,m0,1)
 		AF('s',struct A771,m1,1)
 		AF('I',struct A771,m2,4)
@@ -15279,7 +15279,7 @@ int f_cmpA772(const struct A772 *x, const struct A772 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA772() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A772), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A772));
 		AF('f',struct A772,m0,1)
 		AF('j',struct A772,m1,1)
 		AF('I',struct A772,m2,1)
@@ -15302,7 +15302,7 @@ int f_cmpA773(const union  A773 *x, const union  A773 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA773() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(union  A773), DC_TRUE);
+		at = dcNewAggr(11, sizeof(union  A773));
 		AF('L',union  A773,m0,1)
 		AF('J',union  A773,m1,1)
 		AF('d',union  A773,m2,1)
@@ -15324,7 +15324,7 @@ int f_cmpA774(const union  A774 *x, const union  A774 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA774() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(union  A774), DC_TRUE);
+		at = dcNewAggr(9, sizeof(union  A774));
 		AF('S',union  A774,m0,1)
 		AF('J',union  A774,m1,1)
 		AF('p',union  A774,m2,1)
@@ -15344,7 +15344,7 @@ int f_cmpA775(const union  A775 *x, const union  A775 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA775() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A775), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A775));
 		AF('p',union  A775,m0,1)
 		AF('L',union  A775,m1,1)
 		AF('L',union  A775,m2,1)
@@ -15367,7 +15367,7 @@ int f_cmpA776(const union  A776 *x, const union  A776 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA776() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A776), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A776));
 		AF('j',union  A776,m0,1)
 		AF('j',union  A776,m1,1)
 		AF('l',union  A776,m2,1)
@@ -15390,7 +15390,7 @@ int f_cmpA777(const union  A777 *x, const union  A777 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA777() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A777), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A777));
 		AF('S',union  A777,m0,1)
 		AF('s',union  A777,m1,1)
 		AF('f',union  A777,m2,1)
@@ -15413,7 +15413,7 @@ int f_cmpA778(const struct A778 *x, const struct A778 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA778() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A778), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A778));
 		AF('d',struct A778,m0,1)
 		AF('l',struct A778,m1,1)
 		AF('L',struct A778,m2,1)
@@ -15436,7 +15436,7 @@ int f_cmpA779(const struct A779 *x, const struct A779 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA779() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A779), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A779));
 		AF('C',struct A779,m0,1)
 		AF('J',struct A779,m1,1)
 		AF('C',struct A779,m2,1)
@@ -15459,7 +15459,7 @@ int f_cmpA780(const struct A780 *x, const struct A780 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA780() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A780), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A780));
 		AF('f',struct A780,m0,1)
 		AF('i',struct A780,m1,1)
 		AF('f',struct A780,m2,1)
@@ -15482,7 +15482,7 @@ int f_cmpA781(const struct A781 *x, const struct A781 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA781() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A781), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A781));
 		AF('J',struct A781,m0,1)
 		AF('C',struct A781,m1,1)
 		AF('p',struct A781,m2,1)
@@ -15497,7 +15497,7 @@ int f_cmpA782(const struct A782 *x, const struct A782 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA782() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A782), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A782));
 		AF('S',struct A782,m0,1)
 		AF('d',struct A782,m1,1)
 		AF('l',struct A782,m2,1)
@@ -15513,7 +15513,7 @@ int f_cmpA783(const union  A783 *x, const union  A783 *y) { return f_cmpA782(&x-
 DCaggr* f_touchdcstA783() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(union  A783), DC_TRUE);
+		at = dcNewAggr(1, sizeof(union  A783));
 		AFa(union  A783,m0,1,A782)
 		dcCloseAggr(at);
 	}
@@ -15525,7 +15525,7 @@ int f_cmpA784(const union  A784 *x, const union  A784 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA784() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A784), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A784));
 		AF('s',union  A784,m0,1)
 		AF('s',union  A784,m1,1)
 		AF('j',union  A784,m2,1)
@@ -15540,7 +15540,7 @@ int f_cmpA785(const struct A785 *x, const struct A785 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA785() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(struct A785), DC_TRUE);
+		at = dcNewAggr(7, sizeof(struct A785));
 		AF('l',struct A785,m0,1)
 		AF('l',struct A785,m1,1)
 		AF('f',struct A785,m2,1)
@@ -15558,7 +15558,7 @@ int f_cmpA786(const union  A786 *x, const union  A786 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA786() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A786), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A786));
 		AF('l',union  A786,m0,1)
 		AF('f',union  A786,m1,1)
 		AF('f',union  A786,m2,1)
@@ -15581,7 +15581,7 @@ int f_cmpA787(const struct A787 *x, const struct A787 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA787() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A787), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A787));
 		AF('J',struct A787,m0,1)
 		AF('i',struct A787,m1,1)
 		AF('d',struct A787,m2,1)
@@ -15597,7 +15597,7 @@ int f_cmpA788(const union  A788 *x, const union  A788 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA788() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A788), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A788));
 		AF('S',union  A788,m0,1)
 		AF('i',union  A788,m1,1)
 		AF('d',union  A788,m2,1)
@@ -15614,7 +15614,7 @@ int f_cmpA789(const struct A789 *x, const struct A789 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA789() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A789), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A789));
 		AF('f',struct A789,m0,1)
 		AF('c',struct A789,m1,1)
 		AF('d',struct A789,m2,1)
@@ -15633,7 +15633,7 @@ int f_cmpA790(const union  A790 *x, const union  A790 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA790() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A790), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A790));
 		AF('J',union  A790,m0,1)
 		AF('i',union  A790,m1,1)
 		AF('d',union  A790,m2,1)
@@ -15656,7 +15656,7 @@ int f_cmpA791(const struct A791 *x, const struct A791 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA791() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A791), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A791));
 		AF('j',struct A791,m0,1)
 		AF('C',struct A791,m1,1)
 		AF('d',struct A791,m2,1)
@@ -15679,7 +15679,7 @@ int f_cmpA792(const union  A792 *x, const union  A792 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA792() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A792), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A792));
 		AF('J',union  A792,m0,1)
 		AF('S',union  A792,m1,1)
 		AF('d',union  A792,m2,1)
@@ -15702,7 +15702,7 @@ int f_cmpA793(const struct A793 *x, const struct A793 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA793() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A793), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A793));
 		AF('s',struct A793,m0,1)
 		AFa(struct A793,m1,1,A792)
 		AF('j',struct A793,m2,1)
@@ -15717,7 +15717,7 @@ int f_cmpA794(const struct A794 *x, const struct A794 *y) { return f_cmpA793(&x-
 DCaggr* f_touchdcstA794() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(struct A794), DC_TRUE);
+		at = dcNewAggr(1, sizeof(struct A794));
 		AFa(struct A794,m0,1,A793)
 		dcCloseAggr(at);
 	}
@@ -15729,7 +15729,7 @@ int f_cmpA795(const struct A795 *x, const struct A795 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA795() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A795), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A795));
 		AF('c',struct A795,m0,1)
 		AF('l',struct A795,m1,1)
 		AF('j',struct A795,m2,1)
@@ -15752,7 +15752,7 @@ int f_cmpA796(const struct A796 *x, const struct A796 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA796() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A796), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A796));
 		AF('l',struct A796,m0,1)
 		AF('j',struct A796,m1,1)
 		AF('l',struct A796,m2,1)
@@ -15768,7 +15768,7 @@ int f_cmpA797(const struct A797 *x, const struct A797 *y) { return f_cmpA796(&x-
 DCaggr* f_touchdcstA797() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(struct A797), DC_TRUE);
+		at = dcNewAggr(1, sizeof(struct A797));
 		AFa(struct A797,m0,1,A796)
 		dcCloseAggr(at);
 	}
@@ -15780,7 +15780,7 @@ int f_cmpA798(const union  A798 *x, const union  A798 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA798() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A798), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A798));
 		AF('d',union  A798,m0,1)
 		AF('C',union  A798,m1,1)
 		AF('C',union  A798,m2,1)
@@ -15794,7 +15794,7 @@ int f_cmpA799(const union  A799 *x, const union  A799 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA799() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A799), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A799));
 		AF('I',union  A799,m0,1)
 		AF('f',union  A799,m1,1)
 		AF('p',union  A799,m2,1)
@@ -15810,7 +15810,7 @@ int f_cmpA800(const union  A800 *x, const union  A800 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA800() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A800), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A800));
 		AF('l',union  A800,m0,1)
 		AF('J',union  A800,m1,1)
 		AF('d',union  A800,m2,1)
@@ -15824,7 +15824,7 @@ int f_cmpA801(const union  A801 *x, const union  A801 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA801() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A801), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A801));
 		AF('I',union  A801,m0,1)
 		AF('d',union  A801,m1,1)
 		AF('C',union  A801,m2,1)
@@ -15847,7 +15847,7 @@ int f_cmpA802(const struct A802 *x, const struct A802 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA802() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(struct A802), DC_TRUE);
+		at = dcNewAggr(10, sizeof(struct A802));
 		AF('C',struct A802,m0,1)
 		AF('p',struct A802,m1,1)
 		AF('l',struct A802,m2,1)
@@ -15868,7 +15868,7 @@ int f_cmpA803(const union  A803 *x, const union  A803 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA803() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A803), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A803));
 		AF('i',union  A803,m0,1)
 		AF('p',union  A803,m1,1)
 		AF('f',union  A803,m2,1)
@@ -15891,7 +15891,7 @@ int f_cmpA804(const struct A804 *x, const struct A804 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA804() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A804), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A804));
 		AF('C',struct A804,m0,1)
 		AF('c',struct A804,m1,1)
 		AF('p',struct A804,m2,1)
@@ -15914,7 +15914,7 @@ int f_cmpA805(const struct A805 *x, const struct A805 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA805() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(struct A805), DC_TRUE);
+		at = dcNewAggr(7, sizeof(struct A805));
 		AF('s',struct A805,m0,1)
 		AF('L',struct A805,m1,1)
 		AF('l',struct A805,m2,1)
@@ -15932,7 +15932,7 @@ int f_cmpA806(const struct A806 *x, const struct A806 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA806() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A806), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A806));
 		AF('p',struct A806,m0,1)
 		AF('L',struct A806,m1,1)
 		AF('j',struct A806,m2,1)
@@ -15955,7 +15955,7 @@ int f_cmpA807(const union  A807 *x, const union  A807 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA807() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A807), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A807));
 		AF('j',union  A807,m0,1)
 		AF('i',union  A807,m1,1)
 		AFa(union  A807,m2,1,A806)
@@ -15969,7 +15969,7 @@ int f_cmpA808(const struct A808 *x, const struct A808 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA808() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A808), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A808));
 		AF('s',struct A808,m0,1)
 		AF('C',struct A808,m1,1)
 		AF('I',struct A808,m2,1)
@@ -15992,7 +15992,7 @@ int f_cmpA809(const struct A809 *x, const struct A809 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA809() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(struct A809), DC_TRUE);
+		at = dcNewAggr(10, sizeof(struct A809));
 		AF('I',struct A809,m0,1)
 		AF('j',struct A809,m1,1)
 		AF('d',struct A809,m2,1)
@@ -16013,7 +16013,7 @@ int f_cmpA810(const struct A810 *x, const struct A810 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA810() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A810), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A810));
 		AF('s',struct A810,m0,1)
 		AF('C',struct A810,m1,1)
 		dcCloseAggr(at);
@@ -16026,7 +16026,7 @@ int f_cmpA811(const struct A811 *x, const struct A811 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA811() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A811), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A811));
 		AF('I',struct A811,m0,1)
 		AF('c',struct A811,m1,1)
 		AF('f',struct A811,m2,1)
@@ -16049,7 +16049,7 @@ int f_cmpA812(const union  A812 *x, const union  A812 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA812() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A812), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A812));
 		AF('C',union  A812,m0,1)
 		AF('c',union  A812,m1,1)
 		AF('l',union  A812,m2,1)
@@ -16070,7 +16070,7 @@ int f_cmpA813(const union  A813 *x, const union  A813 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA813() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A813), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A813));
 		AF('c',union  A813,m0,1)
 		AF('s',union  A813,m1,1)
 		AF('p',union  A813,m2,1)
@@ -16087,7 +16087,7 @@ int f_cmpA814(const union  A814 *x, const union  A814 *y) { return x->m0[0] == y
 DCaggr* f_touchdcstA814() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A814), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A814));
 		AF('I',union  A814,m0,11)
 		AF('S',union  A814,m1,1)
 		AF('d',union  A814,m2,1)
@@ -16106,7 +16106,7 @@ int f_cmpA815(const union  A815 *x, const union  A815 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA815() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A815), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A815));
 		AF('S',union  A815,m0,1)
 		AF('i',union  A815,m1,1)
 		AF('J',union  A815,m2,1)
@@ -16129,7 +16129,7 @@ int f_cmpA816(const union  A816 *x, const union  A816 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA816() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(union  A816), DC_TRUE);
+		at = dcNewAggr(9, sizeof(union  A816));
 		AF('i',union  A816,m0,1)
 		AF('f',union  A816,m1,1)
 		AF('s',union  A816,m2,1)
@@ -16149,7 +16149,7 @@ int f_cmpA817(const union  A817 *x, const union  A817 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA817() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A817), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A817));
 		AF('d',union  A817,m0,1)
 		AF('l',union  A817,m1,1)
 		AF('J',union  A817,m2,1)
@@ -16172,7 +16172,7 @@ int f_cmpA818(const struct A818 *x, const struct A818 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA818() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A818), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A818));
 		AF('J',struct A818,m0,1)
 		AF('f',struct A818,m1,1)
 		AF('I',struct A818,m2,1)
@@ -16195,7 +16195,7 @@ int f_cmpA819(const struct A819 *x, const struct A819 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA819() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A819), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A819));
 		AF('L',struct A819,m0,1)
 		AFa(struct A819,m1,1,A817)
 		AF('I',struct A819,m2,1)
@@ -16218,7 +16218,7 @@ int f_cmpA820(const struct A820 *x, const struct A820 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA820() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A820), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A820));
 		AF('p',struct A820,m0,1)
 		AF('p',struct A820,m1,1)
 		AF('i',struct A820,m2,1)
@@ -16234,7 +16234,7 @@ int f_cmpA821(const struct A821 *x, const struct A821 *y) { return f_cmpA820(&x-
 DCaggr* f_touchdcstA821() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A821), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A821));
 		AFa(struct A821,m0,1,A820)
 		AF('c',struct A821,m1,1)
 		AFa(struct A821,m2,1,A260)
@@ -16249,7 +16249,7 @@ int f_cmpA822(const union  A822 *x, const union  A822 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA822() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A822), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A822));
 		AF('c',union  A822,m0,1)
 		AF('j',union  A822,m1,1)
 		AF('I',union  A822,m2,1)
@@ -16272,7 +16272,7 @@ int f_cmpA823(const struct A823 *x, const struct A823 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA823() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A823), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A823));
 		AF('p',struct A823,m0,1)
 		AF('J',struct A823,m1,1)
 		AF('f',struct A823,m2,1)
@@ -16295,7 +16295,7 @@ int f_cmpA824(const union  A824 *x, const union  A824 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA824() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A824), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A824));
 		AF('j',union  A824,m0,1)
 		AF('I',union  A824,m1,1)
 		AF('f',union  A824,m2,1)
@@ -16318,7 +16318,7 @@ int f_cmpA825(const union  A825 *x, const union  A825 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA825() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A825), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A825));
 		AF('i',union  A825,m0,1)
 		AF('f',union  A825,m1,1)
 		dcCloseAggr(at);
@@ -16331,7 +16331,7 @@ int f_cmpA826(const struct A826 *x, const struct A826 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA826() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A826), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A826));
 		AF('j',struct A826,m0,1)
 		AF('s',struct A826,m1,1)
 		dcCloseAggr(at);
@@ -16344,7 +16344,7 @@ int f_cmpA827(const struct A827 *x, const struct A827 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA827() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A827), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A827));
 		AF('d',struct A827,m0,1)
 		AF('S',struct A827,m1,1)
 		AF('c',struct A827,m2,1)
@@ -16367,7 +16367,7 @@ int f_cmpA828(const union  A828 *x, const union  A828 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA828() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A828), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A828));
 		AF('d',union  A828,m0,1)
 		AF('J',union  A828,m1,1)
 		AF('j',union  A828,m2,1)
@@ -16382,7 +16382,7 @@ int f_cmpA829(const struct A829 *x, const struct A829 *y) { return f_cmpA827(&x-
 DCaggr* f_touchdcstA829() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A829), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A829));
 		AFa(struct A829,m0,2,A827)
 		AFa(struct A829,m1,1,A828)
 		AF('p',struct A829,m2,1)
@@ -16398,7 +16398,7 @@ int f_cmpA830(const struct A830 *x, const struct A830 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA830() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A830), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A830));
 		AF('c',struct A830,m0,1)
 		AFa(struct A830,m1,1,A90)
 		dcCloseAggr(at);
@@ -16411,7 +16411,7 @@ int f_cmpA831(const union  A831 *x, const union  A831 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA831() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A831), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A831));
 		AF('L',union  A831,m0,1)
 		AF('c',union  A831,m1,1)
 		AF('C',union  A831,m2,1)
@@ -16434,7 +16434,7 @@ int f_cmpA832(const union  A832 *x, const union  A832 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA832() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A832), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A832));
 		AF('C',union  A832,m0,1)
 		AF('p',union  A832,m1,1)
 		AF('L',union  A832,m2,1)
@@ -16457,7 +16457,7 @@ int f_cmpA833(const union  A833 *x, const union  A833 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA833() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A833), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A833));
 		AF('f',union  A833,m0,1)
 		AFa(union  A833,m1,1,A832)
 		AF('l',union  A833,m2,1)
@@ -16480,7 +16480,7 @@ int f_cmpA834(const union  A834 *x, const union  A834 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA834() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A834), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A834));
 		AF('d',union  A834,m0,1)
 		AF('d',union  A834,m1,1)
 		AF('s',union  A834,m2,1)
@@ -16495,7 +16495,7 @@ int f_cmpA835(const union  A835 *x, const union  A835 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA835() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A835), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A835));
 		AF('S',union  A835,m0,1)
 		AF('L',union  A835,m1,1)
 		AF('i',union  A835,m2,1)
@@ -16513,7 +16513,7 @@ int f_cmpA836(const struct A836 *x, const struct A836 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA836() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A836), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A836));
 		AF('S',struct A836,m0,1)
 		AF('s',struct A836,m1,1)
 		AF('L',struct A836,m2,1)
@@ -16536,7 +16536,7 @@ int f_cmpA837(const struct A837 *x, const struct A837 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA837() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(struct A837), DC_TRUE);
+		at = dcNewAggr(7, sizeof(struct A837));
 		AF('d',struct A837,m0,1)
 		AF('J',struct A837,m1,1)
 		AF('l',struct A837,m2,1)
@@ -16554,7 +16554,7 @@ int f_cmpA838(const union  A838 *x, const union  A838 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA838() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A838), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A838));
 		AF('I',union  A838,m0,1)
 		AF('S',union  A838,m1,1)
 		AF('S',union  A838,m2,1)
@@ -16577,7 +16577,7 @@ int f_cmpA839(const struct A839 *x, const struct A839 *y) { return f_cmpA837(&x-
 DCaggr* f_touchdcstA839() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A839), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A839));
 		AFa(struct A839,m0,1,A837)
 		AFa(struct A839,m1,1,A838)
 		AF('L',struct A839,m2,1)
@@ -16594,7 +16594,7 @@ int f_cmpA840(const union  A840 *x, const union  A840 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA840() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A840), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A840));
 		AF('l',union  A840,m0,1)
 		AF('i',union  A840,m1,1)
 		AFa(union  A840,m2,1,A833)
@@ -16617,7 +16617,7 @@ int f_cmpA841(const struct A841 *x, const struct A841 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA841() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A841), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A841));
 		AF('L',struct A841,m0,1)
 		AF('I',struct A841,m1,1)
 		AF('p',struct A841,m2,1)
@@ -16636,7 +16636,7 @@ int f_cmpA842(const struct A842 *x, const struct A842 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA842() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A842), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A842));
 		AF('I',struct A842,m0,1)
 		AF('d',struct A842,m1,1)
 		AF('I',struct A842,m2,1)
@@ -16659,7 +16659,7 @@ int f_cmpA843(const union  A843 *x, const union  A843 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA843() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A843), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A843));
 		AF('C',union  A843,m0,1)
 		AF('i',union  A843,m1,1)
 		dcCloseAggr(at);
@@ -16672,7 +16672,7 @@ int f_cmpA844(const struct A844 *x, const struct A844 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA844() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A844), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A844));
 		AF('d',struct A844,m0,1)
 		AF('i',struct A844,m1,1)
 		AF('J',struct A844,m2,1)
@@ -16695,7 +16695,7 @@ int f_cmpA845(const union  A845 *x, const union  A845 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA845() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A845), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A845));
 		AF('i',union  A845,m0,1)
 		AF('J',union  A845,m1,1)
 		AF('I',union  A845,m2,1)
@@ -16714,7 +16714,7 @@ int f_cmpA846(const union  A846 *x, const union  A846 *y) { return f_cmpA843(&x-
 DCaggr* f_touchdcstA846() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A846), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A846));
 		AFa(union  A846,m0,1,A843)
 		AF('s',union  A846,m1,1)
 		AF('c',union  A846,m2,9)
@@ -16737,7 +16737,7 @@ int f_cmpA847(const union  A847 *x, const union  A847 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA847() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A847), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A847));
 		AF('L',union  A847,m0,1)
 		AF('J',union  A847,m1,1)
 		AF('l',union  A847,m2,1)
@@ -16760,7 +16760,7 @@ int f_cmpA848(const struct A848 *x, const struct A848 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA848() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A848), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A848));
 		AF('I',struct A848,m0,1)
 		AF('p',struct A848,m1,1)
 		AF('c',struct A848,m2,1)
@@ -16783,7 +16783,7 @@ int f_cmpA849(const struct A849 *x, const struct A849 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA849() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A849), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A849));
 		AF('d',struct A849,m0,1)
 		AF('L',struct A849,m1,1)
 		AF('L',struct A849,m2,1)
@@ -16803,7 +16803,7 @@ int f_cmpA850(const struct A850 *x, const struct A850 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA850() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A850), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A850));
 		AF('c',struct A850,m0,1)
 		AF('f',struct A850,m1,1)
 		AFa(struct A850,m2,1,A846)
@@ -16822,7 +16822,7 @@ int f_cmpA851(const struct A851 *x, const struct A851 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA851() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A851), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A851));
 		AF('s',struct A851,m0,1)
 		AF('p',struct A851,m1,1)
 		dcCloseAggr(at);
@@ -16835,7 +16835,7 @@ int f_cmpA852(const union  A852 *x, const union  A852 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA852() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A852), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A852));
 		AF('p',union  A852,m0,1)
 		AF('C',union  A852,m1,1)
 		AF('c',union  A852,m2,1)
@@ -16851,7 +16851,7 @@ int f_cmpA853(const struct A853 *x, const struct A853 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA853() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A853), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A853));
 		AF('I',struct A853,m0,1)
 		AF('I',struct A853,m1,1)
 		dcCloseAggr(at);
@@ -16864,7 +16864,7 @@ int f_cmpA854(const union  A854 *x, const union  A854 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA854() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A854), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A854));
 		AF('L',union  A854,m0,1)
 		AF('l',union  A854,m1,1)
 		AF('i',union  A854,m2,1)
@@ -16887,7 +16887,7 @@ int f_cmpA855(const union  A855 *x, const union  A855 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA855() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A855), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A855));
 		AF('J',union  A855,m0,1)
 		AF('c',union  A855,m1,1)
 		AF('l',union  A855,m2,1)
@@ -16904,7 +16904,7 @@ int f_cmpA856(const struct A856 *x, const struct A856 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA856() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A856), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A856));
 		AF('l',struct A856,m0,1)
 		AF('J',struct A856,m1,1)
 		AFa(struct A856,m2,1,A855)
@@ -16927,7 +16927,7 @@ int f_cmpA857(const union  A857 *x, const union  A857 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA857() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A857), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A857));
 		AF('I',union  A857,m0,1)
 		AF('S',union  A857,m1,13)
 		dcCloseAggr(at);
@@ -16940,7 +16940,7 @@ int f_cmpA858(const union  A858 *x, const union  A858 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA858() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A858), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A858));
 		AF('f',union  A858,m0,1)
 		AF('S',union  A858,m1,1)
 		dcCloseAggr(at);
@@ -16953,7 +16953,7 @@ int f_cmpA859(const struct A859 *x, const struct A859 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA859() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A859), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A859));
 		AF('S',struct A859,m0,1)
 		AF('f',struct A859,m1,1)
 		dcCloseAggr(at);
@@ -16966,7 +16966,7 @@ int f_cmpA860(const struct A860 *x, const struct A860 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA860() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A860), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A860));
 		AF('f',struct A860,m0,1)
 		AF('i',struct A860,m1,1)
 		AF('s',struct A860,m2,1)
@@ -16989,7 +16989,7 @@ int f_cmpA861(const struct A861 *x, const struct A861 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA861() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A861), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A861));
 		AF('c',struct A861,m0,1)
 		AF('d',struct A861,m1,1)
 		AF('S',struct A861,m2,1)
@@ -17012,7 +17012,7 @@ int f_cmpA862(const union  A862 *x, const union  A862 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA862() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A862), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A862));
 		AF('i',union  A862,m0,1)
 		AF('C',union  A862,m1,1)
 		AF('f',union  A862,m2,1)
@@ -17035,7 +17035,7 @@ int f_cmpA863(const union  A863 *x, const union  A863 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA863() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A863), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A863));
 		AF('i',union  A863,m0,1)
 		AF('j',union  A863,m1,1)
 		AF('d',union  A863,m2,1)
@@ -17058,7 +17058,7 @@ int f_cmpA864(const struct A864 *x, const struct A864 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA864() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A864), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A864));
 		AF('J',struct A864,m0,1)
 		AF('C',struct A864,m1,1)
 		AF('c',struct A864,m2,1)
@@ -17081,7 +17081,7 @@ int f_cmpA865(const struct A865 *x, const struct A865 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA865() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A865), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A865));
 		AF('C',struct A865,m0,1)
 		AF('s',struct A865,m1,1)
 		dcCloseAggr(at);
@@ -17094,7 +17094,7 @@ int f_cmpA866(const struct A866 *x, const struct A866 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA866() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A866), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A866));
 		AF('c',struct A866,m0,1)
 		AF('l',struct A866,m1,1)
 		AF('i',struct A866,m2,1)
@@ -17109,7 +17109,7 @@ int f_cmpA867(const struct A867 *x, const struct A867 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA867() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A867), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A867));
 		AF('I',struct A867,m0,1)
 		AF('j',struct A867,m1,1)
 		AF('L',struct A867,m2,1)
@@ -17126,7 +17126,7 @@ int f_cmpA868(const union  A868 *x, const union  A868 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA868() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A868), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A868));
 		AF('I',union  A868,m0,1)
 		AF('j',union  A868,m1,1)
 		AF('i',union  A868,m2,1)
@@ -17142,7 +17142,7 @@ int f_cmpA869(const struct A869 *x, const struct A869 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA869() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A869), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A869));
 		AF('I',struct A869,m0,1)
 		AF('d',struct A869,m1,1)
 		AF('L',struct A869,m2,1)
@@ -17165,7 +17165,7 @@ int f_cmpA870(const struct A870 *x, const struct A870 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA870() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A870), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A870));
 		AF('l',struct A870,m0,1)
 		AF('j',struct A870,m1,1)
 		AF('j',struct A870,m2,1)
@@ -17188,7 +17188,7 @@ int f_cmpA871(const union  A871 *x, const union  A871 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA871() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A871), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A871));
 		AF('C',union  A871,m0,1)
 		AF('i',union  A871,m1,1)
 		AF('p',union  A871,m2,1)
@@ -17211,7 +17211,7 @@ int f_cmpA872(const union  A872 *x, const union  A872 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA872() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A872), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A872));
 		AF('I',union  A872,m0,1)
 		AF('l',union  A872,m1,1)
 		AF('L',union  A872,m2,1)
@@ -17225,7 +17225,7 @@ int f_cmpA873(const struct A873 *x, const struct A873 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA873() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A873), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A873));
 		AF('s',struct A873,m0,1)
 		AF('S',struct A873,m1,1)
 		AF('S',struct A873,m2,1)
@@ -17248,7 +17248,7 @@ int f_cmpA874(const union  A874 *x, const union  A874 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA874() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A874), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A874));
 		AF('p',union  A874,m0,1)
 		AF('c',union  A874,m1,1)
 		AF('s',union  A874,m2,1)
@@ -17271,7 +17271,7 @@ int f_cmpA875(const union  A875 *x, const union  A875 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA875() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A875), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A875));
 		AF('I',union  A875,m0,1)
 		AF('i',union  A875,m1,1)
 		AF('p',union  A875,m2,1)
@@ -17294,7 +17294,7 @@ int f_cmpA876(const struct A876 *x, const struct A876 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA876() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A876), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A876));
 		AF('p',struct A876,m0,1)
 		AF('c',struct A876,m1,1)
 		AF('j',struct A876,m2,1)
@@ -17317,7 +17317,7 @@ int f_cmpA877(const union  A877 *x, const union  A877 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA877() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A877), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A877));
 		AF('L',union  A877,m0,1)
 		AF('j',union  A877,m1,1)
 		AF('f',union  A877,m2,1)
@@ -17340,7 +17340,7 @@ int f_cmpA878(const union  A878 *x, const union  A878 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA878() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A878), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A878));
 		AF('I',union  A878,m0,1)
 		AF('j',union  A878,m1,4)
 		AF('p',union  A878,m2,1)
@@ -17355,7 +17355,7 @@ int f_cmpA879(const struct A879 *x, const struct A879 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA879() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A879), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A879));
 		AF('p',struct A879,m0,1)
 		AF('d',struct A879,m1,1)
 		AFa(struct A879,m2,1,A878)
@@ -17378,7 +17378,7 @@ int f_cmpA880(const union  A880 *x, const union  A880 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA880() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A880), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A880));
 		AF('s',union  A880,m0,1)
 		AF('c',union  A880,m1,1)
 		AF('J',union  A880,m2,1)
@@ -17397,7 +17397,7 @@ int f_cmpA881(const union  A881 *x, const union  A881 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA881() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A881), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A881));
 		AF('p',union  A881,m0,1)
 		AF('J',union  A881,m1,1)
 		AF('J',union  A881,m2,1)
@@ -17416,7 +17416,7 @@ int f_cmpA882(const union  A882 *x, const union  A882 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA882() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A882), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A882));
 		AF('S',union  A882,m0,1)
 		AF('S',union  A882,m1,1)
 		AFa(union  A882,m2,1,A881)
@@ -17437,7 +17437,7 @@ int f_cmpA883(const union  A883 *x, const union  A883 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA883() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A883), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A883));
 		AF('c',union  A883,m0,1)
 		AF('s',union  A883,m1,1)
 		AF('j',union  A883,m2,1)
@@ -17460,7 +17460,7 @@ int f_cmpA884(const union  A884 *x, const union  A884 *y) { return f_cmpA883(&x-
 DCaggr* f_touchdcstA884() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A884), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A884));
 		AFa(union  A884,m0,1,A883)
 		AF('L',union  A884,m1,1)
 		AF('L',union  A884,m2,1)
@@ -17483,7 +17483,7 @@ int f_cmpA885(const union  A885 *x, const union  A885 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA885() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A885), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A885));
 		AF('C',union  A885,m0,1)
 		AF('S',union  A885,m1,1)
 		AF('L',union  A885,m2,1)
@@ -17504,7 +17504,7 @@ int f_cmpA886(const struct A886 *x, const struct A886 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA886() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A886), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A886));
 		AF('c',struct A886,m0,1)
 		AF('p',struct A886,m1,1)
 		AF('i',struct A886,m2,1)
@@ -17518,7 +17518,7 @@ int f_cmpA887(const struct A887 *x, const struct A887 *y) { return f_cmpA886(&x-
 DCaggr* f_touchdcstA887() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(struct A887), DC_TRUE);
+		at = dcNewAggr(1, sizeof(struct A887));
 		AFa(struct A887,m0,1,A886)
 		dcCloseAggr(at);
 	}
@@ -17530,7 +17530,7 @@ int f_cmpA888(const struct A888 *x, const struct A888 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA888() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A888), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A888));
 		AF('c',struct A888,m0,1)
 		AF('f',struct A888,m1,1)
 		dcCloseAggr(at);
@@ -17543,7 +17543,7 @@ int f_cmpA889(const union  A889 *x, const union  A889 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA889() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A889), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A889));
 		AF('p',union  A889,m0,1)
 		AF('f',union  A889,m1,5)
 		AF('L',union  A889,m2,1)
@@ -17558,7 +17558,7 @@ int f_cmpA890(const struct A890 *x, const struct A890 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA890() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(struct A890), DC_TRUE);
+		at = dcNewAggr(10, sizeof(struct A890));
 		AF('d',struct A890,m0,1)
 		AF('c',struct A890,m1,1)
 		AF('J',struct A890,m2,1)
@@ -17579,7 +17579,7 @@ int f_cmpA891(const struct A891 *x, const struct A891 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA891() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A891), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A891));
 		AF('L',struct A891,m0,1)
 		AF('I',struct A891,m1,1)
 		AF('S',struct A891,m2,1)
@@ -17602,7 +17602,7 @@ int f_cmpA892(const union  A892 *x, const union  A892 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA892() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A892), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A892));
 		AF('C',union  A892,m0,1)
 		AF('i',union  A892,m1,1)
 		AF('C',union  A892,m2,1)
@@ -17625,7 +17625,7 @@ int f_cmpA893(const struct A893 *x, const struct A893 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA893() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A893), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A893));
 		AF('c',struct A893,m0,1)
 		AF('j',struct A893,m1,1)
 		AF('L',struct A893,m2,6)
@@ -17644,7 +17644,7 @@ int f_cmpA894(const struct A894 *x, const struct A894 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA894() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A894), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A894));
 		AF('C',struct A894,m0,1)
 		AF('s',struct A894,m1,1)
 		AF('d',struct A894,m2,1)
@@ -17667,7 +17667,7 @@ int f_cmpA895(const union  A895 *x, const union  A895 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA895() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A895), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A895));
 		AF('l',union  A895,m0,1)
 		AFa(union  A895,m1,1,A894)
 		dcCloseAggr(at);
@@ -17680,7 +17680,7 @@ int f_cmpA896(const union  A896 *x, const union  A896 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA896() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A896), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A896));
 		AF('f',union  A896,m0,1)
 		AF('s',union  A896,m1,1)
 		AF('I',union  A896,m2,1)
@@ -17703,7 +17703,7 @@ int f_cmpA897(const union  A897 *x, const union  A897 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA897() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A897), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A897));
 		AF('d',union  A897,m0,1)
 		AF('f',union  A897,m1,1)
 		AF('I',union  A897,m2,1)
@@ -17726,7 +17726,7 @@ int f_cmpA898(const union  A898 *x, const union  A898 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA898() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A898), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A898));
 		AF('l',union  A898,m0,1)
 		AF('j',union  A898,m1,1)
 		AF('l',union  A898,m2,1)
@@ -17749,7 +17749,7 @@ int f_cmpA899(const struct A899 *x, const struct A899 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA899() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A899), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A899));
 		AF('d',struct A899,m0,1)
 		AF('S',struct A899,m1,1)
 		AF('I',struct A899,m2,1)
@@ -17765,7 +17765,7 @@ int f_cmpA900(const struct A900 *x, const struct A900 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA900() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A900), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A900));
 		AF('l',struct A900,m0,1)
 		AF('S',struct A900,m1,1)
 		AF('i',struct A900,m2,1)
@@ -17788,7 +17788,7 @@ int f_cmpA901(const struct A901 *x, const struct A901 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA901() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A901), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A901));
 		AF('l',struct A901,m0,1)
 		AF('s',struct A901,m1,1)
 		AF('C',struct A901,m2,1)
@@ -17811,7 +17811,7 @@ int f_cmpA902(const struct A902 *x, const struct A902 *y) { return f_cmpA901(&x-
 DCaggr* f_touchdcstA902() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A902), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A902));
 		AFa(struct A902,m0,1,A901)
 		AF('S',struct A902,m1,1)
 		AF('f',struct A902,m2,1)
@@ -17830,7 +17830,7 @@ int f_cmpA903(const union  A903 *x, const union  A903 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA903() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A903), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A903));
 		AF('l',union  A903,m0,1)
 		AF('L',union  A903,m1,1)
 		AF('C',union  A903,m2,1)
@@ -17848,7 +17848,7 @@ int f_cmpA904(const union  A904 *x, const union  A904 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA904() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(union  A904), DC_TRUE);
+		at = dcNewAggr(11, sizeof(union  A904));
 		AF('c',union  A904,m0,1)
 		AF('d',union  A904,m1,1)
 		AF('I',union  A904,m2,1)
@@ -17870,7 +17870,7 @@ int f_cmpA905(const struct A905 *x, const struct A905 *y) { return f_cmpA903(&x-
 DCaggr* f_touchdcstA905() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A905), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A905));
 		AFa(struct A905,m0,1,A903)
 		AF('L',struct A905,m1,1)
 		AFa(struct A905,m2,1,A904)
@@ -17886,7 +17886,7 @@ int f_cmpA906(const union  A906 *x, const union  A906 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA906() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A906), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A906));
 		AF('c',union  A906,m0,1)
 		AF('c',union  A906,m1,1)
 		AF('I',union  A906,m2,1)
@@ -17909,7 +17909,7 @@ int f_cmpA907(const struct A907 *x, const struct A907 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA907() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A907), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A907));
 		AF('J',struct A907,m0,1)
 		AF('L',struct A907,m1,1)
 		AF('l',struct A907,m2,1)
@@ -17932,7 +17932,7 @@ int f_cmpA908(const struct A908 *x, const struct A908 *y) { return f_cmpA906(&x-
 DCaggr* f_touchdcstA908() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A908), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A908));
 		AFa(struct A908,m0,1,A906)
 		AF('J',struct A908,m1,1)
 		AF('L',struct A908,m2,1)
@@ -17955,7 +17955,7 @@ int f_cmpA909(const union  A909 *x, const union  A909 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA909() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A909), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A909));
 		AF('l',union  A909,m0,1)
 		AF('C',union  A909,m1,1)
 		AF('j',union  A909,m2,1)
@@ -17976,7 +17976,7 @@ int f_cmpA910(const union  A910 *x, const union  A910 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA910() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A910), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A910));
 		AF('I',union  A910,m0,1)
 		AF('d',union  A910,m1,1)
 		AF('j',union  A910,m2,1)
@@ -17995,7 +17995,7 @@ int f_cmpA911(const union  A911 *x, const union  A911 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA911() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A911), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A911));
 		AF('C',union  A911,m0,1)
 		AF('L',union  A911,m1,1)
 		AFa(union  A911,m2,1,A910)
@@ -18009,7 +18009,7 @@ int f_cmpA912(const struct A912 *x, const struct A912 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA912() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A912), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A912));
 		AF('C',struct A912,m0,1)
 		AF('S',struct A912,m1,1)
 		AF('p',struct A912,m2,1)
@@ -18029,7 +18029,7 @@ int f_cmpA913(const struct A913 *x, const struct A913 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA913() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(struct A913), DC_TRUE);
+		at = dcNewAggr(7, sizeof(struct A913));
 		AF('S',struct A913,m0,1)
 		AF('i',struct A913,m1,1)
 		AF('C',struct A913,m2,11)
@@ -18047,7 +18047,7 @@ int f_cmpA914(const struct A914 *x, const struct A914 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA914() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A914), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A914));
 		AF('j',struct A914,m0,1)
 		AF('I',struct A914,m1,1)
 		AF('p',struct A914,m2,1)
@@ -18063,7 +18063,7 @@ int f_cmpA915(const union  A915 *x, const union  A915 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA915() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(union  A915), DC_TRUE);
+		at = dcNewAggr(11, sizeof(union  A915));
 		AF('i',union  A915,m0,1)
 		AF('s',union  A915,m1,1)
 		AF('J',union  A915,m2,1)
@@ -18085,7 +18085,7 @@ int f_cmpA916(const union  A916 *x, const union  A916 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA916() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(union  A916), DC_TRUE);
+		at = dcNewAggr(11, sizeof(union  A916));
 		AF('c',union  A916,m0,1)
 		AFa(union  A916,m1,1,A912)
 		AF('l',union  A916,m2,1)
@@ -18107,7 +18107,7 @@ int f_cmpA917(const union  A917 *x, const union  A917 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA917() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A917), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A917));
 		AF('d',union  A917,m0,1)
 		AF('c',union  A917,m1,1)
 		AFa(union  A917,m2,1,A911)
@@ -18126,7 +18126,7 @@ int f_cmpA918(const union  A918 *x, const union  A918 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA918() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A918), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A918));
 		AF('j',union  A918,m0,1)
 		AF('l',union  A918,m1,1)
 		AF('J',union  A918,m2,1)
@@ -18149,7 +18149,7 @@ int f_cmpA919(const struct A919 *x, const struct A919 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA919() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A919), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A919));
 		AF('S',struct A919,m0,1)
 		AF('s',struct A919,m1,1)
 		AF('I',struct A919,m2,1)
@@ -18172,7 +18172,7 @@ int f_cmpA920(const struct A920 *x, const struct A920 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA920() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A920), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A920));
 		AF('f',struct A920,m0,1)
 		AF('l',struct A920,m1,1)
 		AF('d',struct A920,m2,1)
@@ -18192,7 +18192,7 @@ int f_cmpA921(const struct A921 *x, const struct A921 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA921() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A921), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A921));
 		AF('C',struct A921,m0,1)
 		AF('L',struct A921,m1,1)
 		AFa(struct A921,m2,1,A920)
@@ -18215,7 +18215,7 @@ int f_cmpA922(const union  A922 *x, const union  A922 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA922() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A922), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A922));
 		AF('j',union  A922,m0,1)
 		AF('C',union  A922,m1,1)
 		AF('J',union  A922,m2,1)
@@ -18236,7 +18236,7 @@ int f_cmpA923(const struct A923 *x, const struct A923 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA923() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A923), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A923));
 		AF('i',struct A923,m0,1)
 		AF('C',struct A923,m1,1)
 		AF('l',struct A923,m2,1)
@@ -18252,7 +18252,7 @@ int f_cmpA924(const struct A924 *x, const struct A924 *y) { return f_cmpA923(&x-
 DCaggr* f_touchdcstA924() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A924), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A924));
 		AFa(struct A924,m0,1,A923)
 		AF('l',struct A924,m1,1)
 		AF('I',struct A924,m2,1)
@@ -18275,7 +18275,7 @@ int f_cmpA925(const union  A925 *x, const union  A925 *y) { return f_cmpA924(&x-
 DCaggr* f_touchdcstA925() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A925), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A925));
 		AFa(union  A925,m0,1,A924)
 		AF('s',union  A925,m1,1)
 		AF('J',union  A925,m2,1)
@@ -18298,7 +18298,7 @@ int f_cmpA926(const union  A926 *x, const union  A926 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA926() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A926), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A926));
 		AF('J',union  A926,m0,1)
 		AF('d',union  A926,m1,1)
 		AF('p',union  A926,m2,1)
@@ -18321,7 +18321,7 @@ int f_cmpA927(const union  A927 *x, const union  A927 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA927() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A927), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A927));
 		AF('i',union  A927,m0,1)
 		AF('s',union  A927,m1,1)
 		AF('L',union  A927,m2,1)
@@ -18344,7 +18344,7 @@ int f_cmpA928(const struct A928 *x, const struct A928 *y) { return f_cmpA927(&x-
 DCaggr* f_touchdcstA928() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(struct A928), DC_TRUE);
+		at = dcNewAggr(1, sizeof(struct A928));
 		AFa(struct A928,m0,1,A927)
 		dcCloseAggr(at);
 	}
@@ -18356,7 +18356,7 @@ int f_cmpA929(const struct A929 *x, const struct A929 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA929() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A929), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A929));
 		AF('S',struct A929,m0,1)
 		AF('i',struct A929,m1,1)
 		AF('d',struct A929,m2,1)
@@ -18372,7 +18372,7 @@ int f_cmpA930(const union  A930 *x, const union  A930 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA930() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A930), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A930));
 		AF('S',union  A930,m0,1)
 		AF('j',union  A930,m1,1)
 		AF('j',union  A930,m2,1)
@@ -18388,7 +18388,7 @@ int f_cmpA931(const struct A931 *x, const struct A931 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA931() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A931), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A931));
 		AF('d',struct A931,m0,1)
 		AF('l',struct A931,m1,1)
 		AF('I',struct A931,m2,1)
@@ -18411,7 +18411,7 @@ int f_cmpA932(const struct A932 *x, const struct A932 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA932() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A932), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A932));
 		AF('s',struct A932,m0,1)
 		AF('I',struct A932,m1,1)
 		AF('I',struct A932,m2,1)
@@ -18431,7 +18431,7 @@ int f_cmpA933(const union  A933 *x, const union  A933 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA933() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A933), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A933));
 		AF('f',union  A933,m0,1)
 		AF('l',union  A933,m1,1)
 		AF('d',union  A933,m2,1)
@@ -18454,7 +18454,7 @@ int f_cmpA934(const union  A934 *x, const union  A934 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA934() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A934), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A934));
 		AF('p',union  A934,m0,1)
 		AF('J',union  A934,m1,1)
 		AF('s',union  A934,m2,1)
@@ -18473,7 +18473,7 @@ int f_cmpA935(const union  A935 *x, const union  A935 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA935() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(union  A935), DC_TRUE);
+		at = dcNewAggr(9, sizeof(union  A935));
 		AF('s',union  A935,m0,1)
 		AF('I',union  A935,m1,1)
 		AF('I',union  A935,m2,1)
@@ -18493,7 +18493,7 @@ int f_cmpA936(const union  A936 *x, const union  A936 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA936() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A936), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A936));
 		AF('c',union  A936,m0,1)
 		AF('c',union  A936,m1,1)
 		AF('L',union  A936,m2,1)
@@ -18508,7 +18508,7 @@ int f_cmpA937(const struct A937 *x, const struct A937 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA937() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A937), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A937));
 		AF('i',struct A937,m0,1)
 		AF('C',struct A937,m1,1)
 		AF('C',struct A937,m2,1)
@@ -18528,7 +18528,7 @@ int f_cmpA938(const union  A938 *x, const union  A938 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA938() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A938), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A938));
 		AF('s',union  A938,m0,1)
 		AF('j',union  A938,m1,1)
 		AF('f',union  A938,m2,1)
@@ -18551,7 +18551,7 @@ int f_cmpA939(const struct A939 *x, const struct A939 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA939() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A939), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A939));
 		AF('L',struct A939,m0,1)
 		AF('c',struct A939,m1,1)
 		AF('i',struct A939,m2,1)
@@ -18574,7 +18574,7 @@ int f_cmpA940(const union  A940 *x, const union  A940 *y) { return f_cmpA935(&x-
 DCaggr* f_touchdcstA940() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A940), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A940));
 		AFa(union  A940,m0,1,A935)
 		AF('f',union  A940,m1,1)
 		AF('J',union  A940,m2,1)
@@ -18592,7 +18592,7 @@ int f_cmpA941(const struct A941 *x, const struct A941 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA941() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A941), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A941));
 		AF('f',struct A941,m0,1)
 		AF('d',struct A941,m1,1)
 		AF('p',struct A941,m2,1)
@@ -18607,7 +18607,7 @@ int f_cmpA942(const struct A942 *x, const struct A942 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA942() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A942), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A942));
 		AF('i',struct A942,m0,1)
 		AF('S',struct A942,m1,1)
 		AF('f',struct A942,m2,1)
@@ -18626,7 +18626,7 @@ int f_cmpA943(const union  A943 *x, const union  A943 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA943() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A943), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A943));
 		AF('p',union  A943,m0,1)
 		AF('s',union  A943,m1,1)
 		AF('L',union  A943,m2,1)
@@ -18642,7 +18642,7 @@ int f_cmpA944(const struct A944 *x, const struct A944 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA944() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A944), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A944));
 		AF('j',struct A944,m0,1)
 		AF('C',struct A944,m1,1)
 		AF('f',struct A944,m2,1)
@@ -18665,7 +18665,7 @@ int f_cmpA945(const union  A945 *x, const union  A945 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA945() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A945), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A945));
 		AF('S',union  A945,m0,1)
 		AF('s',union  A945,m1,1)
 		AF('d',union  A945,m2,1)
@@ -18688,7 +18688,7 @@ int f_cmpA946(const struct A946 *x, const struct A946 *y) { return f_cmpA383(&x-
 DCaggr* f_touchdcstA946() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A946), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A946));
 		AFa(struct A946,m0,1,A383)
 		AFa(struct A946,m1,1,A943)
 		AF('i',struct A946,m2,1)
@@ -18705,7 +18705,7 @@ int f_cmpA947(const struct A947 *x, const struct A947 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA947() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A947), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A947));
 		AF('j',struct A947,m0,1)
 		AF('I',struct A947,m1,1)
 		AF('j',struct A947,m2,1)
@@ -18728,7 +18728,7 @@ int f_cmpA948(const struct A948 *x, const struct A948 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA948() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A948), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A948));
 		AF('J',struct A948,m0,1)
 		AF('f',struct A948,m1,1)
 		AF('p',struct A948,m2,1)
@@ -18751,7 +18751,7 @@ int f_cmpA949(const union  A949 *x, const union  A949 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA949() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A949), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A949));
 		AF('j',union  A949,m0,1)
 		AF('C',union  A949,m1,1)
 		AF('I',union  A949,m2,1)
@@ -18765,7 +18765,7 @@ int f_cmpA950(const struct A950 *x, const struct A950 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA950() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A950), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A950));
 		AF('S',struct A950,m0,1)
 		AF('s',struct A950,m1,1)
 		AF('p',struct A950,m2,1)
@@ -18788,7 +18788,7 @@ int f_cmpA951(const union  A951 *x, const union  A951 *y) { return f_cmpA949(&x-
 DCaggr* f_touchdcstA951() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A951), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A951));
 		AFa(union  A951,m0,1,A949)
 		AF('l',union  A951,m1,1)
 		AFa(union  A951,m2,1,A310)
@@ -18806,7 +18806,7 @@ int f_cmpA952(const union  A952 *x, const union  A952 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA952() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(union  A952), DC_TRUE);
+		at = dcNewAggr(9, sizeof(union  A952));
 		AF('l',union  A952,m0,1)
 		AF('J',union  A952,m1,1)
 		AF('L',union  A952,m2,1)
@@ -18826,7 +18826,7 @@ int f_cmpA953(const union  A953 *x, const union  A953 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA953() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A953), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A953));
 		AF('j',union  A953,m0,1)
 		AF('j',union  A953,m1,1)
 		AF('c',union  A953,m2,1)
@@ -18841,7 +18841,7 @@ int f_cmpA954(const union  A954 *x, const union  A954 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA954() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A954), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A954));
 		AF('d',union  A954,m0,1)
 		AF('i',union  A954,m1,1)
 		AF('C',union  A954,m2,1)
@@ -18864,7 +18864,7 @@ int f_cmpA955(const union  A955 *x, const union  A955 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA955() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A955), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A955));
 		AF('I',union  A955,m0,1)
 		AF('C',union  A955,m1,1)
 		AFa(union  A955,m2,1,A953)
@@ -18887,7 +18887,7 @@ int f_cmpA956(const union  A956 *x, const union  A956 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA956() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A956), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A956));
 		AF('l',union  A956,m0,1)
 		AF('d',union  A956,m1,1)
 		AF('J',union  A956,m2,1)
@@ -18905,7 +18905,7 @@ int f_cmpA957(const struct A957 *x, const struct A957 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA957() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(struct A957), DC_TRUE);
+		at = dcNewAggr(7, sizeof(struct A957));
 		AF('L',struct A957,m0,1)
 		AF('l',struct A957,m1,1)
 		AF('S',struct A957,m2,1)
@@ -18923,7 +18923,7 @@ int f_cmpA958(const struct A958 *x, const struct A958 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA958() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A958), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A958));
 		AF('S',struct A958,m0,1)
 		AF('J',struct A958,m1,1)
 		AF('p',struct A958,m2,1)
@@ -18946,7 +18946,7 @@ int f_cmpA959(const union  A959 *x, const union  A959 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA959() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A959), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A959));
 		AF('I',union  A959,m0,1)
 		AF('j',union  A959,m1,1)
 		AF('c',union  A959,m2,1)
@@ -18969,7 +18969,7 @@ int f_cmpA960(const union  A960 *x, const union  A960 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA960() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A960), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A960));
 		AF('J',union  A960,m0,1)
 		AF('J',union  A960,m1,1)
 		AF('I',union  A960,m2,1)
@@ -18992,7 +18992,7 @@ int f_cmpA961(const union  A961 *x, const union  A961 *y) { return f_cmpA767(&x-
 DCaggr* f_touchdcstA961() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(union  A961), DC_TRUE);
+		at = dcNewAggr(9, sizeof(union  A961));
 		AFa(union  A961,m0,1,A767)
 		AF('p',union  A961,m1,1)
 		AF('S',union  A961,m2,1)
@@ -19012,7 +19012,7 @@ int f_cmpA962(const union  A962 *x, const union  A962 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA962() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A962), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A962));
 		AF('J',union  A962,m0,1)
 		AF('d',union  A962,m1,1)
 		AF('J',union  A962,m2,1)
@@ -19035,7 +19035,7 @@ int f_cmpA963(const union  A963 *x, const union  A963 *y) { return f_cmpA743(&x-
 DCaggr* f_touchdcstA963() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A963), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A963));
 		AFa(union  A963,m0,1,A743)
 		AF('f',union  A963,m1,1)
 		AF('S',union  A963,m2,1)
@@ -19051,7 +19051,7 @@ int f_cmpA964(const struct A964 *x, const struct A964 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA964() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A964), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A964));
 		AF('L',struct A964,m0,1)
 		AF('s',struct A964,m1,1)
 		AF('f',struct A964,m2,1)
@@ -19074,7 +19074,7 @@ int f_cmpA965(const struct A965 *x, const struct A965 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA965() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A965), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A965));
 		AF('C',struct A965,m0,1)
 		AF('d',struct A965,m1,1)
 		AF('l',struct A965,m2,1)
@@ -19097,7 +19097,7 @@ int f_cmpA966(const union  A966 *x, const union  A966 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA966() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A966), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A966));
 		AF('j',union  A966,m0,1)
 		AF('p',union  A966,m1,1)
 		AF('d',union  A966,m2,1)
@@ -19111,7 +19111,7 @@ int f_cmpA967(const struct A967 *x, const struct A967 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA967() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(struct A967), DC_TRUE);
+		at = dcNewAggr(11, sizeof(struct A967));
 		AF('J',struct A967,m0,1)
 		AFa(struct A967,m1,1,A966)
 		AF('L',struct A967,m2,1)
@@ -19133,7 +19133,7 @@ int f_cmpA968(const union  A968 *x, const union  A968 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA968() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A968), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A968));
 		AF('p',union  A968,m0,1)
 		AF('i',union  A968,m1,1)
 		AF('C',union  A968,m2,1)
@@ -19156,7 +19156,7 @@ int f_cmpA969(const struct A969 *x, const struct A969 *y) { return x->m0[0] == y
 DCaggr* f_touchdcstA969() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A969), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A969));
 		AF('p',struct A969,m0,3)
 		AF('L',struct A969,m1,1)
 		AF('J',struct A969,m2,1)
@@ -19179,7 +19179,7 @@ int f_cmpA970(const union  A970 *x, const union  A970 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA970() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A970), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A970));
 		AF('S',union  A970,m0,1)
 		AF('I',union  A970,m1,1)
 		AF('p',union  A970,m2,2)
@@ -19202,7 +19202,7 @@ int f_cmpA971(const struct A971 *x, const struct A971 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA971() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A971), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A971));
 		AF('J',struct A971,m0,1)
 		AFa(struct A971,m1,1,A90)
 		AF('L',struct A971,m2,1)
@@ -19222,7 +19222,7 @@ int f_cmpA972(const union  A972 *x, const union  A972 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA972() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A972), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A972));
 		AF('p',union  A972,m0,1)
 		AF('L',union  A972,m1,1)
 		AF('p',union  A972,m2,1)
@@ -19238,7 +19238,7 @@ int f_cmpA973(const union  A973 *x, const union  A973 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA973() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A973), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A973));
 		AF('j',union  A973,m0,1)
 		AF('J',union  A973,m1,1)
 		AF('s',union  A973,m2,1)
@@ -19261,7 +19261,7 @@ int f_cmpA974(const union  A974 *x, const union  A974 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA974() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A974), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A974));
 		AF('f',union  A974,m0,1)
 		AF('L',union  A974,m1,1)
 		AF('J',union  A974,m2,1)
@@ -19282,7 +19282,7 @@ int f_cmpA975(const union  A975 *x, const union  A975 *y) { return f_cmpA974(&x-
 DCaggr* f_touchdcstA975() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A975), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A975));
 		AFa(union  A975,m0,1,A974)
 		AF('C',union  A975,m1,1)
 		AF('i',union  A975,m2,1)
@@ -19297,7 +19297,7 @@ int f_cmpA976(const struct A976 *x, const struct A976 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA976() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A976), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A976));
 		AF('I',struct A976,m0,1)
 		AFa(struct A976,m1,1,A973)
 		AF('c',struct A976,m2,1)
@@ -19320,7 +19320,7 @@ int f_cmpA977(const union  A977 *x, const union  A977 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA977() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A977), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A977));
 		AF('s',union  A977,m0,1)
 		AF('f',union  A977,m1,1)
 		AF('p',union  A977,m2,1)
@@ -19343,7 +19343,7 @@ int f_cmpA978(const union  A978 *x, const union  A978 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA978() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A978), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A978));
 		AF('j',union  A978,m0,1)
 		AF('l',union  A978,m1,1)
 		AF('s',union  A978,m2,1)
@@ -19362,7 +19362,7 @@ int f_cmpA979(const union  A979 *x, const union  A979 *y) { return f_cmpA978(&x-
 DCaggr* f_touchdcstA979() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A979), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A979));
 		AFa(union  A979,m0,2,A978)
 		AF('C',union  A979,m1,1)
 		AF('c',union  A979,m2,1)
@@ -19381,7 +19381,7 @@ int f_cmpA980(const union  A980 *x, const union  A980 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA980() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A980), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A980));
 		AF('J',union  A980,m0,1)
 		AF('J',union  A980,m1,1)
 		AF('j',union  A980,m2,1)
@@ -19395,7 +19395,7 @@ int f_cmpA981(const union  A981 *x, const union  A981 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA981() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(union  A981), DC_TRUE);
+		at = dcNewAggr(11, sizeof(union  A981));
 		AF('d',union  A981,m0,1)
 		AF('i',union  A981,m1,1)
 		AF('i',union  A981,m2,1)
@@ -19417,7 +19417,7 @@ int f_cmpA982(const struct A982 *x, const struct A982 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA982() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A982), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A982));
 		AF('j',struct A982,m0,1)
 		AF('c',struct A982,m1,1)
 		AF('s',struct A982,m2,1)
@@ -19440,7 +19440,7 @@ int f_cmpA983(const union  A983 *x, const union  A983 *y) { return f_cmpA64(&x->
 DCaggr* f_touchdcstA983() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A983), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A983));
 		AFa(union  A983,m0,1,A64)
 		AF('p',union  A983,m1,1)
 		AF('L',union  A983,m2,1)
@@ -19463,7 +19463,7 @@ int f_cmpA984(const union  A984 *x, const union  A984 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA984() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A984), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A984));
 		AF('d',union  A984,m0,1)
 		AF('L',union  A984,m1,1)
 		AF('l',union  A984,m2,1)
@@ -19486,7 +19486,7 @@ int f_cmpA985(const union  A985 *x, const union  A985 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA985() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A985), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A985));
 		AF('i',union  A985,m0,1)
 		AF('J',union  A985,m1,1)
 		AF('i',union  A985,m2,1)
@@ -19504,7 +19504,7 @@ int f_cmpA986(const struct A986 *x, const struct A986 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA986() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A986), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A986));
 		AF('c',struct A986,m0,1)
 		AF('d',struct A986,m1,1)
 		AF('L',struct A986,m2,1)
@@ -19527,7 +19527,7 @@ int f_cmpA987(const union  A987 *x, const union  A987 *y) { return f_cmpA986(&x-
 DCaggr* f_touchdcstA987() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(union  A987), DC_TRUE);
+		at = dcNewAggr(1, sizeof(union  A987));
 		AFa(union  A987,m0,1,A986)
 		dcCloseAggr(at);
 	}
@@ -19539,7 +19539,7 @@ int f_cmpA988(const struct A988 *x, const struct A988 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA988() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A988), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A988));
 		AF('c',struct A988,m0,1)
 		AFa(struct A988,m1,1,A987)
 		AF('I',struct A988,m2,1)
@@ -19558,7 +19558,7 @@ int f_cmpA989(const struct A989 *x, const struct A989 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA989() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A989), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A989));
 		AF('c',struct A989,m0,1)
 		AF('L',struct A989,m1,1)
 		AF('p',struct A989,m2,1)
@@ -19574,7 +19574,7 @@ int f_cmpA990(const union  A990 *x, const union  A990 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA990() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A990), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A990));
 		AF('C',union  A990,m0,1)
 		AF('L',union  A990,m1,1)
 		AF('l',union  A990,m2,1)
@@ -19597,7 +19597,7 @@ int f_cmpA991(const union  A991 *x, const union  A991 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA991() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A991), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A991));
 		AF('f',union  A991,m0,1)
 		AF('s',union  A991,m1,1)
 		AF('j',union  A991,m2,1)
@@ -19620,7 +19620,7 @@ int f_cmpA992(const union  A992 *x, const union  A992 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA992() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A992), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A992));
 		AF('f',union  A992,m0,1)
 		AF('S',union  A992,m1,1)
 		AF('s',union  A992,m2,1)
@@ -19643,7 +19643,7 @@ int f_cmpA993(const union  A993 *x, const union  A993 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA993() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A993), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A993));
 		AF('S',union  A993,m0,1)
 		AF('L',union  A993,m1,1)
 		AF('I',union  A993,m2,1)
@@ -19657,7 +19657,7 @@ int f_cmpA994(const struct A994 *x, const struct A994 *y) { return x->m0[0] == y
 DCaggr* f_touchdcstA994() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A994), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A994));
 		AF('L',struct A994,m0,12)
 		AF('c',struct A994,m1,1)
 		AF('c',struct A994,m2,1)
@@ -19680,7 +19680,7 @@ int f_cmpA995(const union  A995 *x, const union  A995 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA995() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A995), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A995));
 		AF('S',union  A995,m0,1)
 		AF('j',union  A995,m1,1)
 		dcCloseAggr(at);
@@ -19693,7 +19693,7 @@ int f_cmpA996(const struct A996 *x, const struct A996 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA996() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A996), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A996));
 		AF('j',struct A996,m0,1)
 		AF('s',struct A996,m1,1)
 		AFa(struct A996,m2,1,A994)
@@ -19716,7 +19716,7 @@ int f_cmpA997(const struct A997 *x, const struct A997 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA997() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A997), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A997));
 		AF('p',struct A997,m0,1)
 		AFa(struct A997,m1,1,A996)
 		AF('C',struct A997,m2,1)
@@ -19736,7 +19736,7 @@ int f_cmpA998(const union  A998 *x, const union  A998 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA998() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A998), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A998));
 		AF('i',union  A998,m0,1)
 		AF('L',union  A998,m1,1)
 		AF('L',union  A998,m2,1)
@@ -19751,7 +19751,7 @@ int f_cmpA999(const struct A999 *x, const struct A999 *y) { return x->m0 == y->m
 DCaggr* f_touchdcstA999() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A999), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A999));
 		AF('J',struct A999,m0,1)
 		AF('p',struct A999,m1,1)
 		AF('l',struct A999,m2,1)
@@ -19768,7 +19768,7 @@ int f_cmpA1000(const union  A1000 *x, const union  A1000 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1000() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A1000), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A1000));
 		AF('C',union  A1000,m0,1)
 		AF('L',union  A1000,m1,1)
 		AF('s',union  A1000,m2,1)
@@ -19789,7 +19789,7 @@ int f_cmpA1001(const union  A1001 *x, const union  A1001 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1001() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1001), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1001));
 		AF('C',union  A1001,m0,1)
 		AF('i',union  A1001,m1,1)
 		AF('C',union  A1001,m2,1)
@@ -19812,7 +19812,7 @@ int f_cmpA1002(const struct A1002 *x, const struct A1002 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1002() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A1002), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A1002));
 		AF('S',struct A1002,m0,1)
 		AF('p',struct A1002,m1,1)
 		AFa(struct A1002,m2,1,A1001)
@@ -19826,7 +19826,7 @@ int f_cmpA1003(const union  A1003 *x, const union  A1003 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1003() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1003), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1003));
 		AF('p',union  A1003,m0,1)
 		AF('J',union  A1003,m1,1)
 		AF('s',union  A1003,m2,1)
@@ -19849,7 +19849,7 @@ int f_cmpA1004(const struct A1004 *x, const struct A1004 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1004() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(struct A1004), DC_TRUE);
+		at = dcNewAggr(1, sizeof(struct A1004));
 		AF('C',struct A1004,m0,1)
 		dcCloseAggr(at);
 	}
@@ -19861,7 +19861,7 @@ int f_cmpA1005(const struct A1005 *x, const struct A1005 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1005() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1005), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1005));
 		AF('L',struct A1005,m0,1)
 		AF('s',struct A1005,m1,15)
 		AF('l',struct A1005,m2,1)
@@ -19884,7 +19884,7 @@ int f_cmpA1006(const union  A1006 *x, const union  A1006 *y) { return f_cmpA1003
 DCaggr* f_touchdcstA1006() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1006), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1006));
 		AFa(union  A1006,m0,1,A1003)
 		AF('L',union  A1006,m1,1)
 		AF('s',union  A1006,m2,1)
@@ -19907,7 +19907,7 @@ int f_cmpA1007(const struct A1007 *x, const struct A1007 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1007() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A1007), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A1007));
 		AF('d',struct A1007,m0,1)
 		AF('s',struct A1007,m1,1)
 		AF('s',struct A1007,m2,1)
@@ -19921,7 +19921,7 @@ int f_cmpA1008(const union  A1008 *x, const union  A1008 *y) { return f_cmpA1007
 DCaggr* f_touchdcstA1008() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(union  A1008), DC_TRUE);
+		at = dcNewAggr(1, sizeof(union  A1008));
 		AFa(union  A1008,m0,1,A1007)
 		dcCloseAggr(at);
 	}
@@ -19933,7 +19933,7 @@ int f_cmpA1009(const union  A1009 *x, const union  A1009 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1009() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A1009), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A1009));
 		AF('S',union  A1009,m0,1)
 		AFa(union  A1009,m1,1,A1006)
 		AF('c',union  A1009,m2,1)
@@ -19952,7 +19952,7 @@ int f_cmpA1010(const struct A1010 *x, const struct A1010 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1010() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1010), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1010));
 		AF('j',struct A1010,m0,1)
 		AF('j',struct A1010,m1,1)
 		AF('l',struct A1010,m2,1)
@@ -19975,7 +19975,7 @@ int f_cmpA1011(const union  A1011 *x, const union  A1011 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1011() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1011), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1011));
 		AF('l',union  A1011,m0,1)
 		AF('d',union  A1011,m1,1)
 		AF('i',union  A1011,m2,1)
@@ -19998,7 +19998,7 @@ int f_cmpA1012(const union  A1012 *x, const union  A1012 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1012() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A1012), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A1012));
 		AF('s',union  A1012,m0,1)
 		AFa(union  A1012,m1,1,A409)
 		dcCloseAggr(at);
@@ -20011,7 +20011,7 @@ int f_cmpA1013(const struct A1013 *x, const struct A1013 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1013() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(struct A1013), DC_TRUE);
+		at = dcNewAggr(10, sizeof(struct A1013));
 		AF('c',struct A1013,m0,1)
 		AF('d',struct A1013,m1,1)
 		AF('c',struct A1013,m2,1)
@@ -20032,7 +20032,7 @@ int f_cmpA1014(const union  A1014 *x, const union  A1014 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1014() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1014), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1014));
 		AF('L',union  A1014,m0,1)
 		AF('j',union  A1014,m1,1)
 		AF('i',union  A1014,m2,1)
@@ -20055,7 +20055,7 @@ int f_cmpA1015(const struct A1015 *x, const struct A1015 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1015() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1015), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1015));
 		AF('L',struct A1015,m0,1)
 		AF('I',struct A1015,m1,1)
 		AFa(struct A1015,m2,1,A1013)
@@ -20078,7 +20078,7 @@ int f_cmpA1016(const struct A1016 *x, const struct A1016 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1016() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1016), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1016));
 		AF('c',struct A1016,m0,1)
 		AF('L',struct A1016,m1,1)
 		AF('s',struct A1016,m2,1)
@@ -20101,7 +20101,7 @@ int f_cmpA1017(const struct A1017 *x, const struct A1017 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1017() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A1017), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A1017));
 		AF('s',struct A1017,m0,1)
 		AFa(struct A1017,m1,1,A1016)
 		AF('l',struct A1017,m2,1)
@@ -20121,7 +20121,7 @@ int f_cmpA1018(const struct A1018 *x, const struct A1018 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1018() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A1018), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A1018));
 		AF('C',struct A1018,m0,1)
 		AF('J',struct A1018,m1,1)
 		AF('l',struct A1018,m2,1)
@@ -20135,7 +20135,7 @@ int f_cmpA1019(const struct A1019 *x, const struct A1019 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1019() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1019), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1019));
 		AF('f',struct A1019,m0,1)
 		AF('f',struct A1019,m1,1)
 		AF('j',struct A1019,m2,1)
@@ -20158,7 +20158,7 @@ int f_cmpA1020(const struct A1020 *x, const struct A1020 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1020() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1020), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1020));
 		AF('c',struct A1020,m0,1)
 		AF('d',struct A1020,m1,1)
 		AF('l',struct A1020,m2,1)
@@ -20181,7 +20181,7 @@ int f_cmpA1021(const union  A1021 *x, const union  A1021 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1021() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(union  A1021), DC_TRUE);
+		at = dcNewAggr(11, sizeof(union  A1021));
 		AF('c',union  A1021,m0,1)
 		AF('S',union  A1021,m1,1)
 		AF('d',union  A1021,m2,1)
@@ -20203,7 +20203,7 @@ int f_cmpA1022(const union  A1022 *x, const union  A1022 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1022() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A1022), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A1022));
 		AF('s',union  A1022,m0,1)
 		AF('f',union  A1022,m1,1)
 		AF('d',union  A1022,m2,1)
@@ -20217,7 +20217,7 @@ int f_cmpA1023(const struct A1023 *x, const struct A1023 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1023() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A1023), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A1023));
 		AF('p',struct A1023,m0,1)
 		AF('i',struct A1023,m1,1)
 		AF('p',struct A1023,m2,1)
@@ -20234,7 +20234,7 @@ int f_cmpA1024(const union  A1024 *x, const union  A1024 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1024() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1024), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1024));
 		AF('p',union  A1024,m0,1)
 		AF('c',union  A1024,m1,1)
 		AF('C',union  A1024,m2,1)
@@ -20257,7 +20257,7 @@ int f_cmpA1025(const union  A1025 *x, const union  A1025 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1025() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1025), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1025));
 		AF('p',union  A1025,m0,1)
 		AF('c',union  A1025,m1,1)
 		AF('j',union  A1025,m2,1)
@@ -20280,7 +20280,7 @@ int f_cmpA1026(const struct A1026 *x, const struct A1026 *y) { return f_cmpA1023
 DCaggr* f_touchdcstA1026() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1026), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1026));
 		AFa(struct A1026,m0,1,A1023)
 		AF('J',struct A1026,m1,1)
 		AF('l',struct A1026,m2,1)
@@ -20303,7 +20303,7 @@ int f_cmpA1027(const union  A1027 *x, const union  A1027 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1027() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1027), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1027));
 		AF('l',union  A1027,m0,1)
 		AF('j',union  A1027,m1,1)
 		AF('p',union  A1027,m2,1)
@@ -20326,7 +20326,7 @@ int f_cmpA1028(const union  A1028 *x, const union  A1028 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1028() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A1028), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A1028));
 		AF('J',union  A1028,m0,1)
 		AF('J',union  A1028,m1,1)
 		dcCloseAggr(at);
@@ -20339,7 +20339,7 @@ int f_cmpA1029(const union  A1029 *x, const union  A1029 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1029() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1029), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1029));
 		AF('C',union  A1029,m0,1)
 		AF('S',union  A1029,m1,1)
 		AF('J',union  A1029,m2,1)
@@ -20362,7 +20362,7 @@ int f_cmpA1030(const struct A1030 *x, const struct A1030 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1030() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A1030), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A1030));
 		AF('i',struct A1030,m0,1)
 		AF('c',struct A1030,m1,1)
 		AF('j',struct A1030,m2,1)
@@ -20381,7 +20381,7 @@ int f_cmpA1031(const struct A1031 *x, const struct A1031 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1031() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1031), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1031));
 		AF('c',struct A1031,m0,1)
 		AF('J',struct A1031,m1,1)
 		AF('S',struct A1031,m2,1)
@@ -20404,7 +20404,7 @@ int f_cmpA1032(const union  A1032 *x, const union  A1032 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1032() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A1032), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A1032));
 		AF('I',union  A1032,m0,1)
 		AF('d',union  A1032,m1,1)
 		AF('j',union  A1032,m2,1)
@@ -20419,7 +20419,7 @@ int f_cmpA1033(const union  A1033 *x, const union  A1033 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1033() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1033), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1033));
 		AF('S',union  A1033,m0,1)
 		AF('S',union  A1033,m1,1)
 		AF('L',union  A1033,m2,1)
@@ -20442,7 +20442,7 @@ int f_cmpA1034(const struct A1034 *x, const struct A1034 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1034() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A1034), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A1034));
 		AF('C',struct A1034,m0,1)
 		AF('I',struct A1034,m1,1)
 		AF('l',struct A1034,m2,8)
@@ -20459,7 +20459,7 @@ int f_cmpA1035(const struct A1035 *x, const struct A1035 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1035() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A1035), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A1035));
 		AF('d',struct A1035,m0,1)
 		AFa(struct A1035,m1,1,A1033)
 		AF('J',struct A1035,m2,1)
@@ -20475,7 +20475,7 @@ int f_cmpA1036(const union  A1036 *x, const union  A1036 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1036() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1036), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1036));
 		AF('J',union  A1036,m0,1)
 		AF('p',union  A1036,m1,1)
 		AF('I',union  A1036,m2,1)
@@ -20498,7 +20498,7 @@ int f_cmpA1037(const union  A1037 *x, const union  A1037 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1037() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1037), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1037));
 		AF('j',union  A1037,m0,1)
 		AF('i',union  A1037,m1,1)
 		AF('I',union  A1037,m2,1)
@@ -20521,7 +20521,7 @@ int f_cmpA1038(const struct A1038 *x, const struct A1038 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1038() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A1038), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A1038));
 		AF('S',struct A1038,m0,1)
 		AF('L',struct A1038,m1,1)
 		AF('d',struct A1038,m2,1)
@@ -20536,7 +20536,7 @@ int f_cmpA1039(const struct A1039 *x, const struct A1039 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1039() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A1039), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A1039));
 		AF('j',struct A1039,m0,1)
 		AF('I',struct A1039,m1,1)
 		AF('c',struct A1039,m2,11)
@@ -20550,7 +20550,7 @@ int f_cmpA1040(const struct A1040 *x, const struct A1040 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1040() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1040), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1040));
 		AF('C',struct A1040,m0,1)
 		AF('l',struct A1040,m1,1)
 		AF('d',struct A1040,m2,1)
@@ -20573,7 +20573,7 @@ int f_cmpA1041(const struct A1041 *x, const struct A1041 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1041() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(struct A1041), DC_TRUE);
+		at = dcNewAggr(11, sizeof(struct A1041));
 		AF('i',struct A1041,m0,1)
 		AF('L',struct A1041,m1,1)
 		AF('c',struct A1041,m2,1)
@@ -20595,7 +20595,7 @@ int f_cmpA1042(const struct A1042 *x, const struct A1042 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1042() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A1042), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A1042));
 		AF('f',struct A1042,m0,1)
 		AF('S',struct A1042,m1,1)
 		AF('p',struct A1042,m2,1)
@@ -20609,7 +20609,7 @@ int f_cmpA1043(const union  A1043 *x, const union  A1043 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1043() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A1043), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A1043));
 		AF('S',union  A1043,m0,1)
 		AF('I',union  A1043,m1,1)
 		AF('p',union  A1043,m2,1)
@@ -20630,7 +20630,7 @@ int f_cmpA1044(const union  A1044 *x, const union  A1044 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1044() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A1044), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A1044));
 		AF('s',union  A1044,m0,1)
 		AF('p',union  A1044,m1,1)
 		AF('f',union  A1044,m2,1)
@@ -20646,7 +20646,7 @@ int f_cmpA1045(const union  A1045 *x, const union  A1045 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1045() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1045), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1045));
 		AF('C',union  A1045,m0,1)
 		AF('i',union  A1045,m1,1)
 		AF('S',union  A1045,m2,1)
@@ -20669,7 +20669,7 @@ int f_cmpA1046(const struct A1046 *x, const struct A1046 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1046() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1046), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1046));
 		AF('l',struct A1046,m0,1)
 		AF('I',struct A1046,m1,1)
 		AF('s',struct A1046,m2,1)
@@ -20692,7 +20692,7 @@ int f_cmpA1047(const struct A1047 *x, const struct A1047 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1047() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A1047), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A1047));
 		AF('i',struct A1047,m0,1)
 		AF('j',struct A1047,m1,1)
 		AF('i',struct A1047,m2,1)
@@ -20711,7 +20711,7 @@ int f_cmpA1048(const union  A1048 *x, const union  A1048 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1048() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A1048), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A1048));
 		AF('I',union  A1048,m0,1)
 		AF('s',union  A1048,m1,1)
 		AF('c',union  A1048,m2,1)
@@ -20727,7 +20727,7 @@ int f_cmpA1049(const union  A1049 *x, const union  A1049 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1049() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1049), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1049));
 		AF('i',union  A1049,m0,1)
 		AF('d',union  A1049,m1,1)
 		AF('C',union  A1049,m2,1)
@@ -20750,7 +20750,7 @@ int f_cmpA1050(const struct A1050 *x, const struct A1050 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1050() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1050), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1050));
 		AF('i',struct A1050,m0,1)
 		AF('i',struct A1050,m1,1)
 		AF('i',struct A1050,m2,1)
@@ -20773,7 +20773,7 @@ int f_cmpA1051(const struct A1051 *x, const struct A1051 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1051() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A1051), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A1051));
 		AF('d',struct A1051,m0,1)
 		AF('L',struct A1051,m1,1)
 		AFa(struct A1051,m2,1,A1049)
@@ -20789,7 +20789,7 @@ int f_cmpA1052(const union  A1052 *x, const union  A1052 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1052() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A1052), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A1052));
 		AF('p',union  A1052,m0,1)
 		AF('I',union  A1052,m1,1)
 		AF('s',union  A1052,m2,1)
@@ -20803,7 +20803,7 @@ int f_cmpA1053(const struct A1053 *x, const struct A1053 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1053() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1053), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1053));
 		AF('p',struct A1053,m0,1)
 		AF('L',struct A1053,m1,1)
 		AF('J',struct A1053,m2,1)
@@ -20826,7 +20826,7 @@ int f_cmpA1054(const union  A1054 *x, const union  A1054 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1054() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(union  A1054), DC_TRUE);
+		at = dcNewAggr(9, sizeof(union  A1054));
 		AF('l',union  A1054,m0,1)
 		AF('c',union  A1054,m1,1)
 		AF('C',union  A1054,m2,1)
@@ -20846,7 +20846,7 @@ int f_cmpA1055(const union  A1055 *x, const union  A1055 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1055() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1055), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1055));
 		AF('s',union  A1055,m0,1)
 		AF('J',union  A1055,m1,1)
 		AF('J',union  A1055,m2,1)
@@ -20869,7 +20869,7 @@ int f_cmpA1056(const union  A1056 *x, const union  A1056 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1056() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A1056), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A1056));
 		AF('j',union  A1056,m0,1)
 		AF('f',union  A1056,m1,1)
 		AF('S',union  A1056,m2,1)
@@ -20890,7 +20890,7 @@ int f_cmpA1057(const struct A1057 *x, const struct A1057 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1057() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1057), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1057));
 		AF('I',struct A1057,m0,1)
 		AF('j',struct A1057,m1,6)
 		AF('j',struct A1057,m2,1)
@@ -20913,7 +20913,7 @@ int f_cmpA1058(const union  A1058 *x, const union  A1058 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1058() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A1058), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A1058));
 		AF('I',union  A1058,m0,1)
 		AF('d',union  A1058,m1,1)
 		AF('L',union  A1058,m2,1)
@@ -20927,7 +20927,7 @@ int f_cmpA1059(const struct A1059 *x, const struct A1059 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1059() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A1059), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A1059));
 		AF('S',struct A1059,m0,1)
 		AF('i',struct A1059,m1,1)
 		AF('L',struct A1059,m2,1)
@@ -20943,7 +20943,7 @@ int f_cmpA1060(const struct A1060 *x, const struct A1060 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1060() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1060), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1060));
 		AF('C',struct A1060,m0,1)
 		AF('i',struct A1060,m1,1)
 		AF('I',struct A1060,m2,1)
@@ -20966,7 +20966,7 @@ int f_cmpA1061(const union  A1061 *x, const union  A1061 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1061() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1061), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1061));
 		AF('p',union  A1061,m0,1)
 		AF('J',union  A1061,m1,1)
 		AF('L',union  A1061,m2,1)
@@ -20989,7 +20989,7 @@ int f_cmpA1062(const union  A1062 *x, const union  A1062 *y) { return f_cmpA1061
 DCaggr* f_touchdcstA1062() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A1062), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A1062));
 		AFa(union  A1062,m0,1,A1061)
 		AF('i',union  A1062,m1,1)
 		dcCloseAggr(at);
@@ -21002,7 +21002,7 @@ int f_cmpA1063(const struct A1063 *x, const struct A1063 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1063() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1063), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1063));
 		AF('i',struct A1063,m0,1)
 		AF('C',struct A1063,m1,1)
 		AF('C',struct A1063,m2,1)
@@ -21025,7 +21025,7 @@ int f_cmpA1064(const union  A1064 *x, const union  A1064 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1064() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A1064), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A1064));
 		AF('j',union  A1064,m0,1)
 		AF('j',union  A1064,m1,1)
 		AF('l',union  A1064,m2,1)
@@ -21039,7 +21039,7 @@ int f_cmpA1065(const union  A1065 *x, const union  A1065 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1065() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1065), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1065));
 		AF('L',union  A1065,m0,1)
 		AF('d',union  A1065,m1,1)
 		AF('l',union  A1065,m2,1)
@@ -21062,7 +21062,7 @@ int f_cmpA1066(const struct A1066 *x, const struct A1066 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1066() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1066), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1066));
 		AF('J',struct A1066,m0,1)
 		AF('p',struct A1066,m1,1)
 		AF('J',struct A1066,m2,1)
@@ -21085,7 +21085,7 @@ int f_cmpA1067(const struct A1067 *x, const struct A1067 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1067() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A1067), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A1067));
 		AF('s',struct A1067,m0,1)
 		AF('s',struct A1067,m1,1)
 		AF('c',struct A1067,m2,1)
@@ -21101,7 +21101,7 @@ int f_cmpA1068(const union  A1068 *x, const union  A1068 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1068() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1068), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1068));
 		AF('S',union  A1068,m0,1)
 		AF('J',union  A1068,m1,1)
 		AF('f',union  A1068,m2,1)
@@ -21124,7 +21124,7 @@ int f_cmpA1069(const struct A1069 *x, const struct A1069 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1069() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1069), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1069));
 		AF('l',struct A1069,m0,1)
 		AF('i',struct A1069,m1,1)
 		AF('i',struct A1069,m2,1)
@@ -21147,7 +21147,7 @@ int f_cmpA1070(const union  A1070 *x, const union  A1070 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1070() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1070), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1070));
 		AF('c',union  A1070,m0,1)
 		AF('J',union  A1070,m1,1)
 		AF('f',union  A1070,m2,1)
@@ -21170,7 +21170,7 @@ int f_cmpA1071(const union  A1071 *x, const union  A1071 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1071() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1071), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1071));
 		AF('S',union  A1071,m0,1)
 		AF('I',union  A1071,m1,1)
 		AFa(union  A1071,m2,1,A1070)
@@ -21193,7 +21193,7 @@ int f_cmpA1072(const union  A1072 *x, const union  A1072 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1072() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1072), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1072));
 		AF('s',union  A1072,m0,1)
 		AF('s',union  A1072,m1,1)
 		AF('L',union  A1072,m2,1)
@@ -21216,7 +21216,7 @@ int f_cmpA1073(const struct A1073 *x, const struct A1073 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1073() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1073), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1073));
 		AF('j',struct A1073,m0,1)
 		AF('C',struct A1073,m1,1)
 		AF('s',struct A1073,m2,1)
@@ -21239,7 +21239,7 @@ int f_cmpA1074(const struct A1074 *x, const struct A1074 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1074() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A1074), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A1074));
 		AF('j',struct A1074,m0,1)
 		AF('f',struct A1074,m1,1)
 		AF('c',struct A1074,m2,1)
@@ -21254,7 +21254,7 @@ int f_cmpA1075(const union  A1075 *x, const union  A1075 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1075() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A1075), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A1075));
 		AF('I',union  A1075,m0,1)
 		AF('J',union  A1075,m1,1)
 		AF('p',union  A1075,m2,1)
@@ -21272,7 +21272,7 @@ int f_cmpA1076(const struct A1076 *x, const struct A1076 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1076() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A1076), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A1076));
 		AF('I',struct A1076,m0,1)
 		AF('c',struct A1076,m1,1)
 		AF('j',struct A1076,m2,1)
@@ -21288,7 +21288,7 @@ int f_cmpA1077(const union  A1077 *x, const union  A1077 *y) { return x->m0[0] =
 DCaggr* f_touchdcstA1077() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1077), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1077));
 		AF('c',union  A1077,m0,12)
 		AF('f',union  A1077,m1,1)
 		AF('f',union  A1077,m2,1)
@@ -21311,7 +21311,7 @@ int f_cmpA1078(const union  A1078 *x, const union  A1078 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1078() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1078), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1078));
 		AF('j',union  A1078,m0,1)
 		AF('I',union  A1078,m1,1)
 		AFa(union  A1078,m2,1,A1077)
@@ -21334,7 +21334,7 @@ int f_cmpA1079(const struct A1079 *x, const struct A1079 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1079() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(struct A1079), DC_TRUE);
+		at = dcNewAggr(10, sizeof(struct A1079));
 		AF('L',struct A1079,m0,1)
 		AF('l',struct A1079,m1,1)
 		AF('f',struct A1079,m2,1)
@@ -21355,7 +21355,7 @@ int f_cmpA1080(const union  A1080 *x, const union  A1080 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1080() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A1080), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A1080));
 		AF('S',union  A1080,m0,1)
 		AF('c',union  A1080,m1,1)
 		AF('c',union  A1080,m2,1)
@@ -21371,7 +21371,7 @@ int f_cmpA1081(const union  A1081 *x, const union  A1081 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1081() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1081), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1081));
 		AF('f',union  A1081,m0,1)
 		AF('i',union  A1081,m1,1)
 		AF('f',union  A1081,m2,1)
@@ -21394,7 +21394,7 @@ int f_cmpA1082(const struct A1082 *x, const struct A1082 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1082() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1082), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1082));
 		AF('f',struct A1082,m0,1)
 		AFa(struct A1082,m1,1,A1079)
 		AF('j',struct A1082,m2,1)
@@ -21417,7 +21417,7 @@ int f_cmpA1083(const struct A1083 *x, const struct A1083 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1083() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1083), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1083));
 		AF('s',struct A1083,m0,1)
 		AF('i',struct A1083,m1,1)
 		AF('L',struct A1083,m2,1)
@@ -21440,7 +21440,7 @@ int f_cmpA1084(const union  A1084 *x, const union  A1084 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1084() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1084), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1084));
 		AF('f',union  A1084,m0,1)
 		AF('d',union  A1084,m1,1)
 		AF('d',union  A1084,m2,1)
@@ -21463,7 +21463,7 @@ int f_cmpA1085(const union  A1085 *x, const union  A1085 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1085() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1085), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1085));
 		AF('p',union  A1085,m0,1)
 		AF('i',union  A1085,m1,1)
 		AF('s',union  A1085,m2,1)
@@ -21486,7 +21486,7 @@ int f_cmpA1086(const union  A1086 *x, const union  A1086 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1086() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A1086), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A1086));
 		AF('j',union  A1086,m0,1)
 		AF('l',union  A1086,m1,1)
 		AF('c',union  A1086,m2,1)
@@ -21505,7 +21505,7 @@ int f_cmpA1087(const union  A1087 *x, const union  A1087 *y) { return f_cmpA1085
 DCaggr* f_touchdcstA1087() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A1087), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A1087));
 		AFa(union  A1087,m0,1,A1085)
 		AFa(union  A1087,m1,1,A1086)
 		AF('J',union  A1087,m2,1)
@@ -21520,7 +21520,7 @@ int f_cmpA1088(const union  A1088 *x, const union  A1088 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1088() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1088), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1088));
 		AF('p',union  A1088,m0,1)
 		AF('d',union  A1088,m1,1)
 		AF('i',union  A1088,m2,1)
@@ -21543,7 +21543,7 @@ int f_cmpA1089(const union  A1089 *x, const union  A1089 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1089() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A1089), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A1089));
 		AF('d',union  A1089,m0,1)
 		AF('f',union  A1089,m1,1)
 		AF('d',union  A1089,m2,1)
@@ -21564,7 +21564,7 @@ int f_cmpA1090(const struct A1090 *x, const struct A1090 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1090() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1090), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1090));
 		AF('f',struct A1090,m0,1)
 		AF('C',struct A1090,m1,1)
 		AF('p',struct A1090,m2,1)
@@ -21587,7 +21587,7 @@ int f_cmpA1091(const struct A1091 *x, const struct A1091 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1091() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(struct A1091), DC_TRUE);
+		at = dcNewAggr(11, sizeof(struct A1091));
 		AF('i',struct A1091,m0,1)
 		AF('p',struct A1091,m1,1)
 		AF('c',struct A1091,m2,1)
@@ -21609,7 +21609,7 @@ int f_cmpA1092(const union  A1092 *x, const union  A1092 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1092() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A1092), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A1092));
 		AF('j',union  A1092,m0,1)
 		AF('i',union  A1092,m1,1)
 		AF('s',union  A1092,m2,1)
@@ -21625,7 +21625,7 @@ int f_cmpA1093(const struct A1093 *x, const struct A1093 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1093() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A1093), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A1093));
 		AF('p',struct A1093,m0,1)
 		AF('d',struct A1093,m1,1)
 		AF('J',struct A1093,m2,1)
@@ -21639,7 +21639,7 @@ int f_cmpA1094(const union  A1094 *x, const union  A1094 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1094() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A1094), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A1094));
 		AF('c',union  A1094,m0,1)
 		AF('c',union  A1094,m1,1)
 		AF('J',union  A1094,m2,1)
@@ -21653,7 +21653,7 @@ int f_cmpA1095(const union  A1095 *x, const union  A1095 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1095() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1095), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1095));
 		AF('I',union  A1095,m0,1)
 		AFa(union  A1095,m1,1,A1093)
 		AFa(union  A1095,m2,1,A1094)
@@ -21676,7 +21676,7 @@ int f_cmpA1096(const struct A1096 *x, const struct A1096 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1096() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1096), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1096));
 		AF('p',struct A1096,m0,1)
 		AF('j',struct A1096,m1,1)
 		AF('I',struct A1096,m2,1)
@@ -21699,7 +21699,7 @@ int f_cmpA1097(const union  A1097 *x, const union  A1097 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1097() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A1097), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A1097));
 		AF('i',union  A1097,m0,1)
 		AF('L',union  A1097,m1,1)
 		dcCloseAggr(at);
@@ -21712,7 +21712,7 @@ int f_cmpA1098(const struct A1098 *x, const struct A1098 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1098() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A1098), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A1098));
 		AF('s',struct A1098,m0,1)
 		AF('j',struct A1098,m1,5)
 		AF('L',struct A1098,m2,1)
@@ -21728,7 +21728,7 @@ int f_cmpA1099(const struct A1099 *x, const struct A1099 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1099() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A1099), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A1099));
 		AF('d',struct A1099,m0,1)
 		AF('p',struct A1099,m1,1)
 		AF('l',struct A1099,m2,1)
@@ -21744,7 +21744,7 @@ int f_cmpA1100(const union  A1100 *x, const union  A1100 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1100() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(union  A1100), DC_TRUE);
+		at = dcNewAggr(11, sizeof(union  A1100));
 		AF('i',union  A1100,m0,1)
 		AFa(union  A1100,m1,1,A1098)
 		AFa(union  A1100,m2,1,A1099)
@@ -21766,7 +21766,7 @@ int f_cmpA1101(const union  A1101 *x, const union  A1101 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1101() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1101), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1101));
 		AF('s',union  A1101,m0,1)
 		AF('d',union  A1101,m1,1)
 		AF('I',union  A1101,m2,1)
@@ -21789,7 +21789,7 @@ int f_cmpA1102(const struct A1102 *x, const struct A1102 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1102() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A1102), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A1102));
 		AF('S',struct A1102,m0,1)
 		AF('s',struct A1102,m1,1)
 		AF('L',struct A1102,m2,1)
@@ -21808,7 +21808,7 @@ int f_cmpA1103(const union  A1103 *x, const union  A1103 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1103() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(union  A1103), DC_TRUE);
+		at = dcNewAggr(9, sizeof(union  A1103));
 		AF('s',union  A1103,m0,1)
 		AF('J',union  A1103,m1,1)
 		AF('s',union  A1103,m2,1)
@@ -21828,7 +21828,7 @@ int f_cmpA1104(const union  A1104 *x, const union  A1104 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1104() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1104), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1104));
 		AF('L',union  A1104,m0,1)
 		AF('c',union  A1104,m1,1)
 		AF('f',union  A1104,m2,1)
@@ -21851,7 +21851,7 @@ int f_cmpA1105(const union  A1105 *x, const union  A1105 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1105() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A1105), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A1105));
 		AF('f',union  A1105,m0,1)
 		AF('f',union  A1105,m1,1)
 		AF('J',union  A1105,m2,3)
@@ -21865,7 +21865,7 @@ int f_cmpA1106(const union  A1106 *x, const union  A1106 *y) { return x->m0[0] =
 DCaggr* f_touchdcstA1106() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A1106), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A1106));
 		AF('s',union  A1106,m0,16)
 		AF('p',union  A1106,m1,1)
 		AF('i',union  A1106,m2,1)
@@ -21881,7 +21881,7 @@ int f_cmpA1107(const union  A1107 *x, const union  A1107 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1107() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1107), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1107));
 		AF('f',union  A1107,m0,1)
 		AF('d',union  A1107,m1,1)
 		AF('l',union  A1107,m2,1)
@@ -21904,7 +21904,7 @@ int f_cmpA1108(const struct A1108 *x, const struct A1108 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1108() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A1108), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A1108));
 		AF('l',struct A1108,m0,1)
 		AF('J',struct A1108,m1,1)
 		dcCloseAggr(at);
@@ -21917,7 +21917,7 @@ int f_cmpA1109(const union  A1109 *x, const union  A1109 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1109() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1109), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1109));
 		AF('l',union  A1109,m0,1)
 		AF('L',union  A1109,m1,1)
 		AFa(union  A1109,m2,1,A1106)
@@ -21940,7 +21940,7 @@ int f_cmpA1110(const union  A1110 *x, const union  A1110 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1110() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1110), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1110));
 		AF('L',union  A1110,m0,1)
 		AF('j',union  A1110,m1,1)
 		AF('i',union  A1110,m2,1)
@@ -21963,7 +21963,7 @@ int f_cmpA1111(const union  A1111 *x, const union  A1111 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1111() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(union  A1111), DC_TRUE);
+		at = dcNewAggr(9, sizeof(union  A1111));
 		AF('C',union  A1111,m0,1)
 		AF('s',union  A1111,m1,1)
 		AF('p',union  A1111,m2,1)
@@ -21983,7 +21983,7 @@ int f_cmpA1112(const union  A1112 *x, const union  A1112 *y) { return f_cmpA1111
 DCaggr* f_touchdcstA1112() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A1112), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A1112));
 		AFa(union  A1112,m0,1,A1111)
 		AF('C',union  A1112,m1,1)
 		AF('d',union  A1112,m2,1)
@@ -21998,7 +21998,7 @@ int f_cmpA1113(const union  A1113 *x, const union  A1113 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1113() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A1113), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A1113));
 		AF('s',union  A1113,m0,1)
 		AF('c',union  A1113,m1,1)
 		AF('I',union  A1113,m2,1)
@@ -22013,7 +22013,7 @@ int f_cmpA1114(const union  A1114 *x, const union  A1114 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1114() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1114), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1114));
 		AF('l',union  A1114,m0,1)
 		AF('l',union  A1114,m1,1)
 		AF('p',union  A1114,m2,1)
@@ -22036,7 +22036,7 @@ int f_cmpA1115(const union  A1115 *x, const union  A1115 *y) { return f_cmpA1114
 DCaggr* f_touchdcstA1115() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A1115), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A1115));
 		AFa(union  A1115,m0,1,A1114)
 		AF('s',union  A1115,m1,1)
 		AF('c',union  A1115,m2,1)
@@ -22054,7 +22054,7 @@ int f_cmpA1116(const struct A1116 *x, const struct A1116 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1116() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1116), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1116));
 		AF('I',struct A1116,m0,1)
 		AF('p',struct A1116,m1,1)
 		AF('d',struct A1116,m2,1)
@@ -22077,7 +22077,7 @@ int f_cmpA1117(const struct A1117 *x, const struct A1117 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1117() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1117), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1117));
 		AF('d',struct A1117,m0,1)
 		AF('s',struct A1117,m1,1)
 		AF('s',struct A1117,m2,1)
@@ -22100,7 +22100,7 @@ int f_cmpA1118(const struct A1118 *x, const struct A1118 *y) { return f_cmpA1116
 DCaggr* f_touchdcstA1118() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A1118), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A1118));
 		AFa(struct A1118,m0,1,A1116)
 		AF('s',struct A1118,m1,1)
 		AF('J',struct A1118,m2,1)
@@ -22115,7 +22115,7 @@ int f_cmpA1119(const union  A1119 *x, const union  A1119 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1119() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1119), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1119));
 		AF('l',union  A1119,m0,1)
 		AF('s',union  A1119,m1,1)
 		AF('c',union  A1119,m2,1)
@@ -22138,7 +22138,7 @@ int f_cmpA1120(const union  A1120 *x, const union  A1120 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1120() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A1120), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A1120));
 		AF('S',union  A1120,m0,1)
 		AF('l',union  A1120,m1,1)
 		dcCloseAggr(at);
@@ -22151,7 +22151,7 @@ int f_cmpA1121(const struct A1121 *x, const struct A1121 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1121() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1121), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1121));
 		AF('I',struct A1121,m0,1)
 		AF('J',struct A1121,m1,1)
 		AF('f',struct A1121,m2,1)
@@ -22174,7 +22174,7 @@ int f_cmpA1122(const struct A1122 *x, const struct A1122 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1122() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1122), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1122));
 		AF('J',struct A1122,m0,1)
 		AF('L',struct A1122,m1,1)
 		AF('s',struct A1122,m2,1)
@@ -22197,7 +22197,7 @@ int f_cmpA1123(const union  A1123 *x, const union  A1123 *y) { return x->m0[0] =
 DCaggr* f_touchdcstA1123() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(union  A1123), DC_TRUE);
+		at = dcNewAggr(9, sizeof(union  A1123));
 		AF('p',union  A1123,m0,12)
 		AF('f',union  A1123,m1,1)
 		AF('J',union  A1123,m2,1)
@@ -22217,7 +22217,7 @@ int f_cmpA1124(const union  A1124 *x, const union  A1124 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1124() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A1124), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A1124));
 		AF('c',union  A1124,m0,1)
 		AF('i',union  A1124,m1,1)
 		dcCloseAggr(at);
@@ -22230,7 +22230,7 @@ int f_cmpA1125(const struct A1125 *x, const struct A1125 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1125() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A1125), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A1125));
 		AF('S',struct A1125,m0,1)
 		AF('c',struct A1125,m1,1)
 		AF('S',struct A1125,m2,1)
@@ -22246,7 +22246,7 @@ int f_cmpA1126(const struct A1126 *x, const struct A1126 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1126() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A1126), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A1126));
 		AF('j',struct A1126,m0,1)
 		AF('S',struct A1126,m1,1)
 		AF('c',struct A1126,m2,1)
@@ -22262,7 +22262,7 @@ int f_cmpA1127(const union  A1127 *x, const union  A1127 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1127() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A1127), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A1127));
 		AF('c',union  A1127,m0,1)
 		AF('j',union  A1127,m1,1)
 		AF('p',union  A1127,m2,1)
@@ -22277,7 +22277,7 @@ int f_cmpA1128(const union  A1128 *x, const union  A1128 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1128() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1128), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1128));
 		AF('l',union  A1128,m0,1)
 		AF('c',union  A1128,m1,1)
 		AF('j',union  A1128,m2,1)
@@ -22300,7 +22300,7 @@ int f_cmpA1129(const union  A1129 *x, const union  A1129 *y) { return x->m0[0] =
 DCaggr* f_touchdcstA1129() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A1129), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A1129));
 		AF('L',union  A1129,m0,8)
 		AF('C',union  A1129,m1,10)
 		AF('J',union  A1129,m2,1)
@@ -22318,7 +22318,7 @@ int f_cmpA1130(const union  A1130 *x, const union  A1130 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1130() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(union  A1130), DC_TRUE);
+		at = dcNewAggr(11, sizeof(union  A1130));
 		AF('f',union  A1130,m0,1)
 		AF('L',union  A1130,m1,1)
 		AF('L',union  A1130,m2,1)
@@ -22340,7 +22340,7 @@ int f_cmpA1131(const union  A1131 *x, const union  A1131 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1131() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A1131), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A1131));
 		AF('C',union  A1131,m0,1)
 		AF('i',union  A1131,m1,1)
 		AF('J',union  A1131,m2,1)
@@ -22358,7 +22358,7 @@ int f_cmpA1132(const union  A1132 *x, const union  A1132 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1132() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A1132), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A1132));
 		AF('j',union  A1132,m0,1)
 		AF('f',union  A1132,m1,1)
 		AF('l',union  A1132,m2,1)
@@ -22372,7 +22372,7 @@ int f_cmpA1133(const struct A1133 *x, const struct A1133 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1133() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(struct A1133), DC_TRUE);
+		at = dcNewAggr(7, sizeof(struct A1133));
 		AF('c',struct A1133,m0,1)
 		AF('c',struct A1133,m1,1)
 		AF('I',struct A1133,m2,1)
@@ -22390,7 +22390,7 @@ int f_cmpA1134(const struct A1134 *x, const struct A1134 *y) { return f_cmpA1130
 DCaggr* f_touchdcstA1134() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A1134), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A1134));
 		AFa(struct A1134,m0,1,A1130)
 		AFa(struct A1134,m1,1,A1131)
 		AFa(struct A1134,m2,1,A1132)
@@ -22409,7 +22409,7 @@ int f_cmpA1135(const union  A1135 *x, const union  A1135 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1135() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1135), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1135));
 		AF('C',union  A1135,m0,1)
 		AF('p',union  A1135,m1,6)
 		AFa(union  A1135,m2,1,A1134)
@@ -22432,7 +22432,7 @@ int f_cmpA1136(const struct A1136 *x, const struct A1136 *y) { return x->m0[0] =
 DCaggr* f_touchdcstA1136() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A1136), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A1136));
 		AF('C',struct A1136,m0,1)
 		AF('j',struct A1136,m1,1)
 		AF('L',struct A1136,m2,1)
@@ -22448,7 +22448,7 @@ int f_cmpA1137(const union  A1137 *x, const union  A1137 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1137() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1137), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1137));
 		AF('L',union  A1137,m0,1)
 		AF('I',union  A1137,m1,1)
 		AF('S',union  A1137,m2,1)
@@ -22471,7 +22471,7 @@ int f_cmpA1138(const struct A1138 *x, const struct A1138 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1138() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A1138), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A1138));
 		AF('S',struct A1138,m0,1)
 		AF('s',struct A1138,m1,1)
 		dcCloseAggr(at);
@@ -22484,7 +22484,7 @@ int f_cmpA1139(const struct A1139 *x, const struct A1139 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1139() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A1139), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A1139));
 		AF('C',struct A1139,m0,1)
 		AF('C',struct A1139,m1,1)
 		AF('S',struct A1139,m2,1)
@@ -22503,7 +22503,7 @@ int f_cmpA1140(const struct A1140 *x, const struct A1140 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1140() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1140), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1140));
 		AF('S',struct A1140,m0,1)
 		AF('L',struct A1140,m1,1)
 		AF('I',struct A1140,m2,1)
@@ -22526,7 +22526,7 @@ int f_cmpA1141(const union  A1141 *x, const union  A1141 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1141() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A1141), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A1141));
 		AF('c',union  A1141,m0,1)
 		AF('J',union  A1141,m1,1)
 		AF('L',union  A1141,m2,1)
@@ -22547,7 +22547,7 @@ int f_cmpA1142(const union  A1142 *x, const union  A1142 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1142() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1142), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1142));
 		AF('C',union  A1142,m0,1)
 		AF('f',union  A1142,m1,1)
 		AF('C',union  A1142,m2,1)
@@ -22570,7 +22570,7 @@ int f_cmpA1143(const union  A1143 *x, const union  A1143 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1143() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(union  A1143), DC_TRUE);
+		at = dcNewAggr(11, sizeof(union  A1143));
 		AF('c',union  A1143,m0,1)
 		AFa(union  A1143,m1,1,A1141)
 		AF('I',union  A1143,m2,1)
@@ -22592,7 +22592,7 @@ int f_cmpA1144(const struct A1144 *x, const struct A1144 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1144() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1144), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1144));
 		AF('p',struct A1144,m0,1)
 		AF('f',struct A1144,m1,2)
 		AF('J',struct A1144,m2,1)
@@ -22615,7 +22615,7 @@ int f_cmpA1145(const struct A1145 *x, const struct A1145 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1145() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1145), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1145));
 		AF('i',struct A1145,m0,1)
 		AF('s',struct A1145,m1,1)
 		AF('I',struct A1145,m2,9)
@@ -22638,7 +22638,7 @@ int f_cmpA1146(const struct A1146 *x, const struct A1146 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1146() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(struct A1146), DC_TRUE);
+		at = dcNewAggr(11, sizeof(struct A1146));
 		AF('C',struct A1146,m0,1)
 		AF('L',struct A1146,m1,1)
 		AFa(struct A1146,m2,1,A1145)
@@ -22660,7 +22660,7 @@ int f_cmpA1147(const union  A1147 *x, const union  A1147 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1147() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1147), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1147));
 		AF('c',union  A1147,m0,1)
 		AF('p',union  A1147,m1,1)
 		AF('i',union  A1147,m2,1)
@@ -22683,7 +22683,7 @@ int f_cmpA1148(const struct A1148 *x, const struct A1148 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1148() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1148), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1148));
 		AF('s',struct A1148,m0,1)
 		AF('f',struct A1148,m1,1)
 		AF('L',struct A1148,m2,1)
@@ -22706,7 +22706,7 @@ int f_cmpA1149(const struct A1149 *x, const struct A1149 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1149() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A1149), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A1149));
 		AF('f',struct A1149,m0,1)
 		AF('s',struct A1149,m1,1)
 		dcCloseAggr(at);
@@ -22719,7 +22719,7 @@ int f_cmpA1150(const union  A1150 *x, const union  A1150 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1150() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1150), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1150));
 		AF('l',union  A1150,m0,1)
 		AF('s',union  A1150,m1,1)
 		AFa(union  A1150,m2,1,A1148)
@@ -22742,7 +22742,7 @@ int f_cmpA1151(const union  A1151 *x, const union  A1151 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1151() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1151), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1151));
 		AF('J',union  A1151,m0,1)
 		AF('d',union  A1151,m1,1)
 		AF('l',union  A1151,m2,1)
@@ -22765,7 +22765,7 @@ int f_cmpA1152(const struct A1152 *x, const struct A1152 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1152() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A1152), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A1152));
 		AF('s',struct A1152,m0,1)
 		AF('s',struct A1152,m1,1)
 		AF('i',struct A1152,m2,1)
@@ -22785,7 +22785,7 @@ int f_cmpA1153(const struct A1153 *x, const struct A1153 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1153() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(struct A1153), DC_TRUE);
+		at = dcNewAggr(10, sizeof(struct A1153));
 		AF('f',struct A1153,m0,1)
 		AF('d',struct A1153,m1,1)
 		AF('J',struct A1153,m2,8)
@@ -22806,7 +22806,7 @@ int f_cmpA1154(const union  A1154 *x, const union  A1154 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1154() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1154), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1154));
 		AF('C',union  A1154,m0,1)
 		AF('p',union  A1154,m1,1)
 		AF('f',union  A1154,m2,1)
@@ -22829,7 +22829,7 @@ int f_cmpA1155(const union  A1155 *x, const union  A1155 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1155() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A1155), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A1155));
 		AF('s',union  A1155,m0,1)
 		AF('S',union  A1155,m1,1)
 		AF('I',union  A1155,m2,1)
@@ -22843,7 +22843,7 @@ int f_cmpA1156(const union  A1156 *x, const union  A1156 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1156() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A1156), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A1156));
 		AF('d',union  A1156,m0,1)
 		AF('S',union  A1156,m1,1)
 		AF('L',union  A1156,m2,1)
@@ -22861,7 +22861,7 @@ int f_cmpA1157(const struct A1157 *x, const struct A1157 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1157() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1157), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1157));
 		AF('j',struct A1157,m0,1)
 		AF('i',struct A1157,m1,1)
 		AF('C',struct A1157,m2,1)
@@ -22884,7 +22884,7 @@ int f_cmpA1158(const struct A1158 *x, const struct A1158 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1158() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1158), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1158));
 		AF('L',struct A1158,m0,1)
 		AF('p',struct A1158,m1,1)
 		AF('C',struct A1158,m2,1)
@@ -22907,7 +22907,7 @@ int f_cmpA1159(const struct A1159 *x, const struct A1159 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1159() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A1159), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A1159));
 		AF('I',struct A1159,m0,1)
 		AF('l',struct A1159,m1,1)
 		AF('c',struct A1159,m2,1)
@@ -22927,7 +22927,7 @@ int f_cmpA1160(const struct A1160 *x, const struct A1160 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1160() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A1160), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A1160));
 		AF('p',struct A1160,m0,1)
 		AF('j',struct A1160,m1,1)
 		AF('p',struct A1160,m2,1)
@@ -22947,7 +22947,7 @@ int f_cmpA1161(const union  A1161 *x, const union  A1161 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1161() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A1161), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A1161));
 		AF('C',union  A1161,m0,1)
 		AF('f',union  A1161,m1,1)
 		AF('p',union  A1161,m2,1)
@@ -22965,7 +22965,7 @@ int f_cmpA1162(const union  A1162 *x, const union  A1162 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1162() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(union  A1162), DC_TRUE);
+		at = dcNewAggr(11, sizeof(union  A1162));
 		AF('j',union  A1162,m0,1)
 		AFa(union  A1162,m1,1,A1159)
 		AFa(union  A1162,m2,1,A1160)
@@ -22987,7 +22987,7 @@ int f_cmpA1163(const struct A1163 *x, const struct A1163 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1163() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A1163), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A1163));
 		AF('J',struct A1163,m0,1)
 		AF('S',struct A1163,m1,1)
 		AF('j',struct A1163,m2,1)
@@ -23006,7 +23006,7 @@ int f_cmpA1164(const union  A1164 *x, const union  A1164 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1164() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A1164), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A1164));
 		AF('J',union  A1164,m0,1)
 		AF('l',union  A1164,m1,1)
 		AF('j',union  A1164,m2,1)
@@ -23021,7 +23021,7 @@ int f_cmpA1165(const union  A1165 *x, const union  A1165 *y) { return x->m0[0] =
 DCaggr* f_touchdcstA1165() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1165), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1165));
 		AF('c',union  A1165,m0,8)
 		AF('L',union  A1165,m1,1)
 		AF('j',union  A1165,m2,1)
@@ -23044,7 +23044,7 @@ int f_cmpA1166(const union  A1166 *x, const union  A1166 *y) { return f_cmpA1163
 DCaggr* f_touchdcstA1166() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1166), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1166));
 		AFa(union  A1166,m0,1,A1163)
 		AF('L',union  A1166,m1,1)
 		AF('J',union  A1166,m2,1)
@@ -23067,7 +23067,7 @@ int f_cmpA1167(const struct A1167 *x, const struct A1167 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1167() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1167), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1167));
 		AF('I',struct A1167,m0,1)
 		AF('I',struct A1167,m1,1)
 		AF('L',struct A1167,m2,1)
@@ -23090,7 +23090,7 @@ int f_cmpA1168(const struct A1168 *x, const struct A1168 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1168() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1168), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1168));
 		AF('c',struct A1168,m0,1)
 		AF('c',struct A1168,m1,1)
 		AF('c',struct A1168,m2,1)
@@ -23113,7 +23113,7 @@ int f_cmpA1169(const union  A1169 *x, const union  A1169 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1169() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1169), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1169));
 		AF('i',union  A1169,m0,1)
 		AF('J',union  A1169,m1,1)
 		AF('l',union  A1169,m2,1)
@@ -23136,7 +23136,7 @@ int f_cmpA1170(const struct A1170 *x, const struct A1170 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1170() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A1170), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A1170));
 		AF('p',struct A1170,m0,1)
 		AF('C',struct A1170,m1,1)
 		dcCloseAggr(at);
@@ -23149,7 +23149,7 @@ int f_cmpA1171(const union  A1171 *x, const union  A1171 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1171() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A1171), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A1171));
 		AF('c',union  A1171,m0,1)
 		AF('c',union  A1171,m1,1)
 		AF('f',union  A1171,m2,1)
@@ -23166,7 +23166,7 @@ int f_cmpA1172(const union  A1172 *x, const union  A1172 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1172() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(union  A1172), DC_TRUE);
+		at = dcNewAggr(11, sizeof(union  A1172));
 		AF('j',union  A1172,m0,1)
 		AF('c',union  A1172,m1,1)
 		AF('I',union  A1172,m2,1)
@@ -23188,7 +23188,7 @@ int f_cmpA1173(const struct A1173 *x, const struct A1173 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1173() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1173), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1173));
 		AF('s',struct A1173,m0,1)
 		AF('f',struct A1173,m1,1)
 		AF('i',struct A1173,m2,1)
@@ -23211,7 +23211,7 @@ int f_cmpA1174(const struct A1174 *x, const struct A1174 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1174() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1174), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1174));
 		AF('p',struct A1174,m0,1)
 		AF('S',struct A1174,m1,1)
 		AF('S',struct A1174,m2,1)
@@ -23234,7 +23234,7 @@ int f_cmpA1175(const union  A1175 *x, const union  A1175 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1175() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1175), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1175));
 		AF('S',union  A1175,m0,1)
 		AFa(union  A1175,m1,1,A1171)
 		AF('s',union  A1175,m2,1)
@@ -23257,7 +23257,7 @@ int f_cmpA1176(const union  A1176 *x, const union  A1176 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1176() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A1176), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A1176));
 		AF('d',union  A1176,m0,1)
 		AF('J',union  A1176,m1,1)
 		AF('j',union  A1176,m2,1)
@@ -23274,7 +23274,7 @@ int f_cmpA1177(const union  A1177 *x, const union  A1177 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1177() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A1177), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A1177));
 		AF('f',union  A1177,m0,1)
 		AF('d',union  A1177,m1,1)
 		AF('C',union  A1177,m2,1)
@@ -23289,7 +23289,7 @@ int f_cmpA1178(const union  A1178 *x, const union  A1178 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1178() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1178), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1178));
 		AF('I',union  A1178,m0,1)
 		AF('j',union  A1178,m1,1)
 		AF('l',union  A1178,m2,1)
@@ -23312,7 +23312,7 @@ int f_cmpA1179(const struct A1179 *x, const struct A1179 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1179() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A1179), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A1179));
 		AF('l',struct A1179,m0,1)
 		AF('d',struct A1179,m1,1)
 		AF('f',struct A1179,m2,1)
@@ -23331,7 +23331,7 @@ int f_cmpA1180(const union  A1180 *x, const union  A1180 *y) { return f_cmpA1175
 DCaggr* f_touchdcstA1180() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1180), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1180));
 		AFa(union  A1180,m0,1,A1175)
 		AF('i',union  A1180,m1,1)
 		AF('d',union  A1180,m2,14)
@@ -23354,7 +23354,7 @@ int f_cmpA1181(const struct A1181 *x, const struct A1181 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1181() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A1181), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A1181));
 		AF('l',struct A1181,m0,1)
 		AF('j',struct A1181,m1,1)
 		dcCloseAggr(at);
@@ -23367,7 +23367,7 @@ int f_cmpA1182(const union  A1182 *x, const union  A1182 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1182() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A1182), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A1182));
 		AF('j',union  A1182,m0,1)
 		AF('J',union  A1182,m1,1)
 		AF('d',union  A1182,m2,1)
@@ -23381,7 +23381,7 @@ int f_cmpA1183(const union  A1183 *x, const union  A1183 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1183() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A1183), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A1183));
 		AF('l',union  A1183,m0,1)
 		AF('I',union  A1183,m1,1)
 		AF('f',union  A1183,m2,1)
@@ -23400,7 +23400,7 @@ int f_cmpA1184(const struct A1184 *x, const struct A1184 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1184() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1184), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1184));
 		AF('C',struct A1184,m0,1)
 		AF('f',struct A1184,m1,1)
 		AF('c',struct A1184,m2,9)
@@ -23423,7 +23423,7 @@ int f_cmpA1185(const union  A1185 *x, const union  A1185 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1185() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1185), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1185));
 		AF('i',union  A1185,m0,1)
 		AF('i',union  A1185,m1,1)
 		AF('i',union  A1185,m2,1)
@@ -23446,7 +23446,7 @@ int f_cmpA1186(const union  A1186 *x, const union  A1186 *y) { return f_cmpA1185
 DCaggr* f_touchdcstA1186() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1186), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1186));
 		AFa(union  A1186,m0,1,A1185)
 		AF('C',union  A1186,m1,1)
 		AF('d',union  A1186,m2,1)
@@ -23469,7 +23469,7 @@ int f_cmpA1187(const union  A1187 *x, const union  A1187 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1187() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1187), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1187));
 		AF('J',union  A1187,m0,1)
 		AF('L',union  A1187,m1,1)
 		AF('i',union  A1187,m2,1)
@@ -23492,7 +23492,7 @@ int f_cmpA1188(const union  A1188 *x, const union  A1188 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1188() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1188), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1188));
 		AF('d',union  A1188,m0,1)
 		AFa(union  A1188,m1,1,A1187)
 		AF('j',union  A1188,m2,1)
@@ -23515,7 +23515,7 @@ int f_cmpA1189(const struct A1189 *x, const struct A1189 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1189() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1189), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1189));
 		AF('j',struct A1189,m0,1)
 		AF('j',struct A1189,m1,1)
 		AF('L',struct A1189,m2,1)
@@ -23538,7 +23538,7 @@ int f_cmpA1190(const struct A1190 *x, const struct A1190 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1190() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1190), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1190));
 		AF('f',struct A1190,m0,1)
 		AF('c',struct A1190,m1,1)
 		AF('s',struct A1190,m2,1)
@@ -23561,7 +23561,7 @@ int f_cmpA1191(const struct A1191 *x, const struct A1191 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1191() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A1191), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A1191));
 		AF('S',struct A1191,m0,1)
 		AF('c',struct A1191,m1,1)
 		AF('d',struct A1191,m2,1)
@@ -23576,7 +23576,7 @@ int f_cmpA1192(const struct A1192 *x, const struct A1192 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1192() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1192), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1192));
 		AF('C',struct A1192,m0,1)
 		AF('f',struct A1192,m1,1)
 		AF('J',struct A1192,m2,1)
@@ -23599,7 +23599,7 @@ int f_cmpA1193(const struct A1193 *x, const struct A1193 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1193() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A1193), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A1193));
 		AF('p',struct A1193,m0,1)
 		AF('C',struct A1193,m1,1)
 		AF('L',struct A1193,m2,1)
@@ -23614,7 +23614,7 @@ int f_cmpA1194(const union  A1194 *x, const union  A1194 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1194() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1194), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1194));
 		AF('p',union  A1194,m0,1)
 		AFa(union  A1194,m1,1,A1193)
 		AF('f',union  A1194,m2,1)
@@ -23637,7 +23637,7 @@ int f_cmpA1195(const union  A1195 *x, const union  A1195 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1195() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1195), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1195));
 		AF('l',union  A1195,m0,1)
 		AF('l',union  A1195,m1,1)
 		AFa(union  A1195,m2,1,A1192)
@@ -23660,7 +23660,7 @@ int f_cmpA1196(const struct A1196 *x, const struct A1196 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1196() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1196), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1196));
 		AF('c',struct A1196,m0,1)
 		AF('s',struct A1196,m1,1)
 		AF('I',struct A1196,m2,1)
@@ -23683,7 +23683,7 @@ int f_cmpA1197(const union  A1197 *x, const union  A1197 *y) { return x->m0[0] =
 DCaggr* f_touchdcstA1197() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A1197), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A1197));
 		AF('j',union  A1197,m0,7)
 		AF('l',union  A1197,m1,1)
 		AFa(union  A1197,m2,1,A414)
@@ -23699,7 +23699,7 @@ int f_cmpA1198(const union  A1198 *x, const union  A1198 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1198() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A1198), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A1198));
 		AF('f',union  A1198,m0,1)
 		AF('L',union  A1198,m1,1)
 		AF('c',union  A1198,m2,1)
@@ -23713,7 +23713,7 @@ int f_cmpA1199(const struct A1199 *x, const struct A1199 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1199() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1199), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1199));
 		AF('c',struct A1199,m0,1)
 		AF('j',struct A1199,m1,1)
 		AF('S',struct A1199,m2,1)
@@ -23736,7 +23736,7 @@ int f_cmpA1200(const struct A1200 *x, const struct A1200 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1200() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A1200), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A1200));
 		AF('c',struct A1200,m0,1)
 		AF('s',struct A1200,m1,1)
 		dcCloseAggr(at);
@@ -23749,7 +23749,7 @@ int f_cmpA1201(const union  A1201 *x, const union  A1201 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1201() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1201), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1201));
 		AF('s',union  A1201,m0,1)
 		AF('I',union  A1201,m1,1)
 		AFa(union  A1201,m2,1,A1200)
@@ -23772,7 +23772,7 @@ int f_cmpA1202(const union  A1202 *x, const union  A1202 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1202() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A1202), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A1202));
 		AF('J',union  A1202,m0,1)
 		AF('C',union  A1202,m1,1)
 		AF('c',union  A1202,m2,1)
@@ -23789,7 +23789,7 @@ int f_cmpA1203(const struct A1203 *x, const struct A1203 *y) { return f_cmpA1202
 DCaggr* f_touchdcstA1203() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1203), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1203));
 		AFa(struct A1203,m0,1,A1202)
 		AF('i',struct A1203,m1,1)
 		AF('c',struct A1203,m2,1)
@@ -23812,7 +23812,7 @@ int f_cmpA1204(const struct A1204 *x, const struct A1204 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1204() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A1204), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A1204));
 		AF('s',struct A1204,m0,1)
 		AF('J',struct A1204,m1,1)
 		AF('C',struct A1204,m2,1)
@@ -23827,7 +23827,7 @@ int f_cmpA1205(const struct A1205 *x, const struct A1205 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1205() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1205), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1205));
 		AF('f',struct A1205,m0,1)
 		AF('I',struct A1205,m1,1)
 		AF('L',struct A1205,m2,1)
@@ -23850,7 +23850,7 @@ int f_cmpA1206(const union  A1206 *x, const union  A1206 *y) { return f_cmpA1204
 DCaggr* f_touchdcstA1206() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(union  A1206), DC_TRUE);
+		at = dcNewAggr(11, sizeof(union  A1206));
 		AFa(union  A1206,m0,1,A1204)
 		AF('C',union  A1206,m1,1)
 		AF('C',union  A1206,m2,1)
@@ -23872,7 +23872,7 @@ int f_cmpA1207(const struct A1207 *x, const struct A1207 *y) { return f_cmpA1206
 DCaggr* f_touchdcstA1207() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(struct A1207), DC_TRUE);
+		at = dcNewAggr(1, sizeof(struct A1207));
 		AFa(struct A1207,m0,1,A1206)
 		dcCloseAggr(at);
 	}
@@ -23884,7 +23884,7 @@ int f_cmpA1208(const union  A1208 *x, const union  A1208 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1208() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A1208), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A1208));
 		AF('L',union  A1208,m0,1)
 		AF('d',union  A1208,m1,1)
 		AF('J',union  A1208,m2,1)
@@ -23899,7 +23899,7 @@ int f_cmpA1209(const union  A1209 *x, const union  A1209 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1209() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1209), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1209));
 		AF('C',union  A1209,m0,1)
 		AF('p',union  A1209,m1,1)
 		AF('d',union  A1209,m2,1)
@@ -23922,7 +23922,7 @@ int f_cmpA1210(const struct A1210 *x, const struct A1210 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1210() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A1210), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A1210));
 		AF('I',struct A1210,m0,1)
 		AFa(struct A1210,m1,1,A128)
 		AF('J',struct A1210,m2,1)
@@ -23941,7 +23941,7 @@ int f_cmpA1211(const union  A1211 *x, const union  A1211 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1211() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A1211), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A1211));
 		AF('L',union  A1211,m0,1)
 		AF('S',union  A1211,m1,1)
 		AF('j',union  A1211,m2,1)
@@ -23957,7 +23957,7 @@ int f_cmpA1212(const union  A1212 *x, const union  A1212 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1212() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1212), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1212));
 		AF('p',union  A1212,m0,1)
 		AF('I',union  A1212,m1,1)
 		AF('p',union  A1212,m2,1)
@@ -23980,7 +23980,7 @@ int f_cmpA1213(const struct A1213 *x, const struct A1213 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1213() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(struct A1213), DC_TRUE);
+		at = dcNewAggr(11, sizeof(struct A1213));
 		AF('i',struct A1213,m0,1)
 		AF('f',struct A1213,m1,1)
 		AF('S',struct A1213,m2,1)
@@ -24002,7 +24002,7 @@ int f_cmpA1214(const struct A1214 *x, const struct A1214 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1214() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A1214), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A1214));
 		AF('f',struct A1214,m0,1)
 		AF('s',struct A1214,m1,1)
 		AF('S',struct A1214,m2,1)
@@ -24019,7 +24019,7 @@ int f_cmpA1215(const struct A1215 *x, const struct A1215 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1215() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1215), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1215));
 		AF('s',struct A1215,m0,1)
 		AF('j',struct A1215,m1,1)
 		AF('p',struct A1215,m2,3)
@@ -24042,7 +24042,7 @@ int f_cmpA1216(const union  A1216 *x, const union  A1216 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1216() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1216), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1216));
 		AF('f',union  A1216,m0,1)
 		AF('s',union  A1216,m1,1)
 		AF('I',union  A1216,m2,1)
@@ -24065,7 +24065,7 @@ int f_cmpA1217(const struct A1217 *x, const struct A1217 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1217() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1217), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1217));
 		AF('j',struct A1217,m0,1)
 		AF('d',struct A1217,m1,1)
 		AF('s',struct A1217,m2,1)
@@ -24088,7 +24088,7 @@ int f_cmpA1218(const struct A1218 *x, const struct A1218 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1218() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1218), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1218));
 		AF('l',struct A1218,m0,1)
 		AF('f',struct A1218,m1,1)
 		AF('J',struct A1218,m2,1)
@@ -24111,7 +24111,7 @@ int f_cmpA1219(const union  A1219 *x, const union  A1219 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1219() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A1219), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A1219));
 		AF('f',union  A1219,m0,1)
 		AF('L',union  A1219,m1,1)
 		AF('d',union  A1219,m2,1)
@@ -24126,7 +24126,7 @@ int f_cmpA1220(const union  A1220 *x, const union  A1220 *y) { return f_cmpA1219
 DCaggr* f_touchdcstA1220() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A1220), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A1220));
 		AFa(union  A1220,m0,1,A1219)
 		AF('J',union  A1220,m1,1)
 		AF('l',union  A1220,m2,1)
@@ -24140,7 +24140,7 @@ int f_cmpA1221(const struct A1221 *x, const struct A1221 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1221() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1221), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1221));
 		AF('C',struct A1221,m0,1)
 		AFa(struct A1221,m1,1,A1220)
 		AF('d',struct A1221,m2,1)
@@ -24163,7 +24163,7 @@ int f_cmpA1222(const struct A1222 *x, const struct A1222 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1222() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1222), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1222));
 		AF('l',struct A1222,m0,1)
 		AF('C',struct A1222,m1,1)
 		AF('C',struct A1222,m2,1)
@@ -24186,7 +24186,7 @@ int f_cmpA1223(const struct A1223 *x, const struct A1223 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1223() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A1223), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A1223));
 		AF('j',struct A1223,m0,1)
 		AF('J',struct A1223,m1,1)
 		AF('j',struct A1223,m2,1)
@@ -24200,7 +24200,7 @@ int f_cmpA1224(const union  A1224 *x, const union  A1224 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1224() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A1224), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A1224));
 		AF('f',union  A1224,m0,1)
 		AF('f',union  A1224,m1,1)
 		AF('p',union  A1224,m2,1)
@@ -24219,7 +24219,7 @@ int f_cmpA1225(const union  A1225 *x, const union  A1225 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1225() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A1225), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A1225));
 		AF('J',union  A1225,m0,1)
 		AF('d',union  A1225,m1,1)
 		AF('i',union  A1225,m2,1)
@@ -24233,7 +24233,7 @@ int f_cmpA1226(const union  A1226 *x, const union  A1226 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1226() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1226), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1226));
 		AF('J',union  A1226,m0,1)
 		AF('d',union  A1226,m1,1)
 		AF('C',union  A1226,m2,1)
@@ -24256,7 +24256,7 @@ int f_cmpA1227(const union  A1227 *x, const union  A1227 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1227() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1227), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1227));
 		AF('c',union  A1227,m0,1)
 		AFa(union  A1227,m1,1,A1226)
 		AF('J',union  A1227,m2,1)
@@ -24279,7 +24279,7 @@ int f_cmpA1228(const struct A1228 *x, const struct A1228 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1228() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A1228), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A1228));
 		AF('C',struct A1228,m0,1)
 		AF('p',struct A1228,m1,1)
 		AF('f',struct A1228,m2,1)
@@ -24295,7 +24295,7 @@ int f_cmpA1229(const struct A1229 *x, const struct A1229 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1229() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1229), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1229));
 		AF('d',struct A1229,m0,1)
 		AF('L',struct A1229,m1,1)
 		AF('C',struct A1229,m2,1)
@@ -24318,7 +24318,7 @@ int f_cmpA1230(const struct A1230 *x, const struct A1230 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1230() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A1230), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A1230));
 		AF('L',struct A1230,m0,1)
 		AF('i',struct A1230,m1,1)
 		AF('L',struct A1230,m2,1)
@@ -24332,7 +24332,7 @@ int f_cmpA1231(const union  A1231 *x, const union  A1231 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1231() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(union  A1231), DC_TRUE);
+		at = dcNewAggr(9, sizeof(union  A1231));
 		AF('l',union  A1231,m0,1)
 		AF('I',union  A1231,m1,1)
 		AF('f',union  A1231,m2,1)
@@ -24352,7 +24352,7 @@ int f_cmpA1232(const struct A1232 *x, const struct A1232 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1232() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A1232), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A1232));
 		AF('C',struct A1232,m0,1)
 		AF('C',struct A1232,m1,1)
 		AF('p',struct A1232,m2,1)
@@ -24367,7 +24367,7 @@ int f_cmpA1233(const struct A1233 *x, const struct A1233 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1233() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A1233), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A1233));
 		AF('S',struct A1233,m0,1)
 		AF('j',struct A1233,m1,1)
 		AF('I',struct A1233,m2,1)
@@ -24383,7 +24383,7 @@ int f_cmpA1234(const struct A1234 *x, const struct A1234 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1234() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1234), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1234));
 		AF('L',struct A1234,m0,1)
 		AF('I',struct A1234,m1,1)
 		AF('d',struct A1234,m2,1)
@@ -24406,7 +24406,7 @@ int f_cmpA1235(const union  A1235 *x, const union  A1235 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1235() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1235), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1235));
 		AF('c',union  A1235,m0,1)
 		AF('J',union  A1235,m1,1)
 		AF('i',union  A1235,m2,1)
@@ -24429,7 +24429,7 @@ int f_cmpA1236(const struct A1236 *x, const struct A1236 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1236() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1236), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1236));
 		AF('d',struct A1236,m0,1)
 		AF('c',struct A1236,m1,1)
 		AF('f',struct A1236,m2,1)
@@ -24452,7 +24452,7 @@ int f_cmpA1237(const union  A1237 *x, const union  A1237 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1237() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1237), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1237));
 		AF('j',union  A1237,m0,1)
 		AF('f',union  A1237,m1,1)
 		AFa(union  A1237,m2,1,A1235)
@@ -24475,7 +24475,7 @@ int f_cmpA1238(const struct A1238 *x, const struct A1238 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1238() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1238), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1238));
 		AF('c',struct A1238,m0,1)
 		AF('L',struct A1238,m1,1)
 		AF('S',struct A1238,m2,1)
@@ -24498,7 +24498,7 @@ int f_cmpA1239(const struct A1239 *x, const struct A1239 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1239() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1239), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1239));
 		AF('I',struct A1239,m0,1)
 		AF('C',struct A1239,m1,1)
 		AFa(struct A1239,m2,1,A1238)
@@ -24521,7 +24521,7 @@ int f_cmpA1240(const union  A1240 *x, const union  A1240 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1240() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A1240), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A1240));
 		AF('S',union  A1240,m0,1)
 		AF('c',union  A1240,m1,1)
 		AF('J',union  A1240,m2,1)
@@ -24539,7 +24539,7 @@ int f_cmpA1241(const union  A1241 *x, const union  A1241 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1241() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A1241), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A1241));
 		AF('S',union  A1241,m0,1)
 		AF('s',union  A1241,m1,1)
 		AF('s',union  A1241,m2,1)
@@ -24557,7 +24557,7 @@ int f_cmpA1242(const struct A1242 *x, const struct A1242 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1242() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(struct A1242), DC_TRUE);
+		at = dcNewAggr(10, sizeof(struct A1242));
 		AF('c',struct A1242,m0,1)
 		AF('C',struct A1242,m1,1)
 		AF('f',struct A1242,m2,1)
@@ -24578,7 +24578,7 @@ int f_cmpA1243(const union  A1243 *x, const union  A1243 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1243() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A1243), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A1243));
 		AF('i',union  A1243,m0,1)
 		AF('p',union  A1243,m1,1)
 		dcCloseAggr(at);
@@ -24591,7 +24591,7 @@ int f_cmpA1244(const struct A1244 *x, const struct A1244 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1244() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A1244), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A1244));
 		AF('s',struct A1244,m0,1)
 		AF('s',struct A1244,m1,1)
 		dcCloseAggr(at);
@@ -24604,7 +24604,7 @@ int f_cmpA1245(const union  A1245 *x, const union  A1245 *y) { return f_cmpA1242
 DCaggr* f_touchdcstA1245() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1245), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1245));
 		AFa(union  A1245,m0,1,A1242)
 		AF('J',union  A1245,m1,1)
 		AF('L',union  A1245,m2,1)
@@ -24627,7 +24627,7 @@ int f_cmpA1246(const union  A1246 *x, const union  A1246 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1246() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(union  A1246), DC_TRUE);
+		at = dcNewAggr(11, sizeof(union  A1246));
 		AF('i',union  A1246,m0,1)
 		AF('S',union  A1246,m1,1)
 		AF('d',union  A1246,m2,1)
@@ -24649,7 +24649,7 @@ int f_cmpA1247(const struct A1247 *x, const struct A1247 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1247() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1247), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1247));
 		AF('c',struct A1247,m0,1)
 		AFa(struct A1247,m1,1,A1246)
 		AF('l',struct A1247,m2,1)
@@ -24672,7 +24672,7 @@ int f_cmpA1248(const struct A1248 *x, const struct A1248 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1248() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1248), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1248));
 		AF('j',struct A1248,m0,1)
 		AF('i',struct A1248,m1,1)
 		AF('L',struct A1248,m2,1)
@@ -24695,7 +24695,7 @@ int f_cmpA1249(const union  A1249 *x, const union  A1249 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1249() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A1249), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A1249));
 		AF('S',union  A1249,m0,1)
 		AF('j',union  A1249,m1,1)
 		AFa(union  A1249,m2,1,A1248)
@@ -24711,7 +24711,7 @@ int f_cmpA1250(const struct A1250 *x, const struct A1250 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1250() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A1250), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A1250));
 		AF('j',struct A1250,m0,1)
 		AF('S',struct A1250,m1,1)
 		AFa(struct A1250,m2,1,A1249)
@@ -24727,7 +24727,7 @@ int f_cmpA1251(const union  A1251 *x, const union  A1251 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1251() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A1251), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A1251));
 		AF('J',union  A1251,m0,1)
 		AF('l',union  A1251,m1,1)
 		AF('I',union  A1251,m2,1)
@@ -24746,7 +24746,7 @@ int f_cmpA1252(const struct A1252 *x, const struct A1252 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1252() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A1252), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A1252));
 		AF('f',struct A1252,m0,1)
 		AF('d',struct A1252,m1,1)
 		dcCloseAggr(at);
@@ -24759,7 +24759,7 @@ int f_cmpA1253(const union  A1253 *x, const union  A1253 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1253() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1253), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1253));
 		AF('I',union  A1253,m0,1)
 		AF('J',union  A1253,m1,1)
 		AF('C',union  A1253,m2,1)
@@ -24782,7 +24782,7 @@ int f_cmpA1254(const union  A1254 *x, const union  A1254 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1254() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A1254), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A1254));
 		AF('J',union  A1254,m0,1)
 		AF('L',union  A1254,m1,1)
 		AF('d',union  A1254,m2,1)
@@ -24799,7 +24799,7 @@ int f_cmpA1255(const struct A1255 *x, const struct A1255 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1255() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A1255), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A1255));
 		AF('L',struct A1255,m0,1)
 		AF('j',struct A1255,m1,1)
 		AF('s',struct A1255,m2,1)
@@ -24816,7 +24816,7 @@ int f_cmpA1256(const struct A1256 *x, const struct A1256 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1256() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1256), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1256));
 		AF('c',struct A1256,m0,1)
 		AF('I',struct A1256,m1,1)
 		AF('f',struct A1256,m2,1)
@@ -24839,7 +24839,7 @@ int f_cmpA1257(const struct A1257 *x, const struct A1257 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1257() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1257), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1257));
 		AF('d',struct A1257,m0,1)
 		AF('d',struct A1257,m1,1)
 		AF('s',struct A1257,m2,1)
@@ -24862,7 +24862,7 @@ int f_cmpA1258(const union  A1258 *x, const union  A1258 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1258() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A1258), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A1258));
 		AF('i',union  A1258,m0,1)
 		AF('l',union  A1258,m1,1)
 		AF('I',union  A1258,m2,1)
@@ -24879,7 +24879,7 @@ int f_cmpA1259(const struct A1259 *x, const struct A1259 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1259() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A1259), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A1259));
 		AF('C',struct A1259,m0,1)
 		AF('i',struct A1259,m1,1)
 		dcCloseAggr(at);
@@ -24892,7 +24892,7 @@ int f_cmpA1260(const struct A1260 *x, const struct A1260 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1260() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1260), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1260));
 		AF('s',struct A1260,m0,1)
 		AF('d',struct A1260,m1,1)
 		AF('I',struct A1260,m2,1)
@@ -24915,7 +24915,7 @@ int f_cmpA1261(const union  A1261 *x, const union  A1261 *y) { return f_cmpA165(
 DCaggr* f_touchdcstA1261() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1261), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1261));
 		AFa(union  A1261,m0,1,A165)
 		AFa(union  A1261,m1,1,A1259)
 		AF('j',union  A1261,m2,1)
@@ -24938,7 +24938,7 @@ int f_cmpA1262(const struct A1262 *x, const struct A1262 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1262() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1262), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1262));
 		AF('c',struct A1262,m0,1)
 		AF('f',struct A1262,m1,1)
 		AF('p',struct A1262,m2,1)
@@ -24961,7 +24961,7 @@ int f_cmpA1263(const struct A1263 *x, const struct A1263 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1263() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1263), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1263));
 		AF('C',struct A1263,m0,1)
 		AF('f',struct A1263,m1,1)
 		AF('f',struct A1263,m2,1)
@@ -24984,7 +24984,7 @@ int f_cmpA1264(const union  A1264 *x, const union  A1264 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1264() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A1264), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A1264));
 		AF('f',union  A1264,m0,1)
 		AF('S',union  A1264,m1,1)
 		AF('f',union  A1264,m2,1)
@@ -24999,7 +24999,7 @@ int f_cmpA1265(const union  A1265 *x, const union  A1265 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1265() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1265), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1265));
 		AF('L',union  A1265,m0,1)
 		AF('p',union  A1265,m1,1)
 		AF('J',union  A1265,m2,1)
@@ -25022,7 +25022,7 @@ int f_cmpA1266(const union  A1266 *x, const union  A1266 *y) { return x->m0[0] =
 DCaggr* f_touchdcstA1266() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1266), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1266));
 		AF('j',union  A1266,m0,10)
 		AF('J',union  A1266,m1,1)
 		AF('p',union  A1266,m2,1)
@@ -25045,7 +25045,7 @@ int f_cmpA1267(const struct A1267 *x, const struct A1267 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1267() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(struct A1267), DC_TRUE);
+		at = dcNewAggr(7, sizeof(struct A1267));
 		AF('p',struct A1267,m0,1)
 		AF('J',struct A1267,m1,1)
 		AF('S',struct A1267,m2,1)
@@ -25063,7 +25063,7 @@ int f_cmpA1268(const struct A1268 *x, const struct A1268 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1268() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(struct A1268), DC_TRUE);
+		at = dcNewAggr(11, sizeof(struct A1268));
 		AF('C',struct A1268,m0,1)
 		AF('d',struct A1268,m1,1)
 		AF('l',struct A1268,m2,1)
@@ -25085,7 +25085,7 @@ int f_cmpA1269(const struct A1269 *x, const struct A1269 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1269() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A1269), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A1269));
 		AF('J',struct A1269,m0,1)
 		AF('L',struct A1269,m1,1)
 		AF('f',struct A1269,m2,1)
@@ -25099,7 +25099,7 @@ int f_cmpA1270(const union  A1270 *x, const union  A1270 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1270() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A1270), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A1270));
 		AF('L',union  A1270,m0,1)
 		AF('s',union  A1270,m1,1)
 		AF('j',union  A1270,m2,9)
@@ -25118,7 +25118,7 @@ int f_cmpA1271(const struct A1271 *x, const struct A1271 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1271() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A1271), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A1271));
 		AF('S',struct A1271,m0,1)
 		AF('I',struct A1271,m1,1)
 		AF('i',struct A1271,m2,1)
@@ -25135,7 +25135,7 @@ int f_cmpA1272(const struct A1272 *x, const struct A1272 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1272() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1272), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1272));
 		AF('I',struct A1272,m0,1)
 		AF('j',struct A1272,m1,1)
 		AF('i',struct A1272,m2,1)
@@ -25158,7 +25158,7 @@ int f_cmpA1273(const union  A1273 *x, const union  A1273 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1273() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A1273), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A1273));
 		AF('C',union  A1273,m0,1)
 		AF('f',union  A1273,m1,1)
 		AF('f',union  A1273,m2,1)
@@ -25173,7 +25173,7 @@ int f_cmpA1274(const union  A1274 *x, const union  A1274 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1274() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1274), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1274));
 		AF('i',union  A1274,m0,1)
 		AF('S',union  A1274,m1,12)
 		AF('d',union  A1274,m2,1)
@@ -25196,7 +25196,7 @@ int f_cmpA1275(const union  A1275 *x, const union  A1275 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1275() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A1275), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A1275));
 		AF('l',union  A1275,m0,1)
 		AF('s',union  A1275,m1,1)
 		dcCloseAggr(at);
@@ -25209,7 +25209,7 @@ int f_cmpA1276(const union  A1276 *x, const union  A1276 *y) { return f_cmpA1273
 DCaggr* f_touchdcstA1276() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1276), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1276));
 		AFa(union  A1276,m0,1,A1273)
 		AF('d',union  A1276,m1,1)
 		AF('J',union  A1276,m2,1)
@@ -25232,7 +25232,7 @@ int f_cmpA1277(const struct A1277 *x, const struct A1277 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1277() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A1277), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A1277));
 		AF('S',struct A1277,m0,1)
 		AF('i',struct A1277,m1,1)
 		dcCloseAggr(at);
@@ -25245,7 +25245,7 @@ int f_cmpA1278(const union  A1278 *x, const union  A1278 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1278() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A1278), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A1278));
 		AF('p',union  A1278,m0,1)
 		AF('L',union  A1278,m1,1)
 		AF('p',union  A1278,m2,1)
@@ -25264,7 +25264,7 @@ int f_cmpA1279(const struct A1279 *x, const struct A1279 *y) { return f_cmpA1278
 DCaggr* f_touchdcstA1279() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A1279), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A1279));
 		AFa(struct A1279,m0,1,A1278)
 		AF('c',struct A1279,m1,1)
 		AF('l',struct A1279,m2,1)
@@ -25281,7 +25281,7 @@ int f_cmpA1280(const struct A1280 *x, const struct A1280 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1280() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A1280), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A1280));
 		AF('I',struct A1280,m0,1)
 		AFa(struct A1280,m1,1,A1279)
 		AF('i',struct A1280,m2,1)
@@ -25298,7 +25298,7 @@ int f_cmpA1281(const struct A1281 *x, const struct A1281 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1281() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(struct A1281), DC_TRUE);
+		at = dcNewAggr(7, sizeof(struct A1281));
 		AF('p',struct A1281,m0,1)
 		AF('L',struct A1281,m1,1)
 		AF('C',struct A1281,m2,1)
@@ -25316,7 +25316,7 @@ int f_cmpA1282(const union  A1282 *x, const union  A1282 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1282() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1282), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1282));
 		AF('L',union  A1282,m0,1)
 		AF('c',union  A1282,m1,1)
 		AF('s',union  A1282,m2,1)
@@ -25339,7 +25339,7 @@ int f_cmpA1283(const struct A1283 *x, const struct A1283 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1283() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1283), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1283));
 		AF('I',struct A1283,m0,1)
 		AF('L',struct A1283,m1,1)
 		AF('d',struct A1283,m2,1)
@@ -25362,7 +25362,7 @@ int f_cmpA1284(const struct A1284 *x, const struct A1284 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1284() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A1284), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A1284));
 		AF('s',struct A1284,m0,1)
 		AF('s',struct A1284,m1,1)
 		AF('L',struct A1284,m2,1)
@@ -25382,7 +25382,7 @@ int f_cmpA1285(const union  A1285 *x, const union  A1285 *y) { return f_cmpA1283
 DCaggr* f_touchdcstA1285() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(union  A1285), DC_TRUE);
+		at = dcNewAggr(9, sizeof(union  A1285));
 		AFa(union  A1285,m0,1,A1283)
 		AF('S',union  A1285,m1,1)
 		AF('S',union  A1285,m2,1)
@@ -25402,7 +25402,7 @@ int f_cmpA1286(const union  A1286 *x, const union  A1286 *y) { return f_cmpA1285
 DCaggr* f_touchdcstA1286() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1286), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1286));
 		AFa(union  A1286,m0,1,A1285)
 		AF('L',union  A1286,m1,1)
 		AF('I',union  A1286,m2,1)
@@ -25425,7 +25425,7 @@ int f_cmpA1287(const union  A1287 *x, const union  A1287 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1287() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A1287), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A1287));
 		AF('J',union  A1287,m0,1)
 		AF('d',union  A1287,m1,1)
 		dcCloseAggr(at);
@@ -25438,7 +25438,7 @@ int f_cmpA1288(const union  A1288 *x, const union  A1288 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1288() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A1288), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A1288));
 		AF('c',union  A1288,m0,1)
 		AF('L',union  A1288,m1,1)
 		AF('L',union  A1288,m2,1)
@@ -25459,7 +25459,7 @@ int f_cmpA1289(const union  A1289 *x, const union  A1289 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1289() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A1289), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A1289));
 		AF('C',union  A1289,m0,1)
 		AF('f',union  A1289,m1,1)
 		AF('s',union  A1289,m2,1)
@@ -25475,7 +25475,7 @@ int f_cmpA1290(const struct A1290 *x, const struct A1290 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1290() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A1290), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A1290));
 		AF('I',struct A1290,m0,1)
 		AF('j',struct A1290,m1,1)
 		AF('j',struct A1290,m2,1)
@@ -25491,7 +25491,7 @@ int f_cmpA1291(const union  A1291 *x, const union  A1291 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1291() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1291), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1291));
 		AF('I',union  A1291,m0,1)
 		AF('S',union  A1291,m1,1)
 		AF('j',union  A1291,m2,1)
@@ -25514,7 +25514,7 @@ int f_cmpA1292(const union  A1292 *x, const union  A1292 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1292() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A1292), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A1292));
 		AF('i',union  A1292,m0,1)
 		AF('I',union  A1292,m1,1)
 		AF('c',union  A1292,m2,1)
@@ -25535,7 +25535,7 @@ int f_cmpA1293(const struct A1293 *x, const struct A1293 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1293() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A1293), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A1293));
 		AF('L',struct A1293,m0,1)
 		AF('C',struct A1293,m1,1)
 		AF('J',struct A1293,m2,1)
@@ -25552,7 +25552,7 @@ int f_cmpA1294(const union  A1294 *x, const union  A1294 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1294() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1294), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1294));
 		AF('I',union  A1294,m0,1)
 		AF('j',union  A1294,m1,1)
 		AF('S',union  A1294,m2,1)
@@ -25575,7 +25575,7 @@ int f_cmpA1295(const struct A1295 *x, const struct A1295 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1295() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1295), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1295));
 		AF('L',struct A1295,m0,1)
 		AF('j',struct A1295,m1,1)
 		AF('C',struct A1295,m2,1)
@@ -25598,7 +25598,7 @@ int f_cmpA1296(const union  A1296 *x, const union  A1296 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1296() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1296), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1296));
 		AF('I',union  A1296,m0,1)
 		AF('p',union  A1296,m1,1)
 		AF('f',union  A1296,m2,1)
@@ -25621,7 +25621,7 @@ int f_cmpA1297(const struct A1297 *x, const struct A1297 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1297() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1297), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1297));
 		AF('i',struct A1297,m0,1)
 		AF('J',struct A1297,m1,9)
 		AF('c',struct A1297,m2,1)
@@ -25644,7 +25644,7 @@ int f_cmpA1298(const struct A1298 *x, const struct A1298 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1298() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(struct A1298), DC_TRUE);
+		at = dcNewAggr(11, sizeof(struct A1298));
 		AF('L',struct A1298,m0,1)
 		AFa(struct A1298,m1,1,A1296)
 		AF('j',struct A1298,m2,1)
@@ -25666,7 +25666,7 @@ int f_cmpA1299(const union  A1299 *x, const union  A1299 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1299() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1299), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1299));
 		AF('i',union  A1299,m0,1)
 		AF('i',union  A1299,m1,1)
 		AF('i',union  A1299,m2,1)
@@ -25689,7 +25689,7 @@ int f_cmpA1300(const struct A1300 *x, const struct A1300 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1300() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A1300), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A1300));
 		AF('l',struct A1300,m0,1)
 		AF('c',struct A1300,m1,1)
 		AF('J',struct A1300,m2,1)
@@ -25708,7 +25708,7 @@ int f_cmpA1301(const struct A1301 *x, const struct A1301 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1301() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1301), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1301));
 		AF('S',struct A1301,m0,1)
 		AF('j',struct A1301,m1,1)
 		AF('J',struct A1301,m2,1)
@@ -25731,7 +25731,7 @@ int f_cmpA1302(const union  A1302 *x, const union  A1302 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1302() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1302), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1302));
 		AF('d',union  A1302,m0,1)
 		AF('S',union  A1302,m1,1)
 		AFa(union  A1302,m2,1,A1300)
@@ -25754,7 +25754,7 @@ int f_cmpA1303(const struct A1303 *x, const struct A1303 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1303() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A1303), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A1303));
 		AF('j',struct A1303,m0,1)
 		AF('l',struct A1303,m1,1)
 		AF('f',struct A1303,m2,1)
@@ -25770,7 +25770,7 @@ int f_cmpA1304(const struct A1304 *x, const struct A1304 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1304() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1304), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1304));
 		AF('d',struct A1304,m0,1)
 		AF('c',struct A1304,m1,1)
 		AF('l',struct A1304,m2,1)
@@ -25793,7 +25793,7 @@ int f_cmpA1305(const union  A1305 *x, const union  A1305 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1305() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1305), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1305));
 		AF('L',union  A1305,m0,1)
 		AF('p',union  A1305,m1,1)
 		AF('c',union  A1305,m2,1)
@@ -25816,7 +25816,7 @@ int f_cmpA1306(const struct A1306 *x, const struct A1306 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1306() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A1306), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A1306));
 		AF('s',struct A1306,m0,1)
 		AF('f',struct A1306,m1,1)
 		AF('S',struct A1306,m2,1)
@@ -25833,7 +25833,7 @@ int f_cmpA1307(const union  A1307 *x, const union  A1307 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1307() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A1307), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A1307));
 		AF('C',union  A1307,m0,1)
 		AF('c',union  A1307,m1,1)
 		AF('d',union  A1307,m2,1)
@@ -25847,7 +25847,7 @@ int f_cmpA1308(const union  A1308 *x, const union  A1308 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1308() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1308), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1308));
 		AF('d',union  A1308,m0,1)
 		AF('L',union  A1308,m1,1)
 		AF('L',union  A1308,m2,1)
@@ -25870,7 +25870,7 @@ int f_cmpA1309(const union  A1309 *x, const union  A1309 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1309() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A1309), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A1309));
 		AF('d',union  A1309,m0,1)
 		AF('j',union  A1309,m1,1)
 		AF('s',union  A1309,m2,1)
@@ -25888,7 +25888,7 @@ int f_cmpA1310(const struct A1310 *x, const struct A1310 *y) { return f_cmpA1306
 DCaggr* f_touchdcstA1310() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1310), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1310));
 		AFa(struct A1310,m0,1,A1306)
 		AF('i',struct A1310,m1,1)
 		AF('p',struct A1310,m2,1)
@@ -25911,7 +25911,7 @@ int f_cmpA1311(const union  A1311 *x, const union  A1311 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1311() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(union  A1311), DC_TRUE);
+		at = dcNewAggr(9, sizeof(union  A1311));
 		AF('i',union  A1311,m0,1)
 		AF('i',union  A1311,m1,1)
 		AF('C',union  A1311,m2,1)
@@ -25931,7 +25931,7 @@ int f_cmpA1312(const struct A1312 *x, const struct A1312 *y) { return f_cmpA1311
 DCaggr* f_touchdcstA1312() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1312), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1312));
 		AFa(struct A1312,m0,1,A1311)
 		AF('J',struct A1312,m1,1)
 		AF('C',struct A1312,m2,1)
@@ -25954,7 +25954,7 @@ int f_cmpA1313(const struct A1313 *x, const struct A1313 *y) { return f_cmpA1305
 DCaggr* f_touchdcstA1313() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(struct A1313), DC_TRUE);
+		at = dcNewAggr(11, sizeof(struct A1313));
 		AFa(struct A1313,m0,1,A1305)
 		AF('i',struct A1313,m1,1)
 		AFa(struct A1313,m2,1,A1310)
@@ -25976,7 +25976,7 @@ int f_cmpA1314(const union  A1314 *x, const union  A1314 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1314() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1314), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1314));
 		AF('d',union  A1314,m0,1)
 		AF('L',union  A1314,m1,1)
 		AF('f',union  A1314,m2,1)
@@ -25999,7 +25999,7 @@ int f_cmpA1315(const struct A1315 *x, const struct A1315 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1315() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A1315), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A1315));
 		AF('I',struct A1315,m0,1)
 		AF('d',struct A1315,m1,5)
 		AF('c',struct A1315,m2,7)
@@ -26019,7 +26019,7 @@ int f_cmpA1316(const union  A1316 *x, const union  A1316 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1316() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1316), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1316));
 		AF('s',union  A1316,m0,1)
 		AF('d',union  A1316,m1,1)
 		AF('C',union  A1316,m2,1)
@@ -26042,7 +26042,7 @@ int f_cmpA1317(const struct A1317 *x, const struct A1317 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1317() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1317), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1317));
 		AF('l',struct A1317,m0,1)
 		AF('i',struct A1317,m1,1)
 		AF('j',struct A1317,m2,1)
@@ -26065,7 +26065,7 @@ int f_cmpA1318(const union  A1318 *x, const union  A1318 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1318() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A1318), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A1318));
 		AF('S',union  A1318,m0,1)
 		AF('J',union  A1318,m1,1)
 		dcCloseAggr(at);
@@ -26078,7 +26078,7 @@ int f_cmpA1319(const struct A1319 *x, const struct A1319 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1319() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A1319), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A1319));
 		AF('I',struct A1319,m0,1)
 		AFa(struct A1319,m1,3,A1317)
 		AFa(struct A1319,m2,1,A1318)
@@ -26092,7 +26092,7 @@ int f_cmpA1320(const union  A1320 *x, const union  A1320 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1320() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1320), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1320));
 		AF('j',union  A1320,m0,1)
 		AF('j',union  A1320,m1,1)
 		AF('C',union  A1320,m2,1)
@@ -26115,7 +26115,7 @@ int f_cmpA1321(const struct A1321 *x, const struct A1321 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1321() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1321), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1321));
 		AF('s',struct A1321,m0,1)
 		AF('f',struct A1321,m1,1)
 		AF('L',struct A1321,m2,1)
@@ -26138,7 +26138,7 @@ int f_cmpA1322(const union  A1322 *x, const union  A1322 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1322() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A1322), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A1322));
 		AF('l',union  A1322,m0,1)
 		AF('C',union  A1322,m1,1)
 		AF('p',union  A1322,m2,1)
@@ -26155,7 +26155,7 @@ int f_cmpA1323(const struct A1323 *x, const struct A1323 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1323() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1323), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1323));
 		AF('s',struct A1323,m0,1)
 		AF('f',struct A1323,m1,1)
 		AF('J',struct A1323,m2,1)
@@ -26178,7 +26178,7 @@ int f_cmpA1324(const union  A1324 *x, const union  A1324 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1324() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1324), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1324));
 		AF('J',union  A1324,m0,1)
 		AFa(union  A1324,m1,1,A1322)
 		AF('j',union  A1324,m2,1)
@@ -26201,7 +26201,7 @@ int f_cmpA1325(const union  A1325 *x, const union  A1325 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1325() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A1325), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A1325));
 		AF('f',union  A1325,m0,1)
 		AF('s',union  A1325,m1,1)
 		AFa(union  A1325,m2,1,A1321)
@@ -26220,7 +26220,7 @@ int f_cmpA1326(const union  A1326 *x, const union  A1326 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1326() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A1326), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A1326));
 		AF('s',union  A1326,m0,1)
 		AF('I',union  A1326,m1,1)
 		AF('p',union  A1326,m2,1)
@@ -26235,7 +26235,7 @@ int f_cmpA1327(const struct A1327 *x, const struct A1327 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1327() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A1327), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A1327));
 		AF('j',struct A1327,m0,1)
 		AF('i',struct A1327,m1,1)
 		dcCloseAggr(at);
@@ -26248,7 +26248,7 @@ int f_cmpA1328(const struct A1328 *x, const struct A1328 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1328() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A1328), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A1328));
 		AF('p',struct A1328,m0,1)
 		AF('i',struct A1328,m1,1)
 		dcCloseAggr(at);
@@ -26261,7 +26261,7 @@ int f_cmpA1329(const struct A1329 *x, const struct A1329 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1329() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(struct A1329), DC_TRUE);
+		at = dcNewAggr(7, sizeof(struct A1329));
 		AF('l',struct A1329,m0,1)
 		AF('p',struct A1329,m1,1)
 		AF('f',struct A1329,m2,1)
@@ -26279,7 +26279,7 @@ int f_cmpA1330(const union  A1330 *x, const union  A1330 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1330() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A1330), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A1330));
 		AF('f',union  A1330,m0,1)
 		AF('d',union  A1330,m1,1)
 		AF('j',union  A1330,m2,1)
@@ -26295,7 +26295,7 @@ int f_cmpA1331(const struct A1331 *x, const struct A1331 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1331() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1331), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1331));
 		AF('f',struct A1331,m0,1)
 		AF('i',struct A1331,m1,1)
 		AF('d',struct A1331,m2,1)
@@ -26318,7 +26318,7 @@ int f_cmpA1332(const union  A1332 *x, const union  A1332 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1332() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1332), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1332));
 		AF('j',union  A1332,m0,1)
 		AF('S',union  A1332,m1,1)
 		AF('c',union  A1332,m2,1)
@@ -26341,7 +26341,7 @@ int f_cmpA1333(const union  A1333 *x, const union  A1333 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1333() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1333), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1333));
 		AF('J',union  A1333,m0,1)
 		AF('C',union  A1333,m1,1)
 		AF('C',union  A1333,m2,10)
@@ -26364,7 +26364,7 @@ int f_cmpA1334(const union  A1334 *x, const union  A1334 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1334() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1334), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1334));
 		AF('f',union  A1334,m0,1)
 		AF('L',union  A1334,m1,1)
 		AF('i',union  A1334,m2,1)
@@ -26387,7 +26387,7 @@ int f_cmpA1335(const struct A1335 *x, const struct A1335 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1335() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1335), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1335));
 		AF('J',struct A1335,m0,1)
 		AF('j',struct A1335,m1,1)
 		AF('j',struct A1335,m2,1)
@@ -26410,7 +26410,7 @@ int f_cmpA1336(const union  A1336 *x, const union  A1336 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1336() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A1336), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A1336));
 		AF('S',union  A1336,m0,1)
 		AF('l',union  A1336,m1,1)
 		AF('p',union  A1336,m2,1)
@@ -26426,7 +26426,7 @@ int f_cmpA1337(const struct A1337 *x, const struct A1337 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1337() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1337), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1337));
 		AF('L',struct A1337,m0,1)
 		AF('C',struct A1337,m1,1)
 		AF('S',struct A1337,m2,1)
@@ -26449,7 +26449,7 @@ int f_cmpA1338(const struct A1338 *x, const struct A1338 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1338() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1338), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1338));
 		AF('i',struct A1338,m0,1)
 		AF('j',struct A1338,m1,1)
 		AF('L',struct A1338,m2,1)
@@ -26472,7 +26472,7 @@ int f_cmpA1339(const struct A1339 *x, const struct A1339 *y) { return x->m0[0] =
 DCaggr* f_touchdcstA1339() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1339), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1339));
 		AF('c',struct A1339,m0,13)
 		AF('c',struct A1339,m1,1)
 		AF('I',struct A1339,m2,1)
@@ -26495,7 +26495,7 @@ int f_cmpA1340(const union  A1340 *x, const union  A1340 *y) { return f_cmpA1339
 DCaggr* f_touchdcstA1340() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A1340), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A1340));
 		AFa(union  A1340,m0,1,A1339)
 		AF('i',union  A1340,m1,1)
 		AF('j',union  A1340,m2,1)
@@ -26514,7 +26514,7 @@ int f_cmpA1341(const union  A1341 *x, const union  A1341 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1341() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A1341), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A1341));
 		AF('J',union  A1341,m0,1)
 		AF('i',union  A1341,m1,1)
 		AF('f',union  A1341,m2,1)
@@ -26528,7 +26528,7 @@ int f_cmpA1342(const struct A1342 *x, const struct A1342 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1342() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1342), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1342));
 		AF('d',struct A1342,m0,1)
 		AF('c',struct A1342,m1,1)
 		AF('d',struct A1342,m2,1)
@@ -26551,7 +26551,7 @@ int f_cmpA1343(const union  A1343 *x, const union  A1343 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1343() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(union  A1343), DC_TRUE);
+		at = dcNewAggr(9, sizeof(union  A1343));
 		AF('d',union  A1343,m0,1)
 		AF('S',union  A1343,m1,1)
 		AF('J',union  A1343,m2,1)
@@ -26571,7 +26571,7 @@ int f_cmpA1344(const struct A1344 *x, const struct A1344 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1344() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1344), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1344));
 		AF('c',struct A1344,m0,1)
 		AF('i',struct A1344,m1,1)
 		AF('I',struct A1344,m2,1)
@@ -26594,7 +26594,7 @@ int f_cmpA1345(const union  A1345 *x, const union  A1345 *y) { return x->m0[0] =
 DCaggr* f_touchdcstA1345() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1345), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1345));
 		AF('L',union  A1345,m0,9)
 		AFa(union  A1345,m1,1,A1344)
 		AF('c',union  A1345,m2,1)
@@ -26617,7 +26617,7 @@ int f_cmpA1346(const union  A1346 *x, const union  A1346 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1346() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A1346), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A1346));
 		AF('J',union  A1346,m0,1)
 		AF('l',union  A1346,m1,1)
 		AF('l',union  A1346,m2,1)
@@ -26634,7 +26634,7 @@ int f_cmpA1347(const struct A1347 *x, const struct A1347 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1347() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A1347), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A1347));
 		AF('j',struct A1347,m0,1)
 		AF('d',struct A1347,m1,1)
 		AF('C',struct A1347,m2,1)
@@ -26648,7 +26648,7 @@ int f_cmpA1348(const struct A1348 *x, const struct A1348 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1348() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1348), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1348));
 		AF('s',struct A1348,m0,1)
 		AFa(struct A1348,m1,1,A1346)
 		AF('l',struct A1348,m2,1)
@@ -26671,7 +26671,7 @@ int f_cmpA1349(const struct A1349 *x, const struct A1349 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1349() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1349), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1349));
 		AF('d',struct A1349,m0,1)
 		AF('d',struct A1349,m1,1)
 		AF('l',struct A1349,m2,1)
@@ -26694,7 +26694,7 @@ int f_cmpA1350(const union  A1350 *x, const union  A1350 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1350() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(union  A1350), DC_TRUE);
+		at = dcNewAggr(9, sizeof(union  A1350));
 		AF('I',union  A1350,m0,1)
 		AF('f',union  A1350,m1,1)
 		AF('J',union  A1350,m2,1)
@@ -26714,7 +26714,7 @@ int f_cmpA1351(const union  A1351 *x, const union  A1351 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1351() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A1351), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A1351));
 		AF('f',union  A1351,m0,1)
 		AF('S',union  A1351,m1,1)
 		AF('C',union  A1351,m2,1)
@@ -26728,7 +26728,7 @@ int f_cmpA1352(const union  A1352 *x, const union  A1352 *y) { return f_cmpA1349
 DCaggr* f_touchdcstA1352() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1352), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1352));
 		AFa(union  A1352,m0,1,A1349)
 		AF('d',union  A1352,m1,1)
 		AF('L',union  A1352,m2,1)
@@ -26751,7 +26751,7 @@ int f_cmpA1353(const union  A1353 *x, const union  A1353 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1353() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1353), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1353));
 		AF('S',union  A1353,m0,1)
 		AF('J',union  A1353,m1,1)
 		AF('l',union  A1353,m2,1)
@@ -26774,7 +26774,7 @@ int f_cmpA1354(const union  A1354 *x, const union  A1354 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1354() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(union  A1354), DC_TRUE);
+		at = dcNewAggr(9, sizeof(union  A1354));
 		AF('i',union  A1354,m0,1)
 		AF('L',union  A1354,m1,1)
 		AF('L',union  A1354,m2,1)
@@ -26794,7 +26794,7 @@ int f_cmpA1355(const struct A1355 *x, const struct A1355 *y) { return f_cmpA1354
 DCaggr* f_touchdcstA1355() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A1355), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A1355));
 		AFa(struct A1355,m0,1,A1354)
 		AF('d',struct A1355,m1,1)
 		dcCloseAggr(at);
@@ -26807,7 +26807,7 @@ int f_cmpA1356(const struct A1356 *x, const struct A1356 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1356() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A1356), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A1356));
 		AF('p',struct A1356,m0,1)
 		AF('l',struct A1356,m1,1)
 		dcCloseAggr(at);
@@ -26820,7 +26820,7 @@ int f_cmpA1357(const union  A1357 *x, const union  A1357 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1357() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1357), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1357));
 		AF('l',union  A1357,m0,1)
 		AF('f',union  A1357,m1,1)
 		AF('l',union  A1357,m2,1)
@@ -26843,7 +26843,7 @@ int f_cmpA1358(const struct A1358 *x, const struct A1358 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1358() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(struct A1358), DC_TRUE);
+		at = dcNewAggr(7, sizeof(struct A1358));
 		AF('p',struct A1358,m0,1)
 		AF('s',struct A1358,m1,1)
 		AF('f',struct A1358,m2,1)
@@ -26861,7 +26861,7 @@ int f_cmpA1359(const struct A1359 *x, const struct A1359 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1359() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A1359), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A1359));
 		AF('S',struct A1359,m0,1)
 		AF('S',struct A1359,m1,1)
 		AF('d',struct A1359,m2,5)
@@ -26878,7 +26878,7 @@ int f_cmpA1360(const union  A1360 *x, const union  A1360 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1360() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A1360), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A1360));
 		AF('S',union  A1360,m0,1)
 		AF('L',union  A1360,m1,1)
 		AF('p',union  A1360,m2,1)
@@ -26892,7 +26892,7 @@ int f_cmpA1361(const struct A1361 *x, const struct A1361 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1361() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(struct A1361), DC_TRUE);
+		at = dcNewAggr(11, sizeof(struct A1361));
 		AF('I',struct A1361,m0,1)
 		AF('J',struct A1361,m1,1)
 		AFa(struct A1361,m2,1,A1355)
@@ -26914,7 +26914,7 @@ int f_cmpA1362(const union  A1362 *x, const union  A1362 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1362() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1362), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1362));
 		AF('C',union  A1362,m0,1)
 		AF('f',union  A1362,m1,1)
 		AF('s',union  A1362,m2,1)
@@ -26937,7 +26937,7 @@ int f_cmpA1363(const union  A1363 *x, const union  A1363 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1363() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1363), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1363));
 		AF('S',union  A1363,m0,1)
 		AF('f',union  A1363,m1,1)
 		AF('i',union  A1363,m2,1)
@@ -26960,7 +26960,7 @@ int f_cmpA1364(const union  A1364 *x, const union  A1364 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1364() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1364), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1364));
 		AF('l',union  A1364,m0,1)
 		AF('d',union  A1364,m1,1)
 		AF('I',union  A1364,m2,1)
@@ -26983,7 +26983,7 @@ int f_cmpA1365(const union  A1365 *x, const union  A1365 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1365() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(union  A1365), DC_TRUE);
+		at = dcNewAggr(11, sizeof(union  A1365));
 		AF('I',union  A1365,m0,1)
 		AF('L',union  A1365,m1,1)
 		AF('f',union  A1365,m2,1)
@@ -27005,7 +27005,7 @@ int f_cmpA1366(const union  A1366 *x, const union  A1366 *y) { return f_cmpA383(
 DCaggr* f_touchdcstA1366() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A1366), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A1366));
 		AFa(union  A1366,m0,1,A383)
 		AF('j',union  A1366,m1,1)
 		AF('i',union  A1366,m2,1)
@@ -27022,7 +27022,7 @@ int f_cmpA1367(const union  A1367 *x, const union  A1367 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1367() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1367), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1367));
 		AF('s',union  A1367,m0,1)
 		AF('J',union  A1367,m1,1)
 		AF('s',union  A1367,m2,1)
@@ -27045,7 +27045,7 @@ int f_cmpA1368(const union  A1368 *x, const union  A1368 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1368() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A1368), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A1368));
 		AF('J',union  A1368,m0,1)
 		AF('i',union  A1368,m1,1)
 		AF('S',union  A1368,m2,1)
@@ -27063,7 +27063,7 @@ int f_cmpA1369(const union  A1369 *x, const union  A1369 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1369() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1369), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1369));
 		AF('f',union  A1369,m0,1)
 		AF('j',union  A1369,m1,1)
 		AF('p',union  A1369,m2,1)
@@ -27086,7 +27086,7 @@ int f_cmpA1370(const struct A1370 *x, const struct A1370 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1370() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A1370), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A1370));
 		AF('p',struct A1370,m0,1)
 		AF('f',struct A1370,m1,1)
 		AF('I',struct A1370,m2,1)
@@ -27100,7 +27100,7 @@ int f_cmpA1371(const union  A1371 *x, const union  A1371 *y) { return x->m0[0] =
 DCaggr* f_touchdcstA1371() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1371), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1371));
 		AF('C',union  A1371,m0,9)
 		AF('J',union  A1371,m1,1)
 		AF('s',union  A1371,m2,1)
@@ -27123,7 +27123,7 @@ int f_cmpA1372(const struct A1372 *x, const struct A1372 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1372() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1372), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1372));
 		AF('s',struct A1372,m0,1)
 		AF('i',struct A1372,m1,1)
 		AF('s',struct A1372,m2,1)
@@ -27146,7 +27146,7 @@ int f_cmpA1373(const struct A1373 *x, const struct A1373 *y) { return x->m0[0] =
 DCaggr* f_touchdcstA1373() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1373), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1373));
 		AF('S',struct A1373,m0,15)
 		AF('j',struct A1373,m1,1)
 		AF('c',struct A1373,m2,1)
@@ -27169,7 +27169,7 @@ int f_cmpA1374(const union  A1374 *x, const union  A1374 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1374() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1374), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1374));
 		AF('L',union  A1374,m0,1)
 		AF('c',union  A1374,m1,1)
 		AF('c',union  A1374,m2,1)
@@ -27192,7 +27192,7 @@ int f_cmpA1375(const union  A1375 *x, const union  A1375 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1375() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A1375), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A1375));
 		AF('i',union  A1375,m0,1)
 		AF('j',union  A1375,m1,1)
 		dcCloseAggr(at);
@@ -27205,7 +27205,7 @@ int f_cmpA1376(const struct A1376 *x, const struct A1376 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1376() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A1376), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A1376));
 		AF('C',struct A1376,m0,1)
 		AF('f',struct A1376,m1,1)
 		AF('L',struct A1376,m2,1)
@@ -27220,7 +27220,7 @@ int f_cmpA1377(const struct A1377 *x, const struct A1377 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1377() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1377), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1377));
 		AF('f',struct A1377,m0,1)
 		AF('d',struct A1377,m1,1)
 		AF('j',struct A1377,m2,1)
@@ -27243,7 +27243,7 @@ int f_cmpA1378(const union  A1378 *x, const union  A1378 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1378() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A1378), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A1378));
 		AF('j',union  A1378,m0,1)
 		AF('J',union  A1378,m1,1)
 		AF('i',union  A1378,m2,1)
@@ -27257,7 +27257,7 @@ int f_cmpA1379(const union  A1379 *x, const union  A1379 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1379() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1379), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1379));
 		AF('c',union  A1379,m0,1)
 		AF('s',union  A1379,m1,1)
 		AF('d',union  A1379,m2,1)
@@ -27280,7 +27280,7 @@ int f_cmpA1380(const struct A1380 *x, const struct A1380 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1380() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(struct A1380), DC_TRUE);
+		at = dcNewAggr(10, sizeof(struct A1380));
 		AF('l',struct A1380,m0,1)
 		AF('l',struct A1380,m1,1)
 		AF('d',struct A1380,m2,1)
@@ -27301,7 +27301,7 @@ int f_cmpA1381(const struct A1381 *x, const struct A1381 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1381() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A1381), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A1381));
 		AF('s',struct A1381,m0,1)
 		AF('L',struct A1381,m1,1)
 		AF('f',struct A1381,m2,1)
@@ -27321,7 +27321,7 @@ int f_cmpA1382(const union  A1382 *x, const union  A1382 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1382() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1382), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1382));
 		AF('S',union  A1382,m0,1)
 		AF('s',union  A1382,m1,1)
 		AF('p',union  A1382,m2,1)
@@ -27344,7 +27344,7 @@ int f_cmpA1383(const union  A1383 *x, const union  A1383 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1383() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1383), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1383));
 		AF('c',union  A1383,m0,1)
 		AF('J',union  A1383,m1,1)
 		AF('d',union  A1383,m2,1)
@@ -27367,7 +27367,7 @@ int f_cmpA1384(const union  A1384 *x, const union  A1384 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1384() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1384), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1384));
 		AF('s',union  A1384,m0,1)
 		AFa(union  A1384,m1,1,A1382)
 		AF('L',union  A1384,m2,1)
@@ -27390,7 +27390,7 @@ int f_cmpA1385(const union  A1385 *x, const union  A1385 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1385() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A1385), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A1385));
 		AF('j',union  A1385,m0,1)
 		AF('I',union  A1385,m1,1)
 		AF('f',union  A1385,m2,1)
@@ -27409,7 +27409,7 @@ int f_cmpA1386(const struct A1386 *x, const struct A1386 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1386() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1386), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1386));
 		AF('c',struct A1386,m0,1)
 		AFa(struct A1386,m1,1,A1385)
 		AF('j',struct A1386,m2,1)
@@ -27432,7 +27432,7 @@ int f_cmpA1387(const union  A1387 *x, const union  A1387 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1387() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A1387), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A1387));
 		AF('c',union  A1387,m0,1)
 		AF('L',union  A1387,m1,1)
 		AF('L',union  A1387,m2,1)
@@ -27449,7 +27449,7 @@ int f_cmpA1388(const struct A1388 *x, const struct A1388 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1388() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1388), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1388));
 		AF('I',struct A1388,m0,1)
 		AF('i',struct A1388,m1,1)
 		AF('f',struct A1388,m2,1)
@@ -27472,7 +27472,7 @@ int f_cmpA1389(const struct A1389 *x, const struct A1389 *y) { return x->m0[0] =
 DCaggr* f_touchdcstA1389() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(struct A1389), DC_TRUE);
+		at = dcNewAggr(1, sizeof(struct A1389));
 		AF('c',struct A1389,m0,10)
 		dcCloseAggr(at);
 	}
@@ -27484,7 +27484,7 @@ int f_cmpA1390(const struct A1390 *x, const struct A1390 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1390() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1390), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1390));
 		AF('p',struct A1390,m0,1)
 		AF('L',struct A1390,m1,1)
 		AF('J',struct A1390,m2,1)
@@ -27507,7 +27507,7 @@ int f_cmpA1391(const struct A1391 *x, const struct A1391 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1391() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1391), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1391));
 		AF('d',struct A1391,m0,1)
 		AF('l',struct A1391,m1,1)
 		AF('I',struct A1391,m2,1)
@@ -27530,7 +27530,7 @@ int f_cmpA1392(const union  A1392 *x, const union  A1392 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1392() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A1392), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A1392));
 		AF('p',union  A1392,m0,1)
 		AF('l',union  A1392,m1,1)
 		AF('j',union  A1392,m2,1)
@@ -27549,7 +27549,7 @@ int f_cmpA1393(const union  A1393 *x, const union  A1393 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1393() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1393), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1393));
 		AF('s',union  A1393,m0,1)
 		AFa(union  A1393,m1,1,A1391)
 		AF('L',union  A1393,m2,1)
@@ -27572,7 +27572,7 @@ int f_cmpA1394(const union  A1394 *x, const union  A1394 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1394() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A1394), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A1394));
 		AF('I',union  A1394,m0,1)
 		AF('d',union  A1394,m1,1)
 		AF('S',union  A1394,m2,1)
@@ -27589,7 +27589,7 @@ int f_cmpA1395(const struct A1395 *x, const struct A1395 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1395() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A1395), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A1395));
 		AF('c',struct A1395,m0,1)
 		AF('C',struct A1395,m1,1)
 		dcCloseAggr(at);
@@ -27602,7 +27602,7 @@ int f_cmpA1396(const struct A1396 *x, const struct A1396 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1396() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(struct A1396), DC_TRUE);
+		at = dcNewAggr(11, sizeof(struct A1396));
 		AF('s',struct A1396,m0,1)
 		AF('S',struct A1396,m1,1)
 		AF('c',struct A1396,m2,1)
@@ -27624,7 +27624,7 @@ int f_cmpA1397(const union  A1397 *x, const union  A1397 *y) { return x->m0[0] =
 DCaggr* f_touchdcstA1397() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A1397), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A1397));
 		AF('p',union  A1397,m0,2)
 		AF('C',union  A1397,m1,1)
 		AF('C',union  A1397,m2,1)
@@ -27643,7 +27643,7 @@ int f_cmpA1398(const struct A1398 *x, const struct A1398 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1398() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1398), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1398));
 		AF('L',struct A1398,m0,1)
 		AF('l',struct A1398,m1,1)
 		AF('S',struct A1398,m2,1)
@@ -27666,7 +27666,7 @@ int f_cmpA1399(const struct A1399 *x, const struct A1399 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1399() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A1399), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A1399));
 		AF('s',struct A1399,m0,1)
 		AF('i',struct A1399,m1,1)
 		AF('l',struct A1399,m2,1)
@@ -27685,7 +27685,7 @@ int f_cmpA1400(const struct A1400 *x, const struct A1400 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1400() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(struct A1400), DC_TRUE);
+		at = dcNewAggr(11, sizeof(struct A1400));
 		AF('S',struct A1400,m0,1)
 		AF('l',struct A1400,m1,1)
 		AF('L',struct A1400,m2,1)
@@ -27707,7 +27707,7 @@ int f_cmpA1401(const struct A1401 *x, const struct A1401 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1401() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1401), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1401));
 		AF('J',struct A1401,m0,1)
 		AF('s',struct A1401,m1,1)
 		AF('l',struct A1401,m2,1)
@@ -27730,7 +27730,7 @@ int f_cmpA1402(const struct A1402 *x, const struct A1402 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1402() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A1402), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A1402));
 		AF('L',struct A1402,m0,1)
 		AF('S',struct A1402,m1,1)
 		AF('i',struct A1402,m2,1)
@@ -27747,7 +27747,7 @@ int f_cmpA1403(const struct A1403 *x, const struct A1403 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1403() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A1403), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A1403));
 		AF('s',struct A1403,m0,1)
 		AF('d',struct A1403,m1,1)
 		AF('p',struct A1403,m2,1)
@@ -27766,7 +27766,7 @@ int f_cmpA1404(const union  A1404 *x, const union  A1404 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1404() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1404), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1404));
 		AF('l',union  A1404,m0,1)
 		AF('S',union  A1404,m1,1)
 		AF('d',union  A1404,m2,1)
@@ -27789,7 +27789,7 @@ int f_cmpA1405(const struct A1405 *x, const struct A1405 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1405() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1405), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1405));
 		AF('S',struct A1405,m0,1)
 		AF('s',struct A1405,m1,1)
 		AF('C',struct A1405,m2,1)
@@ -27812,7 +27812,7 @@ int f_cmpA1406(const union  A1406 *x, const union  A1406 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1406() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A1406), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A1406));
 		AF('S',union  A1406,m0,1)
 		AF('l',union  A1406,m1,1)
 		AF('j',union  A1406,m2,1)
@@ -27830,7 +27830,7 @@ int f_cmpA1407(const struct A1407 *x, const struct A1407 *y) { return x->m0[0] =
 DCaggr* f_touchdcstA1407() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1407), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1407));
 		AF('s',struct A1407,m0,4)
 		AF('j',struct A1407,m1,1)
 		AF('L',struct A1407,m2,1)
@@ -27853,7 +27853,7 @@ int f_cmpA1408(const union  A1408 *x, const union  A1408 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1408() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A1408), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A1408));
 		AF('L',union  A1408,m0,1)
 		AFa(union  A1408,m1,1,A1407)
 		AF('f',union  A1408,m2,1)
@@ -27868,7 +27868,7 @@ int f_cmpA1409(const struct A1409 *x, const struct A1409 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1409() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A1409), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A1409));
 		AF('C',struct A1409,m0,1)
 		AF('p',struct A1409,m1,1)
 		AF('j',struct A1409,m2,1)
@@ -27884,7 +27884,7 @@ int f_cmpA1410(const union  A1410 *x, const union  A1410 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1410() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(union  A1410), DC_TRUE);
+		at = dcNewAggr(9, sizeof(union  A1410));
 		AF('J',union  A1410,m0,1)
 		AF('j',union  A1410,m1,1)
 		AF('c',union  A1410,m2,1)
@@ -27904,7 +27904,7 @@ int f_cmpA1411(const struct A1411 *x, const struct A1411 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1411() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A1411), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A1411));
 		AF('p',struct A1411,m0,1)
 		AF('d',struct A1411,m1,1)
 		AF('S',struct A1411,m2,1)
@@ -27924,7 +27924,7 @@ int f_cmpA1412(const struct A1412 *x, const struct A1412 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1412() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1412), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1412));
 		AF('J',struct A1412,m0,1)
 		AF('f',struct A1412,m1,1)
 		AF('j',struct A1412,m2,1)
@@ -27947,7 +27947,7 @@ int f_cmpA1413(const struct A1413 *x, const struct A1413 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1413() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A1413), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A1413));
 		AF('C',struct A1413,m0,1)
 		AF('I',struct A1413,m1,1)
 		AF('J',struct A1413,m2,1)
@@ -27964,7 +27964,7 @@ int f_cmpA1414(const union  A1414 *x, const union  A1414 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1414() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A1414), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A1414));
 		AF('f',union  A1414,m0,1)
 		AF('d',union  A1414,m1,1)
 		AF('f',union  A1414,m2,1)
@@ -27985,7 +27985,7 @@ int f_cmpA1415(const struct A1415 *x, const struct A1415 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1415() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1415), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1415));
 		AF('j',struct A1415,m0,1)
 		AF('l',struct A1415,m1,1)
 		AF('d',struct A1415,m2,1)
@@ -28008,7 +28008,7 @@ int f_cmpA1416(const struct A1416 *x, const struct A1416 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1416() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1416), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1416));
 		AF('d',struct A1416,m0,1)
 		AFa(struct A1416,m1,1,A1415)
 		AF('p',struct A1416,m2,1)
@@ -28031,7 +28031,7 @@ int f_cmpA1417(const struct A1417 *x, const struct A1417 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1417() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1417), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1417));
 		AF('L',struct A1417,m0,1)
 		AF('l',struct A1417,m1,1)
 		AF('s',struct A1417,m2,1)
@@ -28054,7 +28054,7 @@ int f_cmpA1418(const struct A1418 *x, const struct A1418 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1418() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1418), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1418));
 		AF('d',struct A1418,m0,1)
 		AF('p',struct A1418,m1,1)
 		AF('I',struct A1418,m2,1)
@@ -28077,7 +28077,7 @@ int f_cmpA1419(const struct A1419 *x, const struct A1419 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1419() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1419), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1419));
 		AF('i',struct A1419,m0,1)
 		AF('J',struct A1419,m1,1)
 		AF('l',struct A1419,m2,1)
@@ -28100,7 +28100,7 @@ int f_cmpA1420(const union  A1420 *x, const union  A1420 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1420() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(7, sizeof(union  A1420), DC_TRUE);
+		at = dcNewAggr(7, sizeof(union  A1420));
 		AF('f',union  A1420,m0,1)
 		AF('f',union  A1420,m1,1)
 		AF('J',union  A1420,m2,1)
@@ -28118,7 +28118,7 @@ int f_cmpA1421(const union  A1421 *x, const union  A1421 *y) { return f_cmpA1420
 DCaggr* f_touchdcstA1421() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(union  A1421), DC_TRUE);
+		at = dcNewAggr(9, sizeof(union  A1421));
 		AFa(union  A1421,m0,1,A1420)
 		AF('J',union  A1421,m1,1)
 		AF('p',union  A1421,m2,1)
@@ -28138,7 +28138,7 @@ int f_cmpA1422(const struct A1422 *x, const struct A1422 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1422() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1422), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1422));
 		AF('S',struct A1422,m0,1)
 		AF('J',struct A1422,m1,1)
 		AF('c',struct A1422,m2,1)
@@ -28161,7 +28161,7 @@ int f_cmpA1423(const union  A1423 *x, const union  A1423 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1423() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A1423), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A1423));
 		AF('J',union  A1423,m0,1)
 		AF('d',union  A1423,m1,1)
 		AF('s',union  A1423,m2,1)
@@ -28177,7 +28177,7 @@ int f_cmpA1424(const union  A1424 *x, const union  A1424 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1424() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1424), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1424));
 		AF('s',union  A1424,m0,1)
 		AF('S',union  A1424,m1,1)
 		AF('i',union  A1424,m2,1)
@@ -28200,7 +28200,7 @@ int f_cmpA1425(const struct A1425 *x, const struct A1425 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1425() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1425), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1425));
 		AF('I',struct A1425,m0,1)
 		AF('p',struct A1425,m1,1)
 		AF('S',struct A1425,m2,1)
@@ -28223,7 +28223,7 @@ int f_cmpA1426(const struct A1426 *x, const struct A1426 *y) { return f_cmpA1422
 DCaggr* f_touchdcstA1426() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1426), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1426));
 		AFa(struct A1426,m0,1,A1422)
 		AF('l',struct A1426,m1,1)
 		AF('J',struct A1426,m2,1)
@@ -28246,7 +28246,7 @@ int f_cmpA1427(const union  A1427 *x, const union  A1427 *y) { return f_cmpA1421
 DCaggr* f_touchdcstA1427() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A1427), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A1427));
 		AFa(union  A1427,m0,1,A1421)
 		AF('f',union  A1427,m1,1)
 		AF('f',union  A1427,m2,1)
@@ -28262,7 +28262,7 @@ int f_cmpA1428(const struct A1428 *x, const struct A1428 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1428() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A1428), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A1428));
 		AF('C',struct A1428,m0,1)
 		AF('L',struct A1428,m1,1)
 		AF('j',struct A1428,m2,9)
@@ -28278,7 +28278,7 @@ int f_cmpA1429(const union  A1429 *x, const union  A1429 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1429() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1429), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1429));
 		AF('I',union  A1429,m0,1)
 		AF('d',union  A1429,m1,1)
 		AF('c',union  A1429,m2,1)
@@ -28301,7 +28301,7 @@ int f_cmpA1430(const union  A1430 *x, const union  A1430 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1430() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A1430), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A1430));
 		AF('f',union  A1430,m0,1)
 		AF('J',union  A1430,m1,1)
 		AF('I',union  A1430,m2,1)
@@ -28316,7 +28316,7 @@ int f_cmpA1431(const union  A1431 *x, const union  A1431 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1431() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A1431), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A1431));
 		AF('L',union  A1431,m0,1)
 		AF('s',union  A1431,m1,1)
 		AF('f',union  A1431,m2,1)
@@ -28331,7 +28331,7 @@ int f_cmpA1432(const struct A1432 *x, const struct A1432 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1432() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(struct A1432), DC_TRUE);
+		at = dcNewAggr(2, sizeof(struct A1432));
 		AF('d',struct A1432,m0,1)
 		AF('d',struct A1432,m1,1)
 		dcCloseAggr(at);
@@ -28344,7 +28344,7 @@ int f_cmpA1433(const union  A1433 *x, const union  A1433 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1433() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1433), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1433));
 		AF('p',union  A1433,m0,1)
 		AFa(union  A1433,m1,1,A1430)
 		AFa(union  A1433,m2,1,A1431)
@@ -28367,7 +28367,7 @@ int f_cmpA1434(const union  A1434 *x, const union  A1434 *y) { return x->m0[0] =
 DCaggr* f_touchdcstA1434() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A1434), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A1434));
 		AF('f',union  A1434,m0,6)
 		AFa(union  A1434,m1,1,A1429)
 		AF('I',union  A1434,m2,1)
@@ -28382,7 +28382,7 @@ int f_cmpA1435(const union  A1435 *x, const union  A1435 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1435() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1435), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1435));
 		AF('I',union  A1435,m0,1)
 		AF('p',union  A1435,m1,1)
 		AF('f',union  A1435,m2,1)
@@ -28405,7 +28405,7 @@ int f_cmpA1436(const union  A1436 *x, const union  A1436 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1436() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1436), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1436));
 		AF('S',union  A1436,m0,1)
 		AF('j',union  A1436,m1,1)
 		AF('l',union  A1436,m2,1)
@@ -28428,7 +28428,7 @@ int f_cmpA1437(const struct A1437 *x, const struct A1437 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1437() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A1437), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A1437));
 		AF('c',struct A1437,m0,1)
 		AFa(struct A1437,m1,1,A1436)
 		AF('i',struct A1437,m2,1)
@@ -28443,7 +28443,7 @@ int f_cmpA1438(const union  A1438 *x, const union  A1438 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1438() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A1438), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A1438));
 		AF('L',union  A1438,m0,1)
 		AF('d',union  A1438,m1,14)
 		AF('d',union  A1438,m2,1)
@@ -28459,7 +28459,7 @@ int f_cmpA1439(const struct A1439 *x, const struct A1439 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1439() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A1439), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A1439));
 		AF('f',struct A1439,m0,1)
 		AF('s',struct A1439,m1,1)
 		AF('p',struct A1439,m2,1)
@@ -28478,7 +28478,7 @@ int f_cmpA1440(const union  A1440 *x, const union  A1440 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1440() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1440), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1440));
 		AF('I',union  A1440,m0,1)
 		AF('p',union  A1440,m1,1)
 		AF('d',union  A1440,m2,1)
@@ -28501,7 +28501,7 @@ int f_cmpA1441(const union  A1441 *x, const union  A1441 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1441() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A1441), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A1441));
 		AF('d',union  A1441,m0,1)
 		AFa(union  A1441,m1,1,A148)
 		AF('I',union  A1441,m2,1)
@@ -28518,7 +28518,7 @@ int f_cmpA1442(const union  A1442 *x, const union  A1442 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1442() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1442), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1442));
 		AF('I',union  A1442,m0,1)
 		AF('i',union  A1442,m1,1)
 		AF('f',union  A1442,m2,1)
@@ -28541,7 +28541,7 @@ int f_cmpA1443(const union  A1443 *x, const union  A1443 *y) { return f_cmpA1442
 DCaggr* f_touchdcstA1443() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A1443), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A1443));
 		AFa(union  A1443,m0,1,A1442)
 		AF('C',union  A1443,m1,1)
 		AF('j',union  A1443,m2,1)
@@ -28555,7 +28555,7 @@ int f_cmpA1444(const union  A1444 *x, const union  A1444 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1444() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A1444), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A1444));
 		AF('J',union  A1444,m0,1)
 		AF('f',union  A1444,m1,1)
 		AF('I',union  A1444,m2,1)
@@ -28571,7 +28571,7 @@ int f_cmpA1445(const struct A1445 *x, const struct A1445 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1445() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1445), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1445));
 		AF('C',struct A1445,m0,1)
 		AF('p',struct A1445,m1,1)
 		AF('I',struct A1445,m2,1)
@@ -28594,7 +28594,7 @@ int f_cmpA1446(const struct A1446 *x, const struct A1446 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1446() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1446), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1446));
 		AF('d',struct A1446,m0,1)
 		AF('l',struct A1446,m1,1)
 		AF('d',struct A1446,m2,1)
@@ -28617,7 +28617,7 @@ int f_cmpA1447(const struct A1447 *x, const struct A1447 *y) { return f_cmpA1440
 DCaggr* f_touchdcstA1447() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1447), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1447));
 		AFa(struct A1447,m0,1,A1440)
 		AFa(struct A1447,m1,1,A1441)
 		AFa(struct A1447,m2,1,A1443)
@@ -28640,7 +28640,7 @@ int f_cmpA1448(const struct A1448 *x, const struct A1448 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1448() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1448), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1448));
 		AF('J',struct A1448,m0,1)
 		AF('s',struct A1448,m1,1)
 		AF('L',struct A1448,m2,1)
@@ -28663,7 +28663,7 @@ int f_cmpA1449(const union  A1449 *x, const union  A1449 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1449() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A1449), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A1449));
 		AF('J',union  A1449,m0,1)
 		AF('I',union  A1449,m1,1)
 		AF('J',union  A1449,m2,1)
@@ -28677,7 +28677,7 @@ int f_cmpA1450(const union  A1450 *x, const union  A1450 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1450() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A1450), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A1450));
 		AF('p',union  A1450,m0,1)
 		AF('d',union  A1450,m1,1)
 		AF('l',union  A1450,m2,1)
@@ -28692,7 +28692,7 @@ int f_cmpA1451(const struct A1451 *x, const struct A1451 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1451() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1451), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1451));
 		AF('f',struct A1451,m0,1)
 		AFa(struct A1451,m1,1,A1450)
 		AF('f',struct A1451,m2,1)
@@ -28715,7 +28715,7 @@ int f_cmpA1452(const union  A1452 *x, const union  A1452 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1452() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1452), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1452));
 		AF('l',union  A1452,m0,1)
 		AF('p',union  A1452,m1,1)
 		AF('C',union  A1452,m2,1)
@@ -28738,7 +28738,7 @@ int f_cmpA1453(const struct A1453 *x, const struct A1453 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1453() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A1453), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A1453));
 		AF('C',struct A1453,m0,1)
 		AF('d',struct A1453,m1,1)
 		AF('l',struct A1453,m2,1)
@@ -28753,7 +28753,7 @@ int f_cmpA1454(const union  A1454 *x, const union  A1454 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1454() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A1454), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A1454));
 		AF('S',union  A1454,m0,1)
 		AF('c',union  A1454,m1,1)
 		AF('j',union  A1454,m2,1)
@@ -28768,7 +28768,7 @@ int f_cmpA1455(const union  A1455 *x, const union  A1455 *y) { return f_cmpA1452
 DCaggr* f_touchdcstA1455() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1455), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1455));
 		AFa(union  A1455,m0,1,A1452)
 		AF('j',union  A1455,m1,1)
 		AF('d',union  A1455,m2,1)
@@ -28791,7 +28791,7 @@ int f_cmpA1456(const union  A1456 *x, const union  A1456 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1456() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(union  A1456), DC_TRUE);
+		at = dcNewAggr(9, sizeof(union  A1456));
 		AF('f',union  A1456,m0,1)
 		AF('C',union  A1456,m1,1)
 		AF('j',union  A1456,m2,1)
@@ -28811,7 +28811,7 @@ int f_cmpA1457(const struct A1457 *x, const struct A1457 *y) { return f_cmpA1456
 DCaggr* f_touchdcstA1457() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A1457), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A1457));
 		AFa(struct A1457,m0,1,A1456)
 		AF('l',struct A1457,m1,1)
 		AF('d',struct A1457,m2,1)
@@ -28825,7 +28825,7 @@ int f_cmpA1458(const union  A1458 *x, const union  A1458 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1458() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1458), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1458));
 		AF('s',union  A1458,m0,1)
 		AF('J',union  A1458,m1,1)
 		AF('l',union  A1458,m2,1)
@@ -28848,7 +28848,7 @@ int f_cmpA1459(const union  A1459 *x, const union  A1459 *y) { return x->m0[0] =
 DCaggr* f_touchdcstA1459() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(1, sizeof(union  A1459), DC_TRUE);
+		at = dcNewAggr(1, sizeof(union  A1459));
 		AF('l',union  A1459,m0,2)
 		dcCloseAggr(at);
 	}
@@ -28860,7 +28860,7 @@ int f_cmpA1460(const union  A1460 *x, const union  A1460 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1460() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A1460), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A1460));
 		AF('i',union  A1460,m0,1)
 		AF('f',union  A1460,m1,1)
 		AF('J',union  A1460,m2,1)
@@ -28881,7 +28881,7 @@ int f_cmpA1461(const union  A1461 *x, const union  A1461 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1461() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1461), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1461));
 		AF('f',union  A1461,m0,1)
 		AF('L',union  A1461,m1,1)
 		AF('I',union  A1461,m2,1)
@@ -28904,7 +28904,7 @@ int f_cmpA1462(const struct A1462 *x, const struct A1462 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1462() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1462), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1462));
 		AF('i',struct A1462,m0,1)
 		AF('S',struct A1462,m1,1)
 		AF('s',struct A1462,m2,1)
@@ -28927,7 +28927,7 @@ int f_cmpA1463(const struct A1463 *x, const struct A1463 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1463() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1463), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1463));
 		AF('s',struct A1463,m0,1)
 		AF('S',struct A1463,m1,1)
 		AF('C',struct A1463,m2,1)
@@ -28950,7 +28950,7 @@ int f_cmpA1464(const struct A1464 *x, const struct A1464 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1464() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(struct A1464), DC_TRUE);
+		at = dcNewAggr(10, sizeof(struct A1464));
 		AF('C',struct A1464,m0,1)
 		AF('I',struct A1464,m1,1)
 		AF('L',struct A1464,m2,1)
@@ -28971,7 +28971,7 @@ int f_cmpA1465(const struct A1465 *x, const struct A1465 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1465() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(struct A1465), DC_TRUE);
+		at = dcNewAggr(3, sizeof(struct A1465));
 		AF('p',struct A1465,m0,1)
 		AF('C',struct A1465,m1,1)
 		AF('d',struct A1465,m2,1)
@@ -28985,7 +28985,7 @@ int f_cmpA1466(const union  A1466 *x, const union  A1466 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1466() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A1466), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A1466));
 		AF('d',union  A1466,m0,1)
 		AFa(union  A1466,m1,1,A378)
 		AF('d',union  A1466,m2,1)
@@ -29006,7 +29006,7 @@ int f_cmpA1467(const union  A1467 *x, const union  A1467 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1467() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1467), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1467));
 		AF('L',union  A1467,m0,1)
 		AF('I',union  A1467,m1,1)
 		AF('i',union  A1467,m2,1)
@@ -29029,7 +29029,7 @@ int f_cmpA1468(const struct A1468 *x, const struct A1468 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1468() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1468), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1468));
 		AF('i',struct A1468,m0,1)
 		AF('L',struct A1468,m1,1)
 		AF('c',struct A1468,m2,1)
@@ -29052,7 +29052,7 @@ int f_cmpA1469(const union  A1469 *x, const union  A1469 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1469() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A1469), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A1469));
 		AF('I',union  A1469,m0,1)
 		AFa(union  A1469,m1,1,A1466)
 		AFa(union  A1469,m2,1,A1467)
@@ -29071,7 +29071,7 @@ int f_cmpA1470(const struct A1470 *x, const struct A1470 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1470() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1470), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1470));
 		AF('f',struct A1470,m0,1)
 		AF('f',struct A1470,m1,1)
 		AF('p',struct A1470,m2,1)
@@ -29094,7 +29094,7 @@ int f_cmpA1471(const struct A1471 *x, const struct A1471 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1471() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1471), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1471));
 		AF('S',struct A1471,m0,1)
 		AF('d',struct A1471,m1,1)
 		AF('C',struct A1471,m2,1)
@@ -29117,7 +29117,7 @@ int f_cmpA1472(const union  A1472 *x, const union  A1472 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1472() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1472), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1472));
 		AF('L',union  A1472,m0,1)
 		AF('s',union  A1472,m1,1)
 		AF('L',union  A1472,m2,1)
@@ -29140,7 +29140,7 @@ int f_cmpA1473(const union  A1473 *x, const union  A1473 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1473() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1473), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1473));
 		AF('l',union  A1473,m0,1)
 		AF('l',union  A1473,m1,1)
 		AF('d',union  A1473,m2,1)
@@ -29163,7 +29163,7 @@ int f_cmpA1474(const struct A1474 *x, const struct A1474 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1474() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1474), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1474));
 		AF('I',struct A1474,m0,1)
 		AF('s',struct A1474,m1,1)
 		AF('s',struct A1474,m2,1)
@@ -29186,7 +29186,7 @@ int f_cmpA1475(const struct A1475 *x, const struct A1475 *y) { return f_cmpA1471
 DCaggr* f_touchdcstA1475() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(struct A1475), DC_TRUE);
+		at = dcNewAggr(11, sizeof(struct A1475));
 		AFa(struct A1475,m0,1,A1471)
 		AFa(struct A1475,m1,1,A1472)
 		AF('i',struct A1475,m2,1)
@@ -29208,7 +29208,7 @@ int f_cmpA1476(const struct A1476 *x, const struct A1476 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1476() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1476), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1476));
 		AF('l',struct A1476,m0,1)
 		AF('s',struct A1476,m1,1)
 		AF('j',struct A1476,m2,1)
@@ -29231,7 +29231,7 @@ int f_cmpA1477(const struct A1477 *x, const struct A1477 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1477() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A1477), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A1477));
 		AF('S',struct A1477,m0,1)
 		AF('S',struct A1477,m1,1)
 		AF('i',struct A1477,m2,1)
@@ -29248,7 +29248,7 @@ int f_cmpA1478(const struct A1478 *x, const struct A1478 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1478() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A1478), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A1478));
 		AF('c',struct A1478,m0,1)
 		AF('f',struct A1478,m1,1)
 		AFa(struct A1478,m2,1,A1476)
@@ -29263,7 +29263,7 @@ int f_cmpA1479(const struct A1479 *x, const struct A1479 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1479() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A1479), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A1479));
 		AF('f',struct A1479,m0,1)
 		AF('I',struct A1479,m1,1)
 		AF('I',struct A1479,m2,1)
@@ -29282,7 +29282,7 @@ int f_cmpA1480(const struct A1480 *x, const struct A1480 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1480() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1480), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1480));
 		AF('s',struct A1480,m0,1)
 		AFa(struct A1480,m1,1,A1475)
 		AFa(struct A1480,m2,1,A1478)
@@ -29305,7 +29305,7 @@ int f_cmpA1481(const union  A1481 *x, const union  A1481 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1481() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A1481), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A1481));
 		AF('S',union  A1481,m0,1)
 		AF('f',union  A1481,m1,1)
 		AF('c',union  A1481,m2,1)
@@ -29326,7 +29326,7 @@ int f_cmpA1482(const union  A1482 *x, const union  A1482 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1482() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A1482), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A1482));
 		AF('S',union  A1482,m0,1)
 		AF('C',union  A1482,m1,1)
 		AF('S',union  A1482,m2,1)
@@ -29345,7 +29345,7 @@ int f_cmpA1483(const union  A1483 *x, const union  A1483 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1483() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1483), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1483));
 		AF('f',union  A1483,m0,1)
 		AF('s',union  A1483,m1,7)
 		AF('j',union  A1483,m2,1)
@@ -29368,7 +29368,7 @@ int f_cmpA1484(const struct A1484 *x, const struct A1484 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1484() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1484), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1484));
 		AF('l',struct A1484,m0,1)
 		AF('C',struct A1484,m1,1)
 		AF('s',struct A1484,m2,1)
@@ -29391,7 +29391,7 @@ int f_cmpA1485(const union  A1485 *x, const union  A1485 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1485() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(union  A1485), DC_TRUE);
+		at = dcNewAggr(8, sizeof(union  A1485));
 		AF('S',union  A1485,m0,1)
 		AF('l',union  A1485,m1,1)
 		AF('i',union  A1485,m2,1)
@@ -29410,7 +29410,7 @@ int f_cmpA1486(const struct A1486 *x, const struct A1486 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1486() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A1486), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A1486));
 		AF('f',struct A1486,m0,1)
 		AF('I',struct A1486,m1,1)
 		AF('s',struct A1486,m2,1)
@@ -29427,7 +29427,7 @@ int f_cmpA1487(const union  A1487 *x, const union  A1487 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1487() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1487), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1487));
 		AF('I',union  A1487,m0,1)
 		AF('d',union  A1487,m1,1)
 		AF('l',union  A1487,m2,1)
@@ -29450,7 +29450,7 @@ int f_cmpA1488(const struct A1488 *x, const struct A1488 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1488() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1488), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1488));
 		AF('j',struct A1488,m0,1)
 		AFa(struct A1488,m1,1,A1486)
 		AF('J',struct A1488,m2,1)
@@ -29473,7 +29473,7 @@ int f_cmpA1489(const struct A1489 *x, const struct A1489 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1489() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1489), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1489));
 		AF('S',struct A1489,m0,1)
 		AF('i',struct A1489,m1,1)
 		AF('j',struct A1489,m2,1)
@@ -29496,7 +29496,7 @@ int f_cmpA1490(const union  A1490 *x, const union  A1490 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1490() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A1490), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A1490));
 		AF('J',union  A1490,m0,1)
 		AF('l',union  A1490,m1,1)
 		AF('C',union  A1490,m2,1)
@@ -29510,7 +29510,7 @@ int f_cmpA1491(const struct A1491 *x, const struct A1491 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1491() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A1491), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A1491));
 		AF('f',struct A1491,m0,1)
 		AF('l',struct A1491,m1,1)
 		AF('i',struct A1491,m2,1)
@@ -29526,7 +29526,7 @@ int f_cmpA1492(const union  A1492 *x, const union  A1492 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1492() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1492), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1492));
 		AF('C',union  A1492,m0,1)
 		AF('J',union  A1492,m1,1)
 		AF('j',union  A1492,m2,1)
@@ -29549,7 +29549,7 @@ int f_cmpA1493(const struct A1493 *x, const struct A1493 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1493() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A1493), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A1493));
 		AF('d',struct A1493,m0,1)
 		AF('C',struct A1493,m1,1)
 		AF('L',struct A1493,m2,1)
@@ -29569,7 +29569,7 @@ int f_cmpA1494(const struct A1494 *x, const struct A1494 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1494() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1494), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1494));
 		AF('j',struct A1494,m0,1)
 		AF('j',struct A1494,m1,1)
 		AF('s',struct A1494,m2,1)
@@ -29592,7 +29592,7 @@ int f_cmpA1495(const union  A1495 *x, const union  A1495 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1495() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A1495), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A1495));
 		AF('J',union  A1495,m0,1)
 		AF('d',union  A1495,m1,1)
 		AF('c',union  A1495,m2,1)
@@ -29609,7 +29609,7 @@ int f_cmpA1496(const struct A1496 *x, const struct A1496 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1496() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A1496), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A1496));
 		AF('c',struct A1496,m0,1)
 		AF('f',struct A1496,m1,1)
 		AF('s',struct A1496,m2,1)
@@ -29625,7 +29625,7 @@ int f_cmpA1497(const struct A1497 *x, const struct A1497 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1497() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(struct A1497), DC_TRUE);
+		at = dcNewAggr(4, sizeof(struct A1497));
 		AF('J',struct A1497,m0,1)
 		AF('I',struct A1497,m1,1)
 		AF('d',struct A1497,m2,1)
@@ -29640,7 +29640,7 @@ int f_cmpA1498(const struct A1498 *x, const struct A1498 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1498() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A1498), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A1498));
 		AF('S',struct A1498,m0,1)
 		AF('p',struct A1498,m1,1)
 		AF('d',struct A1498,m2,1)
@@ -29657,7 +29657,7 @@ int f_cmpA1499(const struct A1499 *x, const struct A1499 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1499() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A1499), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A1499));
 		AF('f',struct A1499,m0,1)
 		AF('s',struct A1499,m1,1)
 		AFa(struct A1499,m2,1,A1498)
@@ -29676,7 +29676,7 @@ int f_cmpA1500(const union  A1500 *x, const union  A1500 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1500() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1500), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1500));
 		AF('i',union  A1500,m0,1)
 		AF('p',union  A1500,m1,1)
 		AF('j',union  A1500,m2,1)
@@ -29699,7 +29699,7 @@ int f_cmpA1501(const union  A1501 *x, const union  A1501 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1501() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A1501), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A1501));
 		AF('J',union  A1501,m0,1)
 		AF('i',union  A1501,m1,1)
 		dcCloseAggr(at);
@@ -29712,7 +29712,7 @@ int f_cmpA1502(const union  A1502 *x, const union  A1502 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1502() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A1502), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A1502));
 		AF('s',union  A1502,m0,1)
 		AF('f',union  A1502,m1,1)
 		AF('j',union  A1502,m2,1)
@@ -29729,7 +29729,7 @@ int f_cmpA1503(const struct A1503 *x, const struct A1503 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1503() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(11, sizeof(struct A1503), DC_TRUE);
+		at = dcNewAggr(11, sizeof(struct A1503));
 		AF('l',struct A1503,m0,1)
 		AF('l',struct A1503,m1,1)
 		AF('J',struct A1503,m2,1)
@@ -29751,7 +29751,7 @@ int f_cmpA1504(const struct A1504 *x, const struct A1504 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1504() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A1504), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A1504));
 		AF('f',struct A1504,m0,1)
 		AF('J',struct A1504,m1,1)
 		AF('l',struct A1504,m2,1)
@@ -29771,7 +29771,7 @@ int f_cmpA1505(const union  A1505 *x, const union  A1505 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1505() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A1505), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A1505));
 		AF('L',union  A1505,m0,1)
 		AF('p',union  A1505,m1,1)
 		AF('d',union  A1505,m2,1)
@@ -29788,7 +29788,7 @@ int f_cmpA1506(const union  A1506 *x, const union  A1506 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1506() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A1506), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A1506));
 		AF('d',union  A1506,m0,1)
 		AF('I',union  A1506,m1,1)
 		AF('s',union  A1506,m2,1)
@@ -29804,7 +29804,7 @@ int f_cmpA1507(const struct A1507 *x, const struct A1507 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1507() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(struct A1507), DC_TRUE);
+		at = dcNewAggr(10, sizeof(struct A1507));
 		AF('l',struct A1507,m0,1)
 		AF('S',struct A1507,m1,1)
 		AF('S',struct A1507,m2,1)
@@ -29825,7 +29825,7 @@ int f_cmpA1508(const union  A1508 *x, const union  A1508 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1508() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1508), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1508));
 		AF('S',union  A1508,m0,1)
 		AF('l',union  A1508,m1,1)
 		AF('s',union  A1508,m2,1)
@@ -29848,7 +29848,7 @@ int f_cmpA1509(const struct A1509 *x, const struct A1509 *y) { return f_cmpA36(&
 DCaggr* f_touchdcstA1509() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1509), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1509));
 		AFa(struct A1509,m0,1,A36)
 		AF('I',struct A1509,m1,1)
 		AFa(struct A1509,m2,1,A1507)
@@ -29871,7 +29871,7 @@ int f_cmpA1510(const struct A1510 *x, const struct A1510 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1510() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1510), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1510));
 		AF('I',struct A1510,m0,1)
 		AFa(struct A1510,m1,1,A1509)
 		AF('c',struct A1510,m2,1)
@@ -29894,7 +29894,7 @@ int f_cmpA1511(const struct A1511 *x, const struct A1511 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1511() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(struct A1511), DC_TRUE);
+		at = dcNewAggr(5, sizeof(struct A1511));
 		AF('I',struct A1511,m0,1)
 		AF('l',struct A1511,m1,1)
 		AF('d',struct A1511,m2,1)
@@ -29910,7 +29910,7 @@ int f_cmpA1512(const struct A1512 *x, const struct A1512 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1512() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(9, sizeof(struct A1512), DC_TRUE);
+		at = dcNewAggr(9, sizeof(struct A1512));
 		AF('j',struct A1512,m0,1)
 		AF('S',struct A1512,m1,1)
 		AF('l',struct A1512,m2,1)
@@ -29930,7 +29930,7 @@ int f_cmpA1513(const union  A1513 *x, const union  A1513 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1513() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1513), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1513));
 		AF('l',union  A1513,m0,1)
 		AF('L',union  A1513,m1,1)
 		AF('d',union  A1513,m2,1)
@@ -29953,7 +29953,7 @@ int f_cmpA1514(const struct A1514 *x, const struct A1514 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1514() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1514), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1514));
 		AF('l',struct A1514,m0,1)
 		AF('c',struct A1514,m1,1)
 		AF('L',struct A1514,m2,1)
@@ -29976,7 +29976,7 @@ int f_cmpA1515(const struct A1515 *x, const struct A1515 *y) { return x->m0[0] =
 DCaggr* f_touchdcstA1515() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1515), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1515));
 		AF('p',struct A1515,m0,16)
 		AF('L',struct A1515,m1,1)
 		AF('L',struct A1515,m2,1)
@@ -29999,7 +29999,7 @@ int f_cmpA1516(const union  A1516 *x, const union  A1516 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1516() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1516), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1516));
 		AF('i',union  A1516,m0,1)
 		AF('i',union  A1516,m1,1)
 		AF('j',union  A1516,m2,1)
@@ -30022,7 +30022,7 @@ int f_cmpA1517(const struct A1517 *x, const struct A1517 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1517() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1517), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1517));
 		AF('c',struct A1517,m0,1)
 		AF('i',struct A1517,m1,1)
 		AF('p',struct A1517,m2,1)
@@ -30045,7 +30045,7 @@ int f_cmpA1518(const union  A1518 *x, const union  A1518 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1518() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A1518), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A1518));
 		AF('f',union  A1518,m0,1)
 		AF('d',union  A1518,m1,1)
 		AF('s',union  A1518,m2,1)
@@ -30059,7 +30059,7 @@ int f_cmpA1519(const struct A1519 *x, const struct A1519 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1519() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(struct A1519), DC_TRUE);
+		at = dcNewAggr(10, sizeof(struct A1519));
 		AF('p',struct A1519,m0,1)
 		AF('S',struct A1519,m1,1)
 		AF('i',struct A1519,m2,1)
@@ -30080,7 +30080,7 @@ int f_cmpA1520(const union  A1520 *x, const union  A1520 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1520() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1520), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1520));
 		AF('I',union  A1520,m0,1)
 		AF('J',union  A1520,m1,1)
 		AF('S',union  A1520,m2,1)
@@ -30103,7 +30103,7 @@ int f_cmpA1521(const struct A1521 *x, const struct A1521 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1521() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1521), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1521));
 		AF('I',struct A1521,m0,1)
 		AF('i',struct A1521,m1,1)
 		AF('j',struct A1521,m2,1)
@@ -30126,7 +30126,7 @@ int f_cmpA1522(const struct A1522 *x, const struct A1522 *y) { return x->m0[0] =
 DCaggr* f_touchdcstA1522() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1522), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1522));
 		AF('i',struct A1522,m0,5)
 		AFa(struct A1522,m1,1,A1518)
 		AF('S',struct A1522,m2,1)
@@ -30149,7 +30149,7 @@ int f_cmpA1523(const struct A1523 *x, const struct A1523 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1523() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1523), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1523));
 		AF('i',struct A1523,m0,1)
 		AF('j',struct A1523,m1,1)
 		AFa(struct A1523,m2,1,A1514)
@@ -30172,7 +30172,7 @@ int f_cmpA1524(const struct A1524 *x, const struct A1524 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1524() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(8, sizeof(struct A1524), DC_TRUE);
+		at = dcNewAggr(8, sizeof(struct A1524));
 		AF('S',struct A1524,m0,1)
 		AF('j',struct A1524,m1,1)
 		AF('J',struct A1524,m2,1)
@@ -30191,7 +30191,7 @@ int f_cmpA1525(const union  A1525 *x, const union  A1525 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1525() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1525), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1525));
 		AF('L',union  A1525,m0,1)
 		AF('d',union  A1525,m1,1)
 		AF('j',union  A1525,m2,1)
@@ -30214,7 +30214,7 @@ int f_cmpA1526(const struct A1526 *x, const struct A1526 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1526() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1526), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1526));
 		AF('C',struct A1526,m0,1)
 		AFa(struct A1526,m1,1,A1525)
 		AF('i',struct A1526,m2,1)
@@ -30237,7 +30237,7 @@ int f_cmpA1527(const struct A1527 *x, const struct A1527 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1527() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1527), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1527));
 		AF('s',struct A1527,m0,1)
 		AF('S',struct A1527,m1,1)
 		AF('J',struct A1527,m2,1)
@@ -30260,7 +30260,7 @@ int f_cmpA1528(const struct A1528 *x, const struct A1528 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1528() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1528), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1528));
 		AF('c',struct A1528,m0,1)
 		AF('S',struct A1528,m1,1)
 		AF('S',struct A1528,m2,1)
@@ -30283,7 +30283,7 @@ int f_cmpA1529(const union  A1529 *x, const union  A1529 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1529() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(5, sizeof(union  A1529), DC_TRUE);
+		at = dcNewAggr(5, sizeof(union  A1529));
 		AF('S',union  A1529,m0,1)
 		AF('j',union  A1529,m1,1)
 		AF('C',union  A1529,m2,1)
@@ -30299,7 +30299,7 @@ int f_cmpA1530(const union  A1530 *x, const union  A1530 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1530() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A1530), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A1530));
 		AF('L',union  A1530,m0,1)
 		AF('l',union  A1530,m1,1)
 		dcCloseAggr(at);
@@ -30312,7 +30312,7 @@ int f_cmpA1531(const union  A1531 *x, const union  A1531 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1531() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A1531), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A1531));
 		AF('d',union  A1531,m0,1)
 		AF('s',union  A1531,m1,1)
 		dcCloseAggr(at);
@@ -30325,7 +30325,7 @@ int f_cmpA1532(const struct A1532 *x, const struct A1532 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1532() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A1532), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A1532));
 		AF('L',struct A1532,m0,1)
 		AF('l',struct A1532,m1,1)
 		AF('f',struct A1532,m2,1)
@@ -30342,7 +30342,7 @@ int f_cmpA1533(const union  A1533 *x, const union  A1533 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1533() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A1533), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A1533));
 		AF('d',union  A1533,m0,1)
 		AF('c',union  A1533,m1,1)
 		AF('S',union  A1533,m2,11)
@@ -30363,7 +30363,7 @@ int f_cmpA1534(const union  A1534 *x, const union  A1534 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1534() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(3, sizeof(union  A1534), DC_TRUE);
+		at = dcNewAggr(3, sizeof(union  A1534));
 		AF('f',union  A1534,m0,1)
 		AF('i',union  A1534,m1,1)
 		AF('i',union  A1534,m2,1)
@@ -30377,7 +30377,7 @@ int f_cmpA1535(const struct A1535 *x, const struct A1535 *y) { return f_cmpA1534
 DCaggr* f_touchdcstA1535() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1535), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1535));
 		AFa(struct A1535,m0,1,A1534)
 		AF('s',struct A1535,m1,1)
 		AF('C',struct A1535,m2,1)
@@ -30400,7 +30400,7 @@ int f_cmpA1536(const union  A1536 *x, const union  A1536 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1536() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1536), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1536));
 		AF('d',union  A1536,m0,1)
 		AF('J',union  A1536,m1,1)
 		AF('d',union  A1536,m2,1)
@@ -30423,7 +30423,7 @@ int f_cmpA1537(const struct A1537 *x, const struct A1537 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1537() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A1537), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A1537));
 		AF('L',struct A1537,m0,1)
 		AF('i',struct A1537,m1,1)
 		AF('p',struct A1537,m2,1)
@@ -30440,7 +30440,7 @@ int f_cmpA1538(const struct A1538 *x, const struct A1538 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1538() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1538), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1538));
 		AF('L',struct A1538,m0,1)
 		AF('S',struct A1538,m1,1)
 		AF('s',struct A1538,m2,1)
@@ -30463,7 +30463,7 @@ int f_cmpA1539(const struct A1539 *x, const struct A1539 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1539() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(struct A1539), DC_TRUE);
+		at = dcNewAggr(6, sizeof(struct A1539));
 		AF('s',struct A1539,m0,1)
 		AF('p',struct A1539,m1,1)
 		AF('s',struct A1539,m2,1)
@@ -30480,7 +30480,7 @@ int f_cmpA1540(const union  A1540 *x, const union  A1540 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1540() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(10, sizeof(union  A1540), DC_TRUE);
+		at = dcNewAggr(10, sizeof(union  A1540));
 		AF('i',union  A1540,m0,1)
 		AF('c',union  A1540,m1,1)
 		AF('J',union  A1540,m2,1)
@@ -30501,7 +30501,7 @@ int f_cmpA1541(const union  A1541 *x, const union  A1541 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1541() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(2, sizeof(union  A1541), DC_TRUE);
+		at = dcNewAggr(2, sizeof(union  A1541));
 		AF('d',union  A1541,m0,1)
 		AF('S',union  A1541,m1,1)
 		dcCloseAggr(at);
@@ -30514,7 +30514,7 @@ int f_cmpA1542(const union  A1542 *x, const union  A1542 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1542() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(6, sizeof(union  A1542), DC_TRUE);
+		at = dcNewAggr(6, sizeof(union  A1542));
 		AF('p',union  A1542,m0,1)
 		AF('c',union  A1542,m1,1)
 		AF('p',union  A1542,m2,2)
@@ -30531,7 +30531,7 @@ int f_cmpA1543(const struct A1543 *x, const struct A1543 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1543() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(struct A1543), DC_TRUE);
+		at = dcNewAggr(12, sizeof(struct A1543));
 		AF('C',struct A1543,m0,1)
 		AF('I',struct A1543,m1,1)
 		AFa(struct A1543,m2,1,A1540)
@@ -30554,7 +30554,7 @@ int f_cmpA1544(const union  A1544 *x, const union  A1544 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1544() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(12, sizeof(union  A1544), DC_TRUE);
+		at = dcNewAggr(12, sizeof(union  A1544));
 		AF('s',union  A1544,m0,1)
 		AF('p',union  A1544,m1,1)
 		AFa(union  A1544,m2,1,A1539)
@@ -30577,7 +30577,7 @@ int f_cmpA1545(const union  A1545 *x, const union  A1545 *y) { return x->m0 == y
 DCaggr* f_touchdcstA1545() {
 	static DCaggr* at = NULL;
 	if(!at) {
-		at = dcNewAggr(4, sizeof(union  A1545), DC_TRUE);
+		at = dcNewAggr(4, sizeof(union  A1545));
 		AF('i',union  A1545,m0,1)
 		AF('I',union  A1545,m1,1)
 		AF('I',union  A1545,m2,8)
