@@ -1081,5 +1081,84 @@
 
 
 
+; ---------- C++ trivial and non-trivial aggrs as return values ---------->
+;
+; struct Trivial { int a; };
+; struct NonTrivial { int a; NonTrivial() : a(0) {} NonTrivial(const NonTrivial& rhs) : a(rhs.a) { } };
+; 
+; extern "C" {
+;     struct Trivial    f1() { return Trivial(); }
+; }
+; 
+;     struct NonTrivial f2() { return NonTrivial(); }
+; 
+; extern "C" {
+;     void f()
+;     {
+;         int a=1;
+;         a += 123;
+;         struct Trivial t = f1();
+;         a -= 123;
+;         struct NonTrivial n = f2();
+;         a -= 12;
+;     }
+; }
+
+
+
+; output from debian-4.0_r3-sparc w/ gcc 4.1.2
+
+00010504 <f1>:
+   10504:       9d e3 bf 98     save  %sp, -104, %sp
+   10508:       c2 07 a0 40     ld  [ %fp + 0x40 ], %g1
+   1050c:       c0 20 40 00     clr  [ %g1 ]
+   10510:       b0 10 00 01     mov  %g1, %i0
+   10514:       81 e8 00 00     restore
+   10518:       81 c3 e0 0c     jmp  %o7 + 0xc
+   1051c:       01 00 00 00     nop
+
+00010520 <_Z2f2v>:
+   10520:       9d e3 bf 98     save  %sp, -104, %sp
+   10524:       e0 07 a0 40     ld  [ %fp + 0x40 ], %l0
+   10528:       82 10 00 10     mov  %l0, %g1
+   1052c:       90 10 00 01     mov  %g1, %o0
+   10530:       40 00 00 29     call  105d4 <_ZN10NonTrivialC1Ev>
+   10534:       01 00 00 00     nop
+   10538:       b0 10 00 10     mov  %l0, %i0
+   1053c:       81 e8 00 00     restore
+   10540:       81 c3 e0 0c     jmp  %o7 + 0xc
+   10544:       01 00 00 00     nop
+
+00010548 <f>:
+   10548:       9d e3 bf 80     save  %sp, -128, %sp    ;
+   1054c:       82 10 20 01     mov  1, %g1             ;
+   10550:       c2 27 bf f4     st  %g1, [ %fp + -12 ]  ;
+   10554:       c2 07 bf f4     ld  [ %fp + -12 ], %g1  ;
+   10558:       82 00 60 7b     add  %g1, 0x7b, %g1     ;
+   1055c:       c2 27 bf f4     st  %g1, [ %fp + -12 ]  ;
+   10560:       82 07 bf e4     add  %fp, -28, %g1      ;
+   10564:       c2 23 a0 40     st  %g1, [ %sp + 0x40 ] ; ptr to retval space as hidden stack param (sp+64)
+   10568:       7f ff ff e7     call  10504 <f1>        ; call f1()
+   1056c:       01 00 00 00     nop                     ;
+   10570:       00 00 00 04     unimp  0x4              ;
+   10574:       c2 07 bf e4     ld  [ %fp + -28 ], %g1  ;
+   10578:       c2 27 bf f0     st  %g1, [ %fp + -16 ]  ;
+   1057c:       c2 07 bf f4     ld  [ %fp + -12 ], %g1  ;
+   10580:       82 00 7f 85     add  %g1, -123, %g1     ;
+   10584:       c2 27 bf f4     st  %g1, [ %fp + -12 ]  ;
+   10588:       82 07 bf ec     add  %fp, -20, %g1      ;
+   1058c:       c2 23 a0 40     st  %g1, [ %sp + 0x40 ] ; ptr to retval space as hidden stack param (sp+64)
+   10590:       7f ff ff e4     call  10520 <_Z2f2v>    ; call f2()
+   10594:       01 00 00 00     nop                     ;
+   10598:       00 00 00 04     unimp  0x4              ;
+   1059c:       c2 07 bf f4     ld  [ %fp + -12 ], %g1  ;
+   105a0:       82 00 7f f4     add  %g1, -12, %g1      ;
+   105a4:       c2 27 bf f4     st  %g1, [ %fp + -12 ]  ;
+   105a8:       81 e8 00 00     restore                 ;
+   105ac:       81 c3 e0 08     retl                    ;
+   105b0:       01 00 00 00     nop                     ;
+
+
+
 ; vim: ft=asm
 

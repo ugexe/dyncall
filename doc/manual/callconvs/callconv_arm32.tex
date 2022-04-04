@@ -89,6 +89,7 @@ Name        & Alias       & Brief description\\
 \item parameters \textless=\ 32 bits are passed as 32 bit words
 \item 64 bit parameters are passed as two 32 bit parts (even partly via the register and partly via the stack, although this doesn't seem to be specified in the ATPCS)
 \item aggregates (struct, union) are passed by value (after rounding up the size to the nearest multiple of 4), as a sequence of words (splitting across registers and stack is allowed)
+\item {\it non-trivial} C++ aggregates (as defined by the language) of any size, are passed indirectly via a pointer to a copy of the aggregate
 \item keeping the stack eight-byte aligned can improve memory access performance and is required by LDRD and STRD on ARMv5TE processors which are part of the ARM32 family, so, in order to avoid problems one should always align the stack (tests have shown, that GCC does care about the alignment when using the ellipsis)
 \end{itemize}
 
@@ -97,6 +98,8 @@ Name        & Alias       & Brief description\\
 \begin{itemize}
 \item return values \textless=\ 32 bits use r0
 \item 64 bit return values use r0 and r1
+\item for {\it non-trivial} C++ aggregates, the caller allocates space, passes pointer to it to the callee as a hidden first param
+(meaning in r0), and callee writes return value to this space; the ptr to the aggregate is returned in r0
 \item aggregates (struct, union) \textless=\ 32 bits are returned like an integer (in r0)
 \item aggregates (struct, union) \textgreater\ 32 bits the caller allocates space for the return value on the stack in its frame and passes a pointer to it in r0
 \item for all other aggregates, the caller allocates space, passes pointer to it to the callee as a hidden first param (meaning in r0), and callee writes return value to this space; the ptr to the aggregate is returned in r0
@@ -175,6 +178,7 @@ Name         & Alias       & Brief description\\
 \item parameters \textless=\ 32 bits are passed as 32 bit words
 \item 64 bit parameters are passed as two 32 bit parts (even partly via the register and partly via the stack, although this doesn't seem to be specified in the ATPCS)
 \item aggregates (struct, union) are passed by value (after rounding up the size to the nearest multiple of 4), as a sequence of words (splitting across registers and stack is allowed)
+\item {\it non-trivial} C++ aggregates (as defined by the language) of any size, are passed indirectly via a pointer to a copy of the aggregate
 \item keeping the stack eight-byte aligned can improve memory access performance and is required by LDRD and STRD on ARMv5TE processors which are part of the ARM32 family, so, in order to avoid problems one should always align the stack (tests have shown, that GCC does care about the alignment when using the ellipsis)
 \end{itemize}
 
@@ -183,6 +187,8 @@ Name         & Alias       & Brief description\\
 \begin{itemize}
 \item return values \textless=\ 32 bits use r0
 \item 64 bit return values use r0 and r1
+\item for {\it non-trivial} C++ aggregates, the caller allocates space, passes pointer to it to the callee as a hidden first param
+(meaning in r0), and callee writes return value to this space; the ptr to the aggregate is returned in r0
 \item aggregates (struct, union) \textless=\ 32 bits are returned like an integer (in r0)
 \item aggregates (struct, union) \textgreater\ 32 bits the caller allocates space for the return value on the stack in its frame and passes a pointer to it in r0
 \item for all other aggregates, the caller allocates space, passes pointer to it to the callee as a hidden first param (meaning in r0), and callee writes return value to this space; the ptr to the aggregate is returned in r0
@@ -369,6 +375,7 @@ Name         & Alias       &  Brief description\\
 \item aggregates (struct, union) with 1 to 4 identical floating-point members (either float or double) are passed field-by-field, except if passed as a vararg
 \item aggregates that could be passed via floating point register are never split across those and the stack, so if not enough registers are available an aggregate is
 passed entirely via the stack (implying above rule that any still unused float registers will be skipped for any subsequent arg)
+\item {\it non-trivial} C++ aggregates (as defined by the language) of any size, are passed indirectly via a pointer to a copy of the aggregate
 \item all other aggregates (struct, union), after rounding up the size to the nearest multiple of 4, are passed as a sequence of dwords, like integers (splitting across registers and stack is allowed)
 \item callee spills, caller reserves spill area space, though
 \end{itemize}
@@ -379,10 +386,12 @@ passed entirely via the stack (implying above rule that any still unused float r
 \item non floating point return values \textless=\ 32 bits use r0
 \item non floating point 64-bit return values use r0 and r1
 \item floating point return value uses s0 (for float) or d0 (for double), respectively
+\item for {\it non-trivial} C++ aggregates, the caller allocates space, passes pointer to it to the callee as a hidden first param
+(meaning in r0), and callee writes return value to this space; the ptr to the aggregate is returned in r0
 \item aggregates (struct, union) with 1 to 4 identical floating-point members are returned in s0-s3 (for float) or d0-d3 (for double), respectively
 \item all other aggregates \textless=\ 32 bits are returned via r0
 \item for all other aggregates, the caller allocates space, passes pointer to it to the callee as a hidden first param
-(meanin in r0), and callee writes return value to this space; the ptr to the aggregate is returned in x0
+(meaning in r0), and callee writes return value to this space; the ptr to the aggregate is returned in r0
 \end{itemize}
 
 \paragraph{Stack layout}

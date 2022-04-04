@@ -68,6 +68,7 @@ Name                          & Alias                          & Brief descripti
 \item all arguments \textless=\ 32 bit are passed as 32 bit values
 \item 64 bit arguments are passed like two consecutive \textless=\ 32 bit values (which allows for an argument to be split between the stack and \%i5)
 \item aggregates (struct, union) of any size, as well as quad precision values are passed indirectly as a pointer to a {\bf copy} of the aggregate (like: struct s2 = s; callee(\&s2);)
+\item {\it non-trivial} C++ aggregates (as defined by the language) of any size, are passed indirectly via a pointer to a copy of the aggregate
 \item minimum stack size is 64 bytes, b/c stack pointer must always point at enough space to store all \%i* and \%l* registers, used when running out of register windows
 \item if needed, register spill area is adjacent to parameters
 \end{itemize}

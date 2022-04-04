@@ -1722,5 +1722,114 @@
 
 
 
+; ---------- C++ trivial and non-trivial aggrs as return values ---------->
+;
+; struct Trivial { int a; };
+; struct NonTrivial { int a; NonTrivial() : a(0) {} NonTrivial(const NonTrivial& rhs) : a(rhs.a) { } };
+; 
+; extern "C" {
+;     struct Trivial    f1() { return Trivial(); }
+; }
+; 
+;     struct NonTrivial f2() { return NonTrivial(); }
+; 
+; extern "C" {
+;     void f()
+;     {
+;         int a=1;
+;         a += 123;
+;         struct Trivial t = f1();
+;         a -= 123;
+;         struct NonTrivial n = f2();
+;         a -= 12;
+;     }
+; }
+
+
+
+; output from openbsd-6.0-sparc64 w/ gcc 4.2.1
+
+0000000000000d60 <f1>:
+ d60:   9d e3 bf 30     save  %sp, -208, %sp
+ d64:   82 10 20 00     clr  %g1
+ d68:   83 30 60 00     srl  %g1, 0, %g1
+ d6c:   83 28 70 20     sllx  %g1, 0x20, %g1
+ d70:   b0 10 00 01     mov  %g1, %i0
+ d74:   81 cf e0 08     rett  %i7 + 8
+ d78:   01 00 00 00     nop
+
+0000000000000d7c <_Z2f2v>:
+ d7c:   9d e3 bf 30     save  %sp, -208, %sp
+ d80:   a0 10 00 18     mov  %i0, %l0
+ d84:   82 10 00 10     mov  %l0, %g1
+ d88:   90 10 00 01     mov  %g1, %o0
+ d8c:   40 14 01 1d     call  501200 <_ZN10NonTrivialC1Ev@plt>
+ d90:   01 00 00 00     nop
+ d94:   b0 10 00 10     mov  %l0, %i0
+ d98:   81 cf e0 08     rett  %i7 + 8
+ d9c:   01 00 00 00     nop
+ da0:   ae 03 c0 17     add  %o7, %l7, %l7
+ da4:   81 c3 e0 08     retl
+ da8:   01 00 00 00     nop
+
+0000000000000dac <f>:
+ dac:   9d e3 bf 10     save  %sp, -240, %sp                     ;
+ db0:   2f 00 0c 00     sethi  %hi(0x300000), %l7                ;
+ db4:   ae 05 e2 a0     add  %l7, 0x2a0, %l7                     ;
+ db8:   7f ff ff fa     call  da0 <_Z2f2v+0x24>                  ;
+ dbc:   01 00 00 00     nop                                      ;
+ dc0:   03 00 00 00     sethi  %hi(0), %g1                       ;
+ dc4:   82 10 60 48     or  %g1, 0x48, %g1                       ;
+ dc8:   c2 5d c0 01     ldx  [ %l7 + %g1 ], %g1                  ;
+ dcc:   c4 58 40 00     ldx  [ %g1 ], %g2                        ;
+ dd0:   c4 77 a7 e7     stx  %g2, [ %fp + 0x7e7 ]                ;
+ dd4:   84 10 20 00     clr  %g2                                 ;
+ dd8:   82 10 20 01     mov  1, %g1                              ;
+ ddc:   c2 27 a7 e3     st  %g1, [ %fp + 0x7e3 ]                 ;
+ de0:   c2 07 a7 e3     ld  [ %fp + 0x7e3 ], %g1                 ;
+ de4:   82 00 60 7b     add  %g1, 0x7b, %g1                      ;
+ de8:   c2 27 a7 e3     st  %g1, [ %fp + 0x7e3 ]                 ;
+ dec:   40 14 01 25     call  501280 <f1@plt>                    ; call f1()
+ df0:   01 00 00 00     nop                                      ;
+ df4:   82 10 00 08     mov  %o0, %g1                            ;
+ df8:   c0 27 a7 cb     clr  [ %fp + 0x7cb ]                     ;
+ dfc:   83 38 70 20     srax  %g1, 0x20, %g1                     ;
+ e00:   c6 07 a7 cb     ld  [ %fp + 0x7cb ], %g3                 ;
+ e04:   84 08 e0 00     and  %g3, 0, %g2                         ;
+ e08:   82 10 80 01     or  %g2, %g1, %g1                        ;
+ e0c:   c2 27 a7 cb     st  %g1, [ %fp + 0x7cb ]                 ;
+ e10:   c2 07 a7 cb     ld  [ %fp + 0x7cb ], %g1                 ;
+ e14:   c2 27 a7 df     st  %g1, [ %fp + 0x7df ]                 ;
+ e18:   c2 07 a7 e3     ld  [ %fp + 0x7e3 ], %g1                 ;
+ e1c:   82 00 7f 85     add  %g1, -123, %g1                      ;
+ e20:   c2 27 a7 e3     st  %g1, [ %fp + 0x7e3 ]                 ;
+ e24:   82 07 a7 db     add  %fp, 0x7db, %g1                     ;
+ e28:   90 10 00 01     mov  %g1, %o0                            ; hidden first arg (ptr to space to hold NonTrivial retval), via ptr as non-trivial
+ e2c:   40 14 00 e5     call  5011c0 <_Z2f2v@plt>                ; call f2()
+ e30:   01 00 00 00     nop                                      ;
+ e34:   c2 07 a7 e3     ld  [ %fp + 0x7e3 ], %g1                 ;
+ e38:   82 00 7f f4     add  %g1, -12, %g1                       ;
+ e3c:   c2 27 a7 e3     st  %g1, [ %fp + 0x7e3 ]                 ;
+ e40:   03 00 00 00     sethi  %hi(0), %g1                       ;
+ e44:   82 10 60 48     or  %g1, 0x48, %g1                       ;
+ e48:   c2 5d c0 01     ldx  [ %l7 + %g1 ], %g1                  ;
+ e4c:   c4 5f a7 e7     ldx  [ %fp + 0x7e7 ], %g2                ;
+ e50:   c6 58 40 00     ldx  [ %g1 ], %g3                        ;
+ e54:   84 18 80 03     xor  %g2, %g3, %g2                       ;
+ e58:   86 10 20 00     clr  %g3                                 ;
+ e5c:   82 10 00 02     mov  %g2, %g1                            ;
+ e60:   02 c8 40 08     brz  %g1, e80 <f+0xd4>                   ;
+ e64:   01 00 00 00     nop                                      ;
+ e68:   03 00 00 00     sethi  %hi(0), %g1                       ;
+ e6c:   82 10 60 40     or  %g1, 0x40, %g1                       ;
+ e70:   c2 5d c0 01     ldx  [ %l7 + %g1 ], %g1                  ;
+ e74:   90 10 00 01     mov  %g1, %o0                            ;
+ e78:   40 14 00 ca     call  5011a0 <__stack_smash_handler@plt> ;
+ e7c:   01 00 00 00     nop                                      ;
+ e80:   81 cf e0 08     rett  %i7 + 8                            ;
+ e84:   01 00 00 00     nop                                      ;
+
+
+
 ; vim: ft=asm
 

@@ -715,5 +715,80 @@ _main   ENDP
 
 
 
+; ---------- C++ trivial and non-trivial aggrs as return values ---------->
+;
+; struct Trivial { int a; };
+; struct NonTrivial { int a; NonTrivial() : a(0) {} NonTrivial(const NonTrivial& rhs) : a(rhs.a) { } };
+; 
+; extern "C" {
+;     struct Trivial    f1() { return Trivial(); }
+; }
+; 
+;     struct NonTrivial f2() { return NonTrivial(); }
+; 
+; extern "C" {
+;     void f()
+;     {
+;         int a=1;
+;         a += 123;
+;         struct Trivial t = f1();
+;         a -= 123;
+;         struct NonTrivial n = f2();
+;         a -= 12;
+;     }
+; }
+
+
+
+; output from openbsd-4.0-x86 w/ gcc 3.3.5 (propolice)
+
+1c000920 <f1>:
+1c000920:       55                      push   %ebp
+1c000921:       89 e5                   mov    %esp,%ebp
+1c000923:       83 ec 04                sub    $0x4,%esp
+1c000926:       c7 45 fc 00 00 00 00    movl   $0x0,0xfffffffc(%ebp)
+1c00092d:       8b 45 fc                mov    0xfffffffc(%ebp),%eax
+1c000930:       c9                      leave
+1c000931:       c3                      ret
+
+1c000932 <_Z2f2v>:
+1c000932:       55                      push   %ebp
+1c000933:       89 e5                   mov    %esp,%ebp
+1c000935:       53                      push   %ebx
+1c000936:       83 ec 04                sub    $0x4,%esp
+1c000939:       8b 5d 08                mov    0x8(%ebp),%ebx
+1c00093c:       83 ec 0c                sub    $0xc,%esp
+1c00093f:       53                      push   %ebx
+1c000940:       e8 87 00 00 00          call   1c0009cc <_ZN10NonTrivialC1Ev>
+1c000945:       83 c4 10                add    $0x10,%esp
+1c000948:       89 d8                   mov    %ebx,%eax
+1c00094a:       8b 5d fc                mov    0xfffffffc(%ebp),%ebx
+1c00094d:       c9                      leave
+1c00094e:       c2 04 00                ret    $0x4
+1c000951:       90                      nop
+
+1c000952 <f>:
+1c000952:       55                      push   %ebp                  ;
+1c000953:       89 e5                   mov    %esp,%ebp             ;
+1c000955:       83 ec 28                sub    $0x28,%esp            ;
+1c000958:       c7 45 f4 01 00 00 00    movl   $0x1,0xfffffff4(%ebp) ; a = 1
+1c00095f:       8d 45 f4                lea    0xfffffff4(%ebp),%eax ; |
+1c000962:       83 00 7b                addl   $0x7b,(%eax)          ; | a += 12
+1c000965:       e8 b6 ff ff ff          call   1c000920 <f1>         ; call f1()
+1c00096a:       89 45 f0                mov    %eax,0xfffffff0(%ebp) ;
+1c00096d:       8d 45 f4                lea    0xfffffff4(%ebp),%eax ; |
+1c000970:       83 28 7b                subl   $0x7b,(%eax)          ; | a -= 123
+1c000973:       8d 45 d8                lea    0xffffffd8(%ebp),%eax ; space (at top of stack) to hold non-triv retval -> eax
+1c000976:       83 ec 0c                sub    $0xc,%esp             ; grow stack by 12
+1c000979:       50                      push   %eax                  ; hidden first arg: ptr to space for retval
+1c00097a:       e8 b3 ff ff ff          call   1c000932 <_Z2f2v>     ; call f2()
+1c00097f:       83 c4 0c                add    $0xc,%esp             ; shrink stack back by 12
+1c000982:       8d 45 f4                lea    0xfffffff4(%ebp),%eax ; |
+1c000985:       83 28 0c                subl   $0xc,(%eax)           ; | a -= 12
+1c000988:       c9                      leave                        ;
+1c000989:       c3                      ret                          ;
+
+
+
 ; vim: ft=asm
 

@@ -84,7 +84,7 @@ Name                & Brief description\\
 \item caller cleans up the stack
 \item first 4 integer/pointer parameters are passed via rcx, rdx, r8, r9 (from left to right), others are pushed on stack (there is a
 spill area for the first 4)
-\item {\it non-trivial} C++ aggregates (as defined by the language), are passed indirectly via a pointer to a copy of the aggregate, no matter the size
+\item {\it non-trivial} C++ aggregates (as defined by the language) of any size, are passed indirectly via a pointer to a copy of the aggregate
 \item aggregates (structs and unions) \textless\ 64 bits are passed like equal-sized integers
 \item float and double parameters are passed via xmm0l-xmm3l
 \item first 4 parameters are passed via the correct register depending on the parameter type - with mixed float and int parameters,
@@ -197,7 +197,7 @@ passed as a qword)
 exact but an upper bound on the number of used xmm registers)
 \item aggregates (structs, unions (and arrays within those)) follow a more complicated logic (the following {\bf only considers field types supported by dyncall}):
 \begin{itemize}
-  \item {\it non-trivial} C++ aggregates (as defined by the language), are passed indirectly via a pointer to a copy of the aggregate, no matter the size
+  \item {\it non-trivial} C++ aggregates (as defined by the language) of any size, are passed indirectly via a pointer to a copy of the aggregate
   \item aggregates \textgreater\ 16 bytes are always passed entirely via the stack
   \item all other aggregates are classified per qword, by looking at all fields occupying all or part of that qword, recursively
   \begin{itemize}

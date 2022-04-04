@@ -588,5 +588,84 @@
 
 
 
+; ---------- C++ trivial and non-trivial aggrs as return values ---------->
+;
+; struct Trivial { int a; };
+; struct NonTrivial { int a; NonTrivial() : a(0) {} NonTrivial(const NonTrivial& rhs) : a(rhs.a) { } };
+; 
+; extern "C" {
+;     struct Trivial    f1() { return Trivial(); }
+; }
+; 
+;     struct NonTrivial f2() { return NonTrivial(); }
+; 
+; extern "C" {
+;     void f()
+;     {
+;         int a=1;
+;         a += 123;
+;         struct Trivial t = f1();
+;         a -= 123;
+;         struct NonTrivial n = f2();
+;         a -= 12;
+;     }
+; }
+
+
+
+; output from freebsd-12.2-x64 w/ clang 10.0.1
+
+00000000002019c0 <f1>:
+  2019c0:       55                      push   %rbp
+  2019c1:       48 89 e5                mov    %rsp,%rbp
+  2019c4:       48 83 ec 10             sub    $0x10,%rsp
+  2019c8:       31 f6                   xor    %esi,%esi
+  2019ca:       48 8d 45 f8             lea    -0x8(%rbp),%rax
+  2019ce:       48 89 c7                mov    %rax,%rdi
+  2019d1:       ba 04 00 00 00          mov    $0x4,%edx
+  2019d6:       e8 75 01 00 00          callq  201b50 <memset@plt>
+  2019db:       8b 45 f8                mov    -0x8(%rbp),%eax
+  2019de:       48 83 c4 10             add    $0x10,%rsp
+  2019e2:       5d                      pop    %rbp
+  2019e3:       c3                      retq
+
+00000000002019f0 <_Z2f2v>:
+  2019f0:       55                      push   %rbp
+  2019f1:       48 89 e5                mov    %rsp,%rbp
+  2019f4:       48 83 ec 10             sub    $0x10,%rsp
+  2019f8:       48 89 f8                mov    %rdi,%rax
+  2019fb:       48 89 f9                mov    %rdi,%rcx
+  2019fe:       48 89 4d f8             mov    %rcx,-0x8(%rbp)
+  201a02:       48 89 45 f0             mov    %rax,-0x10(%rbp)
+  201a06:       e8 85 00 00 00          callq  201a90 <_ZN10NonTrivialC2Ev>
+  201a0b:       48 8b 45 f0             mov    -0x10(%rbp),%rax
+  201a0f:       48 83 c4 10             add    $0x10,%rsp
+  201a13:       5d                      pop    %rbp
+  201a14:       c3                      retq
+
+0000000000201a20 <f>:
+  201a20:       55                      push   %rbp             ; |
+  201a21:       48 89 e5                mov    %rsp,%rbp        ; | prolog
+  201a24:       48 83 ec 10             sub    $0x10,%rsp       ; |
+  201a28:       c7 45 fc 01 00 00 00    movl   $0x1,-0x4(%rbp)  ; a = 1
+  201a2f:       8b 45 fc                mov    -0x4(%rbp),%eax  ; |
+  201a32:       83 c0 7b                add    $0x7b,%eax       ; | a += 123
+  201a35:       89 45 fc                mov    %eax,-0x4(%rbp)  ; |
+  201a38:       e8 83 ff ff ff          callq  2019c0 <f1>      ; call f1()
+  201a3d:       89 45 f8                mov    %eax,-0x8(%rbp)  ; retval via reg, as small struct
+  201a40:       8b 45 fc                mov    -0x4(%rbp),%eax  ; |
+  201a43:       83 e8 7b                sub    $0x7b,%eax       ; | a -= 123
+  201a46:       89 45 fc                mov    %eax,-0x4(%rbp)  ; |
+  201a49:       48 8d 7d f0             lea    -0x10(%rbp),%rdi ; ptr to space to hold non-triv retval
+  201a4d:       e8 9e ff ff ff          callq  2019f0 <_Z2f2v>  ; call f2()
+  201a52:       8b 45 fc                mov    -0x4(%rbp),%eax  ; |
+  201a55:       83 e8 0c                sub    $0xc,%eax        ; | a-= 12
+  201a58:       89 45 fc                mov    %eax,-0x4(%rbp)  ; /
+  201a5b:       48 83 c4 10             add    $0x10,%rsp       ; \
+  201a5f:       5d                      pop    %rbp             ; | epilog
+  201a60:       c3                      retq                    ; |
+
+
+
 ; vim: ft=asm
 

@@ -369,5 +369,92 @@
 
 
 
+; ---------- C++ trivial and non-trivial aggrs as return values ---------->
+;
+; struct Trivial { int a; };
+; struct NonTrivial {
+;         int a;
+;         __attribute__((fastcall)) NonTrivial() : a(0) {}
+;         __attribute__((fastcall)) NonTrivial(const NonTrivial& rhs) : a(rhs.a) { }
+; };
+; 
+; extern "C" {
+;     struct Trivial    __attribute__((fastcall)) f1() { return Trivial(); }
+; }
+; 
+;     struct NonTrivial __attribute__((fastcall)) f2() { return NonTrivial(); }
+; 
+; extern "C" {
+;     void __attribute__((fastcall)) f()
+;     {
+;         int a=1;
+;         a += 123;
+;         struct Trivial t = f1();
+;         a -= 123;
+;         struct NonTrivial n = f2();
+;         a -= 12;
+;     }
+; }
+
+
+
+; output from alpine_linux-3.11.3-x86 w/ gcc 9.2.0
+
+00001215 <f1>:
+    1215:       55                      push   %ebp
+    1216:       89 e5                   mov    %esp,%ebp
+    1218:       83 ec 04                sub    $0x4,%esp
+    121b:       e8 ed ff ff ff          call   120d <__x86.get_pc_thunk.ax>
+    1220:       05 ac 2d 00 00          add    $0x2dac,%eax
+    1225:       89 4d fc                mov    %ecx,-0x4(%ebp)
+    1228:       8b 45 fc                mov    -0x4(%ebp),%eax
+    122b:       c7 00 00 00 00 00       movl   $0x0,(%eax)
+    1231:       8b 45 fc                mov    -0x4(%ebp),%eax
+    1234:       c9                      leave
+    1235:       c3                      ret
+
+00001236 <_Z2f2v>:
+    1236:       55                      push   %ebp
+    1237:       89 e5                   mov    %esp,%ebp
+    1239:       83 ec 18                sub    $0x18,%esp
+    123c:       e8 cc ff ff ff          call   120d <__x86.get_pc_thunk.ax>
+    1241:       05 8b 2d 00 00          add    $0x2d8b,%eax
+    1246:       89 4d f4                mov    %ecx,-0xc(%ebp)
+    1249:       8b 45 f4                mov    -0xc(%ebp),%eax
+    124c:       89 c1                   mov    %eax,%ecx
+    124e:       e8 6f 00 00 00          call   12c2 <_ZN10NonTrivialC1Ev>
+    1253:       8b 45 f4                mov    -0xc(%ebp),%eax
+    1256:       c9                      leave
+    1257:       c3                      ret
+
+00001258 <f>:
+    1258:       55                      push   %ebp                          ;
+    1259:       89 e5                   mov    %esp,%ebp                     ;
+    125b:       83 ec 18                sub    $0x18,%esp                    ;
+    125e:       e8 aa ff ff ff          call   120d <__x86.get_pc_thunk.ax>  ;
+    1263:       05 69 2d 00 00          add    $0x2d69,%eax                  ;
+    1268:       65 a1 14 00 00 00       mov    %gs:0x14,%eax                 ;
+    126e:       89 45 f4                mov    %eax,-0xc(%ebp)               ;
+    1271:       31 c0                   xor    %eax,%eax                     ;
+    1273:       c7 45 f0 01 00 00 00    movl   $0x1,-0x10(%ebp)              ;
+    127a:       83 45 f0 7b             addl   $0x7b,-0x10(%ebp)             ;
+    127e:       8d 45 e8                lea    -0x18(%ebp),%eax              ; ptr space to hold aggregate retval -> eax ...
+    1281:       89 c1                   mov    %eax,%ecx                     ; ... as hidden first arg (ecx)
+    1283:       e8 8d ff ff ff          call   1215 <f1>                     ; call f1()
+    1288:       83 6d f0 7b             subl   $0x7b,-0x10(%ebp)             ;
+    128c:       8d 45 ec                lea    -0x14(%ebp),%eax              ; ptr space to hold aggregate retval -> eax ...
+    128f:       89 c1                   mov    %eax,%ecx                     ; ... as hidden first arg (ecx)
+    1291:       e8 a0 ff ff ff          call   1236 <_Z2f2v>                 ; call f2()
+    1296:       83 6d f0 0c             subl   $0xc,-0x10(%ebp)              ;
+    129a:       90                      nop                                  ;
+    129b:       8b 45 f4                mov    -0xc(%ebp),%eax               ;
+    129e:       65 33 05 14 00 00 00    xor    %gs:0x14,%eax                 ;
+    12a5:       74 05                   je     12ac <f+0x54>                 ;
+    12a7:       e8 35 00 00 00          call   12e1 <__stack_chk_fail_local> ;
+    12ac:       c9                      leave                                ;
+    12ad:       c3                      ret                                  ;
+
+
+
 ; vim: ft=asm
 

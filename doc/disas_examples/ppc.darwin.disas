@@ -1035,5 +1035,89 @@ _f:
 
 
 
+; ---------- C++ trivial and non-trivial aggrs as return values ---------->
+;
+; struct Trivial { int a; };
+; struct NonTrivial { int a; NonTrivial() : a(0) {} NonTrivial(const NonTrivial& rhs) : a(rhs.a) { } };
+; 
+; extern "C" {
+;     struct Trivial    f1() { return Trivial(); }
+; }
+; 
+;     struct NonTrivial f2() { return NonTrivial(); }
+; 
+; extern "C" {
+;     void f()
+;     {
+;         int a=1;
+;         a += 123;
+;         struct Trivial t = f1();
+;         a -= 123;
+;         struct NonTrivial n = f2();
+;         a -= 12;
+;     }
+; }
+
+
+
+; output from darwin-8.0.1-ppc w/ gcc 3.3
+
+_f1:
+0000211c	stmw	r30,0xfff8(r1)
+00002120	stwu	r1,0xffd0(r1)
+00002124	or	r30,r1,r1
+00002128	or	r2,r3,r3
+0000212c	li	r0,0x0
+00002130	stw	r0,0x0(r2)
+00002134	or	r3,r2,r2
+00002138	lwz	r1,0x0(r1)
+0000213c	lmw	r30,0xfff8(r1)
+00002140	blr
+__Z2f2v:
+00002144	mfspr	r0,lr
+00002148	stmw	r29,0xfff4(r1)
+0000214c	stw	r0,0x8(r1)
+00002150	stwu	r1,0xffb0(r1)
+00002154	or	r30,r1,r1
+00002158	or	r29,r3,r3
+0000215c	or	r3,r29,r29
+00002160	bl	0x83cc
+00002164	or	r3,r29,r29
+00002168	lwz	r1,0x0(r1)
+0000216c	lwz	r0,0x8(r1)
+00002170	mtspr	lr,r0
+00002174	lmw	r29,0xfff4(r1)
+00002178	blr
+_f:
+0000217c	mfspr	r0,lr          ;
+00002180	stmw	r30,0xfff8(r1) ;
+00002184	stw	r0,0x8(r1)         ;
+00002188	stwu	r1,0xff90(r1)  ;
+0000218c	or	r30,r1,r1          ;
+00002190	li	r0,0x1             ;
+00002194	stw	r0,0x40(r30)       ;
+00002198	lwz	r2,0x40(r30)       ;
+0000219c	addi	r0,r2,0x7b     ;
+000021a0	stw	r0,0x40(r30)       ;
+000021a4	addi	r0,r30,0x44    ; |
+000021a8	or	r3,r0,r0           ; | ptr to space for retval is passed as hidden first arg
+000021ac	bl	0x211c             ; call f1()
+000021b0	lwz	r2,0x40(r30)       ;
+000021b4	addi	r0,r2,0xff85   ;
+000021b8	stw	r0,0x40(r30)       ;
+000021bc	addi	r0,r30,0x50    ; |
+000021c0	or	r3,r0,r0           ; | ptr to space for retval is passed as hidden first arg
+000021c4	bl	0x2144             ; call f2()
+000021c8	lwz	r2,0x40(r30)       ;
+000021cc	addi	r0,r2,0xfff4   ;
+000021d0	stw	r0,0x40(r30)       ;
+000021d4	lwz	r1,0x0(r1)         ;
+000021d8	lwz	r0,0x8(r1)         ;
+000021dc	mtspr	lr,r0          ;
+000021e0	lmw	r30,0xfff8(r1)     ;
+000021e4	blr                    ;
+
+
+
 ; vim: ft=asm
 

@@ -1862,5 +1862,111 @@
 
 
 
+; ---------- C++ trivial and non-trivial aggrs as return values ---------->
+;
+; struct Trivial { int a; };
+; struct NonTrivial { int a; NonTrivial() : a(0) {} NonTrivial(const NonTrivial& rhs) : a(rhs.a) { } };
+; 
+; extern "C" {
+;     struct Trivial    f1() { return Trivial(); }
+; }
+; 
+;     struct NonTrivial f2() { return NonTrivial(); }
+; 
+; extern "C" {
+;     void f()
+;     {
+;         int a=1;
+;         a += 123;
+;         struct Trivial t = f1();
+;         a -= 123;
+;         struct NonTrivial n = f2();
+;         a -= 12;
+;     }
+; }
+
+
+
+; output from freebsd-12.0_r333647-malta_mipsebhf w/ gcc 4.2.1
+
+004008b0 <f1>:
+  4008b0:       3c1c0002        lui     gp,0x2
+  4008b4:       279c8310        addiu   gp,gp,-31984
+  4008b8:       0399e021        addu    gp,gp,t9
+  4008bc:       27bdfff8        addiu   sp,sp,-8
+  4008c0:       afbe0000        sw      s8,0(sp)
+  4008c4:       03a0f021        move    s8,sp
+  4008c8:       00801021        move    v0,a0         ; ptr to retval space -> v0
+  4008cc:       ac400000        sw      zero,0(v0)    ; return val
+  4008d0:       03c0e821        move    sp,s8
+  4008d4:       8fbe0000        lw      s8,0(sp)
+  4008d8:       03e00008        jr      ra
+  4008dc:       27bd0008        addiu   sp,sp,8
+
+004008e0 <_Z2f2v>:
+  4008e0:       3c1c0002        lui     gp,0x2        ; |
+  4008e4:       279c82e0        addiu   gp,gp,-32032  ; |
+  4008e8:       0399e021        addu    gp,gp,t9      ; |
+  4008ec:       27bdffd8        addiu   sp,sp,-40     ; | prolog
+  4008f0:       afbf0020        sw      ra,32(sp)     ; |
+  4008f4:       afbe001c        sw      s8,28(sp)     ; |
+  4008f8:       afb00018        sw      s0,24(sp)     ; |
+  4008fc:       03a0f021        move    s8,sp         ; |         frame pointer (note: with offset to frame start, but static compared to sp)
+  400900:       afbc0010        sw      gp,16(sp)     ;
+  400904:       00808021        move    s0,a0         ;
+  400908:       02001021        move    v0,s0         ;
+  40090c:       00402021        move    a0,v0         ;
+  400910:       8f998060        lw      t9,-32672(gp) ;
+  400914:       0320f809        jalr    t9            ;
+  400918:       00000000        nop                   ;
+  40091c:       8fdc0010        lw      gp,16(s8)     ;
+  400920:       02001021        move    v0,s0         ; ptr to retval space -> v0
+  400924:       03c0e821        move    sp,s8         ; |
+  400928:       8fbf0020        lw      ra,32(sp)     ; |
+  40092c:       8fbe001c        lw      s8,28(sp)     ; |
+  400930:       8fb00018        lw      s0,24(sp)     ; | epilog
+  400934:       03e00008        jr      ra            ; |
+  400938:       27bd0028        addiu   sp,sp,40      ; |
+
+0040093c <f>:
+  40093c:       3c1c0002        lui     gp,0x2        ;
+  400940:       279c8284        addiu   gp,gp,-32124  ;
+  400944:       0399e021        addu    gp,gp,t9      ;
+  400948:       27bdffd0        addiu   sp,sp,-48     ;
+  40094c:       afbf002c        sw      ra,44(sp)     ;
+  400950:       afbe0028        sw      s8,40(sp)     ;
+  400954:       03a0f021        move    s8,sp         ;
+  400958:       afbc0010        sw      gp,16(sp)     ;
+  40095c:       24020001        li      v0,1          ;
+  400960:       afc20018        sw      v0,24(s8)     ;
+  400964:       8fc20018        lw      v0,24(s8)     ;
+  400968:       2442007b        addiu   v0,v0,123     ;
+  40096c:       afc20018        sw      v0,24(s8)     ;
+  400970:       27c2001c        addiu   v0,s8,28      ;
+  400974:       00402021        move    a0,v0         ; hidden first arg (ptr to space for ret val)
+  400978:       8f99805c        lw      t9,-32676(gp) ; |
+  40097c:       0320f809        jalr    t9            ; | call f1()
+  400980:       00000000        nop                   ;
+  400984:       8fdc0010        lw      gp,16(s8)     ;
+  400988:       8fc20018        lw      v0,24(s8)     ;
+  40098c:       2442ff85        addiu   v0,v0,-123    ;
+  400990:       afc20018        sw      v0,24(s8)     ;
+  400994:       27c20020        addiu   v0,s8,32      ;
+  400998:       00402021        move    a0,v0         ; hidden first arg (ptr to space for ret val)
+  40099c:       8f998064        lw      t9,-32668(gp) ; |
+  4009a0:       0320f809        jalr    t9            ; | call f2()
+  4009a4:       00000000        nop                   ;
+  4009a8:       8fdc0010        lw      gp,16(s8)     ;
+  4009ac:       8fc20018        lw      v0,24(s8)     ;
+  4009b0:       2442fff4        addiu   v0,v0,-12     ;
+  4009b4:       afc20018        sw      v0,24(s8)     ;
+  4009b8:       03c0e821        move    sp,s8         ;
+  4009bc:       8fbf002c        lw      ra,44(sp)     ;
+  4009c0:       8fbe0028        lw      s8,40(sp)     ;
+  4009c4:       03e00008        jr      ra            ;
+  4009c8:       27bd0030        addiu   sp,sp,48      ;
+
+
+
 ; vim: ft=asm
 

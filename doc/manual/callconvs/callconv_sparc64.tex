@@ -84,6 +84,7 @@ Name                          & Alias                          & Brief descripti
 \end{itemize}
 \item unions \textless=\ 16 bytes passed by-value are passed like integers in left-justified 8-byte slots (either via \%o* registers or the stack)
 \item aggregates (struct, union) and types \textgreater\ 16 bytes are passed indirectly, as a pointer to a correctly aligned copy of the data (that copy can be avoided under certain conditions)
+\item {\it non-trivial} C++ aggregates (as defined by the language) of any size, are passed indirectly via a pointer to a copy of the aggregate
 % from spec:
 %Structure or union types up to eight bytes in size are assigned to one parameter array word, and align to eight-byte
 %boundaries.
@@ -112,6 +113,8 @@ Name                          & Alias                          & Brief descripti
 \begin{itemize}
 \item results are expected by caller to be returned in \%o0-\%o3 (after reg window restore, meaning callee writes to \%i0-\%i3) for integers
 \item \%d0,\%d2,\%d4,\%d6 are used for floating point values
+\item for {\it non-trivial} C++ aggregates, the caller allocates space, passes pointer to it to the callee as a hidden first param
+(meaning in \%o0), and callee writes return value to this space; the ptr to the aggregate is returned in the same register (after reg window restore)
 \item the fields of aggregates (struct, union) \textless= 32 bytes are returned via registers mentioned above (which are
 assigned following the same logic as when passing the aggregate as a first argument to a function)
 \item aggregates (struct, union) \textgreater 32 bytes are returned in a space allocated by the caller, with a pointer to it

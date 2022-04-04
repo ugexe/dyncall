@@ -3346,5 +3346,114 @@
 
 
 
+; ---------- C++ trivial and non-trivial aggrs as return values ---------->
+;
+; struct Trivial { int a; };
+; struct NonTrivial { int a; NonTrivial() : a(0) {} NonTrivial(const NonTrivial& rhs) : a(rhs.a) { } };
+; 
+; extern "C" {
+;     struct Trivial    f1() { return Trivial(); }
+; }
+; 
+;     struct NonTrivial f2() { return NonTrivial(); }
+; 
+; extern "C" {
+;     void f()
+;     {
+;         int a=1;
+;         a += 123;
+;         struct Trivial t = f1();
+;         a -= 123;
+;         struct NonTrivial n = f2();
+;         a -= 12;
+;     }
+; }
+
+
+
+; output from freebsd-12.0_r333647-malta_mips64ebhf w/ gcc 4.2.1
+
+0000000120000b60 <f1>:
+   120000b60:   67bdfff0        daddiu  sp,sp,-16
+   120000b64:   ffbe0008        sd      s8,8(sp)
+   120000b68:   ffbc0000        sd      gp,0(sp)
+   120000b6c:   03a0f02d        move    s8,sp
+   120000b70:   3c1c0002        lui     gp,0x2
+   120000b74:   0399e02d        daddu   gp,gp,t9
+   120000b78:   679c8320        daddiu  gp,gp,-31968
+   120000b7c:   0000102d        move    v0,zero
+   120000b80:   0002103c        dsll32  v0,v0,0x0
+   120000b84:   03c0e82d        move    sp,s8
+   120000b88:   dfbe0008        ld      s8,8(sp)
+   120000b8c:   dfbc0000        ld      gp,0(sp)
+   120000b90:   03e00008        jr      ra
+   120000b94:   67bd0010        daddiu  sp,sp,16
+
+0000000120000b98 <_Z2f2v>:
+   120000b98:   67bdffe0        daddiu  sp,sp,-32
+   120000b9c:   ffbf0018        sd      ra,24(sp)
+   120000ba0:   ffbe0010        sd      s8,16(sp)
+   120000ba4:   ffbc0008        sd      gp,8(sp)
+   120000ba8:   ffb00000        sd      s0,0(sp)
+   120000bac:   03a0f02d        move    s8,sp
+   120000bb0:   3c1c0002        lui     gp,0x2
+   120000bb4:   0399e02d        daddu   gp,gp,t9
+   120000bb8:   679c82e8        daddiu  gp,gp,-32024
+   120000bbc:   0080802d        move    s0,a0
+   120000bc0:   0200102d        move    v0,s0
+   120000bc4:   0040202d        move    a0,v0
+   120000bc8:   df9980e0        ld      t9,-32544(gp)
+   120000bcc:   0320f809        jalr    t9
+   120000bd0:   00000000        nop
+   120000bd4:   0200102d        move    v0,s0         ; ptr to retval space -> v0
+   120000bd8:   03c0e82d        move    sp,s8
+   120000bdc:   dfbf0018        ld      ra,24(sp)
+   120000be0:   dfbe0010        ld      s8,16(sp)
+   120000be4:   dfbc0008        ld      gp,8(sp)
+   120000be8:   dfb00000        ld      s0,0(sp)
+   120000bec:   03e00008        jr      ra
+   120000bf0:   67bd0020        daddiu  sp,sp,32
+   120000bf4:   00000000        nop
+
+0000000120000bf8 <f>:
+   120000bf8:   67bdffd0        daddiu  sp,sp,-48     ;
+   120000bfc:   ffbf0020        sd      ra,32(sp)     ;
+   120000c00:   ffbe0018        sd      s8,24(sp)     ;
+   120000c04:   ffbc0010        sd      gp,16(sp)     ;
+   120000c08:   03a0f02d        move    s8,sp         ;
+   120000c0c:   3c1c0002        lui     gp,0x2        ;
+   120000c10:   0399e02d        daddu   gp,gp,t9      ;
+   120000c14:   679c8288        daddiu  gp,gp,-32120  ;
+   120000c18:   24020001        li      v0,1          ;
+   120000c1c:   afc20000        sw      v0,0(s8)      ;
+   120000c20:   8fc20000        lw      v0,0(s8)      ;
+   120000c24:   2442007b        addiu   v0,v0,123     ;
+   120000c28:   afc20000        sw      v0,0(s8)      ;
+   120000c2c:   df9980d8        ld      t9,-32552(gp) ; | call f1()
+   120000c30:   0320f809        jalr    t9            ; |
+   120000c34:   00000000        nop                   ;
+   120000c38:   0002103f        dsra32  v0,v0,0x0     ; | returned via reg v0, as small and trivial
+   120000c3c:   afc20004        sw      v0,4(s8)      ; |
+   120000c40:   8fc20000        lw      v0,0(s8)      ;
+   120000c44:   2442ff85        addiu   v0,v0,-123    ;
+   120000c48:   afc20000        sw      v0,0(s8)      ;
+   120000c4c:   67c20008        daddiu  v0,s8,8       ;
+   120000c50:   0040202d        move    a0,v0         ; hidden first arg (ptr to space for ret val)
+   120000c54:   df9980e8        ld      t9,-32536(gp) ; | call f2()
+   120000c58:   0320f809        jalr    t9            ; |
+   120000c5c:   00000000        nop                   ;
+   120000c60:   8fc20000        lw      v0,0(s8)      ;
+   120000c64:   2442fff4        addiu   v0,v0,-12     ;
+   120000c68:   afc20000        sw      v0,0(s8)      ;
+   120000c6c:   03c0e82d        move    sp,s8         ;
+   120000c70:   dfbf0020        ld      ra,32(sp)     ;
+   120000c74:   dfbe0018        ld      s8,24(sp)     ;
+   120000c78:   dfbc0010        ld      gp,16(sp)     ;
+   120000c7c:   03e00008        jr      ra            ;
+   120000c80:   67bd0030        daddiu  sp,sp,48      ;
+   120000c84:   00000000        nop                   ;
+
+
+
 ; vim: ft=asm
 

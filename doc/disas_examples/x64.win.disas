@@ -498,5 +498,91 @@ f       ENDP
 
 
 
+; ---------- C++ trivial and non-trivial aggrs as return values ---------->
+;
+; struct Trivial { int a; };
+; struct NonTrivial { int a; NonTrivial() : a(0) {} NonTrivial(const NonTrivial& rhs) : a(rhs.a) { } };
+; 
+; extern "C" {
+;     struct Trivial    f1() { return Trivial(); }
+; }
+; 
+;     struct NonTrivial f2() { return NonTrivial(); }
+; 
+; extern "C" {
+;     void f()
+;     {
+;         int a=1;
+;         a += 123;
+;         struct Trivial t = f1();
+;         a -= 123;
+;         struct NonTrivial n = f2();
+;         a -= 12;
+;     }
+; }
+
+
+
+; output from godbolt compiler explorer w/ msvc 19.0
+
+        ; ... snip, removed code of ctor and copy ctor ...
+
+$T1 = 0
+f1      PROC
+$LN3:
+        push    rdi
+        sub     rsp, 16
+        lea     rax, QWORD PTR $T1[rsp]
+        mov     rdi, rax
+        xor     eax, eax
+        mov     ecx, 4
+        rep stosb
+        mov     eax, DWORD PTR $T1[rsp]
+        add     rsp, 16
+        pop     rdi
+        ret     0
+f1      ENDP
+
+__$ReturnUdt$ = 48
+NonTrivial f2(void) PROC
+$LN3:
+        mov     QWORD PTR [rsp+8], rcx
+        sub     rsp, 40
+        mov     rcx, QWORD PTR __$ReturnUdt$[rsp]
+        call    NonTrivial::NonTrivial(void)
+        mov     rax, QWORD PTR __$ReturnUdt$[rsp]
+        add     rsp, 40
+        ret     0
+NonTrivial f2(void) ENDP
+
+a$ = 32
+$T1 = 36
+t$ = 40
+n$ = 44
+f       PROC
+$LN3:
+        sub     rsp, 56                 ; prolog
+        mov     DWORD PTR a$[rsp], 1    ; a = 1
+        mov     eax, DWORD PTR a$[rsp]  ; |
+        add     eax, 123                ; | a += 123
+        mov     DWORD PTR a$[rsp], eax  ; |
+        call    f1                      ; call f1()
+        mov     DWORD PTR $T1[rsp], eax ;
+        mov     eax, DWORD PTR $T1[rsp] ;
+        mov     DWORD PTR t$[rsp], eax  ;
+        mov     eax, DWORD PTR a$[rsp]  ; |
+        sub     eax, 123                ; | a -= 123
+        mov     DWORD PTR a$[rsp], eax  ; |
+        lea     rcx, QWORD PTR n$[rsp]  ; ptr to space to hold non-triv retval
+        call    NonTrivial f2(void)     ; call f2()
+        mov     eax, DWORD PTR a$[rsp]  ; |
+        sub     eax, 12                 ; | a -= 12
+        mov     DWORD PTR a$[rsp], eax  ; /
+        add     rsp, 56                 ; \ epilog
+        ret     0                       ; |
+f       ENDP                             
+
+
+
 ; vim: ft=asm
 

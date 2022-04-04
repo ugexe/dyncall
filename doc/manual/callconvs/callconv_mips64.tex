@@ -84,6 +84,7 @@ Name                       & Alias                & Brief description\\
 \item integer parameters \textless\ 64 bit are right-justified (meaning occupy higher-address bytes) in their 8-byte slot on the stack, requiring extra-care for big-endian targets
 \item single precision float parameters (32 bit) are left-justified in their 8-byte slot on the stack, but are right justified in fp-registers on big endian targets, as they aren't promoted (actually, official docs says "undecided", but real world implementations seem to use what is described here)
 \item aggregates (struct, union) are passed as a sequence of dwords in (integer registers and the stack), with the following particularities:
+\item {\it non-trivial} C++ aggregates (as defined by the language) of any size, are passed indirectly via a pointer to a copy of the aggregate
 \begin{itemize}
 \item if a dword happens to be a double precision floating point struct field, it is passed in a floating point register
 \item array and union fields are always passed like integers (even if their type is float or double)
@@ -123,9 +124,11 @@ Name                       & Alias                & Brief description\\
 \item results are returned in \$v0, and for a second one \$v1 is used
 \item only on hard-float targets: floating point results are returned in \$f0 (and \$f2 if needed)
 \item only on hard-float targets: structs with only one or two floating point fields are returned in \$f0 (and \$f2 if necessary), field-by-field
+\item for {\it non-trivial} C++ aggregates, the caller allocates space, passes pointer to it to the callee as a hidden first param
+(meaning in \%a0), and callee writes return value to this space; the ptr to the aggregate is returned in \%v0
 \item any other aggregates (struct, union) \textless= 16 bytes are returned via registers \$v0 (and \$v1 if necessary), dword-by-dword
 \item all other aggregates (struct, union) \textgreater 16 bytes are returned in a space allocated by the caller, with a pointer to it
-passed as first parameter to the function called (meaning in \%a0)
+passed as first parameter to the function called (meaning in \%a0); the ptr to the aggregate is returned in \%v0
 %spec;
 %Composite results (struct, union, or array) are returned in
 %$2/$f0 and $3/$f2 according to the following rules:

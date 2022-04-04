@@ -105,6 +105,7 @@ needed - e.g. varargs), meaning a minimum of 64 bytes to hold gpr3-gpr10
 \item vector parameters are aligned on 16-byte boundaries
 \item integer parameters \textless\ 64 bit are right-justified (meaning occupy higher-address bytes) in their 8-byte slot on the stack, requiring extra-care for big-endian targets
 \item aggregates (struct, union) are passed as a sequence of doublewords (following above rules for doublewords)
+\item {\it non-trivial} C++ aggregates (as defined by the language) of any size, are passed indirectly via a pointer to a copy of the aggregate
 \end{itemize}
 
 
@@ -114,8 +115,8 @@ needed - e.g. varargs), meaning a minimum of 64 bytes to hold gpr3-gpr10
 \item return values of integer \textless=\ 32bit or pointer type use gpr3 and are zero or sign extended depending on their type
 \item 64 bit integers use gpr3
 \item floating point values are returned via fpr1
-\item for aggregates (struct, union) of any size, a secret first parameter with an address
-to a caller allocated space is passed to the function (in gpr3), which is written to by the callee
+\item for any aggregate (struct, union), the caller allocates space, passes pointer to it to the callee as a hidden first param
+(meaning in gpr3), and callee writes return value to this space; the ptr to the aggregate is returned in gpr3
 \end{itemize}
 
 

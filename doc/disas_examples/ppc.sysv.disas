@@ -1038,79 +1038,151 @@
 
 
 
-; output from debian-4.1.1-21-ppc w/ gcc 4.1.2
+; output from debian-4.1.1-21-ppc w/ gcc 4.1.2 (demonstrates LSB specifics about aggr return values)
 
 00000000 <f0>:
-   0:   94 21 ff e0     stwu    r1,-32(r1)
-   4:   93 e1 00 1c     stw     r31,28(r1)
-   8:   7c 3f 0b 78     mr      r31,r1
-   c:   7c 69 1b 78     mr      r9,r3
-  10:   38 00 ff 84     li      r0,-124
-  14:   98 1f 00 08     stb     r0,8(r31)
-  18:   88 1f 00 08     lbz     r0,8(r31)
-  1c:   98 09 00 00     stb     r0,0(r9)
-  20:   7d 23 4b 78     mr      r3,r9
-  24:   81 61 00 00     lwz     r11,0(r1)
-  28:   83 eb ff fc     lwz     r31,-4(r11)
-  2c:   7d 61 5b 78     mr      r1,r11
-  30:   4e 80 00 20     blr
+   0:   94 21 ff e0     stwu    r1,-32(r1)     ;
+   4:   93 e1 00 1c     stw     r31,28(r1)     ;
+   8:   7c 3f 0b 78     mr      r31,r1         ;
+   c:   7c 69 1b 78     mr      r9,r3          ;
+  10:   38 00 ff 84     li      r0,-124        ;
+  14:   98 1f 00 08     stb     r0,8(r31)      ;
+  18:   88 1f 00 08     lbz     r0,8(r31)      ;
+  1c:   98 09 00 00     stb     r0,0(r9)       ;
+  20:   7d 23 4b 78     mr      r3,r9          ;
+  24:   81 61 00 00     lwz     r11,0(r1)      ;
+  28:   83 eb ff fc     lwz     r31,-4(r11)    ;
+  2c:   7d 61 5b 78     mr      r1,r11         ;
+  30:   4e 80 00 20     blr                    ;
 
 00000034 <f1>:
-  34:   94 21 ff e0     stwu    r1,-32(r1)
-  38:   93 e1 00 1c     stw     r31,28(r1)
-  3c:   7c 3f 0b 78     mr      r31,r1
-  40:   7c 6b 1b 78     mr      r11,r3
-  44:   3d 20 00 00     lis     r9,0
-  48:   39 29 00 00     addi    r9,r9,0
-  4c:   80 09 00 00     lwz     r0,0(r9)
-  50:   81 49 00 04     lwz     r10,4(r9)
-  54:   81 09 00 08     lwz     r8,8(r9)
-  58:   81 29 00 0c     lwz     r9,12(r9)
-  5c:   90 1f 00 08     stw     r0,8(r31)
-  60:   91 5f 00 0c     stw     r10,12(r31)
-  64:   91 1f 00 10     stw     r8,16(r31)
-  68:   91 3f 00 14     stw     r9,20(r31)
-  6c:   80 1f 00 08     lwz     r0,8(r31)
-  70:   81 3f 00 0c     lwz     r9,12(r31)
-  74:   81 5f 00 10     lwz     r10,16(r31)
-  78:   81 1f 00 14     lwz     r8,20(r31)
-  7c:   90 0b 00 00     stw     r0,0(r11)
-  80:   91 2b 00 04     stw     r9,4(r11)
-  84:   91 4b 00 08     stw     r10,8(r11)
-  88:   91 0b 00 0c     stw     r8,12(r11)
-  8c:   7d 63 5b 78     mr      r3,r11
-  90:   81 61 00 00     lwz     r11,0(r1)
-  94:   83 eb ff fc     lwz     r31,-4(r11)
-  98:   7d 61 5b 78     mr      r1,r11
-  9c:   4e 80 00 20     blr
+  34:   94 21 ff e0     stwu    r1,-32(r1)     ;
+  38:   93 e1 00 1c     stw     r31,28(r1)     ;
+  3c:   7c 3f 0b 78     mr      r31,r1         ;
+  40:   7c 6b 1b 78     mr      r11,r3         ;
+  44:   3d 20 00 00     lis     r9,0           ;
+  48:   39 29 00 00     addi    r9,r9,0        ;
+  4c:   80 09 00 00     lwz     r0,0(r9)       ;
+  50:   81 49 00 04     lwz     r10,4(r9)      ;
+  54:   81 09 00 08     lwz     r8,8(r9)       ;
+  58:   81 29 00 0c     lwz     r9,12(r9)      ;
+  5c:   90 1f 00 08     stw     r0,8(r31)      ;
+  60:   91 5f 00 0c     stw     r10,12(r31)    ;
+  64:   91 1f 00 10     stw     r8,16(r31)     ;
+  68:   91 3f 00 14     stw     r9,20(r31)     ;
+  6c:   80 1f 00 08     lwz     r0,8(r31)      ;
+  70:   81 3f 00 0c     lwz     r9,12(r31)     ;
+  74:   81 5f 00 10     lwz     r10,16(r31)    ;
+  78:   81 1f 00 14     lwz     r8,20(r31)     ;
+  7c:   90 0b 00 00     stw     r0,0(r11)      ;
+  80:   91 2b 00 04     stw     r9,4(r11)      ;
+  84:   91 4b 00 08     stw     r10,8(r11)     ;
+  88:   91 0b 00 0c     stw     r8,12(r11)     ;
+  8c:   7d 63 5b 78     mr      r3,r11         ;
+  90:   81 61 00 00     lwz     r11,0(r1)      ;
+  94:   83 eb ff fc     lwz     r31,-4(r11)    ;
+  98:   7d 61 5b 78     mr      r1,r11         ;
+  9c:   4e 80 00 20     blr                    ;
 
 000000a0 <main>:
-  a0:   94 21 ff c0     stwu    r1,-64(r1)
-  a4:   7c 08 02 a6     mflr    r0
-  a8:   93 e1 00 3c     stw     r31,60(r1)
-  ac:   90 01 00 44     stw     r0,68(r1)
-  b0:   7c 3f 0b 78     mr      r31,r1
-  b4:   38 1f 00 28     addi    r0,r31,40
-  b8:   7c 03 03 78     mr      r3,r0
-  bc:   4c c6 31 82     crclr   4*cr1+eq
-  c0:   48 00 00 01     bl      c0 <main+0x20>
-  c4:   88 1f 00 28     lbz     r0,40(r31)
-  c8:   98 1f 00 08     stb     r0,8(r31)
-  cc:   38 1f 00 10     addi    r0,r31,16
-  d0:   7c 03 03 78     mr      r3,r0
-  d4:   4c c6 31 82     crclr   4*cr1+eq
-  d8:   48 00 00 01     bl      d8 <main+0x38>
-  dc:   81 3f 00 18     lwz     r9,24(r31)
-  e0:   88 1f 00 08     lbz     r0,8(r31)
-  e4:   54 00 06 3e     clrlwi  r0,r0,24
-  e8:   7c 09 02 14     add     r0,r9,r0
-  ec:   7c 03 03 78     mr      r3,r0
-  f0:   81 61 00 00     lwz     r11,0(r1)
-  f4:   80 0b 00 04     lwz     r0,4(r11)
-  f8:   7c 08 03 a6     mtlr    r0
-  fc:   83 eb ff fc     lwz     r31,-4(r11)
- 100:   7d 61 5b 78     mr      r1,r11
- 104:   4e 80 00 20     blr
+  a0:   94 21 ff c0     stwu    r1,-64(r1)     ; |           open frame and store sp at top of stack
+  a4:   7c 08 02 a6     mflr    r0             ; |           lr -> gpr0
+  a8:   93 e1 00 3c     stw     r31,60(r1)     ; | prolog    store gpr31
+  ac:   90 01 00 44     stw     r0,68(r1)      ; |           store lr
+  b0:   7c 3f 0b 78     mr      r31,r1         ; /           sp -> gpr31, latter used for some fixed addressing below
+  b4:   38 1f 00 28     addi    r0,r31,40      ; \
+  b8:   7c 03 03 78     mr      r3,r0          ; | space to retval -> gpr3 (hidden arg)
+  bc:   4c c6 31 82     crclr   4*cr1+eq       ; :
+  c0:   48 00 00 01     bl      c0 <main+0x20> ; call f0()
+  c4:   88 1f 00 28     lbz     r0,40(r31)     ;
+  c8:   98 1f 00 08     stb     r0,8(r31)      ;
+  cc:   38 1f 00 10     addi    r0,r31,16      ; |
+  d0:   7c 03 03 78     mr      r3,r0          ; | space to retval -> gpr3 (hidden arg)
+  d4:   4c c6 31 82     crclr   4*cr1+eq       ; :
+  d8:   48 00 00 01     bl      d8 <main+0x38> ; call f1()
+  dc:   81 3f 00 18     lwz     r9,24(r31)     ;
+  e0:   88 1f 00 08     lbz     r0,8(r31)      ;
+  e4:   54 00 06 3e     clrlwi  r0,r0,24       ;
+  e8:   7c 09 02 14     add     r0,r9,r0       ;
+  ec:   7c 03 03 78     mr      r3,r0          ;
+  f0:   81 61 00 00     lwz     r11,0(r1)      ; |
+  f4:   80 0b 00 04     lwz     r0,4(r11)      ; |
+  f8:   7c 08 03 a6     mtlr    r0             ; |
+  fc:   83 eb ff fc     lwz     r31,-4(r11)    ; | epilog
+ 100:   7d 61 5b 78     mr      r1,r11         ; |
+ 104:   4e 80 00 20     blr                    ; |
+
+
+
+; output from netbsd-4.0.1-macppc w/ gcc 4.1.2 (demonstrates default (non-LSB) aggr return values)
+
+018007a0 <f0>:
+ 18007a0:       94 21 ff d0     stwu    r1,-48(r1)
+ 18007a4:       93 e1 00 2c     stw     r31,44(r1)
+ 18007a8:       7c 3f 0b 78     mr      r31,r1
+ 18007ac:       38 00 ff 84     li      r0,-124
+ 18007b0:       98 1f 00 08     stb     r0,8(r31)
+ 18007b4:       88 1f 00 08     lbz     r0,8(r31)
+ 18007b8:       7c 03 03 78     mr      r3,r0
+ 18007bc:       81 61 00 00     lwz     r11,0(r1)
+ 18007c0:       83 eb ff fc     lwz     r31,-4(r11)
+ 18007c4:       7d 61 5b 78     mr      r1,r11
+ 18007c8:       4e 80 00 20     blr
+
+018007cc <f1>:
+ 18007cc:       94 21 ff d0     stwu    r1,-48(r1)
+ 18007d0:       93 e1 00 2c     stw     r31,44(r1)
+ 18007d4:       7c 3f 0b 78     mr      r31,r1
+ 18007d8:       7c 6b 1b 78     mr      r11,r3
+ 18007dc:       3d 20 01 80     lis     r9,384
+ 18007e0:       39 29 09 80     addi    r9,r9,2432
+ 18007e4:       80 09 00 00     lwz     r0,0(r9)
+ 18007e8:       81 49 00 04     lwz     r10,4(r9)
+ 18007ec:       81 09 00 08     lwz     r8,8(r9)
+ 18007f0:       81 29 00 0c     lwz     r9,12(r9)
+ 18007f4:       90 1f 00 08     stw     r0,8(r31)
+ 18007f8:       91 5f 00 0c     stw     r10,12(r31)
+ 18007fc:       91 1f 00 10     stw     r8,16(r31)
+ 1800800:       91 3f 00 14     stw     r9,20(r31)
+ 1800804:       80 1f 00 08     lwz     r0,8(r31)
+ 1800808:       81 3f 00 0c     lwz     r9,12(r31)
+ 180080c:       81 5f 00 10     lwz     r10,16(r31)
+ 1800810:       81 1f 00 14     lwz     r8,20(r31)
+ 1800814:       90 0b 00 00     stw     r0,0(r11)
+ 1800818:       91 2b 00 04     stw     r9,4(r11)
+ 180081c:       91 4b 00 08     stw     r10,8(r11)
+ 1800820:       91 0b 00 0c     stw     r8,12(r11)
+ 1800824:       7d 63 5b 78     mr      r3,r11
+ 1800828:       81 61 00 00     lwz     r11,0(r1)
+ 180082c:       83 eb ff fc     lwz     r31,-4(r11)
+ 1800830:       7d 61 5b 78     mr      r1,r11
+ 1800834:       4e 80 00 20     blr
+
+01800838 <main>:
+ 1800838:       94 21 ff c0     stwu    r1,-64(r1)   ; |           open frame and store sp at top of stack
+ 180083c:       7c 08 02 a6     mflr    r0           ; |           lr -> gpr0
+ 1800840:       93 e1 00 3c     stw     r31,60(r1)   ; | prolog    store gpr31
+ 1800844:       90 01 00 44     stw     r0,68(r1)    ; |           store lr
+ 1800848:       7c 3f 0b 78     mr      r31,r1       ; |           sp -> gpr31, latter used for some fixed addressing below
+ 180084c:       4b ff ff 55     bl      18007a0 <f0> ; call f0()
+ 1800850:       7c 60 1b 78     mr      r0,r3        ; |           NOTE: ret val is returned via gpr3
+ 1800854:       98 1f 00 08     stb     r0,8(r31)    ; / ret val
+ 1800858:       38 1f 00 10     addi    r0,r31,16    ; \
+ 180085c:       7c 03 03 78     mr      r3,r0        ; | space to retval -> gpr3 (hidden arg)
+ 1800860:       4c c6 31 82     crclr   4*cr1+eq     ; :
+ 1800864:       4b ff ff 69     bl      18007cc <f1> ; call f0()
+ 1800868:       81 3f 00 18     lwz     r9,24(r31)   ;
+ 180086c:       88 1f 00 08     lbz     r0,8(r31)    ;
+ 1800870:       54 00 06 3e     clrlwi  r0,r0,24     ;
+ 1800874:       7c 09 02 14     add     r0,r9,r0     ;
+ 1800878:       7c 03 03 78     mr      r3,r0        ;
+ 180087c:       81 61 00 00     lwz     r11,0(r1)    ;
+ 1800880:       80 0b 00 04     lwz     r0,4(r11)    ;
+ 1800884:       7c 08 03 a6     mtlr    r0           ;
+ 1800888:       83 eb ff fc     lwz     r31,-4(r11)  ;
+ 180088c:       7d 61 5b 78     mr      r1,r11       ;
+ 1800890:       4e 80 00 20     blr                  ;
+ 1800894:       00 01 81 48     .long 0x18148        ;
 
 
 
@@ -1201,6 +1273,165 @@
 100004b0:       4e 80 00 20     blr                                       ;
 
   ; ... snip, removed code of ctor and copy ctor ...
+
+
+
+; ---------- C++ trivial and non-trivial aggrs as return values ---------->
+;
+; struct Trivial { int a; };
+; struct NonTrivial { int a; NonTrivial() : a(0) {} NonTrivial(const NonTrivial& rhs) : a(rhs.a) { } };
+; 
+; extern "C" {
+;     struct Trivial    f1() { return Trivial(); }
+; }
+; 
+;     struct NonTrivial f2() { return NonTrivial(); }
+; 
+; extern "C" {
+;     void f()
+;     {
+;         int a=1;
+;         a += 123;
+;         struct Trivial t = f1();
+;         a -= 123;
+;         struct NonTrivial n = f2();
+;         a -= 12;
+;     }
+; }
+
+
+
+; output from debian-4.1.1-21-ppc w/ gcc 4.1.2 (demonstrates LSB specifics about aggr return values)
+
+100003e0 <f1>:
+100003e0:       94 21 ff f0     stwu    r1,-16(r1)
+100003e4:       93 e1 00 0c     stw     r31,12(r1)
+100003e8:       7c 3f 0b 78     mr      r31,r1
+100003ec:       7c 69 1b 78     mr      r9,r3
+100003f0:       38 00 00 00     li      r0,0
+100003f4:       90 09 00 00     stw     r0,0(r9)
+100003f8:       7d 23 4b 78     mr      r3,r9
+100003fc:       81 61 00 00     lwz     r11,0(r1)
+10000400:       83 eb ff fc     lwz     r31,-4(r11)
+10000404:       7d 61 5b 78     mr      r1,r11
+10000408:       4e 80 00 20     blr
+
+1000040c <_Z2f2v>:
+1000040c:       94 21 ff e0     stwu    r1,-32(r1)
+10000410:       7c 08 02 a6     mflr    r0
+10000414:       93 a1 00 14     stw     r29,20(r1)
+10000418:       93 e1 00 1c     stw     r31,28(r1)
+1000041c:       90 01 00 24     stw     r0,36(r1)
+10000420:       7c 3f 0b 78     mr      r31,r1
+10000424:       7c 7d 1b 78     mr      r29,r3
+10000428:       7f a0 eb 78     mr      r0,r29
+1000042c:       7c 03 03 78     mr      r3,r0
+10000430:       48 00 00 d5     bl      10000504 <_ZN10NonTrivialC1Ev>
+10000434:       7f a3 eb 78     mr      r3,r29
+10000438:       81 61 00 00     lwz     r11,0(r1)
+1000043c:       80 0b 00 04     lwz     r0,4(r11)
+10000440:       7c 08 03 a6     mtlr    r0
+10000444:       83 ab ff f4     lwz     r29,-12(r11)
+10000448:       83 eb ff fc     lwz     r31,-4(r11)
+1000044c:       7d 61 5b 78     mr      r1,r11
+10000450:       4e 80 00 20     blr
+
+10000454 <f>:
+10000454:       94 21 ff d0     stwu    r1,-48(r1)        ; |           open frame and store sp at top of stack
+10000458:       7c 08 02 a6     mflr    r0                ; |           lr -> gpr0
+1000045c:       93 e1 00 2c     stw     r31,44(r1)        ; | prolog    store gpr31
+10000460:       90 01 00 34     stw     r0,52(r1)         ; |           store lr
+10000464:       7c 3f 0b 78     mr      r31,r1            ; /           sp -> gpr31, latter used for some fixed addressing below
+10000468:       38 00 00 01     li      r0,1              ; \ a = 1
+1000046c:       90 1f 00 08     stw     r0,8(r31)         ; /
+10000470:       81 3f 00 08     lwz     r9,8(r31)         ; \
+10000474:       38 09 00 7b     addi    r0,r9,123         ; | a += 123
+10000478:       90 1f 00 08     stw     r0,8(r31)         ; /
+1000047c:       38 1f 00 18     addi    r0,r31,24         ; \
+10000480:       7c 03 03 78     mr      r3,r0             ; | space to retval -> gpr3 (hidden arg); NOTE: this follows the LSB definition
+10000484:       4b ff ff 5d     bl      100003e0 <f1>     ; call f1()
+10000488:       80 1f 00 18     lwz     r0,24(r31)        ;
+1000048c:       90 1f 00 0c     stw     r0,12(r31)        ;
+10000490:       81 3f 00 08     lwz     r9,8(r31)         ;
+10000494:       38 09 ff 85     addi    r0,r9,-123        ;
+10000498:       90 1f 00 08     stw     r0,8(r31)         ;
+1000049c:       38 1f 00 10     addi    r0,r31,16         ; |
+100004a0:       7c 03 03 78     mr      r3,r0             ; | hidden first arg (ptr to space to hold NonTrivial retval), via ptr as non-trivial
+100004a4:       4b ff ff 69     bl      1000040c <_Z2f2v> ; call f2()
+100004a8:       81 3f 00 08     lwz     r9,8(r31)         ;
+100004ac:       38 09 ff f4     addi    r0,r9,-12         ;
+100004b0:       90 1f 00 08     stw     r0,8(r31)         ;
+100004b4:       81 61 00 00     lwz     r11,0(r1)         ;
+100004b8:       80 0b 00 04     lwz     r0,4(r11)         ;
+100004bc:       7c 08 03 a6     mtlr    r0                ;
+100004c0:       83 eb ff fc     lwz     r31,-4(r11)       ;
+100004c4:       7d 61 5b 78     mr      r1,r11            ;
+100004c8:       4e 80 00 20     blr                       ;
+
+
+
+; output from netbsd-4.0.1-macppc w/ gcc 4.1.2 (demonstrates default (non-LSB) aggr return values)
+
+01800840 <f1>:
+ 1800840:       94 21 ff e0     stwu    r1,-32(r1)
+ 1800844:       93 e1 00 1c     stw     r31,28(r1)
+ 1800848:       7c 3f 0b 78     mr      r31,r1
+ 180084c:       38 00 00 00     li      r0,0
+ 1800850:       7c 03 03 78     mr      r3,r0
+ 1800854:       81 61 00 00     lwz     r11,0(r1)
+ 1800858:       83 eb ff fc     lwz     r31,-4(r11)
+ 180085c:       7d 61 5b 78     mr      r1,r11
+ 1800860:       4e 80 00 20     blr
+
+01800864 <_Z2f2v>:
+ 1800864:       94 21 ff e0     stwu    r1,-32(r1)
+ 1800868:       7c 08 02 a6     mflr    r0
+ 180086c:       93 a1 00 14     stw     r29,20(r1)
+ 1800870:       93 e1 00 1c     stw     r31,28(r1)
+ 1800874:       90 01 00 24     stw     r0,36(r1)
+ 1800878:       7c 3f 0b 78     mr      r31,r1
+ 180087c:       7c 7d 1b 78     mr      r29,r3
+ 1800880:       7f a0 eb 78     mr      r0,r29
+ 1800884:       7c 03 03 78     mr      r3,r0
+ 1800888:       48 00 00 cd     bl      1800954 <_ZN10NonTrivialC1Ev>
+ 180088c:       7f a3 eb 78     mr      r3,r29
+ 1800890:       81 61 00 00     lwz     r11,0(r1)
+ 1800894:       80 0b 00 04     lwz     r0,4(r11)
+ 1800898:       7c 08 03 a6     mtlr    r0
+ 180089c:       83 ab ff f4     lwz     r29,-12(r11)
+ 18008a0:       83 eb ff fc     lwz     r31,-4(r11)
+ 18008a4:       7d 61 5b 78     mr      r1,r11
+ 18008a8:       4e 80 00 20     blr
+
+018008ac <f>:
+ 18008ac:       94 21 ff d0     stwu    r1,-48(r1)       ;
+ 18008b0:       7c 08 02 a6     mflr    r0               ;
+ 18008b4:       93 e1 00 2c     stw     r31,44(r1)       ;
+ 18008b8:       90 01 00 34     stw     r0,52(r1)        ;
+ 18008bc:       7c 3f 0b 78     mr      r31,r1           ;
+ 18008c0:       38 00 00 01     li      r0,1             ;
+ 18008c4:       90 1f 00 08     stw     r0,8(r31)        ;
+ 18008c8:       81 3f 00 08     lwz     r9,8(r31)        ;
+ 18008cc:       38 09 00 7b     addi    r0,r9,123        ;
+ 18008d0:       90 1f 00 08     stw     r0,8(r31)        ; NOTE: no hidden param in contrast to LSB version of callconv
+ 18008d4:       4b ff ff 6d     bl      1800840 <f1>     ; call f1()
+ 18008d8:       7c 60 1b 78     mr      r0,r3            ; |           NOTE: ret val is returned via gpr3
+ 18008dc:       90 1f 00 0c     stw     r0,12(r31)       ; / ret val
+ 18008e0:       81 3f 00 08     lwz     r9,8(r31)        ;
+ 18008e4:       38 09 ff 85     addi    r0,r9,-123       ;
+ 18008e8:       90 1f 00 08     stw     r0,8(r31)        ;
+ 18008ec:       38 1f 00 10     addi    r0,r31,16        ; |
+ 18008f0:       7c 03 03 78     mr      r3,r0            ; | hidden first arg (ptr to space to hold NonTrivial retval), via ptr as non-trivial
+ 18008f4:       4b ff ff 71     bl      1800864 <_Z2f2v> ; call f2()
+ 18008f8:       81 3f 00 08     lwz     r9,8(r31)        ;
+ 18008fc:       38 09 ff f4     addi    r0,r9,-12        ;
+ 1800900:       90 1f 00 08     stw     r0,8(r31)        ;
+ 1800904:       81 61 00 00     lwz     r11,0(r1)        ;
+ 1800908:       80 0b 00 04     lwz     r0,4(r11)        ;
+ 180090c:       7c 08 03 a6     mtlr    r0               ;
+ 1800910:       83 eb ff fc     lwz     r31,-4(r11)      ;
+ 1800914:       7d 61 5b 78     mr      r1,r11           ;
+ 1800918:       4e 80 00 20     blr                      ;
 
 
 

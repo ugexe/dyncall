@@ -696,5 +696,79 @@
 
 
 
+; ---------- C++ trivial and non-trivial aggrs as return values ---------->
+;
+; struct Trivial { int a; };
+; struct NonTrivial { int a; NonTrivial() : a(0) {} NonTrivial(const NonTrivial& rhs) : a(rhs.a) { } };
+; 
+; extern "C" {
+;     struct Trivial    f1() { return Trivial(); }
+; }
+; 
+;     struct NonTrivial f2() { return NonTrivial(); }
+; 
+; extern "C" {
+;     void f()
+;     {
+;         int a=1;
+;         a += 123;
+;         struct Trivial t = f1();
+;         a -= 123;
+;         struct NonTrivial n = f2();
+;         a -= 12;
+;     }
+; }
+
+
+
+; output from raspbian-11-armelhf w/ gcc 10.2.1
+
+000103d0 <f1>:
+   103d0:       e52db004        push    {fp}
+   103d4:       e28db000        add     fp, sp, #0
+   103d8:       e3a03000        mov     r3, #0
+   103dc:       e1a00003        mov     r0, r3
+   103e0:       e28bd000        add     sp, fp, #0
+   103e4:       e49db004        pop     {fp}
+   103e8:       e12fff1e        bx      lr
+
+000103ec <_Z2f2v>:
+   103ec:       e92d4800        push    {fp, lr}
+   103f0:       e28db004        add     fp, sp, #4
+   103f4:       e24dd008        sub     sp, sp, #8
+   103f8:       e50b0008        str     r0, [fp, #-8]
+   103fc:       e51b0008        ldr     r0, [fp, #-8]
+   10400:       eb00001f        bl      10484 <_ZN10NonTrivialC1Ev>
+   10404:       e51b0008        ldr     r0, [fp, #-8]  ; ptr to retval space -> r0
+   10408:       e24bd004        sub     sp, fp, #4
+   1040c:       e8bd8800        pop     {fp, pc}
+
+00010410 <f>:
+   10410:       e92d4800        push    {fp, lr}       ; |
+   10414:       e28db004        add     fp, sp, #4     ; | prolog
+   10418:       e24dd010        sub     sp, sp, #16    ; /
+   1041c:       e3a03001        mov     r3, #1         ; \ a = 1
+   10420:       e50b3008        str     r3, [fp, #-8]  ; /
+   10424:       e51b3008        ldr     r3, [fp, #-8]  ; \
+   10428:       e283307b        add     r3, r3, #123   ; | a += 123
+   1042c:       e50b3008        str     r3, [fp, #-8]  ; |
+   10430:       ebffffe6        bl      103d0 <f1>     ; call f1()
+   10434:       e1a03000        mov     r3, r0         ; | retval via r0, as small struct
+   10438:       e50b300c        str     r3, [fp, #-12] ; /
+   1043c:       e51b3008        ldr     r3, [fp, #-8]  ; \
+   10440:       e243307b        sub     r3, r3, #123   ; | a -= 123
+   10444:       e50b3008        str     r3, [fp, #-8]  ; |
+   10448:       e24b3010        sub     r3, fp, #16    ; space to hold non-triv retval -> eax ...
+   1044c:       e1a00003        mov     r0, r3         ; ... as hidden first arg (r0)
+   10450:       ebffffe5        bl      103ec <_Z2f2v> ; call f2()
+   10454:       e51b3008        ldr     r3, [fp, #-8]  ; |
+   10458:       e243300c        sub     r3, r3, #12    ; | a -= 12
+   1045c:       e50b3008        str     r3, [fp, #-8]  ; /
+   10460:       e1a00000        nop                    ; \
+   10464:       e24bd004        sub     sp, fp, #4     ; | epilog
+   10468:       e8bd8800        pop     {fp, pc}       ; |
+
+
+
 ; vim: ft=asm68k
 

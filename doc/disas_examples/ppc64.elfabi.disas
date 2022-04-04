@@ -830,5 +830,99 @@
 
 
 
+; ---------- C++ trivial and non-trivial aggrs as return values ---------->
+;
+; struct Trivial { int a; };
+; struct NonTrivial { int a; NonTrivial() : a(0) {} NonTrivial(const NonTrivial& rhs) : a(rhs.a) { } };
+; 
+; extern "C" {
+;     struct Trivial    f1() { return Trivial(); }
+; }
+; 
+;     struct NonTrivial f2() { return NonTrivial(); }
+; 
+; extern "C" {
+;     void f()
+;     {
+;         int a=1;
+;         a += 123;
+;         struct Trivial t = f1();
+;         a -= 123;
+;         struct NonTrivial n = f2();
+;         a -= 12;
+;     }
+; }
+
+
+
+; output from freebsd-11.0-ppc64 w/ gcc 4.2.1
+
+0000000010000828 <.f1>:
+    10000828:   fb e1 ff f8     std     r31,-8(r1)                         ; |
+    1000082c:   f8 21 ff c1     stdu    r1,-64(r1)                         ; | prolog
+    10000830:   7c 3f 0b 78     mr      r31,r1                             ; use gpr31 as sort of frame pointer, below
+    10000834:   90 7f 00 70     stw     r3,112(r31)                        ;
+    10000838:   e8 21 00 00     ld      r1,0(r1)                           ; |
+    1000083c:   eb e1 ff f8     ld      r31,-8(r1)                         ; | epilog
+    10000840:   4e 80 00 20     blr                                        ; |
+    10000844:   00 00 00 00     .long 0x0                                  ; data
+    10000848:   00 09 00 00     .long 0x90000                              ; data
+    1000084c:   80 01 00 01     lwz     r0,1(r1)                           ; unsure@@@. data?
+
+0000000010000850 <.f2>:
+    10000850:   fb e1 ff f8     std     r31,-8(r1)                         ; |
+    10000854:   f8 21 ff c1     stdu    r1,-64(r1)                         ; | prolog
+    10000858:   7c 3f 0b 78     mr      r31,r1                             ; use gpr31 as sort of frame pointer, below
+    1000085c:   f8 7f 00 70     std     r3,112(r31)                        ;
+    10000860:   e8 21 00 00     ld      r1,0(r1)                           ; |
+    10000864:   eb e1 ff f8     ld      r31,-8(r1)                         ; | epilog
+    10000868:   4e 80 00 20     blr                                        ; |
+    1000086c:   00 00 00 00     .long 0x0                                  ; data
+    10000870:   00 09 00 00     .long 0x90000                              ; data
+    10000874:   80 01 00 01     lwz     r0,1(r1)                           ; unsure@@@. data?
+
+0000000010000878 <.f>:
+    10000878:   7c 08 02 a6     mflr    r0                                 ;
+    1000087c:   fb e1 ff f8     std     r31,-8(r1)                         ;
+    10000880:   f8 01 00 10     std     r0,16(r1)                          ;
+    10000884:   f8 21 ff 71     stdu    r1,-144(r1)                        ;
+    10000888:   7c 3f 0b 78     mr      r31,r1                             ;
+    1000088c:   38 1f 00 7c     addi    r0,r31,124                         ;
+    10000890:   7c 03 03 78     mr      r3,r0                              ;
+    10000894:   48 00 00 ad     bl      10000940 <._ZN10NonTrivialC1Ev>    ; ctor
+    10000898:   4f ff fb 82     crmove  4*cr7+so,4*cr7+so                  ;
+    1000089c:   38 00 00 01     li      r0,1                               ; | a = 1
+    100008a0:   90 1f 00 70     stw     r0,112(r31)                        ; /
+    100008a4:   81 3f 00 70     lwz     r9,112(r31)                        ; \
+    100008a8:   38 09 00 7b     addi    r0,r9,123                          ; | a += 123
+    100008ac:   90 1f 00 70     stw     r0,112(r31)                        ; |
+    100008b0:   80 7f 00 78     lwz     r3,120(r31)                        ; hidden first arg (ptr to space to hold Trivial retval) @@@ fetches addr from 120(r31)?
+    100008b4:   4b ff ff 75     bl      10000828 <.f1>                     ; call f1()
+    100008b8:   81 3f 00 70     lwz     r9,112(r31)                        ; |
+    100008bc:   38 09 ff 85     addi    r0,r9,-123                         ; | a -= 123
+    100008c0:   90 1f 00 70     stw     r0,112(r31)                        ; |
+    100008c4:   38 1f 00 74     addi    r0,r31,116                         ;
+    100008c8:   39 3f 00 7c     addi    r9,r31,124                         ;
+    100008cc:   7c 03 03 78     mr      r3,r0                              ;
+    100008d0:   7d 24 4b 78     mr      r4,r9                              ;
+    100008d4:   48 00 00 a1     bl      10000974 <._ZN10NonTrivialC1ERKS_> ; copy ctor
+    100008d8:   4f ff fb 82     crmove  4*cr7+so,4*cr7+so                  ;
+    100008dc:   38 1f 00 74     addi    r0,r31,116                         ;
+    100008e0:   7c 03 03 78     mr      r3,r0                              ; hidden first arg (ptr to space to hold NonTrivial retval)
+    100008e4:   4b ff ff 6d     bl      10000850 <.f2>                     ; call f2()
+    100008e8:   81 3f 00 70     lwz     r9,112(r31)                        ; |
+    100008ec:   38 09 ff f4     addi    r0,r9,-12                          ; | a -= 12
+    100008f0:   90 1f 00 70     stw     r0,112(r31)                        ; |
+    100008f4:   e8 21 00 00     ld      r1,0(r1)                           ;
+    100008f8:   e8 01 00 10     ld      r0,16(r1)                          ;
+    100008fc:   7c 08 03 a6     mtlr    r0                                 ;
+    10000900:   eb e1 ff f8     ld      r31,-8(r1)                         ;
+    10000904:   4e 80 00 20     blr                                        ;
+    10000908:   00 00 00 00     .long 0x0                                  ;
+    1000090c:   00 09 00 01     .long 0x90001                              ;
+    10000910:   80 01 00 01     lwz     r0,1(r1)                           ;
+
+
+
 ; vim: ft=asm
 

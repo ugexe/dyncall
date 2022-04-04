@@ -1856,7 +1856,7 @@ main:
       dc:       e8 07 00 f9     str     x8, [sp, #8]        ;
       e0:       e9 03 00 f9     str     x9, [sp]            ;
       e4:       c7 ff ff 97     bl      #-228 <f0>          ; return address -> r30/lr, and call
-      e8:       ea 03 00 2a     mov     w10, w0             ;
+      e8:       ea 03 00 2a     mov     w10, w0             ; retval via w0, as small struct
       ec:       e8 07 40 f9     ldr     x8, [sp, #8]        ;
       f0:       0a 01 00 39     strb    w10, [x8]           ;
       f4:       e8 03 40 f9     ldr     x8, [sp]            ; ptr to retval struct, as sizeof(struct Big) > 16
@@ -2254,6 +2254,90 @@ main:
   21031c:       c0 03 5f d6     ret                                  ;
 
   ; ... snip, removed code of ctor and copy ctor ...
+
+
+
+; ---------- C++ trivial and non-trivial aggrs as return values ---------->
+;
+; struct Trivial { int a; };
+; struct NonTrivial { int a; NonTrivial() : a(0) {} NonTrivial(const NonTrivial& rhs) : a(rhs.a) { } };
+; 
+; extern "C" {
+;     struct Trivial    f1() { return Trivial(); }
+; }
+; 
+;     struct NonTrivial f2() { return NonTrivial(); }
+; 
+; extern "C" {
+;     void f()
+;     {
+;         int a=1;
+;         a += 123;
+;         struct Trivial t = f1();
+;         a -= 123;
+;         struct NonTrivial n = f2();
+;         a -= 12;
+;     }
+; }
+
+
+
+; output from freebsd-13.0_r348764-arm64 w/ clang 8.0.0
+
+0000000000210250 f1:
+  210250:       ff 83 00 d1     sub     sp, sp, #32
+  210254:       fe 0b 00 f9     str     x30, [sp, #16]
+  210258:       08 00 80 52     mov     w8, #0
+  21025c:       e2 03 7e b2     orr     x2, xzr, #0x4
+  210260:       e9 33 00 91     add     x9, sp, #12
+  210264:       e0 03 09 aa     mov     x0, x9
+  210268:       e1 03 08 2a     mov     w1, w8
+  21026c:       e9 03 00 f9     str     x9, [sp]
+  210270:       64 00 00 94     bl      #400 <memset@plt>
+  210274:       e9 03 40 f9     ldr     x9, [sp]
+  210278:       28 01 40 b9     ldr     w8, [x9]
+  21027c:       e0 03 08 2a     mov     w0, w8
+  210280:       00 7c 40 d3     ubfx    x0, x0, #0, #32
+  210284:       fe 0b 40 f9     ldr     x30, [sp, #16]
+  210288:       ff 83 00 91     add     sp, sp, #32
+  21028c:       c0 03 5f d6     ret
+
+0000000000210290 _Z2f2v:
+  210290:       fd 7b bf a9     stp     x29, x30, [sp, #-16]!
+  210294:       fd 03 00 91     mov     x29, sp
+  210298:       e0 03 08 aa     mov     x0, x8              ; ptr to retval space -> x0
+  21029c:       29 00 00 94     bl      #164 <_ZN10NonTrivialC2Ev>
+  2102a0:       fd 7b c1 a8     ldp     x29, x30, [sp], #16
+  2102a4:       c0 03 5f d6     ret
+
+00000000002102a8 f:
+  2102a8:       ff c3 00 d1     sub     sp, sp, #48         ;
+  2102ac:       fd 7b 02 a9     stp     x29, x30, [sp, #32] ;
+  2102b0:       fd 83 00 91     add     x29, sp, #32        ;
+  2102b4:       e8 03 00 32     orr     w8, wzr, #0x1       ;
+  2102b8:       a9 23 00 d1     sub     x9, x29, #8         ;
+  2102bc:       aa 33 00 d1     sub     x10, x29, #12       ;
+  2102c0:       a8 c3 1f b8     stur    w8, [x29, #-4]      ;
+  2102c4:       a8 c3 5f b8     ldur    w8, [x29, #-4]      ;
+  2102c8:       08 ed 01 11     add     w8, w8, #123        ;
+  2102cc:       a8 c3 1f b8     stur    w8, [x29, #-4]      ;
+  2102d0:       e9 07 00 f9     str     x9, [sp, #8]        ;
+  2102d4:       ea 03 00 f9     str     x10, [sp]           ;
+  2102d8:       de ff ff 97     bl      #-136 <f1>          ; call f1()
+  2102dc:       e8 03 00 2a     mov     w8, w0              ; retval via w0, as small struct
+  2102e0:       e9 07 40 f9     ldr     x9, [sp, #8]        ;
+  2102e4:       28 01 00 b9     str     w8, [x9]            ;
+  2102e8:       a8 c3 5f b8     ldur    w8, [x29, #-4]      ;
+  2102ec:       08 ed 01 71     subs    w8, w8, #123        ;
+  2102f0:       a8 c3 1f b8     stur    w8, [x29, #-4]      ;
+  2102f4:       e8 03 40 f9     ldr     x8, [sp]            ; ptr to retval struct via dedicated reg x8, as non-trivial aggr
+  2102f8:       e6 ff ff 97     bl      #-104 <_Z2f2v>      ; call f2()
+  2102fc:       ab c3 5f b8     ldur    w11, [x29, #-4]     ;
+  210300:       6b 31 00 71     subs    w11, w11, #12       ;
+  210304:       ab c3 1f b8     stur    w11, [x29, #-4]     ;
+  210308:       fd 7b 42 a9     ldp     x29, x30, [sp, #32] ;
+  21030c:       ff c3 00 91     add     sp, sp, #48         ;
+  210310:       c0 03 5f d6     ret                         ;
 
 
 
