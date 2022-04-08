@@ -1,7 +1,7 @@
 -- section 'main' --------------------------------------------------------------
                   
 mode      = "designed"    -- generator mode: 'random', 'ordered' or 'designed' type sequences
-designfile= "stress1.cfg" -- design file 
+designfile= "stress1.txt" -- design file
 
 function nlines()
   local cnt = 0
