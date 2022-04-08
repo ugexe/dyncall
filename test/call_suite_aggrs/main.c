@@ -37,8 +37,10 @@ static int find_agg_idx(int* len, const char* sig)
   int i;
   for(i=0; i<G_naggs; ++i) {
     const char* agg_sig = G_agg_sigs[i];
-    *len = strlen(agg_sig);
-    if(strncmp(agg_sig, sig, *len) == 0)
+    int l = strlen(agg_sig);
+    if(len)
+	  *len = l;
+    if(strncmp(agg_sig, sig, l) == 0)
       return i;
   }
   return -1;
@@ -47,9 +49,8 @@ static int find_agg_idx(int* len, const char* sig)
 static int invoke(char const* signature, void* t)
 {
   DCCallVM   * p = (DCCallVM*) G_callvm;
-  char const * sig = signature;
-  char const * sig_args;
-  char         rtype;
+  const char * sig = signature;
+  const char * rtype;
   DCaggr *     rtype_a = NULL;
   int          rtype_size = 0;
   funptr       rtype_a_cmp = NULL;
@@ -61,27 +62,29 @@ static int invoke(char const* signature, void* t)
 
   dcReset(p);
 
-  if(*sig == '{' || *sig == '<') {
-    int len;
-    int i = find_agg_idx(&len, sig);
+  /* locate return type in sig; if no ')' separator, test failed */
+  rtype = strchr(sig, ')');
+  if(!rtype) {
+    printf("cannot locate rtype in sig '%s' ;", signature);
+    return 0;
+  }
+
+  ++rtype;
+  if(*rtype == '{' || *rtype == '<') {
+    int i = find_agg_idx(NULL, rtype);
     if(i == -1) {
-      printf("unknown rtype sig at '%s' ;", sig);
+      printf("unknown rtype sig at '%s' ;", rtype);
       return 0;
     }
-    rtype = *sig;
-    sig += len;
 
     rtype_size = G_agg_sizes[i];
     rtype_a_cmp = G_agg_cmpfuncs[i];
     rtype_a = ((DCaggr*(*)())G_agg_touchdcstfuncs[i])();
     dcBeginCallAggr(p, rtype_a);
   }
-  else
-    rtype = *sig++;
 
-  sig_args = sig;
 
-  while ( (atype = *sig) != '\0') {
+  while ( (atype = *sig) != ')') {
     pos++;
     switch(atype) {
       case 'c': dcArgChar    (p,K_c[pos]); break;
@@ -118,7 +121,7 @@ static int invoke(char const* signature, void* t)
     ++sig;
   }
   
-  switch(rtype) 
+  switch(*rtype) 
   {
     case 'v':                          dcCallVoid(p,t); s=1;             break; /*TODO:check that no return-arg was touched.*/
     case 'c': s = (                    dcCallChar    (p,t) == K_c[pos]); break;
@@ -150,15 +153,15 @@ static int invoke(char const* signature, void* t)
       }
       break;
     }
-    default: printf("unknown rtype '%c'", rtype); return 0;
+    default: printf("unknown rtype '%s'", rtype); return 0;
   }
 
   if (!s) { printf("rval wrong;"); return 0; }
 
   /* test V_* array against values passed to func: */
-  sig = sig_args;
+  sig = signature;
   pos = 1;
-  while ( (atype = *sig) != '\0') {
+  while ( (atype = *sig) != ')') {
     switch(atype) {
       case 'c': s = ( V_c[pos] == K_c[pos] ); if (!s) printf("'%c':%d: %d != %d ; ",     atype, pos, V_c[pos], K_c[pos]); break;
       case 's': s = ( V_s[pos] == K_s[pos] ); if (!s) printf("'%c':%d: %d != %d ; ",     atype, pos, V_s[pos], K_s[pos]); break;

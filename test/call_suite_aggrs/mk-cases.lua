@@ -143,10 +143,11 @@ function mkall()
   local lineno = 0
   local sigtab = { }
   local cases = ''
+
   for line in io.lines() do
     local sig = trim(line)
     cases = cases..mkcase(lineno,sig)
-    sigtab[#sigtab+1] = put_sig_rtype_first(sig)
+    sigtab[#sigtab+1] = sig
     lineno = lineno + 1
   end
 
