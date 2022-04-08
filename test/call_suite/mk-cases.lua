@@ -34,7 +34,7 @@ end
 function mksigtab(sigs)
   local s = { "char const * G_sigtab[] = {\n"}
   for k,v in pairs(sigs) do
-    s[#s+1] = '\t"'..v:sub(-1)..v:sub(1,-3)..'",\n'
+    s[#s+1] = '\t"'..v..'",\n'
   end
   s[#s+1] = "};\n"
   return table.concat(s,"")

@@ -36,18 +36,26 @@ static void* G_callvm;
 static int invoke(char const* signature, void* t)
 {
   DCCallVM   * p = (DCCallVM*) G_callvm;
-  char const * sig = signature;
-  char         rtype;
+  const char * sig = signature;
+  const char * rtype;
   char         atype;
   int          pos = 0;
   int          s = 0;
 
   clear_V();
   
-  rtype = *sig++;
   dcReset(p);
 
-  while ( (atype = *sig++) != '\0') {
+  /* locate return type in sig; if no ')' separator, test failed */
+  rtype = strchr(sig, ')');
+  if(!rtype) {
+    printf("cannot locate rtype in sig '%s' ;", signature);
+    return 0;
+  }
+
+  ++rtype;
+
+  while ( (atype = *sig++) != ')') {
     pos++;
     switch(atype) {
       case 'c':  dcArgChar    (p,K_c[pos]); break;
@@ -67,7 +75,7 @@ static int invoke(char const* signature, void* t)
     }
   }
   
-  switch(rtype) 
+  switch(*rtype) 
   {
     case 'v':                           dcCallVoid    (p,t); s=1;         break; /*TODO:check that no return-arg was touched.*/
     case 'c':  s = (                    dcCallChar    (p,t) == K_c[pos]); break;
@@ -83,14 +91,15 @@ static int invoke(char const* signature, void* t)
     case 'p':  s = (                    dcCallPointer (p,t) == K_p[pos]); break;
     case 'f':  s = (                    dcCallFloat   (p,t) == K_f[pos]); break;
     case 'd':  s = (                    dcCallDouble  (p,t) == K_d[pos]); break;
-    default: printf("unknown rtype '%c'", rtype); return 0;
+    default: printf("unknown rtype '%s'", rtype); return 0;
   }
 
   if (!s) { printf("rval wrong;"); return 0; }
+
   /* test: */
-  sig = signature+1;
+  sig = signature;
   pos = 1;
-  while ( (atype = *sig++) != '\0') {
+  while ( (atype = *sig++) != ')') {
     switch(atype) {
       case 'c':  s = ( V_c[pos] == K_c[pos] ); if (!s) printf("'%c':%d: %d != %d ; ",     atype, pos, V_c[pos], K_c[pos]); break;
       case 's':  s = ( V_s[pos] == K_s[pos] ); if (!s) printf("'%c':%d: %d != %d ; ",     atype, pos, V_s[pos], K_s[pos]); break;
