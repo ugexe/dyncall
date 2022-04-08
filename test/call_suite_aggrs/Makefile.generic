@@ -16,6 +16,9 @@ install:
 	cp ${APP} ${PREFIX}/test
 config:
 	${LUA} mk-cases.lua <design.txt >cases.h
-config-random: 
+config-random:
 	${LUA} rand-sig.lua >cases.txt
 	${LUA} mk-cases.lua <cases.txt >cases.h
+config-random-nonemptystructs:
+	${LUA} rand-sig.lua >nonemptystructs.txt
+	${LUA} mk-cases.lua <nonemptystructs.txt >nonemptystructs.h
