@@ -10,12 +10,12 @@ function mkcase(id,sig)
   local pos = 0
   maxargs = max(maxargs, #sig-2)
   for i = 1, #sig-2 do 
-    pos = tostring(i)
     local name = "a"..pos
     local ch   = sig:sub(i,i)
     h[#h+1] = ch.." "..name
     h[#h+1] = ","
     t[#t+1] = "V_"..ch.."["..pos.."]="..name..";"
+    pos = pos + 1
   end
   h[#h] = "){"
   t[#t+1] = "ret_"..sig:sub(-1).."("..pos..")}\n"

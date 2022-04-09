@@ -23,6 +23,7 @@
 
 */
 
+
 #include "dyncall.h"
 #include "globals.h"
 #include <string.h>
@@ -56,7 +57,6 @@ static int invoke(const char *signature, void* t)
   ++rtype;
 
   while ( (atype = *sig++) != ')') {
-    pos++;
     switch(atype) {
       case 'c':  dcArgChar    (p,K_c[pos]); break;
       case 's':  dcArgShort   (p,K_s[pos]); break;
@@ -73,6 +73,7 @@ static int invoke(const char *signature, void* t)
       case 'd':  dcArgDouble  (p,K_d[pos]); break;
       default: printf("unknown atype '%c' (1) ;", atype); return 0;
     }
+    ++pos;
   }
   
   switch(*rtype) 
@@ -98,7 +99,7 @@ static int invoke(const char *signature, void* t)
 
   /* test: */
   sig = signature;
-  pos = 1;
+  pos = 0;
   while ( (atype = *sig++) != ')') {
     switch(atype) {
       case 'c':  s = ( V_c[pos] == K_c[pos] ); if (!s) printf("'%c':%d: %d != %d ; ",     atype, pos, V_c[pos], K_c[pos]); break;
