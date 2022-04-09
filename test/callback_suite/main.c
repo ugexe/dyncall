@@ -47,77 +47,43 @@ options\n\
 }
 
 
-/* -------------- this was do_test.c -------------------------- this was do_test.c ------------> */
-
-static int cmp_values(char type, DCValue* a, DCValue* b)
-{
-  switch(type) 
-  {
-    case DC_SIGCHAR_BOOL:      return (a->B == b->B);
-    case DC_SIGCHAR_CHAR:      return (a->c == b->c);
-    case DC_SIGCHAR_UCHAR:     return (a->C == b->C);
-    case DC_SIGCHAR_SHORT:     return (a->s == b->s);
-    case DC_SIGCHAR_USHORT:    return (a->S == b->S);
-    case DC_SIGCHAR_INT:       return (a->i == b->i);
-    case DC_SIGCHAR_UINT:      return (a->I == b->I);
-    case DC_SIGCHAR_LONG:      return (a->j == b->j);
-    case DC_SIGCHAR_ULONG:     return (a->J == b->J);
-    case DC_SIGCHAR_LONGLONG:  return (a->l == b->l);
-    case DC_SIGCHAR_ULONGLONG: return (a->L == b->L);
-    case DC_SIGCHAR_FLOAT:     return (a->f == b->f);
-    case DC_SIGCHAR_DOUBLE:    return (a->d == b->d);
-    case DC_SIGCHAR_POINTER:   return (a->p == b->p);
-    default: assert(0);
-  }
-  return 0;
-}
-
-
 static int cmp(const char* signature)
 {
-  DCValue ref;
-  int r = 1;
-  int pos;
-  char ch;
-
-  /* check arguments */
-  pos = 0;
-  for(;;)
-  {
-    ch = *signature++;
-    
-    if(ch == DC_SIGCHAR_CC_PREFIX) {
-      ++signature; /* skip cconv prefix */
-      continue;
+  char atype;
+  const char* sig = signature;
+  int pos = 0;
+  int s = 0;
+  while ( (atype = *sig++) != '\0') {
+    switch(atype) {
+      case ')':  /* skip cconv prefix or ret type separator */ continue;
+      case 'v':  s = (sig > signature+1) && sig[-2] == ')'; /* assure this was the return type */                          break; /*TODO:check that no return-arg was touched.*/
+      case 'B':  s = ( V_B[pos] == K_B[pos] ); if (!s) printf("'%c':%d: %d != %d ; ",     atype, pos, V_B[pos], K_B[pos]); break;
+      case 'c':  s = ( V_c[pos] == K_c[pos] ); if (!s) printf("'%c':%d: %d != %d ; ",     atype, pos, V_c[pos], K_c[pos]); break;
+      case 's':  s = ( V_s[pos] == K_s[pos] ); if (!s) printf("'%c':%d: %d != %d ; ",     atype, pos, V_s[pos], K_s[pos]); break;
+      case 'i':  s = ( V_i[pos] == K_i[pos] ); if (!s) printf("'%c':%d: %d != %d ; ",     atype, pos, V_i[pos], K_i[pos]); break;
+      case 'j':  s = ( V_j[pos] == K_j[pos] ); if (!s) printf("'%c':%d: %ld != %ld ; ",   atype, pos, V_j[pos], K_j[pos]); break;
+      case 'l':  s = ( V_l[pos] == K_l[pos] ); if (!s) printf("'%c':%d: %lld != %lld ; ", atype, pos, V_l[pos], K_l[pos]); break;
+      case 'C':  s = ( V_C[pos] == K_C[pos] ); if (!s) printf("'%c':%d: %u != %u ; ",     atype, pos, V_C[pos], K_C[pos]); break;
+      case 'S':  s = ( V_S[pos] == K_S[pos] ); if (!s) printf("'%c':%d: %u != %u ; ",     atype, pos, V_S[pos], K_S[pos]); break;
+      case 'I':  s = ( V_I[pos] == K_I[pos] ); if (!s) printf("'%c':%d: %u != %u ; ",     atype, pos, V_I[pos], K_I[pos]); break;
+      case 'J':  s = ( V_J[pos] == K_J[pos] ); if (!s) printf("'%c':%d: %lu != %lu ; ",   atype, pos, V_J[pos], K_J[pos]); break;
+      case 'L':  s = ( V_L[pos] == K_L[pos] ); if (!s) printf("'%c':%d: %llu != %llu ; ", atype, pos, V_L[pos], K_L[pos]); break;
+      case 'p':  s = ( V_p[pos] == K_p[pos] ); if (!s) printf("'%c':%d: %p != %p ; ",     atype, pos, V_p[pos], K_p[pos]); break;
+      case 'f':  s = ( V_f[pos] == K_f[pos] ); if (!s) printf("'%c':%d: %f != %f ; ",     atype, pos, V_f[pos], K_f[pos]); break;
+      case 'd':  s = ( V_d[pos] == K_d[pos] ); if (!s) printf("'%c':%d: %f != %f ; ",     atype, pos, V_d[pos], K_d[pos]); break;
+      default: printf("unknown atype '%c' ; ", atype); return 0;
     }
-
-    if (!ch || ch == DC_SIGCHAR_ENDARG)
-      break;
-
-    get_reference_arg(&ref, ch, pos);
-
-    if ( !cmp_values( ch, &ref, &Args[pos] ) ) {
-      r = 0;
-      printf(" @%d[%c] ", pos, ch);
+    if (!s) {
+      printf("arg mismatch at %d ; ", pos);
+      return 0;
     }
-    ++pos;
+    pos++;
   }
-    
-  if(ch == DC_SIGCHAR_ENDARG)
-    ch = *signature;
-
-  /* check result */
-  get_reference_result(&ref, ch);
-
-  if (!cmp_values(ch, &ref, &Result)) {
-    r = 0;
-    printf(" @-1 ");
-  }
-
-  return r;
+  return 1;
 }
 
 
+/* handler just copies all received args as well as return value into V_* */
 static char handler(DCCallback* that, DCArgs* input, DCValue* output, void* userdata)
 {
   const char* signature = (const char*) userdata;
@@ -127,24 +93,24 @@ static char handler(DCCallback* that, DCArgs* input, DCValue* output, void* user
   for(;;) {
     ch = *signature++;
     if (!ch || ch == DC_SIGCHAR_ENDARG) break;
-    Args[pos].L = 0xDEADC0DECAFEBABELL;
     switch(ch) {
-      case DC_SIGCHAR_BOOL:     Args[pos].B = dcbArgBool     (input); break;
-      case DC_SIGCHAR_CHAR:     Args[pos].c = dcbArgChar     (input); break;
-      case DC_SIGCHAR_UCHAR:    Args[pos].C = dcbArgUChar    (input); break;
-      case DC_SIGCHAR_SHORT:    Args[pos].s = dcbArgShort    (input); break;
-      case DC_SIGCHAR_USHORT:   Args[pos].S = dcbArgUShort   (input); break;
-      case DC_SIGCHAR_INT:      Args[pos].i = dcbArgInt      (input); break;
-      case DC_SIGCHAR_UINT:     Args[pos].I = dcbArgUInt     (input); break;
-      case DC_SIGCHAR_LONG:     Args[pos].j = dcbArgLong     (input); break;
-      case DC_SIGCHAR_ULONG:    Args[pos].J = dcbArgULong    (input); break;
-      case DC_SIGCHAR_LONGLONG: Args[pos].l = dcbArgLongLong (input); break;
-      case DC_SIGCHAR_ULONGLONG:Args[pos].L = dcbArgULongLong(input); break;
-      case DC_SIGCHAR_FLOAT:    Args[pos].f = dcbArgFloat    (input); break; 
-      case DC_SIGCHAR_DOUBLE:   Args[pos].d = dcbArgDouble   (input); break;
+      case DC_SIGCHAR_BOOL:     V_B[pos] = dcbArgBool     (input); break;
+      case DC_SIGCHAR_CHAR:     V_c[pos] = dcbArgChar     (input); break;
+      case DC_SIGCHAR_UCHAR:    V_C[pos] = dcbArgUChar    (input); break;
+      case DC_SIGCHAR_SHORT:    V_s[pos] = dcbArgShort    (input); break;
+      case DC_SIGCHAR_USHORT:   V_S[pos] = dcbArgUShort   (input); break;
+      case DC_SIGCHAR_INT:      V_i[pos] = dcbArgInt      (input); break;
+      case DC_SIGCHAR_UINT:     V_I[pos] = dcbArgUInt     (input); break;
+      case DC_SIGCHAR_LONG:     V_j[pos] = dcbArgLong     (input); break;
+      case DC_SIGCHAR_ULONG:    V_J[pos] = dcbArgULong    (input); break;
+      case DC_SIGCHAR_LONGLONG: V_l[pos] = dcbArgLongLong (input); break;
+      case DC_SIGCHAR_ULONGLONG:V_L[pos] = dcbArgULongLong(input); break;
+      case DC_SIGCHAR_FLOAT:    V_f[pos] = dcbArgFloat    (input); break; 
+      case DC_SIGCHAR_DOUBLE:   V_d[pos] = dcbArgDouble   (input); break;
       case DC_SIGCHAR_STRING:
-      case DC_SIGCHAR_POINTER:  Args[pos].p = dcbArgPointer  (input); break;
+      case DC_SIGCHAR_POINTER:  V_p[pos] = dcbArgPointer  (input); break;
       case DC_SIGCHAR_CC_PREFIX: ++signature; /* skip cconv prefix */ continue;
+	  default: assert(0);
     }
     ++pos;
   }
@@ -152,32 +118,28 @@ static char handler(DCCallback* that, DCArgs* input, DCValue* output, void* user
   if(ch == DC_SIGCHAR_ENDARG)
     ch = *signature;
 
-  /* @@@ unsupported result types or missing retval sig char */
+  /* write retval */
   switch(ch) {
-    case DC_SIGCHAR_BOOL:
-    case DC_SIGCHAR_CHAR:
-    case DC_SIGCHAR_UCHAR:
-    case DC_SIGCHAR_SHORT:
-    case DC_SIGCHAR_USHORT:
-    case DC_SIGCHAR_INT:
-    case DC_SIGCHAR_UINT:
-    case DC_SIGCHAR_LONG:
-    case DC_SIGCHAR_ULONG:
-    case DC_SIGCHAR_LONGLONG:
-    case DC_SIGCHAR_ULONGLONG:
-    case DC_SIGCHAR_FLOAT:
-    case DC_SIGCHAR_DOUBLE:
+    case DC_SIGCHAR_VOID:     /* nothing to set */  break;
+    case DC_SIGCHAR_BOOL:     output->B = K_B[pos]; break;
+    case DC_SIGCHAR_CHAR:     output->c = K_c[pos]; break;
+    case DC_SIGCHAR_UCHAR:    output->C = K_C[pos]; break;
+    case DC_SIGCHAR_SHORT:    output->s = K_s[pos]; break;
+    case DC_SIGCHAR_USHORT:   output->S = K_S[pos]; break;
+    case DC_SIGCHAR_INT:      output->i = K_i[pos]; break;
+    case DC_SIGCHAR_UINT:     output->I = K_I[pos]; break;
+    case DC_SIGCHAR_LONG:     output->j = K_j[pos]; break;
+    case DC_SIGCHAR_ULONG:    output->J = K_J[pos]; break;
+    case DC_SIGCHAR_LONGLONG: output->l = K_l[pos]; break;
+    case DC_SIGCHAR_ULONGLONG:output->L = K_L[pos]; break;
+    case DC_SIGCHAR_FLOAT:    output->f = K_f[pos]; break; 
+    case DC_SIGCHAR_DOUBLE:   output->d = K_d[pos]; break;
     case DC_SIGCHAR_STRING:
-    case DC_SIGCHAR_POINTER:
-      break;
-    case DC_SIGCHAR_VOID:
-    case DC_SIGCHAR_AGGREGATE:
-    default:
-      assert(0); return DC_SIGCHAR_VOID;
+    case DC_SIGCHAR_POINTER:  output->p = K_p[pos]; break;
+	default: assert(0);
   }
 
-  get_reference_result(output, ch);
-
+  /* return type info for dyncallback */
   return ch;
 }
 
@@ -197,11 +159,15 @@ static int run_test(int id)
   pcb = dcbNewCallback(signature, handler, (void*)signature, NULL);
   assert(pcb != NULL);
 
+  clear_V();
+
   /* invoke call */
   G_funtab[id]((void*)pcb);
 
   result = cmp(signature); 
+
   printf(":%d\n", result);
+
   dcbFreeCallback(pcb);
 
   return result;

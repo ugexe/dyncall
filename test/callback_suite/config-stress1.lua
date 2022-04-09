@@ -19,7 +19,7 @@ maxargs   = 20          -- maximum num. of supported arguments (>= minargs)
 -- section 'types' (not used by 'designed') ------------------------------------
 
 types     = "BcCsSiIjJlLpfd" -- "BcCsSiIjJlLpfd"    -- supported argument types
-rtypes    = types            -- supported return types (currently no void support)
+rtypes    = nil              -- supported return types (set to nil to use "v"..types)
 
 
 -- section 'ordered' -----------------------------------------------------------

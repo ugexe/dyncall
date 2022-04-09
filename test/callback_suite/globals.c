@@ -23,95 +23,55 @@
 
 */
 
-#include <assert.h>
-#include <stdint.h>
 #include <stdlib.h>
-#include "dyncall_signature.h"
 #include "globals.h"
+#include <float.h>
+#include <assert.h>
 
+#define X(CH,T) T *V_##CH; T *K_##CH;
+DEF_TYPES
+#undef X
 
-extern int G_maxargs;
-
-static DCValueSet K;
-DCValueSet* ValueMatrix;
-DCValue* Args;
-DCValue Result;
-
-void get_reference_arg(DCValue* output, char ch, int pos)
-{
-  output->L = 0xCAFEBABEDEADC0DELL;
-  pos = pos + 2;
-  switch(ch) {
-    case DC_SIGCHAR_BOOL:     output->B = ((pos*K.i) & 1) ? DC_TRUE : DC_FALSE ; break;
-    case DC_SIGCHAR_CHAR:     output->c =             pos *           K.c;       break;
-    case DC_SIGCHAR_UCHAR:    output->C =             pos *           K.C;       break;
-    case DC_SIGCHAR_SHORT:    output->s =             pos *           K.s;       break;
-    case DC_SIGCHAR_USHORT:   output->S =             pos *           K.S;       break;
-    case DC_SIGCHAR_INT:      output->i =             pos *           K.i;       break;
-    case DC_SIGCHAR_UINT:     output->I =             pos *           K.I;       break;
-    case DC_SIGCHAR_LONG:     output->j =             pos *           K.j;       break;
-    case DC_SIGCHAR_ULONG:    output->J =             pos *           K.J;       break;
-    case DC_SIGCHAR_LONGLONG: output->l =             pos *           K.l;       break;
-    case DC_SIGCHAR_ULONGLONG:output->L =             pos *           K.L;       break;
-    case DC_SIGCHAR_FLOAT:    output->f =      (float)pos *           K.f;       break;
-    case DC_SIGCHAR_DOUBLE:   output->d =     (double)pos *           K.d;       break;
-    case DC_SIGCHAR_POINTER:  output->p = (DCpointer)(pos * (intptr_t)K.p);      break;
-    default: assert(0);
-  }
-}
-
-void get_reference_result(DCValue* output, char ch)
-{
-  get_reference_arg(output, ch, -1);
-}
+static double rand_d() { return ( ( (double) rand() )  / ( (double) RAND_MAX ) ); }
 
 void init_test_data()
 {
-  int pos;
-
-  ValueMatrix = malloc(sizeof(DCValueSet)*G_maxargs);
-
-  K.B = DC_TRUE;
-  K.c =  13;
-  K.C =  19;
-  K.s = -23;
-  K.S =  41;
-  K.i = 134;
-  K.I = 257;
-  K.j = -12357;
-  K.J = 356;
-  K.l = -1234556687721LL;
-  K.L = 23564634576581ULL;
-  K.f = 1.20432545f;
-  K.d = 1.0123456;
-  K.p = (void*)0x1020345;
-
-  for(pos = 0 ;pos < G_maxargs ;++pos) {
-    DCValue ref;
-    get_reference_arg(&ref, DC_SIGCHAR_BOOL     , pos);   ValueMatrix[pos].B = ref.B;
-    get_reference_arg(&ref, DC_SIGCHAR_CHAR     , pos);   ValueMatrix[pos].c = ref.c;
-    get_reference_arg(&ref, DC_SIGCHAR_UCHAR    , pos);   ValueMatrix[pos].C = ref.C;
-    get_reference_arg(&ref, DC_SIGCHAR_SHORT    , pos);   ValueMatrix[pos].s = ref.s;
-    get_reference_arg(&ref, DC_SIGCHAR_USHORT   , pos);   ValueMatrix[pos].S = ref.S;
-    get_reference_arg(&ref, DC_SIGCHAR_INT      , pos);   ValueMatrix[pos].i = ref.i;
-    get_reference_arg(&ref, DC_SIGCHAR_UINT     , pos);   ValueMatrix[pos].I = ref.I;
-    get_reference_arg(&ref, DC_SIGCHAR_LONG     , pos);   ValueMatrix[pos].j = ref.j;
-    get_reference_arg(&ref, DC_SIGCHAR_ULONG    , pos);   ValueMatrix[pos].J = ref.J;
-    get_reference_arg(&ref, DC_SIGCHAR_LONGLONG , pos);   ValueMatrix[pos].l = ref.l;
-    get_reference_arg(&ref, DC_SIGCHAR_ULONGLONG, pos);   ValueMatrix[pos].L = ref.L;
-    get_reference_arg(&ref, DC_SIGCHAR_FLOAT    , pos);   ValueMatrix[pos].f = ref.f;
-    get_reference_arg(&ref, DC_SIGCHAR_DOUBLE   , pos);   ValueMatrix[pos].d = ref.d;
-    get_reference_arg(&ref, DC_SIGCHAR_POINTER  , pos);   ValueMatrix[pos].p = ref.p;
+  int i;
+#define X(CH,T) V_##CH = (T*) malloc(sizeof(T)*(G_maxargs+1)); K_##CH = (T*) malloc(sizeof(T)*(G_maxargs+1));
+DEF_TYPES
+#undef X
+  for(i=0;i<G_maxargs+1;++i) {
+    K_B[i] = (DCbool)            ((int)rand_d() & 1);
+    K_c[i] = (char)              (((rand_d()-0.5)*2) * (1<<7));
+    K_s[i] = (short)             (((rand_d()-0.5)*2) * (1<<(sizeof(short)*8-1)));
+    K_i[i] = (int)               (((rand_d()-0.5)*2) * (1<<(sizeof(int)*8-2)));
+    K_j[i] = (long)              (((rand_d()-0.5)*2) * (1L<<(sizeof(long)*8-2)));
+    K_l[i] = (long long)         (((rand_d()-0.5)*2) * (1LL<<(sizeof(long long)*8-2)));
+    K_C[i] = (unsigned char)     (((rand_d()-0.5)*2) * (1<<7));
+    K_S[i] = (unsigned short)    (((rand_d()-0.5)*2) * (1<<(sizeof(short)*8-1)));
+    K_I[i] = (unsigned int)      (((rand_d()-0.5)*2) * (1<<(sizeof(int)*8-2)));
+    K_J[i] = (unsigned long)     (((rand_d()-0.5)*2) * (1L<<(sizeof(long)*8-2)));
+    K_L[i] = (unsigned long long)(((rand_d()-0.5)*2) * (1LL<<(sizeof(long long)*8-2)));
+    K_p[i] = (void*)(long)       (((rand_d()-0.5)*2) * (1LL<<(sizeof(void*)*8-1)));
+    K_f[i] = (float)             (rand_d() * FLT_MAX);
+    K_d[i] = (double)            (((rand_d()-0.5)*2) * DBL_MAX);
   }
-
-  Args = malloc(sizeof(DCValue)*G_maxargs);
 }
 
+void clear_V()
+{
+  int i;
+  for(i=0;i<G_maxargs+1;++i) {
+#define X(CH,T) V_##CH[i] = (T) 0;
+DEF_TYPES
+#undef X
+  }
+}
 
 void deinit_test_data()
 {
-  free(Args);
-
-  free(ValueMatrix);
+#define X(CH,T) free(V_##CH); free(K_##CH);
+DEF_TYPES
+#undef X
 }
 

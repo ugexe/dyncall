@@ -2,7 +2,7 @@
 
  Package: dyncall
  Library: test
- File: test/call_suite/cases.c
+ File: test/callback_suite/cases.c
  Description:
  License:
 
@@ -27,14 +27,28 @@
 
 #define CONFIG_API 
 
+#define write_V_v(X, v) (         v);
+#define write_V_B(X, v) (V_B[X] = v);
+#define write_V_c(X, v) (V_c[X] = v);
+#define write_V_s(X, v) (V_s[X] = v);
+#define write_V_i(X, v) (V_i[X] = v);
+#define write_V_j(X, v) (V_j[X] = v);
+#define write_V_l(X, v) (V_l[X] = v);
+#define write_V_C(X, v) (V_C[X] = v);
+#define write_V_S(X, v) (V_S[X] = v);
+#define write_V_I(X, v) (V_I[X] = v);
+#define write_V_J(X, v) (V_J[X] = v);
+#define write_V_L(X, v) (V_L[X] = v);
+#define write_V_p(X, v) (V_p[X] = v);
+#define write_V_f(X, v) (V_f[X] = v);
+#define write_V_d(X, v) (V_d[X] = v);
+
+#define v void
 #define X(CH,T) typedef T CH;
 DEF_TYPES
 #undef X
 
-extern DCValue Result;
-#define M ValueMatrix
 #include "cases.h"
-#undef M
 
 int G_ncases = sizeof(G_sigtab)/sizeof(G_sigtab[0]);
 

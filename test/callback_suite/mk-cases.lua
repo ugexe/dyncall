@@ -2,8 +2,8 @@ require "config"
 
 function trim(l) return l:gsub("^%s+",""):gsub("%s+$","") end
 function mkcase(id,sig)
-  local nargs = string.len(sig) - 2
-  local rtype = string.sub(sig, nargs + 2, nargs + 2)
+  local nargs = string.len(sig) - 2 -- @@@ wrong, b/c ignores callconv prefixes
+  local rtype = string.sub(sig, -1)
   local s   = "F" .. nargs .. "(f" .. id .. "," .. rtype
   for i = 1, nargs do
     local type  = string.sub(sig, i, i)
@@ -52,10 +52,10 @@ function mkall()
           argset = argset .. ","
         end
         argdef = argdef .. "M" .. j
-        argset = argset .. "M[" .. j .. "].M" .. j
+        argset = argset .. "K_##M" .. j .. "[" .. j .. "]"
       end
     end
-    line = line .. argdef .. ") void ID(void* addr) { Result.R = ((CONFIG_API R(*)("  .. argdef .. "))addr)(" .. argset .. ");}\n"
+    line = line .. argdef .. ") void ID(void* addr) { write_V_##R(" .. i .. ", ((CONFIG_API R(*)("  .. argdef .. "))addr)(" .. argset .. "));}\n"
     io.write(line)
   end
 
