@@ -2,11 +2,11 @@
 
  Package: dyncall
  Library: test
- File: test/callback_suite/env.c
+ File: test/callback_suite/globals.c
  Description: 
  License:
 
-   Copyright (c) 2011-2018 Daniel Adler <dadler@uni-goettingen.de>,
+   Copyright (c) 2011-2022 Daniel Adler <dadler@uni-goettingen.de>,
                            Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
@@ -25,17 +25,22 @@
 
 #include <assert.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include "dyncall_signature.h"
-#include "env.h"
+#include "globals.h"
 
-DCValueSet ValueMatrix[CONFIG_MAXARGS];
+
+extern int G_maxargs;
 
 static DCValueSet K;
+DCValueSet* ValueMatrix;
+DCValue* Args;
+DCValue Result;
 
-void GetReferenceArg(DCValue* output, char ch, int pos)
+void get_reference_arg(DCValue* output, char ch, int pos)
 {
   output->L = 0xCAFEBABEDEADC0DELL;
-  pos = pos + 2;
+  pos = pos + 2; //@@@STRUCT unsure about indexing, here
   switch(ch) {
     case DC_SIGCHAR_BOOL:     output->B = ((pos*K.i) & 1) ? DC_TRUE : DC_FALSE ; break;
     case DC_SIGCHAR_CHAR:     output->c =             pos *           K.c;       break;
@@ -55,14 +60,16 @@ void GetReferenceArg(DCValue* output, char ch, int pos)
   }
 }
 
-void GetReferenceResult(DCValue* output, char ch)
+void get_reference_result(DCValue* output, char ch)
 {
-  GetReferenceArg(output, ch, -1);
+  get_reference_arg(output, ch, -1);
 }
 
-void InitEnv()
+void init_test_data()
 {
   int pos;
+
+  ValueMatrix = malloc(sizeof(DCValueSet)*G_maxargs);
 
   K.B = DC_TRUE;
   K.c =  13;
@@ -79,25 +86,32 @@ void InitEnv()
   K.d = 1.0123456;
   K.p = (void*)0x1020345;
 
-  for(pos = 0 ;pos < CONFIG_MAXARGS ;++pos) {
+  for(pos = 0 ;pos < G_maxargs ;++pos) {
     DCValue ref;
-    GetReferenceArg( &ref, DC_SIGCHAR_BOOL     , pos); ValueMatrix[pos].B = ref.B;
-    GetReferenceArg( &ref, DC_SIGCHAR_CHAR     , pos); ValueMatrix[pos].c = ref.c;
-    GetReferenceArg( &ref, DC_SIGCHAR_UCHAR    , pos); ValueMatrix[pos].C = ref.C;
-    GetReferenceArg( &ref, DC_SIGCHAR_SHORT    , pos); ValueMatrix[pos].s = ref.s;
-    GetReferenceArg( &ref, DC_SIGCHAR_USHORT   , pos); ValueMatrix[pos].S = ref.S;
-    GetReferenceArg( &ref, DC_SIGCHAR_INT      , pos); ValueMatrix[pos].i = ref.i;
-    GetReferenceArg( &ref, DC_SIGCHAR_UINT     , pos); ValueMatrix[pos].I = ref.I;
-    GetReferenceArg( &ref, DC_SIGCHAR_LONG     , pos); ValueMatrix[pos].j = ref.j;
-    GetReferenceArg( &ref, DC_SIGCHAR_ULONG    , pos); ValueMatrix[pos].J = ref.J;
-    GetReferenceArg( &ref, DC_SIGCHAR_LONGLONG , pos); ValueMatrix[pos].l = ref.l;
-    GetReferenceArg( &ref, DC_SIGCHAR_ULONGLONG, pos); ValueMatrix[pos].L = ref.L;
-    GetReferenceArg( &ref, DC_SIGCHAR_FLOAT    , pos); ValueMatrix[pos].f = ref.f;
-    GetReferenceArg( &ref, DC_SIGCHAR_DOUBLE   , pos); ValueMatrix[pos].d = ref.d;
-    GetReferenceArg( &ref, DC_SIGCHAR_POINTER  , pos); ValueMatrix[pos].p = ref.p;
+    get_reference_arg(&ref, DC_SIGCHAR_BOOL     , pos);   ValueMatrix[pos].B = ref.B;
+    get_reference_arg(&ref, DC_SIGCHAR_CHAR     , pos);   ValueMatrix[pos].c = ref.c;
+    get_reference_arg(&ref, DC_SIGCHAR_UCHAR    , pos);   ValueMatrix[pos].C = ref.C;
+    get_reference_arg(&ref, DC_SIGCHAR_SHORT    , pos);   ValueMatrix[pos].s = ref.s;
+    get_reference_arg(&ref, DC_SIGCHAR_USHORT   , pos);   ValueMatrix[pos].S = ref.S;
+    get_reference_arg(&ref, DC_SIGCHAR_INT      , pos);   ValueMatrix[pos].i = ref.i;
+    get_reference_arg(&ref, DC_SIGCHAR_UINT     , pos);   ValueMatrix[pos].I = ref.I;
+    get_reference_arg(&ref, DC_SIGCHAR_LONG     , pos);   ValueMatrix[pos].j = ref.j;
+    get_reference_arg(&ref, DC_SIGCHAR_ULONG    , pos);   ValueMatrix[pos].J = ref.J;
+    get_reference_arg(&ref, DC_SIGCHAR_LONGLONG , pos);   ValueMatrix[pos].l = ref.l;
+    get_reference_arg(&ref, DC_SIGCHAR_ULONGLONG, pos);   ValueMatrix[pos].L = ref.L;
+    get_reference_arg(&ref, DC_SIGCHAR_FLOAT    , pos);   ValueMatrix[pos].f = ref.f;
+    get_reference_arg(&ref, DC_SIGCHAR_DOUBLE   , pos);   ValueMatrix[pos].d = ref.d;
+    get_reference_arg(&ref, DC_SIGCHAR_POINTER  , pos);   ValueMatrix[pos].p = ref.p;
   }
+
+  Args = malloc(sizeof(DCValue)*G_maxargs);
 }
 
-/* Global Options. */
-int OptionVerbose = 0;
+
+void deinit_test_data()
+{
+  free(Args);
+
+  free(ValueMatrix);
+}
 

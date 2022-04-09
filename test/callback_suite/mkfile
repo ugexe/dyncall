@@ -22,7 +22,7 @@ TOP		= ../..
 <$TOP/buildsys/mk/prolog.mk
 
 
-UNITS       = env do_test main
+UNITS       = globals cases main
 APPLICATION = callback_suite
 LIBS        = $TOP/dyncallback/libdyncallback_s.a$O
 

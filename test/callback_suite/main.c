@@ -6,7 +6,7 @@
  Description: 
  License:
 
-   Copyright (c) 2011-2021 Daniel Adler <dadler@uni-goettingen.de>,
+   Copyright (c) 2011-2022 Daniel Adler <dadler@uni-goettingen.de>,
                            Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
@@ -25,92 +25,242 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "env.h"
+#include <assert.h>
+#include "dyncall_callback.h"
+#include "globals.h"
 #include "../common/platformInit.h"
 #include "../common/platformInit.c" /* Impl. for functions only used in this translation unit */
 
 
-static void PrintUsage(const char* appName)
+
+
+static void print_usage(const char* appName)
 {
   printf("usage:\n\
-%s [ -v ] [ from [to] ]\n\
+%s [ from [to] ]\n\
 where\n\
-  from, to: test range\n\
+  from, to: test range (0-based, runs single test if \"to\" is omitted)\n\
 options\n\
-  -v        verbose reports\n\
   -h        help on usage\n\
 \n\
 ", appName);
 }
 
 
-/* test one case, returns error code */
-int DoTest(int id);
+/* -------------- this was do_test.c -------------------------- this was do_test.c ------------> */
 
-void InitEnv();
+static int cmp_values(char type, DCValue* a, DCValue* b)
+{
+  switch(type) 
+  {
+    case DC_SIGCHAR_BOOL:      return (a->B == b->B);
+    case DC_SIGCHAR_CHAR:      return (a->c == b->c);
+    case DC_SIGCHAR_UCHAR:     return (a->C == b->C);
+    case DC_SIGCHAR_SHORT:     return (a->s == b->s);
+    case DC_SIGCHAR_USHORT:    return (a->S == b->S);
+    case DC_SIGCHAR_INT:       return (a->i == b->i);
+    case DC_SIGCHAR_UINT:      return (a->I == b->I);
+    case DC_SIGCHAR_LONG:      return (a->j == b->j);
+    case DC_SIGCHAR_ULONG:     return (a->J == b->J);
+    case DC_SIGCHAR_LONGLONG:  return (a->l == b->l);
+    case DC_SIGCHAR_ULONGLONG: return (a->L == b->L);
+    case DC_SIGCHAR_FLOAT:     return (a->f == b->f);
+    case DC_SIGCHAR_DOUBLE:    return (a->d == b->d);
+    case DC_SIGCHAR_POINTER:   return (a->p == b->p);
+    default: assert(0);
+  }
+  return 0;
+}
+
+
+static int cmp(const char* signature)
+{
+  DCValue ref;
+  int r = 1;
+  int pos;
+  char ch;
+
+  /* check arguments */
+  pos = 0;
+  for(;;)
+  {
+    ch = *signature++;
+    
+    if(ch == DC_SIGCHAR_CC_PREFIX) {
+      ++signature; /* skip cconv prefix @@@STRUCT needs handling? */
+      continue;
+    }
+
+    if (!ch || ch == DC_SIGCHAR_ENDARG)
+      break;
+
+    get_reference_arg(&ref, ch, pos);
+
+    if ( !cmp_values( ch, &ref, &Args[pos] ) ) {
+      r = 0;
+      printf(" @%d[%c] ", pos, ch);
+    }
+    ++pos;
+  }
+    
+  if(ch == DC_SIGCHAR_ENDARG)
+    ch = *signature;
+
+  /* check result */
+  get_reference_result(&ref, ch);
+
+  if (!cmp_values(ch, &ref, &Result)) {
+    r = 0;
+    printf(" @-1 ");
+  }
+
+  return r;
+}
+
+
+static char handler(DCCallback* that, DCArgs* input, DCValue* output, void* userdata)
+{
+  const char* signature = (const char*) userdata;
+  int pos = 0; 
+  char ch;
+
+  for(;;) {
+    ch = *signature++;
+    if (!ch || ch == DC_SIGCHAR_ENDARG) break;
+    Args[pos].L = 0xDEADC0DECAFEBABELL;
+    switch(ch) {
+      case DC_SIGCHAR_BOOL:     Args[pos].B = dcbArgBool     (input); break;
+      case DC_SIGCHAR_CHAR:     Args[pos].c = dcbArgChar     (input); break;
+      case DC_SIGCHAR_UCHAR:    Args[pos].C = dcbArgUChar    (input); break;
+      case DC_SIGCHAR_SHORT:    Args[pos].s = dcbArgShort    (input); break;
+      case DC_SIGCHAR_USHORT:   Args[pos].S = dcbArgUShort   (input); break;
+      case DC_SIGCHAR_INT:      Args[pos].i = dcbArgInt      (input); break;
+      case DC_SIGCHAR_UINT:     Args[pos].I = dcbArgUInt     (input); break;
+      case DC_SIGCHAR_LONG:     Args[pos].j = dcbArgLong     (input); break;
+      case DC_SIGCHAR_ULONG:    Args[pos].J = dcbArgULong    (input); break;
+      case DC_SIGCHAR_LONGLONG: Args[pos].l = dcbArgLongLong (input); break;
+      case DC_SIGCHAR_ULONGLONG:Args[pos].L = dcbArgULongLong(input); break;
+      case DC_SIGCHAR_FLOAT:    Args[pos].f = dcbArgFloat    (input); break; 
+      case DC_SIGCHAR_DOUBLE:   Args[pos].d = dcbArgDouble   (input); break;
+      case DC_SIGCHAR_STRING:
+      case DC_SIGCHAR_POINTER:  Args[pos].p = dcbArgPointer  (input); break;
+      case DC_SIGCHAR_CC_PREFIX: ++signature; /* skip cconv prefix */ continue;
+    }
+    ++pos;
+  }
+
+  if(ch == DC_SIGCHAR_ENDARG)
+    ch = *signature;
+
+  /* @@@ unsupported result types or missing retval sig char */
+  switch(ch) {
+    case DC_SIGCHAR_BOOL:
+    case DC_SIGCHAR_CHAR:
+    case DC_SIGCHAR_UCHAR:
+    case DC_SIGCHAR_SHORT:
+    case DC_SIGCHAR_USHORT:
+    case DC_SIGCHAR_INT:
+    case DC_SIGCHAR_UINT:
+    case DC_SIGCHAR_LONG:
+    case DC_SIGCHAR_ULONG:
+    case DC_SIGCHAR_LONGLONG:
+    case DC_SIGCHAR_ULONGLONG:
+    case DC_SIGCHAR_FLOAT:
+    case DC_SIGCHAR_DOUBLE:
+    case DC_SIGCHAR_STRING:
+    case DC_SIGCHAR_POINTER:
+      break;
+    case DC_SIGCHAR_VOID:
+    case DC_SIGCHAR_AGGREGATE:
+    default:
+      assert(0); return DC_SIGCHAR_VOID;
+  }
+
+  get_reference_result(output, ch);
+
+  return ch;
+}
+
+
+
+
+static int run_test(int id)
+{
+  const char* signature;
+  DCCallback* pcb;
+  int result;
+
+  /* index range: [0,nsigs[ */
+  signature = G_sigtab[id];
+  printf("%d:%s", id, signature);
+
+  pcb = dcbNewCallback(signature, handler, (void*)signature, NULL);
+  assert(pcb != NULL);
+
+  /* invoke call */
+  G_funtab[id]((void*)pcb);
+
+  result = cmp(signature); 
+  printf(":%d\n", result);
+  dcbFreeCallback(pcb);
+
+  return result;
+}
+
+
+static int run_all(int from, int to)
+{
+  int i;
+  int failure = 0;
+  for(i=from; i<=to ;++i)
+      failure |= !( run_test(i) );
+
+  return !failure;
+}
 
         
-#define Error(X, Y, N) { fprintf(stderr, X, Y); PrintUsage(N); exit(1); }
+#define Error(X, Y, N) { fprintf(stderr, X, Y); print_usage(N); exit(1); }
 
 int main(int argc, char* argv[])
 {
-  int from = 1;
-  int to = CONFIG_NSIGS;
-  int ncases;
-
-  int i;
-  int pos;
-  int totalResult;
-
-  /* capture total results for failure (0) and success (1) */
-  int totalErrorCodes[2] = { 0, 0 };
+  int from = 0, to = G_ncases-1;
+  int i, pos = 0, total;
 
   dcTest_initPlatform();
 
-  InitEnv();
 
-  pos = 0;
-  for(i = 1 ; i < argc ; ++i)
+  /* parse args */
+  for(i=1; i<argc; ++i)
   {
-    int number;
-
     if(argv[i][0] == '-')
     {
       switch(argv[i][1]) {
-        case 'v':
-          OptionVerbose = 1;
-          continue;
         case 'h':
         case '?':
-          PrintUsage(argv[0]);
+          print_usage(argv[0]);
           return 0;
-        default: Error("invalid option: %s\n\n", argv[i], argv[0]);
+        default:
+          Error("invalid option: %s\n\n", argv[i], argv[0]);
       }      
     }
-
-    number = atoi(argv[i]);
     switch(pos++) {
-      case 0: to = from = number; break;
-      case 1: to =        number; break;
+      case 0: from = to = atoi(argv[i]); break;
+      case 1:        to = atoi(argv[i]); break;
       default: Error("too many arguments (%d given, 2 allowed)\n\n", pos, argv[0]);
     }
   }
+  if(from < 0 || to >= G_ncases || from > to)
+      Error("invalid arguments (provided from or to not in order or outside of range [0,%d])\n\n", G_ncases-1, argv[0]);
 
-  if(from <= 0 || to > CONFIG_NSIGS || from > to)
-      Error("invalid arguments (provided from or to not in order or outside of range [1,%d])\n\n", CONFIG_NSIGS, argv[0]);
 
-  ncases = (to - from) + 1;
+  init_test_data();
+  total = run_all(from, to);
+  deinit_test_data();
 
-  printf("case\tsignat.\tresult\n");
-
-  for(i = from ; i <= to ; ++i )
-    ++totalErrorCodes[!!DoTest(i)];
-
-  totalResult = (totalErrorCodes[1] == ncases);
-  printf("result: callback_suite: %d\n", totalResult);
+  printf("result: callback_suite: %d\n", total);
 
   dcTest_deInitPlatform();
 
-  return !totalResult;
+  return !total;
 }
 

@@ -1,3 +1,0 @@
-#define CONFIG_NSIGS 800
-#define CONFIG_API 
-#define CONFIG_MAXARGS 67

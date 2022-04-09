@@ -2,11 +2,11 @@
 
  Package: dyncall
  Library: test
- File: test/callback_suite/env.h
+ File: test/callback_suite/globals.h
  Description: 
  License:
 
-   Copyright (c) 2011-2018 Daniel Adler <dadler@uni-goettingen.de>,
+   Copyright (c) 2011-2022 Daniel Adler <dadler@uni-goettingen.de>,
                            Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
@@ -24,7 +24,6 @@
 */
 
 #include "dyncall_value.h"
-#include "_auto_config.h"
 
 
 #define DEF_NON_VOID_TYPES \
@@ -46,21 +45,26 @@ typedef struct DCValueSet_
 DEF_NON_VOID_TYPES
 #undef X
 } DCValueSet;
+extern DCValueSet* ValueMatrix;
+
+/* arguments filled-in by callback handlers, and return value */
+extern DCValue* Args;
+extern DCValue Result;
 
 
-/* test related */
+typedef void (*funptr)(void*);
 
-void InitEnv(); /* initializes ValueMatrix */
+extern funptr       G_funtab[];
+extern const char * G_sigtab[];
+extern int          G_ncases;
+extern int          G_maxargs;
 
+void init_test_data();
+void deinit_test_data();
 
 /* function of type and position */
-void GetReferenceArg(DCValue* output, char type, int argpos);
+void get_reference_arg(DCValue* output, char type, int argpos);
 /* function of type (position = -1) */
-void GetReferenceResult(DCValue* output, char type);
-
-extern DCValueSet ValueMatrix[CONFIG_MAXARGS];
-
-/* Global Options. */
-extern int OptionVerbose;
+void get_reference_result(DCValue* output, char type);
 
 
