@@ -2,7 +2,7 @@ require "config"
 
 function trim(l) return l:gsub("^%s+",""):gsub("%s+$","") end
 function mkcase(id,sig)
-  local nargs = string.len(sig) - 2 -- @@@STRUCT wrong, b/c ignores callconv prefixes
+  local nargs = string.len(sig) - 2
   local rtype = string.sub(sig, nargs + 2, nargs + 2)
   local s   = "F" .. nargs .. "(f" .. id .. "," .. rtype
   for i = 1, nargs do
@@ -13,7 +13,6 @@ function mkcase(id,sig)
   return s
 end
 
--- @@@STRUCT same as in call_suite{,_aggrs}, share?
 function mkfuntab(n)
   local s = { "funptr G_funtab[] = {\n"}
   for i = 0, n-1 do
@@ -23,7 +22,6 @@ function mkfuntab(n)
   return table.concat(s,"")
 end
 
--- @@@STRUCT same as in call_suite{,_aggrs}, share?
 function mksigtab(sigs)
   local s = { "const char * G_sigtab[] = {\n"}
   for k,v in pairs(sigs) do
@@ -34,7 +32,7 @@ function mksigtab(sigs)
 end
 
 function mkall()
-  -- force minargs for ordered mode @@@STRUCT why?
+  -- force minargs for ordered mode
   if mode == "ordered" then
     minargs = 0
   end

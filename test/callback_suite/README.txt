@@ -63,5 +63,4 @@ Specify 'api' and 'ccprefix' accordingly:
              "_F" for microsoft compiler
 
 
-@@@STRUCT review
 

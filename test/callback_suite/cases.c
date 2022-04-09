@@ -25,7 +25,6 @@
 
 #include "globals.h"
 
-// @@@STRUCT move or remove
 #define CONFIG_API 
 
 #define X(CH,T) typedef T CH;

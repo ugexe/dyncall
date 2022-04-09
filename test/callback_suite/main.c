@@ -87,7 +87,7 @@ static int cmp(const char* signature)
     ch = *signature++;
     
     if(ch == DC_SIGCHAR_CC_PREFIX) {
-      ++signature; /* skip cconv prefix @@@STRUCT needs handling? */
+      ++signature; /* skip cconv prefix */
       continue;
     }
 

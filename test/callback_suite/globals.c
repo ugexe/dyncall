@@ -40,7 +40,7 @@ DCValue Result;
 void get_reference_arg(DCValue* output, char ch, int pos)
 {
   output->L = 0xCAFEBABEDEADC0DELL;
-  pos = pos + 2; //@@@STRUCT unsure about indexing, here
+  pos = pos + 2;
   switch(ch) {
     case DC_SIGCHAR_BOOL:     output->B = ((pos*K.i) & 1) ? DC_TRUE : DC_FALSE ; break;
     case DC_SIGCHAR_CHAR:     output->c =             pos *           K.c;       break;
