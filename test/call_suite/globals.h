@@ -33,7 +33,7 @@ DEF_TYPES
 typedef void (*funptr)();
 
 extern funptr       G_funtab[];
-extern char const * G_sigtab[];
+extern const char * G_sigtab[];
 extern int          G_ncases;
 extern int          G_maxargs;
 

@@ -32,7 +32,7 @@ function mkfuntab(n)
 end
 
 function mksigtab(sigs)
-  local s = { "char const * G_sigtab[] = {\n"}
+  local s = { "const char * G_sigtab[] = {\n"}
   for k,v in pairs(sigs) do
     s[#s+1] = '\t"'..v..'",\n'
   end

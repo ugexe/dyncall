@@ -46,7 +46,7 @@ static int find_agg_idx(int* len, const char* sig)
   return -1;
 }
 
-static int invoke(char const* signature, void* t)
+static int invoke(const char *signature, void* t)
 {
   DCCallVM   * p = (DCCallVM*) G_callvm;
   const char * sig = signature;
@@ -199,7 +199,7 @@ static int invoke(char const* signature, void* t)
   return 1;
 }
 
-int run_test(int i)
+static int run_test(int i)
 {  
   char const * sig;
   void * target;
@@ -212,7 +212,7 @@ int run_test(int i)
   return success;
 }
 
-int run_all()
+static int run_all()
 {
   int i;
   int failure = 0;
