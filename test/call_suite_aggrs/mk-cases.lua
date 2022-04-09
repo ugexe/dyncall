@@ -26,7 +26,7 @@ function mkcase(id,sig)
   local fsig = put_sig_rtype_first(sig)
   local h = { "/* ",id,":",sig," */ " }
   local t = { "" }
-  local pos = 0
+  local pos = -1
   local n_nest = 0
   local aggr = { }
   local aggr_sig = { }
@@ -87,7 +87,7 @@ function mkcase(id,sig)
         end
 
         -- is return type or func arg?
-        if pos == 0 then
+        if pos == -1 then
           h[#h+1] = " f"..id.."("
           h[#h+1] = ''
           t[#t] = ''  -- clear; aggr return type handled explicitly
@@ -100,12 +100,12 @@ function mkcase(id,sig)
       end
     end
   end
-  max_numargs = math.max(max_numargs, pos-1)
+  max_numargs = math.max(max_numargs, pos)
   h[#h] = "){"
   if #h[6] == 1 then
-    t[#t+1] = "ret_"..h[6].."("..(pos-1)..")}\n"
+    t[#t+1] = "ret_"..h[6].."("..pos..")}\n"
   else
-    t[#t+1] = "ret_a("..(pos-1)..","..h[6]..")}\n"
+    t[#t+1] = "ret_a("..pos..","..h[6]..")}\n"
   end
   return table.concat(h,"")..table.concat(t,"")
 end

@@ -19,6 +19,6 @@ config:
 config-random:
 	${LUA} rand-sig.lua >cases.txt
 	${LUA} mk-cases.lua <cases.txt >cases.h
-config-random-nonemptystructs:
-	${LUA} rand-sig.lua >nonemptystructs.txt
-	${LUA} mk-cases.lua <nonemptystructs.txt >nonemptystructs.h
+config-random-nonemptyaggrs:
+	${LUA} rand-sig.lua >nonemptyaggrs.txt
+	${LUA} mk-cases.lua <nonemptyaggrs.txt >nonemptyaggrs.h

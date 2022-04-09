@@ -55,7 +55,7 @@ DEF_TYPES
 
 /* Plan9 pcc and MSVC (when using C) do not allow empty structs */
 #if defined(DC__C_MSVC) || defined(DC__OS_Plan9)
-#  include "nonemptystructs.h"
+#  include "nonemptyaggrs.h"
 #else
 #  include "cases.h"
 #endif

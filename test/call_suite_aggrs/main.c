@@ -85,7 +85,6 @@ static int invoke(const char *signature, void* t)
 
 
   while ( (atype = *sig) != ')') {
-    pos++;
     switch(atype) {
       case 'c': dcArgChar    (p,K_c[pos]); break;
       case 's': dcArgShort   (p,K_s[pos]); break;
@@ -118,9 +117,10 @@ static int invoke(const char *signature, void* t)
       }
       default: printf("unknown atype '%c' (1) ;", atype); return 0;
     }
+    ++pos;
     ++sig;
   }
-  
+
   switch(*rtype) 
   {
     case 'v':                          dcCallVoid(p,t); s=1;             break; /*TODO:check that no return-arg was touched.*/
@@ -141,11 +141,11 @@ static int invoke(const char *signature, void* t)
     case '{': /* struct */
     {
       /* bound check memory adjacent to returned aggregate, to check for overflows by dcCallAggr */
-      long long* adj_ll = (get_max_aggr_size() - rtype_size) > sizeof(long long) ? (long long*)((char*)V_a[0] + rtype_size) : NULL;
+      long long* adj_ll = (get_max_aggr_size() - rtype_size) > sizeof(long long) ? (long long*)((char*)V_a[pos] + rtype_size) : NULL;
       if(adj_ll)
         *adj_ll = 0x0123456789abcdef;
 
-      s = ((int(*)(const void*,const void*))rtype_a_cmp)(dcCallAggr(p, t, rtype_a, V_a[0]), K_a[pos]);
+      s = ((int(*)(const void*,const void*))rtype_a_cmp)(dcCallAggr(p, t, rtype_a, V_a[pos]), K_a[pos]);
 
       if(adj_ll && *adj_ll != 0x0123456789abcdef) {
         printf("writing rval overflowed into adjacent memory;");
@@ -160,7 +160,7 @@ static int invoke(const char *signature, void* t)
 
   /* test V_* array against values passed to func: */
   sig = signature;
-  pos = 1;
+  pos = 0;
   while ( (atype = *sig) != ')') {
     switch(atype) {
       case 'c': s = ( V_c[pos] == K_c[pos] ); if (!s) printf("'%c':%d: %d != %d ; ",     atype, pos, V_c[pos], K_c[pos]); break;
