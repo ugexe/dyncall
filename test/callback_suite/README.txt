@@ -22,11 +22,11 @@ The body for a signature of type  "dpdf)p" at case id 19 is:
 
 void f19(void* addr) 
 { 
-  V_p[4] = ((CONFIG_API p(*)(d,p,d,f))addr)(K_d[0],K_p[1],K_d[2],K_f[3]);
-}            ^^^^^^^^^^- specific calling convention
-                        ^^^^^^^^^^^^^- signature
-     ^- return type                   ^^^^- dyncallback object
-                                              ^- args from reference values (to be retrieved in handler)
+  V_p[4] = ((p(*)(d,p,d,f))addr)(K_d[0],K_p[1],K_d[2],K_f[3]);
+}                          ^^^^- dyncallback object
+             ^^^^^^^^^^^^^- signature
+     ^- return type                ^- args from reference values (to be retrieved in handler)
+
 
 The K_? values are the reference values, which are supposed to be copied to
 V_?, and are compared for identity after invocation. The arguments are copied
@@ -35,10 +35,10 @@ to V_? in the callback handler, called through "addr".
 The reference values stored in K_? are generated once, randomly, at startup.
 
 
-Testing for exotic calling conventions on Windows
+Specific calling conventions:
 
-Specify 'api' and 'ccprefix' accordingly:
-
+Specify 'api' and 'ccprefix' accordingly to generate callbacks for a
+specific/custom calling convention:
 
 "__stdcall"  "_s"
 "__fastcall" "_f" for gcc compiler

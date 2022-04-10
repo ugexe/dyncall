@@ -25,8 +25,6 @@
 
 #include "globals.h"
 
-#define CONFIG_API 
-
 #define write_V_v(X, v) (         v);
 #define write_V_B(X, v) (V_B[X] = v);
 #define write_V_c(X, v) (V_c[X] = v);

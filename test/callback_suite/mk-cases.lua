@@ -2,34 +2,28 @@ require "config"
 
 function trim(l) return l:gsub("^%s+",""):gsub("%s+$","") end
 function mkcase(id,sig)
-  local nargs = string.len(sig) - 2 -- @@@ wrong, b/c ignores callconv prefixes
   local rtype = string.sub(sig, -1)
-  local s   = "F" .. nargs .. "(f" .. id .. "," .. rtype
-  for i = 1, nargs do
-    local type  = string.sub(sig, i, i)
-    s = s .. "," .. type 
+  local i = 1
+  local args = { rtype }
+  while i < #sig do
+    c = string.sub(sig, i, i)
+    if(c == ')') then
+      break
+    end
+    if(c == '_') then -- filter out prefixes
+      i = i + 1
+    else
+	  args[#args+1] = c
+    end
+    i = i + 1
   end
-  s = s .. ")\n"
-  return s
+  return "F" .. (#args-1) .. "(f" .. id .. "," .. table.concat(args,',') .. ")\n"
 end
 
-function mkfuntab(n)
-  local s = { "funptr G_funtab[] = {\n"}
-  for i = 0, n-1 do
-    s[#s+1] = "\t&f"..i..",\n"
-  end
-  s[#s+1] = "};\n"
-  return table.concat(s,"")
-end
+-- use shared helpers to generate cases
+package.path = '../common/?.lua;' .. package.path
+require"mk-cases"
 
-function mksigtab(sigs)
-  local s = { "const char * G_sigtab[] = {\n"}
-  for k,v in pairs(sigs) do
-    s[#s+1] = '\t"'..v..'",\n'
-  end
-  s[#s+1] = "};\n"
-  return table.concat(s,"")
-end
 
 function mkall()
   -- force minargs for ordered mode
@@ -55,7 +49,7 @@ function mkall()
         argset = argset .. "K_##M" .. j .. "[" .. j .. "]"
       end
     end
-    line = line .. argdef .. ") void ID(void* addr) { write_V_##R(" .. i .. ", ((CONFIG_API R(*)("  .. argdef .. "))addr)(" .. argset .. "));}\n"
+    line = line .. argdef .. ") void ID(void* addr) { write_V_##R(" .. i .. ", ((" .. api .. " R(*)("  .. argdef .. "))addr)(" .. argset .. "));}\n"
     io.write(line)
   end
 
@@ -71,8 +65,8 @@ function mkall()
   end
 
   io.write(cases)
-  io.write(mkfuntab(lineno))
-  io.write(mksigtab(sigtab))
+  io.write(mkfuntab(lineno, 'f', 'funptr', 'G_funtab', false))
+  io.write(mksigtab(sigtab, ccprefix, 'G_sigtab'))
   io.write("int G_maxargs = "..maxargs..";\n")
 end
 
