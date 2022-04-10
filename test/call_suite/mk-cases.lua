@@ -22,23 +22,10 @@ function mkcase(id,sig)
   return table.concat(h,"")..table.concat(t,"")
 end
 
-function mkfuntab(n)
-  local s = { "funptr G_funtab[] = {\n"}
-  for i = 0, n-1 do
-    s[#s+1] = "\t(funptr)&f"..i..",\n"
-  end
-  s[#s+1] = "};\n"
-  return table.concat(s,"")
-end
+-- use shared helpers to generate cases
+package.path = '../common/?.lua;' .. package.path
+require"mk-cases"
 
-function mksigtab(sigs)
-  local s = { "const char * G_sigtab[] = {\n"}
-  for k,v in pairs(sigs) do
-    s[#s+1] = '\t"'..v..'",\n'
-  end
-  s[#s+1] = "};\n"
-  return table.concat(s,"")
-end
 
 function mkall()
   local lineno = 0
@@ -49,8 +36,8 @@ function mkall()
     sigtab[#sigtab+1] = sig
     lineno = lineno + 1
   end
-  io.write(mkfuntab(lineno))
-  io.write(mksigtab(sigtab))
+  io.write(mkfuntab(lineno, 'f', 'funptr', 'G_funtab', true))
+  io.write(mksigtab(sigtab, '', 'G_sigtab'))
   io.write("int G_maxargs = "..maxargs..";\n")
 end
 

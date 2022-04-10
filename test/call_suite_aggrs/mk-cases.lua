@@ -110,23 +110,10 @@ function mkcase(id,sig)
   return table.concat(h,"")..table.concat(t,"")
 end
 
-function mkfuntab(n)
-  local s = { "funptr G_funtab[] = {\n"}
-  for i = 0, n-1 do
-    s[#s+1] = "\t(funptr)&f"..i..",\n"
-  end
-  s[#s+1] = "};\n"
-  return table.concat(s,"")
-end
+-- use shared helpers to generate cases
+package.path = '../common/?.lua;' .. package.path
+require"mk-cases"
 
-function mksigtab(sigs)
-  local s = { "const char * G_sigtab[] = {\n"}
-  for k,v in pairs(sigs) do
-    s[#s+1] = '\t"'..v..'",\n'
-  end
-  s[#s+1] = "};\n"
-  return table.concat(s,"")
-end
 
 function split_array_decl(s)
   local name = s
@@ -243,8 +230,8 @@ function mkall()
   end
 
   io.write(cases)
-  io.write(mkfuntab(lineno))
-  io.write(mksigtab(sigtab))
+  io.write(mkfuntab(lineno, 'f', 'funptr', 'G_funtab', true))
+  io.write(mksigtab(sigtab, '', 'G_sigtab'))
   io.write('const char* G_agg_sigs[]  = {\n\t"'..table.concat(agg_sigs, '",\n\t"')..'"\n};\n')
   io.write('int G_agg_sizes[] = {\n\t'..table.concat(agg_sizes, ',\n\t')..'\n};\n')
   io.write('funptr G_agg_touchdcstfuncs[] = {'..string.sub(table.concat(agg_names, ',\n\t(funptr)&f_touchdcst'),2)..'\n};\n')
