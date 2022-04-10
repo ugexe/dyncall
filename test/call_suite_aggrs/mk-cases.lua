@@ -1,5 +1,11 @@
 require"config"
 require"math"
+
+-- use shared helpers to generate cases
+package.path = '../common/?.lua;' .. package.path
+require"mk-cases"
+
+
 local max_numargs = 0
 
 local aggrs = { }
@@ -20,7 +26,6 @@ function put_sig_rtype_first(sig)
 end
 
 
-function trim(l) return l:gsub("^%s+",""):gsub("%s+$","") end
 function mkcase(id,sig)
   local sig = trim(sig)
   local fsig = put_sig_rtype_first(sig)
@@ -109,11 +114,6 @@ function mkcase(id,sig)
   end
   return table.concat(h,"")..table.concat(t,"")
 end
-
--- use shared helpers to generate cases
-package.path = '../common/?.lua;' .. package.path
-require"mk-cases"
-
 
 function split_array_decl(s)
   local name = s

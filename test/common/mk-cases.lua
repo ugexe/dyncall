@@ -1,3 +1,7 @@
+function trim(s)
+  return s:gsub("^%s+",""):gsub("%s+$","")
+end
+
 function mkfuntab(n, prefix, t, array_name, with_cast)
   local s = { t.." "..array_name.."[] = {\n"}
   local cast = ''

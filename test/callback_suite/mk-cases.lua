@@ -1,7 +1,12 @@
 require "config"
 
-function trim(l) return l:gsub("^%s+",""):gsub("%s+$","") end
+-- use shared helpers to generate cases
+package.path = '../common/?.lua;' .. package.path
+require"mk-cases"
+
+
 function mkcase(id,sig)
+  local sig = trim(sig)
   local rtype = string.sub(sig, -1)
   local i = 1
   local args = { rtype }
@@ -19,11 +24,6 @@ function mkcase(id,sig)
   end
   return "F" .. (#args-1) .. "(f" .. id .. "," .. table.concat(args,',') .. ")\n"
 end
-
--- use shared helpers to generate cases
-package.path = '../common/?.lua;' .. package.path
-require"mk-cases"
-
 
 function mkall()
   -- force minargs for ordered mode

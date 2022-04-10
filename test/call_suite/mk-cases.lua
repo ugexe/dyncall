@@ -1,8 +1,13 @@
 require"math"
+
+-- use shared helpers to generate cases
+package.path = '../common/?.lua;' .. package.path
+require"mk-cases"
+
+
 local max = math.max
 local maxargs = 0
 
-function trim(l) return l:gsub("^%s+",""):gsub("%s+$","") end
 function mkcase(id,sig)
   local sig = trim(sig)
   local h = { "/* ",id,":",sig," */ ",sig:sub(-1), " f", id,"(","" }
@@ -21,11 +26,6 @@ function mkcase(id,sig)
   t[#t+1] = "ret_"..sig:sub(-1).."("..pos..")}\n"
   return table.concat(h,"")..table.concat(t,"")
 end
-
--- use shared helpers to generate cases
-package.path = '../common/?.lua;' .. package.path
-require"mk-cases"
-
 
 function mkall()
   local lineno = 0
