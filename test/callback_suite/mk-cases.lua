@@ -26,11 +26,6 @@ function mkcase(id,sig)
 end
 
 function mkall()
-  -- force minargs for ordered mode
-  if mode == "ordered" then
-    minargs = 0
-  end
-
   -- case macros
   local i
   for i = minargs, maxargs do

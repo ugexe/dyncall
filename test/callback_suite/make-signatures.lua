@@ -12,10 +12,9 @@ end
 function orderedSignature(x)
   local signature = ""
   local typeindex
-  local nargtypes = string.len(types)
-  while true do
-    if x < nargtypes then break end
-    typeindex = 1 + math.mod(x, nargtypes)
+  local nargtypes = #types
+  while x >= nargtypes do
+    typeindex = 1 + (x % nargtypes)
     signature = signature .. string.sub(types, typeindex, typeindex)
     x = math.floor( x / nargtypes )
   end
@@ -27,7 +26,7 @@ end
 
 function orderedSignatures()
   local i 
-  for i = 1, ncases do
+  for i = 0, ncases-1 do
     io.write( orderedSignature(offset+i*step) .. "\n" )
   end
 end

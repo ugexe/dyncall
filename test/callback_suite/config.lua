@@ -1,4 +1,4 @@
--- auto-generated file from template config-random.lua (created by GNUmake)
+-- auto-generated file from template config-random.lua (created by make)
 -- section 'main' --------------------------------------------------------------
                   
 ncases    = 800         -- number of test cases (note: inf loop if higher than max arg permutation)
@@ -28,5 +28,4 @@ seed      = 40          -- random seed
                         
 api       = ""          -- calling convention ("__stdcall" or "__fastcall")
                         -- for gcc use "__attribute__((__stdcall__))" or "__attribute__((__fastcall__))"
-                        -- for ms ?
 ccprefix  = ""          -- signature prefix ("_s" (stdcall), "_f" (gcc fastcall) or "_F" (microsoft fastcall))
