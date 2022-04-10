@@ -86,6 +86,7 @@ static int invoke(const char *signature, void* t)
 
   while ( (atype = *sig) != ')') {
     switch(atype) {
+      case 'B': dcArgBool    (p,K_B[pos]); break;
       case 'c': dcArgChar    (p,K_c[pos]); break;
       case 's': dcArgShort   (p,K_s[pos]); break;
       case 'i': dcArgInt     (p,K_i[pos]); break;
@@ -124,6 +125,7 @@ static int invoke(const char *signature, void* t)
   switch(*rtype) 
   {
     case 'v':                          dcCallVoid(p,t); s=1;             break; /*TODO:check that no return-arg was touched.*/
+    case 'B': s = (                    dcCallBool    (p,t) == K_B[pos]); break;
     case 'c': s = (                    dcCallChar    (p,t) == K_c[pos]); break;
     case 's': s = (                    dcCallShort   (p,t) == K_s[pos]); break;
     case 'i': s = (                    dcCallInt     (p,t) == K_i[pos]); break;
@@ -163,6 +165,7 @@ static int invoke(const char *signature, void* t)
   pos = 0;
   while ( (atype = *sig) != ')') {
     switch(atype) {
+      case 'B': s = ( V_B[pos] == K_B[pos] ); if (!s) printf("'%c':%d: %d != %d ; ",     atype, pos, V_B[pos], K_B[pos]); break;
       case 'c': s = ( V_c[pos] == K_c[pos] ); if (!s) printf("'%c':%d: %d != %d ; ",     atype, pos, V_c[pos], K_c[pos]); break;
       case 's': s = ( V_s[pos] == K_s[pos] ); if (!s) printf("'%c':%d: %d != %d ; ",     atype, pos, V_s[pos], K_s[pos]); break;
       case 'i': s = ( V_i[pos] == K_i[pos] ); if (!s) printf("'%c':%d: %d != %d ; ",     atype, pos, V_i[pos], K_i[pos]); break;

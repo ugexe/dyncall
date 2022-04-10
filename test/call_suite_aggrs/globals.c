@@ -71,6 +71,7 @@ DEF_TYPES
 #undef X
 
   for(i=0;i<G_maxargs+1;++i) {
+    K_B[i] = (DCbool)            ((int)rand_d() & 1);
     K_c[i] = (char)              (((rand_d()-0.5)*2) * (1<<7));
     K_s[i] = (short)             (((rand_d()-0.5)*2) * (1<<(sizeof(short)*8-1)));
     K_i[i] = (int)               (((rand_d()-0.5)*2) * (1<<(sizeof(int)*8-2)));

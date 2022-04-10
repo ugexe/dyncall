@@ -25,6 +25,7 @@
 #include "globals.h"
 
 #define ret_v(X) 
+#define ret_B(X)   return(K_B[X]);
 #define ret_c(X)   return(K_c[X]);
 #define ret_s(X)   return(K_s[X]);
 #define ret_i(X)   return(K_i[X]);
