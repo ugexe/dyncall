@@ -18,7 +18,7 @@ function mkcase(id,sig)
     if(c == '_') then -- filter out prefixes
       i = i + 1
     else
-	  args[#args+1] = c
+      args[#args+1] = c
     end
     i = i + 1
   end
@@ -27,24 +27,18 @@ end
 
 function mkall()
   -- case macros
-  local i
   for i = minargs, maxargs do
     local line = "#define F" .. i .. "(ID,R"
-    local argdef = ""
-    local argset = ""
+    local argdef = { }
+    local argset = { }
     if i > 0 then
       line = line .. ","
-      local j
       for j = 0, i-1 do
-        if j > 0 then 
-          argdef = argdef .. ","
-          argset = argset .. ","
-        end
-        argdef = argdef .. "M" .. j
-        argset = argset .. "K_##M" .. j .. "[" .. j .. "]"
+        argdef[#argdef+1] = "M" .. j
+        argset[#argset+1] = "K_##M" .. j .. "[" .. j .. "]"
       end
     end
-    line = line .. argdef .. ") void ID(void* addr) { write_V_##R(" .. i .. ", ((" .. api .. " R(*)("  .. argdef .. "))addr)(" .. argset .. "));}\n"
+    line = line .. table.concat(argdef,",") .. ") void ID(void* addr) { write_V_##R(" .. i .. ", ((" .. api .. " R(*)("  .. table.concat(argdef,",") .. "))addr)(" .. table.concat(argset,",") .. "));}\n"
     io.write(line)
   end
 
