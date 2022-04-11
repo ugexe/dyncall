@@ -73,7 +73,7 @@ static int invoke(const char *signature, void* t)
   if(*rtype == '{' || *rtype == '<') {
     int i = find_agg_idx(NULL, rtype);
     if(i == -1) {
-      printf("unknown rtype sig at '%s' ;", rtype);
+      printf("unknown rtype aggr sig at '%s' ;", rtype);
       return 0;
     }
 
@@ -108,7 +108,7 @@ static int invoke(const char *signature, void* t)
         DCaggr *ag;
         int i = find_agg_idx(&len, sig);
         if(i == -1) {
-          printf("unknown sig at '%s' ;", sig);
+          printf("unknown aggr sig at '%s' ;", sig);
           return 0;
         }
         ag = ((DCaggr*(*)())G_agg_touchdcstfuncs[i])();

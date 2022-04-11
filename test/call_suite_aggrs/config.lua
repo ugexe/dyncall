@@ -8,7 +8,8 @@ arraydice    = 40   -- how often to turn a member into an array (1 out of arrayd
 maxaggrdepth = 3    -- max nesting depth of aggregates, 1 = no nesting
 reqaggrinsig = true -- require that every generated signature has at least one aggregate
 ncases       = 400
-types        = "BcsijlCSIJLpfd{}<>"  -- {...} for structs, <...> for unions
+types        = "BcsijlCSIJLpfd{}<>"  -- types to use; use '{','}' for structs, '<','>' for unions
+rtypes       = nil                   -- supported return types (set to nil to use "v"..types)
 seed         = 2112
 
 -- *) note some callconvs pass structs via regs, so using big numbers here will

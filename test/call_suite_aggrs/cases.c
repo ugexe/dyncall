@@ -47,8 +47,8 @@ DEF_TYPES
 #undef X
 
 
-#define AF(c,t,i,n)   dcAggrField(at,c,offsetof(t,i),n);
-#define AFa(t,i,n,f)  dcAggrField(at,DC_SIGCHAR_AGGREGATE,offsetof(t,i),n,f_touchdcst##f());
+#define AF(c,t,i,n)   dcAggrField(a,c,offsetof(t,i),n);
+#define AFa(t,i,n,f)  dcAggrField(a,DC_SIGCHAR_AGGREGATE,offsetof(t,i),n,f_touchdcst##f());
 
 #include "dyncall.h"
 #include <string.h>

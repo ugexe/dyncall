@@ -2,6 +2,18 @@ function trim(s)
   return s:gsub("^%s+",""):gsub("%s+$","")
 end
 
+-- parse array notation, e.g. returns "a", 4 for "a[4]"
+function split_array_decl(s)
+  local name = s
+  local n = nil  -- not an array
+  local i = s:find('%[')
+  if i ~= nil then
+    name = name:sub(1, i-1)
+    n = tonumber(s:sub(i):match('[0123456789]+'))
+  end
+  return name, n
+end
+
 function mkfuntab(n, prefix, t, array_name, with_cast)
   local s = { t.." "..array_name.."[] = {\n"}
   local cast = ''
