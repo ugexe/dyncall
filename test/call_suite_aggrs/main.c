@@ -79,7 +79,7 @@ static int invoke(const char *signature, void* t)
 
     rtype_size = G_agg_sizes[i];
     rtype_a_cmp = G_agg_cmpfuncs[i];
-    rtype_a = ((DCaggr*(*)())G_agg_touchdcstfuncs[i])();
+    rtype_a = ((DCaggr*(*)())G_agg_touchAfuncs[i])();
     dcBeginCallAggr(p, rtype_a);
   }
 
@@ -111,7 +111,7 @@ static int invoke(const char *signature, void* t)
           printf("unknown aggr sig at '%s' ;", sig);
           return 0;
         }
-        ag = ((DCaggr*(*)())G_agg_touchdcstfuncs[i])();
+        ag = ((DCaggr*(*)())G_agg_touchAfuncs[i])();
         dcArgAggr(p, ag, K_a[pos]);
         sig += len-1; /* advance to next arg char */
         break;
@@ -239,7 +239,7 @@ int main(int argc, char* argv[])
 
   /* free all DCaggrs created on the fly */
   for(i=0; i<G_naggs; ++i)
-    dcFreeAggr(((DCaggr*(*)())G_agg_touchdcstfuncs[i])());
+    dcFreeAggr(((DCaggr*(*)())G_agg_touchAfuncs[i])());
 
   dcFree(G_callvm);
   deinit_test_data(G_maxargs);

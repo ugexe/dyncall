@@ -41,7 +41,7 @@ extern int          G_ncases;
 extern int          G_maxargs;
 extern const char * G_agg_sigs[];
 extern int          G_agg_sizes[];
-extern funptr       G_agg_touchdcstfuncs[];
+extern funptr       G_agg_touchAfuncs[];
 extern funptr       G_agg_cmpfuncs[];
 extern int          G_naggs;
 

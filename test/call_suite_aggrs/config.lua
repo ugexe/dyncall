@@ -45,4 +45,5 @@ aggrmutabletest = true
 -- force aggregate packing, 0=off, pos values set fixed packing, neg values
 -- set a random power-of-2 packing per aggregate, within [1,abs(aggrpacking)]
 aggrpacking = 0
+aggrpackingseed = seed
 

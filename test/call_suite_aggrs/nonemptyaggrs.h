@@ -1,7 +1,7 @@
 /* <BjSSCspjdIfJ> */
 union A1 { B m0; j m1; S m2; S m3; C m4; s m5; p m6; j m7; d m8; I m9; f m10; J m11; };
 int f_cmpA1(const union A1 *x, const union A1 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1() {
+DCaggr* f_touchA1() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1));
@@ -24,7 +24,7 @@ DCaggr* f_touchdcstA1() {
 /* {IsiLcJjLcfjB} */
 struct A2 { I m0; s m1; i m2; L m3; c m4; J m5; j m6; L m7; c m8; f m9; j m10; B m11; };
 int f_cmpA2(const struct A2 *x, const struct A2 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA2() {
+DCaggr* f_touchA2() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A2));
@@ -47,7 +47,7 @@ DCaggr* f_touchdcstA2() {
 /* {fBpifdfcfcJC} */
 struct A3 { f m0; B m1; p m2; i m3; f m4; d m5; f m6; c m7; f m8; c m9; J m10; C m11; };
 int f_cmpA3(const struct A3 *x, const struct A3 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA3() {
+DCaggr* f_touchA3() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A3));
@@ -70,7 +70,7 @@ DCaggr* f_touchdcstA3() {
 /* <jiSdI> */
 union A4 { j m0; i m1; S m2; d m3; I m4; };
 int f_cmpA4(const union A4 *x, const union A4 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA4() {
+DCaggr* f_touchA4() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A4));
@@ -86,7 +86,7 @@ DCaggr* f_touchdcstA4() {
 /* {sLSdL{fBpifdfcfcJC}BiLs<jiSdI>d} */
 struct A5 { s m0; L m1; S m2; d m3; L m4; struct A3 m5; B m6; i m7; L m8; s m9; union A4 m10; d m11; };
 int f_cmpA5(const struct A5 *x, const struct A5 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA3(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA4(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA5() {
+DCaggr* f_touchA5() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A5));
@@ -109,7 +109,7 @@ DCaggr* f_touchdcstA5() {
 /* {C{sLSdL{fBpifdfcfcJC}BiLs<jiSdI>d}JlB} */
 struct A6 { C m0; struct A5 m1; J m2; l m3; B m4; };
 int f_cmpA6(const struct A6 *x, const struct A6 *y) { return x->m0 == y->m0 && f_cmpA5(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA6() {
+DCaggr* f_touchA6() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A6));
@@ -125,7 +125,7 @@ DCaggr* f_touchdcstA6() {
 /* <JJcdI[2]IjJc[11]II> */
 union A7 { J m0; J m1; c m2; d m3; I m4[2]; I m5; j m6; J m7; c m8[11]; I m9; I m10; };
 int f_cmpA7(const union A7 *x, const union A7 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4[0] == y->m4[0] && x->m4[1] == y->m4[1] && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8[0] == y->m8[0] && x->m8[1] == y->m8[1] && x->m8[2] == y->m8[2] && x->m8[3] == y->m8[3] && x->m8[4] == y->m8[4] && x->m8[5] == y->m8[5] && x->m8[6] == y->m8[6] && x->m8[7] == y->m8[7] && x->m8[8] == y->m8[8] && x->m8[9] == y->m8[9] && x->m8[10] == y->m8[10] && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA7() {
+DCaggr* f_touchA7() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(union A7));
@@ -147,7 +147,7 @@ DCaggr* f_touchdcstA7() {
 /* <JBCiLsCcIfcj> */
 union A8 { J m0; B m1; C m2; i m3; L m4; s m5; C m6; c m7; I m8; f m9; c m10; j m11; };
 int f_cmpA8(const union A8 *x, const union A8 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA8() {
+DCaggr* f_touchA8() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A8));
@@ -170,7 +170,7 @@ DCaggr* f_touchdcstA8() {
 /* <jj<JJcdI[2]IjJc[11]II>LSCICSLS<JBCiLsCcIfcj>> */
 union A9 { j m0; j m1; union A7 m2; L m3; S m4; C m5; I m6; C m7; S m8; L m9; S m10; union A8 m11; };
 int f_cmpA9(const union A9 *x, const union A9 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA7(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && f_cmpA8(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA9() {
+DCaggr* f_touchA9() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A9));
@@ -193,7 +193,7 @@ DCaggr* f_touchdcstA9() {
 /* <flpBfc> */
 union A10 { f m0; l m1; p m2; B m3; f m4; c m5; };
 int f_cmpA10(const union A10 *x, const union A10 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA10() {
+DCaggr* f_touchA10() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(union A10));
@@ -210,7 +210,7 @@ DCaggr* f_touchdcstA10() {
 /* {BjLLj<flpBfc>CLLjpJ} */
 struct A11 { B m0; j m1; L m2; L m3; j m4; union A10 m5; C m6; L m7; L m8; j m9; p m10; J m11; };
 int f_cmpA11(const struct A11 *x, const struct A11 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA10(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA11() {
+DCaggr* f_touchA11() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A11));
@@ -233,7 +233,7 @@ DCaggr* f_touchdcstA11() {
 /* <dfC> */
 union A12 { d m0; f m1; C m2; };
 int f_cmpA12(const union A12 *x, const union A12 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA12() {
+DCaggr* f_touchA12() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A12));
@@ -247,7 +247,7 @@ DCaggr* f_touchdcstA12() {
 /* <Cf<dfC>> */
 union A13 { C m0; f m1; union A12 m2; };
 int f_cmpA13(const union A13 *x, const union A13 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA12(&x->m2, &y->m2); };
-DCaggr* f_touchdcstA13() {
+DCaggr* f_touchA13() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A13));
@@ -261,7 +261,7 @@ DCaggr* f_touchdcstA13() {
 /* <c> */
 union A14 { c m0; };
 int f_cmpA14(const union A14 *x, const union A14 *y) { return x->m0 == y->m0; };
-DCaggr* f_touchdcstA14() {
+DCaggr* f_touchA14() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(1, sizeof(union A14));
@@ -273,7 +273,7 @@ DCaggr* f_touchdcstA14() {
 /* {IclfIS<Cf<dfC>>p<c>SsC} */
 struct A15 { I m0; c m1; l m2; f m3; I m4; S m5; union A13 m6; p m7; union A14 m8; S m9; s m10; C m11; };
 int f_cmpA15(const struct A15 *x, const struct A15 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA13(&x->m6, &y->m6) && x->m7 == y->m7 && f_cmpA14(&x->m8, &y->m8) && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA15() {
+DCaggr* f_touchA15() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A15));
@@ -296,7 +296,7 @@ DCaggr* f_touchdcstA15() {
 /* {Iiij} */
 struct A16 { I m0; i m1; i m2; j m3; };
 int f_cmpA16(const struct A16 *x, const struct A16 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA16() {
+DCaggr* f_touchA16() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A16));
@@ -311,7 +311,7 @@ DCaggr* f_touchdcstA16() {
 /* <SIljsispfSdL> */
 union A17 { S m0; I m1; l m2; j m3; s m4; i m5; s m6; p m7; f m8; S m9; d m10; L m11; };
 int f_cmpA17(const union A17 *x, const union A17 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA17() {
+DCaggr* f_touchA17() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A17));
@@ -334,7 +334,7 @@ DCaggr* f_touchdcstA17() {
 /* <S<SIljsispfSdL>BIflsiCJLI> */
 union A18 { S m0; union A17 m1; B m2; I m3; f m4; l m5; s m6; i m7; C m8; J m9; L m10; I m11; };
 int f_cmpA18(const union A18 *x, const union A18 *y) { return x->m0 == y->m0 && f_cmpA17(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA18() {
+DCaggr* f_touchA18() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A18));
@@ -357,7 +357,7 @@ DCaggr* f_touchdcstA18() {
 /* <B<S<SIljsispfSdL>BIflsiCJLI>jpidI> */
 union A19 { B m0; union A18 m1; j m2; p m3; i m4; d m5; I m6; };
 int f_cmpA19(const union A19 *x, const union A19 *y) { return x->m0 == y->m0 && f_cmpA18(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA19() {
+DCaggr* f_touchA19() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(union A19));
@@ -375,7 +375,7 @@ DCaggr* f_touchdcstA19() {
 /* {isS} */
 struct A20 { i m0; s m1; S m2; };
 int f_cmpA20(const struct A20 *x, const struct A20 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA20() {
+DCaggr* f_touchA20() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A20));
@@ -389,7 +389,7 @@ DCaggr* f_touchdcstA20() {
 /* {sss[3]iB} */
 struct A21 { s m0; s m1; s m2[3]; i m3; B m4; };
 int f_cmpA21(const struct A21 *x, const struct A21 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2[0] == y->m2[0] && x->m2[1] == y->m2[1] && x->m2[2] == y->m2[2] && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA21() {
+DCaggr* f_touchA21() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A21));
@@ -405,7 +405,7 @@ DCaggr* f_touchdcstA21() {
 /* <LlSp{sss[3]iB}CSsJdip[8]> */
 union A22 { L m0; l m1; S m2; p m3; struct A21 m4; C m5; S m6; s m7; J m8; d m9; i m10; p m11[8]; };
 int f_cmpA22(const union A22 *x, const union A22 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA21(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11[0] == y->m11[0] && x->m11[1] == y->m11[1] && x->m11[2] == y->m11[2] && x->m11[3] == y->m11[3] && x->m11[4] == y->m11[4] && x->m11[5] == y->m11[5] && x->m11[6] == y->m11[6] && x->m11[7] == y->m11[7]; };
-DCaggr* f_touchdcstA22() {
+DCaggr* f_touchA22() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A22));
@@ -428,7 +428,7 @@ DCaggr* f_touchdcstA22() {
 /* {pp[11]l[2]sSl[9]SpjdlI} */
 struct A23 { p m0; p m1[11]; l m2[2]; s m3; S m4; l m5[9]; S m6; p m7; j m8; d m9; l m10; I m11; };
 int f_cmpA23(const struct A23 *x, const struct A23 *y) { return x->m0 == y->m0 && x->m1[0] == y->m1[0] && x->m1[1] == y->m1[1] && x->m1[2] == y->m1[2] && x->m1[3] == y->m1[3] && x->m1[4] == y->m1[4] && x->m1[5] == y->m1[5] && x->m1[6] == y->m1[6] && x->m1[7] == y->m1[7] && x->m1[8] == y->m1[8] && x->m1[9] == y->m1[9] && x->m1[10] == y->m1[10] && x->m2[0] == y->m2[0] && x->m2[1] == y->m2[1] && x->m3 == y->m3 && x->m4 == y->m4 && x->m5[0] == y->m5[0] && x->m5[1] == y->m5[1] && x->m5[2] == y->m5[2] && x->m5[3] == y->m5[3] && x->m5[4] == y->m5[4] && x->m5[5] == y->m5[5] && x->m5[6] == y->m5[6] && x->m5[7] == y->m5[7] && x->m5[8] == y->m5[8] && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA23() {
+DCaggr* f_touchA23() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A23));
@@ -451,7 +451,7 @@ DCaggr* f_touchdcstA23() {
 /* {isC} */
 struct A24 { i m0; s m1; C m2; };
 int f_cmpA24(const struct A24 *x, const struct A24 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA24() {
+DCaggr* f_touchA24() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A24));
@@ -465,7 +465,7 @@ DCaggr* f_touchdcstA24() {
 /* <JcC> */
 union A25 { J m0; c m1; C m2; };
 int f_cmpA25(const union A25 *x, const union A25 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA25() {
+DCaggr* f_touchA25() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A25));
@@ -479,7 +479,7 @@ DCaggr* f_touchdcstA25() {
 /* {fJIdjC<JcC>BlB} */
 struct A26 { f m0; J m1; I m2; d m3; j m4; C m5; union A25 m6; B m7; l m8; B m9; };
 int f_cmpA26(const struct A26 *x, const struct A26 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA25(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA26() {
+DCaggr* f_touchA26() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(struct A26));
@@ -500,7 +500,7 @@ DCaggr* f_touchdcstA26() {
 /* {cdLcfclfSdlp} */
 struct A27 { c m0; d m1; L m2; c m3; f m4; c m5; l m6; f m7; S m8; d m9; l m10; p m11; };
 int f_cmpA27(const struct A27 *x, const struct A27 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA27() {
+DCaggr* f_touchA27() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A27));
@@ -523,7 +523,7 @@ DCaggr* f_touchdcstA27() {
 /* <BjIScIsIIl{cdLcfclfSdlp}J> */
 union A28 { B m0; j m1; I m2; S m3; c m4; I m5; s m6; I m7; I m8; l m9; struct A27 m10; J m11; };
 int f_cmpA28(const union A28 *x, const union A28 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA27(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA28() {
+DCaggr* f_touchA28() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A28));
@@ -546,7 +546,7 @@ DCaggr* f_touchdcstA28() {
 /* <SJBlcL> */
 union A29 { S m0; J m1; B m2; l m3; c m4; L m5; };
 int f_cmpA29(const union A29 *x, const union A29 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA29() {
+DCaggr* f_touchA29() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(union A29));
@@ -563,7 +563,7 @@ DCaggr* f_touchdcstA29() {
 /* {CCJ<SJBlcL>BdIfBj} */
 struct A30 { C m0; C m1; J m2; union A29 m3; B m4; d m5; I m6; f m7; B m8; j m9; };
 int f_cmpA30(const struct A30 *x, const struct A30 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA29(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA30() {
+DCaggr* f_touchA30() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(struct A30));
@@ -584,7 +584,7 @@ DCaggr* f_touchdcstA30() {
 /* {<BjIScIsIIl{cdLcfclfSdlp}J>fS{CCJ<SJBlcL>BdIfBj}CBcsIILl} */
 struct A31 { union A28 m0; f m1; S m2; struct A30 m3; C m4; B m5; c m6; s m7; I m8; I m9; L m10; l m11; };
 int f_cmpA31(const struct A31 *x, const struct A31 *y) { return f_cmpA28(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA30(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA31() {
+DCaggr* f_touchA31() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A31));
@@ -607,7 +607,7 @@ DCaggr* f_touchdcstA31() {
 /* <I> */
 union A32 { I m0; };
 int f_cmpA32(const union A32 *x, const union A32 *y) { return x->m0 == y->m0; };
-DCaggr* f_touchdcstA32() {
+DCaggr* f_touchA32() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(1, sizeof(union A32));
@@ -619,7 +619,7 @@ DCaggr* f_touchdcstA32() {
 /* <<I>Jj<I>LJCpLpsd> */
 union A33 { union A32 m0; J m1; j m2; union A32 m3; L m4; J m5; C m6; p m7; L m8; p m9; s m10; d m11; };
 int f_cmpA33(const union A33 *x, const union A33 *y) { return f_cmpA32(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA32(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA33() {
+DCaggr* f_touchA33() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A33));
@@ -642,7 +642,7 @@ DCaggr* f_touchdcstA33() {
 /* <iCcfspLSSlsI> */
 union A34 { i m0; C m1; c m2; f m3; s m4; p m5; L m6; S m7; S m8; l m9; s m10; I m11; };
 int f_cmpA34(const union A34 *x, const union A34 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA34() {
+DCaggr* f_touchA34() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A34));
@@ -665,7 +665,7 @@ DCaggr* f_touchdcstA34() {
 /* <SLsBJfplspSB> */
 union A35 { S m0; L m1; s m2; B m3; J m4; f m5; p m6; l m7; s m8; p m9; S m10; B m11; };
 int f_cmpA35(const union A35 *x, const union A35 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA35() {
+DCaggr* f_touchA35() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A35));
@@ -688,7 +688,7 @@ DCaggr* f_touchdcstA35() {
 /* <jlLppJcjplBs> */
 union A36 { j m0; l m1; L m2; p m3; p m4; J m5; c m6; j m7; p m8; l m9; B m10; s m11; };
 int f_cmpA36(const union A36 *x, const union A36 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA36() {
+DCaggr* f_touchA36() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A36));
@@ -711,7 +711,7 @@ DCaggr* f_touchdcstA36() {
 /* {<SLsBJfplspSB>[10]csdLCs[1]<jlLppJcjplBs>ipls} */
 struct A37 { union A35 m0[10]; c m1; s m2; d m3; L m4; C m5; s m6[1]; union A36 m7; i m8; p m9; l m10; s m11; };
 int f_cmpA37(const struct A37 *x, const struct A37 *y) { return f_cmpA35(&x->m0[0], &y->m0[0]) && f_cmpA35(&x->m0[1], &y->m0[1]) && f_cmpA35(&x->m0[2], &y->m0[2]) && f_cmpA35(&x->m0[3], &y->m0[3]) && f_cmpA35(&x->m0[4], &y->m0[4]) && f_cmpA35(&x->m0[5], &y->m0[5]) && f_cmpA35(&x->m0[6], &y->m0[6]) && f_cmpA35(&x->m0[7], &y->m0[7]) && f_cmpA35(&x->m0[8], &y->m0[8]) && f_cmpA35(&x->m0[9], &y->m0[9]) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6[0] == y->m6[0] && f_cmpA36(&x->m7, &y->m7) && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA37() {
+DCaggr* f_touchA37() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A37));
@@ -734,7 +734,7 @@ DCaggr* f_touchdcstA37() {
 /* <JBc> */
 union A38 { J m0; B m1; c m2; };
 int f_cmpA38(const union A38 *x, const union A38 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA38() {
+DCaggr* f_touchA38() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A38));
@@ -748,7 +748,7 @@ DCaggr* f_touchdcstA38() {
 /* <SICdjLBpSi[5]pd> */
 union A39 { S m0; I m1; C m2; d m3; j m4; L m5; B m6; p m7; S m8; i m9[5]; p m10; d m11; };
 int f_cmpA39(const union A39 *x, const union A39 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9[0] == y->m9[0] && x->m9[1] == y->m9[1] && x->m9[2] == y->m9[2] && x->m9[3] == y->m9[3] && x->m9[4] == y->m9[4] && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA39() {
+DCaggr* f_touchA39() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A39));
@@ -771,7 +771,7 @@ DCaggr* f_touchdcstA39() {
 /* <J> */
 union A40 { J m0; };
 int f_cmpA40(const union A40 *x, const union A40 *y) { return x->m0 == y->m0; };
-DCaggr* f_touchdcstA40() {
+DCaggr* f_touchA40() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(1, sizeof(union A40));
@@ -783,7 +783,7 @@ DCaggr* f_touchdcstA40() {
 /* {<J>CLS} */
 struct A41 { union A40 m0; C m1; L m2; S m3; };
 int f_cmpA41(const struct A41 *x, const struct A41 *y) { return f_cmpA40(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA41() {
+DCaggr* f_touchA41() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A41));
@@ -798,7 +798,7 @@ DCaggr* f_touchdcstA41() {
 /* <JssIiLBllBCB> */
 union A42 { J m0; s m1; s m2; I m3; i m4; L m5; B m6; l m7; l m8; B m9; C m10; B m11; };
 int f_cmpA42(const union A42 *x, const union A42 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA42() {
+DCaggr* f_touchA42() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A42));
@@ -821,7 +821,7 @@ DCaggr* f_touchdcstA42() {
 /* {cBicCJdLclsL} */
 struct A43 { c m0; B m1; i m2; c m3; C m4; J m5; d m6; L m7; c m8; l m9; s m10; L m11; };
 int f_cmpA43(const struct A43 *x, const struct A43 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA43() {
+DCaggr* f_touchA43() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A43));
@@ -844,7 +844,7 @@ DCaggr* f_touchdcstA43() {
 /* <<JssIiLBllBCB>BS{cBicCJdLclsL}> */
 union A44 { union A42 m0; B m1; S m2; struct A43 m3; };
 int f_cmpA44(const union A44 *x, const union A44 *y) { return f_cmpA42(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA43(&x->m3, &y->m3); };
-DCaggr* f_touchdcstA44() {
+DCaggr* f_touchA44() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A44));
@@ -859,7 +859,7 @@ DCaggr* f_touchdcstA44() {
 /* <i> */
 union A45 { i m0; };
 int f_cmpA45(const union A45 *x, const union A45 *y) { return x->m0 == y->m0; };
-DCaggr* f_touchdcstA45() {
+DCaggr* f_touchA45() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(1, sizeof(union A45));
@@ -871,7 +871,7 @@ DCaggr* f_touchdcstA45() {
 /* <cICsJpppdI<i>j> */
 union A46 { c m0; I m1; C m2; s m3; J m4; p m5; p m6; p m7; d m8; I m9; union A45 m10; j m11; };
 int f_cmpA46(const union A46 *x, const union A46 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA45(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA46() {
+DCaggr* f_touchA46() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A46));
@@ -894,7 +894,7 @@ DCaggr* f_touchdcstA46() {
 /* <J[2]<<JssIiLBllBCB>BS{cBicCJdLclsL}>Ji<cICsJpppdI<i>j>sCSJLCL> */
 union A47 { J m0[2]; union A44 m1; J m2; i m3; union A46 m4; s m5; C m6; S m7; J m8; L m9; C m10; L m11; };
 int f_cmpA47(const union A47 *x, const union A47 *y) { return x->m0[0] == y->m0[0] && x->m0[1] == y->m0[1] && f_cmpA44(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA46(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA47() {
+DCaggr* f_touchA47() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A47));
@@ -917,7 +917,7 @@ DCaggr* f_touchdcstA47() {
 /* {SBBddi[2]} */
 struct A48 { S m0; B m1; B m2; d m3; d m4; i m5[2]; };
 int f_cmpA48(const struct A48 *x, const struct A48 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5[0] == y->m5[0] && x->m5[1] == y->m5[1]; };
-DCaggr* f_touchdcstA48() {
+DCaggr* f_touchA48() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(struct A48));
@@ -934,7 +934,7 @@ DCaggr* f_touchdcstA48() {
 /* <lf{SBBddi[2]}sSl> */
 union A49 { l m0; f m1; struct A48 m2; s m3; S m4; l m5; };
 int f_cmpA49(const union A49 *x, const union A49 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA48(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA49() {
+DCaggr* f_touchA49() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(union A49));
@@ -951,7 +951,7 @@ DCaggr* f_touchdcstA49() {
 /* <dLLIBLCLJJJL> */
 union A50 { d m0; L m1; L m2; I m3; B m4; L m5; C m6; L m7; J m8; J m9; J m10; L m11; };
 int f_cmpA50(const union A50 *x, const union A50 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA50() {
+DCaggr* f_touchA50() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A50));
@@ -974,7 +974,7 @@ DCaggr* f_touchdcstA50() {
 /* <S> */
 union A51 { S m0; };
 int f_cmpA51(const union A51 *x, const union A51 *y) { return x->m0 == y->m0; };
-DCaggr* f_touchdcstA51() {
+DCaggr* f_touchA51() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(1, sizeof(union A51));
@@ -986,7 +986,7 @@ DCaggr* f_touchdcstA51() {
 /* <lcIJpfcclfBl> */
 union A52 { l m0; c m1; I m2; J m3; p m4; f m5; c m6; c m7; l m8; f m9; B m10; l m11; };
 int f_cmpA52(const union A52 *x, const union A52 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA52() {
+DCaggr* f_touchA52() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A52));
@@ -1009,7 +1009,7 @@ DCaggr* f_touchdcstA52() {
 /* <dLLB> */
 union A53 { d m0; L m1; L m2; B m3; };
 int f_cmpA53(const union A53 *x, const union A53 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA53() {
+DCaggr* f_touchA53() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A53));
@@ -1024,7 +1024,7 @@ DCaggr* f_touchdcstA53() {
 /* <jJIB> */
 union A54 { j m0; J m1; I m2; B m3; };
 int f_cmpA54(const union A54 *x, const union A54 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA54() {
+DCaggr* f_touchA54() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A54));
@@ -1039,7 +1039,7 @@ DCaggr* f_touchdcstA54() {
 /* <iCsfC> */
 union A55 { i m0; C m1; s m2; f m3; C m4; };
 int f_cmpA55(const union A55 *x, const union A55 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA55() {
+DCaggr* f_touchA55() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A55));
@@ -1055,7 +1055,7 @@ DCaggr* f_touchdcstA55() {
 /* {cj<iCsfC>lsffI[5]licd} */
 struct A56 { c m0; j m1; union A55 m2; l m3; s m4; f m5; f m6; I m7[5]; l m8; i m9; c m10; d m11; };
 int f_cmpA56(const struct A56 *x, const struct A56 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA55(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7[0] == y->m7[0] && x->m7[1] == y->m7[1] && x->m7[2] == y->m7[2] && x->m7[3] == y->m7[3] && x->m7[4] == y->m7[4] && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA56() {
+DCaggr* f_touchA56() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A56));
@@ -1078,7 +1078,7 @@ DCaggr* f_touchdcstA56() {
 /* {sCpfIBspssLj} */
 struct A57 { s m0; C m1; p m2; f m3; I m4; B m5; s m6; p m7; s m8; s m9; L m10; j m11; };
 int f_cmpA57(const struct A57 *x, const struct A57 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA57() {
+DCaggr* f_touchA57() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A57));
@@ -1101,7 +1101,7 @@ DCaggr* f_touchdcstA57() {
 /* <jB> */
 union A58 { j m0; B m1; };
 int f_cmpA58(const union A58 *x, const union A58 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA58() {
+DCaggr* f_touchA58() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A58));
@@ -1114,7 +1114,7 @@ DCaggr* f_touchdcstA58() {
 /* {pCLS} */
 struct A59 { p m0; C m1; L m2; S m3; };
 int f_cmpA59(const struct A59 *x, const struct A59 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA59() {
+DCaggr* f_touchA59() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A59));
@@ -1129,7 +1129,7 @@ DCaggr* f_touchdcstA59() {
 /* <<jB>Lf{pCLS}CddJiicf> */
 union A60 { union A58 m0; L m1; f m2; struct A59 m3; C m4; d m5; d m6; J m7; i m8; i m9; c m10; f m11; };
 int f_cmpA60(const union A60 *x, const union A60 *y) { return f_cmpA58(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA59(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA60() {
+DCaggr* f_touchA60() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A60));
@@ -1152,7 +1152,7 @@ DCaggr* f_touchdcstA60() {
 /* <cdCjifsCl> */
 union A61 { c m0; d m1; C m2; j m3; i m4; f m5; s m6; C m7; l m8; };
 int f_cmpA61(const union A61 *x, const union A61 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA61() {
+DCaggr* f_touchA61() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A61));
@@ -1172,7 +1172,7 @@ DCaggr* f_touchdcstA61() {
 /* <ffffjljIJfCf> */
 union A62 { f m0; f m1; f m2; f m3; j m4; l m5; j m6; I m7; J m8; f m9; C m10; f m11; };
 int f_cmpA62(const union A62 *x, const union A62 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA62() {
+DCaggr* f_touchA62() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A62));
@@ -1195,7 +1195,7 @@ DCaggr* f_touchdcstA62() {
 /* {sSB} */
 struct A63 { s m0; S m1; B m2; };
 int f_cmpA63(const struct A63 *x, const struct A63 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA63() {
+DCaggr* f_touchA63() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A63));
@@ -1209,7 +1209,7 @@ DCaggr* f_touchdcstA63() {
 /* {lCJfflj} */
 struct A64 { l m0; C m1; J m2; f m3; f m4; l m5; j m6; };
 int f_cmpA64(const struct A64 *x, const struct A64 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA64() {
+DCaggr* f_touchA64() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(struct A64));
@@ -1227,7 +1227,7 @@ DCaggr* f_touchdcstA64() {
 /* {LCBLI} */
 struct A65 { L m0; C m1; B m2; L m3; I m4; };
 int f_cmpA65(const struct A65 *x, const struct A65 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA65() {
+DCaggr* f_touchA65() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A65));
@@ -1243,7 +1243,7 @@ DCaggr* f_touchdcstA65() {
 /* {p{sSB}{lCJfflj}[13]CIcfp{LCBLI}} */
 struct A66 { p m0; struct A63 m1; struct A64 m2[13]; C m3; I m4; c m5; f m6; p m7; struct A65 m8; };
 int f_cmpA66(const struct A66 *x, const struct A66 *y) { return x->m0 == y->m0 && f_cmpA63(&x->m1, &y->m1) && f_cmpA64(&x->m2[0], &y->m2[0]) && f_cmpA64(&x->m2[1], &y->m2[1]) && f_cmpA64(&x->m2[2], &y->m2[2]) && f_cmpA64(&x->m2[3], &y->m2[3]) && f_cmpA64(&x->m2[4], &y->m2[4]) && f_cmpA64(&x->m2[5], &y->m2[5]) && f_cmpA64(&x->m2[6], &y->m2[6]) && f_cmpA64(&x->m2[7], &y->m2[7]) && f_cmpA64(&x->m2[8], &y->m2[8]) && f_cmpA64(&x->m2[9], &y->m2[9]) && f_cmpA64(&x->m2[10], &y->m2[10]) && f_cmpA64(&x->m2[11], &y->m2[11]) && f_cmpA64(&x->m2[12], &y->m2[12]) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA65(&x->m8, &y->m8); };
-DCaggr* f_touchdcstA66() {
+DCaggr* f_touchA66() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(struct A66));
@@ -1263,7 +1263,7 @@ DCaggr* f_touchdcstA66() {
 /* {psdsflJlpp} */
 struct A67 { p m0; s m1; d m2; s m3; f m4; l m5; J m6; l m7; p m8; p m9; };
 int f_cmpA67(const struct A67 *x, const struct A67 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA67() {
+DCaggr* f_touchA67() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(struct A67));
@@ -1284,7 +1284,7 @@ DCaggr* f_touchdcstA67() {
 /* <IIf> */
 union A68 { I m0; I m1; f m2; };
 int f_cmpA68(const union A68 *x, const union A68 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA68() {
+DCaggr* f_touchA68() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A68));
@@ -1298,7 +1298,7 @@ DCaggr* f_touchdcstA68() {
 /* <dpSdccSpdJpc> */
 union A69 { d m0; p m1; S m2; d m3; c m4; c m5; S m6; p m7; d m8; J m9; p m10; c m11; };
 int f_cmpA69(const union A69 *x, const union A69 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA69() {
+DCaggr* f_touchA69() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A69));
@@ -1321,7 +1321,7 @@ DCaggr* f_touchdcstA69() {
 /* <s<IIf>pfsldscB<dpSdccSpdJpc>B> */
 union A70 { s m0; union A68 m1; p m2; f m3; s m4; l m5; d m6; s m7; c m8; B m9; union A69 m10; B m11; };
 int f_cmpA70(const union A70 *x, const union A70 *y) { return x->m0 == y->m0 && f_cmpA68(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA69(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA70() {
+DCaggr* f_touchA70() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A70));
@@ -1344,7 +1344,7 @@ DCaggr* f_touchdcstA70() {
 /* <Cs> */
 union A71 { C m0; s m1; };
 int f_cmpA71(const union A71 *x, const union A71 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA71() {
+DCaggr* f_touchA71() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A71));
@@ -1357,7 +1357,7 @@ DCaggr* f_touchdcstA71() {
 /* <LplB[13]<Cs>jicSCli> */
 union A72 { L m0; p m1; l m2; B m3[13]; union A71 m4; j m5; i m6; c m7; S m8; C m9; l m10; i m11; };
 int f_cmpA72(const union A72 *x, const union A72 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3[0] == y->m3[0] && x->m3[1] == y->m3[1] && x->m3[2] == y->m3[2] && x->m3[3] == y->m3[3] && x->m3[4] == y->m3[4] && x->m3[5] == y->m3[5] && x->m3[6] == y->m3[6] && x->m3[7] == y->m3[7] && x->m3[8] == y->m3[8] && x->m3[9] == y->m3[9] && x->m3[10] == y->m3[10] && x->m3[11] == y->m3[11] && x->m3[12] == y->m3[12] && f_cmpA71(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA72() {
+DCaggr* f_touchA72() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A72));
@@ -1380,7 +1380,7 @@ DCaggr* f_touchdcstA72() {
 /* <JcJ<s<IIf>pfsldscB<dpSdccSpdJpc>B>li<LplB[13]<Cs>jicSCli>cl> */
 union A73 { J m0; c m1; J m2; union A70 m3; l m4; i m5; union A72 m6; c m7; l m8; };
 int f_cmpA73(const union A73 *x, const union A73 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA70(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA72(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA73() {
+DCaggr* f_touchA73() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A73));
@@ -1400,7 +1400,7 @@ DCaggr* f_touchdcstA73() {
 /* <LlclL> */
 union A74 { L m0; l m1; c m2; l m3; L m4; };
 int f_cmpA74(const union A74 *x, const union A74 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA74() {
+DCaggr* f_touchA74() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A74));
@@ -1416,7 +1416,7 @@ DCaggr* f_touchdcstA74() {
 /* {IJp<LlclL>L} */
 struct A75 { I m0; J m1; p m2; union A74 m3; L m4; };
 int f_cmpA75(const struct A75 *x, const struct A75 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA74(&x->m3, &y->m3) && x->m4 == y->m4; };
-DCaggr* f_touchdcstA75() {
+DCaggr* f_touchA75() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A75));
@@ -1432,7 +1432,7 @@ DCaggr* f_touchdcstA75() {
 /* <Lp> */
 union A76 { L m0; p m1; };
 int f_cmpA76(const union A76 *x, const union A76 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA76() {
+DCaggr* f_touchA76() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A76));
@@ -1445,7 +1445,7 @@ DCaggr* f_touchdcstA76() {
 /* {lScCdL} */
 struct A77 { l m0; S m1; c m2; C m3; d m4; L m5; };
 int f_cmpA77(const struct A77 *x, const struct A77 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA77() {
+DCaggr* f_touchA77() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(struct A77));
@@ -1462,7 +1462,7 @@ DCaggr* f_touchdcstA77() {
 /* <lclIjps> */
 union A78 { l m0; c m1; l m2; I m3; j m4; p m5; s m6; };
 int f_cmpA78(const union A78 *x, const union A78 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA78() {
+DCaggr* f_touchA78() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(union A78));
@@ -1480,7 +1480,7 @@ DCaggr* f_touchdcstA78() {
 /* {flJLfilisBd<lclIjps>} */
 struct A79 { f m0; l m1; J m2; L m3; f m4; i m5; l m6; i m7; s m8; B m9; d m10; union A78 m11; };
 int f_cmpA79(const struct A79 *x, const struct A79 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && f_cmpA78(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA79() {
+DCaggr* f_touchA79() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A79));
@@ -1503,7 +1503,7 @@ DCaggr* f_touchdcstA79() {
 /* <IjBJ<Lp>{lScCdL}BIfjI{flJLfilisBd<lclIjps>}[8]> */
 union A80 { I m0; j m1; B m2; J m3; union A76 m4; struct A77 m5; B m6; I m7; f m8; j m9; I m10; struct A79 m11[8]; };
 int f_cmpA80(const union A80 *x, const union A80 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA76(&x->m4, &y->m4) && f_cmpA77(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && f_cmpA79(&x->m11[0], &y->m11[0]) && f_cmpA79(&x->m11[1], &y->m11[1]) && f_cmpA79(&x->m11[2], &y->m11[2]) && f_cmpA79(&x->m11[3], &y->m11[3]) && f_cmpA79(&x->m11[4], &y->m11[4]) && f_cmpA79(&x->m11[5], &y->m11[5]) && f_cmpA79(&x->m11[6], &y->m11[6]) && f_cmpA79(&x->m11[7], &y->m11[7]); };
-DCaggr* f_touchdcstA80() {
+DCaggr* f_touchA80() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A80));
@@ -1526,7 +1526,7 @@ DCaggr* f_touchdcstA80() {
 /* <diidSpfpcjdI> */
 union A81 { d m0; i m1; i m2; d m3; S m4; p m5; f m6; p m7; c m8; j m9; d m10; I m11; };
 int f_cmpA81(const union A81 *x, const union A81 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA81() {
+DCaggr* f_touchA81() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A81));
@@ -1549,7 +1549,7 @@ DCaggr* f_touchdcstA81() {
 /* {IdssllLjLcc} */
 struct A82 { I m0; d m1; s m2; s m3; l m4; l m5; L m6; j m7; L m8; c m9; c m10; };
 int f_cmpA82(const struct A82 *x, const struct A82 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA82() {
+DCaggr* f_touchA82() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(struct A82));
@@ -1571,7 +1571,7 @@ DCaggr* f_touchdcstA82() {
 /* {BiSJCpiJ[13]LjpS} */
 struct A83 { B m0; i m1; S m2; J m3; C m4; p m5; i m6; J m7[13]; L m8; j m9; p m10; S m11; };
 int f_cmpA83(const struct A83 *x, const struct A83 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7[0] == y->m7[0] && x->m7[1] == y->m7[1] && x->m7[2] == y->m7[2] && x->m7[3] == y->m7[3] && x->m7[4] == y->m7[4] && x->m7[5] == y->m7[5] && x->m7[6] == y->m7[6] && x->m7[7] == y->m7[7] && x->m7[8] == y->m7[8] && x->m7[9] == y->m7[9] && x->m7[10] == y->m7[10] && x->m7[11] == y->m7[11] && x->m7[12] == y->m7[12] && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA83() {
+DCaggr* f_touchA83() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A83));
@@ -1594,7 +1594,7 @@ DCaggr* f_touchdcstA83() {
 /* {BIc{BiSJCpiJ[13]LjpS}BlJifsjp} */
 struct A84 { B m0; I m1; c m2; struct A83 m3; B m4; l m5; J m6; i m7; f m8; s m9; j m10; p m11; };
 int f_cmpA84(const struct A84 *x, const struct A84 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA83(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA84() {
+DCaggr* f_touchA84() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A84));
@@ -1617,7 +1617,7 @@ DCaggr* f_touchdcstA84() {
 /* {sBfBIiSIljB} */
 struct A85 { s m0; B m1; f m2; B m3; I m4; i m5; S m6; I m7; l m8; j m9; B m10; };
 int f_cmpA85(const struct A85 *x, const struct A85 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA85() {
+DCaggr* f_touchA85() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(struct A85));
@@ -1639,7 +1639,7 @@ DCaggr* f_touchdcstA85() {
 /* {fCispLifjBJc} */
 struct A86 { f m0; C m1; i m2; s m3; p m4; L m5; i m6; f m7; j m8; B m9; J m10; c m11; };
 int f_cmpA86(const struct A86 *x, const struct A86 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA86() {
+DCaggr* f_touchA86() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A86));
@@ -1662,7 +1662,7 @@ DCaggr* f_touchdcstA86() {
 /* {BIlCcslJB[3]sLS} */
 struct A87 { B m0; I m1; l m2; C m3; c m4; s m5; l m6; J m7; B m8[3]; s m9; L m10; S m11; };
 int f_cmpA87(const struct A87 *x, const struct A87 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8[0] == y->m8[0] && x->m8[1] == y->m8[1] && x->m8[2] == y->m8[2] && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA87() {
+DCaggr* f_touchA87() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A87));
@@ -1685,7 +1685,7 @@ DCaggr* f_touchdcstA87() {
 /* {LSB{fCispLifjBJc}lpB{BIlCcslJB[3]sLS}SfSJ} */
 struct A88 { L m0; S m1; B m2; struct A86 m3; l m4; p m5; B m6; struct A87 m7; S m8; f m9; S m10; J m11; };
 int f_cmpA88(const struct A88 *x, const struct A88 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA86(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && f_cmpA87(&x->m7, &y->m7) && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA88() {
+DCaggr* f_touchA88() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A88));
@@ -1708,7 +1708,7 @@ DCaggr* f_touchdcstA88() {
 /* {ssIc} */
 struct A89 { s m0; s m1; I m2; c m3; };
 int f_cmpA89(const struct A89 *x, const struct A89 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA89() {
+DCaggr* f_touchA89() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A89));
@@ -1723,7 +1723,7 @@ DCaggr* f_touchdcstA89() {
 /* {iscSjLdSiIjf} */
 struct A90 { i m0; s m1; c m2; S m3; j m4; L m5; d m6; S m7; i m8; I m9; j m10; f m11; };
 int f_cmpA90(const struct A90 *x, const struct A90 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA90() {
+DCaggr* f_touchA90() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A90));
@@ -1746,7 +1746,7 @@ DCaggr* f_touchdcstA90() {
 /* <LLCcLjCijpfL> */
 union A91 { L m0; L m1; C m2; c m3; L m4; j m5; C m6; i m7; j m8; p m9; f m10; L m11; };
 int f_cmpA91(const union A91 *x, const union A91 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA91() {
+DCaggr* f_touchA91() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A91));
@@ -1769,7 +1769,7 @@ DCaggr* f_touchdcstA91() {
 /* <SjjLSsBLSfff> */
 union A92 { S m0; j m1; j m2; L m3; S m4; s m5; B m6; L m7; S m8; f m9; f m10; f m11; };
 int f_cmpA92(const union A92 *x, const union A92 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA92() {
+DCaggr* f_touchA92() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A92));
@@ -1792,7 +1792,7 @@ DCaggr* f_touchdcstA92() {
 /* {JSBBjIiiBj<SjjLSsBLSfff>J} */
 struct A93 { J m0; S m1; B m2; B m3; j m4; I m5; i m6; i m7; B m8; j m9; union A92 m10; J m11; };
 int f_cmpA93(const struct A93 *x, const struct A93 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA92(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA93() {
+DCaggr* f_touchA93() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A93));
@@ -1815,7 +1815,7 @@ DCaggr* f_touchdcstA93() {
 /* <iBdliiIdJC[16]I> */
 union A94 { i m0; B m1; d m2; l m3; i m4; i m5; I m6; d m7; J m8; C m9[16]; I m10; };
 int f_cmpA94(const union A94 *x, const union A94 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9[0] == y->m9[0] && x->m9[1] == y->m9[1] && x->m9[2] == y->m9[2] && x->m9[3] == y->m9[3] && x->m9[4] == y->m9[4] && x->m9[5] == y->m9[5] && x->m9[6] == y->m9[6] && x->m9[7] == y->m9[7] && x->m9[8] == y->m9[8] && x->m9[9] == y->m9[9] && x->m9[10] == y->m9[10] && x->m9[11] == y->m9[11] && x->m9[12] == y->m9[12] && x->m9[13] == y->m9[13] && x->m9[14] == y->m9[14] && x->m9[15] == y->m9[15] && x->m10 == y->m10; };
-DCaggr* f_touchdcstA94() {
+DCaggr* f_touchA94() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(union A94));
@@ -1837,7 +1837,7 @@ DCaggr* f_touchdcstA94() {
 /* <f[2]lSc> */
 union A95 { f m0[2]; l m1; S m2; c m3; };
 int f_cmpA95(const union A95 *x, const union A95 *y) { return x->m0[0] == y->m0[0] && x->m0[1] == y->m0[1] && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA95() {
+DCaggr* f_touchA95() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A95));
@@ -1852,7 +1852,7 @@ DCaggr* f_touchdcstA95() {
 /* <LLpjlcBfIscB> */
 union A96 { L m0; L m1; p m2; j m3; l m4; c m5; B m6; f m7; I m8; s m9; c m10; B m11; };
 int f_cmpA96(const union A96 *x, const union A96 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA96() {
+DCaggr* f_touchA96() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A96));
@@ -1875,7 +1875,7 @@ DCaggr* f_touchdcstA96() {
 /* <lSjspCJl[11]sCBS> */
 union A97 { l m0; S m1; j m2; s m3; p m4; C m5; J m6; l m7[11]; s m8; C m9; B m10; S m11; };
 int f_cmpA97(const union A97 *x, const union A97 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7[0] == y->m7[0] && x->m7[1] == y->m7[1] && x->m7[2] == y->m7[2] && x->m7[3] == y->m7[3] && x->m7[4] == y->m7[4] && x->m7[5] == y->m7[5] && x->m7[6] == y->m7[6] && x->m7[7] == y->m7[7] && x->m7[8] == y->m7[8] && x->m7[9] == y->m7[9] && x->m7[10] == y->m7[10] && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA97() {
+DCaggr* f_touchA97() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A97));
@@ -1898,7 +1898,7 @@ DCaggr* f_touchdcstA97() {
 /* {Is[10]SddIi[13]fSCSL[15]} */
 struct A98 { I m0; s m1[10]; S m2; d m3; d m4; I m5; i m6[13]; f m7; S m8; C m9; S m10; L m11[15]; };
 int f_cmpA98(const struct A98 *x, const struct A98 *y) { return x->m0 == y->m0 && x->m1[0] == y->m1[0] && x->m1[1] == y->m1[1] && x->m1[2] == y->m1[2] && x->m1[3] == y->m1[3] && x->m1[4] == y->m1[4] && x->m1[5] == y->m1[5] && x->m1[6] == y->m1[6] && x->m1[7] == y->m1[7] && x->m1[8] == y->m1[8] && x->m1[9] == y->m1[9] && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6[0] == y->m6[0] && x->m6[1] == y->m6[1] && x->m6[2] == y->m6[2] && x->m6[3] == y->m6[3] && x->m6[4] == y->m6[4] && x->m6[5] == y->m6[5] && x->m6[6] == y->m6[6] && x->m6[7] == y->m6[7] && x->m6[8] == y->m6[8] && x->m6[9] == y->m6[9] && x->m6[10] == y->m6[10] && x->m6[11] == y->m6[11] && x->m6[12] == y->m6[12] && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11[0] == y->m11[0] && x->m11[1] == y->m11[1] && x->m11[2] == y->m11[2] && x->m11[3] == y->m11[3] && x->m11[4] == y->m11[4] && x->m11[5] == y->m11[5] && x->m11[6] == y->m11[6] && x->m11[7] == y->m11[7] && x->m11[8] == y->m11[8] && x->m11[9] == y->m11[9] && x->m11[10] == y->m11[10] && x->m11[11] == y->m11[11] && x->m11[12] == y->m11[12] && x->m11[13] == y->m11[13] && x->m11[14] == y->m11[14]; };
-DCaggr* f_touchdcstA98() {
+DCaggr* f_touchA98() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A98));
@@ -1921,7 +1921,7 @@ DCaggr* f_touchdcstA98() {
 /* {<f[2]lSc><LLpjlcBfIscB><lSjspCJl[11]sCBS>ppIiJ[16]L{Is[10]SddIi[13]fSCSL[15]}IJ} */
 struct A99 { union A95 m0; union A96 m1; union A97 m2; p m3; p m4; I m5; i m6; J m7[16]; L m8; struct A98 m9; I m10; J m11; };
 int f_cmpA99(const struct A99 *x, const struct A99 *y) { return f_cmpA95(&x->m0, &y->m0) && f_cmpA96(&x->m1, &y->m1) && f_cmpA97(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7[0] == y->m7[0] && x->m7[1] == y->m7[1] && x->m7[2] == y->m7[2] && x->m7[3] == y->m7[3] && x->m7[4] == y->m7[4] && x->m7[5] == y->m7[5] && x->m7[6] == y->m7[6] && x->m7[7] == y->m7[7] && x->m7[8] == y->m7[8] && x->m7[9] == y->m7[9] && x->m7[10] == y->m7[10] && x->m7[11] == y->m7[11] && x->m7[12] == y->m7[12] && x->m7[13] == y->m7[13] && x->m7[14] == y->m7[14] && x->m7[15] == y->m7[15] && x->m8 == y->m8 && f_cmpA98(&x->m9, &y->m9) && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA99() {
+DCaggr* f_touchA99() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A99));
@@ -1944,7 +1944,7 @@ DCaggr* f_touchdcstA99() {
 /* {LsBSC} */
 struct A100 { L m0; s m1; B m2; S m3; C m4; };
 int f_cmpA100(const struct A100 *x, const struct A100 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA100() {
+DCaggr* f_touchA100() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A100));
@@ -1960,7 +1960,7 @@ DCaggr* f_touchdcstA100() {
 /* <jSJBd> */
 union A101 { j m0; S m1; J m2; B m3; d m4; };
 int f_cmpA101(const union A101 *x, const union A101 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA101() {
+DCaggr* f_touchA101() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A101));
@@ -1976,7 +1976,7 @@ DCaggr* f_touchdcstA101() {
 /* <fp> */
 union A102 { f m0; p m1; };
 int f_cmpA102(const union A102 *x, const union A102 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA102() {
+DCaggr* f_touchA102() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A102));
@@ -1989,7 +1989,7 @@ DCaggr* f_touchdcstA102() {
 /* {d<fp>pIsCpcClli} */
 struct A103 { d m0; union A102 m1; p m2; I m3; s m4; C m5; p m6; c m7; C m8; l m9; l m10; i m11; };
 int f_cmpA103(const struct A103 *x, const struct A103 *y) { return x->m0 == y->m0 && f_cmpA102(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA103() {
+DCaggr* f_touchA103() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A103));
@@ -2012,7 +2012,7 @@ DCaggr* f_touchdcstA103() {
 /* <Cf> */
 union A104 { C m0; f m1; };
 int f_cmpA104(const union A104 *x, const union A104 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA104() {
+DCaggr* f_touchA104() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A104));
@@ -2025,7 +2025,7 @@ DCaggr* f_touchdcstA104() {
 /* <BiI> */
 union A105 { B m0; i m1; I m2; };
 int f_cmpA105(const union A105 *x, const union A105 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA105() {
+DCaggr* f_touchA105() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A105));
@@ -2039,7 +2039,7 @@ DCaggr* f_touchdcstA105() {
 /* <sdCJJCdlijJd> */
 union A106 { s m0; d m1; C m2; J m3; J m4; C m5; d m6; l m7; i m8; j m9; J m10; d m11; };
 int f_cmpA106(const union A106 *x, const union A106 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA106() {
+DCaggr* f_touchA106() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A106));
@@ -2062,7 +2062,7 @@ DCaggr* f_touchdcstA106() {
 /* {l<BiI>IliiIplj<sdCJJCdlijJd>i} */
 struct A107 { l m0; union A105 m1; I m2; l m3; i m4; i m5; I m6; p m7; l m8; j m9; union A106 m10; i m11; };
 int f_cmpA107(const struct A107 *x, const struct A107 *y) { return x->m0 == y->m0 && f_cmpA105(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA106(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA107() {
+DCaggr* f_touchA107() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A107));
@@ -2085,7 +2085,7 @@ DCaggr* f_touchdcstA107() {
 /* {LSfpSSjBCSL[4]I} */
 struct A108 { L m0; S m1; f m2; p m3; S m4; S m5; j m6; B m7; C m8; S m9; L m10[4]; I m11; };
 int f_cmpA108(const struct A108 *x, const struct A108 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10[0] == y->m10[0] && x->m10[1] == y->m10[1] && x->m10[2] == y->m10[2] && x->m10[3] == y->m10[3] && x->m11 == y->m11; };
-DCaggr* f_touchdcstA108() {
+DCaggr* f_touchA108() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A108));
@@ -2108,7 +2108,7 @@ DCaggr* f_touchdcstA108() {
 /* <jjsCCs> */
 union A109 { j m0; j m1; s m2; C m3; C m4; s m5; };
 int f_cmpA109(const union A109 *x, const union A109 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA109() {
+DCaggr* f_touchA109() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(union A109));
@@ -2125,7 +2125,7 @@ DCaggr* f_touchdcstA109() {
 /* {JJIj{LSfpSSjBCSL[4]I}C<jjsCCs>diLJd} */
 struct A110 { J m0; J m1; I m2; j m3; struct A108 m4; C m5; union A109 m6; d m7; i m8; L m9; J m10; d m11; };
 int f_cmpA110(const struct A110 *x, const struct A110 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA108(&x->m4, &y->m4) && x->m5 == y->m5 && f_cmpA109(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA110() {
+DCaggr* f_touchA110() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A110));
@@ -2148,7 +2148,7 @@ DCaggr* f_touchdcstA110() {
 /* {{l<BiI>IliiIplj<sdCJJCdlijJd>i}sCJLL{JJIj{LSfpSSjBCSL[4]I}C<jjsCCs>diLJd}BSLSl} */
 struct A111 { struct A107 m0; s m1; C m2; J m3; L m4; L m5; struct A110 m6; B m7; S m8; L m9; S m10; l m11; };
 int f_cmpA111(const struct A111 *x, const struct A111 *y) { return f_cmpA107(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA110(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA111() {
+DCaggr* f_touchA111() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A111));
@@ -2171,7 +2171,7 @@ DCaggr* f_touchdcstA111() {
 /* {L} */
 struct A112 { L m0; };
 int f_cmpA112(const struct A112 *x, const struct A112 *y) { return x->m0 == y->m0; };
-DCaggr* f_touchdcstA112() {
+DCaggr* f_touchA112() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(1, sizeof(struct A112));
@@ -2183,7 +2183,7 @@ DCaggr* f_touchdcstA112() {
 /* <ddfsI> */
 union A113 { d m0; d m1; f m2; s m3; I m4; };
 int f_cmpA113(const union A113 *x, const union A113 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA113() {
+DCaggr* f_touchA113() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A113));
@@ -2199,7 +2199,7 @@ DCaggr* f_touchdcstA113() {
 /* <ciICSJCcc[4]lLd> */
 union A114 { c m0; i m1; I m2; C m3; S m4; J m5; C m6; c m7; c m8[4]; l m9; L m10; d m11; };
 int f_cmpA114(const union A114 *x, const union A114 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8[0] == y->m8[0] && x->m8[1] == y->m8[1] && x->m8[2] == y->m8[2] && x->m8[3] == y->m8[3] && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA114() {
+DCaggr* f_touchA114() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A114));
@@ -2222,7 +2222,7 @@ DCaggr* f_touchdcstA114() {
 /* {SJcBJLJ} */
 struct A115 { S m0; J m1; c m2; B m3; J m4; L m5; J m6; };
 int f_cmpA115(const struct A115 *x, const struct A115 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA115() {
+DCaggr* f_touchA115() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(struct A115));
@@ -2240,7 +2240,7 @@ DCaggr* f_touchdcstA115() {
 /* <pJCcJdBJJiCf> */
 union A116 { p m0; J m1; C m2; c m3; J m4; d m5; B m6; J m7; J m8; i m9; C m10; f m11; };
 int f_cmpA116(const union A116 *x, const union A116 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA116() {
+DCaggr* f_touchA116() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A116));
@@ -2263,7 +2263,7 @@ DCaggr* f_touchdcstA116() {
 /* {dsljLdssjLdc} */
 struct A117 { d m0; s m1; l m2; j m3; L m4; d m5; s m6; s m7; j m8; L m9; d m10; c m11; };
 int f_cmpA117(const struct A117 *x, const struct A117 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA117() {
+DCaggr* f_touchA117() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A117));
@@ -2286,7 +2286,7 @@ DCaggr* f_touchdcstA117() {
 /* {JSIiiIs} */
 struct A118 { J m0; S m1; I m2; i m3; i m4; I m5; s m6; };
 int f_cmpA118(const struct A118 *x, const struct A118 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA118() {
+DCaggr* f_touchA118() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(struct A118));
@@ -2304,7 +2304,7 @@ DCaggr* f_touchdcstA118() {
 /* {pCjsJLBpidlf} */
 struct A119 { p m0; C m1; j m2; s m3; J m4; L m5; B m6; p m7; i m8; d m9; l m10; f m11; };
 int f_cmpA119(const struct A119 *x, const struct A119 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA119() {
+DCaggr* f_touchA119() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A119));
@@ -2327,7 +2327,7 @@ DCaggr* f_touchdcstA119() {
 /* {BijdjIcSlpll} */
 struct A120 { B m0; i m1; j m2; d m3; j m4; I m5; c m6; S m7; l m8; p m9; l m10; l m11; };
 int f_cmpA120(const struct A120 *x, const struct A120 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA120() {
+DCaggr* f_touchA120() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A120));
@@ -2350,7 +2350,7 @@ DCaggr* f_touchdcstA120() {
 /* <CISJLldiLdff> */
 union A121 { C m0; I m1; S m2; J m3; L m4; l m5; d m6; i m7; L m8; d m9; f m10; f m11; };
 int f_cmpA121(const union A121 *x, const union A121 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA121() {
+DCaggr* f_touchA121() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A121));
@@ -2373,7 +2373,7 @@ DCaggr* f_touchdcstA121() {
 /* <pjcdispdddjp> */
 union A122 { p m0; j m1; c m2; d m3; i m4; s m5; p m6; d m7; d m8; d m9; j m10; p m11; };
 int f_cmpA122(const union A122 *x, const union A122 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA122() {
+DCaggr* f_touchA122() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A122));
@@ -2396,7 +2396,7 @@ DCaggr* f_touchdcstA122() {
 /* <is[13]Cc<pjcdispdddjp>ljSSCcI> */
 union A123 { i m0; s m1[13]; C m2; c m3; union A122 m4; l m5; j m6; S m7; S m8; C m9; c m10; I m11; };
 int f_cmpA123(const union A123 *x, const union A123 *y) { return x->m0 == y->m0 && x->m1[0] == y->m1[0] && x->m1[1] == y->m1[1] && x->m1[2] == y->m1[2] && x->m1[3] == y->m1[3] && x->m1[4] == y->m1[4] && x->m1[5] == y->m1[5] && x->m1[6] == y->m1[6] && x->m1[7] == y->m1[7] && x->m1[8] == y->m1[8] && x->m1[9] == y->m1[9] && x->m1[10] == y->m1[10] && x->m1[11] == y->m1[11] && x->m1[12] == y->m1[12] && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA122(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA123() {
+DCaggr* f_touchA123() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A123));
@@ -2419,7 +2419,7 @@ DCaggr* f_touchdcstA123() {
 /* <JClSlpdcf<is[13]Cc<pjcdispdddjp>ljSSCcI>CS> */
 union A124 { J m0; C m1; l m2; S m3; l m4; p m5; d m6; c m7; f m8; union A123 m9; C m10; S m11; };
 int f_cmpA124(const union A124 *x, const union A124 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && f_cmpA123(&x->m9, &y->m9) && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA124() {
+DCaggr* f_touchA124() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A124));
@@ -2442,7 +2442,7 @@ DCaggr* f_touchdcstA124() {
 /* {Bsccclpspjjf} */
 struct A125 { B m0; s m1; c m2; c m3; c m4; l m5; p m6; s m7; p m8; j m9; j m10; f m11; };
 int f_cmpA125(const struct A125 *x, const struct A125 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA125() {
+DCaggr* f_touchA125() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A125));
@@ -2465,7 +2465,7 @@ DCaggr* f_touchdcstA125() {
 /* {Ipd} */
 struct A126 { I m0; p m1; d m2; };
 int f_cmpA126(const struct A126 *x, const struct A126 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA126() {
+DCaggr* f_touchA126() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A126));
@@ -2479,7 +2479,7 @@ DCaggr* f_touchdcstA126() {
 /* <lBfdSS[7]llIpiS> */
 union A127 { l m0; B m1; f m2; d m3; S m4; S m5[7]; l m6; l m7; I m8; p m9; i m10; S m11; };
 int f_cmpA127(const union A127 *x, const union A127 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5[0] == y->m5[0] && x->m5[1] == y->m5[1] && x->m5[2] == y->m5[2] && x->m5[3] == y->m5[3] && x->m5[4] == y->m5[4] && x->m5[5] == y->m5[5] && x->m5[6] == y->m5[6] && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA127() {
+DCaggr* f_touchA127() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A127));
@@ -2502,7 +2502,7 @@ DCaggr* f_touchdcstA127() {
 /* <iBLfp> */
 union A128 { i m0; B m1; L m2; f m3; p m4; };
 int f_cmpA128(const union A128 *x, const union A128 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA128() {
+DCaggr* f_touchA128() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A128));
@@ -2518,7 +2518,7 @@ DCaggr* f_touchdcstA128() {
 /* <CJsCJcfdjlJc> */
 union A129 { C m0; J m1; s m2; C m3; J m4; c m5; f m6; d m7; j m8; l m9; J m10; c m11; };
 int f_cmpA129(const union A129 *x, const union A129 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA129() {
+DCaggr* f_touchA129() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A129));
@@ -2541,7 +2541,7 @@ DCaggr* f_touchdcstA129() {
 /* <l<CJsCJcfdjlJc>J> */
 union A130 { l m0; union A129 m1; J m2; };
 int f_cmpA130(const union A130 *x, const union A130 *y) { return x->m0 == y->m0 && f_cmpA129(&x->m1, &y->m1) && x->m2 == y->m2; };
-DCaggr* f_touchdcstA130() {
+DCaggr* f_touchA130() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A130));
@@ -2555,7 +2555,7 @@ DCaggr* f_touchdcstA130() {
 /* {Clsl} */
 struct A131 { C m0; l m1; s m2; l m3; };
 int f_cmpA131(const struct A131 *x, const struct A131 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA131() {
+DCaggr* f_touchA131() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A131));
@@ -2570,7 +2570,7 @@ DCaggr* f_touchdcstA131() {
 /* <sCScIfp{Clsl}IijI> */
 union A132 { s m0; C m1; S m2; c m3; I m4; f m5; p m6; struct A131 m7; I m8; i m9; j m10; I m11; };
 int f_cmpA132(const union A132 *x, const union A132 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && f_cmpA131(&x->m7, &y->m7) && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA132() {
+DCaggr* f_touchA132() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A132));
@@ -2593,7 +2593,7 @@ DCaggr* f_touchdcstA132() {
 /* <LcJclS> */
 union A133 { L m0; c m1; J m2; c m3; l m4; S m5; };
 int f_cmpA133(const union A133 *x, const union A133 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA133() {
+DCaggr* f_touchA133() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(union A133));
@@ -2610,7 +2610,7 @@ DCaggr* f_touchdcstA133() {
 /* <fJsICdipCISB> */
 union A134 { f m0; J m1; s m2; I m3; C m4; d m5; i m6; p m7; C m8; I m9; S m10; B m11; };
 int f_cmpA134(const union A134 *x, const union A134 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA134() {
+DCaggr* f_touchA134() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A134));
@@ -2633,7 +2633,7 @@ DCaggr* f_touchdcstA134() {
 /* <CfBBj<LcJclS>[1]SdljC<fJsICdipCISB>[10]> */
 union A135 { C m0; f m1; B m2; B m3; j m4; union A133 m5[1]; S m6; d m7; l m8; j m9; C m10; union A134 m11[10]; };
 int f_cmpA135(const union A135 *x, const union A135 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA133(&x->m5[0], &y->m5[0]) && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && f_cmpA134(&x->m11[0], &y->m11[0]) && f_cmpA134(&x->m11[1], &y->m11[1]) && f_cmpA134(&x->m11[2], &y->m11[2]) && f_cmpA134(&x->m11[3], &y->m11[3]) && f_cmpA134(&x->m11[4], &y->m11[4]) && f_cmpA134(&x->m11[5], &y->m11[5]) && f_cmpA134(&x->m11[6], &y->m11[6]) && f_cmpA134(&x->m11[7], &y->m11[7]) && f_cmpA134(&x->m11[8], &y->m11[8]) && f_cmpA134(&x->m11[9], &y->m11[9]); };
-DCaggr* f_touchdcstA135() {
+DCaggr* f_touchA135() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A135));
@@ -2656,7 +2656,7 @@ DCaggr* f_touchdcstA135() {
 /* <iif<l<CJsCJcfdjlJc>J>p<sCScIfp{Clsl}IijI><CfBBj<LcJclS>[1]SdljC<fJsICdipCISB>[10]>sLILc> */
 union A136 { i m0; i m1; f m2; union A130 m3; p m4; union A132 m5; union A135 m6; s m7; L m8; I m9; L m10; c m11; };
 int f_cmpA136(const union A136 *x, const union A136 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA130(&x->m3, &y->m3) && x->m4 == y->m4 && f_cmpA132(&x->m5, &y->m5) && f_cmpA135(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA136() {
+DCaggr* f_touchA136() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A136));
@@ -2679,7 +2679,7 @@ DCaggr* f_touchdcstA136() {
 /* {f[6]fJpjiiJcIi} */
 struct A137 { f m0[6]; f m1; J m2; p m3; j m4; i m5; i m6; J m7; c m8; I m9; i m10; };
 int f_cmpA137(const struct A137 *x, const struct A137 *y) { return x->m0[0] == y->m0[0] && x->m0[1] == y->m0[1] && x->m0[2] == y->m0[2] && x->m0[3] == y->m0[3] && x->m0[4] == y->m0[4] && x->m0[5] == y->m0[5] && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA137() {
+DCaggr* f_touchA137() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(struct A137));
@@ -2701,7 +2701,7 @@ DCaggr* f_touchdcstA137() {
 /* {fsclCIBfpfjB} */
 struct A138 { f m0; s m1; c m2; l m3; C m4; I m5; B m6; f m7; p m8; f m9; j m10; B m11; };
 int f_cmpA138(const struct A138 *x, const struct A138 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA138() {
+DCaggr* f_touchA138() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A138));
@@ -2724,7 +2724,7 @@ DCaggr* f_touchdcstA138() {
 /* <sJBcCifJfdiS> */
 union A139 { s m0; J m1; B m2; c m3; C m4; i m5; f m6; J m7; f m8; d m9; i m10; S m11; };
 int f_cmpA139(const union A139 *x, const union A139 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA139() {
+DCaggr* f_touchA139() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A139));
@@ -2747,7 +2747,7 @@ DCaggr* f_touchdcstA139() {
 /* <jj{f[6]fJpjiiJcIi}[14]{fsclCIBfpfjB}dI<sJBcCifJfdiS>JpLdi> */
 union A140 { j m0; j m1; struct A137 m2[14]; struct A138 m3; d m4; I m5; union A139 m6; J m7; p m8; L m9; d m10; i m11; };
 int f_cmpA140(const union A140 *x, const union A140 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA137(&x->m2[0], &y->m2[0]) && f_cmpA137(&x->m2[1], &y->m2[1]) && f_cmpA137(&x->m2[2], &y->m2[2]) && f_cmpA137(&x->m2[3], &y->m2[3]) && f_cmpA137(&x->m2[4], &y->m2[4]) && f_cmpA137(&x->m2[5], &y->m2[5]) && f_cmpA137(&x->m2[6], &y->m2[6]) && f_cmpA137(&x->m2[7], &y->m2[7]) && f_cmpA137(&x->m2[8], &y->m2[8]) && f_cmpA137(&x->m2[9], &y->m2[9]) && f_cmpA137(&x->m2[10], &y->m2[10]) && f_cmpA137(&x->m2[11], &y->m2[11]) && f_cmpA137(&x->m2[12], &y->m2[12]) && f_cmpA137(&x->m2[13], &y->m2[13]) && f_cmpA138(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA139(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA140() {
+DCaggr* f_touchA140() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A140));
@@ -2770,7 +2770,7 @@ DCaggr* f_touchdcstA140() {
 /* {IBSiflC[10]ICCps} */
 struct A141 { I m0; B m1; S m2; i m3; f m4; l m5; C m6[10]; I m7; C m8; C m9; p m10; s m11; };
 int f_cmpA141(const struct A141 *x, const struct A141 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6[0] == y->m6[0] && x->m6[1] == y->m6[1] && x->m6[2] == y->m6[2] && x->m6[3] == y->m6[3] && x->m6[4] == y->m6[4] && x->m6[5] == y->m6[5] && x->m6[6] == y->m6[6] && x->m6[7] == y->m6[7] && x->m6[8] == y->m6[8] && x->m6[9] == y->m6[9] && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA141() {
+DCaggr* f_touchA141() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A141));
@@ -2793,7 +2793,7 @@ DCaggr* f_touchdcstA141() {
 /* <iJfffBfilCij> */
 union A142 { i m0; J m1; f m2; f m3; f m4; B m5; f m6; i m7; l m8; C m9; i m10; j m11; };
 int f_cmpA142(const union A142 *x, const union A142 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA142() {
+DCaggr* f_touchA142() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A142));
@@ -2816,7 +2816,7 @@ DCaggr* f_touchdcstA142() {
 /* <jlBfi> */
 union A143 { j m0; l m1; B m2; f m3; i m4; };
 int f_cmpA143(const union A143 *x, const union A143 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA143() {
+DCaggr* f_touchA143() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A143));
@@ -2832,7 +2832,7 @@ DCaggr* f_touchdcstA143() {
 /* {s} */
 struct A144 { s m0; };
 int f_cmpA144(const struct A144 *x, const struct A144 *y) { return x->m0 == y->m0; };
-DCaggr* f_touchdcstA144() {
+DCaggr* f_touchA144() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(1, sizeof(struct A144));
@@ -2844,7 +2844,7 @@ DCaggr* f_touchdcstA144() {
 /* {JppLssIfSfi} */
 struct A145 { J m0; p m1; p m2; L m3; s m4; s m5; I m6; f m7; S m8; f m9; i m10; };
 int f_cmpA145(const struct A145 *x, const struct A145 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA145() {
+DCaggr* f_touchA145() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(struct A145));
@@ -2866,7 +2866,7 @@ DCaggr* f_touchdcstA145() {
 /* <fBsdSfIdf{JppLssIfSfi}fl> */
 union A146 { f m0; B m1; s m2; d m3; S m4; f m5; I m6; d m7; f m8; struct A145 m9; f m10; l m11; };
 int f_cmpA146(const union A146 *x, const union A146 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && f_cmpA145(&x->m9, &y->m9) && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA146() {
+DCaggr* f_touchA146() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A146));
@@ -2889,7 +2889,7 @@ DCaggr* f_touchdcstA146() {
 /* <Cd[9]IsspsjIpSi> */
 union A147 { C m0; d m1[9]; I m2; s m3; s m4; p m5; s m6; j m7; I m8; p m9; S m10; i m11; };
 int f_cmpA147(const union A147 *x, const union A147 *y) { return x->m0 == y->m0 && x->m1[0] == y->m1[0] && x->m1[1] == y->m1[1] && x->m1[2] == y->m1[2] && x->m1[3] == y->m1[3] && x->m1[4] == y->m1[4] && x->m1[5] == y->m1[5] && x->m1[6] == y->m1[6] && x->m1[7] == y->m1[7] && x->m1[8] == y->m1[8] && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA147() {
+DCaggr* f_touchA147() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A147));
@@ -2912,7 +2912,7 @@ DCaggr* f_touchdcstA147() {
 /* {fpLpIJfLjSB<Cd[9]IsspsjIpSi>} */
 struct A148 { f m0; p m1; L m2; p m3; I m4; J m5; f m6; L m7; j m8; S m9; B m10; union A147 m11; };
 int f_cmpA148(const struct A148 *x, const struct A148 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && f_cmpA147(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA148() {
+DCaggr* f_touchA148() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A148));
@@ -2935,7 +2935,7 @@ DCaggr* f_touchdcstA148() {
 /* <JIB[12]pifppjsCC> */
 union A149 { J m0; I m1; B m2[12]; p m3; i m4; f m5; p m6; p m7; j m8; s m9; C m10; C m11; };
 int f_cmpA149(const union A149 *x, const union A149 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2[0] == y->m2[0] && x->m2[1] == y->m2[1] && x->m2[2] == y->m2[2] && x->m2[3] == y->m2[3] && x->m2[4] == y->m2[4] && x->m2[5] == y->m2[5] && x->m2[6] == y->m2[6] && x->m2[7] == y->m2[7] && x->m2[8] == y->m2[8] && x->m2[9] == y->m2[9] && x->m2[10] == y->m2[10] && x->m2[11] == y->m2[11] && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA149() {
+DCaggr* f_touchA149() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A149));
@@ -2958,7 +2958,7 @@ DCaggr* f_touchdcstA149() {
 /* <fspISCIclpJi> */
 union A150 { f m0; s m1; p m2; I m3; S m4; C m5; I m6; c m7; l m8; p m9; J m10; i m11; };
 int f_cmpA150(const union A150 *x, const union A150 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA150() {
+DCaggr* f_touchA150() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A150));
@@ -2981,7 +2981,7 @@ DCaggr* f_touchdcstA150() {
 /* {Cd[12]SLCL} */
 struct A151 { C m0; d m1[12]; S m2; L m3; C m4; L m5; };
 int f_cmpA151(const struct A151 *x, const struct A151 *y) { return x->m0 == y->m0 && x->m1[0] == y->m1[0] && x->m1[1] == y->m1[1] && x->m1[2] == y->m1[2] && x->m1[3] == y->m1[3] && x->m1[4] == y->m1[4] && x->m1[5] == y->m1[5] && x->m1[6] == y->m1[6] && x->m1[7] == y->m1[7] && x->m1[8] == y->m1[8] && x->m1[9] == y->m1[9] && x->m1[10] == y->m1[10] && x->m1[11] == y->m1[11] && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA151() {
+DCaggr* f_touchA151() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(struct A151));
@@ -2998,7 +2998,7 @@ DCaggr* f_touchdcstA151() {
 /* {jIJcBLsSisfc} */
 struct A152 { j m0; I m1; J m2; c m3; B m4; L m5; s m6; S m7; i m8; s m9; f m10; c m11; };
 int f_cmpA152(const struct A152 *x, const struct A152 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA152() {
+DCaggr* f_touchA152() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A152));
@@ -3021,7 +3021,7 @@ DCaggr* f_touchdcstA152() {
 /* {IBScj[1]dIBSBIl} */
 struct A153 { I m0; B m1; S m2; c m3; j m4[1]; d m5; I m6; B m7; S m8; B m9; I m10; l m11; };
 int f_cmpA153(const struct A153 *x, const struct A153 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4[0] == y->m4[0] && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA153() {
+DCaggr* f_touchA153() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A153));
@@ -3044,7 +3044,7 @@ DCaggr* f_touchdcstA153() {
 /* <sS{Cd[12]SLCL}f{jIJcBLsSisfc}l{IBScj[1]dIBSBIl}cCljj> */
 union A154 { s m0; S m1; struct A151 m2; f m3; struct A152 m4; l m5; struct A153 m6; c m7; C m8; l m9; j m10; j m11; };
 int f_cmpA154(const union A154 *x, const union A154 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA151(&x->m2, &y->m2) && x->m3 == y->m3 && f_cmpA152(&x->m4, &y->m4) && x->m5 == y->m5 && f_cmpA153(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA154() {
+DCaggr* f_touchA154() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A154));
@@ -3067,7 +3067,7 @@ DCaggr* f_touchdcstA154() {
 /* {IJCl<sS{Cd[12]SLCL}f{jIJcBLsSisfc}l{IBScj[1]dIBSBIl}cCljj>IdLl} */
 struct A155 { I m0; J m1; C m2; l m3; union A154 m4; I m5; d m6; L m7; l m8; };
 int f_cmpA155(const struct A155 *x, const struct A155 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA154(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA155() {
+DCaggr* f_touchA155() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(struct A155));
@@ -3087,7 +3087,7 @@ DCaggr* f_touchdcstA155() {
 /* {dJc} */
 struct A156 { d m0; J m1; c m2; };
 int f_cmpA156(const struct A156 *x, const struct A156 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA156() {
+DCaggr* f_touchA156() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A156));
@@ -3101,7 +3101,7 @@ DCaggr* f_touchdcstA156() {
 /* {cljCIfdsLJdB} */
 struct A157 { c m0; l m1; j m2; C m3; I m4; f m5; d m6; s m7; L m8; J m9; d m10; B m11; };
 int f_cmpA157(const struct A157 *x, const struct A157 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA157() {
+DCaggr* f_touchA157() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A157));
@@ -3124,7 +3124,7 @@ DCaggr* f_touchdcstA157() {
 /* <JiIfsSLBipcs> */
 union A158 { J m0; i m1; I m2; f m3; s m4; S m5; L m6; B m7; i m8; p m9; c m10; s m11; };
 int f_cmpA158(const union A158 *x, const union A158 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA158() {
+DCaggr* f_touchA158() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A158));
@@ -3147,7 +3147,7 @@ DCaggr* f_touchdcstA158() {
 /* {pJjIClJdi<JiIfsSLBipcs>[11]cS} */
 struct A159 { p m0; J m1; j m2; I m3; C m4; l m5; J m6; d m7; i m8; union A158 m9[11]; c m10; S m11; };
 int f_cmpA159(const struct A159 *x, const struct A159 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && f_cmpA158(&x->m9[0], &y->m9[0]) && f_cmpA158(&x->m9[1], &y->m9[1]) && f_cmpA158(&x->m9[2], &y->m9[2]) && f_cmpA158(&x->m9[3], &y->m9[3]) && f_cmpA158(&x->m9[4], &y->m9[4]) && f_cmpA158(&x->m9[5], &y->m9[5]) && f_cmpA158(&x->m9[6], &y->m9[6]) && f_cmpA158(&x->m9[7], &y->m9[7]) && f_cmpA158(&x->m9[8], &y->m9[8]) && f_cmpA158(&x->m9[9], &y->m9[9]) && f_cmpA158(&x->m9[10], &y->m9[10]) && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA159() {
+DCaggr* f_touchA159() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A159));
@@ -3170,7 +3170,7 @@ DCaggr* f_touchdcstA159() {
 /* {{pJjIClJdi<JiIfsSLBipcs>[11]cS}jBBBpdfBLjj} */
 struct A160 { struct A159 m0; j m1; B m2; B m3; B m4; p m5; d m6; f m7; B m8; L m9; j m10; j m11; };
 int f_cmpA160(const struct A160 *x, const struct A160 *y) { return f_cmpA159(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA160() {
+DCaggr* f_touchA160() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A160));
@@ -3193,7 +3193,7 @@ DCaggr* f_touchdcstA160() {
 /* {iIBB[12]pSpfdI} */
 struct A161 { i m0; I m1; B m2; B m3[12]; p m4; S m5; p m6; f m7; d m8; I m9; };
 int f_cmpA161(const struct A161 *x, const struct A161 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3[0] == y->m3[0] && x->m3[1] == y->m3[1] && x->m3[2] == y->m3[2] && x->m3[3] == y->m3[3] && x->m3[4] == y->m3[4] && x->m3[5] == y->m3[5] && x->m3[6] == y->m3[6] && x->m3[7] == y->m3[7] && x->m3[8] == y->m3[8] && x->m3[9] == y->m3[9] && x->m3[10] == y->m3[10] && x->m3[11] == y->m3[11] && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA161() {
+DCaggr* f_touchA161() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(struct A161));
@@ -3214,7 +3214,7 @@ DCaggr* f_touchdcstA161() {
 /* <JlSJfcJfclld> */
 union A162 { J m0; l m1; S m2; J m3; f m4; c m5; J m6; f m7; c m8; l m9; l m10; d m11; };
 int f_cmpA162(const union A162 *x, const union A162 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA162() {
+DCaggr* f_touchA162() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A162));
@@ -3237,7 +3237,7 @@ DCaggr* f_touchdcstA162() {
 /* {BiiijpiiBfLl} */
 struct A163 { B m0; i m1; i m2; i m3; j m4; p m5; i m6; i m7; B m8; f m9; L m10; l m11; };
 int f_cmpA163(const struct A163 *x, const struct A163 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA163() {
+DCaggr* f_touchA163() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A163));
@@ -3260,7 +3260,7 @@ DCaggr* f_touchdcstA163() {
 /* <{iIBB[12]pSpfdI}LdflL<JlSJfcJfclld>BsBS{BiiijpiiBfLl}> */
 union A164 { struct A161 m0; L m1; d m2; f m3; l m4; L m5; union A162 m6; B m7; s m8; B m9; S m10; struct A163 m11; };
 int f_cmpA164(const union A164 *x, const union A164 *y) { return f_cmpA161(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA162(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && f_cmpA163(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA164() {
+DCaggr* f_touchA164() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A164));
@@ -3283,7 +3283,7 @@ DCaggr* f_touchdcstA164() {
 /* <<{iIBB[12]pSpfdI}LdflL<JlSJfcJfclld>BsBS{BiiijpiiBfLl}>l> */
 union A165 { union A164 m0; l m1; };
 int f_cmpA165(const union A165 *x, const union A165 *y) { return f_cmpA164(&x->m0, &y->m0) && x->m1 == y->m1; };
-DCaggr* f_touchdcstA165() {
+DCaggr* f_touchA165() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A165));
@@ -3296,7 +3296,7 @@ DCaggr* f_touchdcstA165() {
 /* <jjBiSiCdSfll> */
 union A166 { j m0; j m1; B m2; i m3; S m4; i m5; C m6; d m7; S m8; f m9; l m10; l m11; };
 int f_cmpA166(const union A166 *x, const union A166 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA166() {
+DCaggr* f_touchA166() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A166));
@@ -3319,7 +3319,7 @@ DCaggr* f_touchdcstA166() {
 /* {fjB} */
 struct A167 { f m0; j m1; B m2; };
 int f_cmpA167(const struct A167 *x, const struct A167 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA167() {
+DCaggr* f_touchA167() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A167));
@@ -3333,7 +3333,7 @@ DCaggr* f_touchdcstA167() {
 /* {LplIsLISs} */
 struct A168 { L m0; p m1; l m2; I m3; s m4; L m5; I m6; S m7; s m8; };
 int f_cmpA168(const struct A168 *x, const struct A168 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA168() {
+DCaggr* f_touchA168() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(struct A168));
@@ -3353,7 +3353,7 @@ DCaggr* f_touchdcstA168() {
 /* <{fjB}BBilsCi[4]sf{LplIsLISs}d> */
 union A169 { struct A167 m0; B m1; B m2; i m3; l m4; s m5; C m6; i m7[4]; s m8; f m9; struct A168 m10; d m11; };
 int f_cmpA169(const union A169 *x, const union A169 *y) { return f_cmpA167(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7[0] == y->m7[0] && x->m7[1] == y->m7[1] && x->m7[2] == y->m7[2] && x->m7[3] == y->m7[3] && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA168(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA169() {
+DCaggr* f_touchA169() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A169));
@@ -3376,7 +3376,7 @@ DCaggr* f_touchdcstA169() {
 /* <BsBCllBfdSJI> */
 union A170 { B m0; s m1; B m2; C m3; l m4; l m5; B m6; f m7; d m8; S m9; J m10; I m11; };
 int f_cmpA170(const union A170 *x, const union A170 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA170() {
+DCaggr* f_touchA170() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A170));
@@ -3399,7 +3399,7 @@ DCaggr* f_touchdcstA170() {
 /* <pCjpjj> */
 union A171 { p m0; C m1; j m2; p m3; j m4; j m5; };
 int f_cmpA171(const union A171 *x, const union A171 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA171() {
+DCaggr* f_touchA171() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(union A171));
@@ -3416,7 +3416,7 @@ DCaggr* f_touchdcstA171() {
 /* {Cjcjpdi} */
 struct A172 { C m0; j m1; c m2; j m3; p m4; d m5; i m6; };
 int f_cmpA172(const struct A172 *x, const struct A172 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA172() {
+DCaggr* f_touchA172() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(struct A172));
@@ -3434,7 +3434,7 @@ DCaggr* f_touchdcstA172() {
 /* <dpfJfSSBLllB> */
 union A173 { d m0; p m1; f m2; J m3; f m4; S m5; S m6; B m7; L m8; l m9; l m10; B m11; };
 int f_cmpA173(const union A173 *x, const union A173 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA173() {
+DCaggr* f_touchA173() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A173));
@@ -3457,7 +3457,7 @@ DCaggr* f_touchdcstA173() {
 /* {LiJ} */
 struct A174 { L m0; i m1; J m2; };
 int f_cmpA174(const struct A174 *x, const struct A174 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA174() {
+DCaggr* f_touchA174() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A174));
@@ -3471,7 +3471,7 @@ DCaggr* f_touchdcstA174() {
 /* <I{Cjcjpdi}i<dpfJfSSBLllB>pjJjSl{LiJ}B> */
 union A175 { I m0; struct A172 m1; i m2; union A173 m3; p m4; j m5; J m6; j m7; S m8; l m9; struct A174 m10; B m11; };
 int f_cmpA175(const union A175 *x, const union A175 *y) { return x->m0 == y->m0 && f_cmpA172(&x->m1, &y->m1) && x->m2 == y->m2 && f_cmpA173(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA174(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA175() {
+DCaggr* f_touchA175() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A175));
@@ -3494,7 +3494,7 @@ DCaggr* f_touchdcstA175() {
 /* <sBcdJflSSCjI> */
 union A176 { s m0; B m1; c m2; d m3; J m4; f m5; l m6; S m7; S m8; C m9; j m10; I m11; };
 int f_cmpA176(const union A176 *x, const union A176 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA176() {
+DCaggr* f_touchA176() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A176));
@@ -3517,7 +3517,7 @@ DCaggr* f_touchdcstA176() {
 /* <lIdiccSjsSS> */
 union A177 { l m0; I m1; d m2; i m3; c m4; c m5; S m6; j m7; s m8; S m9; S m10; };
 int f_cmpA177(const union A177 *x, const union A177 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA177() {
+DCaggr* f_touchA177() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(union A177));
@@ -3539,7 +3539,7 @@ DCaggr* f_touchdcstA177() {
 /* {SIiIcSc} */
 struct A178 { S m0; I m1; i m2; I m3; c m4; S m5; c m6; };
 int f_cmpA178(const struct A178 *x, const struct A178 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA178() {
+DCaggr* f_touchA178() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(struct A178));
@@ -3557,7 +3557,7 @@ DCaggr* f_touchdcstA178() {
 /* <sCjiIpCBLdpd> */
 union A179 { s m0; C m1; j m2; i m3; I m4; p m5; C m6; B m7; L m8; d m9; p m10; d m11; };
 int f_cmpA179(const union A179 *x, const union A179 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA179() {
+DCaggr* f_touchA179() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A179));
@@ -3580,7 +3580,7 @@ DCaggr* f_touchdcstA179() {
 /* {Jd[11]Sl} */
 struct A180 { J m0; d m1[11]; S m2; l m3; };
 int f_cmpA180(const struct A180 *x, const struct A180 *y) { return x->m0 == y->m0 && x->m1[0] == y->m1[0] && x->m1[1] == y->m1[1] && x->m1[2] == y->m1[2] && x->m1[3] == y->m1[3] && x->m1[4] == y->m1[4] && x->m1[5] == y->m1[5] && x->m1[6] == y->m1[6] && x->m1[7] == y->m1[7] && x->m1[8] == y->m1[8] && x->m1[9] == y->m1[9] && x->m1[10] == y->m1[10] && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA180() {
+DCaggr* f_touchA180() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A180));
@@ -3595,7 +3595,7 @@ DCaggr* f_touchdcstA180() {
 /* <pfd[4]dJCdSlLsB> */
 union A181 { p m0; f m1; d m2[4]; d m3; J m4; C m5; d m6; S m7; l m8; L m9; s m10; B m11; };
 int f_cmpA181(const union A181 *x, const union A181 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2[0] == y->m2[0] && x->m2[1] == y->m2[1] && x->m2[2] == y->m2[2] && x->m2[3] == y->m2[3] && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA181() {
+DCaggr* f_touchA181() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A181));
@@ -3618,7 +3618,7 @@ DCaggr* f_touchdcstA181() {
 /* <fpcdcJCs{Jd[11]Sl}BL<pfd[4]dJCdSlLsB>> */
 union A182 { f m0; p m1; c m2; d m3; c m4; J m5; C m6; s m7; struct A180 m8; B m9; L m10; union A181 m11; };
 int f_cmpA182(const union A182 *x, const union A182 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA180(&x->m8, &y->m8) && x->m9 == y->m9 && x->m10 == y->m10 && f_cmpA181(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA182() {
+DCaggr* f_touchA182() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A182));
@@ -3641,7 +3641,7 @@ DCaggr* f_touchdcstA182() {
 /* <p> */
 union A183 { p m0; };
 int f_cmpA183(const union A183 *x, const union A183 *y) { return x->m0 == y->m0; };
-DCaggr* f_touchdcstA183() {
+DCaggr* f_touchA183() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(1, sizeof(union A183));
@@ -3653,7 +3653,7 @@ DCaggr* f_touchdcstA183() {
 /* <BplJJllj> */
 union A184 { B m0; p m1; l m2; J m3; J m4; l m5; l m6; j m7; };
 int f_cmpA184(const union A184 *x, const union A184 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA184() {
+DCaggr* f_touchA184() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(union A184));
@@ -3672,7 +3672,7 @@ DCaggr* f_touchdcstA184() {
 /* {cJcjC} */
 struct A185 { c m0; J m1; c m2; j m3; C m4; };
 int f_cmpA185(const struct A185 *x, const struct A185 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA185() {
+DCaggr* f_touchA185() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A185));
@@ -3688,7 +3688,7 @@ DCaggr* f_touchdcstA185() {
 /* {fisdjlj} */
 struct A186 { f m0; i m1; s m2; d m3; j m4; l m5; j m6; };
 int f_cmpA186(const struct A186 *x, const struct A186 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA186() {
+DCaggr* f_touchA186() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(struct A186));
@@ -3706,7 +3706,7 @@ DCaggr* f_touchdcstA186() {
 /* {iLILIsiljIBi} */
 struct A187 { i m0; L m1; I m2; L m3; I m4; s m5; i m6; l m7; j m8; I m9; B m10; i m11; };
 int f_cmpA187(const struct A187 *x, const struct A187 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA187() {
+DCaggr* f_touchA187() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A187));
@@ -3729,7 +3729,7 @@ DCaggr* f_touchdcstA187() {
 /* {{iLILIsiljIBi}B} */
 struct A188 { struct A187 m0; B m1; };
 int f_cmpA188(const struct A188 *x, const struct A188 *y) { return f_cmpA187(&x->m0, &y->m0) && x->m1 == y->m1; };
-DCaggr* f_touchdcstA188() {
+DCaggr* f_touchA188() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(struct A188));
@@ -3742,7 +3742,7 @@ DCaggr* f_touchdcstA188() {
 /* {ipJfSppplL} */
 struct A189 { i m0; p m1; J m2; f m3; S m4; p m5; p m6; p m7; l m8; L m9; };
 int f_cmpA189(const struct A189 *x, const struct A189 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA189() {
+DCaggr* f_touchA189() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(struct A189));
@@ -3763,7 +3763,7 @@ DCaggr* f_touchdcstA189() {
 /* <ifcJCSidIL> */
 union A190 { i m0; f m1; c m2; J m3; C m4; S m5; i m6; d m7; I m8; L m9; };
 int f_cmpA190(const union A190 *x, const union A190 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA190() {
+DCaggr* f_touchA190() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A190));
@@ -3784,7 +3784,7 @@ DCaggr* f_touchdcstA190() {
 /* <Bs{ipJfSppplL}cd<ifcJCSidIL>lcfSdl> */
 union A191 { B m0; s m1; struct A189 m2; c m3; d m4; union A190 m5; l m6; c m7; f m8; S m9; d m10; l m11; };
 int f_cmpA191(const union A191 *x, const union A191 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA189(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA190(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA191() {
+DCaggr* f_touchA191() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A191));
@@ -3807,7 +3807,7 @@ DCaggr* f_touchdcstA191() {
 /* {d{{iLILIsiljIBi}B}[3]CjjJfcjCB<Bs{ipJfSppplL}cd<ifcJCSidIL>lcfSdl>} */
 struct A192 { d m0; struct A188 m1[3]; C m2; j m3; j m4; J m5; f m6; c m7; j m8; C m9; B m10; union A191 m11; };
 int f_cmpA192(const struct A192 *x, const struct A192 *y) { return x->m0 == y->m0 && f_cmpA188(&x->m1[0], &y->m1[0]) && f_cmpA188(&x->m1[1], &y->m1[1]) && f_cmpA188(&x->m1[2], &y->m1[2]) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && f_cmpA191(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA192() {
+DCaggr* f_touchA192() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A192));
@@ -3830,7 +3830,7 @@ DCaggr* f_touchdcstA192() {
 /* <Ld[1]l> */
 union A193 { L m0; d m1[1]; l m2; };
 int f_cmpA193(const union A193 *x, const union A193 *y) { return x->m0 == y->m0 && x->m1[0] == y->m1[0] && x->m2 == y->m2; };
-DCaggr* f_touchdcstA193() {
+DCaggr* f_touchA193() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A193));
@@ -3844,7 +3844,7 @@ DCaggr* f_touchdcstA193() {
 /* {IIcJp} */
 struct A194 { I m0; I m1; c m2; J m3; p m4; };
 int f_cmpA194(const struct A194 *x, const struct A194 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA194() {
+DCaggr* f_touchA194() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A194));
@@ -3860,7 +3860,7 @@ DCaggr* f_touchdcstA194() {
 /* <dI> */
 union A195 { d m0; I m1; };
 int f_cmpA195(const union A195 *x, const union A195 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA195() {
+DCaggr* f_touchA195() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A195));
@@ -3873,7 +3873,7 @@ DCaggr* f_touchdcstA195() {
 /* <psdj[12]dLcJ> */
 union A196 { p m0; s m1; d m2; j m3[12]; d m4; L m5; c m6; J m7; };
 int f_cmpA196(const union A196 *x, const union A196 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3[0] == y->m3[0] && x->m3[1] == y->m3[1] && x->m3[2] == y->m3[2] && x->m3[3] == y->m3[3] && x->m3[4] == y->m3[4] && x->m3[5] == y->m3[5] && x->m3[6] == y->m3[6] && x->m3[7] == y->m3[7] && x->m3[8] == y->m3[8] && x->m3[9] == y->m3[9] && x->m3[10] == y->m3[10] && x->m3[11] == y->m3[11] && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA196() {
+DCaggr* f_touchA196() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(union A196));
@@ -3892,7 +3892,7 @@ DCaggr* f_touchdcstA196() {
 /* {jILf} */
 struct A197 { j m0; I m1; L m2; f m3; };
 int f_cmpA197(const struct A197 *x, const struct A197 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA197() {
+DCaggr* f_touchA197() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A197));
@@ -3907,7 +3907,7 @@ DCaggr* f_touchdcstA197() {
 /* {i<psdj[12]dLcJ>JlIBLJ{jILf}p} */
 struct A198 { i m0; union A196 m1; J m2; l m3; I m4; B m5; L m6; J m7; struct A197 m8; p m9; };
 int f_cmpA198(const struct A198 *x, const struct A198 *y) { return x->m0 == y->m0 && f_cmpA196(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA197(&x->m8, &y->m8) && x->m9 == y->m9; };
-DCaggr* f_touchdcstA198() {
+DCaggr* f_touchA198() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(struct A198));
@@ -3928,7 +3928,7 @@ DCaggr* f_touchdcstA198() {
 /* {SBjlBcIjJlfC} */
 struct A199 { S m0; B m1; j m2; l m3; B m4; c m5; I m6; j m7; J m8; l m9; f m10; C m11; };
 int f_cmpA199(const struct A199 *x, const struct A199 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA199() {
+DCaggr* f_touchA199() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A199));
@@ -3951,7 +3951,7 @@ DCaggr* f_touchdcstA199() {
 /* {idlsBd{i<psdj[12]dLcJ>JlIBLJ{jILf}p}{SBjlBcIjJlfC}BpjC} */
 struct A200 { i m0; d m1; l m2; s m3; B m4; d m5; struct A198 m6; struct A199 m7; B m8; p m9; j m10; C m11; };
 int f_cmpA200(const struct A200 *x, const struct A200 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA198(&x->m6, &y->m6) && f_cmpA199(&x->m7, &y->m7) && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA200() {
+DCaggr* f_touchA200() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A200));
@@ -3974,7 +3974,7 @@ DCaggr* f_touchdcstA200() {
 /* <LjSI> */
 union A201 { L m0; j m1; S m2; I m3; };
 int f_cmpA201(const union A201 *x, const union A201 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA201() {
+DCaggr* f_touchA201() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A201));
@@ -3989,7 +3989,7 @@ DCaggr* f_touchdcstA201() {
 /* {I} */
 struct A202 { I m0; };
 int f_cmpA202(const struct A202 *x, const struct A202 *y) { return x->m0 == y->m0; };
-DCaggr* f_touchdcstA202() {
+DCaggr* f_touchA202() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(1, sizeof(struct A202));
@@ -4001,7 +4001,7 @@ DCaggr* f_touchdcstA202() {
 /* {fJlclfjCsj} */
 struct A203 { f m0; J m1; l m2; c m3; l m4; f m5; j m6; C m7; s m8; j m9; };
 int f_cmpA203(const struct A203 *x, const struct A203 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA203() {
+DCaggr* f_touchA203() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(struct A203));
@@ -4022,7 +4022,7 @@ DCaggr* f_touchdcstA203() {
 /* {LLcSJBfiiS[3]Jj} */
 struct A204 { L m0; L m1; c m2; S m3; J m4; B m5; f m6; i m7; i m8; S m9[3]; J m10; j m11; };
 int f_cmpA204(const struct A204 *x, const struct A204 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9[0] == y->m9[0] && x->m9[1] == y->m9[1] && x->m9[2] == y->m9[2] && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA204() {
+DCaggr* f_touchA204() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A204));
@@ -4045,7 +4045,7 @@ DCaggr* f_touchdcstA204() {
 /* {cj{I}[9]p{fJlclfjCsj}IjLJj{LLcSJBfiiS[3]Jj}} */
 struct A205 { c m0; j m1; struct A202 m2[9]; p m3; struct A203 m4; I m5; j m6; L m7; J m8; j m9; struct A204 m10; };
 int f_cmpA205(const struct A205 *x, const struct A205 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA202(&x->m2[0], &y->m2[0]) && f_cmpA202(&x->m2[1], &y->m2[1]) && f_cmpA202(&x->m2[2], &y->m2[2]) && f_cmpA202(&x->m2[3], &y->m2[3]) && f_cmpA202(&x->m2[4], &y->m2[4]) && f_cmpA202(&x->m2[5], &y->m2[5]) && f_cmpA202(&x->m2[6], &y->m2[6]) && f_cmpA202(&x->m2[7], &y->m2[7]) && f_cmpA202(&x->m2[8], &y->m2[8]) && x->m3 == y->m3 && f_cmpA203(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA204(&x->m10, &y->m10); };
-DCaggr* f_touchdcstA205() {
+DCaggr* f_touchA205() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(struct A205));
@@ -4067,7 +4067,7 @@ DCaggr* f_touchdcstA205() {
 /* <IB[11]CBcLfsC{cj{I}[9]p{fJlclfjCsj}IjLJj{LLcSJBfiiS[3]Jj}}pp> */
 union A206 { I m0; B m1[11]; C m2; B m3; c m4; L m5; f m6; s m7; C m8; struct A205 m9; p m10; p m11; };
 int f_cmpA206(const union A206 *x, const union A206 *y) { return x->m0 == y->m0 && x->m1[0] == y->m1[0] && x->m1[1] == y->m1[1] && x->m1[2] == y->m1[2] && x->m1[3] == y->m1[3] && x->m1[4] == y->m1[4] && x->m1[5] == y->m1[5] && x->m1[6] == y->m1[6] && x->m1[7] == y->m1[7] && x->m1[8] == y->m1[8] && x->m1[9] == y->m1[9] && x->m1[10] == y->m1[10] && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && f_cmpA205(&x->m9, &y->m9) && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA206() {
+DCaggr* f_touchA206() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A206));
@@ -4090,7 +4090,7 @@ DCaggr* f_touchdcstA206() {
 /* {LiSc} */
 struct A207 { L m0; i m1; S m2; c m3; };
 int f_cmpA207(const struct A207 *x, const struct A207 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA207() {
+DCaggr* f_touchA207() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A207));
@@ -4105,7 +4105,7 @@ DCaggr* f_touchdcstA207() {
 /* <BIdl> */
 union A208 { B m0; I m1; d m2; l m3; };
 int f_cmpA208(const union A208 *x, const union A208 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA208() {
+DCaggr* f_touchA208() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A208));
@@ -4120,7 +4120,7 @@ DCaggr* f_touchdcstA208() {
 /* <slsiisIpIdpc> */
 union A209 { s m0; l m1; s m2; i m3; i m4; s m5; I m6; p m7; I m8; d m9; p m10; c m11; };
 int f_cmpA209(const union A209 *x, const union A209 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA209() {
+DCaggr* f_touchA209() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A209));
@@ -4143,7 +4143,7 @@ DCaggr* f_touchdcstA209() {
 /* {fp{LiSc}jls<BIdl>pLJ<slsiisIpIdpc>i} */
 struct A210 { f m0; p m1; struct A207 m2; j m3; l m4; s m5; union A208 m6; p m7; L m8; J m9; union A209 m10; i m11; };
 int f_cmpA210(const struct A210 *x, const struct A210 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA207(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA208(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA209(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA210() {
+DCaggr* f_touchA210() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A210));
@@ -4166,7 +4166,7 @@ DCaggr* f_touchdcstA210() {
 /* {CJj} */
 struct A211 { C m0; J m1; j m2; };
 int f_cmpA211(const struct A211 *x, const struct A211 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA211() {
+DCaggr* f_touchA211() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A211));
@@ -4180,7 +4180,7 @@ DCaggr* f_touchdcstA211() {
 /* {BjL} */
 struct A212 { B m0; j m1; L m2; };
 int f_cmpA212(const struct A212 *x, const struct A212 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA212() {
+DCaggr* f_touchA212() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A212));
@@ -4194,7 +4194,7 @@ DCaggr* f_touchdcstA212() {
 /* <LS> */
 union A213 { L m0; S m1; };
 int f_cmpA213(const union A213 *x, const union A213 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA213() {
+DCaggr* f_touchA213() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A213));
@@ -4207,7 +4207,7 @@ DCaggr* f_touchdcstA213() {
 /* {ILjSJCBcCJCd} */
 struct A214 { I m0; L m1; j m2; S m3; J m4; C m5; B m6; c m7; C m8; J m9; C m10; d m11; };
 int f_cmpA214(const struct A214 *x, const struct A214 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA214() {
+DCaggr* f_touchA214() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A214));
@@ -4230,7 +4230,7 @@ DCaggr* f_touchdcstA214() {
 /* {BliJ} */
 struct A215 { B m0; l m1; i m2; J m3; };
 int f_cmpA215(const struct A215 *x, const struct A215 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA215() {
+DCaggr* f_touchA215() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A215));
@@ -4245,7 +4245,7 @@ DCaggr* f_touchdcstA215() {
 /* {SjC} */
 struct A216 { S m0; j m1; C m2; };
 int f_cmpA216(const struct A216 *x, const struct A216 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA216() {
+DCaggr* f_touchA216() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A216));
@@ -4259,7 +4259,7 @@ DCaggr* f_touchdcstA216() {
 /* {jcL{BliJ}j{SjC}pfidc} */
 struct A217 { j m0; c m1; L m2; struct A215 m3; j m4; struct A216 m5; p m6; f m7; i m8; d m9; c m10; };
 int f_cmpA217(const struct A217 *x, const struct A217 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA215(&x->m3, &y->m3) && x->m4 == y->m4 && f_cmpA216(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA217() {
+DCaggr* f_touchA217() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(struct A217));
@@ -4281,7 +4281,7 @@ DCaggr* f_touchdcstA217() {
 /* {ddpSidfSBlpp} */
 struct A218 { d m0; d m1; p m2; S m3; i m4; d m5; f m6; S m7; B m8; l m9; p m10; p m11; };
 int f_cmpA218(const struct A218 *x, const struct A218 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA218() {
+DCaggr* f_touchA218() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A218));
@@ -4304,7 +4304,7 @@ DCaggr* f_touchdcstA218() {
 /* <CfBiB[12]ljdc{ddpSidfSBlpp}dI> */
 union A219 { C m0; f m1; B m2; i m3; B m4[12]; l m5; j m6; d m7; c m8; struct A218 m9; d m10; I m11; };
 int f_cmpA219(const union A219 *x, const union A219 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4[0] == y->m4[0] && x->m4[1] == y->m4[1] && x->m4[2] == y->m4[2] && x->m4[3] == y->m4[3] && x->m4[4] == y->m4[4] && x->m4[5] == y->m4[5] && x->m4[6] == y->m4[6] && x->m4[7] == y->m4[7] && x->m4[8] == y->m4[8] && x->m4[9] == y->m4[9] && x->m4[10] == y->m4[10] && x->m4[11] == y->m4[11] && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && f_cmpA218(&x->m9, &y->m9) && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA219() {
+DCaggr* f_touchA219() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A219));
@@ -4327,7 +4327,7 @@ DCaggr* f_touchdcstA219() {
 /* {<LS>l{ILjSJCBcCJCd}pI{jcL{BliJ}j{SjC}pfidc}<CfBiB[12]ljdc{ddpSidfSBlpp}dI>BlflJ} */
 struct A220 { union A213 m0; l m1; struct A214 m2; p m3; I m4; struct A217 m5; union A219 m6; B m7; l m8; f m9; l m10; J m11; };
 int f_cmpA220(const struct A220 *x, const struct A220 *y) { return f_cmpA213(&x->m0, &y->m0) && x->m1 == y->m1 && f_cmpA214(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA217(&x->m5, &y->m5) && f_cmpA219(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA220() {
+DCaggr* f_touchA220() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A220));
@@ -4350,7 +4350,7 @@ DCaggr* f_touchdcstA220() {
 /* {i} */
 struct A221 { i m0; };
 int f_cmpA221(const struct A221 *x, const struct A221 *y) { return x->m0 == y->m0; };
-DCaggr* f_touchdcstA221() {
+DCaggr* f_touchA221() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(1, sizeof(struct A221));
@@ -4362,7 +4362,7 @@ DCaggr* f_touchdcstA221() {
 /* <jJldJIddipcc> */
 union A222 { j m0; J m1; l m2; d m3; J m4; I m5; d m6; d m7; i m8; p m9; c m10; c m11; };
 int f_cmpA222(const union A222 *x, const union A222 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA222() {
+DCaggr* f_touchA222() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A222));
@@ -4385,7 +4385,7 @@ DCaggr* f_touchdcstA222() {
 /* {CCpBIcdBCf[6]Cj} */
 struct A223 { C m0; C m1; p m2; B m3; I m4; c m5; d m6; B m7; C m8; f m9[6]; C m10; j m11; };
 int f_cmpA223(const struct A223 *x, const struct A223 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9[0] == y->m9[0] && x->m9[1] == y->m9[1] && x->m9[2] == y->m9[2] && x->m9[3] == y->m9[3] && x->m9[4] == y->m9[4] && x->m9[5] == y->m9[5] && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA223() {
+DCaggr* f_touchA223() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A223));
@@ -4408,7 +4408,7 @@ DCaggr* f_touchdcstA223() {
 /* <SjpSJIiCIJBs[13]> */
 union A224 { S m0; j m1; p m2; S m3; J m4; I m5; i m6; C m7; I m8; J m9; B m10; s m11[13]; };
 int f_cmpA224(const union A224 *x, const union A224 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11[0] == y->m11[0] && x->m11[1] == y->m11[1] && x->m11[2] == y->m11[2] && x->m11[3] == y->m11[3] && x->m11[4] == y->m11[4] && x->m11[5] == y->m11[5] && x->m11[6] == y->m11[6] && x->m11[7] == y->m11[7] && x->m11[8] == y->m11[8] && x->m11[9] == y->m11[9] && x->m11[10] == y->m11[10] && x->m11[11] == y->m11[11] && x->m11[12] == y->m11[12]; };
-DCaggr* f_touchdcstA224() {
+DCaggr* f_touchA224() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A224));
@@ -4431,7 +4431,7 @@ DCaggr* f_touchdcstA224() {
 /* <ppSpflSCfJ> */
 union A225 { p m0; p m1; S m2; p m3; f m4; l m5; S m6; C m7; f m8; J m9; };
 int f_cmpA225(const union A225 *x, const union A225 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA225() {
+DCaggr* f_touchA225() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A225));
@@ -4452,7 +4452,7 @@ DCaggr* f_touchdcstA225() {
 /* {ClJSldslBLjs} */
 struct A226 { C m0; l m1; J m2; S m3; l m4; d m5; s m6; l m7; B m8; L m9; j m10; s m11; };
 int f_cmpA226(const struct A226 *x, const struct A226 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA226() {
+DCaggr* f_touchA226() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A226));
@@ -4475,7 +4475,7 @@ DCaggr* f_touchdcstA226() {
 /* {cCJfSsfl{ClJSldslBLjs}dSd} */
 struct A227 { c m0; C m1; J m2; f m3; S m4; s m5; f m6; l m7; struct A226 m8; d m9; S m10; d m11; };
 int f_cmpA227(const struct A227 *x, const struct A227 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA226(&x->m8, &y->m8) && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA227() {
+DCaggr* f_touchA227() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A227));
@@ -4498,7 +4498,7 @@ DCaggr* f_touchdcstA227() {
 /* <siClCBdCLLCl> */
 union A228 { s m0; i m1; C m2; l m3; C m4; B m5; d m6; C m7; L m8; L m9; C m10; l m11; };
 int f_cmpA228(const union A228 *x, const union A228 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA228() {
+DCaggr* f_touchA228() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A228));
@@ -4521,7 +4521,7 @@ DCaggr* f_touchdcstA228() {
 /* <sp<siClCBdCLLCl>SIJdLdSC[2]j> */
 union A229 { s m0; p m1; union A228 m2; S m3; I m4; J m5; d m6; L m7; d m8; S m9; C m10[2]; j m11; };
 int f_cmpA229(const union A229 *x, const union A229 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA228(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10[0] == y->m10[0] && x->m10[1] == y->m10[1] && x->m11 == y->m11; };
-DCaggr* f_touchdcstA229() {
+DCaggr* f_touchA229() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A229));
@@ -4544,7 +4544,7 @@ DCaggr* f_touchdcstA229() {
 /* {pcSC} */
 struct A230 { p m0; c m1; S m2; C m3; };
 int f_cmpA230(const struct A230 *x, const struct A230 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA230() {
+DCaggr* f_touchA230() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A230));
@@ -4559,7 +4559,7 @@ DCaggr* f_touchdcstA230() {
 /* <SdplsccijCLf[7]> */
 union A231 { S m0; d m1; p m2; l m3; s m4; c m5; c m6; i m7; j m8; C m9; L m10; f m11[7]; };
 int f_cmpA231(const union A231 *x, const union A231 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11[0] == y->m11[0] && x->m11[1] == y->m11[1] && x->m11[2] == y->m11[2] && x->m11[3] == y->m11[3] && x->m11[4] == y->m11[4] && x->m11[5] == y->m11[5] && x->m11[6] == y->m11[6]; };
-DCaggr* f_touchdcstA231() {
+DCaggr* f_touchA231() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A231));
@@ -4582,7 +4582,7 @@ DCaggr* f_touchdcstA231() {
 /* <<SdplsccijCLf[7]>p[15]> */
 union A232 { union A231 m0; p m1[15]; };
 int f_cmpA232(const union A232 *x, const union A232 *y) { return f_cmpA231(&x->m0, &y->m0) && x->m1[0] == y->m1[0] && x->m1[1] == y->m1[1] && x->m1[2] == y->m1[2] && x->m1[3] == y->m1[3] && x->m1[4] == y->m1[4] && x->m1[5] == y->m1[5] && x->m1[6] == y->m1[6] && x->m1[7] == y->m1[7] && x->m1[8] == y->m1[8] && x->m1[9] == y->m1[9] && x->m1[10] == y->m1[10] && x->m1[11] == y->m1[11] && x->m1[12] == y->m1[12] && x->m1[13] == y->m1[13] && x->m1[14] == y->m1[14]; };
-DCaggr* f_touchdcstA232() {
+DCaggr* f_touchA232() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A232));
@@ -4595,7 +4595,7 @@ DCaggr* f_touchdcstA232() {
 /* {<<SdplsccijCLf[7]>p[15]>[2]SIL} */
 struct A233 { union A232 m0[2]; S m1; I m2; L m3; };
 int f_cmpA233(const struct A233 *x, const struct A233 *y) { return f_cmpA232(&x->m0[0], &y->m0[0]) && f_cmpA232(&x->m0[1], &y->m0[1]) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA233() {
+DCaggr* f_touchA233() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A233));
@@ -4610,7 +4610,7 @@ DCaggr* f_touchdcstA233() {
 /* {sIcCJC} */
 struct A234 { s m0; I m1; c m2; C m3; J m4; C m5; };
 int f_cmpA234(const struct A234 *x, const struct A234 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA234() {
+DCaggr* f_touchA234() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(struct A234));
@@ -4627,7 +4627,7 @@ DCaggr* f_touchdcstA234() {
 /* <SppIsi[1]ifLLcl> */
 union A235 { S m0; p m1; p m2; I m3; s m4; i m5[1]; i m6; f m7; L m8; L m9; c m10; l m11; };
 int f_cmpA235(const union A235 *x, const union A235 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5[0] == y->m5[0] && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA235() {
+DCaggr* f_touchA235() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A235));
@@ -4650,7 +4650,7 @@ DCaggr* f_touchdcstA235() {
 /* <iLpiSLjSs[3]> */
 union A236 { i m0; L m1; p m2; i m3; S m4; L m5; j m6; S m7; s m8[3]; };
 int f_cmpA236(const union A236 *x, const union A236 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8[0] == y->m8[0] && x->m8[1] == y->m8[1] && x->m8[2] == y->m8[2]; };
-DCaggr* f_touchdcstA236() {
+DCaggr* f_touchA236() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A236));
@@ -4670,7 +4670,7 @@ DCaggr* f_touchdcstA236() {
 /* {LIIljLJSBJBd} */
 struct A237 { L m0; I m1; I m2; l m3; j m4; L m5; J m6; S m7; B m8; J m9; B m10; d m11; };
 int f_cmpA237(const struct A237 *x, const struct A237 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA237() {
+DCaggr* f_touchA237() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A237));
@@ -4693,7 +4693,7 @@ DCaggr* f_touchdcstA237() {
 /* <cBlSfIjdcJJs> */
 union A238 { c m0; B m1; l m2; S m3; f m4; I m5; j m6; d m7; c m8; J m9; J m10; s m11; };
 int f_cmpA238(const union A238 *x, const union A238 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA238() {
+DCaggr* f_touchA238() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A238));
@@ -4716,7 +4716,7 @@ DCaggr* f_touchdcstA238() {
 /* {{LIIljLJSBJBd}lJpf<cBlSfIjdcJJs>LBpCSC} */
 struct A239 { struct A237 m0; l m1; J m2; p m3; f m4; union A238 m5; L m6; B m7; p m8; C m9; S m10; C m11; };
 int f_cmpA239(const struct A239 *x, const struct A239 *y) { return f_cmpA237(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA238(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA239() {
+DCaggr* f_touchA239() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A239));
@@ -4739,7 +4739,7 @@ DCaggr* f_touchdcstA239() {
 /* {pcjB[15]} */
 struct A240 { p m0; c m1; j m2; B m3[15]; };
 int f_cmpA240(const struct A240 *x, const struct A240 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3[0] == y->m3[0] && x->m3[1] == y->m3[1] && x->m3[2] == y->m3[2] && x->m3[3] == y->m3[3] && x->m3[4] == y->m3[4] && x->m3[5] == y->m3[5] && x->m3[6] == y->m3[6] && x->m3[7] == y->m3[7] && x->m3[8] == y->m3[8] && x->m3[9] == y->m3[9] && x->m3[10] == y->m3[10] && x->m3[11] == y->m3[11] && x->m3[12] == y->m3[12] && x->m3[13] == y->m3[13] && x->m3[14] == y->m3[14]; };
-DCaggr* f_touchdcstA240() {
+DCaggr* f_touchA240() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A240));
@@ -4754,7 +4754,7 @@ DCaggr* f_touchdcstA240() {
 /* {sIl<SppIsi[1]ifLLcl>pJ<iLpiSLjSs[3]>j{{LIIljLJSBJBd}lJpf<cBlSfIjdcJJs>LBpCSC}{pcjB[15]}Ij} */
 struct A241 { s m0; I m1; l m2; union A235 m3; p m4; J m5; union A236 m6; j m7; struct A239 m8; struct A240 m9; I m10; j m11; };
 int f_cmpA241(const struct A241 *x, const struct A241 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA235(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA236(&x->m6, &y->m6) && x->m7 == y->m7 && f_cmpA239(&x->m8, &y->m8) && f_cmpA240(&x->m9, &y->m9) && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA241() {
+DCaggr* f_touchA241() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A241));
@@ -4777,7 +4777,7 @@ DCaggr* f_touchdcstA241() {
 /* <JCic> */
 union A242 { J m0; C m1; i m2; c m3; };
 int f_cmpA242(const union A242 *x, const union A242 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA242() {
+DCaggr* f_touchA242() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A242));
@@ -4792,7 +4792,7 @@ DCaggr* f_touchdcstA242() {
 /* <dsjpflsLpjsB> */
 union A243 { d m0; s m1; j m2; p m3; f m4; l m5; s m6; L m7; p m8; j m9; s m10; B m11; };
 int f_cmpA243(const union A243 *x, const union A243 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA243() {
+DCaggr* f_touchA243() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A243));
@@ -4815,7 +4815,7 @@ DCaggr* f_touchdcstA243() {
 /* <dSiIfli> */
 union A244 { d m0; S m1; i m2; I m3; f m4; l m5; i m6; };
 int f_cmpA244(const union A244 *x, const union A244 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA244() {
+DCaggr* f_touchA244() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(union A244));
@@ -4833,7 +4833,7 @@ DCaggr* f_touchdcstA244() {
 /* <iiCLpfLCdj> */
 union A245 { i m0; i m1; C m2; L m3; p m4; f m5; L m6; C m7; d m8; j m9; };
 int f_cmpA245(const union A245 *x, const union A245 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA245() {
+DCaggr* f_touchA245() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A245));
@@ -4854,7 +4854,7 @@ DCaggr* f_touchdcstA245() {
 /* {s[8]SSc} */
 struct A246 { s m0[8]; S m1; S m2; c m3; };
 int f_cmpA246(const struct A246 *x, const struct A246 *y) { return x->m0[0] == y->m0[0] && x->m0[1] == y->m0[1] && x->m0[2] == y->m0[2] && x->m0[3] == y->m0[3] && x->m0[4] == y->m0[4] && x->m0[5] == y->m0[5] && x->m0[6] == y->m0[6] && x->m0[7] == y->m0[7] && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA246() {
+DCaggr* f_touchA246() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A246));
@@ -4869,7 +4869,7 @@ DCaggr* f_touchdcstA246() {
 /* <C> */
 union A247 { C m0; };
 int f_cmpA247(const union A247 *x, const union A247 *y) { return x->m0 == y->m0; };
-DCaggr* f_touchdcstA247() {
+DCaggr* f_touchA247() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(1, sizeof(union A247));
@@ -4881,7 +4881,7 @@ DCaggr* f_touchdcstA247() {
 /* {fSJi{s[8]SSc}jScCI<C>L} */
 struct A248 { f m0; S m1; J m2; i m3; struct A246 m4; j m5; S m6; c m7; C m8; I m9; union A247 m10; L m11; };
 int f_cmpA248(const struct A248 *x, const struct A248 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA246(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA247(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA248() {
+DCaggr* f_touchA248() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A248));
@@ -4904,7 +4904,7 @@ DCaggr* f_touchdcstA248() {
 /* {cpB{fSJi{s[8]SSc}jScCI<C>L}psfd} */
 struct A249 { c m0; p m1; B m2; struct A248 m3; p m4; s m5; f m6; d m7; };
 int f_cmpA249(const struct A249 *x, const struct A249 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA248(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA249() {
+DCaggr* f_touchA249() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(struct A249));
@@ -4923,7 +4923,7 @@ DCaggr* f_touchdcstA249() {
 /* {cBS[11]JC} */
 struct A250 { c m0; B m1; S m2[11]; J m3; C m4; };
 int f_cmpA250(const struct A250 *x, const struct A250 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2[0] == y->m2[0] && x->m2[1] == y->m2[1] && x->m2[2] == y->m2[2] && x->m2[3] == y->m2[3] && x->m2[4] == y->m2[4] && x->m2[5] == y->m2[5] && x->m2[6] == y->m2[6] && x->m2[7] == y->m2[7] && x->m2[8] == y->m2[8] && x->m2[9] == y->m2[9] && x->m2[10] == y->m2[10] && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA250() {
+DCaggr* f_touchA250() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A250));
@@ -4939,7 +4939,7 @@ DCaggr* f_touchdcstA250() {
 /* {d[12]c} */
 struct A251 { d m0[12]; c m1; };
 int f_cmpA251(const struct A251 *x, const struct A251 *y) { return x->m0[0] == y->m0[0] && x->m0[1] == y->m0[1] && x->m0[2] == y->m0[2] && x->m0[3] == y->m0[3] && x->m0[4] == y->m0[4] && x->m0[5] == y->m0[5] && x->m0[6] == y->m0[6] && x->m0[7] == y->m0[7] && x->m0[8] == y->m0[8] && x->m0[9] == y->m0[9] && x->m0[10] == y->m0[10] && x->m0[11] == y->m0[11] && x->m1 == y->m1; };
-DCaggr* f_touchdcstA251() {
+DCaggr* f_touchA251() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(struct A251));
@@ -4952,7 +4952,7 @@ DCaggr* f_touchdcstA251() {
 /* <SICpBB[6]> */
 union A252 { S m0; I m1; C m2; p m3; B m4; B m5[6]; };
 int f_cmpA252(const union A252 *x, const union A252 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5[0] == y->m5[0] && x->m5[1] == y->m5[1] && x->m5[2] == y->m5[2] && x->m5[3] == y->m5[3] && x->m5[4] == y->m5[4] && x->m5[5] == y->m5[5]; };
-DCaggr* f_touchdcstA252() {
+DCaggr* f_touchA252() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(union A252));
@@ -4969,7 +4969,7 @@ DCaggr* f_touchdcstA252() {
 /* {s{cBS[11]JC}d{d[12]c}cLilS<SICpBB[6]>cf} */
 struct A253 { s m0; struct A250 m1; d m2; struct A251 m3; c m4; L m5; i m6; l m7; S m8; union A252 m9; c m10; f m11; };
 int f_cmpA253(const struct A253 *x, const struct A253 *y) { return x->m0 == y->m0 && f_cmpA250(&x->m1, &y->m1) && x->m2 == y->m2 && f_cmpA251(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && f_cmpA252(&x->m9, &y->m9) && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA253() {
+DCaggr* f_touchA253() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A253));
@@ -4992,7 +4992,7 @@ DCaggr* f_touchdcstA253() {
 /* {BiiJ{s{cBS[11]JC}d{d[12]c}cLilS<SICpBB[6]>cf}jfdBsji} */
 struct A254 { B m0; i m1; i m2; J m3; struct A253 m4; j m5; f m6; d m7; B m8; s m9; j m10; i m11; };
 int f_cmpA254(const struct A254 *x, const struct A254 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA253(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA254() {
+DCaggr* f_touchA254() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A254));
@@ -5015,7 +5015,7 @@ DCaggr* f_touchdcstA254() {
 /* <i[1]> */
 union A255 { i m0[1]; };
 int f_cmpA255(const union A255 *x, const union A255 *y) { return x->m0[0] == y->m0[0]; };
-DCaggr* f_touchdcstA255() {
+DCaggr* f_touchA255() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(1, sizeof(union A255));
@@ -5027,7 +5027,7 @@ DCaggr* f_touchdcstA255() {
 /* <ipLCjdjSILSB> */
 union A256 { i m0; p m1; L m2; C m3; j m4; d m5; j m6; S m7; I m8; L m9; S m10; B m11; };
 int f_cmpA256(const union A256 *x, const union A256 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA256() {
+DCaggr* f_touchA256() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A256));
@@ -5050,7 +5050,7 @@ DCaggr* f_touchdcstA256() {
 /* {jI} */
 struct A257 { j m0; I m1; };
 int f_cmpA257(const struct A257 *x, const struct A257 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA257() {
+DCaggr* f_touchA257() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(struct A257));
@@ -5063,7 +5063,7 @@ DCaggr* f_touchdcstA257() {
 /* <ppSLi{jI}B[2]CBcii> */
 union A258 { p m0; p m1; S m2; L m3; i m4; struct A257 m5; B m6[2]; C m7; B m8; c m9; i m10; i m11; };
 int f_cmpA258(const union A258 *x, const union A258 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA257(&x->m5, &y->m5) && x->m6[0] == y->m6[0] && x->m6[1] == y->m6[1] && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA258() {
+DCaggr* f_touchA258() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A258));
@@ -5086,7 +5086,7 @@ DCaggr* f_touchdcstA258() {
 /* <cI> */
 union A259 { c m0; I m1; };
 int f_cmpA259(const union A259 *x, const union A259 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA259() {
+DCaggr* f_touchA259() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A259));
@@ -5099,7 +5099,7 @@ DCaggr* f_touchdcstA259() {
 /* <cjCcpjjSjdBc> */
 union A260 { c m0; j m1; C m2; c m3; p m4; j m5; j m6; S m7; j m8; d m9; B m10; c m11; };
 int f_cmpA260(const union A260 *x, const union A260 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA260() {
+DCaggr* f_touchA260() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A260));
@@ -5122,7 +5122,7 @@ DCaggr* f_touchdcstA260() {
 /* {cIjClJl[5]Slp} */
 struct A261 { c m0; I m1; j m2; C m3; l m4; J m5; l m6[5]; S m7; l m8; p m9; };
 int f_cmpA261(const struct A261 *x, const struct A261 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6[0] == y->m6[0] && x->m6[1] == y->m6[1] && x->m6[2] == y->m6[2] && x->m6[3] == y->m6[3] && x->m6[4] == y->m6[4] && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA261() {
+DCaggr* f_touchA261() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(struct A261));
@@ -5143,7 +5143,7 @@ DCaggr* f_touchdcstA261() {
 /* {lSl{cIjClJl[5]Slp}pSijBClJ} */
 struct A262 { l m0; S m1; l m2; struct A261 m3; p m4; S m5; i m6; j m7; B m8; C m9; l m10; J m11; };
 int f_cmpA262(const struct A262 *x, const struct A262 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA261(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA262() {
+DCaggr* f_touchA262() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A262));
@@ -5166,7 +5166,7 @@ DCaggr* f_touchdcstA262() {
 /* {LBcJJj} */
 struct A263 { L m0; B m1; c m2; J m3; J m4; j m5; };
 int f_cmpA263(const struct A263 *x, const struct A263 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA263() {
+DCaggr* f_touchA263() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(struct A263));
@@ -5183,7 +5183,7 @@ DCaggr* f_touchdcstA263() {
 /* <l> */
 union A264 { l m0; };
 int f_cmpA264(const union A264 *x, const union A264 *y) { return x->m0 == y->m0; };
-DCaggr* f_touchdcstA264() {
+DCaggr* f_touchA264() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(1, sizeof(union A264));
@@ -5195,7 +5195,7 @@ DCaggr* f_touchdcstA264() {
 /* <SpdCJBli> */
 union A265 { S m0; p m1; d m2; C m3; J m4; B m5; l m6; i m7; };
 int f_cmpA265(const union A265 *x, const union A265 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA265() {
+DCaggr* f_touchA265() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(union A265));
@@ -5214,7 +5214,7 @@ DCaggr* f_touchdcstA265() {
 /* <<SpdCJBli>fB> */
 union A266 { union A265 m0; f m1; B m2; };
 int f_cmpA266(const union A266 *x, const union A266 *y) { return f_cmpA265(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA266() {
+DCaggr* f_touchA266() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A266));
@@ -5228,7 +5228,7 @@ DCaggr* f_touchdcstA266() {
 /* {csdpBjsSsLs<<SpdCJBli>fB>} */
 struct A267 { c m0; s m1; d m2; p m3; B m4; j m5; s m6; S m7; s m8; L m9; s m10; union A266 m11; };
 int f_cmpA267(const struct A267 *x, const struct A267 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && f_cmpA266(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA267() {
+DCaggr* f_touchA267() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A267));
@@ -5251,7 +5251,7 @@ DCaggr* f_touchdcstA267() {
 /* {cIJCijSSjcci} */
 struct A268 { c m0; I m1; J m2; C m3; i m4; j m5; S m6; S m7; j m8; c m9; c m10; i m11; };
 int f_cmpA268(const struct A268 *x, const struct A268 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA268() {
+DCaggr* f_touchA268() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A268));
@@ -5274,7 +5274,7 @@ DCaggr* f_touchdcstA268() {
 /* {sSJJfJBCIlds} */
 struct A269 { s m0; S m1; J m2; J m3; f m4; J m5; B m6; C m7; I m8; l m9; d m10; s m11; };
 int f_cmpA269(const struct A269 *x, const struct A269 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA269() {
+DCaggr* f_touchA269() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A269));
@@ -5297,7 +5297,7 @@ DCaggr* f_touchdcstA269() {
 /* <lI{cIJCijSSjcci}jpJS{sSJJfJBCIlds}lCLj> */
 union A270 { l m0; I m1; struct A268 m2; j m3; p m4; J m5; S m6; struct A269 m7; l m8; C m9; L m10; j m11; };
 int f_cmpA270(const union A270 *x, const union A270 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA268(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && f_cmpA269(&x->m7, &y->m7) && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA270() {
+DCaggr* f_touchA270() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A270));
@@ -5320,7 +5320,7 @@ DCaggr* f_touchdcstA270() {
 /* <JsjLdlJ<lI{cIJCijSSjcci}jpJS{sSJJfJBCIlds}lCLj>> */
 union A271 { J m0; s m1; j m2; L m3; d m4; l m5; J m6; union A270 m7; };
 int f_cmpA271(const union A271 *x, const union A271 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && f_cmpA270(&x->m7, &y->m7); };
-DCaggr* f_touchdcstA271() {
+DCaggr* f_touchA271() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(union A271));
@@ -5339,7 +5339,7 @@ DCaggr* f_touchdcstA271() {
 /* {sifdifiLcJIp} */
 struct A272 { s m0; i m1; f m2; d m3; i m4; f m5; i m6; L m7; c m8; J m9; I m10; p m11; };
 int f_cmpA272(const struct A272 *x, const struct A272 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA272() {
+DCaggr* f_touchA272() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A272));
@@ -5362,7 +5362,7 @@ DCaggr* f_touchdcstA272() {
 /* {fljsjscdlCIj} */
 struct A273 { f m0; l m1; j m2; s m3; j m4; s m5; c m6; d m7; l m8; C m9; I m10; j m11; };
 int f_cmpA273(const struct A273 *x, const struct A273 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA273() {
+DCaggr* f_touchA273() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A273));
@@ -5385,7 +5385,7 @@ DCaggr* f_touchdcstA273() {
 /* {BIlSi{fljsjscdlCIj}LBfdCC} */
 struct A274 { B m0; I m1; l m2; S m3; i m4; struct A273 m5; L m6; B m7; f m8; d m9; C m10; C m11; };
 int f_cmpA274(const struct A274 *x, const struct A274 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA273(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA274() {
+DCaggr* f_touchA274() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A274));
@@ -5408,7 +5408,7 @@ DCaggr* f_touchdcstA274() {
 /* <BpClBcccSipB> */
 union A275 { B m0; p m1; C m2; l m3; B m4; c m5; c m6; c m7; S m8; i m9; p m10; B m11; };
 int f_cmpA275(const union A275 *x, const union A275 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA275() {
+DCaggr* f_touchA275() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A275));
@@ -5431,7 +5431,7 @@ DCaggr* f_touchdcstA275() {
 /* <dsJsdSJlScij> */
 union A276 { d m0; s m1; J m2; s m3; d m4; S m5; J m6; l m7; S m8; c m9; i m10; j m11; };
 int f_cmpA276(const union A276 *x, const union A276 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA276() {
+DCaggr* f_touchA276() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A276));
@@ -5454,7 +5454,7 @@ DCaggr* f_touchdcstA276() {
 /* <S[3]BJpIsfCjsps> */
 union A277 { S m0[3]; B m1; J m2; p m3; I m4; s m5; f m6; C m7; j m8; s m9; p m10; s m11; };
 int f_cmpA277(const union A277 *x, const union A277 *y) { return x->m0[0] == y->m0[0] && x->m0[1] == y->m0[1] && x->m0[2] == y->m0[2] && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA277() {
+DCaggr* f_touchA277() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A277));
@@ -5477,7 +5477,7 @@ DCaggr* f_touchdcstA277() {
 /* {BlcBi} */
 struct A278 { B m0; l m1; c m2; B m3; i m4; };
 int f_cmpA278(const struct A278 *x, const struct A278 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA278() {
+DCaggr* f_touchA278() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A278));
@@ -5493,7 +5493,7 @@ DCaggr* f_touchdcstA278() {
 /* {fIcf[6]JJLBpLCp} */
 struct A279 { f m0; I m1; c m2; f m3[6]; J m4; J m5; L m6; B m7; p m8; L m9; C m10; p m11; };
 int f_cmpA279(const struct A279 *x, const struct A279 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3[0] == y->m3[0] && x->m3[1] == y->m3[1] && x->m3[2] == y->m3[2] && x->m3[3] == y->m3[3] && x->m3[4] == y->m3[4] && x->m3[5] == y->m3[5] && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA279() {
+DCaggr* f_touchA279() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A279));
@@ -5516,7 +5516,7 @@ DCaggr* f_touchdcstA279() {
 /* <SJBi> */
 union A280 { S m0; J m1; B m2; i m3; };
 int f_cmpA280(const union A280 *x, const union A280 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA280() {
+DCaggr* f_touchA280() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A280));
@@ -5531,7 +5531,7 @@ DCaggr* f_touchdcstA280() {
 /* {JpCpp} */
 struct A281 { J m0; p m1; C m2; p m3; p m4; };
 int f_cmpA281(const struct A281 *x, const struct A281 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA281() {
+DCaggr* f_touchA281() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A281));
@@ -5547,7 +5547,7 @@ DCaggr* f_touchdcstA281() {
 /* <fspLsfJis> */
 union A282 { f m0; s m1; p m2; L m3; s m4; f m5; J m6; i m7; s m8; };
 int f_cmpA282(const union A282 *x, const union A282 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA282() {
+DCaggr* f_touchA282() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A282));
@@ -5567,7 +5567,7 @@ DCaggr* f_touchdcstA282() {
 /* <C<SJBi>dlf{JpCpp}<fspLsfJis>fdisB> */
 union A283 { C m0; union A280 m1; d m2; l m3; f m4; struct A281 m5; union A282 m6; f m7; d m8; i m9; s m10; B m11; };
 int f_cmpA283(const union A283 *x, const union A283 *y) { return x->m0 == y->m0 && f_cmpA280(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA281(&x->m5, &y->m5) && f_cmpA282(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA283() {
+DCaggr* f_touchA283() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A283));
@@ -5590,7 +5590,7 @@ DCaggr* f_touchdcstA283() {
 /* {sBS{BlcBi}{fIcf[6]JJLBpLCp}p<C<SJBi>dlf{JpCpp}<fspLsfJis>fdisB>fjiCJ} */
 struct A284 { s m0; B m1; S m2; struct A278 m3; struct A279 m4; p m5; union A283 m6; f m7; j m8; i m9; C m10; J m11; };
 int f_cmpA284(const struct A284 *x, const struct A284 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA278(&x->m3, &y->m3) && f_cmpA279(&x->m4, &y->m4) && x->m5 == y->m5 && f_cmpA283(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA284() {
+DCaggr* f_touchA284() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A284));
@@ -5613,7 +5613,7 @@ DCaggr* f_touchdcstA284() {
 /* {jJlL} */
 struct A285 { j m0; J m1; l m2; L m3; };
 int f_cmpA285(const struct A285 *x, const struct A285 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA285() {
+DCaggr* f_touchA285() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A285));
@@ -5628,7 +5628,7 @@ DCaggr* f_touchdcstA285() {
 /* <s> */
 union A286 { s m0; };
 int f_cmpA286(const union A286 *x, const union A286 *y) { return x->m0 == y->m0; };
-DCaggr* f_touchdcstA286() {
+DCaggr* f_touchA286() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(1, sizeof(union A286));
@@ -5640,7 +5640,7 @@ DCaggr* f_touchdcstA286() {
 /* {fcddjlSjjpcs} */
 struct A287 { f m0; c m1; d m2; d m3; j m4; l m5; S m6; j m7; j m8; p m9; c m10; s m11; };
 int f_cmpA287(const struct A287 *x, const struct A287 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA287() {
+DCaggr* f_touchA287() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A287));
@@ -5663,7 +5663,7 @@ DCaggr* f_touchdcstA287() {
 /* {JjIB{fcddjlSjjpcs}} */
 struct A288 { J m0; j m1; I m2; B m3; struct A287 m4; };
 int f_cmpA288(const struct A288 *x, const struct A288 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA287(&x->m4, &y->m4); };
-DCaggr* f_touchdcstA288() {
+DCaggr* f_touchA288() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A288));
@@ -5679,7 +5679,7 @@ DCaggr* f_touchdcstA288() {
 /* {JiSjjJiIlBJS} */
 struct A289 { J m0; i m1; S m2; j m3; j m4; J m5; i m6; I m7; l m8; B m9; J m10; S m11; };
 int f_cmpA289(const struct A289 *x, const struct A289 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA289() {
+DCaggr* f_touchA289() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A289));
@@ -5702,7 +5702,7 @@ DCaggr* f_touchdcstA289() {
 /* <{JiSjjJiIlBJS}SpI> */
 union A290 { struct A289 m0; S m1; p m2; I m3; };
 int f_cmpA290(const union A290 *x, const union A290 *y) { return f_cmpA289(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA290() {
+DCaggr* f_touchA290() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A290));
@@ -5717,7 +5717,7 @@ DCaggr* f_touchdcstA290() {
 /* <SfpdJppL[3]pjjc> */
 union A291 { S m0; f m1; p m2; d m3; J m4; p m5; p m6; L m7[3]; p m8; j m9; j m10; c m11; };
 int f_cmpA291(const union A291 *x, const union A291 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7[0] == y->m7[0] && x->m7[1] == y->m7[1] && x->m7[2] == y->m7[2] && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA291() {
+DCaggr* f_touchA291() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A291));
@@ -5740,7 +5740,7 @@ DCaggr* f_touchdcstA291() {
 /* {iJcLcSsjjpip} */
 struct A292 { i m0; J m1; c m2; L m3; c m4; S m5; s m6; j m7; j m8; p m9; i m10; p m11; };
 int f_cmpA292(const struct A292 *x, const struct A292 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA292() {
+DCaggr* f_touchA292() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A292));
@@ -5763,7 +5763,7 @@ DCaggr* f_touchdcstA292() {
 /* {JcLi[3]lScill} */
 struct A293 { J m0; c m1; L m2; i m3[3]; l m4; S m5; c m6; i m7; l m8; l m9; };
 int f_cmpA293(const struct A293 *x, const struct A293 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3[0] == y->m3[0] && x->m3[1] == y->m3[1] && x->m3[2] == y->m3[2] && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA293() {
+DCaggr* f_touchA293() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(struct A293));
@@ -5784,7 +5784,7 @@ DCaggr* f_touchdcstA293() {
 /* <{iJcLcSsjjpip}i{JcLi[3]lScill}[2]LIcIJCBB> */
 union A294 { struct A292 m0; i m1; struct A293 m2[2]; L m3; I m4; c m5; I m6; J m7; C m8; B m9; B m10; };
 int f_cmpA294(const union A294 *x, const union A294 *y) { return f_cmpA292(&x->m0, &y->m0) && x->m1 == y->m1 && f_cmpA293(&x->m2[0], &y->m2[0]) && f_cmpA293(&x->m2[1], &y->m2[1]) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA294() {
+DCaggr* f_touchA294() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(union A294));
@@ -5806,7 +5806,7 @@ DCaggr* f_touchdcstA294() {
 /* <JJipSBB> */
 union A295 { J m0; J m1; i m2; p m3; S m4; B m5; B m6; };
 int f_cmpA295(const union A295 *x, const union A295 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA295() {
+DCaggr* f_touchA295() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(union A295));
@@ -5824,7 +5824,7 @@ DCaggr* f_touchdcstA295() {
 /* {ff[3]LipCfcJljf} */
 struct A296 { f m0; f m1[3]; L m2; i m3; p m4; C m5; f m6; c m7; J m8; l m9; j m10; f m11; };
 int f_cmpA296(const struct A296 *x, const struct A296 *y) { return x->m0 == y->m0 && x->m1[0] == y->m1[0] && x->m1[1] == y->m1[1] && x->m1[2] == y->m1[2] && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA296() {
+DCaggr* f_touchA296() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A296));
@@ -5847,7 +5847,7 @@ DCaggr* f_touchdcstA296() {
 /* <ipl> */
 union A297 { i m0; p m1; l m2; };
 int f_cmpA297(const union A297 *x, const union A297 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA297() {
+DCaggr* f_touchA297() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A297));
@@ -5861,7 +5861,7 @@ DCaggr* f_touchdcstA297() {
 /* <lfILJpjclSpl> */
 union A298 { l m0; f m1; I m2; L m3; J m4; p m5; j m6; c m7; l m8; S m9; p m10; l m11; };
 int f_cmpA298(const union A298 *x, const union A298 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA298() {
+DCaggr* f_touchA298() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A298));
@@ -5884,7 +5884,7 @@ DCaggr* f_touchdcstA298() {
 /* <{I}<ipl>di<lfILJpjclSpl>IpJSjfs> */
 union A299 { struct A202 m0; union A297 m1; d m2; i m3; union A298 m4; I m5; p m6; J m7; S m8; j m9; f m10; s m11; };
 int f_cmpA299(const union A299 *x, const union A299 *y) { return f_cmpA202(&x->m0, &y->m0) && f_cmpA297(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA298(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA299() {
+DCaggr* f_touchA299() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A299));
@@ -5907,7 +5907,7 @@ DCaggr* f_touchdcstA299() {
 /* {BI<{I}<ipl>di<lfILJpjclSpl>IpJSjfs>lsSBfJJSS} */
 struct A300 { B m0; I m1; union A299 m2; l m3; s m4; S m5; B m6; f m7; J m8; J m9; S m10; S m11; };
 int f_cmpA300(const struct A300 *x, const struct A300 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA299(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA300() {
+DCaggr* f_touchA300() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A300));
@@ -5930,7 +5930,7 @@ DCaggr* f_touchdcstA300() {
 /* {fdfBCBlpcdLB} */
 struct A301 { f m0; d m1; f m2; B m3; C m4; B m5; l m6; p m7; c m8; d m9; L m10; B m11; };
 int f_cmpA301(const struct A301 *x, const struct A301 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA301() {
+DCaggr* f_touchA301() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A301));
@@ -5953,7 +5953,7 @@ DCaggr* f_touchdcstA301() {
 /* <cpLLlL[8]sC> */
 union A302 { c m0; p m1; L m2; L m3; l m4; L m5[8]; s m6; C m7; };
 int f_cmpA302(const union A302 *x, const union A302 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5[0] == y->m5[0] && x->m5[1] == y->m5[1] && x->m5[2] == y->m5[2] && x->m5[3] == y->m5[3] && x->m5[4] == y->m5[4] && x->m5[5] == y->m5[5] && x->m5[6] == y->m5[6] && x->m5[7] == y->m5[7] && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA302() {
+DCaggr* f_touchA302() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(union A302));
@@ -5972,7 +5972,7 @@ DCaggr* f_touchdcstA302() {
 /* <cdiCssLLjslC> */
 union A303 { c m0; d m1; i m2; C m3; s m4; s m5; L m6; L m7; j m8; s m9; l m10; C m11; };
 int f_cmpA303(const union A303 *x, const union A303 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA303() {
+DCaggr* f_touchA303() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A303));
@@ -5995,7 +5995,7 @@ DCaggr* f_touchdcstA303() {
 /* {CSfpICpjjcs} */
 struct A304 { C m0; S m1; f m2; p m3; I m4; C m5; p m6; j m7; j m8; c m9; s m10; };
 int f_cmpA304(const struct A304 *x, const struct A304 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA304() {
+DCaggr* f_touchA304() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(struct A304));
@@ -6017,7 +6017,7 @@ DCaggr* f_touchdcstA304() {
 /* <cBClLIdCSBfc> */
 union A305 { c m0; B m1; C m2; l m3; L m4; I m5; d m6; C m7; S m8; B m9; f m10; c m11; };
 int f_cmpA305(const union A305 *x, const union A305 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA305() {
+DCaggr* f_touchA305() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A305));
@@ -6040,7 +6040,7 @@ DCaggr* f_touchdcstA305() {
 /* {sdSf} */
 struct A306 { s m0; d m1; S m2; f m3; };
 int f_cmpA306(const struct A306 *x, const struct A306 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA306() {
+DCaggr* f_touchA306() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A306));
@@ -6055,7 +6055,7 @@ DCaggr* f_touchdcstA306() {
 /* <cs> */
 union A307 { c m0; s m1; };
 int f_cmpA307(const union A307 *x, const union A307 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA307() {
+DCaggr* f_touchA307() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A307));
@@ -6068,7 +6068,7 @@ DCaggr* f_touchdcstA307() {
 /* {jpJf} */
 struct A308 { j m0; p m1; J m2; f m3; };
 int f_cmpA308(const struct A308 *x, const struct A308 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA308() {
+DCaggr* f_touchA308() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A308));
@@ -6083,7 +6083,7 @@ DCaggr* f_touchdcstA308() {
 /* <Sid[6]ilLsSslIs> */
 union A309 { S m0; i m1; d m2[6]; i m3; l m4; L m5; s m6; S m7; s m8; l m9; I m10; s m11; };
 int f_cmpA309(const union A309 *x, const union A309 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2[0] == y->m2[0] && x->m2[1] == y->m2[1] && x->m2[2] == y->m2[2] && x->m2[3] == y->m2[3] && x->m2[4] == y->m2[4] && x->m2[5] == y->m2[5] && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA309() {
+DCaggr* f_touchA309() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A309));
@@ -6106,7 +6106,7 @@ DCaggr* f_touchdcstA309() {
 /* <s{jpJf}iLidl<Sid[6]ilLsSslIs>IICJ> */
 union A310 { s m0; struct A308 m1; i m2; L m3; i m4; d m5; l m6; union A309 m7; I m8; I m9; C m10; J m11; };
 int f_cmpA310(const union A310 *x, const union A310 *y) { return x->m0 == y->m0 && f_cmpA308(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && f_cmpA309(&x->m7, &y->m7) && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA310() {
+DCaggr* f_touchA310() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A310));
@@ -6129,7 +6129,7 @@ DCaggr* f_touchdcstA310() {
 /* {lcjjBL[16]IClpdL} */
 struct A311 { l m0; c m1; j m2; j m3; B m4; L m5[16]; I m6; C m7; l m8; p m9; d m10; L m11; };
 int f_cmpA311(const struct A311 *x, const struct A311 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5[0] == y->m5[0] && x->m5[1] == y->m5[1] && x->m5[2] == y->m5[2] && x->m5[3] == y->m5[3] && x->m5[4] == y->m5[4] && x->m5[5] == y->m5[5] && x->m5[6] == y->m5[6] && x->m5[7] == y->m5[7] && x->m5[8] == y->m5[8] && x->m5[9] == y->m5[9] && x->m5[10] == y->m5[10] && x->m5[11] == y->m5[11] && x->m5[12] == y->m5[12] && x->m5[13] == y->m5[13] && x->m5[14] == y->m5[14] && x->m5[15] == y->m5[15] && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA311() {
+DCaggr* f_touchA311() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A311));
@@ -6152,7 +6152,7 @@ DCaggr* f_touchdcstA311() {
 /* {cfpp[16]BSssfCds} */
 struct A312 { c m0; f m1; p m2; p m3[16]; B m4; S m5; s m6; s m7; f m8; C m9; d m10; s m11; };
 int f_cmpA312(const struct A312 *x, const struct A312 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3[0] == y->m3[0] && x->m3[1] == y->m3[1] && x->m3[2] == y->m3[2] && x->m3[3] == y->m3[3] && x->m3[4] == y->m3[4] && x->m3[5] == y->m3[5] && x->m3[6] == y->m3[6] && x->m3[7] == y->m3[7] && x->m3[8] == y->m3[8] && x->m3[9] == y->m3[9] && x->m3[10] == y->m3[10] && x->m3[11] == y->m3[11] && x->m3[12] == y->m3[12] && x->m3[13] == y->m3[13] && x->m3[14] == y->m3[14] && x->m3[15] == y->m3[15] && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA312() {
+DCaggr* f_touchA312() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A312));
@@ -6175,7 +6175,7 @@ DCaggr* f_touchdcstA312() {
 /* {Ic{lcjjBL[16]IClpdL}{cfpp[16]BSssfCds}} */
 struct A313 { I m0; c m1; struct A311 m2; struct A312 m3; };
 int f_cmpA313(const struct A313 *x, const struct A313 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA311(&x->m2, &y->m2) && f_cmpA312(&x->m3, &y->m3); };
-DCaggr* f_touchdcstA313() {
+DCaggr* f_touchA313() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A313));
@@ -6190,7 +6190,7 @@ DCaggr* f_touchdcstA313() {
 /* {<cs><s{jpJf}iLidl<Sid[6]ilLsSslIs>IICJ>l{Ic{lcjjBL[16]IClpdL}{cfpp[16]BSssfCds}}sBjSfjsB} */
 struct A314 { union A307 m0; union A310 m1; l m2; struct A313 m3; s m4; B m5; j m6; S m7; f m8; j m9; s m10; B m11; };
 int f_cmpA314(const struct A314 *x, const struct A314 *y) { return f_cmpA307(&x->m0, &y->m0) && f_cmpA310(&x->m1, &y->m1) && x->m2 == y->m2 && f_cmpA313(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA314() {
+DCaggr* f_touchA314() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A314));
@@ -6213,7 +6213,7 @@ DCaggr* f_touchdcstA314() {
 /* {CSS} */
 struct A315 { C m0; S m1; S m2; };
 int f_cmpA315(const struct A315 *x, const struct A315 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA315() {
+DCaggr* f_touchA315() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A315));
@@ -6227,7 +6227,7 @@ DCaggr* f_touchdcstA315() {
 /* <i{CSS}IsjcjdJs> */
 union A316 { i m0; struct A315 m1; I m2; s m3; j m4; c m5; j m6; d m7; J m8; s m9; };
 int f_cmpA316(const union A316 *x, const union A316 *y) { return x->m0 == y->m0 && f_cmpA315(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA316() {
+DCaggr* f_touchA316() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A316));
@@ -6248,7 +6248,7 @@ DCaggr* f_touchdcstA316() {
 /* {iJLCSsCscSjL} */
 struct A317 { i m0; J m1; L m2; C m3; S m4; s m5; C m6; s m7; c m8; S m9; j m10; L m11; };
 int f_cmpA317(const struct A317 *x, const struct A317 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA317() {
+DCaggr* f_touchA317() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A317));
@@ -6271,7 +6271,7 @@ DCaggr* f_touchdcstA317() {
 /* {js{iJLCSsCscSjL}[3]J} */
 struct A318 { j m0; s m1; struct A317 m2[3]; J m3; };
 int f_cmpA318(const struct A318 *x, const struct A318 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA317(&x->m2[0], &y->m2[0]) && f_cmpA317(&x->m2[1], &y->m2[1]) && f_cmpA317(&x->m2[2], &y->m2[2]) && x->m3 == y->m3; };
-DCaggr* f_touchdcstA318() {
+DCaggr* f_touchA318() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A318));
@@ -6286,7 +6286,7 @@ DCaggr* f_touchdcstA318() {
 /* {dfpIicdfBpCB} */
 struct A319 { d m0; f m1; p m2; I m3; i m4; c m5; d m6; f m7; B m8; p m9; C m10; B m11; };
 int f_cmpA319(const struct A319 *x, const struct A319 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA319() {
+DCaggr* f_touchA319() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A319));
@@ -6309,7 +6309,7 @@ DCaggr* f_touchdcstA319() {
 /* <JiCCJcplBffd> */
 union A320 { J m0; i m1; C m2; C m3; J m4; c m5; p m6; l m7; B m8; f m9; f m10; d m11; };
 int f_cmpA320(const union A320 *x, const union A320 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA320() {
+DCaggr* f_touchA320() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A320));
@@ -6332,7 +6332,7 @@ DCaggr* f_touchdcstA320() {
 /* <iipJBpdIlJfC> */
 union A321 { i m0; i m1; p m2; J m3; B m4; p m5; d m6; I m7; l m8; J m9; f m10; C m11; };
 int f_cmpA321(const union A321 *x, const union A321 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA321() {
+DCaggr* f_touchA321() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A321));
@@ -6355,7 +6355,7 @@ DCaggr* f_touchdcstA321() {
 /* <djj{dfpIicdfBpCB}<JiCCJcplBffd>L<iipJBpdIlJfC>icLCc> */
 union A322 { d m0; j m1; j m2; struct A319 m3; union A320 m4; L m5; union A321 m6; i m7; c m8; L m9; C m10; c m11; };
 int f_cmpA322(const union A322 *x, const union A322 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA319(&x->m3, &y->m3) && f_cmpA320(&x->m4, &y->m4) && x->m5 == y->m5 && f_cmpA321(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA322() {
+DCaggr* f_touchA322() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A322));
@@ -6378,7 +6378,7 @@ DCaggr* f_touchdcstA322() {
 /* <BBdIf[13]JflI<djj{dfpIicdfBpCB}<JiCCJcplBffd>L<iipJBpdIlJfC>icLCc>J[3]j> */
 union A323 { B m0; B m1; d m2; I m3; f m4[13]; J m5; f m6; l m7; I m8; union A322 m9; J m10[3]; j m11; };
 int f_cmpA323(const union A323 *x, const union A323 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4[0] == y->m4[0] && x->m4[1] == y->m4[1] && x->m4[2] == y->m4[2] && x->m4[3] == y->m4[3] && x->m4[4] == y->m4[4] && x->m4[5] == y->m4[5] && x->m4[6] == y->m4[6] && x->m4[7] == y->m4[7] && x->m4[8] == y->m4[8] && x->m4[9] == y->m4[9] && x->m4[10] == y->m4[10] && x->m4[11] == y->m4[11] && x->m4[12] == y->m4[12] && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && f_cmpA322(&x->m9, &y->m9) && x->m10[0] == y->m10[0] && x->m10[1] == y->m10[1] && x->m10[2] == y->m10[2] && x->m11 == y->m11; };
-DCaggr* f_touchdcstA323() {
+DCaggr* f_touchA323() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A323));
@@ -6401,7 +6401,7 @@ DCaggr* f_touchdcstA323() {
 /* {BB} */
 struct A324 { B m0; B m1; };
 int f_cmpA324(const struct A324 *x, const struct A324 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA324() {
+DCaggr* f_touchA324() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(struct A324));
@@ -6414,7 +6414,7 @@ DCaggr* f_touchdcstA324() {
 /* {cjifsdjILc} */
 struct A325 { c m0; j m1; i m2; f m3; s m4; d m5; j m6; I m7; L m8; c m9; };
 int f_cmpA325(const struct A325 *x, const struct A325 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA325() {
+DCaggr* f_touchA325() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(struct A325));
@@ -6435,7 +6435,7 @@ DCaggr* f_touchdcstA325() {
 /* <spJppSJccCJp> */
 union A326 { s m0; p m1; J m2; p m3; p m4; S m5; J m6; c m7; c m8; C m9; J m10; p m11; };
 int f_cmpA326(const union A326 *x, const union A326 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA326() {
+DCaggr* f_touchA326() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A326));
@@ -6458,7 +6458,7 @@ DCaggr* f_touchdcstA326() {
 /* <lJCC> */
 union A327 { l m0; J m1; C m2; C m3; };
 int f_cmpA327(const union A327 *x, const union A327 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA327() {
+DCaggr* f_touchA327() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A327));
@@ -6473,7 +6473,7 @@ DCaggr* f_touchdcstA327() {
 /* {CLsLBjCpJi} */
 struct A328 { C m0; L m1; s m2; L m3; B m4; j m5; C m6; p m7; J m8; i m9; };
 int f_cmpA328(const struct A328 *x, const struct A328 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA328() {
+DCaggr* f_touchA328() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(struct A328));
@@ -6494,7 +6494,7 @@ DCaggr* f_touchdcstA328() {
 /* <idCffLLlIlLp> */
 union A329 { i m0; d m1; C m2; f m3; f m4; L m5; L m6; l m7; I m8; l m9; L m10; p m11; };
 int f_cmpA329(const union A329 *x, const union A329 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA329() {
+DCaggr* f_touchA329() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A329));
@@ -6517,7 +6517,7 @@ DCaggr* f_touchdcstA329() {
 /* {<idCffLLlIlLp>S} */
 struct A330 { union A329 m0; S m1; };
 int f_cmpA330(const struct A330 *x, const struct A330 *y) { return f_cmpA329(&x->m0, &y->m0) && x->m1 == y->m1; };
-DCaggr* f_touchdcstA330() {
+DCaggr* f_touchA330() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(struct A330));
@@ -6530,7 +6530,7 @@ DCaggr* f_touchdcstA330() {
 /* {pijpjisjLdpC} */
 struct A331 { p m0; i m1; j m2; p m3; j m4; i m5; s m6; j m7; L m8; d m9; p m10; C m11; };
 int f_cmpA331(const struct A331 *x, const struct A331 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA331() {
+DCaggr* f_touchA331() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A331));
@@ -6553,7 +6553,7 @@ DCaggr* f_touchdcstA331() {
 /* {SLdLdCcSdp[4]CS} */
 struct A332 { S m0; L m1; d m2; L m3; d m4; C m5; c m6; S m7; d m8; p m9[4]; C m10; S m11; };
 int f_cmpA332(const struct A332 *x, const struct A332 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9[0] == y->m9[0] && x->m9[1] == y->m9[1] && x->m9[2] == y->m9[2] && x->m9[3] == y->m9[3] && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA332() {
+DCaggr* f_touchA332() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A332));
@@ -6576,7 +6576,7 @@ DCaggr* f_touchdcstA332() {
 /* {dICfJ} */
 struct A333 { d m0; I m1; C m2; f m3; J m4; };
 int f_cmpA333(const struct A333 *x, const struct A333 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA333() {
+DCaggr* f_touchA333() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A333));
@@ -6592,7 +6592,7 @@ DCaggr* f_touchdcstA333() {
 /* {ipJsjjjc{SLdLdCcSdp[4]CS}J{dICfJ}i} */
 struct A334 { i m0; p m1; J m2; s m3; j m4; j m5; j m6; c m7; struct A332 m8; J m9; struct A333 m10; i m11; };
 int f_cmpA334(const struct A334 *x, const struct A334 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA332(&x->m8, &y->m8) && x->m9 == y->m9 && f_cmpA333(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA334() {
+DCaggr* f_touchA334() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A334));
@@ -6615,7 +6615,7 @@ DCaggr* f_touchdcstA334() {
 /* <cCiSdS{ipJsjjjc{SLdLdCcSdp[4]CS}J{dICfJ}i}djCSB> */
 union A335 { c m0; C m1; i m2; S m3; d m4; S m5; struct A334 m6; d m7; j m8; C m9; S m10; B m11; };
 int f_cmpA335(const union A335 *x, const union A335 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA334(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA335() {
+DCaggr* f_touchA335() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A335));
@@ -6638,7 +6638,7 @@ DCaggr* f_touchdcstA335() {
 /* {JBj} */
 struct A336 { J m0; B m1; j m2; };
 int f_cmpA336(const struct A336 *x, const struct A336 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA336() {
+DCaggr* f_touchA336() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A336));
@@ -6652,7 +6652,7 @@ DCaggr* f_touchdcstA336() {
 /* <dLlilCldpsdS> */
 union A337 { d m0; L m1; l m2; i m3; l m4; C m5; l m6; d m7; p m8; s m9; d m10; S m11; };
 int f_cmpA337(const union A337 *x, const union A337 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA337() {
+DCaggr* f_touchA337() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A337));
@@ -6675,7 +6675,7 @@ DCaggr* f_touchdcstA337() {
 /* <i<dLlilCldpsdS>[6]dic> */
 union A338 { i m0; union A337 m1[6]; d m2; i m3; c m4; };
 int f_cmpA338(const union A338 *x, const union A338 *y) { return x->m0 == y->m0 && f_cmpA337(&x->m1[0], &y->m1[0]) && f_cmpA337(&x->m1[1], &y->m1[1]) && f_cmpA337(&x->m1[2], &y->m1[2]) && f_cmpA337(&x->m1[3], &y->m1[3]) && f_cmpA337(&x->m1[4], &y->m1[4]) && f_cmpA337(&x->m1[5], &y->m1[5]) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA338() {
+DCaggr* f_touchA338() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A338));
@@ -6691,7 +6691,7 @@ DCaggr* f_touchdcstA338() {
 /* {{JBj}dLscd<i<dLlilCldpsdS>[6]dic>cJlI} */
 struct A339 { struct A336 m0; d m1; L m2; s m3; c m4; d m5; union A338 m6; c m7; J m8; l m9; I m10; };
 int f_cmpA339(const struct A339 *x, const struct A339 *y) { return f_cmpA336(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA338(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA339() {
+DCaggr* f_touchA339() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(struct A339));
@@ -6713,7 +6713,7 @@ DCaggr* f_touchdcstA339() {
 /* <cdld> */
 union A340 { c m0; d m1; l m2; d m3; };
 int f_cmpA340(const union A340 *x, const union A340 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA340() {
+DCaggr* f_touchA340() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A340));
@@ -6728,7 +6728,7 @@ DCaggr* f_touchdcstA340() {
 /* <<cdld>BdBslJJIcfp> */
 union A341 { union A340 m0; B m1; d m2; B m3; s m4; l m5; J m6; J m7; I m8; c m9; f m10; p m11; };
 int f_cmpA341(const union A341 *x, const union A341 *y) { return f_cmpA340(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA341() {
+DCaggr* f_touchA341() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A341));
@@ -6751,7 +6751,7 @@ DCaggr* f_touchdcstA341() {
 /* {Jpj[11]C[16]psLisfpi} */
 struct A342 { J m0; p m1; j m2[11]; C m3[16]; p m4; s m5; L m6; i m7; s m8; f m9; p m10; i m11; };
 int f_cmpA342(const struct A342 *x, const struct A342 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2[0] == y->m2[0] && x->m2[1] == y->m2[1] && x->m2[2] == y->m2[2] && x->m2[3] == y->m2[3] && x->m2[4] == y->m2[4] && x->m2[5] == y->m2[5] && x->m2[6] == y->m2[6] && x->m2[7] == y->m2[7] && x->m2[8] == y->m2[8] && x->m2[9] == y->m2[9] && x->m2[10] == y->m2[10] && x->m3[0] == y->m3[0] && x->m3[1] == y->m3[1] && x->m3[2] == y->m3[2] && x->m3[3] == y->m3[3] && x->m3[4] == y->m3[4] && x->m3[5] == y->m3[5] && x->m3[6] == y->m3[6] && x->m3[7] == y->m3[7] && x->m3[8] == y->m3[8] && x->m3[9] == y->m3[9] && x->m3[10] == y->m3[10] && x->m3[11] == y->m3[11] && x->m3[12] == y->m3[12] && x->m3[13] == y->m3[13] && x->m3[14] == y->m3[14] && x->m3[15] == y->m3[15] && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA342() {
+DCaggr* f_touchA342() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A342));
@@ -6774,7 +6774,7 @@ DCaggr* f_touchdcstA342() {
 /* {sLCJICsfCpJC} */
 struct A343 { s m0; L m1; C m2; J m3; I m4; C m5; s m6; f m7; C m8; p m9; J m10; C m11; };
 int f_cmpA343(const struct A343 *x, const struct A343 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA343() {
+DCaggr* f_touchA343() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A343));
@@ -6797,7 +6797,7 @@ DCaggr* f_touchdcstA343() {
 /* <Bi{sLCJICsfCpJC}jIBLcBLJC> */
 union A344 { B m0; i m1; struct A343 m2; j m3; I m4; B m5; L m6; c m7; B m8; L m9; J m10; C m11; };
 int f_cmpA344(const union A344 *x, const union A344 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA343(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA344() {
+DCaggr* f_touchA344() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A344));
@@ -6820,7 +6820,7 @@ DCaggr* f_touchdcstA344() {
 /* <jsSCcp> */
 union A345 { j m0; s m1; S m2; C m3; c m4; p m5; };
 int f_cmpA345(const union A345 *x, const union A345 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA345() {
+DCaggr* f_touchA345() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(union A345));
@@ -6837,7 +6837,7 @@ DCaggr* f_touchdcstA345() {
 /* {ssIiJpiSpBJc} */
 struct A346 { s m0; s m1; I m2; i m3; J m4; p m5; i m6; S m7; p m8; B m9; J m10; c m11; };
 int f_cmpA346(const struct A346 *x, const struct A346 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA346() {
+DCaggr* f_touchA346() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A346));
@@ -6860,7 +6860,7 @@ DCaggr* f_touchdcstA346() {
 /* <L> */
 union A347 { L m0; };
 int f_cmpA347(const union A347 *x, const union A347 *y) { return x->m0 == y->m0; };
-DCaggr* f_touchdcstA347() {
+DCaggr* f_touchA347() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(1, sizeof(union A347));
@@ -6872,7 +6872,7 @@ DCaggr* f_touchdcstA347() {
 /* <sJ{ssIiJpiSpBJc}lBp<L>Bl> */
 union A348 { s m0; J m1; struct A346 m2; l m3; B m4; p m5; union A347 m6; B m7; l m8; };
 int f_cmpA348(const union A348 *x, const union A348 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA346(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA347(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA348() {
+DCaggr* f_touchA348() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A348));
@@ -6892,7 +6892,7 @@ DCaggr* f_touchdcstA348() {
 /* {fCiIIjs[7]SSlLp} */
 struct A349 { f m0; C m1; i m2; I m3; I m4; j m5; s m6[7]; S m7; S m8; l m9; L m10; p m11; };
 int f_cmpA349(const struct A349 *x, const struct A349 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6[0] == y->m6[0] && x->m6[1] == y->m6[1] && x->m6[2] == y->m6[2] && x->m6[3] == y->m6[3] && x->m6[4] == y->m6[4] && x->m6[5] == y->m6[5] && x->m6[6] == y->m6[6] && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA349() {
+DCaggr* f_touchA349() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A349));
@@ -6915,7 +6915,7 @@ DCaggr* f_touchdcstA349() {
 /* {lpSSBpBf} */
 struct A350 { l m0; p m1; S m2; S m3; B m4; p m5; B m6; f m7; };
 int f_cmpA350(const struct A350 *x, const struct A350 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA350() {
+DCaggr* f_touchA350() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(struct A350));
@@ -6934,7 +6934,7 @@ DCaggr* f_touchdcstA350() {
 /* {ilBdiSlJ} */
 struct A351 { i m0; l m1; B m2; d m3; i m4; S m5; l m6; J m7; };
 int f_cmpA351(const struct A351 *x, const struct A351 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA351() {
+DCaggr* f_touchA351() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(struct A351));
@@ -6953,7 +6953,7 @@ DCaggr* f_touchdcstA351() {
 /* <jBCccJsJc{ilBdiSlJ}Cc> */
 union A352 { j m0; B m1; C m2; c m3; c m4; J m5; s m6; J m7; c m8; struct A351 m9; C m10; c m11; };
 int f_cmpA352(const union A352 *x, const union A352 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && f_cmpA351(&x->m9, &y->m9) && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA352() {
+DCaggr* f_touchA352() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A352));
@@ -6976,7 +6976,7 @@ DCaggr* f_touchdcstA352() {
 /* {lpCpdcSJSjSL} */
 struct A353 { l m0; p m1; C m2; p m3; d m4; c m5; S m6; J m7; S m8; j m9; S m10; L m11; };
 int f_cmpA353(const struct A353 *x, const struct A353 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA353() {
+DCaggr* f_touchA353() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A353));
@@ -6999,7 +6999,7 @@ DCaggr* f_touchdcstA353() {
 /* {JcLjfLfBBdSJ} */
 struct A354 { J m0; c m1; L m2; j m3; f m4; L m5; f m6; B m7; B m8; d m9; S m10; J m11; };
 int f_cmpA354(const struct A354 *x, const struct A354 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA354() {
+DCaggr* f_touchA354() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A354));
@@ -7022,7 +7022,7 @@ DCaggr* f_touchdcstA354() {
 /* <IJCdlJfiiSpj> */
 union A355 { I m0; J m1; C m2; d m3; l m4; J m5; f m6; i m7; i m8; S m9; p m10; j m11; };
 int f_cmpA355(const union A355 *x, const union A355 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA355() {
+DCaggr* f_touchA355() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A355));
@@ -7045,7 +7045,7 @@ DCaggr* f_touchdcstA355() {
 /* <<IJCdlJfiiSpj>dfj> */
 union A356 { union A355 m0; d m1; f m2; j m3; };
 int f_cmpA356(const union A356 *x, const union A356 *y) { return f_cmpA355(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA356() {
+DCaggr* f_touchA356() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A356));
@@ -7060,7 +7060,7 @@ DCaggr* f_touchdcstA356() {
 /* <pi[6]{JcLjfLfBBdSJ}<<IJCdlJfiiSpj>dfj>djBSJlJs> */
 union A357 { p m0; i m1[6]; struct A354 m2; union A356 m3; d m4; j m5; B m6; S m7; J m8; l m9; J m10; s m11; };
 int f_cmpA357(const union A357 *x, const union A357 *y) { return x->m0 == y->m0 && x->m1[0] == y->m1[0] && x->m1[1] == y->m1[1] && x->m1[2] == y->m1[2] && x->m1[3] == y->m1[3] && x->m1[4] == y->m1[4] && x->m1[5] == y->m1[5] && f_cmpA354(&x->m2, &y->m2) && f_cmpA356(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA357() {
+DCaggr* f_touchA357() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A357));
@@ -7083,7 +7083,7 @@ DCaggr* f_touchdcstA357() {
 /* {LBc[15]IjLjsccc} */
 struct A358 { L m0; B m1; c m2[15]; I m3; j m4; L m5; j m6; s m7; c m8; c m9; c m10; };
 int f_cmpA358(const struct A358 *x, const struct A358 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2[0] == y->m2[0] && x->m2[1] == y->m2[1] && x->m2[2] == y->m2[2] && x->m2[3] == y->m2[3] && x->m2[4] == y->m2[4] && x->m2[5] == y->m2[5] && x->m2[6] == y->m2[6] && x->m2[7] == y->m2[7] && x->m2[8] == y->m2[8] && x->m2[9] == y->m2[9] && x->m2[10] == y->m2[10] && x->m2[11] == y->m2[11] && x->m2[12] == y->m2[12] && x->m2[13] == y->m2[13] && x->m2[14] == y->m2[14] && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA358() {
+DCaggr* f_touchA358() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(struct A358));
@@ -7105,7 +7105,7 @@ DCaggr* f_touchdcstA358() {
 /* <lCjfIfffdiJj> */
 union A359 { l m0; C m1; j m2; f m3; I m4; f m5; f m6; f m7; d m8; i m9; J m10; j m11; };
 int f_cmpA359(const union A359 *x, const union A359 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA359() {
+DCaggr* f_touchA359() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A359));
@@ -7128,7 +7128,7 @@ DCaggr* f_touchdcstA359() {
 /* <ilfld> */
 union A360 { i m0; l m1; f m2; l m3; d m4; };
 int f_cmpA360(const union A360 *x, const union A360 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA360() {
+DCaggr* f_touchA360() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A360));
@@ -7144,7 +7144,7 @@ DCaggr* f_touchdcstA360() {
 /* <lLllIBfJcjii> */
 union A361 { l m0; L m1; l m2; l m3; I m4; B m5; f m6; J m7; c m8; j m9; i m10; i m11; };
 int f_cmpA361(const union A361 *x, const union A361 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA361() {
+DCaggr* f_touchA361() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A361));
@@ -7167,7 +7167,7 @@ DCaggr* f_touchdcstA361() {
 /* {ppfLBi} */
 struct A362 { p m0; p m1; f m2; L m3; B m4; i m5; };
 int f_cmpA362(const struct A362 *x, const struct A362 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA362() {
+DCaggr* f_touchA362() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(struct A362));
@@ -7184,7 +7184,7 @@ DCaggr* f_touchdcstA362() {
 /* {Bp} */
 struct A363 { B m0; p m1; };
 int f_cmpA363(const struct A363 *x, const struct A363 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA363() {
+DCaggr* f_touchA363() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(struct A363));
@@ -7197,7 +7197,7 @@ DCaggr* f_touchdcstA363() {
 /* {BlJJLdjLBfdC} */
 struct A364 { B m0; l m1; J m2; J m3; L m4; d m5; j m6; L m7; B m8; f m9; d m10; C m11; };
 int f_cmpA364(const struct A364 *x, const struct A364 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA364() {
+DCaggr* f_touchA364() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A364));
@@ -7220,7 +7220,7 @@ DCaggr* f_touchdcstA364() {
 /* {Spf} */
 struct A365 { S m0; p m1; f m2; };
 int f_cmpA365(const struct A365 *x, const struct A365 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA365() {
+DCaggr* f_touchA365() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A365));
@@ -7234,7 +7234,7 @@ DCaggr* f_touchdcstA365() {
 /* <BBJl> */
 union A366 { B m0; B m1; J m2; l m3; };
 int f_cmpA366(const union A366 *x, const union A366 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA366() {
+DCaggr* f_touchA366() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A366));
@@ -7249,7 +7249,7 @@ DCaggr* f_touchdcstA366() {
 /* {BjCjIlBBLJii} */
 struct A367 { B m0; j m1; C m2; j m3; I m4; l m5; B m6; B m7; L m8; J m9; i m10; i m11; };
 int f_cmpA367(const struct A367 *x, const struct A367 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA367() {
+DCaggr* f_touchA367() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A367));
@@ -7272,7 +7272,7 @@ DCaggr* f_touchdcstA367() {
 /* {iiCJBliLcCdJ} */
 struct A368 { i m0; i m1; C m2; J m3; B m4; l m5; i m6; L m7; c m8; C m9; d m10; J m11; };
 int f_cmpA368(const struct A368 *x, const struct A368 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA368() {
+DCaggr* f_touchA368() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A368));
@@ -7295,7 +7295,7 @@ DCaggr* f_touchdcstA368() {
 /* <pSccIcf> */
 union A369 { p m0; S m1; c m2; c m3; I m4; c m5; f m6; };
 int f_cmpA369(const union A369 *x, const union A369 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA369() {
+DCaggr* f_touchA369() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(union A369));
@@ -7313,7 +7313,7 @@ DCaggr* f_touchdcstA369() {
 /* <c{BjCjIlBBLJii}j{iiCJBliLcCdJ}f<pSccIcf>> */
 union A370 { c m0; struct A367 m1; j m2; struct A368 m3; f m4; union A369 m5; };
 int f_cmpA370(const union A370 *x, const union A370 *y) { return x->m0 == y->m0 && f_cmpA367(&x->m1, &y->m1) && x->m2 == y->m2 && f_cmpA368(&x->m3, &y->m3) && x->m4 == y->m4 && f_cmpA369(&x->m5, &y->m5); };
-DCaggr* f_touchdcstA370() {
+DCaggr* f_touchA370() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(union A370));
@@ -7330,7 +7330,7 @@ DCaggr* f_touchdcstA370() {
 /* {f{Spf}J<BBJl>CISI<c{BjCjIlBBLJii}j{iiCJBliLcCdJ}f<pSccIcf>>cCj} */
 struct A371 { f m0; struct A365 m1; J m2; union A366 m3; C m4; I m5; S m6; I m7; union A370 m8; c m9; C m10; j m11; };
 int f_cmpA371(const struct A371 *x, const struct A371 *y) { return x->m0 == y->m0 && f_cmpA365(&x->m1, &y->m1) && x->m2 == y->m2 && f_cmpA366(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA370(&x->m8, &y->m8) && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA371() {
+DCaggr* f_touchA371() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A371));
@@ -7353,7 +7353,7 @@ DCaggr* f_touchdcstA371() {
 /* <JpBjdJCLLICs> */
 union A372 { J m0; p m1; B m2; j m3; d m4; J m5; C m6; L m7; L m8; I m9; C m10; s m11; };
 int f_cmpA372(const union A372 *x, const union A372 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA372() {
+DCaggr* f_touchA372() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A372));
@@ -7376,7 +7376,7 @@ DCaggr* f_touchdcstA372() {
 /* {iLSid<JpBjdJCLLICs>pdipC[5]j} */
 struct A373 { i m0; L m1; S m2; i m3; d m4; union A372 m5; p m6; d m7; i m8; p m9; C m10[5]; j m11; };
 int f_cmpA373(const struct A373 *x, const struct A373 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA372(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10[0] == y->m10[0] && x->m10[1] == y->m10[1] && x->m10[2] == y->m10[2] && x->m10[3] == y->m10[3] && x->m10[4] == y->m10[4] && x->m11 == y->m11; };
-DCaggr* f_touchdcstA373() {
+DCaggr* f_touchA373() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A373));
@@ -7399,7 +7399,7 @@ DCaggr* f_touchdcstA373() {
 /* <Ids> */
 union A374 { I m0; d m1; s m2; };
 int f_cmpA374(const union A374 *x, const union A374 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA374() {
+DCaggr* f_touchA374() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A374));
@@ -7413,7 +7413,7 @@ DCaggr* f_touchdcstA374() {
 /* <Cjfi> */
 union A375 { C m0; j m1; f m2; i m3; };
 int f_cmpA375(const union A375 *x, const union A375 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA375() {
+DCaggr* f_touchA375() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A375));
@@ -7428,7 +7428,7 @@ DCaggr* f_touchdcstA375() {
 /* {lpjlIIsijfIJ} */
 struct A376 { l m0; p m1; j m2; l m3; I m4; I m5; s m6; i m7; j m8; f m9; I m10; J m11; };
 int f_cmpA376(const struct A376 *x, const struct A376 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA376() {
+DCaggr* f_touchA376() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A376));
@@ -7451,7 +7451,7 @@ DCaggr* f_touchdcstA376() {
 /* <<Ids>l<Cjfi>Sl{lpjlIIsijfIJ}ClCJpS> */
 union A377 { union A374 m0; l m1; union A375 m2; S m3; l m4; struct A376 m5; C m6; l m7; C m8; J m9; p m10; S m11; };
 int f_cmpA377(const union A377 *x, const union A377 *y) { return f_cmpA374(&x->m0, &y->m0) && x->m1 == y->m1 && f_cmpA375(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA376(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA377() {
+DCaggr* f_touchA377() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A377));
@@ -7474,7 +7474,7 @@ DCaggr* f_touchdcstA377() {
 /* {d} */
 struct A378 { d m0; };
 int f_cmpA378(const struct A378 *x, const struct A378 *y) { return x->m0 == y->m0; };
-DCaggr* f_touchdcstA378() {
+DCaggr* f_touchA378() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(1, sizeof(struct A378));
@@ -7486,7 +7486,7 @@ DCaggr* f_touchdcstA378() {
 /* {JJSjsCsiLcfc} */
 struct A379 { J m0; J m1; S m2; j m3; s m4; C m5; s m6; i m7; L m8; c m9; f m10; c m11; };
 int f_cmpA379(const struct A379 *x, const struct A379 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA379() {
+DCaggr* f_touchA379() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A379));
@@ -7509,7 +7509,7 @@ DCaggr* f_touchdcstA379() {
 /* <iLJILijLlSjc> */
 union A380 { i m0; L m1; J m2; I m3; L m4; i m5; j m6; L m7; l m8; S m9; j m10; c m11; };
 int f_cmpA380(const union A380 *x, const union A380 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA380() {
+DCaggr* f_touchA380() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A380));
@@ -7532,7 +7532,7 @@ DCaggr* f_touchdcstA380() {
 /* <Si[16]IjiBJLlSCJ> */
 union A381 { S m0; i m1[16]; I m2; j m3; i m4; B m5; J m6; L m7; l m8; S m9; C m10; J m11; };
 int f_cmpA381(const union A381 *x, const union A381 *y) { return x->m0 == y->m0 && x->m1[0] == y->m1[0] && x->m1[1] == y->m1[1] && x->m1[2] == y->m1[2] && x->m1[3] == y->m1[3] && x->m1[4] == y->m1[4] && x->m1[5] == y->m1[5] && x->m1[6] == y->m1[6] && x->m1[7] == y->m1[7] && x->m1[8] == y->m1[8] && x->m1[9] == y->m1[9] && x->m1[10] == y->m1[10] && x->m1[11] == y->m1[11] && x->m1[12] == y->m1[12] && x->m1[13] == y->m1[13] && x->m1[14] == y->m1[14] && x->m1[15] == y->m1[15] && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA381() {
+DCaggr* f_touchA381() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A381));
@@ -7555,7 +7555,7 @@ DCaggr* f_touchdcstA381() {
 /* <sl[9]l[16]p> */
 union A382 { s m0; l m1[9]; l m2[16]; p m3; };
 int f_cmpA382(const union A382 *x, const union A382 *y) { return x->m0 == y->m0 && x->m1[0] == y->m1[0] && x->m1[1] == y->m1[1] && x->m1[2] == y->m1[2] && x->m1[3] == y->m1[3] && x->m1[4] == y->m1[4] && x->m1[5] == y->m1[5] && x->m1[6] == y->m1[6] && x->m1[7] == y->m1[7] && x->m1[8] == y->m1[8] && x->m2[0] == y->m2[0] && x->m2[1] == y->m2[1] && x->m2[2] == y->m2[2] && x->m2[3] == y->m2[3] && x->m2[4] == y->m2[4] && x->m2[5] == y->m2[5] && x->m2[6] == y->m2[6] && x->m2[7] == y->m2[7] && x->m2[8] == y->m2[8] && x->m2[9] == y->m2[9] && x->m2[10] == y->m2[10] && x->m2[11] == y->m2[11] && x->m2[12] == y->m2[12] && x->m2[13] == y->m2[13] && x->m2[14] == y->m2[14] && x->m2[15] == y->m2[15] && x->m3 == y->m3; };
-DCaggr* f_touchdcstA382() {
+DCaggr* f_touchA382() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A382));
@@ -7570,7 +7570,7 @@ DCaggr* f_touchdcstA382() {
 /* <ljJ> */
 union A383 { l m0; j m1; J m2; };
 int f_cmpA383(const union A383 *x, const union A383 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA383() {
+DCaggr* f_touchA383() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A383));
@@ -7584,7 +7584,7 @@ DCaggr* f_touchdcstA383() {
 /* <<Si[16]IjiBJLlSCJ><sl[9]l[16]p>sC[12]<ljJ>Jilf> */
 union A384 { union A381 m0; union A382 m1; s m2; C m3[12]; union A383 m4; J m5; i m6; l m7; f m8; };
 int f_cmpA384(const union A384 *x, const union A384 *y) { return f_cmpA381(&x->m0, &y->m0) && f_cmpA382(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3[0] == y->m3[0] && x->m3[1] == y->m3[1] && x->m3[2] == y->m3[2] && x->m3[3] == y->m3[3] && x->m3[4] == y->m3[4] && x->m3[5] == y->m3[5] && x->m3[6] == y->m3[6] && x->m3[7] == y->m3[7] && x->m3[8] == y->m3[8] && x->m3[9] == y->m3[9] && x->m3[10] == y->m3[10] && x->m3[11] == y->m3[11] && f_cmpA383(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA384() {
+DCaggr* f_touchA384() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A384));
@@ -7604,7 +7604,7 @@ DCaggr* f_touchdcstA384() {
 /* <d> */
 union A385 { d m0; };
 int f_cmpA385(const union A385 *x, const union A385 *y) { return x->m0 == y->m0; };
-DCaggr* f_touchdcstA385() {
+DCaggr* f_touchA385() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(1, sizeof(union A385));
@@ -7616,7 +7616,7 @@ DCaggr* f_touchdcstA385() {
 /* <pjddLiIjL> */
 union A386 { p m0; j m1; d m2; d m3; L m4; i m5; I m6; j m7; L m8; };
 int f_cmpA386(const union A386 *x, const union A386 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA386() {
+DCaggr* f_touchA386() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A386));
@@ -7636,7 +7636,7 @@ DCaggr* f_touchdcstA386() {
 /* <lilpCBCsdlIf> */
 union A387 { l m0; i m1; l m2; p m3; C m4; B m5; C m6; s m7; d m8; l m9; I m10; f m11; };
 int f_cmpA387(const union A387 *x, const union A387 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA387() {
+DCaggr* f_touchA387() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A387));
@@ -7659,7 +7659,7 @@ DCaggr* f_touchdcstA387() {
 /* <J<d>SJISBp<pjddLiIjL>IS<lilpCBCsdlIf>> */
 union A388 { J m0; union A385 m1; S m2; J m3; I m4; S m5; B m6; p m7; union A386 m8; I m9; S m10; union A387 m11; };
 int f_cmpA388(const union A388 *x, const union A388 *y) { return x->m0 == y->m0 && f_cmpA385(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA386(&x->m8, &y->m8) && x->m9 == y->m9 && x->m10 == y->m10 && f_cmpA387(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA388() {
+DCaggr* f_touchA388() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A388));
@@ -7682,7 +7682,7 @@ DCaggr* f_touchdcstA388() {
 /* {s<<Si[16]IjiBJLlSCJ><sl[9]l[16]p>sC[12]<ljJ>Jilf>lf<J<d>SJISBp<pjddLiIjL>IS<lilpCBCsdlIf>>Bc} */
 struct A389 { s m0; union A384 m1; l m2; f m3; union A388 m4; B m5; c m6; };
 int f_cmpA389(const struct A389 *x, const struct A389 *y) { return x->m0 == y->m0 && f_cmpA384(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA388(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA389() {
+DCaggr* f_touchA389() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(struct A389));
@@ -7700,7 +7700,7 @@ DCaggr* f_touchdcstA389() {
 /* {SLJpjspcssCL} */
 struct A390 { S m0; L m1; J m2; p m3; j m4; s m5; p m6; c m7; s m8; s m9; C m10; L m11; };
 int f_cmpA390(const struct A390 *x, const struct A390 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA390() {
+DCaggr* f_touchA390() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A390));
@@ -7723,7 +7723,7 @@ DCaggr* f_touchdcstA390() {
 /* <dSpiBspjlBjd> */
 union A391 { d m0; S m1; p m2; i m3; B m4; s m5; p m6; j m7; l m8; B m9; j m10; d m11; };
 int f_cmpA391(const union A391 *x, const union A391 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA391() {
+DCaggr* f_touchA391() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A391));
@@ -7746,7 +7746,7 @@ DCaggr* f_touchdcstA391() {
 /* {fLisLIfldIdB} */
 struct A392 { f m0; L m1; i m2; s m3; L m4; I m5; f m6; l m7; d m8; I m9; d m10; B m11; };
 int f_cmpA392(const struct A392 *x, const struct A392 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA392() {
+DCaggr* f_touchA392() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A392));
@@ -7769,7 +7769,7 @@ DCaggr* f_touchdcstA392() {
 /* <<dSpiBspjlBjd>fcpBs{fLisLIfldIdB}[8]CLSjc> */
 union A393 { union A391 m0; f m1; c m2; p m3; B m4; s m5; struct A392 m6[8]; C m7; L m8; S m9; j m10; c m11; };
 int f_cmpA393(const union A393 *x, const union A393 *y) { return f_cmpA391(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA392(&x->m6[0], &y->m6[0]) && f_cmpA392(&x->m6[1], &y->m6[1]) && f_cmpA392(&x->m6[2], &y->m6[2]) && f_cmpA392(&x->m6[3], &y->m6[3]) && f_cmpA392(&x->m6[4], &y->m6[4]) && f_cmpA392(&x->m6[5], &y->m6[5]) && f_cmpA392(&x->m6[6], &y->m6[6]) && f_cmpA392(&x->m6[7], &y->m6[7]) && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA393() {
+DCaggr* f_touchA393() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A393));
@@ -7792,7 +7792,7 @@ DCaggr* f_touchdcstA393() {
 /* <cSSd[10]sCJIjICc> */
 union A394 { c m0; S m1; S m2; d m3[10]; s m4; C m5; J m6; I m7; j m8; I m9; C m10; c m11; };
 int f_cmpA394(const union A394 *x, const union A394 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3[0] == y->m3[0] && x->m3[1] == y->m3[1] && x->m3[2] == y->m3[2] && x->m3[3] == y->m3[3] && x->m3[4] == y->m3[4] && x->m3[5] == y->m3[5] && x->m3[6] == y->m3[6] && x->m3[7] == y->m3[7] && x->m3[8] == y->m3[8] && x->m3[9] == y->m3[9] && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA394() {
+DCaggr* f_touchA394() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A394));
@@ -7815,7 +7815,7 @@ DCaggr* f_touchdcstA394() {
 /* {fijSclScSLcB} */
 struct A395 { f m0; i m1; j m2; S m3; c m4; l m5; S m6; c m7; S m8; L m9; c m10; B m11; };
 int f_cmpA395(const struct A395 *x, const struct A395 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA395() {
+DCaggr* f_touchA395() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A395));
@@ -7838,7 +7838,7 @@ DCaggr* f_touchdcstA395() {
 /* <{fijSclScSLcB}dfCcLJLLpji> */
 union A396 { struct A395 m0; d m1; f m2; C m3; c m4; L m5; J m6; L m7; L m8; p m9; j m10; i m11; };
 int f_cmpA396(const union A396 *x, const union A396 *y) { return f_cmpA395(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA396() {
+DCaggr* f_touchA396() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A396));
@@ -7861,7 +7861,7 @@ DCaggr* f_touchdcstA396() {
 /* <LJBLjLlBjIsd> */
 union A397 { L m0; J m1; B m2; L m3; j m4; L m5; l m6; B m7; j m8; I m9; s m10; d m11; };
 int f_cmpA397(const union A397 *x, const union A397 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA397() {
+DCaggr* f_touchA397() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A397));
@@ -7884,7 +7884,7 @@ DCaggr* f_touchdcstA397() {
 /* <jBdlilB<LJBLjLlBjIsd>Ids> */
 union A398 { j m0; B m1; d m2; l m3; i m4; l m5; B m6; union A397 m7; I m8; d m9; s m10; };
 int f_cmpA398(const union A398 *x, const union A398 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && f_cmpA397(&x->m7, &y->m7) && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA398() {
+DCaggr* f_touchA398() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(union A398));
@@ -7906,7 +7906,7 @@ DCaggr* f_touchdcstA398() {
 /* {pd} */
 struct A399 { p m0; d m1; };
 int f_cmpA399(const struct A399 *x, const struct A399 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA399() {
+DCaggr* f_touchA399() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(struct A399));
@@ -7919,7 +7919,7 @@ DCaggr* f_touchdcstA399() {
 /* {I{pd}lcLdlBSLss} */
 struct A400 { I m0; struct A399 m1; l m2; c m3; L m4; d m5; l m6; B m7; S m8; L m9; s m10; s m11; };
 int f_cmpA400(const struct A400 *x, const struct A400 *y) { return x->m0 == y->m0 && f_cmpA399(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA400() {
+DCaggr* f_touchA400() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A400));
@@ -7942,7 +7942,7 @@ DCaggr* f_touchdcstA400() {
 /* {psCsSJjipLiL[10]} */
 struct A401 { p m0; s m1; C m2; s m3; S m4; J m5; j m6; i m7; p m8; L m9; i m10; L m11[10]; };
 int f_cmpA401(const struct A401 *x, const struct A401 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11[0] == y->m11[0] && x->m11[1] == y->m11[1] && x->m11[2] == y->m11[2] && x->m11[3] == y->m11[3] && x->m11[4] == y->m11[4] && x->m11[5] == y->m11[5] && x->m11[6] == y->m11[6] && x->m11[7] == y->m11[7] && x->m11[8] == y->m11[8] && x->m11[9] == y->m11[9]; };
-DCaggr* f_touchdcstA401() {
+DCaggr* f_touchA401() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A401));
@@ -7965,7 +7965,7 @@ DCaggr* f_touchdcstA401() {
 /* {sS} */
 struct A402 { s m0; S m1; };
 int f_cmpA402(const struct A402 *x, const struct A402 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA402() {
+DCaggr* f_touchA402() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(struct A402));
@@ -7978,7 +7978,7 @@ DCaggr* f_touchdcstA402() {
 /* <{sS}lf> */
 union A403 { struct A402 m0; l m1; f m2; };
 int f_cmpA403(const union A403 *x, const union A403 *y) { return f_cmpA402(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA403() {
+DCaggr* f_touchA403() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A403));
@@ -7992,7 +7992,7 @@ DCaggr* f_touchdcstA403() {
 /* {jCIiLBlBC} */
 struct A404 { j m0; C m1; I m2; i m3; L m4; B m5; l m6; B m7; C m8; };
 int f_cmpA404(const struct A404 *x, const struct A404 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA404() {
+DCaggr* f_touchA404() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(struct A404));
@@ -8012,7 +8012,7 @@ DCaggr* f_touchdcstA404() {
 /* {CSlSJjcji} */
 struct A405 { C m0; S m1; l m2; S m3; J m4; j m5; c m6; j m7; i m8; };
 int f_cmpA405(const struct A405 *x, const struct A405 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA405() {
+DCaggr* f_touchA405() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(struct A405));
@@ -8032,7 +8032,7 @@ DCaggr* f_touchdcstA405() {
 /* <ClLLBJi[8]pIs> */
 union A406 { C m0; l m1; L m2; L m3; B m4; J m5; i m6[8]; p m7; I m8; s m9; };
 int f_cmpA406(const union A406 *x, const union A406 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6[0] == y->m6[0] && x->m6[1] == y->m6[1] && x->m6[2] == y->m6[2] && x->m6[3] == y->m6[3] && x->m6[4] == y->m6[4] && x->m6[5] == y->m6[5] && x->m6[6] == y->m6[6] && x->m6[7] == y->m6[7] && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA406() {
+DCaggr* f_touchA406() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A406));
@@ -8053,7 +8053,7 @@ DCaggr* f_touchdcstA406() {
 /* {BC[7]{jCIiLBlBC}[9]LJi{CSlSJjcji}ijB<ClLLBJi[8]pIs>} */
 struct A407 { B m0; C m1[7]; struct A404 m2[9]; L m3; J m4; i m5; struct A405 m6; i m7; j m8; B m9; union A406 m10; };
 int f_cmpA407(const struct A407 *x, const struct A407 *y) { return x->m0 == y->m0 && x->m1[0] == y->m1[0] && x->m1[1] == y->m1[1] && x->m1[2] == y->m1[2] && x->m1[3] == y->m1[3] && x->m1[4] == y->m1[4] && x->m1[5] == y->m1[5] && x->m1[6] == y->m1[6] && f_cmpA404(&x->m2[0], &y->m2[0]) && f_cmpA404(&x->m2[1], &y->m2[1]) && f_cmpA404(&x->m2[2], &y->m2[2]) && f_cmpA404(&x->m2[3], &y->m2[3]) && f_cmpA404(&x->m2[4], &y->m2[4]) && f_cmpA404(&x->m2[5], &y->m2[5]) && f_cmpA404(&x->m2[6], &y->m2[6]) && f_cmpA404(&x->m2[7], &y->m2[7]) && f_cmpA404(&x->m2[8], &y->m2[8]) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA405(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA406(&x->m10, &y->m10); };
-DCaggr* f_touchdcstA407() {
+DCaggr* f_touchA407() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(struct A407));
@@ -8075,7 +8075,7 @@ DCaggr* f_touchdcstA407() {
 /* <dLpjLCc<{sS}lf>s{BC[7]{jCIiLBlBC}[9]LJi{CSlSJjcji}ijB<ClLLBJi[8]pIs>}CS> */
 union A408 { d m0; L m1; p m2; j m3; L m4; C m5; c m6; union A403 m7; s m8; struct A407 m9; C m10; S m11; };
 int f_cmpA408(const union A408 *x, const union A408 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && f_cmpA403(&x->m7, &y->m7) && x->m8 == y->m8 && f_cmpA407(&x->m9, &y->m9) && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA408() {
+DCaggr* f_touchA408() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A408));
@@ -8098,7 +8098,7 @@ DCaggr* f_touchdcstA408() {
 /* {S<c>fLfdICldlI} */
 struct A409 { S m0; union A14 m1; f m2; L m3; f m4; d m5; I m6; C m7; l m8; d m9; l m10; I m11; };
 int f_cmpA409(const struct A409 *x, const struct A409 *y) { return x->m0 == y->m0 && f_cmpA14(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA409() {
+DCaggr* f_touchA409() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A409));
@@ -8121,7 +8121,7 @@ DCaggr* f_touchdcstA409() {
 /* <pd{S<c>fLfdICldlI}lJclfLBpl> */
 union A410 { p m0; d m1; struct A409 m2; l m3; J m4; c m5; l m6; f m7; L m8; B m9; p m10; l m11; };
 int f_cmpA410(const union A410 *x, const union A410 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA409(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA410() {
+DCaggr* f_touchA410() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A410));
@@ -8144,7 +8144,7 @@ DCaggr* f_touchdcstA410() {
 /* {LclIp} */
 struct A411 { L m0; c m1; l m2; I m3; p m4; };
 int f_cmpA411(const struct A411 *x, const struct A411 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA411() {
+DCaggr* f_touchA411() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A411));
@@ -8160,7 +8160,7 @@ DCaggr* f_touchdcstA411() {
 /* <B> */
 union A412 { B m0; };
 int f_cmpA412(const union A412 *x, const union A412 *y) { return x->m0 == y->m0; };
-DCaggr* f_touchdcstA412() {
+DCaggr* f_touchA412() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(1, sizeof(union A412));
@@ -8172,7 +8172,7 @@ DCaggr* f_touchdcstA412() {
 /* <cC<B>B> */
 union A413 { c m0; C m1; union A412 m2; B m3; };
 int f_cmpA413(const union A413 *x, const union A413 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA412(&x->m2, &y->m2) && x->m3 == y->m3; };
-DCaggr* f_touchdcstA413() {
+DCaggr* f_touchA413() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A413));
@@ -8187,7 +8187,7 @@ DCaggr* f_touchdcstA413() {
 /* <lLjBdIJ> */
 union A414 { l m0; L m1; j m2; B m3; d m4; I m5; J m6; };
 int f_cmpA414(const union A414 *x, const union A414 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA414() {
+DCaggr* f_touchA414() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(union A414));
@@ -8205,7 +8205,7 @@ DCaggr* f_touchdcstA414() {
 /* <JpLfCS> */
 union A415 { J m0; p m1; L m2; f m3; C m4; S m5; };
 int f_cmpA415(const union A415 *x, const union A415 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA415() {
+DCaggr* f_touchA415() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(union A415));
@@ -8222,7 +8222,7 @@ DCaggr* f_touchdcstA415() {
 /* <fdidsLc[2]<lLjBdIJ>l<JpLfCS>> */
 union A416 { f m0; d m1; i m2; d m3; s m4; L m5; c m6[2]; union A414 m7; l m8; union A415 m9; };
 int f_cmpA416(const union A416 *x, const union A416 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6[0] == y->m6[0] && x->m6[1] == y->m6[1] && f_cmpA414(&x->m7, &y->m7) && x->m8 == y->m8 && f_cmpA415(&x->m9, &y->m9); };
-DCaggr* f_touchdcstA416() {
+DCaggr* f_touchA416() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A416));
@@ -8243,7 +8243,7 @@ DCaggr* f_touchdcstA416() {
 /* <csCCi> */
 union A417 { c m0; s m1; C m2; C m3; i m4; };
 int f_cmpA417(const union A417 *x, const union A417 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA417() {
+DCaggr* f_touchA417() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A417));
@@ -8259,7 +8259,7 @@ DCaggr* f_touchdcstA417() {
 /* {JIlB[16]jcIBIClp} */
 struct A418 { J m0; I m1; l m2; B m3[16]; j m4; c m5; I m6; B m7; I m8; C m9; l m10; p m11; };
 int f_cmpA418(const struct A418 *x, const struct A418 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3[0] == y->m3[0] && x->m3[1] == y->m3[1] && x->m3[2] == y->m3[2] && x->m3[3] == y->m3[3] && x->m3[4] == y->m3[4] && x->m3[5] == y->m3[5] && x->m3[6] == y->m3[6] && x->m3[7] == y->m3[7] && x->m3[8] == y->m3[8] && x->m3[9] == y->m3[9] && x->m3[10] == y->m3[10] && x->m3[11] == y->m3[11] && x->m3[12] == y->m3[12] && x->m3[13] == y->m3[13] && x->m3[14] == y->m3[14] && x->m3[15] == y->m3[15] && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA418() {
+DCaggr* f_touchA418() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A418));
@@ -8282,7 +8282,7 @@ DCaggr* f_touchdcstA418() {
 /* <iIC> */
 union A419 { i m0; I m1; C m2; };
 int f_cmpA419(const union A419 *x, const union A419 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA419() {
+DCaggr* f_touchA419() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A419));
@@ -8296,7 +8296,7 @@ DCaggr* f_touchdcstA419() {
 /* <pC> */
 union A420 { p m0; C m1; };
 int f_cmpA420(const union A420 *x, const union A420 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA420() {
+DCaggr* f_touchA420() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A420));
@@ -8309,7 +8309,7 @@ DCaggr* f_touchdcstA420() {
 /* <isLs> */
 union A421 { i m0; s m1; L m2; s m3; };
 int f_cmpA421(const union A421 *x, const union A421 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA421() {
+DCaggr* f_touchA421() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A421));
@@ -8324,7 +8324,7 @@ DCaggr* f_touchdcstA421() {
 /* <lppCiIllddCi> */
 union A422 { l m0; p m1; p m2; C m3; i m4; I m5; l m6; l m7; d m8; d m9; C m10; i m11; };
 int f_cmpA422(const union A422 *x, const union A422 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA422() {
+DCaggr* f_touchA422() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A422));
@@ -8347,7 +8347,7 @@ DCaggr* f_touchdcstA422() {
 /* <S<pC>SfLipC<isLs>s<lppCiIllddCi>L> */
 union A423 { S m0; union A420 m1; S m2; f m3; L m4; i m5; p m6; C m7; union A421 m8; s m9; union A422 m10; L m11; };
 int f_cmpA423(const union A423 *x, const union A423 *y) { return x->m0 == y->m0 && f_cmpA420(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA421(&x->m8, &y->m8) && x->m9 == y->m9 && f_cmpA422(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA423() {
+DCaggr* f_touchA423() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A423));
@@ -8370,7 +8370,7 @@ DCaggr* f_touchdcstA423() {
 /* <cSJ<S<pC>SfLipC<isLs>s<lppCiIllddCi>L>di> */
 union A424 { c m0; S m1; J m2; union A423 m3; d m4; i m5; };
 int f_cmpA424(const union A424 *x, const union A424 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA423(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA424() {
+DCaggr* f_touchA424() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(union A424));
@@ -8387,7 +8387,7 @@ DCaggr* f_touchdcstA424() {
 /* <CipidIp> */
 union A425 { C m0; i m1; p m2; i m3; d m4; I m5; p m6; };
 int f_cmpA425(const union A425 *x, const union A425 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA425() {
+DCaggr* f_touchA425() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(union A425));
@@ -8405,7 +8405,7 @@ DCaggr* f_touchdcstA425() {
 /* <pss<CipidIp>> */
 union A426 { p m0; s m1; s m2; union A425 m3; };
 int f_cmpA426(const union A426 *x, const union A426 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA425(&x->m3, &y->m3); };
-DCaggr* f_touchdcstA426() {
+DCaggr* f_touchA426() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A426));
@@ -8420,7 +8420,7 @@ DCaggr* f_touchdcstA426() {
 /* {Lfc<pss<CipidIp>>Cc[2]jiL[6]Idj} */
 struct A427 { L m0; f m1; c m2; union A426 m3; C m4; c m5[2]; j m6; i m7; L m8[6]; I m9; d m10; j m11; };
 int f_cmpA427(const struct A427 *x, const struct A427 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA426(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5[0] == y->m5[0] && x->m5[1] == y->m5[1] && x->m6 == y->m6 && x->m7 == y->m7 && x->m8[0] == y->m8[0] && x->m8[1] == y->m8[1] && x->m8[2] == y->m8[2] && x->m8[3] == y->m8[3] && x->m8[4] == y->m8[4] && x->m8[5] == y->m8[5] && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA427() {
+DCaggr* f_touchA427() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A427));
@@ -8443,7 +8443,7 @@ DCaggr* f_touchdcstA427() {
 /* {jSLCfccj[3]cBj} */
 struct A428 { j m0; S m1; L m2; C m3; f m4; c m5; c m6; j m7[3]; c m8; B m9; j m10; };
 int f_cmpA428(const struct A428 *x, const struct A428 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7[0] == y->m7[0] && x->m7[1] == y->m7[1] && x->m7[2] == y->m7[2] && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA428() {
+DCaggr* f_touchA428() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(struct A428));
@@ -8465,7 +8465,7 @@ DCaggr* f_touchdcstA428() {
 /* <cpBBSjplilCJ> */
 union A429 { c m0; p m1; B m2; B m3; S m4; j m5; p m6; l m7; i m8; l m9; C m10; J m11; };
 int f_cmpA429(const union A429 *x, const union A429 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA429() {
+DCaggr* f_touchA429() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A429));
@@ -8488,7 +8488,7 @@ DCaggr* f_touchdcstA429() {
 /* <BdC[10]iiSLCS> */
 union A430 { B m0; d m1; C m2[10]; i m3; i m4; S m5; L m6; C m7; S m8; };
 int f_cmpA430(const union A430 *x, const union A430 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2[0] == y->m2[0] && x->m2[1] == y->m2[1] && x->m2[2] == y->m2[2] && x->m2[3] == y->m2[3] && x->m2[4] == y->m2[4] && x->m2[5] == y->m2[5] && x->m2[6] == y->m2[6] && x->m2[7] == y->m2[7] && x->m2[8] == y->m2[8] && x->m2[9] == y->m2[9] && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA430() {
+DCaggr* f_touchA430() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A430));
@@ -8508,7 +8508,7 @@ DCaggr* f_touchdcstA430() {
 /* <{jSLCfccj[3]cBj}dIl<cpBBSjplilCJ>jpiLd<BdC[10]iiSLCS>I> */
 union A431 { struct A428 m0; d m1; I m2; l m3; union A429 m4; j m5; p m6; i m7; L m8; d m9; union A430 m10; I m11; };
 int f_cmpA431(const union A431 *x, const union A431 *y) { return f_cmpA428(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA429(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA430(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA431() {
+DCaggr* f_touchA431() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A431));
@@ -8531,7 +8531,7 @@ DCaggr* f_touchdcstA431() {
 /* {sISsiLLCdBjf} */
 struct A432 { s m0; I m1; S m2; s m3; i m4; L m5; L m6; C m7; d m8; B m9; j m10; f m11; };
 int f_cmpA432(const struct A432 *x, const struct A432 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA432() {
+DCaggr* f_touchA432() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A432));
@@ -8554,7 +8554,7 @@ DCaggr* f_touchdcstA432() {
 /* {jdCfIB[3]CCJpIs} */
 struct A433 { j m0; d m1; C m2; f m3; I m4; B m5[3]; C m6; C m7; J m8; p m9; I m10; s m11; };
 int f_cmpA433(const struct A433 *x, const struct A433 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5[0] == y->m5[0] && x->m5[1] == y->m5[1] && x->m5[2] == y->m5[2] && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA433() {
+DCaggr* f_touchA433() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A433));
@@ -8577,7 +8577,7 @@ DCaggr* f_touchdcstA433() {
 /* {lsj} */
 struct A434 { l m0; s m1; j m2; };
 int f_cmpA434(const struct A434 *x, const struct A434 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA434() {
+DCaggr* f_touchA434() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A434));
@@ -8591,7 +8591,7 @@ DCaggr* f_touchdcstA434() {
 /* <jpL{jdCfIB[3]CCJpIs}d[14]psJcs{lsj}C> */
 union A435 { j m0; p m1; L m2; struct A433 m3; d m4[14]; p m5; s m6; J m7; c m8; s m9; struct A434 m10; C m11; };
 int f_cmpA435(const union A435 *x, const union A435 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA433(&x->m3, &y->m3) && x->m4[0] == y->m4[0] && x->m4[1] == y->m4[1] && x->m4[2] == y->m4[2] && x->m4[3] == y->m4[3] && x->m4[4] == y->m4[4] && x->m4[5] == y->m4[5] && x->m4[6] == y->m4[6] && x->m4[7] == y->m4[7] && x->m4[8] == y->m4[8] && x->m4[9] == y->m4[9] && x->m4[10] == y->m4[10] && x->m4[11] == y->m4[11] && x->m4[12] == y->m4[12] && x->m4[13] == y->m4[13] && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA434(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA435() {
+DCaggr* f_touchA435() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A435));
@@ -8614,7 +8614,7 @@ DCaggr* f_touchdcstA435() {
 /* <lIipfpsllf> */
 union A436 { l m0; I m1; i m2; p m3; f m4; p m5; s m6; l m7; l m8; f m9; };
 int f_cmpA436(const union A436 *x, const union A436 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA436() {
+DCaggr* f_touchA436() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A436));
@@ -8635,7 +8635,7 @@ DCaggr* f_touchdcstA436() {
 /* <Lll> */
 union A437 { L m0; l m1; l m2; };
 int f_cmpA437(const union A437 *x, const union A437 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA437() {
+DCaggr* f_touchA437() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A437));
@@ -8649,7 +8649,7 @@ DCaggr* f_touchdcstA437() {
 /* {sIcsffdij} */
 struct A438 { s m0; I m1; c m2; s m3; f m4; f m5; d m6; i m7; j m8; };
 int f_cmpA438(const struct A438 *x, const struct A438 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA438() {
+DCaggr* f_touchA438() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(struct A438));
@@ -8669,7 +8669,7 @@ DCaggr* f_touchdcstA438() {
 /* <dJSci> */
 union A439 { d m0; J m1; S m2; c m3; i m4; };
 int f_cmpA439(const union A439 *x, const union A439 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA439() {
+DCaggr* f_touchA439() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A439));
@@ -8685,7 +8685,7 @@ DCaggr* f_touchdcstA439() {
 /* {JLpiJpJ} */
 struct A440 { J m0; L m1; p m2; i m3; J m4; p m5; J m6; };
 int f_cmpA440(const struct A440 *x, const struct A440 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA440() {
+DCaggr* f_touchA440() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(struct A440));
@@ -8703,7 +8703,7 @@ DCaggr* f_touchdcstA440() {
 /* {fIijcIBfsf[4]JL} */
 struct A441 { f m0; I m1; i m2; j m3; c m4; I m5; B m6; f m7; s m8; f m9[4]; J m10; L m11; };
 int f_cmpA441(const struct A441 *x, const struct A441 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9[0] == y->m9[0] && x->m9[1] == y->m9[1] && x->m9[2] == y->m9[2] && x->m9[3] == y->m9[3] && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA441() {
+DCaggr* f_touchA441() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A441));
@@ -8726,7 +8726,7 @@ DCaggr* f_touchdcstA441() {
 /* {<dJSci>fSp{JLpiJpJ}SBSdCc{fIijcIBfsf[4]JL}} */
 struct A442 { union A439 m0; f m1; S m2; p m3; struct A440 m4; S m5; B m6; S m7; d m8; C m9; c m10; struct A441 m11; };
 int f_cmpA442(const struct A442 *x, const struct A442 *y) { return f_cmpA439(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA440(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && f_cmpA441(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA442() {
+DCaggr* f_touchA442() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A442));
@@ -8749,7 +8749,7 @@ DCaggr* f_touchdcstA442() {
 /* <ICCiljclJClL> */
 union A443 { I m0; C m1; C m2; i m3; l m4; j m5; c m6; l m7; J m8; C m9; l m10; L m11; };
 int f_cmpA443(const union A443 *x, const union A443 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA443() {
+DCaggr* f_touchA443() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A443));
@@ -8772,7 +8772,7 @@ DCaggr* f_touchdcstA443() {
 /* <jjfLCSIpdjBf> */
 union A444 { j m0; j m1; f m2; L m3; C m4; S m5; I m6; p m7; d m8; j m9; B m10; f m11; };
 int f_cmpA444(const union A444 *x, const union A444 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA444() {
+DCaggr* f_touchA444() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A444));
@@ -8795,7 +8795,7 @@ DCaggr* f_touchdcstA444() {
 /* <CfCL[13]SfscCscB> */
 union A445 { C m0; f m1; C m2; L m3[13]; S m4; f m5; s m6; c m7; C m8; s m9; c m10; B m11; };
 int f_cmpA445(const union A445 *x, const union A445 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3[0] == y->m3[0] && x->m3[1] == y->m3[1] && x->m3[2] == y->m3[2] && x->m3[3] == y->m3[3] && x->m3[4] == y->m3[4] && x->m3[5] == y->m3[5] && x->m3[6] == y->m3[6] && x->m3[7] == y->m3[7] && x->m3[8] == y->m3[8] && x->m3[9] == y->m3[9] && x->m3[10] == y->m3[10] && x->m3[11] == y->m3[11] && x->m3[12] == y->m3[12] && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA445() {
+DCaggr* f_touchA445() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A445));
@@ -8818,7 +8818,7 @@ DCaggr* f_touchdcstA445() {
 /* {BfCSIdc<jjfLCSIpdjBf><CfCL[13]SfscCscB>di} */
 struct A446 { B m0; f m1; C m2; S m3; I m4; d m5; c m6; union A444 m7; union A445 m8; d m9; i m10; };
 int f_cmpA446(const struct A446 *x, const struct A446 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && f_cmpA444(&x->m7, &y->m7) && f_cmpA445(&x->m8, &y->m8) && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA446() {
+DCaggr* f_touchA446() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(struct A446));
@@ -8840,7 +8840,7 @@ DCaggr* f_touchdcstA446() {
 /* {plsfLBBCCCJ[4]L} */
 struct A447 { p m0; l m1; s m2; f m3; L m4; B m5; B m6; C m7; C m8; C m9; J m10[4]; L m11; };
 int f_cmpA447(const struct A447 *x, const struct A447 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10[0] == y->m10[0] && x->m10[1] == y->m10[1] && x->m10[2] == y->m10[2] && x->m10[3] == y->m10[3] && x->m11 == y->m11; };
-DCaggr* f_touchdcstA447() {
+DCaggr* f_touchA447() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A447));
@@ -8863,7 +8863,7 @@ DCaggr* f_touchdcstA447() {
 /* <ccc[3]BIJ> */
 union A448 { c m0; c m1; c m2[3]; B m3; I m4; J m5; };
 int f_cmpA448(const union A448 *x, const union A448 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2[0] == y->m2[0] && x->m2[1] == y->m2[1] && x->m2[2] == y->m2[2] && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA448() {
+DCaggr* f_touchA448() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(union A448));
@@ -8880,7 +8880,7 @@ DCaggr* f_touchdcstA448() {
 /* {iSiB} */
 struct A449 { i m0; S m1; i m2; B m3; };
 int f_cmpA449(const struct A449 *x, const struct A449 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA449() {
+DCaggr* f_touchA449() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A449));
@@ -8895,7 +8895,7 @@ DCaggr* f_touchdcstA449() {
 /* {{plsfLBBCCCJ[4]L}Sd<ccc[3]BIJ>i{iSiB}Cf} */
 struct A450 { struct A447 m0; S m1; d m2; union A448 m3; i m4; struct A449 m5; C m6; f m7; };
 int f_cmpA450(const struct A450 *x, const struct A450 *y) { return f_cmpA447(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA448(&x->m3, &y->m3) && x->m4 == y->m4 && f_cmpA449(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA450() {
+DCaggr* f_touchA450() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(struct A450));
@@ -8914,7 +8914,7 @@ DCaggr* f_touchdcstA450() {
 /* <d{BfCSIdc<jjfLCSIpdjBf><CfCL[13]SfscCscB>di}{{plsfLBBCCCJ[4]L}Sd<ccc[3]BIJ>i{iSiB}Cf}sjLslflp> */
 union A451 { d m0; struct A446 m1; struct A450 m2; s m3; j m4; L m5; s m6; l m7; f m8; l m9; p m10; };
 int f_cmpA451(const union A451 *x, const union A451 *y) { return x->m0 == y->m0 && f_cmpA446(&x->m1, &y->m1) && f_cmpA450(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA451() {
+DCaggr* f_touchA451() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(union A451));
@@ -8936,7 +8936,7 @@ DCaggr* f_touchdcstA451() {
 /* {CiiLCcLBsiSI} */
 struct A452 { C m0; i m1; i m2; L m3; C m4; c m5; L m6; B m7; s m8; i m9; S m10; I m11; };
 int f_cmpA452(const struct A452 *x, const struct A452 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA452() {
+DCaggr* f_touchA452() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A452));
@@ -8959,7 +8959,7 @@ DCaggr* f_touchdcstA452() {
 /* {iiIBdisdlp} */
 struct A453 { i m0; i m1; I m2; B m3; d m4; i m5; s m6; d m7; l m8; p m9; };
 int f_cmpA453(const struct A453 *x, const struct A453 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA453() {
+DCaggr* f_touchA453() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(struct A453));
@@ -8980,7 +8980,7 @@ DCaggr* f_touchdcstA453() {
 /* {jLJflBLdpCd[15]L} */
 struct A454 { j m0; L m1; J m2; f m3; l m4; B m5; L m6; d m7; p m8; C m9; d m10[15]; L m11; };
 int f_cmpA454(const struct A454 *x, const struct A454 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10[0] == y->m10[0] && x->m10[1] == y->m10[1] && x->m10[2] == y->m10[2] && x->m10[3] == y->m10[3] && x->m10[4] == y->m10[4] && x->m10[5] == y->m10[5] && x->m10[6] == y->m10[6] && x->m10[7] == y->m10[7] && x->m10[8] == y->m10[8] && x->m10[9] == y->m10[9] && x->m10[10] == y->m10[10] && x->m10[11] == y->m10[11] && x->m10[12] == y->m10[12] && x->m10[13] == y->m10[13] && x->m10[14] == y->m10[14] && x->m11 == y->m11; };
-DCaggr* f_touchdcstA454() {
+DCaggr* f_touchA454() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A454));
@@ -9003,7 +9003,7 @@ DCaggr* f_touchdcstA454() {
 /* <iBjcf> */
 union A455 { i m0; B m1; j m2; c m3; f m4; };
 int f_cmpA455(const union A455 *x, const union A455 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA455() {
+DCaggr* f_touchA455() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A455));
@@ -9019,7 +9019,7 @@ DCaggr* f_touchdcstA455() {
 /* {{jLJflBLdpCd[15]L}jdC<c>Cpdpp<iBjcf>i} */
 struct A456 { struct A454 m0; j m1; d m2; C m3; union A14 m4; C m5; p m6; d m7; p m8; p m9; union A455 m10; i m11; };
 int f_cmpA456(const struct A456 *x, const struct A456 *y) { return f_cmpA454(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA14(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA455(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA456() {
+DCaggr* f_touchA456() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A456));
@@ -9042,7 +9042,7 @@ DCaggr* f_touchdcstA456() {
 /* {CSdSCLcSJ{iiIBdisdlp}c{{jLJflBLdpCd[15]L}jdC<c>Cpdpp<iBjcf>i}} */
 struct A457 { C m0; S m1; d m2; S m3; C m4; L m5; c m6; S m7; J m8; struct A453 m9; c m10; struct A456 m11; };
 int f_cmpA457(const struct A457 *x, const struct A457 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && f_cmpA453(&x->m9, &y->m9) && x->m10 == y->m10 && f_cmpA456(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA457() {
+DCaggr* f_touchA457() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A457));
@@ -9065,7 +9065,7 @@ DCaggr* f_touchdcstA457() {
 /* <lpIJB> */
 union A458 { l m0; p m1; I m2; J m3; B m4; };
 int f_cmpA458(const union A458 *x, const union A458 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA458() {
+DCaggr* f_touchA458() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A458));
@@ -9081,7 +9081,7 @@ DCaggr* f_touchdcstA458() {
 /* <BSBdlIfdIjBC> */
 union A459 { B m0; S m1; B m2; d m3; l m4; I m5; f m6; d m7; I m8; j m9; B m10; C m11; };
 int f_cmpA459(const union A459 *x, const union A459 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA459() {
+DCaggr* f_touchA459() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A459));
@@ -9104,7 +9104,7 @@ DCaggr* f_touchdcstA459() {
 /* {lIBffCdjp[7]cSJ} */
 struct A460 { l m0; I m1; B m2; f m3; f m4; C m5; d m6; j m7; p m8[7]; c m9; S m10; J m11; };
 int f_cmpA460(const struct A460 *x, const struct A460 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8[0] == y->m8[0] && x->m8[1] == y->m8[1] && x->m8[2] == y->m8[2] && x->m8[3] == y->m8[3] && x->m8[4] == y->m8[4] && x->m8[5] == y->m8[5] && x->m8[6] == y->m8[6] && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA460() {
+DCaggr* f_touchA460() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A460));
@@ -9127,7 +9127,7 @@ DCaggr* f_touchdcstA460() {
 /* <<lpIJB>J<BSBdlIfdIjBC>B{lIBffCdjp[7]cSJ}IdCpIji> */
 union A461 { union A458 m0; J m1; union A459 m2; B m3; struct A460 m4; I m5; d m6; C m7; p m8; I m9; j m10; i m11; };
 int f_cmpA461(const union A461 *x, const union A461 *y) { return f_cmpA458(&x->m0, &y->m0) && x->m1 == y->m1 && f_cmpA459(&x->m2, &y->m2) && x->m3 == y->m3 && f_cmpA460(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA461() {
+DCaggr* f_touchA461() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A461));
@@ -9150,7 +9150,7 @@ DCaggr* f_touchdcstA461() {
 /* <IBSfsCLicpBl> */
 union A462 { I m0; B m1; S m2; f m3; s m4; C m5; L m6; i m7; c m8; p m9; B m10; l m11; };
 int f_cmpA462(const union A462 *x, const union A462 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA462() {
+DCaggr* f_touchA462() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A462));
@@ -9173,7 +9173,7 @@ DCaggr* f_touchdcstA462() {
 /* <<<lpIJB>J<BSBdlIfdIjBC>B{lIBffCdjp[7]cSJ}IdCpIji>LpI<IBSfsCLicpBl>IfiSppl> */
 union A463 { union A461 m0; L m1; p m2; I m3; union A462 m4; I m5; f m6; i m7; S m8; p m9; p m10; l m11; };
 int f_cmpA463(const union A463 *x, const union A463 *y) { return f_cmpA461(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA462(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA463() {
+DCaggr* f_touchA463() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A463));
@@ -9196,7 +9196,7 @@ DCaggr* f_touchdcstA463() {
 /* {fjIJilsJcccL} */
 struct A464 { f m0; j m1; I m2; J m3; i m4; l m5; s m6; J m7; c m8; c m9; c m10; L m11; };
 int f_cmpA464(const struct A464 *x, const struct A464 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA464() {
+DCaggr* f_touchA464() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A464));
@@ -9219,7 +9219,7 @@ DCaggr* f_touchdcstA464() {
 /* {Ccj{fjIJilsJcccL}sCpiJBid} */
 struct A465 { C m0; c m1; j m2; struct A464 m3; s m4; C m5; p m6; i m7; J m8; B m9; i m10; d m11; };
 int f_cmpA465(const struct A465 *x, const struct A465 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA464(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA465() {
+DCaggr* f_touchA465() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A465));
@@ -9242,7 +9242,7 @@ DCaggr* f_touchdcstA465() {
 /* <SJBcLIiBCLCl> */
 union A466 { S m0; J m1; B m2; c m3; L m4; I m5; i m6; B m7; C m8; L m9; C m10; l m11; };
 int f_cmpA466(const union A466 *x, const union A466 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA466() {
+DCaggr* f_touchA466() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A466));
@@ -9265,7 +9265,7 @@ DCaggr* f_touchdcstA466() {
 /* <isLfc> */
 union A467 { i m0; s m1; L m2; f m3; c m4; };
 int f_cmpA467(const union A467 *x, const union A467 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA467() {
+DCaggr* f_touchA467() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A467));
@@ -9281,7 +9281,7 @@ DCaggr* f_touchdcstA467() {
 /* {L<isLfc>ldi} */
 struct A468 { L m0; union A467 m1; l m2; d m3; i m4; };
 int f_cmpA468(const struct A468 *x, const struct A468 *y) { return x->m0 == y->m0 && f_cmpA467(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA468() {
+DCaggr* f_touchA468() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A468));
@@ -9297,7 +9297,7 @@ DCaggr* f_touchdcstA468() {
 /* {SlLCC{L<isLfc>ldi}jljSp} */
 struct A469 { S m0; l m1; L m2; C m3; C m4; struct A468 m5; j m6; l m7; j m8; S m9; p m10; };
 int f_cmpA469(const struct A469 *x, const struct A469 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA468(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA469() {
+DCaggr* f_touchA469() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(struct A469));
@@ -9319,7 +9319,7 @@ DCaggr* f_touchdcstA469() {
 /* <CISilJsSfIIS> */
 union A470 { C m0; I m1; S m2; i m3; l m4; J m5; s m6; S m7; f m8; I m9; I m10; S m11; };
 int f_cmpA470(const union A470 *x, const union A470 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA470() {
+DCaggr* f_touchA470() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A470));
@@ -9342,7 +9342,7 @@ DCaggr* f_touchdcstA470() {
 /* {f} */
 struct A471 { f m0; };
 int f_cmpA471(const struct A471 *x, const struct A471 *y) { return x->m0 == y->m0; };
-DCaggr* f_touchdcstA471() {
+DCaggr* f_touchA471() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(1, sizeof(struct A471));
@@ -9354,7 +9354,7 @@ DCaggr* f_touchdcstA471() {
 /* {LiLdIISJjlfj} */
 struct A472 { L m0; i m1; L m2; d m3; I m4; I m5; S m6; J m7; j m8; l m9; f m10; j m11; };
 int f_cmpA472(const struct A472 *x, const struct A472 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA472() {
+DCaggr* f_touchA472() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A472));
@@ -9377,7 +9377,7 @@ DCaggr* f_touchdcstA472() {
 /* <idcssL{f}Sss{LiLdIISJjlfj}L> */
 union A473 { i m0; d m1; c m2; s m3; s m4; L m5; struct A471 m6; S m7; s m8; s m9; struct A472 m10; L m11; };
 int f_cmpA473(const union A473 *x, const union A473 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA471(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA472(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA473() {
+DCaggr* f_touchA473() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A473));
@@ -9400,7 +9400,7 @@ DCaggr* f_touchdcstA473() {
 /* {BlidiIdjpBjc} */
 struct A474 { B m0; l m1; i m2; d m3; i m4; I m5; d m6; j m7; p m8; B m9; j m10; c m11; };
 int f_cmpA474(const struct A474 *x, const struct A474 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA474() {
+DCaggr* f_touchA474() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A474));
@@ -9423,7 +9423,7 @@ DCaggr* f_touchdcstA474() {
 /* <dlB{BlidiIdjpBjc}fIISBlBc> */
 union A475 { d m0; l m1; B m2; struct A474 m3; f m4; I m5; I m6; S m7; B m8; l m9; B m10; c m11; };
 int f_cmpA475(const union A475 *x, const union A475 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA474(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA475() {
+DCaggr* f_touchA475() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A475));
@@ -9446,7 +9446,7 @@ DCaggr* f_touchdcstA475() {
 /* {iS} */
 struct A476 { i m0; S m1; };
 int f_cmpA476(const struct A476 *x, const struct A476 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA476() {
+DCaggr* f_touchA476() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(struct A476));
@@ -9459,7 +9459,7 @@ DCaggr* f_touchdcstA476() {
 /* <fpcidcilSSCi> */
 union A477 { f m0; p m1; c m2; i m3; d m4; c m5; i m6; l m7; S m8; S m9; C m10; i m11; };
 int f_cmpA477(const union A477 *x, const union A477 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA477() {
+DCaggr* f_touchA477() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A477));
@@ -9482,7 +9482,7 @@ DCaggr* f_touchdcstA477() {
 /* <LcfCJffCiIjI> */
 union A478 { L m0; c m1; f m2; C m3; J m4; f m5; f m6; C m7; i m8; I m9; j m10; I m11; };
 int f_cmpA478(const union A478 *x, const union A478 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA478() {
+DCaggr* f_touchA478() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A478));
@@ -9505,7 +9505,7 @@ DCaggr* f_touchdcstA478() {
 /* <Jlip> */
 union A479 { J m0; l m1; i m2; p m3; };
 int f_cmpA479(const union A479 *x, const union A479 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA479() {
+DCaggr* f_touchA479() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A479));
@@ -9520,7 +9520,7 @@ DCaggr* f_touchdcstA479() {
 /* {jsI} */
 struct A480 { j m0; s m1; I m2; };
 int f_cmpA480(const struct A480 *x, const struct A480 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA480() {
+DCaggr* f_touchA480() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A480));
@@ -9534,7 +9534,7 @@ DCaggr* f_touchdcstA480() {
 /* <dcLdCCS{jsI}CCCs> */
 union A481 { d m0; c m1; L m2; d m3; C m4; C m5; S m6; struct A480 m7; C m8; C m9; C m10; s m11; };
 int f_cmpA481(const union A481 *x, const union A481 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && f_cmpA480(&x->m7, &y->m7) && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA481() {
+DCaggr* f_touchA481() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A481));
@@ -9557,7 +9557,7 @@ DCaggr* f_touchdcstA481() {
 /* <Lspddd<Jlip>lsB<dcLdCCS{jsI}CCCs>I> */
 union A482 { L m0; s m1; p m2; d m3; d m4; d m5; union A479 m6; l m7; s m8; B m9; union A481 m10; I m11; };
 int f_cmpA482(const union A482 *x, const union A482 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA479(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA481(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA482() {
+DCaggr* f_touchA482() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A482));
@@ -9580,7 +9580,7 @@ DCaggr* f_touchdcstA482() {
 /* <SjpcsLB> */
 union A483 { S m0; j m1; p m2; c m3; s m4; L m5; B m6; };
 int f_cmpA483(const union A483 *x, const union A483 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA483() {
+DCaggr* f_touchA483() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(union A483));
@@ -9598,7 +9598,7 @@ DCaggr* f_touchdcstA483() {
 /* <pI> */
 union A484 { p m0; I m1; };
 int f_cmpA484(const union A484 *x, const union A484 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA484() {
+DCaggr* f_touchA484() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A484));
@@ -9611,7 +9611,7 @@ DCaggr* f_touchdcstA484() {
 /* {lf<pI>JfflCLJc} */
 struct A485 { l m0; f m1; union A484 m2; J m3; f m4; f m5; l m6; C m7; L m8; J m9; c m10; };
 int f_cmpA485(const struct A485 *x, const struct A485 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA484(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA485() {
+DCaggr* f_touchA485() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(struct A485));
@@ -9633,7 +9633,7 @@ DCaggr* f_touchdcstA485() {
 /* <s{lf<pI>JfflCLJc}cICLdBSfjs> */
 union A486 { s m0; struct A485 m1; c m2; I m3; C m4; L m5; d m6; B m7; S m8; f m9; j m10; s m11; };
 int f_cmpA486(const union A486 *x, const union A486 *y) { return x->m0 == y->m0 && f_cmpA485(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA486() {
+DCaggr* f_touchA486() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A486));
@@ -9656,7 +9656,7 @@ DCaggr* f_touchdcstA486() {
 /* <il> */
 union A487 { i m0; l m1; };
 int f_cmpA487(const union A487 *x, const union A487 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA487() {
+DCaggr* f_touchA487() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A487));
@@ -9669,7 +9669,7 @@ DCaggr* f_touchdcstA487() {
 /* <jfcsiSpCfSpB> */
 union A488 { j m0; f m1; c m2; s m3; i m4; S m5; p m6; C m7; f m8; S m9; p m10; B m11; };
 int f_cmpA488(const union A488 *x, const union A488 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA488() {
+DCaggr* f_touchA488() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A488));
@@ -9692,7 +9692,7 @@ DCaggr* f_touchdcstA488() {
 /* <f<jfcsiSpCfSpB>> */
 union A489 { f m0; union A488 m1; };
 int f_cmpA489(const union A489 *x, const union A489 *y) { return x->m0 == y->m0 && f_cmpA488(&x->m1, &y->m1); };
-DCaggr* f_touchdcstA489() {
+DCaggr* f_touchA489() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A489));
@@ -9705,7 +9705,7 @@ DCaggr* f_touchdcstA489() {
 /* {iIiLlcBBici} */
 struct A490 { i m0; I m1; i m2; L m3; l m4; c m5; B m6; B m7; i m8; c m9; i m10; };
 int f_cmpA490(const struct A490 *x, const struct A490 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA490() {
+DCaggr* f_touchA490() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(struct A490));
@@ -9727,7 +9727,7 @@ DCaggr* f_touchdcstA490() {
 /* <IpLSd> */
 union A491 { I m0; p m1; L m2; S m3; d m4; };
 int f_cmpA491(const union A491 *x, const union A491 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA491() {
+DCaggr* f_touchA491() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A491));
@@ -9743,7 +9743,7 @@ DCaggr* f_touchdcstA491() {
 /* <dicCLpd{iIiLlcBBici}JBC<IpLSd>> */
 union A492 { d m0; i m1; c m2; C m3; L m4; p m5; d m6; struct A490 m7; J m8; B m9; C m10; union A491 m11; };
 int f_cmpA492(const union A492 *x, const union A492 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && f_cmpA490(&x->m7, &y->m7) && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && f_cmpA491(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA492() {
+DCaggr* f_touchA492() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A492));
@@ -9766,7 +9766,7 @@ DCaggr* f_touchdcstA492() {
 /* <lJpslLf[14]> */
 union A493 { l m0; J m1; p m2; s m3; l m4; L m5; f m6[14]; };
 int f_cmpA493(const union A493 *x, const union A493 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6[0] == y->m6[0] && x->m6[1] == y->m6[1] && x->m6[2] == y->m6[2] && x->m6[3] == y->m6[3] && x->m6[4] == y->m6[4] && x->m6[5] == y->m6[5] && x->m6[6] == y->m6[6] && x->m6[7] == y->m6[7] && x->m6[8] == y->m6[8] && x->m6[9] == y->m6[9] && x->m6[10] == y->m6[10] && x->m6[11] == y->m6[11] && x->m6[12] == y->m6[12] && x->m6[13] == y->m6[13]; };
-DCaggr* f_touchdcstA493() {
+DCaggr* f_touchA493() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(union A493));
@@ -9784,7 +9784,7 @@ DCaggr* f_touchdcstA493() {
 /* {dBLB<lJpslLf[14]>Bi} */
 struct A494 { d m0; B m1; L m2; B m3; union A493 m4; B m5; i m6; };
 int f_cmpA494(const struct A494 *x, const struct A494 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA493(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA494() {
+DCaggr* f_touchA494() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(struct A494));
@@ -9802,7 +9802,7 @@ DCaggr* f_touchdcstA494() {
 /* <JfI> */
 union A495 { J m0; f m1; I m2; };
 int f_cmpA495(const union A495 *x, const union A495 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA495() {
+DCaggr* f_touchA495() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A495));
@@ -9816,7 +9816,7 @@ DCaggr* f_touchdcstA495() {
 /* {SS<JfI>jBISLfLCf} */
 struct A496 { S m0; S m1; union A495 m2; j m3; B m4; I m5; S m6; L m7; f m8; L m9; C m10; f m11; };
 int f_cmpA496(const struct A496 *x, const struct A496 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA495(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA496() {
+DCaggr* f_touchA496() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A496));
@@ -9839,7 +9839,7 @@ DCaggr* f_touchdcstA496() {
 /* {CSpCljjsIJdj} */
 struct A497 { C m0; S m1; p m2; C m3; l m4; j m5; j m6; s m7; I m8; J m9; d m10; j m11; };
 int f_cmpA497(const struct A497 *x, const struct A497 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA497() {
+DCaggr* f_touchA497() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A497));
@@ -9862,7 +9862,7 @@ DCaggr* f_touchdcstA497() {
 /* <I[8]JSLJLJdSBC{CSpCljjsIJdj}> */
 union A498 { I m0[8]; J m1; S m2; L m3; J m4; L m5; J m6; d m7; S m8; B m9; C m10; struct A497 m11; };
 int f_cmpA498(const union A498 *x, const union A498 *y) { return x->m0[0] == y->m0[0] && x->m0[1] == y->m0[1] && x->m0[2] == y->m0[2] && x->m0[3] == y->m0[3] && x->m0[4] == y->m0[4] && x->m0[5] == y->m0[5] && x->m0[6] == y->m0[6] && x->m0[7] == y->m0[7] && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && f_cmpA497(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA498() {
+DCaggr* f_touchA498() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A498));
@@ -9885,7 +9885,7 @@ DCaggr* f_touchdcstA498() {
 /* {Lsd} */
 struct A499 { L m0; s m1; d m2; };
 int f_cmpA499(const struct A499 *x, const struct A499 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA499() {
+DCaggr* f_touchA499() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A499));
@@ -9899,7 +9899,7 @@ DCaggr* f_touchdcstA499() {
 /* {CSSJlJl[9]fB} */
 struct A500 { C m0; S m1; S m2; J m3; l m4; J m5; l m6[9]; f m7; B m8; };
 int f_cmpA500(const struct A500 *x, const struct A500 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6[0] == y->m6[0] && x->m6[1] == y->m6[1] && x->m6[2] == y->m6[2] && x->m6[3] == y->m6[3] && x->m6[4] == y->m6[4] && x->m6[5] == y->m6[5] && x->m6[6] == y->m6[6] && x->m6[7] == y->m6[7] && x->m6[8] == y->m6[8] && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA500() {
+DCaggr* f_touchA500() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(struct A500));
@@ -9919,7 +9919,7 @@ DCaggr* f_touchdcstA500() {
 /* <BsjJJBJIiJLd> */
 union A501 { B m0; s m1; j m2; J m3; J m4; B m5; J m6; I m7; i m8; J m9; L m10; d m11; };
 int f_cmpA501(const union A501 *x, const union A501 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA501() {
+DCaggr* f_touchA501() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A501));
@@ -9942,7 +9942,7 @@ DCaggr* f_touchdcstA501() {
 /* {ljdSClBdpIji} */
 struct A502 { l m0; j m1; d m2; S m3; C m4; l m5; B m6; d m7; p m8; I m9; j m10; i m11; };
 int f_cmpA502(const struct A502 *x, const struct A502 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA502() {
+DCaggr* f_touchA502() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A502));
@@ -9965,7 +9965,7 @@ DCaggr* f_touchdcstA502() {
 /* <cfdIBLjBBjip> */
 union A503 { c m0; f m1; d m2; I m3; B m4; L m5; j m6; B m7; B m8; j m9; i m10; p m11; };
 int f_cmpA503(const union A503 *x, const union A503 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA503() {
+DCaggr* f_touchA503() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A503));
@@ -9988,7 +9988,7 @@ DCaggr* f_touchdcstA503() {
 /* <CSLIdi{CSSJlJl[9]fB}Ij<BsjJJBJIiJLd>{ljdSClBdpIji}<cfdIBLjBBjip>> */
 union A504 { C m0; S m1; L m2; I m3; d m4; i m5; struct A500 m6; I m7; j m8; union A501 m9; struct A502 m10; union A503 m11; };
 int f_cmpA504(const union A504 *x, const union A504 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA500(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8 && f_cmpA501(&x->m9, &y->m9) && f_cmpA502(&x->m10, &y->m10) && f_cmpA503(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA504() {
+DCaggr* f_touchA504() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A504));
@@ -10011,7 +10011,7 @@ DCaggr* f_touchdcstA504() {
 /* <LfLJfcCfc> */
 union A505 { L m0; f m1; L m2; J m3; f m4; c m5; C m6; f m7; c m8; };
 int f_cmpA505(const union A505 *x, const union A505 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA505() {
+DCaggr* f_touchA505() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A505));
@@ -10031,7 +10031,7 @@ DCaggr* f_touchdcstA505() {
 /* <cCdfffis> */
 union A506 { c m0; C m1; d m2; f m3; f m4; f m5; i m6; s m7; };
 int f_cmpA506(const union A506 *x, const union A506 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA506() {
+DCaggr* f_touchA506() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(union A506));
@@ -10050,7 +10050,7 @@ DCaggr* f_touchdcstA506() {
 /* <cBlBJid[2]CJlsC> */
 union A507 { c m0; B m1; l m2; B m3; J m4; i m5; d m6[2]; C m7; J m8; l m9; s m10; C m11; };
 int f_cmpA507(const union A507 *x, const union A507 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6[0] == y->m6[0] && x->m6[1] == y->m6[1] && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA507() {
+DCaggr* f_touchA507() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A507));
@@ -10073,7 +10073,7 @@ DCaggr* f_touchdcstA507() {
 /* <CfjIJipccid> */
 union A508 { C m0; f m1; j m2; I m3; J m4; i m5; p m6; c m7; c m8; i m9; d m10; };
 int f_cmpA508(const union A508 *x, const union A508 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA508() {
+DCaggr* f_touchA508() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(union A508));
@@ -10095,7 +10095,7 @@ DCaggr* f_touchdcstA508() {
 /* {IsdLjdCscLSI} */
 struct A509 { I m0; s m1; d m2; L m3; j m4; d m5; C m6; s m7; c m8; L m9; S m10; I m11; };
 int f_cmpA509(const struct A509 *x, const struct A509 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA509() {
+DCaggr* f_touchA509() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A509));
@@ -10118,7 +10118,7 @@ DCaggr* f_touchdcstA509() {
 /* <fcd{IsdLjdCscLSI}Sp> */
 union A510 { f m0; c m1; d m2; struct A509 m3; S m4; p m5; };
 int f_cmpA510(const union A510 *x, const union A510 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA509(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA510() {
+DCaggr* f_touchA510() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(union A510));
@@ -10135,7 +10135,7 @@ DCaggr* f_touchdcstA510() {
 /* {fBLjJpfILIdI} */
 struct A511 { f m0; B m1; L m2; j m3; J m4; p m5; f m6; I m7; L m8; I m9; d m10; I m11; };
 int f_cmpA511(const struct A511 *x, const struct A511 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA511() {
+DCaggr* f_touchA511() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A511));
@@ -10158,7 +10158,7 @@ DCaggr* f_touchdcstA511() {
 /* {dppCd} */
 struct A512 { d m0; p m1; p m2; C m3; d m4; };
 int f_cmpA512(const struct A512 *x, const struct A512 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA512() {
+DCaggr* f_touchA512() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A512));
@@ -10174,7 +10174,7 @@ DCaggr* f_touchdcstA512() {
 /* <J{dppCd}> */
 union A513 { J m0; struct A512 m1; };
 int f_cmpA513(const union A513 *x, const union A513 *y) { return x->m0 == y->m0 && f_cmpA512(&x->m1, &y->m1); };
-DCaggr* f_touchdcstA513() {
+DCaggr* f_touchA513() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A513));
@@ -10187,7 +10187,7 @@ DCaggr* f_touchdcstA513() {
 /* {Lc[10]ICLJjpI} */
 struct A514 { L m0; c m1[10]; I m2; C m3; L m4; J m5; j m6; p m7; I m8; };
 int f_cmpA514(const struct A514 *x, const struct A514 *y) { return x->m0 == y->m0 && x->m1[0] == y->m1[0] && x->m1[1] == y->m1[1] && x->m1[2] == y->m1[2] && x->m1[3] == y->m1[3] && x->m1[4] == y->m1[4] && x->m1[5] == y->m1[5] && x->m1[6] == y->m1[6] && x->m1[7] == y->m1[7] && x->m1[8] == y->m1[8] && x->m1[9] == y->m1[9] && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA514() {
+DCaggr* f_touchA514() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(struct A514));
@@ -10207,7 +10207,7 @@ DCaggr* f_touchdcstA514() {
 /* {I[15]L} */
 struct A515 { I m0[15]; L m1; };
 int f_cmpA515(const struct A515 *x, const struct A515 *y) { return x->m0[0] == y->m0[0] && x->m0[1] == y->m0[1] && x->m0[2] == y->m0[2] && x->m0[3] == y->m0[3] && x->m0[4] == y->m0[4] && x->m0[5] == y->m0[5] && x->m0[6] == y->m0[6] && x->m0[7] == y->m0[7] && x->m0[8] == y->m0[8] && x->m0[9] == y->m0[9] && x->m0[10] == y->m0[10] && x->m0[11] == y->m0[11] && x->m0[12] == y->m0[12] && x->m0[13] == y->m0[13] && x->m0[14] == y->m0[14] && x->m1 == y->m1; };
-DCaggr* f_touchdcstA515() {
+DCaggr* f_touchA515() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(struct A515));
@@ -10220,7 +10220,7 @@ DCaggr* f_touchdcstA515() {
 /* <<J>silLlBiLd> */
 union A516 { union A40 m0; s m1; i m2; l m3; L m4; l m5; B m6; i m7; L m8; d m9; };
 int f_cmpA516(const union A516 *x, const union A516 *y) { return f_cmpA40(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA516() {
+DCaggr* f_touchA516() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A516));
@@ -10241,7 +10241,7 @@ DCaggr* f_touchdcstA516() {
 /* <sCsd> */
 union A517 { s m0; C m1; s m2; d m3; };
 int f_cmpA517(const union A517 *x, const union A517 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA517() {
+DCaggr* f_touchA517() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A517));
@@ -10256,7 +10256,7 @@ DCaggr* f_touchdcstA517() {
 /* <jpLLBjLjBsi[13]I> */
 union A518 { j m0; p m1; L m2; L m3; B m4; j m5; L m6; j m7; B m8; s m9; i m10[13]; I m11; };
 int f_cmpA518(const union A518 *x, const union A518 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10[0] == y->m10[0] && x->m10[1] == y->m10[1] && x->m10[2] == y->m10[2] && x->m10[3] == y->m10[3] && x->m10[4] == y->m10[4] && x->m10[5] == y->m10[5] && x->m10[6] == y->m10[6] && x->m10[7] == y->m10[7] && x->m10[8] == y->m10[8] && x->m10[9] == y->m10[9] && x->m10[10] == y->m10[10] && x->m10[11] == y->m10[11] && x->m10[12] == y->m10[12] && x->m11 == y->m11; };
-DCaggr* f_touchdcstA518() {
+DCaggr* f_touchA518() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A518));
@@ -10279,7 +10279,7 @@ DCaggr* f_touchdcstA518() {
 /* <<sCsd><jpLLBjLjBsi[13]I>JJdJ> */
 union A519 { union A517 m0; union A518 m1; J m2; J m3; d m4; J m5; };
 int f_cmpA519(const union A519 *x, const union A519 *y) { return f_cmpA517(&x->m0, &y->m0) && f_cmpA518(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA519() {
+DCaggr* f_touchA519() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(union A519));
@@ -10296,7 +10296,7 @@ DCaggr* f_touchdcstA519() {
 /* {fjdcClsiLcsB} */
 struct A520 { f m0; j m1; d m2; c m3; C m4; l m5; s m6; i m7; L m8; c m9; s m10; B m11; };
 int f_cmpA520(const struct A520 *x, const struct A520 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA520() {
+DCaggr* f_touchA520() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A520));
@@ -10319,7 +10319,7 @@ DCaggr* f_touchdcstA520() {
 /* {Bf[3]iJLC{fjdcClsiLcsB}[12]dSBld} */
 struct A521 { B m0; f m1[3]; i m2; J m3; L m4; C m5; struct A520 m6[12]; d m7; S m8; B m9; l m10; d m11; };
 int f_cmpA521(const struct A521 *x, const struct A521 *y) { return x->m0 == y->m0 && x->m1[0] == y->m1[0] && x->m1[1] == y->m1[1] && x->m1[2] == y->m1[2] && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA520(&x->m6[0], &y->m6[0]) && f_cmpA520(&x->m6[1], &y->m6[1]) && f_cmpA520(&x->m6[2], &y->m6[2]) && f_cmpA520(&x->m6[3], &y->m6[3]) && f_cmpA520(&x->m6[4], &y->m6[4]) && f_cmpA520(&x->m6[5], &y->m6[5]) && f_cmpA520(&x->m6[6], &y->m6[6]) && f_cmpA520(&x->m6[7], &y->m6[7]) && f_cmpA520(&x->m6[8], &y->m6[8]) && f_cmpA520(&x->m6[9], &y->m6[9]) && f_cmpA520(&x->m6[10], &y->m6[10]) && f_cmpA520(&x->m6[11], &y->m6[11]) && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA521() {
+DCaggr* f_touchA521() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A521));
@@ -10342,7 +10342,7 @@ DCaggr* f_touchdcstA521() {
 /* {IijIspCCSjSf} */
 struct A522 { I m0; i m1; j m2; I m3; s m4; p m5; C m6; C m7; S m8; j m9; S m10; f m11; };
 int f_cmpA522(const struct A522 *x, const struct A522 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA522() {
+DCaggr* f_touchA522() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A522));
@@ -10365,7 +10365,7 @@ DCaggr* f_touchdcstA522() {
 /* {Bf{IijIspCCSjSf}} */
 struct A523 { B m0; f m1; struct A522 m2; };
 int f_cmpA523(const struct A523 *x, const struct A523 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA522(&x->m2, &y->m2); };
-DCaggr* f_touchdcstA523() {
+DCaggr* f_touchA523() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A523));
@@ -10379,7 +10379,7 @@ DCaggr* f_touchdcstA523() {
 /* {{Bf[3]iJLC{fjdcClsiLcsB}[12]dSBld}cScBIC{Bf{IijIspCCSjSf}}fJCf} */
 struct A524 { struct A521 m0; c m1; S m2; c m3; B m4; I m5; C m6; struct A523 m7; f m8; J m9; C m10; f m11; };
 int f_cmpA524(const struct A524 *x, const struct A524 *y) { return f_cmpA521(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && f_cmpA523(&x->m7, &y->m7) && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA524() {
+DCaggr* f_touchA524() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A524));
@@ -10402,7 +10402,7 @@ DCaggr* f_touchdcstA524() {
 /* {iIS} */
 struct A525 { i m0; I m1; S m2; };
 int f_cmpA525(const struct A525 *x, const struct A525 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA525() {
+DCaggr* f_touchA525() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A525));
@@ -10416,7 +10416,7 @@ DCaggr* f_touchdcstA525() {
 /* {BfIIBBpLpS{iIS}l} */
 struct A526 { B m0; f m1; I m2; I m3; B m4; B m5; p m6; L m7; p m8; S m9; struct A525 m10; l m11; };
 int f_cmpA526(const struct A526 *x, const struct A526 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA525(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA526() {
+DCaggr* f_touchA526() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A526));
@@ -10439,7 +10439,7 @@ DCaggr* f_touchdcstA526() {
 /* <fLIlILldLlCC> */
 union A527 { f m0; L m1; I m2; l m3; I m4; L m5; l m6; d m7; L m8; l m9; C m10; C m11; };
 int f_cmpA527(const union A527 *x, const union A527 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA527() {
+DCaggr* f_touchA527() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A527));
@@ -10462,7 +10462,7 @@ DCaggr* f_touchdcstA527() {
 /* {csjiLddf} */
 struct A528 { c m0; s m1; j m2; i m3; L m4; d m5; d m6; f m7; };
 int f_cmpA528(const struct A528 *x, const struct A528 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA528() {
+DCaggr* f_touchA528() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(struct A528));
@@ -10481,7 +10481,7 @@ DCaggr* f_touchdcstA528() {
 /* <IlIlJc{csjiLddf}B> */
 union A529 { I m0; l m1; I m2; l m3; J m4; c m5; struct A528 m6; B m7; };
 int f_cmpA529(const union A529 *x, const union A529 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA528(&x->m6, &y->m6) && x->m7 == y->m7; };
-DCaggr* f_touchdcstA529() {
+DCaggr* f_touchA529() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(union A529));
@@ -10500,7 +10500,7 @@ DCaggr* f_touchdcstA529() {
 /* {BCCSflpdB[14]lBi} */
 struct A530 { B m0; C m1; C m2; S m3; f m4; l m5; p m6; d m7; B m8[14]; l m9; B m10; i m11; };
 int f_cmpA530(const struct A530 *x, const struct A530 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8[0] == y->m8[0] && x->m8[1] == y->m8[1] && x->m8[2] == y->m8[2] && x->m8[3] == y->m8[3] && x->m8[4] == y->m8[4] && x->m8[5] == y->m8[5] && x->m8[6] == y->m8[6] && x->m8[7] == y->m8[7] && x->m8[8] == y->m8[8] && x->m8[9] == y->m8[9] && x->m8[10] == y->m8[10] && x->m8[11] == y->m8[11] && x->m8[12] == y->m8[12] && x->m8[13] == y->m8[13] && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA530() {
+DCaggr* f_touchA530() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A530));
@@ -10523,7 +10523,7 @@ DCaggr* f_touchdcstA530() {
 /* {LIpjL} */
 struct A531 { L m0; I m1; p m2; j m3; L m4; };
 int f_cmpA531(const struct A531 *x, const struct A531 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA531() {
+DCaggr* f_touchA531() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A531));
@@ -10539,7 +10539,7 @@ DCaggr* f_touchdcstA531() {
 /* {BpBcdsfBpSjL} */
 struct A532 { B m0; p m1; B m2; c m3; d m4; s m5; f m6; B m7; p m8; S m9; j m10; L m11; };
 int f_cmpA532(const struct A532 *x, const struct A532 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA532() {
+DCaggr* f_touchA532() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A532));
@@ -10562,7 +10562,7 @@ DCaggr* f_touchdcstA532() {
 /* <J[6]jl> */
 union A533 { J m0[6]; j m1; l m2; };
 int f_cmpA533(const union A533 *x, const union A533 *y) { return x->m0[0] == y->m0[0] && x->m0[1] == y->m0[1] && x->m0[2] == y->m0[2] && x->m0[3] == y->m0[3] && x->m0[4] == y->m0[4] && x->m0[5] == y->m0[5] && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA533() {
+DCaggr* f_touchA533() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A533));
@@ -10576,7 +10576,7 @@ DCaggr* f_touchdcstA533() {
 /* {Lcpi} */
 struct A534 { L m0; c m1; p m2; i m3; };
 int f_cmpA534(const struct A534 *x, const struct A534 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA534() {
+DCaggr* f_touchA534() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A534));
@@ -10591,7 +10591,7 @@ DCaggr* f_touchdcstA534() {
 /* {sC} */
 struct A535 { s m0; C m1; };
 int f_cmpA535(const struct A535 *x, const struct A535 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA535() {
+DCaggr* f_touchA535() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(struct A535));
@@ -10604,7 +10604,7 @@ DCaggr* f_touchdcstA535() {
 /* <JsJBC[4]iLipijI> */
 union A536 { J m0; s m1; J m2; B m3; C m4[4]; i m5; L m6; i m7; p m8; i m9; j m10; I m11; };
 int f_cmpA536(const union A536 *x, const union A536 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4[0] == y->m4[0] && x->m4[1] == y->m4[1] && x->m4[2] == y->m4[2] && x->m4[3] == y->m4[3] && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA536() {
+DCaggr* f_touchA536() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A536));
@@ -10627,7 +10627,7 @@ DCaggr* f_touchdcstA536() {
 /* <i{sC}Sjjd<L>p<JsJBC[4]iLipijI>sps> */
 union A537 { i m0; struct A535 m1; S m2; j m3; j m4; d m5; union A347 m6; p m7; union A536 m8; s m9; p m10; s m11; };
 int f_cmpA537(const union A537 *x, const union A537 *y) { return x->m0 == y->m0 && f_cmpA535(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA347(&x->m6, &y->m6) && x->m7 == y->m7 && f_cmpA536(&x->m8, &y->m8) && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA537() {
+DCaggr* f_touchA537() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A537));
@@ -10650,7 +10650,7 @@ DCaggr* f_touchdcstA537() {
 /* {JJBCCjBSdBIi} */
 struct A538 { J m0; J m1; B m2; C m3; C m4; j m5; B m6; S m7; d m8; B m9; I m10; i m11; };
 int f_cmpA538(const struct A538 *x, const struct A538 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA538() {
+DCaggr* f_touchA538() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A538));
@@ -10673,7 +10673,7 @@ DCaggr* f_touchdcstA538() {
 /* <cB{JJBCCjBSdBIi}dSIdII> */
 union A539 { c m0; B m1; struct A538 m2; d m3; S m4; I m5; d m6; I m7; I m8; };
 int f_cmpA539(const union A539 *x, const union A539 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA538(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA539() {
+DCaggr* f_touchA539() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A539));
@@ -10693,7 +10693,7 @@ DCaggr* f_touchdcstA539() {
 /* <C[7]SCJdiLjjBsB> */
 union A540 { C m0[7]; S m1; C m2; J m3; d m4; i m5; L m6; j m7; j m8; B m9; s m10; B m11; };
 int f_cmpA540(const union A540 *x, const union A540 *y) { return x->m0[0] == y->m0[0] && x->m0[1] == y->m0[1] && x->m0[2] == y->m0[2] && x->m0[3] == y->m0[3] && x->m0[4] == y->m0[4] && x->m0[5] == y->m0[5] && x->m0[6] == y->m0[6] && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA540() {
+DCaggr* f_touchA540() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A540));
@@ -10716,7 +10716,7 @@ DCaggr* f_touchdcstA540() {
 /* {SiCLcI<C[7]SCJdiLjjBsB>Spf} */
 struct A541 { S m0; i m1; C m2; L m3; c m4; I m5; union A540 m6; S m7; p m8; f m9; };
 int f_cmpA541(const struct A541 *x, const struct A541 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA540(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA541() {
+DCaggr* f_touchA541() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(struct A541));
@@ -10737,7 +10737,7 @@ DCaggr* f_touchdcstA541() {
 /* {jIppfBdjc} */
 struct A542 { j m0; I m1; p m2; p m3; f m4; B m5; d m6; j m7; c m8; };
 int f_cmpA542(const struct A542 *x, const struct A542 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA542() {
+DCaggr* f_touchA542() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(struct A542));
@@ -10757,7 +10757,7 @@ DCaggr* f_touchdcstA542() {
 /* <lBdSjlsiBdI> */
 union A543 { l m0; B m1; d m2; S m3; j m4; l m5; s m6; i m7; B m8; d m9; I m10; };
 int f_cmpA543(const union A543 *x, const union A543 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA543() {
+DCaggr* f_touchA543() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(union A543));
@@ -10779,7 +10779,7 @@ DCaggr* f_touchdcstA543() {
 /* {lCpJJdlSI[13]iSl} */
 struct A544 { l m0; C m1; p m2; J m3; J m4; d m5; l m6; S m7; I m8[13]; i m9; S m10; l m11; };
 int f_cmpA544(const struct A544 *x, const struct A544 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8[0] == y->m8[0] && x->m8[1] == y->m8[1] && x->m8[2] == y->m8[2] && x->m8[3] == y->m8[3] && x->m8[4] == y->m8[4] && x->m8[5] == y->m8[5] && x->m8[6] == y->m8[6] && x->m8[7] == y->m8[7] && x->m8[8] == y->m8[8] && x->m8[9] == y->m8[9] && x->m8[10] == y->m8[10] && x->m8[11] == y->m8[11] && x->m8[12] == y->m8[12] && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA544() {
+DCaggr* f_touchA544() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A544));
@@ -10802,7 +10802,7 @@ DCaggr* f_touchdcstA544() {
 /* {s<lBdSjlsiBdI>Cdd[10]dCsCCc{lCpJJdlSI[13]iSl}} */
 struct A545 { s m0; union A543 m1; C m2; d m3; d m4[10]; d m5; C m6; s m7; C m8; C m9; c m10; struct A544 m11; };
 int f_cmpA545(const struct A545 *x, const struct A545 *y) { return x->m0 == y->m0 && f_cmpA543(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4[0] == y->m4[0] && x->m4[1] == y->m4[1] && x->m4[2] == y->m4[2] && x->m4[3] == y->m4[3] && x->m4[4] == y->m4[4] && x->m4[5] == y->m4[5] && x->m4[6] == y->m4[6] && x->m4[7] == y->m4[7] && x->m4[8] == y->m4[8] && x->m4[9] == y->m4[9] && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && f_cmpA544(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA545() {
+DCaggr* f_touchA545() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A545));
@@ -10825,7 +10825,7 @@ DCaggr* f_touchdcstA545() {
 /* <sSjsfs{s<lBdSjlsiBdI>Cdd[10]dCsCCc{lCpJJdlSI[13]iSl}}lfBSJ> */
 union A546 { s m0; S m1; j m2; s m3; f m4; s m5; struct A545 m6; l m7; f m8; B m9; S m10; J m11; };
 int f_cmpA546(const union A546 *x, const union A546 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA545(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA546() {
+DCaggr* f_touchA546() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A546));
@@ -10848,7 +10848,7 @@ DCaggr* f_touchdcstA546() {
 /* <JiBIcLLj> */
 union A547 { J m0; i m1; B m2; I m3; c m4; L m5; L m6; j m7; };
 int f_cmpA547(const union A547 *x, const union A547 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA547() {
+DCaggr* f_touchA547() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(union A547));
@@ -10867,7 +10867,7 @@ DCaggr* f_touchdcstA547() {
 /* {Bifc} */
 struct A548 { B m0; i m1; f m2; c m3; };
 int f_cmpA548(const struct A548 *x, const struct A548 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA548() {
+DCaggr* f_touchA548() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A548));
@@ -10882,7 +10882,7 @@ DCaggr* f_touchdcstA548() {
 /* {lBSfds} */
 struct A549 { l m0; B m1; S m2; f m3; d m4; s m5; };
 int f_cmpA549(const struct A549 *x, const struct A549 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA549() {
+DCaggr* f_touchA549() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(struct A549));
@@ -10899,7 +10899,7 @@ DCaggr* f_touchdcstA549() {
 /* {cLILdspIC} */
 struct A550 { c m0; L m1; I m2; L m3; d m4; s m5; p m6; I m7; C m8; };
 int f_cmpA550(const struct A550 *x, const struct A550 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA550() {
+DCaggr* f_touchA550() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(struct A550));
@@ -10919,7 +10919,7 @@ DCaggr* f_touchdcstA550() {
 /* {jfCdLc[7]{lBSfds}f{cLILdspIC}SjB} */
 struct A551 { j m0; f m1; C m2; d m3; L m4; c m5[7]; struct A549 m6; f m7; struct A550 m8; S m9; j m10; B m11; };
 int f_cmpA551(const struct A551 *x, const struct A551 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5[0] == y->m5[0] && x->m5[1] == y->m5[1] && x->m5[2] == y->m5[2] && x->m5[3] == y->m5[3] && x->m5[4] == y->m5[4] && x->m5[5] == y->m5[5] && x->m5[6] == y->m5[6] && f_cmpA549(&x->m6, &y->m6) && x->m7 == y->m7 && f_cmpA550(&x->m8, &y->m8) && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA551() {
+DCaggr* f_touchA551() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A551));
@@ -10942,7 +10942,7 @@ DCaggr* f_touchdcstA551() {
 /* {ljlicds{jfCdLc[7]{lBSfds}f{cLILdspIC}SjB}LCBC} */
 struct A552 { l m0; j m1; l m2; i m3; c m4; d m5; s m6; struct A551 m7; L m8; C m9; B m10; C m11; };
 int f_cmpA552(const struct A552 *x, const struct A552 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && f_cmpA551(&x->m7, &y->m7) && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA552() {
+DCaggr* f_touchA552() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A552));
@@ -10965,7 +10965,7 @@ DCaggr* f_touchdcstA552() {
 /* <cJdSp> */
 union A553 { c m0; J m1; d m2; S m3; p m4; };
 int f_cmpA553(const union A553 *x, const union A553 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA553() {
+DCaggr* f_touchA553() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A553));
@@ -10981,7 +10981,7 @@ DCaggr* f_touchdcstA553() {
 /* {BSCjIScBfCLp} */
 struct A554 { B m0; S m1; C m2; j m3; I m4; S m5; c m6; B m7; f m8; C m9; L m10; p m11; };
 int f_cmpA554(const struct A554 *x, const struct A554 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA554() {
+DCaggr* f_touchA554() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A554));
@@ -11004,7 +11004,7 @@ DCaggr* f_touchdcstA554() {
 /* <C{BSCjIScBfCLp}pIdidIfdlc> */
 union A555 { C m0; struct A554 m1; p m2; I m3; d m4; i m5; d m6; I m7; f m8; d m9; l m10; c m11; };
 int f_cmpA555(const union A555 *x, const union A555 *y) { return x->m0 == y->m0 && f_cmpA554(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA555() {
+DCaggr* f_touchA555() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A555));
@@ -11027,7 +11027,7 @@ DCaggr* f_touchdcstA555() {
 /* <BiCcL<C{BSCjIScBfCLp}pIdidIfdlc>s[1]fpCdJ> */
 union A556 { B m0; i m1; C m2; c m3; L m4; union A555 m5; s m6[1]; f m7; p m8; C m9; d m10; J m11; };
 int f_cmpA556(const union A556 *x, const union A556 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA555(&x->m5, &y->m5) && x->m6[0] == y->m6[0] && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA556() {
+DCaggr* f_touchA556() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A556));
@@ -11050,7 +11050,7 @@ DCaggr* f_touchdcstA556() {
 /* <CBcBlB> */
 union A557 { C m0; B m1; c m2; B m3; l m4; B m5; };
 int f_cmpA557(const union A557 *x, const union A557 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA557() {
+DCaggr* f_touchA557() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(union A557));
@@ -11067,7 +11067,7 @@ DCaggr* f_touchdcstA557() {
 /* <lJ> */
 union A558 { l m0; J m1; };
 int f_cmpA558(const union A558 *x, const union A558 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA558() {
+DCaggr* f_touchA558() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A558));
@@ -11080,7 +11080,7 @@ DCaggr* f_touchdcstA558() {
 /* <jfIipIdfLslL> */
 union A559 { j m0; f m1; I m2; i m3; p m4; I m5; d m6; f m7; L m8; s m9; l m10; L m11; };
 int f_cmpA559(const union A559 *x, const union A559 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA559() {
+DCaggr* f_touchA559() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A559));
@@ -11103,7 +11103,7 @@ DCaggr* f_touchdcstA559() {
 /* {lfBJfff[7]sB} */
 struct A560 { l m0; f m1; B m2; J m3; f m4; f m5; f m6[7]; s m7; B m8; };
 int f_cmpA560(const struct A560 *x, const struct A560 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6[0] == y->m6[0] && x->m6[1] == y->m6[1] && x->m6[2] == y->m6[2] && x->m6[3] == y->m6[3] && x->m6[4] == y->m6[4] && x->m6[5] == y->m6[5] && x->m6[6] == y->m6[6] && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA560() {
+DCaggr* f_touchA560() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(struct A560));
@@ -11123,7 +11123,7 @@ DCaggr* f_touchdcstA560() {
 /* <CjJjdJpCdL[8]L> */
 union A561 { C m0; j m1; J m2; j m3; d m4; J m5; p m6; C m7; d m8; L m9[8]; L m10; };
 int f_cmpA561(const union A561 *x, const union A561 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9[0] == y->m9[0] && x->m9[1] == y->m9[1] && x->m9[2] == y->m9[2] && x->m9[3] == y->m9[3] && x->m9[4] == y->m9[4] && x->m9[5] == y->m9[5] && x->m9[6] == y->m9[6] && x->m9[7] == y->m9[7] && x->m10 == y->m10; };
-DCaggr* f_touchdcstA561() {
+DCaggr* f_touchA561() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(union A561));
@@ -11145,7 +11145,7 @@ DCaggr* f_touchdcstA561() {
 /* {ffsjlIlB<CjJjdJpCdL[8]L>sJ} */
 struct A562 { f m0; f m1; s m2; j m3; l m4; I m5; l m6; B m7; union A561 m8; s m9; J m10; };
 int f_cmpA562(const struct A562 *x, const struct A562 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA561(&x->m8, &y->m8) && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA562() {
+DCaggr* f_touchA562() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(struct A562));
@@ -11167,7 +11167,7 @@ DCaggr* f_touchdcstA562() {
 /* <fjCpf[7]LdfBIJp> */
 union A563 { f m0; j m1; C m2; p m3; f m4[7]; L m5; d m6; f m7; B m8; I m9; J m10; p m11; };
 int f_cmpA563(const union A563 *x, const union A563 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4[0] == y->m4[0] && x->m4[1] == y->m4[1] && x->m4[2] == y->m4[2] && x->m4[3] == y->m4[3] && x->m4[4] == y->m4[4] && x->m4[5] == y->m4[5] && x->m4[6] == y->m4[6] && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA563() {
+DCaggr* f_touchA563() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A563));
@@ -11190,7 +11190,7 @@ DCaggr* f_touchdcstA563() {
 /* <cjlLfLlSslc> */
 union A564 { c m0; j m1; l m2; L m3; f m4; L m5; l m6; S m7; s m8; l m9; c m10; };
 int f_cmpA564(const union A564 *x, const union A564 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA564() {
+DCaggr* f_touchA564() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(union A564));
@@ -11212,7 +11212,7 @@ DCaggr* f_touchdcstA564() {
 /* <ci> */
 union A565 { c m0; i m1; };
 int f_cmpA565(const union A565 *x, const union A565 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA565() {
+DCaggr* f_touchA565() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A565));
@@ -11225,7 +11225,7 @@ DCaggr* f_touchdcstA565() {
 /* {jBIdldcpfBCp} */
 struct A566 { j m0; B m1; I m2; d m3; l m4; d m5; c m6; p m7; f m8; B m9; C m10; p m11; };
 int f_cmpA566(const struct A566 *x, const struct A566 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA566() {
+DCaggr* f_touchA566() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A566));
@@ -11248,7 +11248,7 @@ DCaggr* f_touchdcstA566() {
 /* <{jBIdldcpfBCp}BjcCLpB> */
 union A567 { struct A566 m0; B m1; j m2; c m3; C m4; L m5; p m6; B m7; };
 int f_cmpA567(const union A567 *x, const union A567 *y) { return f_cmpA566(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA567() {
+DCaggr* f_touchA567() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(union A567));
@@ -11267,7 +11267,7 @@ DCaggr* f_touchdcstA567() {
 /* {f[2]clSlCfLipCd} */
 struct A568 { f m0[2]; c m1; l m2; S m3; l m4; C m5; f m6; L m7; i m8; p m9; C m10; d m11; };
 int f_cmpA568(const struct A568 *x, const struct A568 *y) { return x->m0[0] == y->m0[0] && x->m0[1] == y->m0[1] && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA568() {
+DCaggr* f_touchA568() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A568));
@@ -11290,7 +11290,7 @@ DCaggr* f_touchdcstA568() {
 /* <SfJBdJILLcsB> */
 union A569 { S m0; f m1; J m2; B m3; d m4; J m5; I m6; L m7; L m8; c m9; s m10; B m11; };
 int f_cmpA569(const union A569 *x, const union A569 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA569() {
+DCaggr* f_touchA569() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A569));
@@ -11313,7 +11313,7 @@ DCaggr* f_touchdcstA569() {
 /* <Js<SfJBdJILLcsB>fLdBcLisp> */
 union A570 { J m0; s m1; union A569 m2; f m3; L m4; d m5; B m6; c m7; L m8; i m9; s m10; p m11; };
 int f_cmpA570(const union A570 *x, const union A570 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA569(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA570() {
+DCaggr* f_touchA570() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A570));
@@ -11336,7 +11336,7 @@ DCaggr* f_touchdcstA570() {
 /* {iiBSCicBdBjI} */
 struct A571 { i m0; i m1; B m2; S m3; C m4; i m5; c m6; B m7; d m8; B m9; j m10; I m11; };
 int f_cmpA571(const struct A571 *x, const struct A571 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA571() {
+DCaggr* f_touchA571() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A571));
@@ -11359,7 +11359,7 @@ DCaggr* f_touchdcstA571() {
 /* <sjLLcSBLdJ> */
 union A572 { s m0; j m1; L m2; L m3; c m4; S m5; B m6; L m7; d m8; J m9; };
 int f_cmpA572(const union A572 *x, const union A572 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA572() {
+DCaggr* f_touchA572() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A572));
@@ -11380,7 +11380,7 @@ DCaggr* f_touchdcstA572() {
 /* {JBd{iiBSCicBdBjI}iIcd<sjLLcSBLdJ>cSl} */
 struct A573 { J m0; B m1; d m2; struct A571 m3; i m4; I m5; c m6; d m7; union A572 m8; c m9; S m10; l m11; };
 int f_cmpA573(const struct A573 *x, const struct A573 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA571(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA572(&x->m8, &y->m8) && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA573() {
+DCaggr* f_touchA573() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A573));
@@ -11403,7 +11403,7 @@ DCaggr* f_touchdcstA573() {
 /* <JfcfdLscJI> */
 union A574 { J m0; f m1; c m2; f m3; d m4; L m5; s m6; c m7; J m8; I m9; };
 int f_cmpA574(const union A574 *x, const union A574 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA574() {
+DCaggr* f_touchA574() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A574));
@@ -11424,7 +11424,7 @@ DCaggr* f_touchdcstA574() {
 /* {CBJijcL} */
 struct A575 { C m0; B m1; J m2; i m3; j m4; c m5; L m6; };
 int f_cmpA575(const struct A575 *x, const struct A575 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA575() {
+DCaggr* f_touchA575() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(struct A575));
@@ -11442,7 +11442,7 @@ DCaggr* f_touchdcstA575() {
 /* <BSCSdpIIB> */
 union A576 { B m0; S m1; C m2; S m3; d m4; p m5; I m6; I m7; B m8; };
 int f_cmpA576(const union A576 *x, const union A576 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA576() {
+DCaggr* f_touchA576() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A576));
@@ -11462,7 +11462,7 @@ DCaggr* f_touchdcstA576() {
 /* {i{d}BjBI<BSCSdpIIB>} */
 struct A577 { i m0; struct A378 m1; B m2; j m3; B m4; I m5; union A576 m6; };
 int f_cmpA577(const struct A577 *x, const struct A577 *y) { return x->m0 == y->m0 && f_cmpA378(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA576(&x->m6, &y->m6); };
-DCaggr* f_touchdcstA577() {
+DCaggr* f_touchA577() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(struct A577));
@@ -11480,7 +11480,7 @@ DCaggr* f_touchdcstA577() {
 /* <jijjLsspjCSS> */
 union A578 { j m0; i m1; j m2; j m3; L m4; s m5; s m6; p m7; j m8; C m9; S m10; S m11; };
 int f_cmpA578(const union A578 *x, const union A578 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA578() {
+DCaggr* f_touchA578() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A578));
@@ -11503,7 +11503,7 @@ DCaggr* f_touchdcstA578() {
 /* <d<jijjLsspjCSS>ciSS[11]ScBCil> */
 union A579 { d m0; union A578 m1; c m2; i m3; S m4; S m5[11]; S m6; c m7; B m8; C m9; i m10; l m11; };
 int f_cmpA579(const union A579 *x, const union A579 *y) { return x->m0 == y->m0 && f_cmpA578(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5[0] == y->m5[0] && x->m5[1] == y->m5[1] && x->m5[2] == y->m5[2] && x->m5[3] == y->m5[3] && x->m5[4] == y->m5[4] && x->m5[5] == y->m5[5] && x->m5[6] == y->m5[6] && x->m5[7] == y->m5[7] && x->m5[8] == y->m5[8] && x->m5[9] == y->m5[9] && x->m5[10] == y->m5[10] && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA579() {
+DCaggr* f_touchA579() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A579));
@@ -11526,7 +11526,7 @@ DCaggr* f_touchdcstA579() {
 /* <<d<jijjLsspjCSS>ciSS[11]ScBCil>JcfLiijpf> */
 union A580 { union A579 m0; J m1; c m2; f m3; L m4; i m5; i m6; j m7; p m8; f m9; };
 int f_cmpA580(const union A580 *x, const union A580 *y) { return f_cmpA579(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA580() {
+DCaggr* f_touchA580() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A580));
@@ -11547,7 +11547,7 @@ DCaggr* f_touchdcstA580() {
 /* {jiLCCcdscCCB} */
 struct A581 { j m0; i m1; L m2; C m3; C m4; c m5; d m6; s m7; c m8; C m9; C m10; B m11; };
 int f_cmpA581(const struct A581 *x, const struct A581 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA581() {
+DCaggr* f_touchA581() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A581));
@@ -11570,7 +11570,7 @@ DCaggr* f_touchdcstA581() {
 /* <lcsCi> */
 union A582 { l m0; c m1; s m2; C m3; i m4; };
 int f_cmpA582(const union A582 *x, const union A582 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA582() {
+DCaggr* f_touchA582() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A582));
@@ -11586,7 +11586,7 @@ DCaggr* f_touchdcstA582() {
 /* {CIJsjBCS} */
 struct A583 { C m0; I m1; J m2; s m3; j m4; B m5; C m6; S m7; };
 int f_cmpA583(const struct A583 *x, const struct A583 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA583() {
+DCaggr* f_touchA583() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(struct A583));
@@ -11605,7 +11605,7 @@ DCaggr* f_touchdcstA583() {
 /* <fjpjdILJ<lcsCi>{CIJsjBCS}Sl> */
 union A584 { f m0; j m1; p m2; j m3; d m4; I m5; L m6; J m7; union A582 m8; struct A583 m9; S m10; l m11; };
 int f_cmpA584(const union A584 *x, const union A584 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA582(&x->m8, &y->m8) && f_cmpA583(&x->m9, &y->m9) && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA584() {
+DCaggr* f_touchA584() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A584));
@@ -11628,7 +11628,7 @@ DCaggr* f_touchdcstA584() {
 /* <dSj> */
 union A585 { d m0; S m1; j m2; };
 int f_cmpA585(const union A585 *x, const union A585 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA585() {
+DCaggr* f_touchA585() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A585));
@@ -11642,7 +11642,7 @@ DCaggr* f_touchdcstA585() {
 /* {j<dSj>CicJiJjsfs} */
 struct A586 { j m0; union A585 m1; C m2; i m3; c m4; J m5; i m6; J m7; j m8; s m9; f m10; s m11; };
 int f_cmpA586(const struct A586 *x, const struct A586 *y) { return x->m0 == y->m0 && f_cmpA585(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA586() {
+DCaggr* f_touchA586() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A586));
@@ -11665,7 +11665,7 @@ DCaggr* f_touchdcstA586() {
 /* {JBJCcIll} */
 struct A587 { J m0; B m1; J m2; C m3; c m4; I m5; l m6; l m7; };
 int f_cmpA587(const struct A587 *x, const struct A587 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA587() {
+DCaggr* f_touchA587() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(struct A587));
@@ -11684,7 +11684,7 @@ DCaggr* f_touchdcstA587() {
 /* <ccIclisdll> */
 union A588 { c m0; c m1; I m2; c m3; l m4; i m5; s m6; d m7; l m8; l m9; };
 int f_cmpA588(const union A588 *x, const union A588 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA588() {
+DCaggr* f_touchA588() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A588));
@@ -11705,7 +11705,7 @@ DCaggr* f_touchdcstA588() {
 /* {j} */
 struct A589 { j m0; };
 int f_cmpA589(const struct A589 *x, const struct A589 *y) { return x->m0 == y->m0; };
-DCaggr* f_touchdcstA589() {
+DCaggr* f_touchA589() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(1, sizeof(struct A589));
@@ -11717,7 +11717,7 @@ DCaggr* f_touchdcstA589() {
 /* {ip[15]Blj<ccIclisdll>iccfd{j}} */
 struct A590 { i m0; p m1[15]; B m2; l m3; j m4; union A588 m5; i m6; c m7; c m8; f m9; d m10; struct A589 m11; };
 int f_cmpA590(const struct A590 *x, const struct A590 *y) { return x->m0 == y->m0 && x->m1[0] == y->m1[0] && x->m1[1] == y->m1[1] && x->m1[2] == y->m1[2] && x->m1[3] == y->m1[3] && x->m1[4] == y->m1[4] && x->m1[5] == y->m1[5] && x->m1[6] == y->m1[6] && x->m1[7] == y->m1[7] && x->m1[8] == y->m1[8] && x->m1[9] == y->m1[9] && x->m1[10] == y->m1[10] && x->m1[11] == y->m1[11] && x->m1[12] == y->m1[12] && x->m1[13] == y->m1[13] && x->m1[14] == y->m1[14] && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA588(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && f_cmpA589(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA590() {
+DCaggr* f_touchA590() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A590));
@@ -11740,7 +11740,7 @@ DCaggr* f_touchdcstA590() {
 /* {BBcJdffdISs} */
 struct A591 { B m0; B m1; c m2; J m3; d m4; f m5; f m6; d m7; I m8; S m9; s m10; };
 int f_cmpA591(const struct A591 *x, const struct A591 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA591() {
+DCaggr* f_touchA591() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(struct A591));
@@ -11762,7 +11762,7 @@ DCaggr* f_touchdcstA591() {
 /* <Bjp> */
 union A592 { B m0; j m1; p m2; };
 int f_cmpA592(const union A592 *x, const union A592 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA592() {
+DCaggr* f_touchA592() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A592));
@@ -11776,7 +11776,7 @@ DCaggr* f_touchdcstA592() {
 /* <pJ> */
 union A593 { p m0; J m1; };
 int f_cmpA593(const union A593 *x, const union A593 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA593() {
+DCaggr* f_touchA593() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A593));
@@ -11789,7 +11789,7 @@ DCaggr* f_touchdcstA593() {
 /* {S} */
 struct A594 { S m0; };
 int f_cmpA594(const struct A594 *x, const struct A594 *y) { return x->m0 == y->m0; };
-DCaggr* f_touchdcstA594() {
+DCaggr* f_touchA594() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(1, sizeof(struct A594));
@@ -11801,7 +11801,7 @@ DCaggr* f_touchdcstA594() {
 /* {sIsLsLjcCl[12]Li} */
 struct A595 { s m0; I m1; s m2; L m3; s m4; L m5; j m6; c m7; C m8; l m9[12]; L m10; i m11; };
 int f_cmpA595(const struct A595 *x, const struct A595 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9[0] == y->m9[0] && x->m9[1] == y->m9[1] && x->m9[2] == y->m9[2] && x->m9[3] == y->m9[3] && x->m9[4] == y->m9[4] && x->m9[5] == y->m9[5] && x->m9[6] == y->m9[6] && x->m9[7] == y->m9[7] && x->m9[8] == y->m9[8] && x->m9[9] == y->m9[9] && x->m9[10] == y->m9[10] && x->m9[11] == y->m9[11] && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA595() {
+DCaggr* f_touchA595() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A595));
@@ -11824,7 +11824,7 @@ DCaggr* f_touchdcstA595() {
 /* <sJClsIpLScfc> */
 union A596 { s m0; J m1; C m2; l m3; s m4; I m5; p m6; L m7; S m8; c m9; f m10; c m11; };
 int f_cmpA596(const union A596 *x, const union A596 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA596() {
+DCaggr* f_touchA596() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A596));
@@ -11847,7 +11847,7 @@ DCaggr* f_touchdcstA596() {
 /* {sc<sJClsIpLScfc>jf} */
 struct A597 { s m0; c m1; union A596 m2; j m3; f m4; };
 int f_cmpA597(const struct A597 *x, const struct A597 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA596(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA597() {
+DCaggr* f_touchA597() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A597));
@@ -11863,7 +11863,7 @@ DCaggr* f_touchdcstA597() {
 /* <ldJJIjS> */
 union A598 { l m0; d m1; J m2; J m3; I m4; j m5; S m6; };
 int f_cmpA598(const union A598 *x, const union A598 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA598() {
+DCaggr* f_touchA598() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(union A598));
@@ -11881,7 +11881,7 @@ DCaggr* f_touchdcstA598() {
 /* <LLl<ldJJIjS>l> */
 union A599 { L m0; L m1; l m2; union A598 m3; l m4; };
 int f_cmpA599(const union A599 *x, const union A599 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA598(&x->m3, &y->m3) && x->m4 == y->m4; };
-DCaggr* f_touchdcstA599() {
+DCaggr* f_touchA599() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A599));
@@ -11897,7 +11897,7 @@ DCaggr* f_touchdcstA599() {
 /* <dl> */
 union A600 { d m0; l m1; };
 int f_cmpA600(const union A600 *x, const union A600 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA600() {
+DCaggr* f_touchA600() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A600));
@@ -11910,7 +11910,7 @@ DCaggr* f_touchdcstA600() {
 /* {SliSJJCpSspL} */
 struct A601 { S m0; l m1; i m2; S m3; J m4; J m5; C m6; p m7; S m8; s m9; p m10; L m11; };
 int f_cmpA601(const struct A601 *x, const struct A601 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA601() {
+DCaggr* f_touchA601() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A601));
@@ -11933,7 +11933,7 @@ DCaggr* f_touchdcstA601() {
 /* <{SliSJJCpSspL}SLBL> */
 union A602 { struct A601 m0; S m1; L m2; B m3; L m4; };
 int f_cmpA602(const union A602 *x, const union A602 *y) { return f_cmpA601(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA602() {
+DCaggr* f_touchA602() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A602));
@@ -11949,7 +11949,7 @@ DCaggr* f_touchdcstA602() {
 /* <JfBCBfidBpfd> */
 union A603 { J m0; f m1; B m2; C m3; B m4; f m5; i m6; d m7; B m8; p m9; f m10; d m11; };
 int f_cmpA603(const union A603 *x, const union A603 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA603() {
+DCaggr* f_touchA603() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A603));
@@ -11972,7 +11972,7 @@ DCaggr* f_touchdcstA603() {
 /* {Il<{SliSJJCpSspL}SLBL><JfBCBfidBpfd>ll} */
 struct A604 { I m0; l m1; union A602 m2; union A603 m3; l m4; l m5; };
 int f_cmpA604(const struct A604 *x, const struct A604 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA602(&x->m2, &y->m2) && f_cmpA603(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA604() {
+DCaggr* f_touchA604() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(struct A604));
@@ -11989,7 +11989,7 @@ DCaggr* f_touchdcstA604() {
 /* <iiifC> */
 union A605 { i m0; i m1; i m2; f m3; C m4; };
 int f_cmpA605(const union A605 *x, const union A605 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA605() {
+DCaggr* f_touchA605() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A605));
@@ -12005,7 +12005,7 @@ DCaggr* f_touchdcstA605() {
 /* <dlj<iiifC>LdJspJfp> */
 union A606 { d m0; l m1; j m2; union A605 m3; L m4; d m5; J m6; s m7; p m8; J m9; f m10; p m11; };
 int f_cmpA606(const union A606 *x, const union A606 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA605(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA606() {
+DCaggr* f_touchA606() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A606));
@@ -12028,7 +12028,7 @@ DCaggr* f_touchdcstA606() {
 /* <sISIlJ> */
 union A607 { s m0; I m1; S m2; I m3; l m4; J m5; };
 int f_cmpA607(const union A607 *x, const union A607 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA607() {
+DCaggr* f_touchA607() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(union A607));
@@ -12045,7 +12045,7 @@ DCaggr* f_touchdcstA607() {
 /* {cicIC<sISIlJ>sJBldL} */
 struct A608 { c m0; i m1; c m2; I m3; C m4; union A607 m5; s m6; J m7; B m8; l m9; d m10; L m11; };
 int f_cmpA608(const struct A608 *x, const struct A608 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA607(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA608() {
+DCaggr* f_touchA608() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A608));
@@ -12068,7 +12068,7 @@ DCaggr* f_touchdcstA608() {
 /* <ijisBfS> */
 union A609 { i m0; j m1; i m2; s m3; B m4; f m5; S m6; };
 int f_cmpA609(const union A609 *x, const union A609 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA609() {
+DCaggr* f_touchA609() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(union A609));
@@ -12086,7 +12086,7 @@ DCaggr* f_touchdcstA609() {
 /* {Bff<dlj<iiifC>LdJspJfp>{cicIC<sISIlJ>sJBldL}fLCC<ijisBfS>sj} */
 struct A610 { B m0; f m1; f m2; union A606 m3; struct A608 m4; f m5; L m6; C m7; C m8; union A609 m9; s m10; j m11; };
 int f_cmpA610(const struct A610 *x, const struct A610 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA606(&x->m3, &y->m3) && f_cmpA608(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && f_cmpA609(&x->m9, &y->m9) && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA610() {
+DCaggr* f_touchA610() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A610));
@@ -12109,7 +12109,7 @@ DCaggr* f_touchdcstA610() {
 /* <SlsdffpilIj> */
 union A611 { S m0; l m1; s m2; d m3; f m4; f m5; p m6; i m7; l m8; I m9; j m10; };
 int f_cmpA611(const union A611 *x, const union A611 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA611() {
+DCaggr* f_touchA611() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(union A611));
@@ -12131,7 +12131,7 @@ DCaggr* f_touchdcstA611() {
 /* {ddsccpiJ[13]JL} */
 struct A612 { d m0; d m1; s m2; c m3; c m4; p m5; i m6; J m7[13]; J m8; L m9; };
 int f_cmpA612(const struct A612 *x, const struct A612 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7[0] == y->m7[0] && x->m7[1] == y->m7[1] && x->m7[2] == y->m7[2] && x->m7[3] == y->m7[3] && x->m7[4] == y->m7[4] && x->m7[5] == y->m7[5] && x->m7[6] == y->m7[6] && x->m7[7] == y->m7[7] && x->m7[8] == y->m7[8] && x->m7[9] == y->m7[9] && x->m7[10] == y->m7[10] && x->m7[11] == y->m7[11] && x->m7[12] == y->m7[12] && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA612() {
+DCaggr* f_touchA612() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(struct A612));
@@ -12152,7 +12152,7 @@ DCaggr* f_touchdcstA612() {
 /* {lc} */
 struct A613 { l m0; c m1; };
 int f_cmpA613(const struct A613 *x, const struct A613 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA613() {
+DCaggr* f_touchA613() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(struct A613));
@@ -12165,7 +12165,7 @@ DCaggr* f_touchdcstA613() {
 /* <jiJCLsllcCLc> */
 union A614 { j m0; i m1; J m2; C m3; L m4; s m5; l m6; l m7; c m8; C m9; L m10; c m11; };
 int f_cmpA614(const union A614 *x, const union A614 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA614() {
+DCaggr* f_touchA614() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A614));
@@ -12188,7 +12188,7 @@ DCaggr* f_touchdcstA614() {
 /* <f[12]IciCCpCdscd> */
 union A615 { f m0[12]; I m1; c m2; i m3; C m4; C m5; p m6; C m7; d m8; s m9; c m10; d m11; };
 int f_cmpA615(const union A615 *x, const union A615 *y) { return x->m0[0] == y->m0[0] && x->m0[1] == y->m0[1] && x->m0[2] == y->m0[2] && x->m0[3] == y->m0[3] && x->m0[4] == y->m0[4] && x->m0[5] == y->m0[5] && x->m0[6] == y->m0[6] && x->m0[7] == y->m0[7] && x->m0[8] == y->m0[8] && x->m0[9] == y->m0[9] && x->m0[10] == y->m0[10] && x->m0[11] == y->m0[11] && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA615() {
+DCaggr* f_touchA615() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A615));
@@ -12211,7 +12211,7 @@ DCaggr* f_touchdcstA615() {
 /* {SBCfdBCBjdsI} */
 struct A616 { S m0; B m1; C m2; f m3; d m4; B m5; C m6; B m7; j m8; d m9; s m10; I m11; };
 int f_cmpA616(const struct A616 *x, const struct A616 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA616() {
+DCaggr* f_touchA616() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A616));
@@ -12234,7 +12234,7 @@ DCaggr* f_touchdcstA616() {
 /* {<jiJCLsllcCLc><f[12]IciCCpCdscd>d{SBCfdBCBjdsI}jJiSCcpC} */
 struct A617 { union A614 m0; union A615 m1; d m2; struct A616 m3; j m4; J m5; i m6; S m7; C m8; c m9; p m10; C m11; };
 int f_cmpA617(const struct A617 *x, const struct A617 *y) { return f_cmpA614(&x->m0, &y->m0) && f_cmpA615(&x->m1, &y->m1) && x->m2 == y->m2 && f_cmpA616(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA617() {
+DCaggr* f_touchA617() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A617));
@@ -12257,7 +12257,7 @@ DCaggr* f_touchdcstA617() {
 /* <djJIjdd> */
 union A618 { d m0; j m1; J m2; I m3; j m4; d m5; d m6; };
 int f_cmpA618(const union A618 *x, const union A618 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA618() {
+DCaggr* f_touchA618() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(union A618));
@@ -12275,7 +12275,7 @@ DCaggr* f_touchdcstA618() {
 /* {dSdlcj[11]IfflIL} */
 struct A619 { d m0; S m1; d m2; l m3; c m4; j m5[11]; I m6; f m7; f m8; l m9; I m10; L m11; };
 int f_cmpA619(const struct A619 *x, const struct A619 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5[0] == y->m5[0] && x->m5[1] == y->m5[1] && x->m5[2] == y->m5[2] && x->m5[3] == y->m5[3] && x->m5[4] == y->m5[4] && x->m5[5] == y->m5[5] && x->m5[6] == y->m5[6] && x->m5[7] == y->m5[7] && x->m5[8] == y->m5[8] && x->m5[9] == y->m5[9] && x->m5[10] == y->m5[10] && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA619() {
+DCaggr* f_touchA619() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A619));
@@ -12298,7 +12298,7 @@ DCaggr* f_touchdcstA619() {
 /* <lLsjl<djJIjdd>Js{dSdlcj[11]IfflIL}d> */
 union A620 { l m0; L m1; s m2; j m3; l m4; union A618 m5; J m6; s m7; struct A619 m8; d m9; };
 int f_cmpA620(const union A620 *x, const union A620 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA618(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA619(&x->m8, &y->m8) && x->m9 == y->m9; };
-DCaggr* f_touchdcstA620() {
+DCaggr* f_touchA620() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A620));
@@ -12319,7 +12319,7 @@ DCaggr* f_touchdcstA620() {
 /* {dS[7]{lc}pSd{<jiJCLsllcCLc><f[12]IciCCpCdscd>d{SBCfdBCBjdsI}jJiSCcpC}BI[13]dJ<lLsjl<djJIjdd>Js{dSdlcj[11]IfflIL}d>} */
 struct A621 { d m0; S m1[7]; struct A613 m2; p m3; S m4; d m5; struct A617 m6; B m7; I m8[13]; d m9; J m10; union A620 m11; };
 int f_cmpA621(const struct A621 *x, const struct A621 *y) { return x->m0 == y->m0 && x->m1[0] == y->m1[0] && x->m1[1] == y->m1[1] && x->m1[2] == y->m1[2] && x->m1[3] == y->m1[3] && x->m1[4] == y->m1[4] && x->m1[5] == y->m1[5] && x->m1[6] == y->m1[6] && f_cmpA613(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA617(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8[0] == y->m8[0] && x->m8[1] == y->m8[1] && x->m8[2] == y->m8[2] && x->m8[3] == y->m8[3] && x->m8[4] == y->m8[4] && x->m8[5] == y->m8[5] && x->m8[6] == y->m8[6] && x->m8[7] == y->m8[7] && x->m8[8] == y->m8[8] && x->m8[9] == y->m8[9] && x->m8[10] == y->m8[10] && x->m8[11] == y->m8[11] && x->m8[12] == y->m8[12] && x->m9 == y->m9 && x->m10 == y->m10 && f_cmpA620(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA621() {
+DCaggr* f_touchA621() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A621));
@@ -12342,7 +12342,7 @@ DCaggr* f_touchdcstA621() {
 /* {ffi} */
 struct A622 { f m0; f m1; i m2; };
 int f_cmpA622(const struct A622 *x, const struct A622 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA622() {
+DCaggr* f_touchA622() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A622));
@@ -12356,7 +12356,7 @@ DCaggr* f_touchdcstA622() {
 /* {BfJIsffcjJ[14]C} */
 struct A623 { B m0; f m1; J m2; I m3; s m4; f m5; f m6; c m7; j m8; J m9[14]; C m10; };
 int f_cmpA623(const struct A623 *x, const struct A623 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9[0] == y->m9[0] && x->m9[1] == y->m9[1] && x->m9[2] == y->m9[2] && x->m9[3] == y->m9[3] && x->m9[4] == y->m9[4] && x->m9[5] == y->m9[5] && x->m9[6] == y->m9[6] && x->m9[7] == y->m9[7] && x->m9[8] == y->m9[8] && x->m9[9] == y->m9[9] && x->m9[10] == y->m9[10] && x->m9[11] == y->m9[11] && x->m9[12] == y->m9[12] && x->m9[13] == y->m9[13] && x->m10 == y->m10; };
-DCaggr* f_touchdcstA623() {
+DCaggr* f_touchA623() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(struct A623));
@@ -12378,7 +12378,7 @@ DCaggr* f_touchdcstA623() {
 /* {Iid} */
 struct A624 { I m0; i m1; d m2; };
 int f_cmpA624(const struct A624 *x, const struct A624 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA624() {
+DCaggr* f_touchA624() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A624));
@@ -12392,7 +12392,7 @@ DCaggr* f_touchdcstA624() {
 /* <lpBlcBLC{BfJIsffcjJ[14]C}{Iid}Lf> */
 union A625 { l m0; p m1; B m2; l m3; c m4; B m5; L m6; C m7; struct A623 m8; struct A624 m9; L m10; f m11; };
 int f_cmpA625(const union A625 *x, const union A625 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA623(&x->m8, &y->m8) && f_cmpA624(&x->m9, &y->m9) && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA625() {
+DCaggr* f_touchA625() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A625));
@@ -12415,7 +12415,7 @@ DCaggr* f_touchdcstA625() {
 /* <CJBiL<lpBlcBLC{BfJIsffcjJ[14]C}{Iid}Lf>pSfIJB> */
 union A626 { C m0; J m1; B m2; i m3; L m4; union A625 m5; p m6; S m7; f m8; I m9; J m10; B m11; };
 int f_cmpA626(const union A626 *x, const union A626 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA625(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA626() {
+DCaggr* f_touchA626() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A626));
@@ -12438,7 +12438,7 @@ DCaggr* f_touchdcstA626() {
 /* <sLpJSLlLSs> */
 union A627 { s m0; L m1; p m2; J m3; S m4; L m5; l m6; L m7; S m8; s m9; };
 int f_cmpA627(const union A627 *x, const union A627 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA627() {
+DCaggr* f_touchA627() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A627));
@@ -12459,7 +12459,7 @@ DCaggr* f_touchdcstA627() {
 /* {iljBfpLILIcj} */
 struct A628 { i m0; l m1; j m2; B m3; f m4; p m5; L m6; I m7; L m8; I m9; c m10; j m11; };
 int f_cmpA628(const struct A628 *x, const struct A628 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA628() {
+DCaggr* f_touchA628() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A628));
@@ -12482,7 +12482,7 @@ DCaggr* f_touchdcstA628() {
 /* {<sLpJSLlLSs>fS{iljBfpLILIcj}IC} */
 struct A629 { union A627 m0; f m1; S m2; struct A628 m3; I m4; C m5; };
 int f_cmpA629(const struct A629 *x, const struct A629 *y) { return f_cmpA627(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA628(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA629() {
+DCaggr* f_touchA629() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(struct A629));
@@ -12499,7 +12499,7 @@ DCaggr* f_touchdcstA629() {
 /* <Jij> */
 union A630 { J m0; i m1; j m2; };
 int f_cmpA630(const union A630 *x, const union A630 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA630() {
+DCaggr* f_touchA630() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A630));
@@ -12513,7 +12513,7 @@ DCaggr* f_touchdcstA630() {
 /* <SCc{<sLpJSLlLSs>fS{iljBfpLILIcj}IC}dC<Jij>fj> */
 union A631 { S m0; C m1; c m2; struct A629 m3; d m4; C m5; union A630 m6; f m7; j m8; };
 int f_cmpA631(const union A631 *x, const union A631 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA629(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA630(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA631() {
+DCaggr* f_touchA631() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A631));
@@ -12533,7 +12533,7 @@ DCaggr* f_touchdcstA631() {
 /* {icpjCisfdsd} */
 struct A632 { i m0; c m1; p m2; j m3; C m4; i m5; s m6; f m7; d m8; s m9; d m10; };
 int f_cmpA632(const struct A632 *x, const struct A632 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA632() {
+DCaggr* f_touchA632() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(struct A632));
@@ -12555,7 +12555,7 @@ DCaggr* f_touchdcstA632() {
 /* <JffpslJ[8]JCsCC> */
 union A633 { J m0; f m1; f m2; p m3; s m4; l m5; J m6[8]; J m7; C m8; s m9; C m10; C m11; };
 int f_cmpA633(const union A633 *x, const union A633 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6[0] == y->m6[0] && x->m6[1] == y->m6[1] && x->m6[2] == y->m6[2] && x->m6[3] == y->m6[3] && x->m6[4] == y->m6[4] && x->m6[5] == y->m6[5] && x->m6[6] == y->m6[6] && x->m6[7] == y->m6[7] && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA633() {
+DCaggr* f_touchA633() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A633));
@@ -12578,7 +12578,7 @@ DCaggr* f_touchdcstA633() {
 /* {iLfJdlBCjpIc} */
 struct A634 { i m0; L m1; f m2; J m3; d m4; l m5; B m6; C m7; j m8; p m9; I m10; c m11; };
 int f_cmpA634(const struct A634 *x, const struct A634 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA634() {
+DCaggr* f_touchA634() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A634));
@@ -12601,7 +12601,7 @@ DCaggr* f_touchdcstA634() {
 /* {<JffpslJ[8]JCsCC>jCilIp{iLfJdlBCjpIc}c{S}dc} */
 struct A635 { union A633 m0; j m1; C m2; i m3; l m4; I m5; p m6; struct A634 m7; c m8; struct A594 m9; d m10; c m11; };
 int f_cmpA635(const struct A635 *x, const struct A635 *y) { return f_cmpA633(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && f_cmpA634(&x->m7, &y->m7) && x->m8 == y->m8 && f_cmpA594(&x->m9, &y->m9) && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA635() {
+DCaggr* f_touchA635() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A635));
@@ -12624,7 +12624,7 @@ DCaggr* f_touchdcstA635() {
 /* {BIpicJLpplJc[9]} */
 struct A636 { B m0; I m1; p m2; i m3; c m4; J m5; L m6; p m7; p m8; l m9; J m10; c m11[9]; };
 int f_cmpA636(const struct A636 *x, const struct A636 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11[0] == y->m11[0] && x->m11[1] == y->m11[1] && x->m11[2] == y->m11[2] && x->m11[3] == y->m11[3] && x->m11[4] == y->m11[4] && x->m11[5] == y->m11[5] && x->m11[6] == y->m11[6] && x->m11[7] == y->m11[7] && x->m11[8] == y->m11[8]; };
-DCaggr* f_touchdcstA636() {
+DCaggr* f_touchA636() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A636));
@@ -12647,7 +12647,7 @@ DCaggr* f_touchdcstA636() {
 /* {{<JffpslJ[8]JCsCC>jCilIp{iLfJdlBCjpIc}c{S}dc}CLsS{BIpicJLpplJc[9]}sidJlI} */
 struct A637 { struct A635 m0; C m1; L m2; s m3; S m4; struct A636 m5; s m6; i m7; d m8; J m9; l m10; I m11; };
 int f_cmpA637(const struct A637 *x, const struct A637 *y) { return f_cmpA635(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA636(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA637() {
+DCaggr* f_touchA637() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A637));
@@ -12670,7 +12670,7 @@ DCaggr* f_touchdcstA637() {
 /* {ciJdSBjdfBpc} */
 struct A638 { c m0; i m1; J m2; d m3; S m4; B m5; j m6; d m7; f m8; B m9; p m10; c m11; };
 int f_cmpA638(const struct A638 *x, const struct A638 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA638() {
+DCaggr* f_touchA638() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A638));
@@ -12693,7 +12693,7 @@ DCaggr* f_touchdcstA638() {
 /* <BdjJBIjdi> */
 union A639 { B m0; d m1; j m2; J m3; B m4; I m5; j m6; d m7; i m8; };
 int f_cmpA639(const union A639 *x, const union A639 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA639() {
+DCaggr* f_touchA639() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A639));
@@ -12713,7 +12713,7 @@ DCaggr* f_touchdcstA639() {
 /* <dBSc{ciJdSBjdfBpc}d<BdjJBIjdi>f> */
 union A640 { d m0; B m1; S m2; c m3; struct A638 m4; d m5; union A639 m6; f m7; };
 int f_cmpA640(const union A640 *x, const union A640 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA638(&x->m4, &y->m4) && x->m5 == y->m5 && f_cmpA639(&x->m6, &y->m6) && x->m7 == y->m7; };
-DCaggr* f_touchdcstA640() {
+DCaggr* f_touchA640() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(union A640));
@@ -12732,7 +12732,7 @@ DCaggr* f_touchdcstA640() {
 /* {CcscLJLfCj[16]SJ} */
 struct A641 { C m0; c m1; s m2; c m3; L m4; J m5; L m6; f m7; C m8; j m9[16]; S m10; J m11; };
 int f_cmpA641(const struct A641 *x, const struct A641 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9[0] == y->m9[0] && x->m9[1] == y->m9[1] && x->m9[2] == y->m9[2] && x->m9[3] == y->m9[3] && x->m9[4] == y->m9[4] && x->m9[5] == y->m9[5] && x->m9[6] == y->m9[6] && x->m9[7] == y->m9[7] && x->m9[8] == y->m9[8] && x->m9[9] == y->m9[9] && x->m9[10] == y->m9[10] && x->m9[11] == y->m9[11] && x->m9[12] == y->m9[12] && x->m9[13] == y->m9[13] && x->m9[14] == y->m9[14] && x->m9[15] == y->m9[15] && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA641() {
+DCaggr* f_touchA641() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A641));
@@ -12755,7 +12755,7 @@ DCaggr* f_touchdcstA641() {
 /* <LIccJBS[4]JipjL> */
 union A642 { L m0; I m1; c m2; c m3; J m4; B m5; S m6[4]; J m7; i m8; p m9; j m10; L m11; };
 int f_cmpA642(const union A642 *x, const union A642 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6[0] == y->m6[0] && x->m6[1] == y->m6[1] && x->m6[2] == y->m6[2] && x->m6[3] == y->m6[3] && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA642() {
+DCaggr* f_touchA642() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A642));
@@ -12778,7 +12778,7 @@ DCaggr* f_touchdcstA642() {
 /* {fil} */
 struct A643 { f m0; i m1; l m2; };
 int f_cmpA643(const struct A643 *x, const struct A643 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA643() {
+DCaggr* f_touchA643() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A643));
@@ -12792,7 +12792,7 @@ DCaggr* f_touchdcstA643() {
 /* {i<LIccJBS[4]JipjL>sji{fil}Ijjcjj} */
 struct A644 { i m0; union A642 m1; s m2; j m3; i m4; struct A643 m5; I m6; j m7; j m8; c m9; j m10; j m11; };
 int f_cmpA644(const struct A644 *x, const struct A644 *y) { return x->m0 == y->m0 && f_cmpA642(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA643(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA644() {
+DCaggr* f_touchA644() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A644));
@@ -12815,7 +12815,7 @@ DCaggr* f_touchdcstA644() {
 /* {fcdC<dBSc{ciJdSBjdfBpc}d<BdjJBIjdi>f>p[4]Sc{CcscLJLfCj[16]SJ}li{i<LIccJBS[4]JipjL>sji{fil}Ijjcjj}} */
 struct A645 { f m0; c m1; d m2; C m3; union A640 m4; p m5[4]; S m6; c m7; struct A641 m8; l m9; i m10; struct A644 m11; };
 int f_cmpA645(const struct A645 *x, const struct A645 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA640(&x->m4, &y->m4) && x->m5[0] == y->m5[0] && x->m5[1] == y->m5[1] && x->m5[2] == y->m5[2] && x->m5[3] == y->m5[3] && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA641(&x->m8, &y->m8) && x->m9 == y->m9 && x->m10 == y->m10 && f_cmpA644(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA645() {
+DCaggr* f_touchA645() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A645));
@@ -12838,7 +12838,7 @@ DCaggr* f_touchdcstA645() {
 /* <dsjLiIpc[9]cfcC> */
 union A646 { d m0; s m1; j m2; L m3; i m4; I m5; p m6; c m7[9]; c m8; f m9; c m10; C m11; };
 int f_cmpA646(const union A646 *x, const union A646 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7[0] == y->m7[0] && x->m7[1] == y->m7[1] && x->m7[2] == y->m7[2] && x->m7[3] == y->m7[3] && x->m7[4] == y->m7[4] && x->m7[5] == y->m7[5] && x->m7[6] == y->m7[6] && x->m7[7] == y->m7[7] && x->m7[8] == y->m7[8] && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA646() {
+DCaggr* f_touchA646() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A646));
@@ -12861,7 +12861,7 @@ DCaggr* f_touchdcstA646() {
 /* {JCCCcCpjfJ<dsjLiIpc[9]cfcC>B} */
 struct A647 { J m0; C m1; C m2; C m3; c m4; C m5; p m6; j m7; f m8; J m9; union A646 m10; B m11; };
 int f_cmpA647(const struct A647 *x, const struct A647 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA646(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA647() {
+DCaggr* f_touchA647() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A647));
@@ -12884,7 +12884,7 @@ DCaggr* f_touchdcstA647() {
 /* {J[1]sLJ} */
 struct A648 { J m0[1]; s m1; L m2; J m3; };
 int f_cmpA648(const struct A648 *x, const struct A648 *y) { return x->m0[0] == y->m0[0] && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA648() {
+DCaggr* f_touchA648() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A648));
@@ -12899,7 +12899,7 @@ DCaggr* f_touchdcstA648() {
 /* <jlCsiclj{J[1]sLJ}p{Bp}I> */
 union A649 { j m0; l m1; C m2; s m3; i m4; c m5; l m6; j m7; struct A648 m8; p m9; struct A363 m10; I m11; };
 int f_cmpA649(const union A649 *x, const union A649 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA648(&x->m8, &y->m8) && x->m9 == y->m9 && f_cmpA363(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA649() {
+DCaggr* f_touchA649() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A649));
@@ -12922,7 +12922,7 @@ DCaggr* f_touchdcstA649() {
 /* <sldiCpdsc> */
 union A650 { s m0; l m1; d m2; i m3; C m4; p m5; d m6; s m7; c m8; };
 int f_cmpA650(const union A650 *x, const union A650 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA650() {
+DCaggr* f_touchA650() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A650));
@@ -12942,7 +12942,7 @@ DCaggr* f_touchdcstA650() {
 /* {lIpid} */
 struct A651 { l m0; I m1; p m2; i m3; d m4; };
 int f_cmpA651(const struct A651 *x, const struct A651 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA651() {
+DCaggr* f_touchA651() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A651));
@@ -12958,7 +12958,7 @@ DCaggr* f_touchdcstA651() {
 /* <J[2]LipdlJJiddI> */
 union A652 { J m0[2]; L m1; i m2; p m3; d m4; l m5; J m6; J m7; i m8; d m9; d m10; I m11; };
 int f_cmpA652(const union A652 *x, const union A652 *y) { return x->m0[0] == y->m0[0] && x->m0[1] == y->m0[1] && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA652() {
+DCaggr* f_touchA652() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A652));
@@ -12981,7 +12981,7 @@ DCaggr* f_touchdcstA652() {
 /* {JBfdcBsiBSps} */
 struct A653 { J m0; B m1; f m2; d m3; c m4; B m5; s m6; i m7; B m8; S m9; p m10; s m11; };
 int f_cmpA653(const struct A653 *x, const struct A653 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA653() {
+DCaggr* f_touchA653() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A653));
@@ -13004,7 +13004,7 @@ DCaggr* f_touchdcstA653() {
 /* <<J[2]LipdlJJiddI>S{JBfdcBsiBSps}> */
 union A654 { union A652 m0; S m1; struct A653 m2; };
 int f_cmpA654(const union A654 *x, const union A654 *y) { return f_cmpA652(&x->m0, &y->m0) && x->m1 == y->m1 && f_cmpA653(&x->m2, &y->m2); };
-DCaggr* f_touchdcstA654() {
+DCaggr* f_touchA654() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A654));
@@ -13018,7 +13018,7 @@ DCaggr* f_touchdcstA654() {
 /* {SS<<J[2]LipdlJJiddI>S{JBfdcBsiBSps}>} */
 struct A655 { S m0; S m1; union A654 m2; };
 int f_cmpA655(const struct A655 *x, const struct A655 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA654(&x->m2, &y->m2); };
-DCaggr* f_touchdcstA655() {
+DCaggr* f_touchA655() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A655));
@@ -13032,7 +13032,7 @@ DCaggr* f_touchdcstA655() {
 /* {jBdBpI} */
 struct A656 { j m0; B m1; d m2; B m3; p m4; I m5; };
 int f_cmpA656(const struct A656 *x, const struct A656 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA656() {
+DCaggr* f_touchA656() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(struct A656));
@@ -13049,7 +13049,7 @@ DCaggr* f_touchdcstA656() {
 /* <jp[12]Csj> */
 union A657 { j m0; p m1[12]; C m2; s m3; j m4; };
 int f_cmpA657(const union A657 *x, const union A657 *y) { return x->m0 == y->m0 && x->m1[0] == y->m1[0] && x->m1[1] == y->m1[1] && x->m1[2] == y->m1[2] && x->m1[3] == y->m1[3] && x->m1[4] == y->m1[4] && x->m1[5] == y->m1[5] && x->m1[6] == y->m1[6] && x->m1[7] == y->m1[7] && x->m1[8] == y->m1[8] && x->m1[9] == y->m1[9] && x->m1[10] == y->m1[10] && x->m1[11] == y->m1[11] && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA657() {
+DCaggr* f_touchA657() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A657));
@@ -13065,7 +13065,7 @@ DCaggr* f_touchdcstA657() {
 /* <ljL<jp[12]Csj>> */
 union A658 { l m0; j m1; L m2; union A657 m3; };
 int f_cmpA658(const union A658 *x, const union A658 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA657(&x->m3, &y->m3); };
-DCaggr* f_touchdcstA658() {
+DCaggr* f_touchA658() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A658));
@@ -13080,7 +13080,7 @@ DCaggr* f_touchdcstA658() {
 /* <fiISSjLcIpCJ> */
 union A659 { f m0; i m1; I m2; S m3; S m4; j m5; L m6; c m7; I m8; p m9; C m10; J m11; };
 int f_cmpA659(const union A659 *x, const union A659 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA659() {
+DCaggr* f_touchA659() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A659));
@@ -13103,7 +13103,7 @@ DCaggr* f_touchdcstA659() {
 /* <dCf> */
 union A660 { d m0; C m1; f m2; };
 int f_cmpA660(const union A660 *x, const union A660 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA660() {
+DCaggr* f_touchA660() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A660));
@@ -13117,7 +13117,7 @@ DCaggr* f_touchdcstA660() {
 /* {sl<dCf>CfILI} */
 struct A661 { s m0; l m1; union A660 m2; C m3; f m4; I m5; L m6; I m7; };
 int f_cmpA661(const struct A661 *x, const struct A661 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA660(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA661() {
+DCaggr* f_touchA661() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(struct A661));
@@ -13136,7 +13136,7 @@ DCaggr* f_touchdcstA661() {
 /* <sdCpdfsCi> */
 union A662 { s m0; d m1; C m2; p m3; d m4; f m5; s m6; C m7; i m8; };
 int f_cmpA662(const union A662 *x, const union A662 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA662() {
+DCaggr* f_touchA662() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A662));
@@ -13156,7 +13156,7 @@ DCaggr* f_touchdcstA662() {
 /* {idLLJjffd[1]did} */
 struct A663 { i m0; d m1; L m2; L m3; J m4; j m5; f m6; f m7; d m8[1]; d m9; i m10; d m11; };
 int f_cmpA663(const struct A663 *x, const struct A663 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8[0] == y->m8[0] && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA663() {
+DCaggr* f_touchA663() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A663));
@@ -13179,7 +13179,7 @@ DCaggr* f_touchdcstA663() {
 /* <jd> */
 union A664 { j m0; d m1; };
 int f_cmpA664(const union A664 *x, const union A664 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA664() {
+DCaggr* f_touchA664() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A664));
@@ -13192,7 +13192,7 @@ DCaggr* f_touchdcstA664() {
 /* {dj{idLLJjffd[1]did}<jd>dBIL} */
 struct A665 { d m0; j m1; struct A663 m2; union A664 m3; d m4; B m5; I m6; L m7; };
 int f_cmpA665(const struct A665 *x, const struct A665 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA663(&x->m2, &y->m2) && f_cmpA664(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA665() {
+DCaggr* f_touchA665() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(struct A665));
@@ -13211,7 +13211,7 @@ DCaggr* f_touchdcstA665() {
 /* {LlpsL<fiISSjLcIpCJ>i{sl<dCf>CfILI}<sdCpdfsCi>i{dj{idLLJjffd[1]did}<jd>dBIL}p} */
 struct A666 { L m0; l m1; p m2; s m3; L m4; union A659 m5; i m6; struct A661 m7; union A662 m8; i m9; struct A665 m10; p m11; };
 int f_cmpA666(const struct A666 *x, const struct A666 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA659(&x->m5, &y->m5) && x->m6 == y->m6 && f_cmpA661(&x->m7, &y->m7) && f_cmpA662(&x->m8, &y->m8) && x->m9 == y->m9 && f_cmpA665(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA666() {
+DCaggr* f_touchA666() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A666));
@@ -13234,7 +13234,7 @@ DCaggr* f_touchdcstA666() {
 /* <LcsldS> */
 union A667 { L m0; c m1; s m2; l m3; d m4; S m5; };
 int f_cmpA667(const union A667 *x, const union A667 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA667() {
+DCaggr* f_touchA667() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(union A667));
@@ -13251,7 +13251,7 @@ DCaggr* f_touchdcstA667() {
 /* <IsSdd> */
 union A668 { I m0; s m1; S m2; d m3; d m4; };
 int f_cmpA668(const union A668 *x, const union A668 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA668() {
+DCaggr* f_touchA668() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A668));
@@ -13267,7 +13267,7 @@ DCaggr* f_touchdcstA668() {
 /* {j[1]Sl} */
 struct A669 { j m0[1]; S m1; l m2; };
 int f_cmpA669(const struct A669 *x, const struct A669 *y) { return x->m0[0] == y->m0[0] && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA669() {
+DCaggr* f_touchA669() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A669));
@@ -13281,7 +13281,7 @@ DCaggr* f_touchdcstA669() {
 /* <cdIS<LcsldS>i<IsSdd>l{j[1]Sl}BSB> */
 union A670 { c m0; d m1; I m2; S m3; union A667 m4; i m5; union A668 m6; l m7; struct A669 m8; B m9; S m10; B m11; };
 int f_cmpA670(const union A670 *x, const union A670 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA667(&x->m4, &y->m4) && x->m5 == y->m5 && f_cmpA668(&x->m6, &y->m6) && x->m7 == y->m7 && f_cmpA669(&x->m8, &y->m8) && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA670() {
+DCaggr* f_touchA670() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A670));
@@ -13304,7 +13304,7 @@ DCaggr* f_touchdcstA670() {
 /* <cdJfciiLsjIp> */
 union A671 { c m0; d m1; J m2; f m3; c m4; i m5; i m6; L m7; s m8; j m9; I m10; p m11; };
 int f_cmpA671(const union A671 *x, const union A671 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA671() {
+DCaggr* f_touchA671() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A671));
@@ -13327,7 +13327,7 @@ DCaggr* f_touchdcstA671() {
 /* <BpJd> */
 union A672 { B m0; p m1; J m2; d m3; };
 int f_cmpA672(const union A672 *x, const union A672 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA672() {
+DCaggr* f_touchA672() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A672));
@@ -13342,7 +13342,7 @@ DCaggr* f_touchdcstA672() {
 /* {jiIj} */
 struct A673 { j m0; i m1; I m2; j m3; };
 int f_cmpA673(const struct A673 *x, const struct A673 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA673() {
+DCaggr* f_touchA673() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A673));
@@ -13357,7 +13357,7 @@ DCaggr* f_touchdcstA673() {
 /* <LBlIlIfdSI> */
 union A674 { L m0; B m1; l m2; I m3; l m4; I m5; f m6; d m7; S m8; I m9; };
 int f_cmpA674(const union A674 *x, const union A674 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA674() {
+DCaggr* f_touchA674() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A674));
@@ -13378,7 +13378,7 @@ DCaggr* f_touchdcstA674() {
 /* <ipIi> */
 union A675 { i m0; p m1; I m2; i m3; };
 int f_cmpA675(const union A675 *x, const union A675 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA675() {
+DCaggr* f_touchA675() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A675));
@@ -13393,7 +13393,7 @@ DCaggr* f_touchdcstA675() {
 /* {IdcpC} */
 struct A676 { I m0; d m1; c m2; p m3; C m4; };
 int f_cmpA676(const struct A676 *x, const struct A676 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA676() {
+DCaggr* f_touchA676() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A676));
@@ -13409,7 +13409,7 @@ DCaggr* f_touchdcstA676() {
 /* {dJiidiLj} */
 struct A677 { d m0; J m1; i m2; i m3; d m4; i m5; L m6; j m7; };
 int f_cmpA677(const struct A677 *x, const struct A677 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA677() {
+DCaggr* f_touchA677() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(struct A677));
@@ -13428,7 +13428,7 @@ DCaggr* f_touchdcstA677() {
 /* {<ipIi>{IdcpC}S{dJiidiLj}cp} */
 struct A678 { union A675 m0; struct A676 m1; S m2; struct A677 m3; c m4; p m5; };
 int f_cmpA678(const struct A678 *x, const struct A678 *y) { return f_cmpA675(&x->m0, &y->m0) && f_cmpA676(&x->m1, &y->m1) && x->m2 == y->m2 && f_cmpA677(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA678() {
+DCaggr* f_touchA678() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(struct A678));
@@ -13445,7 +13445,7 @@ DCaggr* f_touchdcstA678() {
 /* <cpsjBJpLdL> */
 union A679 { c m0; p m1; s m2; j m3; B m4; J m5; p m6; L m7; d m8; L m9; };
 int f_cmpA679(const union A679 *x, const union A679 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA679() {
+DCaggr* f_touchA679() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A679));
@@ -13466,7 +13466,7 @@ DCaggr* f_touchdcstA679() {
 /* {BBdfcIScSSBB} */
 struct A680 { B m0; B m1; d m2; f m3; c m4; I m5; S m6; c m7; S m8; S m9; B m10; B m11; };
 int f_cmpA680(const struct A680 *x, const struct A680 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA680() {
+DCaggr* f_touchA680() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A680));
@@ -13489,7 +13489,7 @@ DCaggr* f_touchdcstA680() {
 /* {SCL{BBdfcIScSSBB}c} */
 struct A681 { S m0; C m1; L m2; struct A680 m3; c m4; };
 int f_cmpA681(const struct A681 *x, const struct A681 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA680(&x->m3, &y->m3) && x->m4 == y->m4; };
-DCaggr* f_touchdcstA681() {
+DCaggr* f_touchA681() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A681));
@@ -13505,7 +13505,7 @@ DCaggr* f_touchdcstA681() {
 /* {ppjSBjCfpicC} */
 struct A682 { p m0; p m1; j m2; S m3; B m4; j m5; C m6; f m7; p m8; i m9; c m10; C m11; };
 int f_cmpA682(const struct A682 *x, const struct A682 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA682() {
+DCaggr* f_touchA682() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A682));
@@ -13528,7 +13528,7 @@ DCaggr* f_touchdcstA682() {
 /* <pc{ppjSBjCfpicC}iS[6]cCJj> */
 union A683 { p m0; c m1; struct A682 m2; i m3; S m4[6]; c m5; C m6; J m7; j m8; };
 int f_cmpA683(const union A683 *x, const union A683 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA682(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4[0] == y->m4[0] && x->m4[1] == y->m4[1] && x->m4[2] == y->m4[2] && x->m4[3] == y->m4[3] && x->m4[4] == y->m4[4] && x->m4[5] == y->m4[5] && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA683() {
+DCaggr* f_touchA683() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A683));
@@ -13548,7 +13548,7 @@ DCaggr* f_touchdcstA683() {
 /* <fliJsBdCLSJd> */
 union A684 { f m0; l m1; i m2; J m3; s m4; B m5; d m6; C m7; L m8; S m9; J m10; d m11; };
 int f_cmpA684(const union A684 *x, const union A684 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA684() {
+DCaggr* f_touchA684() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A684));
@@ -13571,7 +13571,7 @@ DCaggr* f_touchdcstA684() {
 /* <jifiJLJcSds> */
 union A685 { j m0; i m1; f m2; i m3; J m4; L m5; J m6; c m7; S m8; d m9; s m10; };
 int f_cmpA685(const union A685 *x, const union A685 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA685() {
+DCaggr* f_touchA685() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(union A685));
@@ -13593,7 +13593,7 @@ DCaggr* f_touchdcstA685() {
 /* <JLcIcipLSSjB> */
 union A686 { J m0; L m1; c m2; I m3; c m4; i m5; p m6; L m7; S m8; S m9; j m10; B m11; };
 int f_cmpA686(const union A686 *x, const union A686 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA686() {
+DCaggr* f_touchA686() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A686));
@@ -13616,7 +13616,7 @@ DCaggr* f_touchdcstA686() {
 /* <IfIBiCcCLSiI> */
 union A687 { I m0; f m1; I m2; B m3; i m4; C m5; c m6; C m7; L m8; S m9; i m10; I m11; };
 int f_cmpA687(const union A687 *x, const union A687 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA687() {
+DCaggr* f_touchA687() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A687));
@@ -13639,7 +13639,7 @@ DCaggr* f_touchdcstA687() {
 /* <fSfppSfBS> */
 union A688 { f m0; S m1; f m2; p m3; p m4; S m5; f m6; B m7; S m8; };
 int f_cmpA688(const union A688 *x, const union A688 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA688() {
+DCaggr* f_touchA688() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A688));
@@ -13659,7 +13659,7 @@ DCaggr* f_touchdcstA688() {
 /* <BdSclSLdIcpj> */
 union A689 { B m0; d m1; S m2; c m3; l m4; S m5; L m6; d m7; I m8; c m9; p m10; j m11; };
 int f_cmpA689(const union A689 *x, const union A689 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA689() {
+DCaggr* f_touchA689() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A689));
@@ -13682,7 +13682,7 @@ DCaggr* f_touchdcstA689() {
 /* {s<fSfppSfBS>sdSc<BdSclSLdIcpj>} */
 struct A690 { s m0; union A688 m1; s m2; d m3; S m4; c m5; union A689 m6; };
 int f_cmpA690(const struct A690 *x, const struct A690 *y) { return x->m0 == y->m0 && f_cmpA688(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA689(&x->m6, &y->m6); };
-DCaggr* f_touchdcstA690() {
+DCaggr* f_touchA690() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(struct A690));
@@ -13700,7 +13700,7 @@ DCaggr* f_touchdcstA690() {
 /* {iIICsijI[1]slpC} */
 struct A691 { i m0; I m1; I m2; C m3; s m4; i m5; j m6; I m7[1]; s m8; l m9; p m10; C m11; };
 int f_cmpA691(const struct A691 *x, const struct A691 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7[0] == y->m7[0] && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA691() {
+DCaggr* f_touchA691() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A691));
@@ -13723,7 +13723,7 @@ DCaggr* f_touchdcstA691() {
 /* {cddCCCjiBs} */
 struct A692 { c m0; d m1; d m2; C m3; C m4; C m5; j m6; i m7; B m8; s m9; };
 int f_cmpA692(const struct A692 *x, const struct A692 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA692() {
+DCaggr* f_touchA692() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(struct A692));
@@ -13744,7 +13744,7 @@ DCaggr* f_touchdcstA692() {
 /* <jC> */
 union A693 { j m0; C m1; };
 int f_cmpA693(const union A693 *x, const union A693 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA693() {
+DCaggr* f_touchA693() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A693));
@@ -13757,7 +13757,7 @@ DCaggr* f_touchdcstA693() {
 /* <pjSfI[7]> */
 union A694 { p m0; j m1; S m2; f m3; I m4[7]; };
 int f_cmpA694(const union A694 *x, const union A694 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4[0] == y->m4[0] && x->m4[1] == y->m4[1] && x->m4[2] == y->m4[2] && x->m4[3] == y->m4[3] && x->m4[4] == y->m4[4] && x->m4[5] == y->m4[5] && x->m4[6] == y->m4[6]; };
-DCaggr* f_touchdcstA694() {
+DCaggr* f_touchA694() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A694));
@@ -13773,7 +13773,7 @@ DCaggr* f_touchdcstA694() {
 /* {fIjsislfffis} */
 struct A695 { f m0; I m1; j m2; s m3; i m4; s m5; l m6; f m7; f m8; f m9; i m10; s m11; };
 int f_cmpA695(const struct A695 *x, const struct A695 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA695() {
+DCaggr* f_touchA695() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A695));
@@ -13796,7 +13796,7 @@ DCaggr* f_touchdcstA695() {
 /* <Sf{cddCCCjiBs}<jC><pjSfI[7]>Id{fIjsislfffis}Llj> */
 union A696 { S m0; f m1; struct A692 m2; union A693 m3; union A694 m4; I m5; d m6; struct A695 m7; L m8; l m9; j m10; };
 int f_cmpA696(const union A696 *x, const union A696 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA692(&x->m2, &y->m2) && f_cmpA693(&x->m3, &y->m3) && f_cmpA694(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && f_cmpA695(&x->m7, &y->m7) && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA696() {
+DCaggr* f_touchA696() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(union A696));
@@ -13818,7 +13818,7 @@ DCaggr* f_touchdcstA696() {
 /* {ilICcsL} */
 struct A697 { i m0; l m1; I m2; C m3; c m4; s m5; L m6; };
 int f_cmpA697(const struct A697 *x, const struct A697 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA697() {
+DCaggr* f_touchA697() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(struct A697));
@@ -13836,7 +13836,7 @@ DCaggr* f_touchdcstA697() {
 /* {fli} */
 struct A698 { f m0; l m1; i m2; };
 int f_cmpA698(const struct A698 *x, const struct A698 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA698() {
+DCaggr* f_touchA698() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A698));
@@ -13850,7 +13850,7 @@ DCaggr* f_touchdcstA698() {
 /* <ciSjcsicfiL> */
 union A699 { c m0; i m1; S m2; j m3; c m4; s m5; i m6; c m7; f m8; i m9; L m10; };
 int f_cmpA699(const union A699 *x, const union A699 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA699() {
+DCaggr* f_touchA699() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(union A699));
@@ -13872,7 +13872,7 @@ DCaggr* f_touchdcstA699() {
 /* {fdfdcSIcdBSf} */
 struct A700 { f m0; d m1; f m2; d m3; c m4; S m5; I m6; c m7; d m8; B m9; S m10; f m11; };
 int f_cmpA700(const struct A700 *x, const struct A700 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA700() {
+DCaggr* f_touchA700() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A700));
@@ -13895,7 +13895,7 @@ DCaggr* f_touchdcstA700() {
 /* {{fdfdcSIcdBSf}SC} */
 struct A701 { struct A700 m0; S m1; C m2; };
 int f_cmpA701(const struct A701 *x, const struct A701 *y) { return f_cmpA700(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA701() {
+DCaggr* f_touchA701() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A701));
@@ -13909,7 +13909,7 @@ DCaggr* f_touchdcstA701() {
 /* <Jd> */
 union A702 { J m0; d m1; };
 int f_cmpA702(const union A702 *x, const union A702 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA702() {
+DCaggr* f_touchA702() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A702));
@@ -13922,7 +13922,7 @@ DCaggr* f_touchdcstA702() {
 /* {lcIL} */
 struct A703 { l m0; c m1; I m2; L m3; };
 int f_cmpA703(const struct A703 *x, const struct A703 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA703() {
+DCaggr* f_touchA703() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A703));
@@ -13937,7 +13937,7 @@ DCaggr* f_touchdcstA703() {
 /* {iIilSpJiLip} */
 struct A704 { i m0; I m1; i m2; l m3; S m4; p m5; J m6; i m7; L m8; i m9; p m10; };
 int f_cmpA704(const struct A704 *x, const struct A704 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA704() {
+DCaggr* f_touchA704() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(struct A704));
@@ -13959,7 +13959,7 @@ DCaggr* f_touchdcstA704() {
 /* <S<Jd>{lcIL}{iIilSpJiLip}SC> */
 union A705 { S m0; union A702 m1; struct A703 m2; struct A704 m3; S m4; C m5; };
 int f_cmpA705(const union A705 *x, const union A705 *y) { return x->m0 == y->m0 && f_cmpA702(&x->m1, &y->m1) && f_cmpA703(&x->m2, &y->m2) && f_cmpA704(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA705() {
+DCaggr* f_touchA705() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(union A705));
@@ -13976,7 +13976,7 @@ DCaggr* f_touchdcstA705() {
 /* <S{{fdfdcSIcdBSf}SC}clCB[15]Jf<S<Jd>{lcIL}{iIilSpJiLip}SC>IfC> */
 union A706 { S m0; struct A701 m1; c m2; l m3; C m4; B m5[15]; J m6; f m7; union A705 m8; I m9; f m10; C m11; };
 int f_cmpA706(const union A706 *x, const union A706 *y) { return x->m0 == y->m0 && f_cmpA701(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5[0] == y->m5[0] && x->m5[1] == y->m5[1] && x->m5[2] == y->m5[2] && x->m5[3] == y->m5[3] && x->m5[4] == y->m5[4] && x->m5[5] == y->m5[5] && x->m5[6] == y->m5[6] && x->m5[7] == y->m5[7] && x->m5[8] == y->m5[8] && x->m5[9] == y->m5[9] && x->m5[10] == y->m5[10] && x->m5[11] == y->m5[11] && x->m5[12] == y->m5[12] && x->m5[13] == y->m5[13] && x->m5[14] == y->m5[14] && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA705(&x->m8, &y->m8) && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA706() {
+DCaggr* f_touchA706() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A706));
@@ -13999,7 +13999,7 @@ DCaggr* f_touchdcstA706() {
 /* <ppsL[2]dcCJiIBL> */
 union A707 { p m0; p m1; s m2; L m3[2]; d m4; c m5; C m6; J m7; i m8; I m9; B m10; L m11; };
 int f_cmpA707(const union A707 *x, const union A707 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3[0] == y->m3[0] && x->m3[1] == y->m3[1] && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA707() {
+DCaggr* f_touchA707() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A707));
@@ -14022,7 +14022,7 @@ DCaggr* f_touchdcstA707() {
 /* <LldsS> */
 union A708 { L m0; l m1; d m2; s m3; S m4; };
 int f_cmpA708(const union A708 *x, const union A708 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA708() {
+DCaggr* f_touchA708() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A708));
@@ -14038,7 +14038,7 @@ DCaggr* f_touchdcstA708() {
 /* {B<LldsS>i} */
 struct A709 { B m0; union A708 m1; i m2; };
 int f_cmpA709(const struct A709 *x, const struct A709 *y) { return x->m0 == y->m0 && f_cmpA708(&x->m1, &y->m1) && x->m2 == y->m2; };
-DCaggr* f_touchdcstA709() {
+DCaggr* f_touchA709() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A709));
@@ -14052,7 +14052,7 @@ DCaggr* f_touchdcstA709() {
 /* {JJj{B<LldsS>i}lddl[1]l} */
 struct A710 { J m0; J m1; j m2; struct A709 m3; l m4; d m5; d m6; l m7[1]; l m8; };
 int f_cmpA710(const struct A710 *x, const struct A710 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA709(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7[0] == y->m7[0] && x->m8 == y->m8; };
-DCaggr* f_touchdcstA710() {
+DCaggr* f_touchA710() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(struct A710));
@@ -14072,7 +14072,7 @@ DCaggr* f_touchdcstA710() {
 /* {dcclsfll} */
 struct A711 { d m0; c m1; c m2; l m3; s m4; f m5; l m6; l m7; };
 int f_cmpA711(const struct A711 *x, const struct A711 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA711() {
+DCaggr* f_touchA711() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(struct A711));
@@ -14091,7 +14091,7 @@ DCaggr* f_touchdcstA711() {
 /* <JCpspL{dcclsfll}ls> */
 union A712 { J m0; C m1; p m2; s m3; p m4; L m5; struct A711 m6; l m7; s m8; };
 int f_cmpA712(const union A712 *x, const union A712 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA711(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA712() {
+DCaggr* f_touchA712() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A712));
@@ -14111,7 +14111,7 @@ DCaggr* f_touchdcstA712() {
 /* <SipJfS> */
 union A713 { S m0; i m1; p m2; J m3; f m4; S m5; };
 int f_cmpA713(const union A713 *x, const union A713 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA713() {
+DCaggr* f_touchA713() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(union A713));
@@ -14128,7 +14128,7 @@ DCaggr* f_touchdcstA713() {
 /* <scBd> */
 union A714 { s m0; c m1; B m2; d m3; };
 int f_cmpA714(const union A714 *x, const union A714 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA714() {
+DCaggr* f_touchA714() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A714));
@@ -14143,7 +14143,7 @@ DCaggr* f_touchdcstA714() {
 /* {JBICCIJSs<scBd>Cs} */
 struct A715 { J m0; B m1; I m2; C m3; C m4; I m5; J m6; S m7; s m8; union A714 m9; C m10; s m11; };
 int f_cmpA715(const struct A715 *x, const struct A715 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && f_cmpA714(&x->m9, &y->m9) && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA715() {
+DCaggr* f_touchA715() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A715));
@@ -14166,7 +14166,7 @@ DCaggr* f_touchdcstA715() {
 /* <JICpiC{JBICCIJSs<scBd>Cs}lCCjC> */
 union A716 { J m0; I m1; C m2; p m3; i m4; C m5; struct A715 m6; l m7; C m8; C m9; j m10; C m11; };
 int f_cmpA716(const union A716 *x, const union A716 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA715(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA716() {
+DCaggr* f_touchA716() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A716));
@@ -14189,7 +14189,7 @@ DCaggr* f_touchdcstA716() {
 /* {jl} */
 struct A717 { j m0; l m1; };
 int f_cmpA717(const struct A717 *x, const struct A717 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA717() {
+DCaggr* f_touchA717() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(struct A717));
@@ -14202,7 +14202,7 @@ DCaggr* f_touchdcstA717() {
 /* <Cl{jl}IBlC> */
 union A718 { C m0; l m1; struct A717 m2; I m3; B m4; l m5; C m6; };
 int f_cmpA718(const union A718 *x, const union A718 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA717(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA718() {
+DCaggr* f_touchA718() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(union A718));
@@ -14220,7 +14220,7 @@ DCaggr* f_touchdcstA718() {
 /* <JlBdJdCdsj> */
 union A719 { J m0; l m1; B m2; d m3; J m4; d m5; C m6; d m7; s m8; j m9; };
 int f_cmpA719(const union A719 *x, const union A719 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA719() {
+DCaggr* f_touchA719() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A719));
@@ -14241,7 +14241,7 @@ DCaggr* f_touchdcstA719() {
 /* <d<JlBdJdCdsj>slJL[9]llJpLL> */
 union A720 { d m0; union A719 m1; s m2; l m3; J m4; L m5[9]; l m6; l m7; J m8; p m9; L m10; L m11; };
 int f_cmpA720(const union A720 *x, const union A720 *y) { return x->m0 == y->m0 && f_cmpA719(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5[0] == y->m5[0] && x->m5[1] == y->m5[1] && x->m5[2] == y->m5[2] && x->m5[3] == y->m5[3] && x->m5[4] == y->m5[4] && x->m5[5] == y->m5[5] && x->m5[6] == y->m5[6] && x->m5[7] == y->m5[7] && x->m5[8] == y->m5[8] && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA720() {
+DCaggr* f_touchA720() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A720));
@@ -14264,7 +14264,7 @@ DCaggr* f_touchdcstA720() {
 /* <<Cl{jl}IBlC>SfiidSlBjl<d<JlBdJdCdsj>slJL[9]llJpLL>> */
 union A721 { union A718 m0; S m1; f m2; i m3; i m4; d m5; S m6; l m7; B m8; j m9; l m10; union A720 m11; };
 int f_cmpA721(const union A721 *x, const union A721 *y) { return f_cmpA718(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && f_cmpA720(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA721() {
+DCaggr* f_touchA721() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A721));
@@ -14287,7 +14287,7 @@ DCaggr* f_touchdcstA721() {
 /* {IL[2]JscLSipfJi} */
 struct A722 { I m0; L m1[2]; J m2; s m3; c m4; L m5; S m6; i m7; p m8; f m9; J m10; i m11; };
 int f_cmpA722(const struct A722 *x, const struct A722 *y) { return x->m0 == y->m0 && x->m1[0] == y->m1[0] && x->m1[1] == y->m1[1] && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA722() {
+DCaggr* f_touchA722() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A722));
@@ -14310,7 +14310,7 @@ DCaggr* f_touchdcstA722() {
 /* <Jl{IL[2]JscLSipfJi}fBCIJSfi> */
 union A723 { J m0; l m1; struct A722 m2; f m3; B m4; C m5; I m6; J m7; S m8; f m9; i m10; };
 int f_cmpA723(const union A723 *x, const union A723 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA722(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA723() {
+DCaggr* f_touchA723() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(union A723));
@@ -14332,7 +14332,7 @@ DCaggr* f_touchdcstA723() {
 /* <dJidcB[6]Jpllfc> */
 union A724 { d m0; J m1; i m2; d m3; c m4; B m5[6]; J m6; p m7; l m8; l m9; f m10; c m11; };
 int f_cmpA724(const union A724 *x, const union A724 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5[0] == y->m5[0] && x->m5[1] == y->m5[1] && x->m5[2] == y->m5[2] && x->m5[3] == y->m5[3] && x->m5[4] == y->m5[4] && x->m5[5] == y->m5[5] && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA724() {
+DCaggr* f_touchA724() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A724));
@@ -14355,7 +14355,7 @@ DCaggr* f_touchdcstA724() {
 /* {jll} */
 struct A725 { j m0; l m1; l m2; };
 int f_cmpA725(const struct A725 *x, const struct A725 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA725() {
+DCaggr* f_touchA725() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A725));
@@ -14369,7 +14369,7 @@ DCaggr* f_touchdcstA725() {
 /* {SI{jll}LLJiBppIp} */
 struct A726 { S m0; I m1; struct A725 m2; L m3; L m4; J m5; i m6; B m7; p m8; p m9; I m10; p m11; };
 int f_cmpA726(const struct A726 *x, const struct A726 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA725(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA726() {
+DCaggr* f_touchA726() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A726));
@@ -14392,7 +14392,7 @@ DCaggr* f_touchdcstA726() {
 /* <LciCIL{SI{jll}LLJiBppIp}isppd> */
 union A727 { L m0; c m1; i m2; C m3; I m4; L m5; struct A726 m6; i m7; s m8; p m9; p m10; d m11; };
 int f_cmpA727(const union A727 *x, const union A727 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA726(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA727() {
+DCaggr* f_touchA727() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A727));
@@ -14415,7 +14415,7 @@ DCaggr* f_touchdcstA727() {
 /* {IJLjpdCsSSdC} */
 struct A728 { I m0; J m1; L m2; j m3; p m4; d m5; C m6; s m7; S m8; S m9; d m10; C m11; };
 int f_cmpA728(const struct A728 *x, const struct A728 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA728() {
+DCaggr* f_touchA728() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A728));
@@ -14438,7 +14438,7 @@ DCaggr* f_touchdcstA728() {
 /* {CddISLddBLc{IJLjpdCsSSdC}} */
 struct A729 { C m0; d m1; d m2; I m3; S m4; L m5; d m6; d m7; B m8; L m9; c m10; struct A728 m11; };
 int f_cmpA729(const struct A729 *x, const struct A729 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && f_cmpA728(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA729() {
+DCaggr* f_touchA729() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A729));
@@ -14461,7 +14461,7 @@ DCaggr* f_touchdcstA729() {
 /* {Ji[12]dJ} */
 struct A730 { J m0; i m1[12]; d m2; J m3; };
 int f_cmpA730(const struct A730 *x, const struct A730 *y) { return x->m0 == y->m0 && x->m1[0] == y->m1[0] && x->m1[1] == y->m1[1] && x->m1[2] == y->m1[2] && x->m1[3] == y->m1[3] && x->m1[4] == y->m1[4] && x->m1[5] == y->m1[5] && x->m1[6] == y->m1[6] && x->m1[7] == y->m1[7] && x->m1[8] == y->m1[8] && x->m1[9] == y->m1[9] && x->m1[10] == y->m1[10] && x->m1[11] == y->m1[11] && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA730() {
+DCaggr* f_touchA730() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A730));
@@ -14476,7 +14476,7 @@ DCaggr* f_touchdcstA730() {
 /* {ScfLpSSJIBCI} */
 struct A731 { S m0; c m1; f m2; L m3; p m4; S m5; S m6; J m7; I m8; B m9; C m10; I m11; };
 int f_cmpA731(const struct A731 *x, const struct A731 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA731() {
+DCaggr* f_touchA731() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A731));
@@ -14499,7 +14499,7 @@ DCaggr* f_touchdcstA731() {
 /* <{ScfLpSSJIBCI}Bid> */
 union A732 { struct A731 m0; B m1; i m2; d m3; };
 int f_cmpA732(const union A732 *x, const union A732 *y) { return f_cmpA731(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA732() {
+DCaggr* f_touchA732() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A732));
@@ -14514,7 +14514,7 @@ DCaggr* f_touchdcstA732() {
 /* {ICpL} */
 struct A733 { I m0; C m1; p m2; L m3; };
 int f_cmpA733(const struct A733 *x, const struct A733 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA733() {
+DCaggr* f_touchA733() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A733));
@@ -14529,7 +14529,7 @@ DCaggr* f_touchdcstA733() {
 /* <ILIsCpsfpcSp> */
 union A734 { I m0; L m1; I m2; s m3; C m4; p m5; s m6; f m7; p m8; c m9; S m10; p m11; };
 int f_cmpA734(const union A734 *x, const union A734 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA734() {
+DCaggr* f_touchA734() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A734));
@@ -14552,7 +14552,7 @@ DCaggr* f_touchdcstA734() {
 /* <sSLjCcfiCdip> */
 union A735 { s m0; S m1; L m2; j m3; C m4; c m5; f m6; i m7; C m8; d m9; i m10; p m11; };
 int f_cmpA735(const union A735 *x, const union A735 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA735() {
+DCaggr* f_touchA735() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A735));
@@ -14575,7 +14575,7 @@ DCaggr* f_touchdcstA735() {
 /* {Bf} */
 struct A736 { B m0; f m1; };
 int f_cmpA736(const struct A736 *x, const struct A736 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA736() {
+DCaggr* f_touchA736() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(struct A736));
@@ -14588,7 +14588,7 @@ DCaggr* f_touchdcstA736() {
 /* <li[14]LLIBjlJ> */
 union A737 { l m0; i m1[14]; L m2; L m3; I m4; B m5; j m6; l m7; J m8; };
 int f_cmpA737(const union A737 *x, const union A737 *y) { return x->m0 == y->m0 && x->m1[0] == y->m1[0] && x->m1[1] == y->m1[1] && x->m1[2] == y->m1[2] && x->m1[3] == y->m1[3] && x->m1[4] == y->m1[4] && x->m1[5] == y->m1[5] && x->m1[6] == y->m1[6] && x->m1[7] == y->m1[7] && x->m1[8] == y->m1[8] && x->m1[9] == y->m1[9] && x->m1[10] == y->m1[10] && x->m1[11] == y->m1[11] && x->m1[12] == y->m1[12] && x->m1[13] == y->m1[13] && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA737() {
+DCaggr* f_touchA737() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A737));
@@ -14608,7 +14608,7 @@ DCaggr* f_touchdcstA737() {
 /* {Cdjs<ILIsCpsfpcSp>i<sSLjCcfiCdip>{Bf}d<li[14]LLIBjlJ>ld} */
 struct A738 { C m0; d m1; j m2; s m3; union A734 m4; i m5; union A735 m6; struct A736 m7; d m8; union A737 m9; l m10; d m11; };
 int f_cmpA738(const struct A738 *x, const struct A738 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA734(&x->m4, &y->m4) && x->m5 == y->m5 && f_cmpA735(&x->m6, &y->m6) && f_cmpA736(&x->m7, &y->m7) && x->m8 == y->m8 && f_cmpA737(&x->m9, &y->m9) && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA738() {
+DCaggr* f_touchA738() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A738));
@@ -14631,7 +14631,7 @@ DCaggr* f_touchdcstA738() {
 /* {{Cdjs<ILIsCpsfpcSp>i<sSLjCcfiCdip>{Bf}d<li[14]LLIBjlJ>ld}fJIsCjLcpp[16]c} */
 struct A739 { struct A738 m0; f m1; J m2; I m3; s m4; C m5; j m6; L m7; c m8; p m9; p m10[16]; c m11; };
 int f_cmpA739(const struct A739 *x, const struct A739 *y) { return f_cmpA738(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10[0] == y->m10[0] && x->m10[1] == y->m10[1] && x->m10[2] == y->m10[2] && x->m10[3] == y->m10[3] && x->m10[4] == y->m10[4] && x->m10[5] == y->m10[5] && x->m10[6] == y->m10[6] && x->m10[7] == y->m10[7] && x->m10[8] == y->m10[8] && x->m10[9] == y->m10[9] && x->m10[10] == y->m10[10] && x->m10[11] == y->m10[11] && x->m10[12] == y->m10[12] && x->m10[13] == y->m10[13] && x->m10[14] == y->m10[14] && x->m10[15] == y->m10[15] && x->m11 == y->m11; };
-DCaggr* f_touchdcstA739() {
+DCaggr* f_touchA739() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A739));
@@ -14654,7 +14654,7 @@ DCaggr* f_touchdcstA739() {
 /* {jjffcid} */
 struct A740 { j m0; j m1; f m2; f m3; c m4; i m5; d m6; };
 int f_cmpA740(const struct A740 *x, const struct A740 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA740() {
+DCaggr* f_touchA740() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(struct A740));
@@ -14672,7 +14672,7 @@ DCaggr* f_touchdcstA740() {
 /* {BIiijS} */
 struct A741 { B m0; I m1; i m2; i m3; j m4; S m5; };
 int f_cmpA741(const struct A741 *x, const struct A741 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA741() {
+DCaggr* f_touchA741() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(struct A741));
@@ -14689,7 +14689,7 @@ DCaggr* f_touchdcstA741() {
 /* <sIB{jjffcid}BCBICBj{BIiijS}> */
 union A742 { s m0; I m1; B m2; struct A740 m3; B m4; C m5; B m6; I m7; C m8; B m9; j m10; struct A741 m11; };
 int f_cmpA742(const union A742 *x, const union A742 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA740(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && f_cmpA741(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA742() {
+DCaggr* f_touchA742() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A742));
@@ -14712,7 +14712,7 @@ DCaggr* f_touchdcstA742() {
 /* <SC> */
 union A743 { S m0; C m1; };
 int f_cmpA743(const union A743 *x, const union A743 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA743() {
+DCaggr* f_touchA743() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A743));
@@ -14725,7 +14725,7 @@ DCaggr* f_touchdcstA743() {
 /* <fB> */
 union A744 { f m0; B m1; };
 int f_cmpA744(const union A744 *x, const union A744 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA744() {
+DCaggr* f_touchA744() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A744));
@@ -14738,7 +14738,7 @@ DCaggr* f_touchdcstA744() {
 /* <fl<SC><fB>dJpj<i>ijL> */
 union A745 { f m0; l m1; union A743 m2; union A744 m3; d m4; J m5; p m6; j m7; union A45 m8; i m9; j m10; L m11; };
 int f_cmpA745(const union A745 *x, const union A745 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA743(&x->m2, &y->m2) && f_cmpA744(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA45(&x->m8, &y->m8) && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA745() {
+DCaggr* f_touchA745() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A745));
@@ -14761,7 +14761,7 @@ DCaggr* f_touchdcstA745() {
 /* <jj[1]diiI<fl<SC><fB>dJpj<i>ijL>L> */
 union A746 { j m0; j m1[1]; d m2; i m3; i m4; I m5; union A745 m6; L m7; };
 int f_cmpA746(const union A746 *x, const union A746 *y) { return x->m0 == y->m0 && x->m1[0] == y->m1[0] && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA745(&x->m6, &y->m6) && x->m7 == y->m7; };
-DCaggr* f_touchdcstA746() {
+DCaggr* f_touchA746() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(union A746));
@@ -14780,7 +14780,7 @@ DCaggr* f_touchdcstA746() {
 /* {ipJB} */
 struct A747 { i m0; p m1; J m2; B m3; };
 int f_cmpA747(const struct A747 *x, const struct A747 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA747() {
+DCaggr* f_touchA747() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A747));
@@ -14795,7 +14795,7 @@ DCaggr* f_touchdcstA747() {
 /* {iJCdIiILjJLd} */
 struct A748 { i m0; J m1; C m2; d m3; I m4; i m5; I m6; L m7; j m8; J m9; L m10; d m11; };
 int f_cmpA748(const struct A748 *x, const struct A748 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA748() {
+DCaggr* f_touchA748() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A748));
@@ -14818,7 +14818,7 @@ DCaggr* f_touchdcstA748() {
 /* {CjjdcCClISJ} */
 struct A749 { C m0; j m1; j m2; d m3; c m4; C m5; C m6; l m7; I m8; S m9; J m10; };
 int f_cmpA749(const struct A749 *x, const struct A749 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA749() {
+DCaggr* f_touchA749() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(struct A749));
@@ -14840,7 +14840,7 @@ DCaggr* f_touchdcstA749() {
 /* {B} */
 struct A750 { B m0; };
 int f_cmpA750(const struct A750 *x, const struct A750 *y) { return x->m0 == y->m0; };
-DCaggr* f_touchdcstA750() {
+DCaggr* f_touchA750() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(1, sizeof(struct A750));
@@ -14852,7 +14852,7 @@ DCaggr* f_touchdcstA750() {
 /* {jjjCB} */
 struct A751 { j m0; j m1; j m2; C m3; B m4; };
 int f_cmpA751(const struct A751 *x, const struct A751 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA751() {
+DCaggr* f_touchA751() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A751));
@@ -14868,7 +14868,7 @@ DCaggr* f_touchdcstA751() {
 /* {{B}BlB{jjjCB}} */
 struct A752 { struct A750 m0; B m1; l m2; B m3; struct A751 m4; };
 int f_cmpA752(const struct A752 *x, const struct A752 *y) { return f_cmpA750(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA751(&x->m4, &y->m4); };
-DCaggr* f_touchdcstA752() {
+DCaggr* f_touchA752() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A752));
@@ -14884,7 +14884,7 @@ DCaggr* f_touchdcstA752() {
 /* <CC> */
 union A753 { C m0; C m1; };
 int f_cmpA753(const union A753 *x, const union A753 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA753() {
+DCaggr* f_touchA753() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A753));
@@ -14897,7 +14897,7 @@ DCaggr* f_touchdcstA753() {
 /* {sI{{B}BlB{jjjCB}}p<CC>llc[5]ilji} */
 struct A754 { s m0; I m1; struct A752 m2; p m3; union A753 m4; l m5; l m6; c m7[5]; i m8; l m9; j m10; i m11; };
 int f_cmpA754(const struct A754 *x, const struct A754 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA752(&x->m2, &y->m2) && x->m3 == y->m3 && f_cmpA753(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7[0] == y->m7[0] && x->m7[1] == y->m7[1] && x->m7[2] == y->m7[2] && x->m7[3] == y->m7[3] && x->m7[4] == y->m7[4] && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA754() {
+DCaggr* f_touchA754() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A754));
@@ -14920,7 +14920,7 @@ DCaggr* f_touchdcstA754() {
 /* <clJd> */
 union A755 { c m0; l m1; J m2; d m3; };
 int f_cmpA755(const union A755 *x, const union A755 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA755() {
+DCaggr* f_touchA755() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A755));
@@ -14935,7 +14935,7 @@ DCaggr* f_touchdcstA755() {
 /* {SiJS[4]isIjfscc} */
 struct A756 { S m0; i m1; J m2; S m3[4]; i m4; s m5; I m6; j m7; f m8; s m9; c m10; c m11; };
 int f_cmpA756(const struct A756 *x, const struct A756 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3[0] == y->m3[0] && x->m3[1] == y->m3[1] && x->m3[2] == y->m3[2] && x->m3[3] == y->m3[3] && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA756() {
+DCaggr* f_touchA756() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A756));
@@ -14958,7 +14958,7 @@ DCaggr* f_touchdcstA756() {
 /* <ijsjpfJ> */
 union A757 { i m0; j m1; s m2; j m3; p m4; f m5; J m6; };
 int f_cmpA757(const union A757 *x, const union A757 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA757() {
+DCaggr* f_touchA757() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(union A757));
@@ -14976,7 +14976,7 @@ DCaggr* f_touchdcstA757() {
 /* {CBLclCIpicpp} */
 struct A758 { C m0; B m1; L m2; c m3; l m4; C m5; I m6; p m7; i m8; c m9; p m10; p m11; };
 int f_cmpA758(const struct A758 *x, const struct A758 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA758() {
+DCaggr* f_touchA758() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A758));
@@ -14999,7 +14999,7 @@ DCaggr* f_touchdcstA758() {
 /* {ccp{CBLclCIpicpp}Is} */
 struct A759 { c m0; c m1; p m2; struct A758 m3; I m4; s m5; };
 int f_cmpA759(const struct A759 *x, const struct A759 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA758(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA759() {
+DCaggr* f_touchA759() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(struct A759));
@@ -15016,7 +15016,7 @@ DCaggr* f_touchdcstA759() {
 /* <jdjSiIJILi> */
 union A760 { j m0; d m1; j m2; S m3; i m4; I m5; J m6; I m7; L m8; i m9; };
 int f_cmpA760(const union A760 *x, const union A760 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA760() {
+DCaggr* f_touchA760() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A760));
@@ -15037,7 +15037,7 @@ DCaggr* f_touchdcstA760() {
 /* <pSSBcpCLJ> */
 union A761 { p m0; S m1; S m2; B m3; c m4; p m5; C m6; L m7; J m8; };
 int f_cmpA761(const union A761 *x, const union A761 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA761() {
+DCaggr* f_touchA761() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A761));
@@ -15057,7 +15057,7 @@ DCaggr* f_touchdcstA761() {
 /* {L<jdjSiIJILi>lddCCBd<pSSBcpCLJ>Lc} */
 struct A762 { L m0; union A760 m1; l m2; d m3; d m4; C m5; C m6; B m7; d m8; union A761 m9; L m10; c m11; };
 int f_cmpA762(const struct A762 *x, const struct A762 *y) { return x->m0 == y->m0 && f_cmpA760(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && f_cmpA761(&x->m9, &y->m9) && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA762() {
+DCaggr* f_touchA762() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A762));
@@ -15080,7 +15080,7 @@ DCaggr* f_touchdcstA762() {
 /* <is{L<jdjSiIJILi>lddCCBd<pSSBcpCLJ>Lc}l> */
 union A763 { i m0; s m1; struct A762 m2; l m3; };
 int f_cmpA763(const union A763 *x, const union A763 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA762(&x->m2, &y->m2) && x->m3 == y->m3; };
-DCaggr* f_touchdcstA763() {
+DCaggr* f_touchA763() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A763));
@@ -15095,7 +15095,7 @@ DCaggr* f_touchdcstA763() {
 /* <SdjlSid> */
 union A764 { S m0; d m1; j m2; l m3; S m4; i m5; d m6; };
 int f_cmpA764(const union A764 *x, const union A764 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA764() {
+DCaggr* f_touchA764() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(union A764));
@@ -15113,7 +15113,7 @@ DCaggr* f_touchdcstA764() {
 /* <cIIl<SdjlSid>cpjsLjl> */
 union A765 { c m0; I m1; I m2; l m3; union A764 m4; c m5; p m6; j m7; s m8; L m9; j m10; l m11; };
 int f_cmpA765(const union A765 *x, const union A765 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA764(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA765() {
+DCaggr* f_touchA765() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A765));
@@ -15136,7 +15136,7 @@ DCaggr* f_touchdcstA765() {
 /* {dCJcl} */
 struct A766 { d m0; C m1; J m2; c m3; l m4; };
 int f_cmpA766(const struct A766 *x, const struct A766 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA766() {
+DCaggr* f_touchA766() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A766));
@@ -15152,7 +15152,7 @@ DCaggr* f_touchdcstA766() {
 /* {flLpLjCJjsjc} */
 struct A767 { f m0; l m1; L m2; p m3; L m4; j m5; C m6; J m7; j m8; s m9; j m10; c m11; };
 int f_cmpA767(const struct A767 *x, const struct A767 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA767() {
+DCaggr* f_touchA767() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A767));
@@ -15175,7 +15175,7 @@ DCaggr* f_touchdcstA767() {
 /* <S[11]CdldBIj> */
 union A768 { S m0[11]; C m1; d m2; l m3; d m4; B m5; I m6; j m7; };
 int f_cmpA768(const union A768 *x, const union A768 *y) { return x->m0[0] == y->m0[0] && x->m0[1] == y->m0[1] && x->m0[2] == y->m0[2] && x->m0[3] == y->m0[3] && x->m0[4] == y->m0[4] && x->m0[5] == y->m0[5] && x->m0[6] == y->m0[6] && x->m0[7] == y->m0[7] && x->m0[8] == y->m0[8] && x->m0[9] == y->m0[9] && x->m0[10] == y->m0[10] && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA768() {
+DCaggr* f_touchA768() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(union A768));
@@ -15194,7 +15194,7 @@ DCaggr* f_touchdcstA768() {
 /* <CsIllBlBd<S[11]CdldBIj>Jc> */
 union A769 { C m0; s m1; I m2; l m3; l m4; B m5; l m6; B m7; d m8; union A768 m9; J m10; c m11; };
 int f_cmpA769(const union A769 *x, const union A769 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && f_cmpA768(&x->m9, &y->m9) && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA769() {
+DCaggr* f_touchA769() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A769));
@@ -15217,7 +15217,7 @@ DCaggr* f_touchdcstA769() {
 /* <spcddBcfjj> */
 union A770 { s m0; p m1; c m2; d m3; d m4; B m5; c m6; f m7; j m8; j m9; };
 int f_cmpA770(const union A770 *x, const union A770 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA770() {
+DCaggr* f_touchA770() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A770));
@@ -15238,7 +15238,7 @@ DCaggr* f_touchdcstA770() {
 /* <fdlIILBfBcIJ> */
 union A771 { f m0; d m1; l m2; I m3; I m4; L m5; B m6; f m7; B m8; c m9; I m10; J m11; };
 int f_cmpA771(const union A771 *x, const union A771 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA771() {
+DCaggr* f_touchA771() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A771));
@@ -15261,7 +15261,7 @@ DCaggr* f_touchdcstA771() {
 /* {JpSSCJlBpcLC} */
 struct A772 { J m0; p m1; S m2; S m3; C m4; J m5; l m6; B m7; p m8; c m9; L m10; C m11; };
 int f_cmpA772(const struct A772 *x, const struct A772 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA772() {
+DCaggr* f_touchA772() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A772));
@@ -15284,7 +15284,7 @@ DCaggr* f_touchdcstA772() {
 /* <BIJlBBpjC> */
 union A773 { B m0; I m1; J m2; l m3; B m4; B m5; p m6; j m7; C m8; };
 int f_cmpA773(const union A773 *x, const union A773 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA773() {
+DCaggr* f_touchA773() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A773));
@@ -15304,7 +15304,7 @@ DCaggr* f_touchdcstA773() {
 /* {J<fdlIILBfBcIJ>jIi{JpSSCJlBpcLC}jC<BIJlBBpjC>scs} */
 struct A774 { J m0; union A771 m1; j m2; I m3; i m4; struct A772 m5; j m6; C m7; union A773 m8; s m9; c m10; s m11; };
 int f_cmpA774(const struct A774 *x, const struct A774 *y) { return x->m0 == y->m0 && f_cmpA771(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA772(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA773(&x->m8, &y->m8) && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA774() {
+DCaggr* f_touchA774() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A774));
@@ -15327,7 +15327,7 @@ DCaggr* f_touchdcstA774() {
 /* <jIfB{J<fdlIILBfBcIJ>jIi{JpSSCJlBpcLC}jC<BIJlBBpjC>scs}ppiBSB<l>> */
 union A775 { j m0; I m1; f m2; B m3; struct A774 m4; p m5; p m6; i m7; B m8; S m9; B m10; union A264 m11; };
 int f_cmpA775(const union A775 *x, const union A775 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA774(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && f_cmpA264(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA775() {
+DCaggr* f_touchA775() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A775));
@@ -15350,7 +15350,7 @@ DCaggr* f_touchdcstA775() {
 /* {pIfCBiScBl[1]Ci} */
 struct A776 { p m0; I m1; f m2; C m3; B m4; i m5; S m6; c m7; B m8; l m9[1]; C m10; i m11; };
 int f_cmpA776(const struct A776 *x, const struct A776 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9[0] == y->m9[0] && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA776() {
+DCaggr* f_touchA776() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A776));
@@ -15373,7 +15373,7 @@ DCaggr* f_touchdcstA776() {
 /* {LLsjciJBfLfJ} */
 struct A777 { L m0; L m1; s m2; j m3; c m4; i m5; J m6; B m7; f m8; L m9; f m10; J m11; };
 int f_cmpA777(const struct A777 *x, const struct A777 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA777() {
+DCaggr* f_touchA777() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A777));
@@ -15396,7 +15396,7 @@ DCaggr* f_touchdcstA777() {
 /* <sp> */
 union A778 { s m0; p m1; };
 int f_cmpA778(const union A778 *x, const union A778 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA778() {
+DCaggr* f_touchA778() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A778));
@@ -15409,7 +15409,7 @@ DCaggr* f_touchdcstA778() {
 /* <isSjdBBcpLpL> */
 union A779 { i m0; s m1; S m2; j m3; d m4; B m5; B m6; c m7; p m8; L m9; p m10; L m11; };
 int f_cmpA779(const union A779 *x, const union A779 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA779() {
+DCaggr* f_touchA779() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A779));
@@ -15432,7 +15432,7 @@ DCaggr* f_touchdcstA779() {
 /* <pCLJdC> */
 union A780 { p m0; C m1; L m2; J m3; d m4; C m5; };
 int f_cmpA780(const union A780 *x, const union A780 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA780() {
+DCaggr* f_touchA780() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(union A780));
@@ -15449,7 +15449,7 @@ DCaggr* f_touchdcstA780() {
 /* <Jclc<isSjdBBcpLpL>S<pCLJdC>> */
 union A781 { J m0; c m1; l m2; c m3; union A779 m4; S m5; union A780 m6; };
 int f_cmpA781(const union A781 *x, const union A781 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA779(&x->m4, &y->m4) && x->m5 == y->m5 && f_cmpA780(&x->m6, &y->m6); };
-DCaggr* f_touchdcstA781() {
+DCaggr* f_touchA781() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(union A781));
@@ -15467,7 +15467,7 @@ DCaggr* f_touchdcstA781() {
 /* {ffBIcJSJfSBB} */
 struct A782 { f m0; f m1; B m2; I m3; c m4; J m5; S m6; J m7; f m8; S m9; B m10; B m11; };
 int f_cmpA782(const struct A782 *x, const struct A782 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA782() {
+DCaggr* f_touchA782() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A782));
@@ -15490,7 +15490,7 @@ DCaggr* f_touchdcstA782() {
 /* {C[16]id} */
 struct A783 { C m0[16]; i m1; d m2; };
 int f_cmpA783(const struct A783 *x, const struct A783 *y) { return x->m0[0] == y->m0[0] && x->m0[1] == y->m0[1] && x->m0[2] == y->m0[2] && x->m0[3] == y->m0[3] && x->m0[4] == y->m0[4] && x->m0[5] == y->m0[5] && x->m0[6] == y->m0[6] && x->m0[7] == y->m0[7] && x->m0[8] == y->m0[8] && x->m0[9] == y->m0[9] && x->m0[10] == y->m0[10] && x->m0[11] == y->m0[11] && x->m0[12] == y->m0[12] && x->m0[13] == y->m0[13] && x->m0[14] == y->m0[14] && x->m0[15] == y->m0[15] && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA783() {
+DCaggr* f_touchA783() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A783));
@@ -15504,7 +15504,7 @@ DCaggr* f_touchdcstA783() {
 /* {{C[16]id}} */
 struct A784 { struct A783 m0; };
 int f_cmpA784(const struct A784 *x, const struct A784 *y) { return f_cmpA783(&x->m0, &y->m0); };
-DCaggr* f_touchdcstA784() {
+DCaggr* f_touchA784() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(1, sizeof(struct A784));
@@ -15516,7 +15516,7 @@ DCaggr* f_touchdcstA784() {
 /* <JBCilpjlfils> */
 union A785 { J m0; B m1; C m2; i m3; l m4; p m5; j m6; l m7; f m8; i m9; l m10; s m11; };
 int f_cmpA785(const union A785 *x, const union A785 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA785() {
+DCaggr* f_touchA785() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A785));
@@ -15539,7 +15539,7 @@ DCaggr* f_touchdcstA785() {
 /* {lCjSIp} */
 struct A786 { l m0; C m1; j m2; S m3; I m4; p m5; };
 int f_cmpA786(const struct A786 *x, const struct A786 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA786() {
+DCaggr* f_touchA786() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(struct A786));
@@ -15556,7 +15556,7 @@ DCaggr* f_touchdcstA786() {
 /* {IdIlicLCJBcJ[4]} */
 struct A787 { I m0; d m1; I m2; l m3; i m4; c m5; L m6; C m7; J m8; B m9; c m10; J m11[4]; };
 int f_cmpA787(const struct A787 *x, const struct A787 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11[0] == y->m11[0] && x->m11[1] == y->m11[1] && x->m11[2] == y->m11[2] && x->m11[3] == y->m11[3]; };
-DCaggr* f_touchdcstA787() {
+DCaggr* f_touchA787() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A787));
@@ -15579,7 +15579,7 @@ DCaggr* f_touchdcstA787() {
 /* {J{lCjSIp}J[14]{IdIlicLCJBcJ[4]}} */
 struct A788 { J m0; struct A786 m1; J m2[14]; struct A787 m3; };
 int f_cmpA788(const struct A788 *x, const struct A788 *y) { return x->m0 == y->m0 && f_cmpA786(&x->m1, &y->m1) && x->m2[0] == y->m2[0] && x->m2[1] == y->m2[1] && x->m2[2] == y->m2[2] && x->m2[3] == y->m2[3] && x->m2[4] == y->m2[4] && x->m2[5] == y->m2[5] && x->m2[6] == y->m2[6] && x->m2[7] == y->m2[7] && x->m2[8] == y->m2[8] && x->m2[9] == y->m2[9] && x->m2[10] == y->m2[10] && x->m2[11] == y->m2[11] && x->m2[12] == y->m2[12] && x->m2[13] == y->m2[13] && f_cmpA787(&x->m3, &y->m3); };
-DCaggr* f_touchdcstA788() {
+DCaggr* f_touchA788() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A788));
@@ -15594,7 +15594,7 @@ DCaggr* f_touchdcstA788() {
 /* <lsJlpLCdl[9]iSB> */
 union A789 { l m0; s m1; J m2; l m3; p m4; L m5; C m6; d m7; l m8[9]; i m9; S m10; B m11; };
 int f_cmpA789(const union A789 *x, const union A789 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8[0] == y->m8[0] && x->m8[1] == y->m8[1] && x->m8[2] == y->m8[2] && x->m8[3] == y->m8[3] && x->m8[4] == y->m8[4] && x->m8[5] == y->m8[5] && x->m8[6] == y->m8[6] && x->m8[7] == y->m8[7] && x->m8[8] == y->m8[8] && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA789() {
+DCaggr* f_touchA789() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A789));
@@ -15617,7 +15617,7 @@ DCaggr* f_touchdcstA789() {
 /* <S<lsJlpLCdl[9]iSB>s> */
 union A790 { S m0; union A789 m1; s m2; };
 int f_cmpA790(const union A790 *x, const union A790 *y) { return x->m0 == y->m0 && f_cmpA789(&x->m1, &y->m1) && x->m2 == y->m2; };
-DCaggr* f_touchdcstA790() {
+DCaggr* f_touchA790() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A790));
@@ -15631,7 +15631,7 @@ DCaggr* f_touchdcstA790() {
 /* <{J{lCjSIp}J[14]{IdIlicLCJBcJ[4]}}[7]l[2]Ii<S<lsJlpLCdl[9]iSB>s>JjsBjlf> */
 union A791 { struct A788 m0[7]; l m1[2]; I m2; i m3; union A790 m4; J m5; j m6; s m7; B m8; j m9; l m10; f m11; };
 int f_cmpA791(const union A791 *x, const union A791 *y) { return f_cmpA788(&x->m0[0], &y->m0[0]) && f_cmpA788(&x->m0[1], &y->m0[1]) && f_cmpA788(&x->m0[2], &y->m0[2]) && f_cmpA788(&x->m0[3], &y->m0[3]) && f_cmpA788(&x->m0[4], &y->m0[4]) && f_cmpA788(&x->m0[5], &y->m0[5]) && f_cmpA788(&x->m0[6], &y->m0[6]) && x->m1[0] == y->m1[0] && x->m1[1] == y->m1[1] && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA790(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA791() {
+DCaggr* f_touchA791() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A791));
@@ -15654,7 +15654,7 @@ DCaggr* f_touchdcstA791() {
 /* {dIjlIcL} */
 struct A792 { d m0; I m1; j m2; l m3; I m4; c m5; L m6; };
 int f_cmpA792(const struct A792 *x, const struct A792 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA792() {
+DCaggr* f_touchA792() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(struct A792));
@@ -15672,7 +15672,7 @@ DCaggr* f_touchdcstA792() {
 /* <Ld> */
 union A793 { L m0; d m1; };
 int f_cmpA793(const union A793 *x, const union A793 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA793() {
+DCaggr* f_touchA793() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A793));
@@ -15685,7 +15685,7 @@ DCaggr* f_touchdcstA793() {
 /* <JIfi> */
 union A794 { J m0; I m1; f m2; i m3; };
 int f_cmpA794(const union A794 *x, const union A794 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA794() {
+DCaggr* f_touchA794() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A794));
@@ -15700,7 +15700,7 @@ DCaggr* f_touchdcstA794() {
 /* <Iil[10]Spp<JIfi>pf[13]plL> */
 union A795 { I m0; i m1; l m2[10]; S m3; p m4; p m5; union A794 m6; p m7; f m8[13]; p m9; l m10; L m11; };
 int f_cmpA795(const union A795 *x, const union A795 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2[0] == y->m2[0] && x->m2[1] == y->m2[1] && x->m2[2] == y->m2[2] && x->m2[3] == y->m2[3] && x->m2[4] == y->m2[4] && x->m2[5] == y->m2[5] && x->m2[6] == y->m2[6] && x->m2[7] == y->m2[7] && x->m2[8] == y->m2[8] && x->m2[9] == y->m2[9] && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA794(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8[0] == y->m8[0] && x->m8[1] == y->m8[1] && x->m8[2] == y->m8[2] && x->m8[3] == y->m8[3] && x->m8[4] == y->m8[4] && x->m8[5] == y->m8[5] && x->m8[6] == y->m8[6] && x->m8[7] == y->m8[7] && x->m8[8] == y->m8[8] && x->m8[9] == y->m8[9] && x->m8[10] == y->m8[10] && x->m8[11] == y->m8[11] && x->m8[12] == y->m8[12] && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA795() {
+DCaggr* f_touchA795() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A795));
@@ -15723,7 +15723,7 @@ DCaggr* f_touchdcstA795() {
 /* <iSIpdciflfsB> */
 union A796 { i m0; S m1; I m2; p m3; d m4; c m5; i m6; f m7; l m8; f m9; s m10; B m11; };
 int f_cmpA796(const union A796 *x, const union A796 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA796() {
+DCaggr* f_touchA796() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A796));
@@ -15746,7 +15746,7 @@ DCaggr* f_touchdcstA796() {
 /* <CBjBpf<iSIpdciflfsB>> */
 union A797 { C m0; B m1; j m2; B m3; p m4; f m5; union A796 m6; };
 int f_cmpA797(const union A797 *x, const union A797 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA796(&x->m6, &y->m6); };
-DCaggr* f_touchdcstA797() {
+DCaggr* f_touchA797() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(union A797));
@@ -15764,7 +15764,7 @@ DCaggr* f_touchdcstA797() {
 /* <CjcIBL> */
 union A798 { C m0; j m1; c m2; I m3; B m4; L m5; };
 int f_cmpA798(const union A798 *x, const union A798 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA798() {
+DCaggr* f_touchA798() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(union A798));
@@ -15781,7 +15781,7 @@ DCaggr* f_touchdcstA798() {
 /* {dLLld} */
 struct A799 { d m0; L m1; L m2; l m3; d m4; };
 int f_cmpA799(const struct A799 *x, const struct A799 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA799() {
+DCaggr* f_touchA799() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A799));
@@ -15797,7 +15797,7 @@ DCaggr* f_touchdcstA799() {
 /* {ljjJ[11]cjdSpBfB} */
 struct A800 { l m0; j m1; j m2; J m3[11]; c m4; j m5; d m6; S m7; p m8; B m9; f m10; B m11; };
 int f_cmpA800(const struct A800 *x, const struct A800 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3[0] == y->m3[0] && x->m3[1] == y->m3[1] && x->m3[2] == y->m3[2] && x->m3[3] == y->m3[3] && x->m3[4] == y->m3[4] && x->m3[5] == y->m3[5] && x->m3[6] == y->m3[6] && x->m3[7] == y->m3[7] && x->m3[8] == y->m3[8] && x->m3[9] == y->m3[9] && x->m3[10] == y->m3[10] && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA800() {
+DCaggr* f_touchA800() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A800));
@@ -15820,7 +15820,7 @@ DCaggr* f_touchdcstA800() {
 /* {jsfsCiLj[16]} */
 struct A801 { j m0; s m1; f m2; s m3; C m4; i m5; L m6; j m7[16]; };
 int f_cmpA801(const struct A801 *x, const struct A801 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7[0] == y->m7[0] && x->m7[1] == y->m7[1] && x->m7[2] == y->m7[2] && x->m7[3] == y->m7[3] && x->m7[4] == y->m7[4] && x->m7[5] == y->m7[5] && x->m7[6] == y->m7[6] && x->m7[7] == y->m7[7] && x->m7[8] == y->m7[8] && x->m7[9] == y->m7[9] && x->m7[10] == y->m7[10] && x->m7[11] == y->m7[11] && x->m7[12] == y->m7[12] && x->m7[13] == y->m7[13] && x->m7[14] == y->m7[14] && x->m7[15] == y->m7[15]; };
-DCaggr* f_touchdcstA801() {
+DCaggr* f_touchA801() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(struct A801));
@@ -15839,7 +15839,7 @@ DCaggr* f_touchdcstA801() {
 /* {flLIf{dLLld}Sl{ljjJ[11]cjdSpBfB}{jsfsCiLj[16]}S} */
 struct A802 { f m0; l m1; L m2; I m3; f m4; struct A799 m5; S m6; l m7; struct A800 m8; struct A801 m9; S m10; };
 int f_cmpA802(const struct A802 *x, const struct A802 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA799(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA800(&x->m8, &y->m8) && f_cmpA801(&x->m9, &y->m9) && x->m10 == y->m10; };
-DCaggr* f_touchdcstA802() {
+DCaggr* f_touchA802() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(struct A802));
@@ -15861,7 +15861,7 @@ DCaggr* f_touchdcstA802() {
 /* <lcsLjsjj> */
 union A803 { l m0; c m1; s m2; L m3; j m4; s m5; j m6; j m7; };
 int f_cmpA803(const union A803 *x, const union A803 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA803() {
+DCaggr* f_touchA803() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(union A803));
@@ -15880,7 +15880,7 @@ DCaggr* f_touchdcstA803() {
 /* {cfiCJlsjdsCl} */
 struct A804 { c m0; f m1; i m2; C m3; J m4; l m5; s m6; j m7; d m8; s m9; C m10; l m11; };
 int f_cmpA804(const struct A804 *x, const struct A804 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA804() {
+DCaggr* f_touchA804() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A804));
@@ -15903,7 +15903,7 @@ DCaggr* f_touchdcstA804() {
 /* {ssjLcC} */
 struct A805 { s m0; s m1; j m2; L m3; c m4; C m5; };
 int f_cmpA805(const struct A805 *x, const struct A805 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA805() {
+DCaggr* f_touchA805() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(struct A805));
@@ -15920,7 +15920,7 @@ DCaggr* f_touchdcstA805() {
 /* <IBj{cfiCJlsjdsCl}sJsp{ssjLcC}Spf> */
 union A806 { I m0; B m1; j m2; struct A804 m3; s m4; J m5; s m6; p m7; struct A805 m8; S m9; p m10; f m11; };
 int f_cmpA806(const union A806 *x, const union A806 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA804(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA805(&x->m8, &y->m8) && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA806() {
+DCaggr* f_touchA806() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A806));
@@ -15943,7 +15943,7 @@ DCaggr* f_touchdcstA806() {
 /* {jI<IBj{cfiCJlsjdsCl}sJsp{ssjLcC}Spf>JsdJLJSLL} */
 struct A807 { j m0; I m1; union A806 m2; J m3; s m4; d m5; J m6; L m7; J m8; S m9; L m10; L m11; };
 int f_cmpA807(const struct A807 *x, const struct A807 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA806(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA807() {
+DCaggr* f_touchA807() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A807));
@@ -15966,7 +15966,7 @@ DCaggr* f_touchdcstA807() {
 /* <lB> */
 union A808 { l m0; B m1; };
 int f_cmpA808(const union A808 *x, const union A808 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA808() {
+DCaggr* f_touchA808() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A808));
@@ -15979,7 +15979,7 @@ DCaggr* f_touchdcstA808() {
 /* <fcIcsijjCJSs> */
 union A809 { f m0; c m1; I m2; c m3; s m4; i m5; j m6; j m7; C m8; J m9; S m10; s m11; };
 int f_cmpA809(const union A809 *x, const union A809 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA809() {
+DCaggr* f_touchA809() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A809));
@@ -16002,7 +16002,7 @@ DCaggr* f_touchdcstA809() {
 /* {cfs<fcIcsijjCJSs>iSBsBjfp} */
 struct A810 { c m0; f m1; s m2; union A809 m3; i m4; S m5; B m6; s m7; B m8; j m9; f m10; p m11; };
 int f_cmpA810(const struct A810 *x, const struct A810 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA809(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA810() {
+DCaggr* f_touchA810() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A810));
@@ -16025,7 +16025,7 @@ DCaggr* f_touchdcstA810() {
 /* <CIs> */
 union A811 { C m0; I m1; s m2; };
 int f_cmpA811(const union A811 *x, const union A811 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA811() {
+DCaggr* f_touchA811() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A811));
@@ -16039,7 +16039,7 @@ DCaggr* f_touchdcstA811() {
 /* {sSpIsiLLscIf} */
 struct A812 { s m0; S m1; p m2; I m3; s m4; i m5; L m6; L m7; s m8; c m9; I m10; f m11; };
 int f_cmpA812(const struct A812 *x, const struct A812 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA812() {
+DCaggr* f_touchA812() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A812));
@@ -16062,7 +16062,7 @@ DCaggr* f_touchdcstA812() {
 /* <fslLf> */
 union A813 { f m0; s m1; l m2; L m3; f m4; };
 int f_cmpA813(const union A813 *x, const union A813 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA813() {
+DCaggr* f_touchA813() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A813));
@@ -16078,7 +16078,7 @@ DCaggr* f_touchdcstA813() {
 /* {BJcBdsd[15]jlplC} */
 struct A814 { B m0; J m1; c m2; B m3; d m4; s m5; d m6[15]; j m7; l m8; p m9; l m10; C m11; };
 int f_cmpA814(const struct A814 *x, const struct A814 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6[0] == y->m6[0] && x->m6[1] == y->m6[1] && x->m6[2] == y->m6[2] && x->m6[3] == y->m6[3] && x->m6[4] == y->m6[4] && x->m6[5] == y->m6[5] && x->m6[6] == y->m6[6] && x->m6[7] == y->m6[7] && x->m6[8] == y->m6[8] && x->m6[9] == y->m6[9] && x->m6[10] == y->m6[10] && x->m6[11] == y->m6[11] && x->m6[12] == y->m6[12] && x->m6[13] == y->m6[13] && x->m6[14] == y->m6[14] && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA814() {
+DCaggr* f_touchA814() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A814));
@@ -16101,7 +16101,7 @@ DCaggr* f_touchdcstA814() {
 /* {ippfiL<fslLf>f{BJcBdsd[15]jlplC}idI} */
 struct A815 { i m0; p m1; p m2; f m3; i m4; L m5; union A813 m6; f m7; struct A814 m8; i m9; d m10; I m11; };
 int f_cmpA815(const struct A815 *x, const struct A815 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA813(&x->m6, &y->m6) && x->m7 == y->m7 && f_cmpA814(&x->m8, &y->m8) && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA815() {
+DCaggr* f_touchA815() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A815));
@@ -16124,7 +16124,7 @@ DCaggr* f_touchdcstA815() {
 /* {lsCLpd{sSpIsiLLscIf}S{ippfiL<fslLf>f{BJcBdsd[15]jlplC}idI}JBj} */
 struct A816 { l m0; s m1; C m2; L m3; p m4; d m5; struct A812 m6; S m7; struct A815 m8; J m9; B m10; j m11; };
 int f_cmpA816(const struct A816 *x, const struct A816 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA812(&x->m6, &y->m6) && x->m7 == y->m7 && f_cmpA815(&x->m8, &y->m8) && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA816() {
+DCaggr* f_touchA816() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A816));
@@ -16147,7 +16147,7 @@ DCaggr* f_touchdcstA816() {
 /* {iSiLBlsI} */
 struct A817 { i m0; S m1; i m2; L m3; B m4; l m5; s m6; I m7; };
 int f_cmpA817(const struct A817 *x, const struct A817 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA817() {
+DCaggr* f_touchA817() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(struct A817));
@@ -16166,7 +16166,7 @@ DCaggr* f_touchdcstA817() {
 /* <dSdLJLijCjBi> */
 union A818 { d m0; S m1; d m2; L m3; J m4; L m5; i m6; j m7; C m8; j m9; B m10; i m11; };
 int f_cmpA818(const union A818 *x, const union A818 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA818() {
+DCaggr* f_touchA818() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A818));
@@ -16189,7 +16189,7 @@ DCaggr* f_touchdcstA818() {
 /* <cIjBS> */
 union A819 { c m0; I m1; j m2; B m3; S m4; };
 int f_cmpA819(const union A819 *x, const union A819 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA819() {
+DCaggr* f_touchA819() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A819));
@@ -16205,7 +16205,7 @@ DCaggr* f_touchdcstA819() {
 /* <s{iSiLBlsI}jljc[12]J<dSdLJLijCjBi><cIjBS>j> */
 union A820 { s m0; struct A817 m1; j m2; l m3; j m4; c m5[12]; J m6; union A818 m7; union A819 m8; j m9; };
 int f_cmpA820(const union A820 *x, const union A820 *y) { return x->m0 == y->m0 && f_cmpA817(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5[0] == y->m5[0] && x->m5[1] == y->m5[1] && x->m5[2] == y->m5[2] && x->m5[3] == y->m5[3] && x->m5[4] == y->m5[4] && x->m5[5] == y->m5[5] && x->m5[6] == y->m5[6] && x->m5[7] == y->m5[7] && x->m5[8] == y->m5[8] && x->m5[9] == y->m5[9] && x->m5[10] == y->m5[10] && x->m5[11] == y->m5[11] && x->m6 == y->m6 && f_cmpA818(&x->m7, &y->m7) && f_cmpA819(&x->m8, &y->m8) && x->m9 == y->m9; };
-DCaggr* f_touchdcstA820() {
+DCaggr* f_touchA820() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A820));
@@ -16226,7 +16226,7 @@ DCaggr* f_touchdcstA820() {
 /* {icIpjdcCCdsi} */
 struct A821 { i m0; c m1; I m2; p m3; j m4; d m5; c m6; C m7; C m8; d m9; s m10; i m11; };
 int f_cmpA821(const struct A821 *x, const struct A821 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA821() {
+DCaggr* f_touchA821() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A821));
@@ -16249,7 +16249,7 @@ DCaggr* f_touchdcstA821() {
 /* {lljilSfLLjf[7]{icIpjdcCCdsi}} */
 struct A822 { l m0; l m1; j m2; i m3; l m4; S m5; f m6; L m7; L m8; j m9; f m10[7]; struct A821 m11; };
 int f_cmpA822(const struct A822 *x, const struct A822 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10[0] == y->m10[0] && x->m10[1] == y->m10[1] && x->m10[2] == y->m10[2] && x->m10[3] == y->m10[3] && x->m10[4] == y->m10[4] && x->m10[5] == y->m10[5] && x->m10[6] == y->m10[6] && f_cmpA821(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA822() {
+DCaggr* f_touchA822() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A822));
@@ -16272,7 +16272,7 @@ DCaggr* f_touchdcstA822() {
 /* <SSdLic{lljilSfLLjf[7]{icIpjdcCCdsi}}> */
 union A823 { S m0; S m1; d m2; L m3; i m4; c m5; struct A822 m6; };
 int f_cmpA823(const union A823 *x, const union A823 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA822(&x->m6, &y->m6); };
-DCaggr* f_touchdcstA823() {
+DCaggr* f_touchA823() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(union A823));
@@ -16290,7 +16290,7 @@ DCaggr* f_touchdcstA823() {
 /* <dlcs> */
 union A824 { d m0; l m1; c m2; s m3; };
 int f_cmpA824(const union A824 *x, const union A824 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA824() {
+DCaggr* f_touchA824() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A824));
@@ -16305,7 +16305,7 @@ DCaggr* f_touchdcstA824() {
 /* <SsJ[15]ccsJSjL<dlcs>p> */
 union A825 { S m0; s m1; J m2[15]; c m3; c m4; s m5; J m6; S m7; j m8; L m9; union A824 m10; p m11; };
 int f_cmpA825(const union A825 *x, const union A825 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2[0] == y->m2[0] && x->m2[1] == y->m2[1] && x->m2[2] == y->m2[2] && x->m2[3] == y->m2[3] && x->m2[4] == y->m2[4] && x->m2[5] == y->m2[5] && x->m2[6] == y->m2[6] && x->m2[7] == y->m2[7] && x->m2[8] == y->m2[8] && x->m2[9] == y->m2[9] && x->m2[10] == y->m2[10] && x->m2[11] == y->m2[11] && x->m2[12] == y->m2[12] && x->m2[13] == y->m2[13] && x->m2[14] == y->m2[14] && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA824(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA825() {
+DCaggr* f_touchA825() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A825));
@@ -16328,7 +16328,7 @@ DCaggr* f_touchdcstA825() {
 /* {jsI[10]icipBcId} */
 struct A826 { j m0; s m1; I m2[10]; i m3; c m4; i m5; p m6; B m7; c m8; I m9; d m10; };
 int f_cmpA826(const struct A826 *x, const struct A826 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2[0] == y->m2[0] && x->m2[1] == y->m2[1] && x->m2[2] == y->m2[2] && x->m2[3] == y->m2[3] && x->m2[4] == y->m2[4] && x->m2[5] == y->m2[5] && x->m2[6] == y->m2[6] && x->m2[7] == y->m2[7] && x->m2[8] == y->m2[8] && x->m2[9] == y->m2[9] && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA826() {
+DCaggr* f_touchA826() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(struct A826));
@@ -16350,7 +16350,7 @@ DCaggr* f_touchdcstA826() {
 /* {IlCc} */
 struct A827 { I m0; l m1; C m2; c m3; };
 int f_cmpA827(const struct A827 *x, const struct A827 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA827() {
+DCaggr* f_touchA827() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A827));
@@ -16365,7 +16365,7 @@ DCaggr* f_touchdcstA827() {
 /* <SspIpsCfsfSC> */
 union A828 { S m0; s m1; p m2; I m3; p m4; s m5; C m6; f m7; s m8; f m9; S m10; C m11; };
 int f_cmpA828(const union A828 *x, const union A828 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA828() {
+DCaggr* f_touchA828() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A828));
@@ -16388,7 +16388,7 @@ DCaggr* f_touchdcstA828() {
 /* <J{jsI[10]icipBcId}Ifds<C>p{IlCc}B<SspIpsCfsfSC>l> */
 union A829 { J m0; struct A826 m1; I m2; f m3; d m4; s m5; union A247 m6; p m7; struct A827 m8; B m9; union A828 m10; l m11; };
 int f_cmpA829(const union A829 *x, const union A829 *y) { return x->m0 == y->m0 && f_cmpA826(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA247(&x->m6, &y->m6) && x->m7 == y->m7 && f_cmpA827(&x->m8, &y->m8) && x->m9 == y->m9 && f_cmpA828(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA829() {
+DCaggr* f_touchA829() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A829));
@@ -16411,7 +16411,7 @@ DCaggr* f_touchdcstA829() {
 /* {psLIl} */
 struct A830 { p m0; s m1; L m2; I m3; l m4; };
 int f_cmpA830(const struct A830 *x, const struct A830 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA830() {
+DCaggr* f_touchA830() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A830));
@@ -16427,7 +16427,7 @@ DCaggr* f_touchdcstA830() {
 /* <sl{psLIl}Si[4]pJ> */
 union A831 { s m0; l m1; struct A830 m2; S m3; i m4[4]; p m5; J m6; };
 int f_cmpA831(const union A831 *x, const union A831 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA830(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4[0] == y->m4[0] && x->m4[1] == y->m4[1] && x->m4[2] == y->m4[2] && x->m4[3] == y->m4[3] && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA831() {
+DCaggr* f_touchA831() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(union A831));
@@ -16445,7 +16445,7 @@ DCaggr* f_touchdcstA831() {
 /* <<J{jsI[10]icipBcId}Ifds<C>p{IlCc}B<SspIpsCfsfSC>l>fSclLjLIlj<sl{psLIl}Si[4]pJ>> */
 union A832 { union A829 m0; f m1; S m2; c m3; l m4; L m5; j m6; L m7; I m8; l m9; j m10; union A831 m11; };
 int f_cmpA832(const union A832 *x, const union A832 *y) { return f_cmpA829(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && f_cmpA831(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA832() {
+DCaggr* f_touchA832() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A832));
@@ -16468,7 +16468,7 @@ DCaggr* f_touchdcstA832() {
 /* {dpfsJsCS} */
 struct A833 { d m0; p m1; f m2; s m3; J m4; s m5; C m6; S m7; };
 int f_cmpA833(const struct A833 *x, const struct A833 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA833() {
+DCaggr* f_touchA833() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(struct A833));
@@ -16487,7 +16487,7 @@ DCaggr* f_touchdcstA833() {
 /* <dsdILii> */
 union A834 { d m0; s m1; d m2; I m3; L m4; i m5; i m6; };
 int f_cmpA834(const union A834 *x, const union A834 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA834() {
+DCaggr* f_touchA834() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(union A834));
@@ -16505,7 +16505,7 @@ DCaggr* f_touchdcstA834() {
 /* <lSl> */
 union A835 { l m0; S m1; l m2; };
 int f_cmpA835(const union A835 *x, const union A835 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA835() {
+DCaggr* f_touchA835() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A835));
@@ -16519,7 +16519,7 @@ DCaggr* f_touchdcstA835() {
 /* <iBi<dsdILii>L<lSl>jjpBjl> */
 union A836 { i m0; B m1; i m2; union A834 m3; L m4; union A835 m5; j m6; j m7; p m8; B m9; j m10; l m11; };
 int f_cmpA836(const union A836 *x, const union A836 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA834(&x->m3, &y->m3) && x->m4 == y->m4 && f_cmpA835(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA836() {
+DCaggr* f_touchA836() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A836));
@@ -16542,7 +16542,7 @@ DCaggr* f_touchdcstA836() {
 /* {pi} */
 struct A837 { p m0; i m1; };
 int f_cmpA837(const struct A837 *x, const struct A837 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA837() {
+DCaggr* f_touchA837() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(struct A837));
@@ -16555,7 +16555,7 @@ DCaggr* f_touchdcstA837() {
 /* <Lf[5]LL> */
 union A838 { L m0; f m1[5]; L m2; L m3; };
 int f_cmpA838(const union A838 *x, const union A838 *y) { return x->m0 == y->m0 && x->m1[0] == y->m1[0] && x->m1[1] == y->m1[1] && x->m1[2] == y->m1[2] && x->m1[3] == y->m1[3] && x->m1[4] == y->m1[4] && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA838() {
+DCaggr* f_touchA838() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A838));
@@ -16570,7 +16570,7 @@ DCaggr* f_touchdcstA838() {
 /* {<Lf[5]LL>jCIcJJIpilL} */
 struct A839 { union A838 m0; j m1; C m2; I m3; c m4; J m5; J m6; I m7; p m8; i m9; l m10; L m11; };
 int f_cmpA839(const struct A839 *x, const struct A839 *y) { return f_cmpA838(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA839() {
+DCaggr* f_touchA839() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A839));
@@ -16593,7 +16593,7 @@ DCaggr* f_touchdcstA839() {
 /* {lsdfffLSLjji} */
 struct A840 { l m0; s m1; d m2; f m3; f m4; f m5; L m6; S m7; L m8; j m9; j m10; i m11; };
 int f_cmpA840(const struct A840 *x, const struct A840 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA840() {
+DCaggr* f_touchA840() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A840));
@@ -16616,7 +16616,7 @@ DCaggr* f_touchdcstA840() {
 /* {Sppcp} */
 struct A841 { S m0; p m1; p m2; c m3; p m4; };
 int f_cmpA841(const struct A841 *x, const struct A841 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA841() {
+DCaggr* f_touchA841() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A841));
@@ -16632,7 +16632,7 @@ DCaggr* f_touchdcstA841() {
 /* <lsCcldcdlCdJ> */
 union A842 { l m0; s m1; C m2; c m3; l m4; d m5; c m6; d m7; l m8; C m9; d m10; J m11; };
 int f_cmpA842(const union A842 *x, const union A842 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA842() {
+DCaggr* f_touchA842() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A842));
@@ -16655,7 +16655,7 @@ DCaggr* f_touchdcstA842() {
 /* {BiL[6]IBICj} */
 struct A843 { B m0; i m1; L m2[6]; I m3; B m4; I m5; C m6; j m7; };
 int f_cmpA843(const struct A843 *x, const struct A843 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2[0] == y->m2[0] && x->m2[1] == y->m2[1] && x->m2[2] == y->m2[2] && x->m2[3] == y->m2[3] && x->m2[4] == y->m2[4] && x->m2[5] == y->m2[5] && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA843() {
+DCaggr* f_touchA843() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(struct A843));
@@ -16674,7 +16674,7 @@ DCaggr* f_touchdcstA843() {
 /* {j{lsdfffLSLjji}Bp{Sppcp}f<lsCcldcdlCdJ>[15]f{BiL[6]IBICj}[14]C} */
 struct A844 { j m0; struct A840 m1; B m2; p m3; struct A841 m4; f m5; union A842 m6[15]; f m7; struct A843 m8[14]; C m9; };
 int f_cmpA844(const struct A844 *x, const struct A844 *y) { return x->m0 == y->m0 && f_cmpA840(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA841(&x->m4, &y->m4) && x->m5 == y->m5 && f_cmpA842(&x->m6[0], &y->m6[0]) && f_cmpA842(&x->m6[1], &y->m6[1]) && f_cmpA842(&x->m6[2], &y->m6[2]) && f_cmpA842(&x->m6[3], &y->m6[3]) && f_cmpA842(&x->m6[4], &y->m6[4]) && f_cmpA842(&x->m6[5], &y->m6[5]) && f_cmpA842(&x->m6[6], &y->m6[6]) && f_cmpA842(&x->m6[7], &y->m6[7]) && f_cmpA842(&x->m6[8], &y->m6[8]) && f_cmpA842(&x->m6[9], &y->m6[9]) && f_cmpA842(&x->m6[10], &y->m6[10]) && f_cmpA842(&x->m6[11], &y->m6[11]) && f_cmpA842(&x->m6[12], &y->m6[12]) && f_cmpA842(&x->m6[13], &y->m6[13]) && f_cmpA842(&x->m6[14], &y->m6[14]) && x->m7 == y->m7 && f_cmpA843(&x->m8[0], &y->m8[0]) && f_cmpA843(&x->m8[1], &y->m8[1]) && f_cmpA843(&x->m8[2], &y->m8[2]) && f_cmpA843(&x->m8[3], &y->m8[3]) && f_cmpA843(&x->m8[4], &y->m8[4]) && f_cmpA843(&x->m8[5], &y->m8[5]) && f_cmpA843(&x->m8[6], &y->m8[6]) && f_cmpA843(&x->m8[7], &y->m8[7]) && f_cmpA843(&x->m8[8], &y->m8[8]) && f_cmpA843(&x->m8[9], &y->m8[9]) && f_cmpA843(&x->m8[10], &y->m8[10]) && f_cmpA843(&x->m8[11], &y->m8[11]) && f_cmpA843(&x->m8[12], &y->m8[12]) && f_cmpA843(&x->m8[13], &y->m8[13]) && x->m9 == y->m9; };
-DCaggr* f_touchdcstA844() {
+DCaggr* f_touchA844() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(struct A844));
@@ -16695,7 +16695,7 @@ DCaggr* f_touchdcstA844() {
 /* {{j{lsdfffLSLjji}Bp{Sppcp}f<lsCcldcdlCdJ>[15]f{BiL[6]IBICj}[14]C}fcSSlpSpSJs} */
 struct A845 { struct A844 m0; f m1; c m2; S m3; S m4; l m5; p m6; S m7; p m8; S m9; J m10; s m11; };
 int f_cmpA845(const struct A845 *x, const struct A845 *y) { return f_cmpA844(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA845() {
+DCaggr* f_touchA845() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A845));
@@ -16718,7 +16718,7 @@ DCaggr* f_touchdcstA845() {
 /* <ffSBiBssBSif> */
 union A846 { f m0; f m1; S m2; B m3; i m4; B m5; s m6; s m7; B m8; S m9; i m10; f m11; };
 int f_cmpA846(const union A846 *x, const union A846 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA846() {
+DCaggr* f_touchA846() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A846));
@@ -16741,7 +16741,7 @@ DCaggr* f_touchdcstA846() {
 /* <jilSjplpf<ffSBiBssBSif>Lf> */
 union A847 { j m0; i m1; l m2; S m3; j m4; p m5; l m6; p m7; f m8; union A846 m9; L m10; f m11; };
 int f_cmpA847(const union A847 *x, const union A847 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && f_cmpA846(&x->m9, &y->m9) && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA847() {
+DCaggr* f_touchA847() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A847));
@@ -16764,7 +16764,7 @@ DCaggr* f_touchdcstA847() {
 /* <sLCBsfcS> */
 union A848 { s m0; L m1; C m2; B m3; s m4; f m5; c m6; S m7; };
 int f_cmpA848(const union A848 *x, const union A848 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA848() {
+DCaggr* f_touchA848() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(union A848));
@@ -16783,7 +16783,7 @@ DCaggr* f_touchdcstA848() {
 /* <IccfI<sLCBsfcS>> */
 union A849 { I m0; c m1; c m2; f m3; I m4; union A848 m5; };
 int f_cmpA849(const union A849 *x, const union A849 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA848(&x->m5, &y->m5); };
-DCaggr* f_touchdcstA849() {
+DCaggr* f_touchA849() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(union A849));
@@ -16800,7 +16800,7 @@ DCaggr* f_touchdcstA849() {
 /* {fCSj<IccfI<sLCBsfcS>>isJjJIf} */
 struct A850 { f m0; C m1; S m2; j m3; union A849 m4; i m5; s m6; J m7; j m8; J m9; I m10; f m11; };
 int f_cmpA850(const struct A850 *x, const struct A850 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA849(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA850() {
+DCaggr* f_touchA850() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A850));
@@ -16823,7 +16823,7 @@ DCaggr* f_touchdcstA850() {
 /* {lLlBC} */
 struct A851 { l m0; L m1; l m2; B m3; C m4; };
 int f_cmpA851(const struct A851 *x, const struct A851 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA851() {
+DCaggr* f_touchA851() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A851));
@@ -16839,7 +16839,7 @@ DCaggr* f_touchdcstA851() {
 /* {BBIfff} */
 struct A852 { B m0; B m1; I m2; f m3; f m4; f m5; };
 int f_cmpA852(const struct A852 *x, const struct A852 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA852() {
+DCaggr* f_touchA852() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(struct A852));
@@ -16856,7 +16856,7 @@ DCaggr* f_touchdcstA852() {
 /* {IJlC[8]jiCpcfLl} */
 struct A853 { I m0; J m1; l m2; C m3[8]; j m4; i m5; C m6; p m7; c m8; f m9; L m10; l m11; };
 int f_cmpA853(const struct A853 *x, const struct A853 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3[0] == y->m3[0] && x->m3[1] == y->m3[1] && x->m3[2] == y->m3[2] && x->m3[3] == y->m3[3] && x->m3[4] == y->m3[4] && x->m3[5] == y->m3[5] && x->m3[6] == y->m3[6] && x->m3[7] == y->m3[7] && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA853() {
+DCaggr* f_touchA853() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A853));
@@ -16879,7 +16879,7 @@ DCaggr* f_touchdcstA853() {
 /* <fJCflp[5]l[16]p{IJlC[8]jiCpcfLl}ssl> */
 union A854 { f m0; J m1; C m2; f m3; l m4; p m5[5]; l m6[16]; p m7; struct A853 m8; s m9; s m10; l m11; };
 int f_cmpA854(const union A854 *x, const union A854 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5[0] == y->m5[0] && x->m5[1] == y->m5[1] && x->m5[2] == y->m5[2] && x->m5[3] == y->m5[3] && x->m5[4] == y->m5[4] && x->m6[0] == y->m6[0] && x->m6[1] == y->m6[1] && x->m6[2] == y->m6[2] && x->m6[3] == y->m6[3] && x->m6[4] == y->m6[4] && x->m6[5] == y->m6[5] && x->m6[6] == y->m6[6] && x->m6[7] == y->m6[7] && x->m6[8] == y->m6[8] && x->m6[9] == y->m6[9] && x->m6[10] == y->m6[10] && x->m6[11] == y->m6[11] && x->m6[12] == y->m6[12] && x->m6[13] == y->m6[13] && x->m6[14] == y->m6[14] && x->m6[15] == y->m6[15] && x->m7 == y->m7 && f_cmpA853(&x->m8, &y->m8) && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA854() {
+DCaggr* f_touchA854() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A854));
@@ -16902,7 +16902,7 @@ DCaggr* f_touchdcstA854() {
 /* <c<fJCflp[5]l[16]p{IJlC[8]jiCpcfLl}ssl>jpc> */
 union A855 { c m0; union A854 m1; j m2; p m3; c m4; };
 int f_cmpA855(const union A855 *x, const union A855 *y) { return x->m0 == y->m0 && f_cmpA854(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA855() {
+DCaggr* f_touchA855() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A855));
@@ -16918,7 +16918,7 @@ DCaggr* f_touchdcstA855() {
 /* <IdiiBljC> */
 union A856 { I m0; d m1; i m2; i m3; B m4; l m5; j m6; C m7; };
 int f_cmpA856(const union A856 *x, const union A856 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA856() {
+DCaggr* f_touchA856() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(union A856));
@@ -16937,7 +16937,7 @@ DCaggr* f_touchdcstA856() {
 /* <lL<IdiiBljC>> */
 union A857 { l m0; L m1; union A856 m2; };
 int f_cmpA857(const union A857 *x, const union A857 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA856(&x->m2, &y->m2); };
-DCaggr* f_touchdcstA857() {
+DCaggr* f_touchA857() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A857));
@@ -16951,7 +16951,7 @@ DCaggr* f_touchdcstA857() {
 /* {lCLIdcsCp} */
 struct A858 { l m0; C m1; L m2; I m3; d m4; c m5; s m6; C m7; p m8; };
 int f_cmpA858(const struct A858 *x, const struct A858 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA858() {
+DCaggr* f_touchA858() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(struct A858));
@@ -16971,7 +16971,7 @@ DCaggr* f_touchdcstA858() {
 /* {Csl[11]ssfl} */
 struct A859 { C m0; s m1; l m2[11]; s m3; s m4; f m5; l m6; };
 int f_cmpA859(const struct A859 *x, const struct A859 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2[0] == y->m2[0] && x->m2[1] == y->m2[1] && x->m2[2] == y->m2[2] && x->m2[3] == y->m2[3] && x->m2[4] == y->m2[4] && x->m2[5] == y->m2[5] && x->m2[6] == y->m2[6] && x->m2[7] == y->m2[7] && x->m2[8] == y->m2[8] && x->m2[9] == y->m2[9] && x->m2[10] == y->m2[10] && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA859() {
+DCaggr* f_touchA859() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(struct A859));
@@ -16989,7 +16989,7 @@ DCaggr* f_touchdcstA859() {
 /* {iSppp} */
 struct A860 { i m0; S m1; p m2; p m3; p m4; };
 int f_cmpA860(const struct A860 *x, const struct A860 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA860() {
+DCaggr* f_touchA860() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A860));
@@ -17005,7 +17005,7 @@ DCaggr* f_touchdcstA860() {
 /* <scJJc[12]ICSJLs> */
 union A861 { s m0; c m1; J m2; J m3; c m4[12]; I m5; C m6; S m7; J m8; L m9; s m10; };
 int f_cmpA861(const union A861 *x, const union A861 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4[0] == y->m4[0] && x->m4[1] == y->m4[1] && x->m4[2] == y->m4[2] && x->m4[3] == y->m4[3] && x->m4[4] == y->m4[4] && x->m4[5] == y->m4[5] && x->m4[6] == y->m4[6] && x->m4[7] == y->m4[7] && x->m4[8] == y->m4[8] && x->m4[9] == y->m4[9] && x->m4[10] == y->m4[10] && x->m4[11] == y->m4[11] && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA861() {
+DCaggr* f_touchA861() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(union A861));
@@ -17027,7 +17027,7 @@ DCaggr* f_touchdcstA861() {
 /* <B{lCLIdcsCp}jI{Csl[11]ssfl}{iSppp}jfj[7]<scJJc[12]ICSJLs>c[15]> */
 union A862 { B m0; struct A858 m1; j m2; I m3; struct A859 m4; struct A860 m5; j m6; f m7; j m8[7]; union A861 m9; c m10[15]; };
 int f_cmpA862(const union A862 *x, const union A862 *y) { return x->m0 == y->m0 && f_cmpA858(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA859(&x->m4, &y->m4) && f_cmpA860(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && x->m8[0] == y->m8[0] && x->m8[1] == y->m8[1] && x->m8[2] == y->m8[2] && x->m8[3] == y->m8[3] && x->m8[4] == y->m8[4] && x->m8[5] == y->m8[5] && x->m8[6] == y->m8[6] && f_cmpA861(&x->m9, &y->m9) && x->m10[0] == y->m10[0] && x->m10[1] == y->m10[1] && x->m10[2] == y->m10[2] && x->m10[3] == y->m10[3] && x->m10[4] == y->m10[4] && x->m10[5] == y->m10[5] && x->m10[6] == y->m10[6] && x->m10[7] == y->m10[7] && x->m10[8] == y->m10[8] && x->m10[9] == y->m10[9] && x->m10[10] == y->m10[10] && x->m10[11] == y->m10[11] && x->m10[12] == y->m10[12] && x->m10[13] == y->m10[13] && x->m10[14] == y->m10[14]; };
-DCaggr* f_touchdcstA862() {
+DCaggr* f_touchA862() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(union A862));
@@ -17049,7 +17049,7 @@ DCaggr* f_touchdcstA862() {
 /* <dB<lL<IdiiBljC>><B{lCLIdcsCp}jI{Csl[11]ssfl}{iSppp}jfj[7]<scJJc[12]ICSJLs>c[15]>dCBJdccI> */
 union A863 { d m0; B m1; union A857 m2; union A862 m3; d m4; C m5; B m6; J m7; d m8; c m9; c m10; I m11; };
 int f_cmpA863(const union A863 *x, const union A863 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA857(&x->m2, &y->m2) && f_cmpA862(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA863() {
+DCaggr* f_touchA863() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A863));
@@ -17072,7 +17072,7 @@ DCaggr* f_touchdcstA863() {
 /* <lCLpfcSpCpfI> */
 union A864 { l m0; C m1; L m2; p m3; f m4; c m5; S m6; p m7; C m8; p m9; f m10; I m11; };
 int f_cmpA864(const union A864 *x, const union A864 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA864() {
+DCaggr* f_touchA864() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A864));
@@ -17095,7 +17095,7 @@ DCaggr* f_touchdcstA864() {
 /* {BpLBJLisBBSJ} */
 struct A865 { B m0; p m1; L m2; B m3; J m4; L m5; i m6; s m7; B m8; B m9; S m10; J m11; };
 int f_cmpA865(const struct A865 *x, const struct A865 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA865() {
+DCaggr* f_touchA865() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A865));
@@ -17118,7 +17118,7 @@ DCaggr* f_touchdcstA865() {
 /* <BJSBjjlpJdII> */
 union A866 { B m0; J m1; S m2; B m3; j m4; j m5; l m6; p m7; J m8; d m9; I m10; I m11; };
 int f_cmpA866(const union A866 *x, const union A866 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA866() {
+DCaggr* f_touchA866() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A866));
@@ -17141,7 +17141,7 @@ DCaggr* f_touchdcstA866() {
 /* <jlIS[3]jBf[2]scB> */
 union A867 { j m0; l m1; I m2; S m3[3]; j m4; B m5; f m6[2]; s m7; c m8; B m9; };
 int f_cmpA867(const union A867 *x, const union A867 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3[0] == y->m3[0] && x->m3[1] == y->m3[1] && x->m3[2] == y->m3[2] && x->m4 == y->m4 && x->m5 == y->m5 && x->m6[0] == y->m6[0] && x->m6[1] == y->m6[1] && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA867() {
+DCaggr* f_touchA867() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A867));
@@ -17162,7 +17162,7 @@ DCaggr* f_touchdcstA867() {
 /* {<BJSBjjlpJdII>l<jlIS[3]jBf[2]scB>} */
 struct A868 { union A866 m0; l m1; union A867 m2; };
 int f_cmpA868(const struct A868 *x, const struct A868 *y) { return f_cmpA866(&x->m0, &y->m0) && x->m1 == y->m1 && f_cmpA867(&x->m2, &y->m2); };
-DCaggr* f_touchdcstA868() {
+DCaggr* f_touchA868() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A868));
@@ -17176,7 +17176,7 @@ DCaggr* f_touchdcstA868() {
 /* {iljCdI} */
 struct A869 { i m0; l m1; j m2; C m3; d m4; I m5; };
 int f_cmpA869(const struct A869 *x, const struct A869 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA869() {
+DCaggr* f_touchA869() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(struct A869));
@@ -17193,7 +17193,7 @@ DCaggr* f_touchdcstA869() {
 /* {{iljCdI}lSpl[12]LIddLdj} */
 struct A870 { struct A869 m0; l m1; S m2; p m3; l m4[12]; L m5; I m6; d m7; d m8; L m9; d m10; j m11; };
 int f_cmpA870(const struct A870 *x, const struct A870 *y) { return f_cmpA869(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4[0] == y->m4[0] && x->m4[1] == y->m4[1] && x->m4[2] == y->m4[2] && x->m4[3] == y->m4[3] && x->m4[4] == y->m4[4] && x->m4[5] == y->m4[5] && x->m4[6] == y->m4[6] && x->m4[7] == y->m4[7] && x->m4[8] == y->m4[8] && x->m4[9] == y->m4[9] && x->m4[10] == y->m4[10] && x->m4[11] == y->m4[11] && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA870() {
+DCaggr* f_touchA870() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A870));
@@ -17216,7 +17216,7 @@ DCaggr* f_touchdcstA870() {
 /* {{{iljCdI}lSpl[12]LIddLdj}cJjdiSScpBS} */
 struct A871 { struct A870 m0; c m1; J m2; j m3; d m4; i m5; S m6; S m7; c m8; p m9; B m10; S m11; };
 int f_cmpA871(const struct A871 *x, const struct A871 *y) { return f_cmpA870(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA871() {
+DCaggr* f_touchA871() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A871));
@@ -17239,7 +17239,7 @@ DCaggr* f_touchdcstA871() {
 /* <scLJfLfBdccB> */
 union A872 { s m0; c m1; L m2; J m3; f m4; L m5; f m6; B m7; d m8; c m9; c m10; B m11; };
 int f_cmpA872(const union A872 *x, const union A872 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA872() {
+DCaggr* f_touchA872() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A872));
@@ -17262,7 +17262,7 @@ DCaggr* f_touchdcstA872() {
 /* {iSJld<scLJfLfBdccB>} */
 struct A873 { i m0; S m1; J m2; l m3; d m4; union A872 m5; };
 int f_cmpA873(const struct A873 *x, const struct A873 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA872(&x->m5, &y->m5); };
-DCaggr* f_touchdcstA873() {
+DCaggr* f_touchA873() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(struct A873));
@@ -17279,7 +17279,7 @@ DCaggr* f_touchdcstA873() {
 /* {s{iSJld<scLJfLfBdccB>}lpCLL} */
 struct A874 { s m0; struct A873 m1; l m2; p m3; C m4; L m5; L m6; };
 int f_cmpA874(const struct A874 *x, const struct A874 *y) { return x->m0 == y->m0 && f_cmpA873(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA874() {
+DCaggr* f_touchA874() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(struct A874));
@@ -17297,7 +17297,7 @@ DCaggr* f_touchdcstA874() {
 /* {SsdjJ} */
 struct A875 { S m0; s m1; d m2; j m3; J m4; };
 int f_cmpA875(const struct A875 *x, const struct A875 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA875() {
+DCaggr* f_touchA875() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A875));
@@ -17313,7 +17313,7 @@ DCaggr* f_touchdcstA875() {
 /* <CiiBL[14]> */
 union A876 { C m0; i m1; i m2; B m3; L m4[14]; };
 int f_cmpA876(const union A876 *x, const union A876 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4[0] == y->m4[0] && x->m4[1] == y->m4[1] && x->m4[2] == y->m4[2] && x->m4[3] == y->m4[3] && x->m4[4] == y->m4[4] && x->m4[5] == y->m4[5] && x->m4[6] == y->m4[6] && x->m4[7] == y->m4[7] && x->m4[8] == y->m4[8] && x->m4[9] == y->m4[9] && x->m4[10] == y->m4[10] && x->m4[11] == y->m4[11] && x->m4[12] == y->m4[12] && x->m4[13] == y->m4[13]; };
-DCaggr* f_touchdcstA876() {
+DCaggr* f_touchA876() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A876));
@@ -17329,7 +17329,7 @@ DCaggr* f_touchdcstA876() {
 /* {djI<CiiBL[14]>LSliLpSS} */
 struct A877 { d m0; j m1; I m2; union A876 m3; L m4; S m5; l m6; i m7; L m8; p m9; S m10; S m11; };
 int f_cmpA877(const struct A877 *x, const struct A877 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA876(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA877() {
+DCaggr* f_touchA877() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A877));
@@ -17352,7 +17352,7 @@ DCaggr* f_touchdcstA877() {
 /* <sl> */
 union A878 { s m0; l m1; };
 int f_cmpA878(const union A878 *x, const union A878 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA878() {
+DCaggr* f_touchA878() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A878));
@@ -17365,7 +17365,7 @@ DCaggr* f_touchdcstA878() {
 /* {ccjl[8]jlpjdiJJ} */
 struct A879 { c m0; c m1; j m2; l m3[8]; j m4; l m5; p m6; j m7; d m8; i m9; J m10; J m11; };
 int f_cmpA879(const struct A879 *x, const struct A879 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3[0] == y->m3[0] && x->m3[1] == y->m3[1] && x->m3[2] == y->m3[2] && x->m3[3] == y->m3[3] && x->m3[4] == y->m3[4] && x->m3[5] == y->m3[5] && x->m3[6] == y->m3[6] && x->m3[7] == y->m3[7] && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA879() {
+DCaggr* f_touchA879() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A879));
@@ -17388,7 +17388,7 @@ DCaggr* f_touchdcstA879() {
 /* {I<sl>Il{ccjl[8]jlpjdiJJ}jjpCJL[12]j} */
 struct A880 { I m0; union A878 m1; I m2; l m3; struct A879 m4; j m5; j m6; p m7; C m8; J m9; L m10[12]; j m11; };
 int f_cmpA880(const struct A880 *x, const struct A880 *y) { return x->m0 == y->m0 && f_cmpA878(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA879(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10[0] == y->m10[0] && x->m10[1] == y->m10[1] && x->m10[2] == y->m10[2] && x->m10[3] == y->m10[3] && x->m10[4] == y->m10[4] && x->m10[5] == y->m10[5] && x->m10[6] == y->m10[6] && x->m10[7] == y->m10[7] && x->m10[8] == y->m10[8] && x->m10[9] == y->m10[9] && x->m10[10] == y->m10[10] && x->m10[11] == y->m10[11] && x->m11 == y->m11; };
-DCaggr* f_touchdcstA880() {
+DCaggr* f_touchA880() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A880));
@@ -17411,7 +17411,7 @@ DCaggr* f_touchdcstA880() {
 /* <pJcflLfp> */
 union A881 { p m0; J m1; c m2; f m3; l m4; L m5; f m6; p m7; };
 int f_cmpA881(const union A881 *x, const union A881 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA881() {
+DCaggr* f_touchA881() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(union A881));
@@ -17430,7 +17430,7 @@ DCaggr* f_touchdcstA881() {
 /* <cIIsij<pJcflLfp>Cp> */
 union A882 { c m0; I m1; I m2; s m3; i m4; j m5; union A881 m6; C m7; p m8; };
 int f_cmpA882(const union A882 *x, const union A882 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA881(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA882() {
+DCaggr* f_touchA882() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A882));
@@ -17450,7 +17450,7 @@ DCaggr* f_touchdcstA882() {
 /* <BBJJ> */
 union A883 { B m0; B m1; J m2; J m3; };
 int f_cmpA883(const union A883 *x, const union A883 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA883() {
+DCaggr* f_touchA883() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A883));
@@ -17465,7 +17465,7 @@ DCaggr* f_touchdcstA883() {
 /* {sllLsJd} */
 struct A884 { s m0; l m1; l m2; L m3; s m4; J m5; d m6; };
 int f_cmpA884(const struct A884 *x, const struct A884 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA884() {
+DCaggr* f_touchA884() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(struct A884));
@@ -17483,7 +17483,7 @@ DCaggr* f_touchdcstA884() {
 /* {LccipLpjBp} */
 struct A885 { L m0; c m1; c m2; i m3; p m4; L m5; p m6; j m7; B m8; p m9; };
 int f_cmpA885(const struct A885 *x, const struct A885 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA885() {
+DCaggr* f_touchA885() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(struct A885));
@@ -17504,7 +17504,7 @@ DCaggr* f_touchdcstA885() {
 /* {JBijsl{sllLsJd}cL{LccipLpjBp}sB} */
 struct A886 { J m0; B m1; i m2; j m3; s m4; l m5; struct A884 m6; c m7; L m8; struct A885 m9; s m10; B m11; };
 int f_cmpA886(const struct A886 *x, const struct A886 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA884(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8 && f_cmpA885(&x->m9, &y->m9) && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA886() {
+DCaggr* f_touchA886() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A886));
@@ -17527,7 +17527,7 @@ DCaggr* f_touchdcstA886() {
 /* <<cIIsij<pJcflLfp>Cp>pJ<BBJJ>{JBijsl{sllLsJd}cL{LccipLpjBp}sB}pIiLJis> */
 union A887 { union A882 m0; p m1; J m2; union A883 m3; struct A886 m4; p m5; I m6; i m7; L m8; J m9; i m10; s m11; };
 int f_cmpA887(const union A887 *x, const union A887 *y) { return f_cmpA882(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA883(&x->m3, &y->m3) && f_cmpA886(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA887() {
+DCaggr* f_touchA887() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A887));
@@ -17550,7 +17550,7 @@ DCaggr* f_touchdcstA887() {
 /* <csBdccljslcp> */
 union A888 { c m0; s m1; B m2; d m3; c m4; c m5; l m6; j m7; s m8; l m9; c m10; p m11; };
 int f_cmpA888(const union A888 *x, const union A888 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA888() {
+DCaggr* f_touchA888() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A888));
@@ -17573,7 +17573,7 @@ DCaggr* f_touchdcstA888() {
 /* {CsjIB<csBdccljslcp>fI} */
 struct A889 { C m0; s m1; j m2; I m3; B m4; union A888 m5; f m6; I m7; };
 int f_cmpA889(const struct A889 *x, const struct A889 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA888(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA889() {
+DCaggr* f_touchA889() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(struct A889));
@@ -17592,7 +17592,7 @@ DCaggr* f_touchdcstA889() {
 /* <dBflLClLsjdj> */
 union A890 { d m0; B m1; f m2; l m3; L m4; C m5; l m6; L m7; s m8; j m9; d m10; j m11; };
 int f_cmpA890(const union A890 *x, const union A890 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA890() {
+DCaggr* f_touchA890() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A890));
@@ -17615,7 +17615,7 @@ DCaggr* f_touchdcstA890() {
 /* {jpdCcdjl} */
 struct A891 { j m0; p m1; d m2; C m3; c m4; d m5; j m6; l m7; };
 int f_cmpA891(const struct A891 *x, const struct A891 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA891() {
+DCaggr* f_touchA891() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(struct A891));
@@ -17634,7 +17634,7 @@ DCaggr* f_touchdcstA891() {
 /* {lfcdppfcCILC} */
 struct A892 { l m0; f m1; c m2; d m3; p m4; p m5; f m6; c m7; C m8; I m9; L m10; C m11; };
 int f_cmpA892(const struct A892 *x, const struct A892 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA892() {
+DCaggr* f_touchA892() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A892));
@@ -17657,7 +17657,7 @@ DCaggr* f_touchdcstA892() {
 /* {jcLcLf{jpdCcdjl}{d}{lfcdppfcCILC}CLp} */
 struct A893 { j m0; c m1; L m2; c m3; L m4; f m5; struct A891 m6; struct A378 m7; struct A892 m8; C m9; L m10; p m11; };
 int f_cmpA893(const struct A893 *x, const struct A893 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA891(&x->m6, &y->m6) && f_cmpA378(&x->m7, &y->m7) && f_cmpA892(&x->m8, &y->m8) && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA893() {
+DCaggr* f_touchA893() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A893));
@@ -17680,7 +17680,7 @@ DCaggr* f_touchdcstA893() {
 /* {iSiLJdSCfCjc} */
 struct A894 { i m0; S m1; i m2; L m3; J m4; d m5; S m6; C m7; f m8; C m9; j m10; c m11; };
 int f_cmpA894(const struct A894 *x, const struct A894 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA894() {
+DCaggr* f_touchA894() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A894));
@@ -17703,7 +17703,7 @@ DCaggr* f_touchdcstA894() {
 /* {IfpLSsLipBjI} */
 struct A895 { I m0; f m1; p m2; L m3; S m4; s m5; L m6; i m7; p m8; B m9; j m10; I m11; };
 int f_cmpA895(const struct A895 *x, const struct A895 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA895() {
+DCaggr* f_touchA895() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A895));
@@ -17726,7 +17726,7 @@ DCaggr* f_touchdcstA895() {
 /* <sLdpfjSdjILl> */
 union A896 { s m0; L m1; d m2; p m3; f m4; j m5; S m6; d m7; j m8; I m9; L m10; l m11; };
 int f_cmpA896(const union A896 *x, const union A896 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA896() {
+DCaggr* f_touchA896() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A896));
@@ -17749,7 +17749,7 @@ DCaggr* f_touchdcstA896() {
 /* <ifdCSJSpjdsd> */
 union A897 { i m0; f m1; d m2; C m3; S m4; J m5; S m6; p m7; j m8; d m9; s m10; d m11; };
 int f_cmpA897(const union A897 *x, const union A897 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA897() {
+DCaggr* f_touchA897() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A897));
@@ -17772,7 +17772,7 @@ DCaggr* f_touchdcstA897() {
 /* {cBBddpBlilSj} */
 struct A898 { c m0; B m1; B m2; d m3; d m4; p m5; B m6; l m7; i m8; l m9; S m10; j m11; };
 int f_cmpA898(const struct A898 *x, const struct A898 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA898() {
+DCaggr* f_touchA898() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A898));
@@ -17795,7 +17795,7 @@ DCaggr* f_touchdcstA898() {
 /* <BCcLsdJCCpSB> */
 union A899 { B m0; C m1; c m2; L m3; s m4; d m5; J m6; C m7; C m8; p m9; S m10; B m11; };
 int f_cmpA899(const union A899 *x, const union A899 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA899() {
+DCaggr* f_touchA899() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A899));
@@ -17818,7 +17818,7 @@ DCaggr* f_touchdcstA899() {
 /* {jSpSSf} */
 struct A900 { j m0; S m1; p m2; S m3; S m4; f m5; };
 int f_cmpA900(const struct A900 *x, const struct A900 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA900() {
+DCaggr* f_touchA900() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(struct A900));
@@ -17835,7 +17835,7 @@ DCaggr* f_touchdcstA900() {
 /* {CIplIllJ[9]cllB} */
 struct A901 { C m0; I m1; p m2; l m3; I m4; l m5; l m6; J m7[9]; c m8; l m9; l m10; B m11; };
 int f_cmpA901(const struct A901 *x, const struct A901 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7[0] == y->m7[0] && x->m7[1] == y->m7[1] && x->m7[2] == y->m7[2] && x->m7[3] == y->m7[3] && x->m7[4] == y->m7[4] && x->m7[5] == y->m7[5] && x->m7[6] == y->m7[6] && x->m7[7] == y->m7[7] && x->m7[8] == y->m7[8] && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA901() {
+DCaggr* f_touchA901() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A901));
@@ -17858,7 +17858,7 @@ DCaggr* f_touchdcstA901() {
 /* {{jSpSSf}l{CIplIllJ[9]cllB}llC} */
 struct A902 { struct A900 m0; l m1; struct A901 m2; l m3; l m4; C m5; };
 int f_cmpA902(const struct A902 *x, const struct A902 *y) { return f_cmpA900(&x->m0, &y->m0) && x->m1 == y->m1 && f_cmpA901(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA902() {
+DCaggr* f_touchA902() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(struct A902));
@@ -17875,7 +17875,7 @@ DCaggr* f_touchdcstA902() {
 /* {BSLJljppcd} */
 struct A903 { B m0; S m1; L m2; J m3; l m4; j m5; p m6; p m7; c m8; d m9; };
 int f_cmpA903(const struct A903 *x, const struct A903 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA903() {
+DCaggr* f_touchA903() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(struct A903));
@@ -17896,7 +17896,7 @@ DCaggr* f_touchdcstA903() {
 /* {CfjJippjJfdp} */
 struct A904 { C m0; f m1; j m2; J m3; i m4; p m5; p m6; j m7; J m8; f m9; d m10; p m11; };
 int f_cmpA904(const struct A904 *x, const struct A904 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA904() {
+DCaggr* f_touchA904() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A904));
@@ -17919,7 +17919,7 @@ DCaggr* f_touchdcstA904() {
 /* {dpfjJjJdILIC} */
 struct A905 { d m0; p m1; f m2; j m3; J m4; j m5; J m6; d m7; I m8; L m9; I m10; C m11; };
 int f_cmpA905(const struct A905 *x, const struct A905 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA905() {
+DCaggr* f_touchA905() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A905));
@@ -17942,7 +17942,7 @@ DCaggr* f_touchdcstA905() {
 /* {iSJpIddSIIfs} */
 struct A906 { i m0; S m1; J m2; p m3; I m4; d m5; d m6; S m7; I m8; I m9; f m10; s m11; };
 int f_cmpA906(const struct A906 *x, const struct A906 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA906() {
+DCaggr* f_touchA906() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A906));
@@ -17965,7 +17965,7 @@ DCaggr* f_touchdcstA906() {
 /* {cpLSLCIBsSId} */
 struct A907 { c m0; p m1; L m2; S m3; L m4; C m5; I m6; B m7; s m8; S m9; I m10; d m11; };
 int f_cmpA907(const struct A907 *x, const struct A907 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA907() {
+DCaggr* f_touchA907() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A907));
@@ -17988,7 +17988,7 @@ DCaggr* f_touchdcstA907() {
 /* {f{cpLSLCIBsSId}fpICCBLIpi} */
 struct A908 { f m0; struct A907 m1; f m2; p m3; I m4; C m5; C m6; B m7; L m8; I m9; p m10; i m11; };
 int f_cmpA908(const struct A908 *x, const struct A908 *y) { return x->m0 == y->m0 && f_cmpA907(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA908() {
+DCaggr* f_touchA908() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A908));
@@ -18011,7 +18011,7 @@ DCaggr* f_touchdcstA908() {
 /* {JI} */
 struct A909 { J m0; I m1; };
 int f_cmpA909(const struct A909 *x, const struct A909 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA909() {
+DCaggr* f_touchA909() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(struct A909));
@@ -18024,7 +18024,7 @@ DCaggr* f_touchdcstA909() {
 /* <{JI}dcsBpjLBJJC[1]> */
 union A910 { struct A909 m0; d m1; c m2; s m3; B m4; p m5; j m6; L m7; B m8; J m9; J m10; C m11[1]; };
 int f_cmpA910(const union A910 *x, const union A910 *y) { return f_cmpA909(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11[0] == y->m11[0]; };
-DCaggr* f_touchdcstA910() {
+DCaggr* f_touchA910() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A910));
@@ -18047,7 +18047,7 @@ DCaggr* f_touchdcstA910() {
 /* {LLljIdLCIcpC} */
 struct A911 { L m0; L m1; l m2; j m3; I m4; d m5; L m6; C m7; I m8; c m9; p m10; C m11; };
 int f_cmpA911(const struct A911 *x, const struct A911 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA911() {
+DCaggr* f_touchA911() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A911));
@@ -18070,7 +18070,7 @@ DCaggr* f_touchdcstA911() {
 /* <BJslCifpLpIL> */
 union A912 { B m0; J m1; s m2; l m3; C m4; i m5; f m6; p m7; L m8; p m9; I m10; L m11; };
 int f_cmpA912(const union A912 *x, const union A912 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA912() {
+DCaggr* f_touchA912() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A912));
@@ -18093,7 +18093,7 @@ DCaggr* f_touchdcstA912() {
 /* <{f}JdJCI[1]BLcJi> */
 union A913 { struct A471 m0; J m1; d m2; J m3; C m4; I m5[1]; B m6; L m7; c m8; J m9; i m10; };
 int f_cmpA913(const union A913 *x, const union A913 *y) { return f_cmpA471(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5[0] == y->m5[0] && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA913() {
+DCaggr* f_touchA913() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(union A913));
@@ -18115,7 +18115,7 @@ DCaggr* f_touchdcstA913() {
 /* <SjCjfBcLScSd> */
 union A914 { S m0; j m1; C m2; j m3; f m4; B m5; c m6; L m7; S m8; c m9; S m10; d m11; };
 int f_cmpA914(const union A914 *x, const union A914 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA914() {
+DCaggr* f_touchA914() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A914));
@@ -18138,7 +18138,7 @@ DCaggr* f_touchdcstA914() {
 /* <ddfjCjsCJJ[4]Ci> */
 union A915 { d m0; d m1; f m2; j m3; C m4; j m5; s m6; C m7; J m8; J m9[4]; C m10; i m11; };
 int f_cmpA915(const union A915 *x, const union A915 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9[0] == y->m9[0] && x->m9[1] == y->m9[1] && x->m9[2] == y->m9[2] && x->m9[3] == y->m9[3] && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA915() {
+DCaggr* f_touchA915() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A915));
@@ -18161,7 +18161,7 @@ DCaggr* f_touchdcstA915() {
 /* {lLiBcfpcjCSB} */
 struct A916 { l m0; L m1; i m2; B m3; c m4; f m5; p m6; c m7; j m8; C m9; S m10; B m11; };
 int f_cmpA916(const struct A916 *x, const struct A916 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA916() {
+DCaggr* f_touchA916() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A916));
@@ -18184,7 +18184,7 @@ DCaggr* f_touchdcstA916() {
 /* <SCC{lLiBcfpcjCSB}spiJfc> */
 union A917 { S m0; C m1; C m2; struct A916 m3; s m4; p m5; i m6; J m7; f m8; c m9; };
 int f_cmpA917(const union A917 *x, const union A917 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA916(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA917() {
+DCaggr* f_touchA917() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A917));
@@ -18205,7 +18205,7 @@ DCaggr* f_touchdcstA917() {
 /* <ijcSdLIB> */
 union A918 { i m0; j m1; c m2; S m3; d m4; L m5; I m6; B m7; };
 int f_cmpA918(const union A918 *x, const union A918 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA918() {
+DCaggr* f_touchA918() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(union A918));
@@ -18224,7 +18224,7 @@ DCaggr* f_touchdcstA918() {
 /* <<ijcSdLIB>[2]CBIIsLj> */
 union A919 { union A918 m0[2]; C m1; B m2; I m3; I m4; s m5; L m6; j m7; };
 int f_cmpA919(const union A919 *x, const union A919 *y) { return f_cmpA918(&x->m0[0], &y->m0[0]) && f_cmpA918(&x->m0[1], &y->m0[1]) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA919() {
+DCaggr* f_touchA919() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(union A919));
@@ -18243,7 +18243,7 @@ DCaggr* f_touchdcstA919() {
 /* <JIj> */
 union A920 { J m0; I m1; j m2; };
 int f_cmpA920(const union A920 *x, const union A920 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA920() {
+DCaggr* f_touchA920() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A920));
@@ -18257,7 +18257,7 @@ DCaggr* f_touchdcstA920() {
 /* {iBsLjjp[8]jliiI} */
 struct A921 { i m0; B m1; s m2; L m3; j m4; j m5; p m6[8]; j m7; l m8; i m9; i m10; I m11; };
 int f_cmpA921(const struct A921 *x, const struct A921 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6[0] == y->m6[0] && x->m6[1] == y->m6[1] && x->m6[2] == y->m6[2] && x->m6[3] == y->m6[3] && x->m6[4] == y->m6[4] && x->m6[5] == y->m6[5] && x->m6[6] == y->m6[6] && x->m6[7] == y->m6[7] && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA921() {
+DCaggr* f_touchA921() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A921));
@@ -18280,7 +18280,7 @@ DCaggr* f_touchdcstA921() {
 /* <dLjjSJslB> */
 union A922 { d m0; L m1; j m2; j m3; S m4; J m5; s m6; l m7; B m8; };
 int f_cmpA922(const union A922 *x, const union A922 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA922() {
+DCaggr* f_touchA922() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A922));
@@ -18300,7 +18300,7 @@ DCaggr* f_touchdcstA922() {
 /* <sJspSij> */
 union A923 { s m0; J m1; s m2; p m3; S m4; i m5; j m6; };
 int f_cmpA923(const union A923 *x, const union A923 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA923() {
+DCaggr* f_touchA923() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(union A923));
@@ -18318,7 +18318,7 @@ DCaggr* f_touchdcstA923() {
 /* <BdLcifc> */
 union A924 { B m0; d m1; L m2; c m3; i m4; f m5; c m6; };
 int f_cmpA924(const union A924 *x, const union A924 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA924() {
+DCaggr* f_touchA924() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(union A924));
@@ -18336,7 +18336,7 @@ DCaggr* f_touchdcstA924() {
 /* <BcpiljpsdBB[3]I> */
 union A925 { B m0; c m1; p m2; i m3; l m4; j m5; p m6; s m7; d m8; B m9; B m10[3]; I m11; };
 int f_cmpA925(const union A925 *x, const union A925 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10[0] == y->m10[0] && x->m10[1] == y->m10[1] && x->m10[2] == y->m10[2] && x->m11 == y->m11; };
-DCaggr* f_touchdcstA925() {
+DCaggr* f_touchA925() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A925));
@@ -18359,7 +18359,7 @@ DCaggr* f_touchdcstA925() {
 /* {SpCSsLBfjIlf} */
 struct A926 { S m0; p m1; C m2; S m3; s m4; L m5; B m6; f m7; j m8; I m9; l m10; f m11; };
 int f_cmpA926(const struct A926 *x, const struct A926 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA926() {
+DCaggr* f_touchA926() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A926));
@@ -18382,7 +18382,7 @@ DCaggr* f_touchdcstA926() {
 /* {{SpCSsLBfjIlf}fJc[7]ifIjcdJ[12]B} */
 struct A927 { struct A926 m0; f m1; J m2; c m3[7]; i m4; f m5; I m6; j m7; c m8; d m9; J m10[12]; B m11; };
 int f_cmpA927(const struct A927 *x, const struct A927 *y) { return f_cmpA926(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3[0] == y->m3[0] && x->m3[1] == y->m3[1] && x->m3[2] == y->m3[2] && x->m3[3] == y->m3[3] && x->m3[4] == y->m3[4] && x->m3[5] == y->m3[5] && x->m3[6] == y->m3[6] && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10[0] == y->m10[0] && x->m10[1] == y->m10[1] && x->m10[2] == y->m10[2] && x->m10[3] == y->m10[3] && x->m10[4] == y->m10[4] && x->m10[5] == y->m10[5] && x->m10[6] == y->m10[6] && x->m10[7] == y->m10[7] && x->m10[8] == y->m10[8] && x->m10[9] == y->m10[9] && x->m10[10] == y->m10[10] && x->m10[11] == y->m10[11] && x->m11 == y->m11; };
-DCaggr* f_touchdcstA927() {
+DCaggr* f_touchA927() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A927));
@@ -18405,7 +18405,7 @@ DCaggr* f_touchdcstA927() {
 /* {BJLsSjILiBfd} */
 struct A928 { B m0; J m1; L m2; s m3; S m4; j m5; I m6; L m7; i m8; B m9; f m10; d m11; };
 int f_cmpA928(const struct A928 *x, const struct A928 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA928() {
+DCaggr* f_touchA928() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A928));
@@ -18428,7 +18428,7 @@ DCaggr* f_touchdcstA928() {
 /* <Cid[6]sSIdliici> */
 union A929 { C m0; i m1; d m2[6]; s m3; S m4; I m5; d m6; l m7; i m8; i m9; c m10; i m11; };
 int f_cmpA929(const union A929 *x, const union A929 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2[0] == y->m2[0] && x->m2[1] == y->m2[1] && x->m2[2] == y->m2[2] && x->m2[3] == y->m2[3] && x->m2[4] == y->m2[4] && x->m2[5] == y->m2[5] && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA929() {
+DCaggr* f_touchA929() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A929));
@@ -18451,7 +18451,7 @@ DCaggr* f_touchdcstA929() {
 /* {dpcjJ{BJLsSjILiBfd}Lidcp<Cid[6]sSIdliici>} */
 struct A930 { d m0; p m1; c m2; j m3; J m4; struct A928 m5; L m6; i m7; d m8; c m9; p m10; union A929 m11; };
 int f_cmpA930(const struct A930 *x, const struct A930 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA928(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && f_cmpA929(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA930() {
+DCaggr* f_touchA930() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A930));
@@ -18474,7 +18474,7 @@ DCaggr* f_touchdcstA930() {
 /* {pidL} */
 struct A931 { p m0; i m1; d m2; L m3; };
 int f_cmpA931(const struct A931 *x, const struct A931 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA931() {
+DCaggr* f_touchA931() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A931));
@@ -18489,7 +18489,7 @@ DCaggr* f_touchdcstA931() {
 /* {Cs{pidL}i{s}i[10]spsll} */
 struct A932 { C m0; s m1; struct A931 m2; i m3; struct A144 m4; i m5[10]; s m6; p m7; s m8; l m9; l m10; };
 int f_cmpA932(const struct A932 *x, const struct A932 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA931(&x->m2, &y->m2) && x->m3 == y->m3 && f_cmpA144(&x->m4, &y->m4) && x->m5[0] == y->m5[0] && x->m5[1] == y->m5[1] && x->m5[2] == y->m5[2] && x->m5[3] == y->m5[3] && x->m5[4] == y->m5[4] && x->m5[5] == y->m5[5] && x->m5[6] == y->m5[6] && x->m5[7] == y->m5[7] && x->m5[8] == y->m5[8] && x->m5[9] == y->m5[9] && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA932() {
+DCaggr* f_touchA932() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(struct A932));
@@ -18511,7 +18511,7 @@ DCaggr* f_touchdcstA932() {
 /* <JSs[12]sf{Cs{pidL}i{s}i[10]spsll}lJcS[6]IJ> */
 union A933 { J m0; S m1; s m2[12]; s m3; f m4; struct A932 m5; l m6; J m7; c m8; S m9[6]; I m10; J m11; };
 int f_cmpA933(const union A933 *x, const union A933 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2[0] == y->m2[0] && x->m2[1] == y->m2[1] && x->m2[2] == y->m2[2] && x->m2[3] == y->m2[3] && x->m2[4] == y->m2[4] && x->m2[5] == y->m2[5] && x->m2[6] == y->m2[6] && x->m2[7] == y->m2[7] && x->m2[8] == y->m2[8] && x->m2[9] == y->m2[9] && x->m2[10] == y->m2[10] && x->m2[11] == y->m2[11] && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA932(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9[0] == y->m9[0] && x->m9[1] == y->m9[1] && x->m9[2] == y->m9[2] && x->m9[3] == y->m9[3] && x->m9[4] == y->m9[4] && x->m9[5] == y->m9[5] && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA933() {
+DCaggr* f_touchA933() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A933));
@@ -18534,7 +18534,7 @@ DCaggr* f_touchdcstA933() {
 /* <LBClpBdfBpBc> */
 union A934 { L m0; B m1; C m2; l m3; p m4; B m5; d m6; f m7; B m8; p m9; B m10; c m11; };
 int f_cmpA934(const union A934 *x, const union A934 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA934() {
+DCaggr* f_touchA934() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A934));
@@ -18557,7 +18557,7 @@ DCaggr* f_touchdcstA934() {
 /* <siIdJ> */
 union A935 { s m0; i m1; I m2; d m3; J m4; };
 int f_cmpA935(const union A935 *x, const union A935 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA935() {
+DCaggr* f_touchA935() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A935));
@@ -18573,7 +18573,7 @@ DCaggr* f_touchdcstA935() {
 /* <LIcpfjcIclff> */
 union A936 { L m0; I m1; c m2; p m3; f m4; j m5; c m6; I m7; c m8; l m9; f m10; f m11; };
 int f_cmpA936(const union A936 *x, const union A936 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA936() {
+DCaggr* f_touchA936() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A936));
@@ -18596,7 +18596,7 @@ DCaggr* f_touchdcstA936() {
 /* {l} */
 struct A937 { l m0; };
 int f_cmpA937(const struct A937 *x, const struct A937 *y) { return x->m0 == y->m0; };
-DCaggr* f_touchdcstA937() {
+DCaggr* f_touchA937() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(1, sizeof(struct A937));
@@ -18608,7 +18608,7 @@ DCaggr* f_touchdcstA937() {
 /* <C<LIcpfjcIclff>LcpfjcpL{l}c> */
 union A938 { C m0; union A936 m1; L m2; c m3; p m4; f m5; j m6; c m7; p m8; L m9; struct A937 m10; c m11; };
 int f_cmpA938(const union A938 *x, const union A938 *y) { return x->m0 == y->m0 && f_cmpA936(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA937(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA938() {
+DCaggr* f_touchA938() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A938));
@@ -18631,7 +18631,7 @@ DCaggr* f_touchdcstA938() {
 /* <<C<LIcpfjcIclff>LcpfjcpL{l}c>Jc[15]lJpijj> */
 union A939 { union A938 m0; J m1; c m2[15]; l m3; J m4; p m5; i m6; j m7; j m8; };
 int f_cmpA939(const union A939 *x, const union A939 *y) { return f_cmpA938(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2[0] == y->m2[0] && x->m2[1] == y->m2[1] && x->m2[2] == y->m2[2] && x->m2[3] == y->m2[3] && x->m2[4] == y->m2[4] && x->m2[5] == y->m2[5] && x->m2[6] == y->m2[6] && x->m2[7] == y->m2[7] && x->m2[8] == y->m2[8] && x->m2[9] == y->m2[9] && x->m2[10] == y->m2[10] && x->m2[11] == y->m2[11] && x->m2[12] == y->m2[12] && x->m2[13] == y->m2[13] && x->m2[14] == y->m2[14] && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA939() {
+DCaggr* f_touchA939() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A939));
@@ -18651,7 +18651,7 @@ DCaggr* f_touchdcstA939() {
 /* {pCSI} */
 struct A940 { p m0; C m1; S m2; I m3; };
 int f_cmpA940(const struct A940 *x, const struct A940 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA940() {
+DCaggr* f_touchA940() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A940));
@@ -18666,7 +18666,7 @@ DCaggr* f_touchdcstA940() {
 /* {fccd} */
 struct A941 { f m0; c m1; c m2; d m3; };
 int f_cmpA941(const struct A941 *x, const struct A941 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA941() {
+DCaggr* f_touchA941() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A941));
@@ -18681,7 +18681,7 @@ DCaggr* f_touchdcstA941() {
 /* <iCIjsJsSsplC> */
 union A942 { i m0; C m1; I m2; j m3; s m4; J m5; s m6; S m7; s m8; p m9; l m10; C m11; };
 int f_cmpA942(const union A942 *x, const union A942 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA942() {
+DCaggr* f_touchA942() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A942));
@@ -18704,7 +18704,7 @@ DCaggr* f_touchdcstA942() {
 /* {idSLClSJffiC} */
 struct A943 { i m0; d m1; S m2; L m3; C m4; l m5; S m6; J m7; f m8; f m9; i m10; C m11; };
 int f_cmpA943(const struct A943 *x, const struct A943 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA943() {
+DCaggr* f_touchA943() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A943));
@@ -18727,7 +18727,7 @@ DCaggr* f_touchdcstA943() {
 /* {ljdif[12]BsI[11]CCIB} */
 struct A944 { l m0; j m1; d m2; i m3; f m4[12]; B m5; s m6; I m7[11]; C m8; C m9; I m10; B m11; };
 int f_cmpA944(const struct A944 *x, const struct A944 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4[0] == y->m4[0] && x->m4[1] == y->m4[1] && x->m4[2] == y->m4[2] && x->m4[3] == y->m4[3] && x->m4[4] == y->m4[4] && x->m4[5] == y->m4[5] && x->m4[6] == y->m4[6] && x->m4[7] == y->m4[7] && x->m4[8] == y->m4[8] && x->m4[9] == y->m4[9] && x->m4[10] == y->m4[10] && x->m4[11] == y->m4[11] && x->m5 == y->m5 && x->m6 == y->m6 && x->m7[0] == y->m7[0] && x->m7[1] == y->m7[1] && x->m7[2] == y->m7[2] && x->m7[3] == y->m7[3] && x->m7[4] == y->m7[4] && x->m7[5] == y->m7[5] && x->m7[6] == y->m7[6] && x->m7[7] == y->m7[7] && x->m7[8] == y->m7[8] && x->m7[9] == y->m7[9] && x->m7[10] == y->m7[10] && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA944() {
+DCaggr* f_touchA944() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A944));
@@ -18750,7 +18750,7 @@ DCaggr* f_touchdcstA944() {
 /* {Jcs} */
 struct A945 { J m0; c m1; s m2; };
 int f_cmpA945(const struct A945 *x, const struct A945 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA945() {
+DCaggr* f_touchA945() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A945));
@@ -18764,7 +18764,7 @@ DCaggr* f_touchdcstA945() {
 /* <{fccd}<iCIjsJsSsplC>j{idSLClSJffiC}JppL{ljdif[12]BsI[11]CCIB}{Jcs}> */
 union A946 { struct A941 m0; union A942 m1; j m2; struct A943 m3; J m4; p m5; p m6; L m7; struct A944 m8; struct A945 m9; };
 int f_cmpA946(const union A946 *x, const union A946 *y) { return f_cmpA941(&x->m0, &y->m0) && f_cmpA942(&x->m1, &y->m1) && x->m2 == y->m2 && f_cmpA943(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA944(&x->m8, &y->m8) && f_cmpA945(&x->m9, &y->m9); };
-DCaggr* f_touchdcstA946() {
+DCaggr* f_touchA946() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A946));
@@ -18785,7 +18785,7 @@ DCaggr* f_touchdcstA946() {
 /* <JJIL> */
 union A947 { J m0; J m1; I m2; L m3; };
 int f_cmpA947(const union A947 *x, const union A947 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA947() {
+DCaggr* f_touchA947() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A947));
@@ -18800,7 +18800,7 @@ DCaggr* f_touchdcstA947() {
 /* {ffBIfjBdBBf<JJIL>} */
 struct A948 { f m0; f m1; B m2; I m3; f m4; j m5; B m6; d m7; B m8; B m9; f m10; union A947 m11; };
 int f_cmpA948(const struct A948 *x, const struct A948 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && f_cmpA947(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA948() {
+DCaggr* f_touchA948() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A948));
@@ -18823,7 +18823,7 @@ DCaggr* f_touchdcstA948() {
 /* {{pCSI}BScsp<{fccd}<iCIjsJsSsplC>j{idSLClSJffiC}JppL{ljdif[12]BsI[11]CCIB}{Jcs}>jjL{ffBIfjBdBBf<JJIL>}f} */
 struct A949 { struct A940 m0; B m1; S m2; c m3; s m4; p m5; union A946 m6; j m7; j m8; L m9; struct A948 m10; f m11; };
 int f_cmpA949(const struct A949 *x, const struct A949 *y) { return f_cmpA940(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA946(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA948(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA949() {
+DCaggr* f_touchA949() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A949));
@@ -18846,7 +18846,7 @@ DCaggr* f_touchdcstA949() {
 /* {ljJssdBCd[6]pjf} */
 struct A950 { l m0; j m1; J m2; s m3; s m4; d m5; B m6; C m7; d m8[6]; p m9; j m10; f m11; };
 int f_cmpA950(const struct A950 *x, const struct A950 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8[0] == y->m8[0] && x->m8[1] == y->m8[1] && x->m8[2] == y->m8[2] && x->m8[3] == y->m8[3] && x->m8[4] == y->m8[4] && x->m8[5] == y->m8[5] && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA950() {
+DCaggr* f_touchA950() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A950));
@@ -18869,7 +18869,7 @@ DCaggr* f_touchdcstA950() {
 /* <{ljJssdBCd[6]pjf}dpI[14]ifsBJcfp> */
 union A951 { struct A950 m0; d m1; p m2; I m3[14]; i m4; f m5; s m6; B m7; J m8; c m9; f m10; p m11; };
 int f_cmpA951(const union A951 *x, const union A951 *y) { return f_cmpA950(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3[0] == y->m3[0] && x->m3[1] == y->m3[1] && x->m3[2] == y->m3[2] && x->m3[3] == y->m3[3] && x->m3[4] == y->m3[4] && x->m3[5] == y->m3[5] && x->m3[6] == y->m3[6] && x->m3[7] == y->m3[7] && x->m3[8] == y->m3[8] && x->m3[9] == y->m3[9] && x->m3[10] == y->m3[10] && x->m3[11] == y->m3[11] && x->m3[12] == y->m3[12] && x->m3[13] == y->m3[13] && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA951() {
+DCaggr* f_touchA951() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A951));
@@ -18892,7 +18892,7 @@ DCaggr* f_touchdcstA951() {
 /* <LisjB<{ljJssdBCd[6]pjf}dpI[14]ifsBJcfp>CsSdJl> */
 union A952 { L m0; i m1; s m2; j m3; B m4; union A951 m5; C m6; s m7; S m8; d m9; J m10; l m11; };
 int f_cmpA952(const union A952 *x, const union A952 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA951(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA952() {
+DCaggr* f_touchA952() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A952));
@@ -18915,7 +18915,7 @@ DCaggr* f_touchdcstA952() {
 /* {fsJl[14]IijCCffi} */
 struct A953 { f m0; s m1; J m2; l m3[14]; I m4; i m5; j m6; C m7; C m8; f m9; f m10; i m11; };
 int f_cmpA953(const struct A953 *x, const struct A953 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3[0] == y->m3[0] && x->m3[1] == y->m3[1] && x->m3[2] == y->m3[2] && x->m3[3] == y->m3[3] && x->m3[4] == y->m3[4] && x->m3[5] == y->m3[5] && x->m3[6] == y->m3[6] && x->m3[7] == y->m3[7] && x->m3[8] == y->m3[8] && x->m3[9] == y->m3[9] && x->m3[10] == y->m3[10] && x->m3[11] == y->m3[11] && x->m3[12] == y->m3[12] && x->m3[13] == y->m3[13] && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA953() {
+DCaggr* f_touchA953() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A953));
@@ -18938,7 +18938,7 @@ DCaggr* f_touchdcstA953() {
 /* {LSdIBCdBdJpL} */
 struct A954 { L m0; S m1; d m2; I m3; B m4; C m5; d m6; B m7; d m8; J m9; p m10; L m11; };
 int f_cmpA954(const struct A954 *x, const struct A954 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA954() {
+DCaggr* f_touchA954() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A954));
@@ -18961,7 +18961,7 @@ DCaggr* f_touchdcstA954() {
 /* {jl{LSdIBCdBdJpL}ipjSJdJij} */
 struct A955 { j m0; l m1; struct A954 m2; i m3; p m4; j m5; S m6; J m7; d m8; J m9; i m10; j m11; };
 int f_cmpA955(const struct A955 *x, const struct A955 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA954(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA955() {
+DCaggr* f_touchA955() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A955));
@@ -18984,7 +18984,7 @@ DCaggr* f_touchdcstA955() {
 /* <JdcBs[15]IL{jl{LSdIBCdBdJpL}ipjSJdJij}B> */
 union A956 { J m0; d m1; c m2; B m3; s m4[15]; I m5; L m6; struct A955 m7; B m8; };
 int f_cmpA956(const union A956 *x, const union A956 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4[0] == y->m4[0] && x->m4[1] == y->m4[1] && x->m4[2] == y->m4[2] && x->m4[3] == y->m4[3] && x->m4[4] == y->m4[4] && x->m4[5] == y->m4[5] && x->m4[6] == y->m4[6] && x->m4[7] == y->m4[7] && x->m4[8] == y->m4[8] && x->m4[9] == y->m4[9] && x->m4[10] == y->m4[10] && x->m4[11] == y->m4[11] && x->m4[12] == y->m4[12] && x->m4[13] == y->m4[13] && x->m4[14] == y->m4[14] && x->m5 == y->m5 && x->m6 == y->m6 && f_cmpA955(&x->m7, &y->m7) && x->m8 == y->m8; };
-DCaggr* f_touchdcstA956() {
+DCaggr* f_touchA956() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A956));
@@ -19004,7 +19004,7 @@ DCaggr* f_touchdcstA956() {
 /* {LspBfi} */
 struct A957 { L m0; s m1; p m2; B m3; f m4; i m5; };
 int f_cmpA957(const struct A957 *x, const struct A957 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA957() {
+DCaggr* f_touchA957() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(struct A957));
@@ -19021,7 +19021,7 @@ DCaggr* f_touchdcstA957() {
 /* <pBlBLiLiScLB> */
 union A958 { p m0; B m1; l m2; B m3; L m4; i m5; L m6; i m7; S m8; c m9; L m10; B m11; };
 int f_cmpA958(const union A958 *x, const union A958 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA958() {
+DCaggr* f_touchA958() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A958));
@@ -19044,7 +19044,7 @@ DCaggr* f_touchdcstA958() {
 /* <LBiJ[9]cfLcClci> */
 union A959 { L m0; B m1; i m2; J m3[9]; c m4; f m5; L m6; c m7; C m8; l m9; c m10; i m11; };
 int f_cmpA959(const union A959 *x, const union A959 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3[0] == y->m3[0] && x->m3[1] == y->m3[1] && x->m3[2] == y->m3[2] && x->m3[3] == y->m3[3] && x->m3[4] == y->m3[4] && x->m3[5] == y->m3[5] && x->m3[6] == y->m3[6] && x->m3[7] == y->m3[7] && x->m3[8] == y->m3[8] && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA959() {
+DCaggr* f_touchA959() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A959));
@@ -19067,7 +19067,7 @@ DCaggr* f_touchdcstA959() {
 /* <JdIiiLILds> */
 union A960 { J m0; d m1; I m2; i m3; i m4; L m5; I m6; L m7; d m8; s m9; };
 int f_cmpA960(const union A960 *x, const union A960 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA960() {
+DCaggr* f_touchA960() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A960));
@@ -19088,7 +19088,7 @@ DCaggr* f_touchdcstA960() {
 /* <LIL> */
 union A961 { L m0; I m1; L m2; };
 int f_cmpA961(const union A961 *x, const union A961 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA961() {
+DCaggr* f_touchA961() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A961));
@@ -19102,7 +19102,7 @@ DCaggr* f_touchdcstA961() {
 /* <c[4]<pBlBLiLiScLB>p<LBiJ[9]cfLcClci>cC<JdIiiLILds>LI<LIL>pL> */
 union A962 { c m0[4]; union A958 m1; p m2; union A959 m3; c m4; C m5; union A960 m6; L m7; I m8; union A961 m9; p m10; L m11; };
 int f_cmpA962(const union A962 *x, const union A962 *y) { return x->m0[0] == y->m0[0] && x->m0[1] == y->m0[1] && x->m0[2] == y->m0[2] && x->m0[3] == y->m0[3] && f_cmpA958(&x->m1, &y->m1) && x->m2 == y->m2 && f_cmpA959(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA960(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8 && f_cmpA961(&x->m9, &y->m9) && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA962() {
+DCaggr* f_touchA962() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A962));
@@ -19125,7 +19125,7 @@ DCaggr* f_touchdcstA962() {
 /* <IJJI> */
 union A963 { I m0; J m1; J m2; I m3; };
 int f_cmpA963(const union A963 *x, const union A963 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA963() {
+DCaggr* f_touchA963() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A963));
@@ -19140,7 +19140,7 @@ DCaggr* f_touchdcstA963() {
 /* <lSJJLp[10]dJfcIL> */
 union A964 { l m0; S m1; J m2; J m3; L m4; p m5[10]; d m6; J m7; f m8; c m9; I m10; L m11; };
 int f_cmpA964(const union A964 *x, const union A964 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5[0] == y->m5[0] && x->m5[1] == y->m5[1] && x->m5[2] == y->m5[2] && x->m5[3] == y->m5[3] && x->m5[4] == y->m5[4] && x->m5[5] == y->m5[5] && x->m5[6] == y->m5[6] && x->m5[7] == y->m5[7] && x->m5[8] == y->m5[8] && x->m5[9] == y->m5[9] && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA964() {
+DCaggr* f_touchA964() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A964));
@@ -19163,7 +19163,7 @@ DCaggr* f_touchdcstA964() {
 /* {scic<IJJI><lSJJLp[10]dJfcIL>J[8]} */
 struct A965 { s m0; c m1; i m2; c m3; union A963 m4; union A964 m5; J m6[8]; };
 int f_cmpA965(const struct A965 *x, const struct A965 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA963(&x->m4, &y->m4) && f_cmpA964(&x->m5, &y->m5) && x->m6[0] == y->m6[0] && x->m6[1] == y->m6[1] && x->m6[2] == y->m6[2] && x->m6[3] == y->m6[3] && x->m6[4] == y->m6[4] && x->m6[5] == y->m6[5] && x->m6[6] == y->m6[6] && x->m6[7] == y->m6[7]; };
-DCaggr* f_touchdcstA965() {
+DCaggr* f_touchA965() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(struct A965));
@@ -19181,7 +19181,7 @@ DCaggr* f_touchdcstA965() {
 /* {BISiiiLLBpdL} */
 struct A966 { B m0; I m1; S m2; i m3; i m4; i m5; L m6; L m7; B m8; p m9; d m10; L m11; };
 int f_cmpA966(const struct A966 *x, const struct A966 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA966() {
+DCaggr* f_touchA966() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A966));
@@ -19204,7 +19204,7 @@ DCaggr* f_touchdcstA966() {
 /* <sjdCIdIpIIsJ> */
 union A967 { s m0; j m1; d m2; C m3; I m4; d m5; I m6; p m7; I m8; I m9; s m10; J m11; };
 int f_cmpA967(const union A967 *x, const union A967 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA967() {
+DCaggr* f_touchA967() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A967));
@@ -19227,7 +19227,7 @@ DCaggr* f_touchdcstA967() {
 /* <CCJffilSSisL> */
 union A968 { C m0; C m1; J m2; f m3; f m4; i m5; l m6; S m7; S m8; i m9; s m10; L m11; };
 int f_cmpA968(const union A968 *x, const union A968 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA968() {
+DCaggr* f_touchA968() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A968));
@@ -19250,7 +19250,7 @@ DCaggr* f_touchdcstA968() {
 /* {CIl[8]BSf} */
 struct A969 { C m0; I m1; l m2[8]; B m3; S m4; f m5; };
 int f_cmpA969(const struct A969 *x, const struct A969 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2[0] == y->m2[0] && x->m2[1] == y->m2[1] && x->m2[2] == y->m2[2] && x->m2[3] == y->m2[3] && x->m2[4] == y->m2[4] && x->m2[5] == y->m2[5] && x->m2[6] == y->m2[6] && x->m2[7] == y->m2[7] && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA969() {
+DCaggr* f_touchA969() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(struct A969));
@@ -19267,7 +19267,7 @@ DCaggr* f_touchdcstA969() {
 /* {BBCiscBSBi[8]lf[2]} */
 struct A970 { B m0; B m1; C m2; i m3; s m4; c m5; B m6; S m7; B m8; i m9[8]; l m10; f m11[2]; };
 int f_cmpA970(const struct A970 *x, const struct A970 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9[0] == y->m9[0] && x->m9[1] == y->m9[1] && x->m9[2] == y->m9[2] && x->m9[3] == y->m9[3] && x->m9[4] == y->m9[4] && x->m9[5] == y->m9[5] && x->m9[6] == y->m9[6] && x->m9[7] == y->m9[7] && x->m10 == y->m10 && x->m11[0] == y->m11[0] && x->m11[1] == y->m11[1]; };
-DCaggr* f_touchdcstA970() {
+DCaggr* f_touchA970() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A970));
@@ -19290,7 +19290,7 @@ DCaggr* f_touchdcstA970() {
 /* {J<sjdCIdIpIIsJ>d<CCJffilSSisL>I{CIl[8]BSf}L{BBCiscBSBi[8]lf[2]}J} */
 struct A971 { J m0; union A967 m1; d m2; union A968 m3; I m4; struct A969 m5; L m6; struct A970 m7; J m8; };
 int f_cmpA971(const struct A971 *x, const struct A971 *y) { return x->m0 == y->m0 && f_cmpA967(&x->m1, &y->m1) && x->m2 == y->m2 && f_cmpA968(&x->m3, &y->m3) && x->m4 == y->m4 && f_cmpA969(&x->m5, &y->m5) && x->m6 == y->m6 && f_cmpA970(&x->m7, &y->m7) && x->m8 == y->m8; };
-DCaggr* f_touchdcstA971() {
+DCaggr* f_touchA971() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(struct A971));
@@ -19310,7 +19310,7 @@ DCaggr* f_touchdcstA971() {
 /* <Sd{J<sjdCIdIpIIsJ>d<CCJffilSSisL>I{CIl[8]BSf}L{BBCiscBSBi[8]lf[2]}J}fSSIjdiLL> */
 union A972 { S m0; d m1; struct A971 m2; f m3; S m4; S m5; I m6; j m7; d m8; i m9; L m10; L m11; };
 int f_cmpA972(const union A972 *x, const union A972 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA971(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA972() {
+DCaggr* f_touchA972() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A972));
@@ -19333,7 +19333,7 @@ DCaggr* f_touchdcstA972() {
 /* {SLd} */
 struct A973 { S m0; L m1; d m2; };
 int f_cmpA973(const struct A973 *x, const struct A973 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA973() {
+DCaggr* f_touchA973() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A973));
@@ -19347,7 +19347,7 @@ DCaggr* f_touchdcstA973() {
 /* <dljdpdpBCSsB> */
 union A974 { d m0; l m1; j m2; d m3; p m4; d m5; p m6; B m7; C m8; S m9; s m10; B m11; };
 int f_cmpA974(const union A974 *x, const union A974 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA974() {
+DCaggr* f_touchA974() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A974));
@@ -19370,7 +19370,7 @@ DCaggr* f_touchdcstA974() {
 /* {iLBCpC[6]BIcpC} */
 struct A975 { i m0; L m1; B m2; C m3; p m4; C m5[6]; B m6; I m7; c m8; p m9; C m10; };
 int f_cmpA975(const struct A975 *x, const struct A975 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5[0] == y->m5[0] && x->m5[1] == y->m5[1] && x->m5[2] == y->m5[2] && x->m5[3] == y->m5[3] && x->m5[4] == y->m5[4] && x->m5[5] == y->m5[5] && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA975() {
+DCaggr* f_touchA975() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(struct A975));
@@ -19392,7 +19392,7 @@ DCaggr* f_touchdcstA975() {
 /* <lsClSILjdLsf> */
 union A976 { l m0; s m1; C m2; l m3; S m4; I m5; L m6; j m7; d m8; L m9; s m10; f m11; };
 int f_cmpA976(const union A976 *x, const union A976 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA976() {
+DCaggr* f_touchA976() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A976));
@@ -19415,7 +19415,7 @@ DCaggr* f_touchdcstA976() {
 /* <pcL> */
 union A977 { p m0; c m1; L m2; };
 int f_cmpA977(const union A977 *x, const union A977 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA977() {
+DCaggr* f_touchA977() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A977));
@@ -19429,7 +19429,7 @@ DCaggr* f_touchdcstA977() {
 /* {cpCSCCJLfIsd} */
 struct A978 { c m0; p m1; C m2; S m3; C m4; C m5; J m6; L m7; f m8; I m9; s m10; d m11; };
 int f_cmpA978(const struct A978 *x, const struct A978 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA978() {
+DCaggr* f_touchA978() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A978));
@@ -19452,7 +19452,7 @@ DCaggr* f_touchdcstA978() {
 /* {fiiIcBjIlJBi} */
 struct A979 { f m0; i m1; i m2; I m3; c m4; B m5; j m6; I m7; l m8; J m9; B m10; i m11; };
 int f_cmpA979(const struct A979 *x, const struct A979 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA979() {
+DCaggr* f_touchA979() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A979));
@@ -19475,7 +19475,7 @@ DCaggr* f_touchdcstA979() {
 /* {jCfJpdsdlJjJ} */
 struct A980 { j m0; C m1; f m2; J m3; p m4; d m5; s m6; d m7; l m8; J m9; j m10; J m11; };
 int f_cmpA980(const struct A980 *x, const struct A980 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA980() {
+DCaggr* f_touchA980() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A980));
@@ -19498,7 +19498,7 @@ DCaggr* f_touchdcstA980() {
 /* {JfI[5]sIpJsssIJ} */
 struct A981 { J m0; f m1; I m2[5]; s m3; I m4; p m5; J m6; s m7; s m8; s m9; I m10; J m11; };
 int f_cmpA981(const struct A981 *x, const struct A981 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2[0] == y->m2[0] && x->m2[1] == y->m2[1] && x->m2[2] == y->m2[2] && x->m2[3] == y->m2[3] && x->m2[4] == y->m2[4] && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA981() {
+DCaggr* f_touchA981() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A981));
@@ -19521,7 +19521,7 @@ DCaggr* f_touchdcstA981() {
 /* {sisCdi{cpCSCCJLfIsd}{fiiIcBjIlJBi}c{jCfJpdsdlJjJ}{JfI[5]sIpJsssIJ}C} */
 struct A982 { s m0; i m1; s m2; C m3; d m4; i m5; struct A978 m6; struct A979 m7; c m8; struct A980 m9; struct A981 m10; C m11; };
 int f_cmpA982(const struct A982 *x, const struct A982 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA978(&x->m6, &y->m6) && f_cmpA979(&x->m7, &y->m7) && x->m8 == y->m8 && f_cmpA980(&x->m9, &y->m9) && f_cmpA981(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA982() {
+DCaggr* f_touchA982() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A982));
@@ -19544,7 +19544,7 @@ DCaggr* f_touchdcstA982() {
 /* <diLCjsSdBjLl> */
 union A983 { d m0; i m1; L m2; C m3; j m4; s m5; S m6; d m7; B m8; j m9; L m10; l m11; };
 int f_cmpA983(const union A983 *x, const union A983 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA983() {
+DCaggr* f_touchA983() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A983));
@@ -19567,7 +19567,7 @@ DCaggr* f_touchdcstA983() {
 /* {Bl} */
 struct A984 { B m0; l m1; };
 int f_cmpA984(const struct A984 *x, const struct A984 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA984() {
+DCaggr* f_touchA984() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(struct A984));
@@ -19580,7 +19580,7 @@ DCaggr* f_touchdcstA984() {
 /* <Cl[10]liIJdJjI{Bl}C> */
 union A985 { C m0; l m1[10]; l m2; i m3; I m4; J m5; d m6; J m7; j m8; I m9; struct A984 m10; C m11; };
 int f_cmpA985(const union A985 *x, const union A985 *y) { return x->m0 == y->m0 && x->m1[0] == y->m1[0] && x->m1[1] == y->m1[1] && x->m1[2] == y->m1[2] && x->m1[3] == y->m1[3] && x->m1[4] == y->m1[4] && x->m1[5] == y->m1[5] && x->m1[6] == y->m1[6] && x->m1[7] == y->m1[7] && x->m1[8] == y->m1[8] && x->m1[9] == y->m1[9] && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA984(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA985() {
+DCaggr* f_touchA985() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A985));
@@ -19603,7 +19603,7 @@ DCaggr* f_touchdcstA985() {
 /* <j> */
 union A986 { j m0; };
 int f_cmpA986(const union A986 *x, const union A986 *y) { return x->m0 == y->m0; };
-DCaggr* f_touchdcstA986() {
+DCaggr* f_touchA986() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(1, sizeof(union A986));
@@ -19615,7 +19615,7 @@ DCaggr* f_touchdcstA986() {
 /* {LdBCLJIC<j>} */
 struct A987 { L m0; d m1; B m2; C m3; L m4; J m5; I m6; C m7; union A986 m8; };
 int f_cmpA987(const struct A987 *x, const struct A987 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA986(&x->m8, &y->m8); };
-DCaggr* f_touchdcstA987() {
+DCaggr* f_touchA987() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(struct A987));
@@ -19635,7 +19635,7 @@ DCaggr* f_touchdcstA987() {
 /* <IfL> */
 union A988 { I m0; f m1; L m2; };
 int f_cmpA988(const union A988 *x, const union A988 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA988() {
+DCaggr* f_touchA988() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A988));
@@ -19649,7 +19649,7 @@ DCaggr* f_touchdcstA988() {
 /* {CsdLdfjLJBid} */
 struct A989 { C m0; s m1; d m2; L m3; d m4; f m5; j m6; L m7; J m8; B m9; i m10; d m11; };
 int f_cmpA989(const struct A989 *x, const struct A989 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA989() {
+DCaggr* f_touchA989() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A989));
@@ -19672,7 +19672,7 @@ DCaggr* f_touchdcstA989() {
 /* {clsi} */
 struct A990 { c m0; l m1; s m2; i m3; };
 int f_cmpA990(const struct A990 *x, const struct A990 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA990() {
+DCaggr* f_touchA990() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A990));
@@ -19687,7 +19687,7 @@ DCaggr* f_touchdcstA990() {
 /* {pdcl} */
 struct A991 { p m0; d m1; c m2; l m3; };
 int f_cmpA991(const struct A991 *x, const struct A991 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA991() {
+DCaggr* f_touchA991() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A991));
@@ -19702,7 +19702,7 @@ DCaggr* f_touchdcstA991() {
 /* {cJsI{pdcl}s[8]j} */
 struct A992 { c m0; J m1; s m2; I m3; struct A991 m4; s m5[8]; j m6; };
 int f_cmpA992(const struct A992 *x, const struct A992 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA991(&x->m4, &y->m4) && x->m5[0] == y->m5[0] && x->m5[1] == y->m5[1] && x->m5[2] == y->m5[2] && x->m5[3] == y->m5[3] && x->m5[4] == y->m5[4] && x->m5[5] == y->m5[5] && x->m5[6] == y->m5[6] && x->m5[7] == y->m5[7] && x->m6 == y->m6; };
-DCaggr* f_touchdcstA992() {
+DCaggr* f_touchA992() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(struct A992));
@@ -19720,7 +19720,7 @@ DCaggr* f_touchdcstA992() {
 /* {sL[11]cd{clsi}{cJsI{pdcl}s[8]j}} */
 struct A993 { s m0; L m1[11]; c m2; d m3; struct A990 m4; struct A992 m5; };
 int f_cmpA993(const struct A993 *x, const struct A993 *y) { return x->m0 == y->m0 && x->m1[0] == y->m1[0] && x->m1[1] == y->m1[1] && x->m1[2] == y->m1[2] && x->m1[3] == y->m1[3] && x->m1[4] == y->m1[4] && x->m1[5] == y->m1[5] && x->m1[6] == y->m1[6] && x->m1[7] == y->m1[7] && x->m1[8] == y->m1[8] && x->m1[9] == y->m1[9] && x->m1[10] == y->m1[10] && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA990(&x->m4, &y->m4) && f_cmpA992(&x->m5, &y->m5); };
-DCaggr* f_touchdcstA993() {
+DCaggr* f_touchA993() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(struct A993));
@@ -19737,7 +19737,7 @@ DCaggr* f_touchdcstA993() {
 /* {lsILcIIislsj} */
 struct A994 { l m0; s m1; I m2; L m3; c m4; I m5; I m6; i m7; s m8; l m9; s m10; j m11; };
 int f_cmpA994(const struct A994 *x, const struct A994 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA994() {
+DCaggr* f_touchA994() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A994));
@@ -19760,7 +19760,7 @@ DCaggr* f_touchdcstA994() {
 /* {d[1]CpI} */
 struct A995 { d m0[1]; C m1; p m2; I m3; };
 int f_cmpA995(const struct A995 *x, const struct A995 *y) { return x->m0[0] == y->m0[0] && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA995() {
+DCaggr* f_touchA995() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A995));
@@ -19775,7 +19775,7 @@ DCaggr* f_touchdcstA995() {
 /* <IILpSCjCLjp> */
 union A996 { I m0; I m1; L m2; p m3; S m4; C m5; j m6; C m7; L m8; j m9; p m10; };
 int f_cmpA996(const union A996 *x, const union A996 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA996() {
+DCaggr* f_touchA996() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(union A996));
@@ -19797,7 +19797,7 @@ DCaggr* f_touchdcstA996() {
 /* {<IILpSCjCLjp>isIlJccJscc} */
 struct A997 { union A996 m0; i m1; s m2; I m3; l m4; J m5; c m6; c m7; J m8; s m9; c m10; c m11; };
 int f_cmpA997(const struct A997 *x, const struct A997 *y) { return f_cmpA996(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA997() {
+DCaggr* f_touchA997() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A997));
@@ -19820,7 +19820,7 @@ DCaggr* f_touchdcstA997() {
 /* <C{<IILpSCjCLjp>isIlJccJscc}fcfJdlddjI> */
 union A998 { C m0; struct A997 m1; f m2; c m3; f m4; J m5; d m6; l m7; d m8; d m9; j m10; I m11; };
 int f_cmpA998(const union A998 *x, const union A998 *y) { return x->m0 == y->m0 && f_cmpA997(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA998() {
+DCaggr* f_touchA998() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A998));
@@ -19843,7 +19843,7 @@ DCaggr* f_touchdcstA998() {
 /* {lI} */
 struct A999 { l m0; I m1; };
 int f_cmpA999(const struct A999 *x, const struct A999 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA999() {
+DCaggr* f_touchA999() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(struct A999));
@@ -19856,7 +19856,7 @@ DCaggr* f_touchdcstA999() {
 /* {csBsjJldISfS} */
 struct A1000 { c m0; s m1; B m2; s m3; j m4; J m5; l m6; d m7; I m8; S m9; f m10; S m11; };
 int f_cmpA1000(const struct A1000 *x, const struct A1000 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1000() {
+DCaggr* f_touchA1000() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1000));
@@ -19879,7 +19879,7 @@ DCaggr* f_touchdcstA1000() {
 /* <s{csBsjJldISfS}S> */
 union A1001 { s m0; struct A1000 m1; S m2; };
 int f_cmpA1001(const union A1001 *x, const union A1001 *y) { return x->m0 == y->m0 && f_cmpA1000(&x->m1, &y->m1) && x->m2 == y->m2; };
-DCaggr* f_touchdcstA1001() {
+DCaggr* f_touchA1001() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A1001));
@@ -19893,7 +19893,7 @@ DCaggr* f_touchdcstA1001() {
 /* <dc> */
 union A1002 { d m0; c m1; };
 int f_cmpA1002(const union A1002 *x, const union A1002 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA1002() {
+DCaggr* f_touchA1002() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A1002));
@@ -19906,7 +19906,7 @@ DCaggr* f_touchdcstA1002() {
 /* <picppldCsI<dc>B> */
 union A1003 { p m0; i m1; c m2; p m3; p m4; l m5; d m6; C m7; s m8; I m9; union A1002 m10; B m11; };
 int f_cmpA1003(const union A1003 *x, const union A1003 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA1002(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1003() {
+DCaggr* f_touchA1003() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1003));
@@ -19929,7 +19929,7 @@ DCaggr* f_touchdcstA1003() {
 /* {lBIp[16]dsIIjjBI} */
 struct A1004 { l m0; B m1; I m2; p m3[16]; d m4; s m5; I m6; I m7; j m8; j m9; B m10; I m11; };
 int f_cmpA1004(const struct A1004 *x, const struct A1004 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3[0] == y->m3[0] && x->m3[1] == y->m3[1] && x->m3[2] == y->m3[2] && x->m3[3] == y->m3[3] && x->m3[4] == y->m3[4] && x->m3[5] == y->m3[5] && x->m3[6] == y->m3[6] && x->m3[7] == y->m3[7] && x->m3[8] == y->m3[8] && x->m3[9] == y->m3[9] && x->m3[10] == y->m3[10] && x->m3[11] == y->m3[11] && x->m3[12] == y->m3[12] && x->m3[13] == y->m3[13] && x->m3[14] == y->m3[14] && x->m3[15] == y->m3[15] && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1004() {
+DCaggr* f_touchA1004() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1004));
@@ -19952,7 +19952,7 @@ DCaggr* f_touchdcstA1004() {
 /* <ddlisfi> */
 union A1005 { d m0; d m1; l m2; i m3; s m4; f m5; i m6; };
 int f_cmpA1005(const union A1005 *x, const union A1005 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA1005() {
+DCaggr* f_touchA1005() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(union A1005));
@@ -19970,7 +19970,7 @@ DCaggr* f_touchdcstA1005() {
 /* {jIBfpL} */
 struct A1006 { j m0; I m1; B m2; f m3; p m4; L m5; };
 int f_cmpA1006(const struct A1006 *x, const struct A1006 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA1006() {
+DCaggr* f_touchA1006() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(struct A1006));
@@ -19987,7 +19987,7 @@ DCaggr* f_touchdcstA1006() {
 /* {IBijf} */
 struct A1007 { I m0; B m1; i m2; j m3; f m4; };
 int f_cmpA1007(const struct A1007 *x, const struct A1007 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA1007() {
+DCaggr* f_touchA1007() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A1007));
@@ -20003,7 +20003,7 @@ DCaggr* f_touchdcstA1007() {
 /* <{jIBfpL}Bcs{IBijf}fjSllfl> */
 union A1008 { struct A1006 m0; B m1; c m2; s m3; struct A1007 m4; f m5; j m6; S m7; l m8; l m9; f m10; l m11; };
 int f_cmpA1008(const union A1008 *x, const union A1008 *y) { return f_cmpA1006(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA1007(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1008() {
+DCaggr* f_touchA1008() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1008));
@@ -20026,7 +20026,7 @@ DCaggr* f_touchdcstA1008() {
 /* {JlpcsSCLC} */
 struct A1009 { J m0; l m1; p m2; c m3; s m4; S m5; C m6; L m7; C m8; };
 int f_cmpA1009(const struct A1009 *x, const struct A1009 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA1009() {
+DCaggr* f_touchA1009() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(struct A1009));
@@ -20046,7 +20046,7 @@ DCaggr* f_touchdcstA1009() {
 /* <<{jIBfpL}Bcs{IBijf}fjSllfl>ijdCIsCcdf{JlpcsSCLC}> */
 union A1010 { union A1008 m0; i m1; j m2; d m3; C m4; I m5; s m6; C m7; c m8; d m9; f m10; struct A1009 m11; };
 int f_cmpA1010(const union A1010 *x, const union A1010 *y) { return f_cmpA1008(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && f_cmpA1009(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA1010() {
+DCaggr* f_touchA1010() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1010));
@@ -20069,7 +20069,7 @@ DCaggr* f_touchdcstA1010() {
 /* <SJLfip[9]f> */
 union A1011 { S m0; J m1; L m2; f m3; i m4; p m5[9]; f m6; };
 int f_cmpA1011(const union A1011 *x, const union A1011 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5[0] == y->m5[0] && x->m5[1] == y->m5[1] && x->m5[2] == y->m5[2] && x->m5[3] == y->m5[3] && x->m5[4] == y->m5[4] && x->m5[5] == y->m5[5] && x->m5[6] == y->m5[6] && x->m5[7] == y->m5[7] && x->m5[8] == y->m5[8] && x->m6 == y->m6; };
-DCaggr* f_touchdcstA1011() {
+DCaggr* f_touchA1011() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(union A1011));
@@ -20087,7 +20087,7 @@ DCaggr* f_touchdcstA1011() {
 /* <Lfi> */
 union A1012 { L m0; f m1; i m2; };
 int f_cmpA1012(const union A1012 *x, const union A1012 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA1012() {
+DCaggr* f_touchA1012() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A1012));
@@ -20101,7 +20101,7 @@ DCaggr* f_touchdcstA1012() {
 /* {piiLpBsjcds} */
 struct A1013 { p m0; i m1; i m2; L m3; p m4; B m5; s m6; j m7; c m8; d m9; s m10; };
 int f_cmpA1013(const struct A1013 *x, const struct A1013 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA1013() {
+DCaggr* f_touchA1013() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(struct A1013));
@@ -20123,7 +20123,7 @@ DCaggr* f_touchdcstA1013() {
 /* {BSpli{lI}LCCcpp} */
 struct A1014 { B m0; S m1; p m2; l m3; i m4; struct A999 m5; L m6; C m7; C m8; c m9; p m10; p m11; };
 int f_cmpA1014(const struct A1014 *x, const struct A1014 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA999(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1014() {
+DCaggr* f_touchA1014() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1014));
@@ -20146,7 +20146,7 @@ DCaggr* f_touchdcstA1014() {
 /* <pscJjBldBLdd[5]> */
 union A1015 { p m0; s m1; c m2; J m3; j m4; B m5; l m6; d m7; B m8; L m9; d m10; d m11[5]; };
 int f_cmpA1015(const union A1015 *x, const union A1015 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11[0] == y->m11[0] && x->m11[1] == y->m11[1] && x->m11[2] == y->m11[2] && x->m11[3] == y->m11[3] && x->m11[4] == y->m11[4]; };
-DCaggr* f_touchdcstA1015() {
+DCaggr* f_touchA1015() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1015));
@@ -20169,7 +20169,7 @@ DCaggr* f_touchdcstA1015() {
 /* <ijciSipSJj> */
 union A1016 { i m0; j m1; c m2; i m3; S m4; i m5; p m6; S m7; J m8; j m9; };
 int f_cmpA1016(const union A1016 *x, const union A1016 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA1016() {
+DCaggr* f_touchA1016() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A1016));
@@ -20190,7 +20190,7 @@ DCaggr* f_touchdcstA1016() {
 /* <<pscJjBldBLdd[5]><ijciSipSJj>[7]ijsJddpL[4]i> */
 union A1017 { union A1015 m0; union A1016 m1[7]; i m2; j m3; s m4; J m5; d m6; d m7; p m8; L m9[4]; i m10; };
 int f_cmpA1017(const union A1017 *x, const union A1017 *y) { return f_cmpA1015(&x->m0, &y->m0) && f_cmpA1016(&x->m1[0], &y->m1[0]) && f_cmpA1016(&x->m1[1], &y->m1[1]) && f_cmpA1016(&x->m1[2], &y->m1[2]) && f_cmpA1016(&x->m1[3], &y->m1[3]) && f_cmpA1016(&x->m1[4], &y->m1[4]) && f_cmpA1016(&x->m1[5], &y->m1[5]) && f_cmpA1016(&x->m1[6], &y->m1[6]) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9[0] == y->m9[0] && x->m9[1] == y->m9[1] && x->m9[2] == y->m9[2] && x->m9[3] == y->m9[3] && x->m10 == y->m10; };
-DCaggr* f_touchdcstA1017() {
+DCaggr* f_touchA1017() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(union A1017));
@@ -20212,7 +20212,7 @@ DCaggr* f_touchdcstA1017() {
 /* {IjiJsipiSljC} */
 struct A1018 { I m0; j m1; i m2; J m3; s m4; i m5; p m6; i m7; S m8; l m9; j m10; C m11; };
 int f_cmpA1018(const struct A1018 *x, const struct A1018 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1018() {
+DCaggr* f_touchA1018() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1018));
@@ -20235,7 +20235,7 @@ DCaggr* f_touchdcstA1018() {
 /* {CCI[16]} */
 struct A1019 { C m0; C m1; I m2[16]; };
 int f_cmpA1019(const struct A1019 *x, const struct A1019 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2[0] == y->m2[0] && x->m2[1] == y->m2[1] && x->m2[2] == y->m2[2] && x->m2[3] == y->m2[3] && x->m2[4] == y->m2[4] && x->m2[5] == y->m2[5] && x->m2[6] == y->m2[6] && x->m2[7] == y->m2[7] && x->m2[8] == y->m2[8] && x->m2[9] == y->m2[9] && x->m2[10] == y->m2[10] && x->m2[11] == y->m2[11] && x->m2[12] == y->m2[12] && x->m2[13] == y->m2[13] && x->m2[14] == y->m2[14] && x->m2[15] == y->m2[15]; };
-DCaggr* f_touchdcstA1019() {
+DCaggr* f_touchA1019() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A1019));
@@ -20249,7 +20249,7 @@ DCaggr* f_touchdcstA1019() {
 /* {LL} */
 struct A1020 { L m0; L m1; };
 int f_cmpA1020(const struct A1020 *x, const struct A1020 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA1020() {
+DCaggr* f_touchA1020() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(struct A1020));
@@ -20262,7 +20262,7 @@ DCaggr* f_touchdcstA1020() {
 /* <pIldffCfiISC> */
 union A1021 { p m0; I m1; l m2; d m3; f m4; f m5; C m6; f m7; i m8; I m9; S m10; C m11; };
 int f_cmpA1021(const union A1021 *x, const union A1021 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1021() {
+DCaggr* f_touchA1021() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1021));
@@ -20285,7 +20285,7 @@ DCaggr* f_touchdcstA1021() {
 /* <fddfjICLCLc> */
 union A1022 { f m0; d m1; d m2; f m3; j m4; I m5; C m6; L m7; C m8; L m9; c m10; };
 int f_cmpA1022(const union A1022 *x, const union A1022 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA1022() {
+DCaggr* f_touchA1022() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(union A1022));
@@ -20307,7 +20307,7 @@ DCaggr* f_touchdcstA1022() {
 /* <fIBBJsfccdJp> */
 union A1023 { f m0; I m1; B m2; B m3; J m4; s m5; f m6; c m7; c m8; d m9; J m10; p m11; };
 int f_cmpA1023(const union A1023 *x, const union A1023 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1023() {
+DCaggr* f_touchA1023() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1023));
@@ -20330,7 +20330,7 @@ DCaggr* f_touchdcstA1023() {
 /* {ds<fIBBJsfccdJp>Jsscs[9]isci} */
 struct A1024 { d m0; s m1; union A1023 m2; J m3; s m4; s m5; c m6; s m7[9]; i m8; s m9; c m10; i m11; };
 int f_cmpA1024(const struct A1024 *x, const struct A1024 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA1023(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7[0] == y->m7[0] && x->m7[1] == y->m7[1] && x->m7[2] == y->m7[2] && x->m7[3] == y->m7[3] && x->m7[4] == y->m7[4] && x->m7[5] == y->m7[5] && x->m7[6] == y->m7[6] && x->m7[7] == y->m7[7] && x->m7[8] == y->m7[8] && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1024() {
+DCaggr* f_touchA1024() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1024));
@@ -20353,7 +20353,7 @@ DCaggr* f_touchdcstA1024() {
 /* <sL> */
 union A1025 { s m0; L m1; };
 int f_cmpA1025(const union A1025 *x, const union A1025 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA1025() {
+DCaggr* f_touchA1025() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A1025));
@@ -20366,7 +20366,7 @@ DCaggr* f_touchdcstA1025() {
 /* {i[5]JIddpjLfd} */
 struct A1026 { i m0[5]; J m1; I m2; d m3; d m4; p m5; j m6; L m7; f m8; d m9; };
 int f_cmpA1026(const struct A1026 *x, const struct A1026 *y) { return x->m0[0] == y->m0[0] && x->m0[1] == y->m0[1] && x->m0[2] == y->m0[2] && x->m0[3] == y->m0[3] && x->m0[4] == y->m0[4] && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA1026() {
+DCaggr* f_touchA1026() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(struct A1026));
@@ -20387,7 +20387,7 @@ DCaggr* f_touchdcstA1026() {
 /* {dCcLppScsppJ} */
 struct A1027 { d m0; C m1; c m2; L m3; p m4; p m5; S m6; c m7; s m8; p m9; p m10; J m11; };
 int f_cmpA1027(const struct A1027 *x, const struct A1027 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1027() {
+DCaggr* f_touchA1027() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1027));
@@ -20410,7 +20410,7 @@ DCaggr* f_touchdcstA1027() {
 /* {dsJfC[2]CBdfj{dCcLppScsppJ}j} */
 struct A1028 { d m0; s m1; J m2; f m3; C m4[2]; C m5; B m6; d m7; f m8; j m9; struct A1027 m10; j m11; };
 int f_cmpA1028(const struct A1028 *x, const struct A1028 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4[0] == y->m4[0] && x->m4[1] == y->m4[1] && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA1027(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1028() {
+DCaggr* f_touchA1028() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1028));
@@ -20433,7 +20433,7 @@ DCaggr* f_touchdcstA1028() {
 /* <jsjILcc{dsJfC[2]CBdfj{dCcLppScsppJ}j}dJcL> */
 union A1029 { j m0; s m1; j m2; I m3; L m4; c m5; c m6; struct A1028 m7; d m8; J m9; c m10; L m11; };
 int f_cmpA1029(const union A1029 *x, const union A1029 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && f_cmpA1028(&x->m7, &y->m7) && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1029() {
+DCaggr* f_touchA1029() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1029));
@@ -20456,7 +20456,7 @@ DCaggr* f_touchdcstA1029() {
 /* <JJBJC> */
 union A1030 { J m0; J m1; B m2; J m3; C m4; };
 int f_cmpA1030(const union A1030 *x, const union A1030 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA1030() {
+DCaggr* f_touchA1030() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A1030));
@@ -20472,7 +20472,7 @@ DCaggr* f_touchdcstA1030() {
 /* <CIpICCjpdLpf> */
 union A1031 { C m0; I m1; p m2; I m3; C m4; C m5; j m6; p m7; d m8; L m9; p m10; f m11; };
 int f_cmpA1031(const union A1031 *x, const union A1031 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1031() {
+DCaggr* f_touchA1031() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1031));
@@ -20495,7 +20495,7 @@ DCaggr* f_touchdcstA1031() {
 /* <B<CIpICCjpdLpf>B> */
 union A1032 { B m0; union A1031 m1; B m2; };
 int f_cmpA1032(const union A1032 *x, const union A1032 *y) { return x->m0 == y->m0 && f_cmpA1031(&x->m1, &y->m1) && x->m2 == y->m2; };
-DCaggr* f_touchdcstA1032() {
+DCaggr* f_touchA1032() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A1032));
@@ -20509,7 +20509,7 @@ DCaggr* f_touchdcstA1032() {
 /* <fJBid<B<CIpICCjpdLpf>B>dJdlpJ> */
 union A1033 { f m0; J m1; B m2; i m3; d m4; union A1032 m5; d m6; J m7; d m8; l m9; p m10; J m11; };
 int f_cmpA1033(const union A1033 *x, const union A1033 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA1032(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1033() {
+DCaggr* f_touchA1033() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1033));
@@ -20532,7 +20532,7 @@ DCaggr* f_touchdcstA1033() {
 /* <LscsJSLi> */
 union A1034 { L m0; s m1; c m2; s m3; J m4; S m5; L m6; i m7; };
 int f_cmpA1034(const union A1034 *x, const union A1034 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA1034() {
+DCaggr* f_touchA1034() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(union A1034));
@@ -20551,7 +20551,7 @@ DCaggr* f_touchdcstA1034() {
 /* <cSfiSSLc[16]pssI> */
 union A1035 { c m0; S m1; f m2; i m3; S m4; S m5; L m6; c m7[16]; p m8; s m9; s m10; I m11; };
 int f_cmpA1035(const union A1035 *x, const union A1035 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7[0] == y->m7[0] && x->m7[1] == y->m7[1] && x->m7[2] == y->m7[2] && x->m7[3] == y->m7[3] && x->m7[4] == y->m7[4] && x->m7[5] == y->m7[5] && x->m7[6] == y->m7[6] && x->m7[7] == y->m7[7] && x->m7[8] == y->m7[8] && x->m7[9] == y->m7[9] && x->m7[10] == y->m7[10] && x->m7[11] == y->m7[11] && x->m7[12] == y->m7[12] && x->m7[13] == y->m7[13] && x->m7[14] == y->m7[14] && x->m7[15] == y->m7[15] && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1035() {
+DCaggr* f_touchA1035() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1035));
@@ -20574,7 +20574,7 @@ DCaggr* f_touchdcstA1035() {
 /* <dlJpdjfsiLLl> */
 union A1036 { d m0; l m1; J m2; p m3; d m4; j m5; f m6; s m7; i m8; L m9; L m10; l m11; };
 int f_cmpA1036(const union A1036 *x, const union A1036 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1036() {
+DCaggr* f_touchA1036() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1036));
@@ -20597,7 +20597,7 @@ DCaggr* f_touchdcstA1036() {
 /* {sjSBilBfScci} */
 struct A1037 { s m0; j m1; S m2; B m3; i m4; l m5; B m6; f m7; S m8; c m9; c m10; i m11; };
 int f_cmpA1037(const struct A1037 *x, const struct A1037 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1037() {
+DCaggr* f_touchA1037() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1037));
@@ -20620,7 +20620,7 @@ DCaggr* f_touchdcstA1037() {
 /* <iiBffpls[12]BBBj> */
 union A1038 { i m0; i m1; B m2; f m3; f m4; p m5; l m6; s m7[12]; B m8; B m9; B m10; j m11; };
 int f_cmpA1038(const union A1038 *x, const union A1038 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7[0] == y->m7[0] && x->m7[1] == y->m7[1] && x->m7[2] == y->m7[2] && x->m7[3] == y->m7[3] && x->m7[4] == y->m7[4] && x->m7[5] == y->m7[5] && x->m7[6] == y->m7[6] && x->m7[7] == y->m7[7] && x->m7[8] == y->m7[8] && x->m7[9] == y->m7[9] && x->m7[10] == y->m7[10] && x->m7[11] == y->m7[11] && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1038() {
+DCaggr* f_touchA1038() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1038));
@@ -20643,7 +20643,7 @@ DCaggr* f_touchdcstA1038() {
 /* <<dlJpdjfsiLLl>{sjSBilBfScci}SB<iiBffpls[12]BBBj>SIillcL> */
 union A1039 { union A1036 m0; struct A1037 m1; S m2; B m3; union A1038 m4; S m5; I m6; i m7; l m8; l m9; c m10; L m11; };
 int f_cmpA1039(const union A1039 *x, const union A1039 *y) { return f_cmpA1036(&x->m0, &y->m0) && f_cmpA1037(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA1038(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1039() {
+DCaggr* f_touchA1039() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1039));
@@ -20666,7 +20666,7 @@ DCaggr* f_touchdcstA1039() {
 /* {c} */
 struct A1040 { c m0; };
 int f_cmpA1040(const struct A1040 *x, const struct A1040 *y) { return x->m0 == y->m0; };
-DCaggr* f_touchdcstA1040() {
+DCaggr* f_touchA1040() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(1, sizeof(struct A1040));
@@ -20678,7 +20678,7 @@ DCaggr* f_touchdcstA1040() {
 /* <jlLdfpLJjlsi> */
 union A1041 { j m0; l m1; L m2; d m3; f m4; p m5; L m6; J m7; j m8; l m9; s m10; i m11; };
 int f_cmpA1041(const union A1041 *x, const union A1041 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1041() {
+DCaggr* f_touchA1041() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1041));
@@ -20701,7 +20701,7 @@ DCaggr* f_touchdcstA1041() {
 /* <BLJJIsCcdCdc> */
 union A1042 { B m0; L m1; J m2; J m3; I m4; s m5; C m6; c m7; d m8; C m9; d m10; c m11; };
 int f_cmpA1042(const union A1042 *x, const union A1042 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1042() {
+DCaggr* f_touchA1042() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1042));
@@ -20724,7 +20724,7 @@ DCaggr* f_touchdcstA1042() {
 /* {dj} */
 struct A1043 { d m0; j m1; };
 int f_cmpA1043(const struct A1043 *x, const struct A1043 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA1043() {
+DCaggr* f_touchA1043() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(struct A1043));
@@ -20737,7 +20737,7 @@ DCaggr* f_touchdcstA1043() {
 /* {IIfBfiJjBidL} */
 struct A1044 { I m0; I m1; f m2; B m3; f m4; i m5; J m6; j m7; B m8; i m9; d m10; L m11; };
 int f_cmpA1044(const struct A1044 *x, const struct A1044 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1044() {
+DCaggr* f_touchA1044() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1044));
@@ -20760,7 +20760,7 @@ DCaggr* f_touchdcstA1044() {
 /* <Cj> */
 union A1045 { C m0; j m1; };
 int f_cmpA1045(const union A1045 *x, const union A1045 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA1045() {
+DCaggr* f_touchA1045() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A1045));
@@ -20773,7 +20773,7 @@ DCaggr* f_touchdcstA1045() {
 /* {lLSjLJpLJLSB} */
 struct A1046 { l m0; L m1; S m2; j m3; L m4; J m5; p m6; L m7; J m8; L m9; S m10; B m11; };
 int f_cmpA1046(const struct A1046 *x, const struct A1046 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1046() {
+DCaggr* f_touchA1046() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1046));
@@ -20796,7 +20796,7 @@ DCaggr* f_touchdcstA1046() {
 /* {i<Cj>CsfJcs{lLSjLJpLJLSB}[15]lBf} */
 struct A1047 { i m0; union A1045 m1; C m2; s m3; f m4; J m5; c m6; s m7; struct A1046 m8[15]; l m9; B m10; f m11; };
 int f_cmpA1047(const struct A1047 *x, const struct A1047 *y) { return x->m0 == y->m0 && f_cmpA1045(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA1046(&x->m8[0], &y->m8[0]) && f_cmpA1046(&x->m8[1], &y->m8[1]) && f_cmpA1046(&x->m8[2], &y->m8[2]) && f_cmpA1046(&x->m8[3], &y->m8[3]) && f_cmpA1046(&x->m8[4], &y->m8[4]) && f_cmpA1046(&x->m8[5], &y->m8[5]) && f_cmpA1046(&x->m8[6], &y->m8[6]) && f_cmpA1046(&x->m8[7], &y->m8[7]) && f_cmpA1046(&x->m8[8], &y->m8[8]) && f_cmpA1046(&x->m8[9], &y->m8[9]) && f_cmpA1046(&x->m8[10], &y->m8[10]) && f_cmpA1046(&x->m8[11], &y->m8[11]) && f_cmpA1046(&x->m8[12], &y->m8[12]) && f_cmpA1046(&x->m8[13], &y->m8[13]) && f_cmpA1046(&x->m8[14], &y->m8[14]) && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1047() {
+DCaggr* f_touchA1047() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1047));
@@ -20819,7 +20819,7 @@ DCaggr* f_touchdcstA1047() {
 /* <JCffddBJ> */
 union A1048 { J m0; C m1; f m2; f m3; d m4; d m5; B m6; J m7; };
 int f_cmpA1048(const union A1048 *x, const union A1048 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA1048() {
+DCaggr* f_touchA1048() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(union A1048));
@@ -20838,7 +20838,7 @@ DCaggr* f_touchdcstA1048() {
 /* <Bs> */
 union A1049 { B m0; s m1; };
 int f_cmpA1049(const union A1049 *x, const union A1049 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA1049() {
+DCaggr* f_touchA1049() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A1049));
@@ -20851,7 +20851,7 @@ DCaggr* f_touchdcstA1049() {
 /* {CBSJf} */
 struct A1050 { C m0; B m1; S m2; J m3; f m4; };
 int f_cmpA1050(const struct A1050 *x, const struct A1050 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA1050() {
+DCaggr* f_touchA1050() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A1050));
@@ -20867,7 +20867,7 @@ DCaggr* f_touchdcstA1050() {
 /* {iSBdI} */
 struct A1051 { i m0; S m1; B m2; d m3; I m4; };
 int f_cmpA1051(const struct A1051 *x, const struct A1051 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA1051() {
+DCaggr* f_touchA1051() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A1051));
@@ -20883,7 +20883,7 @@ DCaggr* f_touchdcstA1051() {
 /* <Bipi> */
 union A1052 { B m0; i m1; p m2; i m3; };
 int f_cmpA1052(const union A1052 *x, const union A1052 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA1052() {
+DCaggr* f_touchA1052() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A1052));
@@ -20898,7 +20898,7 @@ DCaggr* f_touchdcstA1052() {
 /* <jBiSCJCISdlf> */
 union A1053 { j m0; B m1; i m2; S m3; C m4; J m5; C m6; I m7; S m8; d m9; l m10; f m11; };
 int f_cmpA1053(const union A1053 *x, const union A1053 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1053() {
+DCaggr* f_touchA1053() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1053));
@@ -20921,7 +20921,7 @@ DCaggr* f_touchdcstA1053() {
 /* <J[8]l[10]IBBls> */
 union A1054 { J m0[8]; l m1[10]; I m2; B m3; B m4; l m5; s m6; };
 int f_cmpA1054(const union A1054 *x, const union A1054 *y) { return x->m0[0] == y->m0[0] && x->m0[1] == y->m0[1] && x->m0[2] == y->m0[2] && x->m0[3] == y->m0[3] && x->m0[4] == y->m0[4] && x->m0[5] == y->m0[5] && x->m0[6] == y->m0[6] && x->m0[7] == y->m0[7] && x->m1[0] == y->m1[0] && x->m1[1] == y->m1[1] && x->m1[2] == y->m1[2] && x->m1[3] == y->m1[3] && x->m1[4] == y->m1[4] && x->m1[5] == y->m1[5] && x->m1[6] == y->m1[6] && x->m1[7] == y->m1[7] && x->m1[8] == y->m1[8] && x->m1[9] == y->m1[9] && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA1054() {
+DCaggr* f_touchA1054() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(union A1054));
@@ -20939,7 +20939,7 @@ DCaggr* f_touchdcstA1054() {
 /* <lL[6]d> */
 union A1055 { l m0; L m1[6]; d m2; };
 int f_cmpA1055(const union A1055 *x, const union A1055 *y) { return x->m0 == y->m0 && x->m1[0] == y->m1[0] && x->m1[1] == y->m1[1] && x->m1[2] == y->m1[2] && x->m1[3] == y->m1[3] && x->m1[4] == y->m1[4] && x->m1[5] == y->m1[5] && x->m2 == y->m2; };
-DCaggr* f_touchdcstA1055() {
+DCaggr* f_touchA1055() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A1055));
@@ -20953,7 +20953,7 @@ DCaggr* f_touchdcstA1055() {
 /* <Ilffscdjfj> */
 union A1056 { I m0; l m1; f m2; f m3; s m4; c m5; d m6; j m7; f m8; j m9; };
 int f_cmpA1056(const union A1056 *x, const union A1056 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA1056() {
+DCaggr* f_touchA1056() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A1056));
@@ -20974,7 +20974,7 @@ DCaggr* f_touchdcstA1056() {
 /* <SdssisSSIdll> */
 union A1057 { S m0; d m1; s m2; s m3; i m4; s m5; S m6; S m7; I m8; d m9; l m10; l m11; };
 int f_cmpA1057(const union A1057 *x, const union A1057 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1057() {
+DCaggr* f_touchA1057() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1057));
@@ -20997,7 +20997,7 @@ DCaggr* f_touchdcstA1057() {
 /* <IIp> */
 union A1058 { I m0; I m1; p m2; };
 int f_cmpA1058(const union A1058 *x, const union A1058 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA1058() {
+DCaggr* f_touchA1058() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A1058));
@@ -21011,7 +21011,7 @@ DCaggr* f_touchdcstA1058() {
 /* <Csssi<IIp>cIILic[3]> */
 union A1059 { C m0; s m1; s m2; s m3; i m4; union A1058 m5; c m6; I m7; I m8; L m9; i m10; c m11[3]; };
 int f_cmpA1059(const union A1059 *x, const union A1059 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA1058(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11[0] == y->m11[0] && x->m11[1] == y->m11[1] && x->m11[2] == y->m11[2]; };
-DCaggr* f_touchdcstA1059() {
+DCaggr* f_touchA1059() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1059));
@@ -21034,7 +21034,7 @@ DCaggr* f_touchdcstA1059() {
 /* {iIsSCfpdsCJp} */
 struct A1060 { i m0; I m1; s m2; S m3; C m4; f m5; p m6; d m7; s m8; C m9; J m10; p m11; };
 int f_cmpA1060(const struct A1060 *x, const struct A1060 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1060() {
+DCaggr* f_touchA1060() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1060));
@@ -21057,7 +21057,7 @@ DCaggr* f_touchdcstA1060() {
 /* {l[1]jLIc{iIsSCfpdsCJp}c[14]sffBs} */
 struct A1061 { l m0[1]; j m1; L m2; I m3; c m4; struct A1060 m5; c m6[14]; s m7; f m8; f m9; B m10; s m11; };
 int f_cmpA1061(const struct A1061 *x, const struct A1061 *y) { return x->m0[0] == y->m0[0] && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA1060(&x->m5, &y->m5) && x->m6[0] == y->m6[0] && x->m6[1] == y->m6[1] && x->m6[2] == y->m6[2] && x->m6[3] == y->m6[3] && x->m6[4] == y->m6[4] && x->m6[5] == y->m6[5] && x->m6[6] == y->m6[6] && x->m6[7] == y->m6[7] && x->m6[8] == y->m6[8] && x->m6[9] == y->m6[9] && x->m6[10] == y->m6[10] && x->m6[11] == y->m6[11] && x->m6[12] == y->m6[12] && x->m6[13] == y->m6[13] && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1061() {
+DCaggr* f_touchA1061() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1061));
@@ -21080,7 +21080,7 @@ DCaggr* f_touchdcstA1061() {
 /* {CCSsf<S>c} */
 struct A1062 { C m0; C m1; S m2; s m3; f m4; union A51 m5; c m6; };
 int f_cmpA1062(const struct A1062 *x, const struct A1062 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA51(&x->m5, &y->m5) && x->m6 == y->m6; };
-DCaggr* f_touchdcstA1062() {
+DCaggr* f_touchA1062() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(struct A1062));
@@ -21098,7 +21098,7 @@ DCaggr* f_touchdcstA1062() {
 /* <{CCSsf<S>c}JLlLisd> */
 union A1063 { struct A1062 m0; J m1; L m2; l m3; L m4; i m5; s m6; d m7; };
 int f_cmpA1063(const union A1063 *x, const union A1063 *y) { return f_cmpA1062(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA1063() {
+DCaggr* f_touchA1063() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(union A1063));
@@ -21117,7 +21117,7 @@ DCaggr* f_touchdcstA1063() {
 /* <BILsjjJ[16]Ifl> */
 union A1064 { B m0; I m1; L m2; s m3; j m4; j m5; J m6[16]; I m7; f m8; l m9; };
 int f_cmpA1064(const union A1064 *x, const union A1064 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6[0] == y->m6[0] && x->m6[1] == y->m6[1] && x->m6[2] == y->m6[2] && x->m6[3] == y->m6[3] && x->m6[4] == y->m6[4] && x->m6[5] == y->m6[5] && x->m6[6] == y->m6[6] && x->m6[7] == y->m6[7] && x->m6[8] == y->m6[8] && x->m6[9] == y->m6[9] && x->m6[10] == y->m6[10] && x->m6[11] == y->m6[11] && x->m6[12] == y->m6[12] && x->m6[13] == y->m6[13] && x->m6[14] == y->m6[14] && x->m6[15] == y->m6[15] && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA1064() {
+DCaggr* f_touchA1064() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A1064));
@@ -21138,7 +21138,7 @@ DCaggr* f_touchdcstA1064() {
 /* <CfCSSLs[7]cBBcd> */
 union A1065 { C m0; f m1; C m2; S m3; S m4; L m5; s m6[7]; c m7; B m8; B m9; c m10; d m11; };
 int f_cmpA1065(const union A1065 *x, const union A1065 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6[0] == y->m6[0] && x->m6[1] == y->m6[1] && x->m6[2] == y->m6[2] && x->m6[3] == y->m6[3] && x->m6[4] == y->m6[4] && x->m6[5] == y->m6[5] && x->m6[6] == y->m6[6] && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1065() {
+DCaggr* f_touchA1065() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1065));
@@ -21161,7 +21161,7 @@ DCaggr* f_touchdcstA1065() {
 /* <B<BILsjjJ[16]Ifl>IcLJI<CfCSSLs[7]cBBcd>fJjB> */
 union A1066 { B m0; union A1064 m1; I m2; c m3; L m4; J m5; I m6; union A1065 m7; f m8; J m9; j m10; B m11; };
 int f_cmpA1066(const union A1066 *x, const union A1066 *y) { return x->m0 == y->m0 && f_cmpA1064(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && f_cmpA1065(&x->m7, &y->m7) && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1066() {
+DCaggr* f_touchA1066() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1066));
@@ -21184,7 +21184,7 @@ DCaggr* f_touchdcstA1066() {
 /* <dBIcICJpdsii> */
 union A1067 { d m0; B m1; I m2; c m3; I m4; C m5; J m6; p m7; d m8; s m9; i m10; i m11; };
 int f_cmpA1067(const union A1067 *x, const union A1067 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1067() {
+DCaggr* f_touchA1067() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1067));
@@ -21207,7 +21207,7 @@ DCaggr* f_touchdcstA1067() {
 /* {CJicS[9]IIfdLSI} */
 struct A1068 { C m0; J m1; i m2; c m3; S m4[9]; I m5; I m6; f m7; d m8; L m9; S m10; I m11; };
 int f_cmpA1068(const struct A1068 *x, const struct A1068 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4[0] == y->m4[0] && x->m4[1] == y->m4[1] && x->m4[2] == y->m4[2] && x->m4[3] == y->m4[3] && x->m4[4] == y->m4[4] && x->m4[5] == y->m4[5] && x->m4[6] == y->m4[6] && x->m4[7] == y->m4[7] && x->m4[8] == y->m4[8] && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1068() {
+DCaggr* f_touchA1068() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1068));
@@ -21230,7 +21230,7 @@ DCaggr* f_touchdcstA1068() {
 /* <ddplLf[3]ssspIB> */
 union A1069 { d m0; d m1; p m2; l m3; L m4; f m5[3]; s m6; s m7; s m8; p m9; I m10; B m11; };
 int f_cmpA1069(const union A1069 *x, const union A1069 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5[0] == y->m5[0] && x->m5[1] == y->m5[1] && x->m5[2] == y->m5[2] && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1069() {
+DCaggr* f_touchA1069() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1069));
@@ -21253,7 +21253,7 @@ DCaggr* f_touchdcstA1069() {
 /* <Bpscf{CJicS[9]IIfdLSI}j<ddplLf[3]ssspIB>> */
 union A1070 { B m0; p m1; s m2; c m3; f m4; struct A1068 m5; j m6; union A1069 m7; };
 int f_cmpA1070(const union A1070 *x, const union A1070 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA1068(&x->m5, &y->m5) && x->m6 == y->m6 && f_cmpA1069(&x->m7, &y->m7); };
-DCaggr* f_touchdcstA1070() {
+DCaggr* f_touchA1070() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(union A1070));
@@ -21272,7 +21272,7 @@ DCaggr* f_touchdcstA1070() {
 /* {JjspCSj[4]lcICj} */
 struct A1071 { J m0; j m1; s m2; p m3; C m4; S m5; j m6[4]; l m7; c m8; I m9; C m10; j m11; };
 int f_cmpA1071(const struct A1071 *x, const struct A1071 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6[0] == y->m6[0] && x->m6[1] == y->m6[1] && x->m6[2] == y->m6[2] && x->m6[3] == y->m6[3] && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1071() {
+DCaggr* f_touchA1071() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1071));
@@ -21295,7 +21295,7 @@ DCaggr* f_touchdcstA1071() {
 /* {pcdL} */
 struct A1072 { p m0; c m1; d m2; L m3; };
 int f_cmpA1072(const struct A1072 *x, const struct A1072 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA1072() {
+DCaggr* f_touchA1072() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A1072));
@@ -21310,7 +21310,7 @@ DCaggr* f_touchdcstA1072() {
 /* <IILIj{JjspCSj[4]lcICj}fc{pcdL}j> */
 union A1073 { I m0; I m1; L m2; I m3; j m4; struct A1071 m5; f m6; c m7; struct A1072 m8; j m9; };
 int f_cmpA1073(const union A1073 *x, const union A1073 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA1071(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA1072(&x->m8, &y->m8) && x->m9 == y->m9; };
-DCaggr* f_touchdcstA1073() {
+DCaggr* f_touchA1073() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A1073));
@@ -21331,7 +21331,7 @@ DCaggr* f_touchdcstA1073() {
 /* {<Bpscf{CJicS[9]IIfdLSI}j<ddplLf[3]ssspIB>>dsJcLc<IILIj{JjspCSj[4]lcICj}fc{pcdL}j>Jcci} */
 struct A1074 { union A1070 m0; d m1; s m2; J m3; c m4; L m5; c m6; union A1073 m7; J m8; c m9; c m10; i m11; };
 int f_cmpA1074(const struct A1074 *x, const struct A1074 *y) { return f_cmpA1070(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && f_cmpA1073(&x->m7, &y->m7) && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1074() {
+DCaggr* f_touchA1074() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1074));
@@ -21354,7 +21354,7 @@ DCaggr* f_touchdcstA1074() {
 /* {ccsfLijjd[15]} */
 struct A1075 { c m0; c m1; s m2; f m3; L m4; i m5; j m6; j m7; d m8[15]; };
 int f_cmpA1075(const struct A1075 *x, const struct A1075 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8[0] == y->m8[0] && x->m8[1] == y->m8[1] && x->m8[2] == y->m8[2] && x->m8[3] == y->m8[3] && x->m8[4] == y->m8[4] && x->m8[5] == y->m8[5] && x->m8[6] == y->m8[6] && x->m8[7] == y->m8[7] && x->m8[8] == y->m8[8] && x->m8[9] == y->m8[9] && x->m8[10] == y->m8[10] && x->m8[11] == y->m8[11] && x->m8[12] == y->m8[12] && x->m8[13] == y->m8[13] && x->m8[14] == y->m8[14]; };
-DCaggr* f_touchdcstA1075() {
+DCaggr* f_touchA1075() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(struct A1075));
@@ -21374,7 +21374,7 @@ DCaggr* f_touchdcstA1075() {
 /* {fdI[8]{c}lSp{ccsfLijjd[15]}Is} */
 struct A1076 { f m0; d m1; I m2[8]; struct A1040 m3; l m4; S m5; p m6; struct A1075 m7; I m8; s m9; };
 int f_cmpA1076(const struct A1076 *x, const struct A1076 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2[0] == y->m2[0] && x->m2[1] == y->m2[1] && x->m2[2] == y->m2[2] && x->m2[3] == y->m2[3] && x->m2[4] == y->m2[4] && x->m2[5] == y->m2[5] && x->m2[6] == y->m2[6] && x->m2[7] == y->m2[7] && f_cmpA1040(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && f_cmpA1075(&x->m7, &y->m7) && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA1076() {
+DCaggr* f_touchA1076() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(struct A1076));
@@ -21395,7 +21395,7 @@ DCaggr* f_touchdcstA1076() {
 /* <fSpjlssCLJfj> */
 union A1077 { f m0; S m1; p m2; j m3; l m4; s m5; s m6; C m7; L m8; J m9; f m10; j m11; };
 int f_cmpA1077(const union A1077 *x, const union A1077 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1077() {
+DCaggr* f_touchA1077() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1077));
@@ -21418,7 +21418,7 @@ DCaggr* f_touchdcstA1077() {
 /* {llCjIIlBJsI[7]j} */
 struct A1078 { l m0; l m1; C m2; j m3; I m4; I m5; l m6; B m7; J m8; s m9; I m10[7]; j m11; };
 int f_cmpA1078(const struct A1078 *x, const struct A1078 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10[0] == y->m10[0] && x->m10[1] == y->m10[1] && x->m10[2] == y->m10[2] && x->m10[3] == y->m10[3] && x->m10[4] == y->m10[4] && x->m10[5] == y->m10[5] && x->m10[6] == y->m10[6] && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1078() {
+DCaggr* f_touchA1078() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1078));
@@ -21441,7 +21441,7 @@ DCaggr* f_touchdcstA1078() {
 /* {C} */
 struct A1079 { C m0; };
 int f_cmpA1079(const struct A1079 *x, const struct A1079 *y) { return x->m0 == y->m0; };
-DCaggr* f_touchdcstA1079() {
+DCaggr* f_touchA1079() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(1, sizeof(struct A1079));
@@ -21453,7 +21453,7 @@ DCaggr* f_touchdcstA1079() {
 /* {jsC{C}jBjCjffp} */
 struct A1080 { j m0; s m1; C m2; struct A1079 m3; j m4; B m5; j m6; C m7; j m8; f m9; f m10; p m11; };
 int f_cmpA1080(const struct A1080 *x, const struct A1080 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA1079(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1080() {
+DCaggr* f_touchA1080() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1080));
@@ -21476,7 +21476,7 @@ DCaggr* f_touchdcstA1080() {
 /* {cSBjlccBcfj} */
 struct A1081 { c m0; S m1; B m2; j m3; l m4; c m5; c m6; B m7; c m8; f m9; j m10; };
 int f_cmpA1081(const struct A1081 *x, const struct A1081 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA1081() {
+DCaggr* f_touchA1081() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(struct A1081));
@@ -21498,7 +21498,7 @@ DCaggr* f_touchdcstA1081() {
 /* {SjBpJjijs} */
 struct A1082 { S m0; j m1; B m2; p m3; J m4; j m5; i m6; j m7; s m8; };
 int f_cmpA1082(const struct A1082 *x, const struct A1082 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA1082() {
+DCaggr* f_touchA1082() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(struct A1082));
@@ -21518,7 +21518,7 @@ DCaggr* f_touchdcstA1082() {
 /* {LiLJCdisf[14]} */
 struct A1083 { L m0; i m1; L m2; J m3; C m4; d m5; i m6; s m7; f m8[14]; };
 int f_cmpA1083(const struct A1083 *x, const struct A1083 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8[0] == y->m8[0] && x->m8[1] == y->m8[1] && x->m8[2] == y->m8[2] && x->m8[3] == y->m8[3] && x->m8[4] == y->m8[4] && x->m8[5] == y->m8[5] && x->m8[6] == y->m8[6] && x->m8[7] == y->m8[7] && x->m8[8] == y->m8[8] && x->m8[9] == y->m8[9] && x->m8[10] == y->m8[10] && x->m8[11] == y->m8[11] && x->m8[12] == y->m8[12] && x->m8[13] == y->m8[13]; };
-DCaggr* f_touchdcstA1083() {
+DCaggr* f_touchA1083() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(struct A1083));
@@ -21538,7 +21538,7 @@ DCaggr* f_touchdcstA1083() {
 /* <lpplifc> */
 union A1084 { l m0; p m1; p m2; l m3; i m4; f m5; c m6; };
 int f_cmpA1084(const union A1084 *x, const union A1084 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA1084() {
+DCaggr* f_touchA1084() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(union A1084));
@@ -21556,7 +21556,7 @@ DCaggr* f_touchdcstA1084() {
 /* {{cSBjlccBcfj}i{SjBpJjijs}{LiLJCdisf[14]}cjLpdd<lpplifc>j} */
 struct A1085 { struct A1081 m0; i m1; struct A1082 m2; struct A1083 m3; c m4; j m5; L m6; p m7; d m8; d m9; union A1084 m10; j m11; };
 int f_cmpA1085(const struct A1085 *x, const struct A1085 *y) { return f_cmpA1081(&x->m0, &y->m0) && x->m1 == y->m1 && f_cmpA1082(&x->m2, &y->m2) && f_cmpA1083(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA1084(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1085() {
+DCaggr* f_touchA1085() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1085));
@@ -21579,7 +21579,7 @@ DCaggr* f_touchdcstA1085() {
 /* <fldjSCsC> */
 union A1086 { f m0; l m1; d m2; j m3; S m4; C m5; s m6; C m7; };
 int f_cmpA1086(const union A1086 *x, const union A1086 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA1086() {
+DCaggr* f_touchA1086() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(union A1086));
@@ -21598,7 +21598,7 @@ DCaggr* f_touchdcstA1086() {
 /* {ClpdpjldLJ} */
 struct A1087 { C m0; l m1; p m2; d m3; p m4; j m5; l m6; d m7; L m8; J m9; };
 int f_cmpA1087(const struct A1087 *x, const struct A1087 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA1087() {
+DCaggr* f_touchA1087() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(struct A1087));
@@ -21619,7 +21619,7 @@ DCaggr* f_touchdcstA1087() {
 /* {SiiISJBBBIIc} */
 struct A1088 { S m0; i m1; i m2; I m3; S m4; J m5; B m6; B m7; B m8; I m9; I m10; c m11; };
 int f_cmpA1088(const struct A1088 *x, const struct A1088 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1088() {
+DCaggr* f_touchA1088() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1088));
@@ -21642,7 +21642,7 @@ DCaggr* f_touchdcstA1088() {
 /* <sJipjjBf{ClpdpjldLJ}iJ{SiiISJBBBIIc}> */
 union A1089 { s m0; J m1; i m2; p m3; j m4; j m5; B m6; f m7; struct A1087 m8; i m9; J m10; struct A1088 m11; };
 int f_cmpA1089(const union A1089 *x, const union A1089 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA1087(&x->m8, &y->m8) && x->m9 == y->m9 && x->m10 == y->m10 && f_cmpA1088(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA1089() {
+DCaggr* f_touchA1089() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1089));
@@ -21665,7 +21665,7 @@ DCaggr* f_touchdcstA1089() {
 /* {sSL[15]pdcissLLi} */
 struct A1090 { s m0; S m1; L m2[15]; p m3; d m4; c m5; i m6; s m7; s m8; L m9; L m10; i m11; };
 int f_cmpA1090(const struct A1090 *x, const struct A1090 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2[0] == y->m2[0] && x->m2[1] == y->m2[1] && x->m2[2] == y->m2[2] && x->m2[3] == y->m2[3] && x->m2[4] == y->m2[4] && x->m2[5] == y->m2[5] && x->m2[6] == y->m2[6] && x->m2[7] == y->m2[7] && x->m2[8] == y->m2[8] && x->m2[9] == y->m2[9] && x->m2[10] == y->m2[10] && x->m2[11] == y->m2[11] && x->m2[12] == y->m2[12] && x->m2[13] == y->m2[13] && x->m2[14] == y->m2[14] && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1090() {
+DCaggr* f_touchA1090() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1090));
@@ -21688,7 +21688,7 @@ DCaggr* f_touchdcstA1090() {
 /* <pCSSiSLcjI> */
 union A1091 { p m0; C m1; S m2; S m3; i m4; S m5; L m6; c m7; j m8; I m9; };
 int f_cmpA1091(const union A1091 *x, const union A1091 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA1091() {
+DCaggr* f_touchA1091() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A1091));
@@ -21709,7 +21709,7 @@ DCaggr* f_touchdcstA1091() {
 /* {JSl{sSL[15]pdcissLLi}LI<pCSSiSLcjI>BipBj} */
 struct A1092 { J m0; S m1; l m2; struct A1090 m3; L m4; I m5; union A1091 m6; B m7; i m8; p m9; B m10; j m11; };
 int f_cmpA1092(const struct A1092 *x, const struct A1092 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA1090(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA1091(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1092() {
+DCaggr* f_touchA1092() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1092));
@@ -21732,7 +21732,7 @@ DCaggr* f_touchdcstA1092() {
 /* {dLSfiSLBBfis} */
 struct A1093 { d m0; L m1; S m2; f m3; i m4; S m5; L m6; B m7; B m8; f m9; i m10; s m11; };
 int f_cmpA1093(const struct A1093 *x, const struct A1093 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1093() {
+DCaggr* f_touchA1093() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1093));
@@ -21755,7 +21755,7 @@ DCaggr* f_touchdcstA1093() {
 /* {spCCCi[12]spd} */
 struct A1094 { s m0; p m1; C m2; C m3; C m4; i m5[12]; s m6; p m7; d m8; };
 int f_cmpA1094(const struct A1094 *x, const struct A1094 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5[0] == y->m5[0] && x->m5[1] == y->m5[1] && x->m5[2] == y->m5[2] && x->m5[3] == y->m5[3] && x->m5[4] == y->m5[4] && x->m5[5] == y->m5[5] && x->m5[6] == y->m5[6] && x->m5[7] == y->m5[7] && x->m5[8] == y->m5[8] && x->m5[9] == y->m5[9] && x->m5[10] == y->m5[10] && x->m5[11] == y->m5[11] && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA1094() {
+DCaggr* f_touchA1094() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(struct A1094));
@@ -21775,7 +21775,7 @@ DCaggr* f_touchdcstA1094() {
 /* {pC} */
 struct A1095 { p m0; C m1; };
 int f_cmpA1095(const struct A1095 *x, const struct A1095 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA1095() {
+DCaggr* f_touchA1095() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(struct A1095));
@@ -21788,7 +21788,7 @@ DCaggr* f_touchdcstA1095() {
 /* <Ljds[13]d{C}sIfsJ{pC}> */
 union A1096 { L m0; j m1; d m2; s m3[13]; d m4; struct A1079 m5; s m6; I m7; f m8; s m9; J m10; struct A1095 m11; };
 int f_cmpA1096(const union A1096 *x, const union A1096 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3[0] == y->m3[0] && x->m3[1] == y->m3[1] && x->m3[2] == y->m3[2] && x->m3[3] == y->m3[3] && x->m3[4] == y->m3[4] && x->m3[5] == y->m3[5] && x->m3[6] == y->m3[6] && x->m3[7] == y->m3[7] && x->m3[8] == y->m3[8] && x->m3[9] == y->m3[9] && x->m3[10] == y->m3[10] && x->m3[11] == y->m3[11] && x->m3[12] == y->m3[12] && x->m4 == y->m4 && f_cmpA1079(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && f_cmpA1095(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA1096() {
+DCaggr* f_touchA1096() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1096));
@@ -21811,7 +21811,7 @@ DCaggr* f_touchdcstA1096() {
 /* <IJlBdjSdl> */
 union A1097 { I m0; J m1; l m2; B m3; d m4; j m5; S m6; d m7; l m8; };
 int f_cmpA1097(const union A1097 *x, const union A1097 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA1097() {
+DCaggr* f_touchA1097() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A1097));
@@ -21831,7 +21831,7 @@ DCaggr* f_touchdcstA1097() {
 /* {BdJi[1]BILjsS} */
 struct A1098 { B m0; d m1; J m2; i m3[1]; B m4; I m5; L m6; j m7; s m8; S m9; };
 int f_cmpA1098(const struct A1098 *x, const struct A1098 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3[0] == y->m3[0] && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA1098() {
+DCaggr* f_touchA1098() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(struct A1098));
@@ -21852,7 +21852,7 @@ DCaggr* f_touchdcstA1098() {
 /* <f> */
 union A1099 { f m0; };
 int f_cmpA1099(const union A1099 *x, const union A1099 *y) { return x->m0 == y->m0; };
-DCaggr* f_touchdcstA1099() {
+DCaggr* f_touchA1099() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(1, sizeof(union A1099));
@@ -21864,7 +21864,7 @@ DCaggr* f_touchdcstA1099() {
 /* <sLd<IJlBdjSdl>p{BdJi[1]BILjsS}SS<f>jjs> */
 union A1100 { s m0; L m1; d m2; union A1097 m3; p m4; struct A1098 m5; S m6; S m7; union A1099 m8; j m9; j m10; s m11; };
 int f_cmpA1100(const union A1100 *x, const union A1100 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA1097(&x->m3, &y->m3) && x->m4 == y->m4 && f_cmpA1098(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA1099(&x->m8, &y->m8) && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1100() {
+DCaggr* f_touchA1100() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1100));
@@ -21887,7 +21887,7 @@ DCaggr* f_touchdcstA1100() {
 /* <jij<Ljds[13]d{C}sIfsJ{pC}>sfSBjJp<sLd<IJlBdjSdl>p{BdJi[1]BILjsS}SS<f>jjs>> */
 union A1101 { j m0; i m1; j m2; union A1096 m3; s m4; f m5; S m6; B m7; j m8; J m9; p m10; union A1100 m11; };
 int f_cmpA1101(const union A1101 *x, const union A1101 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA1096(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && f_cmpA1100(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA1101() {
+DCaggr* f_touchA1101() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1101));
@@ -21910,7 +21910,7 @@ DCaggr* f_touchdcstA1101() {
 /* {Cfj} */
 struct A1102 { C m0; f m1; j m2; };
 int f_cmpA1102(const struct A1102 *x, const struct A1102 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA1102() {
+DCaggr* f_touchA1102() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A1102));
@@ -21924,7 +21924,7 @@ DCaggr* f_touchdcstA1102() {
 /* <pJlI[1]fids> */
 union A1103 { p m0; J m1; l m2; I m3[1]; f m4; i m5; d m6; s m7; };
 int f_cmpA1103(const union A1103 *x, const union A1103 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3[0] == y->m3[0] && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA1103() {
+DCaggr* f_touchA1103() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(union A1103));
@@ -21943,7 +21943,7 @@ DCaggr* f_touchdcstA1103() {
 /* {LJjpSs<pJlI[1]fids>I} */
 struct A1104 { L m0; J m1; j m2; p m3; S m4; s m5; union A1103 m6; I m7; };
 int f_cmpA1104(const struct A1104 *x, const struct A1104 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA1103(&x->m6, &y->m6) && x->m7 == y->m7; };
-DCaggr* f_touchdcstA1104() {
+DCaggr* f_touchA1104() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(struct A1104));
@@ -21962,7 +21962,7 @@ DCaggr* f_touchdcstA1104() {
 /* <IL{Cfj}{LJjpSs<pJlI[1]fids>I}d> */
 union A1105 { I m0; L m1; struct A1102 m2; struct A1104 m3; d m4; };
 int f_cmpA1105(const union A1105 *x, const union A1105 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA1102(&x->m2, &y->m2) && f_cmpA1104(&x->m3, &y->m3) && x->m4 == y->m4; };
-DCaggr* f_touchdcstA1105() {
+DCaggr* f_touchA1105() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A1105));
@@ -21978,7 +21978,7 @@ DCaggr* f_touchdcstA1105() {
 /* <cBIBBSSllBCs> */
 union A1106 { c m0; B m1; I m2; B m3; B m4; S m5; S m6; l m7; l m8; B m9; C m10; s m11; };
 int f_cmpA1106(const union A1106 *x, const union A1106 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1106() {
+DCaggr* f_touchA1106() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1106));
@@ -22001,7 +22001,7 @@ DCaggr* f_touchdcstA1106() {
 /* <sssiCpjslcS[2]C> */
 union A1107 { s m0; s m1; s m2; i m3; C m4; p m5; j m6; s m7; l m8; c m9; S m10[2]; C m11; };
 int f_cmpA1107(const union A1107 *x, const union A1107 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10[0] == y->m10[0] && x->m10[1] == y->m10[1] && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1107() {
+DCaggr* f_touchA1107() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1107));
@@ -22024,7 +22024,7 @@ DCaggr* f_touchdcstA1107() {
 /* <<sssiCpjslcS[2]C>ldpBlBJBJiB> */
 union A1108 { union A1107 m0; l m1; d m2; p m3; B m4; l m5; B m6; J m7; B m8; J m9; i m10; B m11; };
 int f_cmpA1108(const union A1108 *x, const union A1108 *y) { return f_cmpA1107(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1108() {
+DCaggr* f_touchA1108() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1108));
@@ -22047,7 +22047,7 @@ DCaggr* f_touchdcstA1108() {
 /* <CdILsSLjcILJ> */
 union A1109 { C m0; d m1; I m2; L m3; s m4; S m5; L m6; j m7; c m8; I m9; L m10; J m11; };
 int f_cmpA1109(const union A1109 *x, const union A1109 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1109() {
+DCaggr* f_touchA1109() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1109));
@@ -22070,7 +22070,7 @@ DCaggr* f_touchdcstA1109() {
 /* <ILjB[10]BBBJSjjI> */
 union A1110 { I m0; L m1; j m2; B m3[10]; B m4; B m5; B m6; J m7; S m8; j m9; j m10; I m11; };
 int f_cmpA1110(const union A1110 *x, const union A1110 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3[0] == y->m3[0] && x->m3[1] == y->m3[1] && x->m3[2] == y->m3[2] && x->m3[3] == y->m3[3] && x->m3[4] == y->m3[4] && x->m3[5] == y->m3[5] && x->m3[6] == y->m3[6] && x->m3[7] == y->m3[7] && x->m3[8] == y->m3[8] && x->m3[9] == y->m3[9] && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1110() {
+DCaggr* f_touchA1110() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1110));
@@ -22093,7 +22093,7 @@ DCaggr* f_touchdcstA1110() {
 /* {jJLsLIllJB<ILjB[10]BBBJSjjI>J} */
 struct A1111 { j m0; J m1; L m2; s m3; L m4; I m5; l m6; l m7; J m8; B m9; union A1110 m10; J m11; };
 int f_cmpA1111(const struct A1111 *x, const struct A1111 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA1110(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1111() {
+DCaggr* f_touchA1111() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1111));
@@ -22116,7 +22116,7 @@ DCaggr* f_touchdcstA1111() {
 /* {iICBJsclCS} */
 struct A1112 { i m0; I m1; C m2; B m3; J m4; s m5; c m6; l m7; C m8; S m9; };
 int f_cmpA1112(const struct A1112 *x, const struct A1112 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA1112() {
+DCaggr* f_touchA1112() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(struct A1112));
@@ -22137,7 +22137,7 @@ DCaggr* f_touchdcstA1112() {
 /* {jddJcsSBd{iICBJsclCS}Ls} */
 struct A1113 { j m0; d m1; d m2; J m3; c m4; s m5; S m6; B m7; d m8; struct A1112 m9; L m10; s m11; };
 int f_cmpA1113(const struct A1113 *x, const struct A1113 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && f_cmpA1112(&x->m9, &y->m9) && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1113() {
+DCaggr* f_touchA1113() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1113));
@@ -22160,7 +22160,7 @@ DCaggr* f_touchdcstA1113() {
 /* <SL[6]dBiLIJLflJ> */
 union A1114 { S m0; L m1[6]; d m2; B m3; i m4; L m5; I m6; J m7; L m8; f m9; l m10; J m11; };
 int f_cmpA1114(const union A1114 *x, const union A1114 *y) { return x->m0 == y->m0 && x->m1[0] == y->m1[0] && x->m1[1] == y->m1[1] && x->m1[2] == y->m1[2] && x->m1[3] == y->m1[3] && x->m1[4] == y->m1[4] && x->m1[5] == y->m1[5] && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1114() {
+DCaggr* f_touchA1114() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1114));
@@ -22183,7 +22183,7 @@ DCaggr* f_touchdcstA1114() {
 /* <Js<SL[6]dBiLIJLflJ>CSpfdL> */
 union A1115 { J m0; s m1; union A1114 m2; C m3; S m4; p m5; f m6; d m7; L m8; };
 int f_cmpA1115(const union A1115 *x, const union A1115 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA1114(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA1115() {
+DCaggr* f_touchA1115() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A1115));
@@ -22203,7 +22203,7 @@ DCaggr* f_touchdcstA1115() {
 /* {BsSfpLdjiiil} */
 struct A1116 { B m0; s m1; S m2; f m3; p m4; L m5; d m6; j m7; i m8; i m9; i m10; l m11; };
 int f_cmpA1116(const struct A1116 *x, const struct A1116 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1116() {
+DCaggr* f_touchA1116() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1116));
@@ -22226,7 +22226,7 @@ DCaggr* f_touchdcstA1116() {
 /* {JIIB[9]jS} */
 struct A1117 { J m0; I m1; I m2; B m3[9]; j m4; S m5; };
 int f_cmpA1117(const struct A1117 *x, const struct A1117 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3[0] == y->m3[0] && x->m3[1] == y->m3[1] && x->m3[2] == y->m3[2] && x->m3[3] == y->m3[3] && x->m3[4] == y->m3[4] && x->m3[5] == y->m3[5] && x->m3[6] == y->m3[6] && x->m3[7] == y->m3[7] && x->m3[8] == y->m3[8] && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA1117() {
+DCaggr* f_touchA1117() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(struct A1117));
@@ -22243,7 +22243,7 @@ DCaggr* f_touchdcstA1117() {
 /* <j[7]j<d>{JIIB[9]jS}CCJccSJc> */
 union A1118 { j m0[7]; j m1; union A385 m2; struct A1117 m3; C m4; C m5; J m6; c m7; c m8; S m9; J m10; c m11; };
 int f_cmpA1118(const union A1118 *x, const union A1118 *y) { return x->m0[0] == y->m0[0] && x->m0[1] == y->m0[1] && x->m0[2] == y->m0[2] && x->m0[3] == y->m0[3] && x->m0[4] == y->m0[4] && x->m0[5] == y->m0[5] && x->m0[6] == y->m0[6] && x->m1 == y->m1 && f_cmpA385(&x->m2, &y->m2) && f_cmpA1117(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1118() {
+DCaggr* f_touchA1118() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1118));
@@ -22266,7 +22266,7 @@ DCaggr* f_touchdcstA1118() {
 /* {BiCsSipB<j[7]j<d>{JIIB[9]jS}CCJccSJc>fdc} */
 struct A1119 { B m0; i m1; C m2; s m3; S m4; i m5; p m6; B m7; union A1118 m8; f m9; d m10; c m11; };
 int f_cmpA1119(const struct A1119 *x, const struct A1119 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA1118(&x->m8, &y->m8) && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1119() {
+DCaggr* f_touchA1119() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1119));
@@ -22289,7 +22289,7 @@ DCaggr* f_touchdcstA1119() {
 /* <BJBJlBcLB[3]> */
 union A1120 { B m0; J m1; B m2; J m3; l m4; B m5; c m6; L m7; B m8[3]; };
 int f_cmpA1120(const union A1120 *x, const union A1120 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8[0] == y->m8[0] && x->m8[1] == y->m8[1] && x->m8[2] == y->m8[2]; };
-DCaggr* f_touchdcstA1120() {
+DCaggr* f_touchA1120() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A1120));
@@ -22309,7 +22309,7 @@ DCaggr* f_touchdcstA1120() {
 /* <IldcIBjdSpdd> */
 union A1121 { I m0; l m1; d m2; c m3; I m4; B m5; j m6; d m7; S m8; p m9; d m10; d m11; };
 int f_cmpA1121(const union A1121 *x, const union A1121 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1121() {
+DCaggr* f_touchA1121() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1121));
@@ -22332,7 +22332,7 @@ DCaggr* f_touchdcstA1121() {
 /* {IBics} */
 struct A1122 { I m0; B m1; i m2; c m3; s m4; };
 int f_cmpA1122(const struct A1122 *x, const struct A1122 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA1122() {
+DCaggr* f_touchA1122() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A1122));
@@ -22348,7 +22348,7 @@ DCaggr* f_touchdcstA1122() {
 /* <LfJB<IldcIBjdSpdd>{IBics}> */
 union A1123 { L m0; f m1; J m2; B m3; union A1121 m4; struct A1122 m5; };
 int f_cmpA1123(const union A1123 *x, const union A1123 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA1121(&x->m4, &y->m4) && f_cmpA1122(&x->m5, &y->m5); };
-DCaggr* f_touchdcstA1123() {
+DCaggr* f_touchA1123() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(union A1123));
@@ -22365,7 +22365,7 @@ DCaggr* f_touchdcstA1123() {
 /* <dcJCBlCSIlS[16]i> */
 union A1124 { d m0; c m1; J m2; C m3; B m4; l m5; C m6; S m7; I m8; l m9; S m10[16]; i m11; };
 int f_cmpA1124(const union A1124 *x, const union A1124 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10[0] == y->m10[0] && x->m10[1] == y->m10[1] && x->m10[2] == y->m10[2] && x->m10[3] == y->m10[3] && x->m10[4] == y->m10[4] && x->m10[5] == y->m10[5] && x->m10[6] == y->m10[6] && x->m10[7] == y->m10[7] && x->m10[8] == y->m10[8] && x->m10[9] == y->m10[9] && x->m10[10] == y->m10[10] && x->m10[11] == y->m10[11] && x->m10[12] == y->m10[12] && x->m10[13] == y->m10[13] && x->m10[14] == y->m10[14] && x->m10[15] == y->m10[15] && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1124() {
+DCaggr* f_touchA1124() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1124));
@@ -22388,7 +22388,7 @@ DCaggr* f_touchdcstA1124() {
 /* <<dcJCBlCSIlS[16]i>> */
 union A1125 { union A1124 m0; };
 int f_cmpA1125(const union A1125 *x, const union A1125 *y) { return f_cmpA1124(&x->m0, &y->m0); };
-DCaggr* f_touchdcstA1125() {
+DCaggr* f_touchA1125() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(1, sizeof(union A1125));
@@ -22400,7 +22400,7 @@ DCaggr* f_touchdcstA1125() {
 /* {lsSSJBC} */
 struct A1126 { l m0; s m1; S m2; S m3; J m4; B m5; C m6; };
 int f_cmpA1126(const struct A1126 *x, const struct A1126 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA1126() {
+DCaggr* f_touchA1126() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(struct A1126));
@@ -22418,7 +22418,7 @@ DCaggr* f_touchdcstA1126() {
 /* {d<<dcJCBlCSIlS[16]i>>pd{lsSSJBC}cCBBJSL} */
 struct A1127 { d m0; union A1125 m1; p m2; d m3; struct A1126 m4; c m5; C m6; B m7; B m8; J m9; S m10; L m11; };
 int f_cmpA1127(const struct A1127 *x, const struct A1127 *y) { return x->m0 == y->m0 && f_cmpA1125(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA1126(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1127() {
+DCaggr* f_touchA1127() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1127));
@@ -22441,7 +22441,7 @@ DCaggr* f_touchdcstA1127() {
 /* <JCjsi> */
 union A1128 { J m0; C m1; j m2; s m3; i m4; };
 int f_cmpA1128(const union A1128 *x, const union A1128 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA1128() {
+DCaggr* f_touchA1128() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A1128));
@@ -22457,7 +22457,7 @@ DCaggr* f_touchdcstA1128() {
 /* {LB} */
 struct A1129 { L m0; B m1; };
 int f_cmpA1129(const struct A1129 *x, const struct A1129 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA1129() {
+DCaggr* f_touchA1129() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(struct A1129));
@@ -22470,7 +22470,7 @@ DCaggr* f_touchdcstA1129() {
 /* <lId[4]dcBdlBifS> */
 union A1130 { l m0; I m1; d m2[4]; d m3; c m4; B m5; d m6; l m7; B m8; i m9; f m10; S m11; };
 int f_cmpA1130(const union A1130 *x, const union A1130 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2[0] == y->m2[0] && x->m2[1] == y->m2[1] && x->m2[2] == y->m2[2] && x->m2[3] == y->m2[3] && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1130() {
+DCaggr* f_touchA1130() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1130));
@@ -22493,7 +22493,7 @@ DCaggr* f_touchdcstA1130() {
 /* <iSJJJCBfCSic> */
 union A1131 { i m0; S m1; J m2; J m3; J m4; C m5; B m6; f m7; C m8; S m9; i m10; c m11; };
 int f_cmpA1131(const union A1131 *x, const union A1131 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1131() {
+DCaggr* f_touchA1131() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1131));
@@ -22516,7 +22516,7 @@ DCaggr* f_touchdcstA1131() {
 /* {BJsLpcSJClcB} */
 struct A1132 { B m0; J m1; s m2; L m3; p m4; c m5; S m6; J m7; C m8; l m9; c m10; B m11; };
 int f_cmpA1132(const struct A1132 *x, const struct A1132 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1132() {
+DCaggr* f_touchA1132() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1132));
@@ -22539,7 +22539,7 @@ DCaggr* f_touchdcstA1132() {
 /* {cJciIfSIiS} */
 struct A1133 { c m0; J m1; c m2; i m3; I m4; f m5; S m6; I m7; i m8; S m9; };
 int f_cmpA1133(const struct A1133 *x, const struct A1133 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA1133() {
+DCaggr* f_touchA1133() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(struct A1133));
@@ -22560,7 +22560,7 @@ DCaggr* f_touchdcstA1133() {
 /* <fJdB> */
 union A1134 { f m0; J m1; d m2; B m3; };
 int f_cmpA1134(const union A1134 *x, const union A1134 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA1134() {
+DCaggr* f_touchA1134() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A1134));
@@ -22575,7 +22575,7 @@ DCaggr* f_touchdcstA1134() {
 /* <<fJdB>Jj> */
 union A1135 { union A1134 m0; J m1; j m2; };
 int f_cmpA1135(const union A1135 *x, const union A1135 *y) { return f_cmpA1134(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA1135() {
+DCaggr* f_touchA1135() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A1135));
@@ -22589,7 +22589,7 @@ DCaggr* f_touchdcstA1135() {
 /* {l<<fJdB>Jj>fIcjBsscCB} */
 struct A1136 { l m0; union A1135 m1; f m2; I m3; c m4; j m5; B m6; s m7; s m8; c m9; C m10; B m11; };
 int f_cmpA1136(const struct A1136 *x, const struct A1136 *y) { return x->m0 == y->m0 && f_cmpA1135(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1136() {
+DCaggr* f_touchA1136() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1136));
@@ -22612,7 +22612,7 @@ DCaggr* f_touchdcstA1136() {
 /* {Bpsj} */
 struct A1137 { B m0; p m1; s m2; j m3; };
 int f_cmpA1137(const struct A1137 *x, const struct A1137 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA1137() {
+DCaggr* f_touchA1137() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A1137));
@@ -22627,7 +22627,7 @@ DCaggr* f_touchdcstA1137() {
 /* {jcddSfijS} */
 struct A1138 { j m0; c m1; d m2; d m3; S m4; f m5; i m6; j m7; S m8; };
 int f_cmpA1138(const struct A1138 *x, const struct A1138 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA1138() {
+DCaggr* f_touchA1138() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(struct A1138));
@@ -22647,7 +22647,7 @@ DCaggr* f_touchdcstA1138() {
 /* <cpBsCcddCI[14]If> */
 union A1139 { c m0; p m1; B m2; s m3; C m4; c m5; d m6; d m7; C m8; I m9[14]; I m10; f m11; };
 int f_cmpA1139(const union A1139 *x, const union A1139 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9[0] == y->m9[0] && x->m9[1] == y->m9[1] && x->m9[2] == y->m9[2] && x->m9[3] == y->m9[3] && x->m9[4] == y->m9[4] && x->m9[5] == y->m9[5] && x->m9[6] == y->m9[6] && x->m9[7] == y->m9[7] && x->m9[8] == y->m9[8] && x->m9[9] == y->m9[9] && x->m9[10] == y->m9[10] && x->m9[11] == y->m9[11] && x->m9[12] == y->m9[12] && x->m9[13] == y->m9[13] && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1139() {
+DCaggr* f_touchA1139() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1139));
@@ -22670,7 +22670,7 @@ DCaggr* f_touchdcstA1139() {
 /* {CLsjlLfS<cpBsCcddCI[14]If>} */
 struct A1140 { C m0; L m1; s m2; j m3; l m4; L m5; f m6; S m7; union A1139 m8; };
 int f_cmpA1140(const struct A1140 *x, const struct A1140 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA1139(&x->m8, &y->m8); };
-DCaggr* f_touchdcstA1140() {
+DCaggr* f_touchA1140() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(struct A1140));
@@ -22690,7 +22690,7 @@ DCaggr* f_touchdcstA1140() {
 /* {cJ{jcddSfijS}lfjCL{CLsjlLfS<cpBsCcddCI[14]If>}fdp} */
 struct A1141 { c m0; J m1; struct A1138 m2; l m3; f m4; j m5; C m6; L m7; struct A1140 m8; f m9; d m10; p m11; };
 int f_cmpA1141(const struct A1141 *x, const struct A1141 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA1138(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA1140(&x->m8, &y->m8) && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1141() {
+DCaggr* f_touchA1141() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1141));
@@ -22713,7 +22713,7 @@ DCaggr* f_touchdcstA1141() {
 /* <iLsJflLdfJ> */
 union A1142 { i m0; L m1; s m2; J m3; f m4; l m5; L m6; d m7; f m8; J m9; };
 int f_cmpA1142(const union A1142 *x, const union A1142 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA1142() {
+DCaggr* f_touchA1142() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A1142));
@@ -22734,7 +22734,7 @@ DCaggr* f_touchdcstA1142() {
 /* <JC[7]SCjcBLCs<iLsJflLdfJ>[4]i> */
 union A1143 { J m0; C m1[7]; S m2; C m3; j m4; c m5; B m6; L m7; C m8; s m9; union A1142 m10[4]; i m11; };
 int f_cmpA1143(const union A1143 *x, const union A1143 *y) { return x->m0 == y->m0 && x->m1[0] == y->m1[0] && x->m1[1] == y->m1[1] && x->m1[2] == y->m1[2] && x->m1[3] == y->m1[3] && x->m1[4] == y->m1[4] && x->m1[5] == y->m1[5] && x->m1[6] == y->m1[6] && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA1142(&x->m10[0], &y->m10[0]) && f_cmpA1142(&x->m10[1], &y->m10[1]) && f_cmpA1142(&x->m10[2], &y->m10[2]) && f_cmpA1142(&x->m10[3], &y->m10[3]) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1143() {
+DCaggr* f_touchA1143() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1143));
@@ -22757,7 +22757,7 @@ DCaggr* f_touchdcstA1143() {
 /* <C<JC[7]SCjcBLCs<iLsJflLdfJ>[4]i>sS> */
 union A1144 { C m0; union A1143 m1; s m2; S m3; };
 int f_cmpA1144(const union A1144 *x, const union A1144 *y) { return x->m0 == y->m0 && f_cmpA1143(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA1144() {
+DCaggr* f_touchA1144() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A1144));
@@ -22772,7 +22772,7 @@ DCaggr* f_touchdcstA1144() {
 /* <jjsfifi> */
 union A1145 { j m0; j m1; s m2; f m3; i m4; f m5; i m6; };
 int f_cmpA1145(const union A1145 *x, const union A1145 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA1145() {
+DCaggr* f_touchA1145() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(union A1145));
@@ -22790,7 +22790,7 @@ DCaggr* f_touchdcstA1145() {
 /* {fddBfiJ[15]IIsld} */
 struct A1146 { f m0; d m1; d m2; B m3; f m4; i m5; J m6[15]; I m7; I m8; s m9; l m10; d m11; };
 int f_cmpA1146(const struct A1146 *x, const struct A1146 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6[0] == y->m6[0] && x->m6[1] == y->m6[1] && x->m6[2] == y->m6[2] && x->m6[3] == y->m6[3] && x->m6[4] == y->m6[4] && x->m6[5] == y->m6[5] && x->m6[6] == y->m6[6] && x->m6[7] == y->m6[7] && x->m6[8] == y->m6[8] && x->m6[9] == y->m6[9] && x->m6[10] == y->m6[10] && x->m6[11] == y->m6[11] && x->m6[12] == y->m6[12] && x->m6[13] == y->m6[13] && x->m6[14] == y->m6[14] && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1146() {
+DCaggr* f_touchA1146() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1146));
@@ -22813,7 +22813,7 @@ DCaggr* f_touchdcstA1146() {
 /* {sJBCs{fddBfiJ[15]IIsld}} */
 struct A1147 { s m0; J m1; B m2; C m3; s m4; struct A1146 m5; };
 int f_cmpA1147(const struct A1147 *x, const struct A1147 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA1146(&x->m5, &y->m5); };
-DCaggr* f_touchdcstA1147() {
+DCaggr* f_touchA1147() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(struct A1147));
@@ -22830,7 +22830,7 @@ DCaggr* f_touchdcstA1147() {
 /* {BLSILIilcLdf} */
 struct A1148 { B m0; L m1; S m2; I m3; L m4; I m5; i m6; l m7; c m8; L m9; d m10; f m11; };
 int f_cmpA1148(const struct A1148 *x, const struct A1148 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1148() {
+DCaggr* f_touchA1148() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1148));
@@ -22853,7 +22853,7 @@ DCaggr* f_touchdcstA1148() {
 /* {Sl{BLSILIilcLdf}lJpjCSdSf} */
 struct A1149 { S m0; l m1; struct A1148 m2; l m3; J m4; p m5; j m6; C m7; S m8; d m9; S m10; f m11; };
 int f_cmpA1149(const struct A1149 *x, const struct A1149 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA1148(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1149() {
+DCaggr* f_touchA1149() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1149));
@@ -22876,7 +22876,7 @@ DCaggr* f_touchdcstA1149() {
 /* {CiIdI} */
 struct A1150 { C m0; i m1; I m2; d m3; I m4; };
 int f_cmpA1150(const struct A1150 *x, const struct A1150 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA1150() {
+DCaggr* f_touchA1150() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A1150));
@@ -22892,7 +22892,7 @@ DCaggr* f_touchdcstA1150() {
 /* {JIffcc{CiIdI}CBspc} */
 struct A1151 { J m0; I m1; f m2; f m3; c m4; c m5; struct A1150 m6; C m7; B m8; s m9; p m10; c m11; };
 int f_cmpA1151(const struct A1151 *x, const struct A1151 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA1150(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1151() {
+DCaggr* f_touchA1151() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1151));
@@ -22915,7 +22915,7 @@ DCaggr* f_touchdcstA1151() {
 /* {iddIIlcsjBIC} */
 struct A1152 { i m0; d m1; d m2; I m3; I m4; l m5; c m6; s m7; j m8; B m9; I m10; C m11; };
 int f_cmpA1152(const struct A1152 *x, const struct A1152 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1152() {
+DCaggr* f_touchA1152() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1152));
@@ -22938,7 +22938,7 @@ DCaggr* f_touchdcstA1152() {
 /* {J[1]JIcdCiIds{iddIIlcsjBIC}c} */
 struct A1153 { J m0[1]; J m1; I m2; c m3; d m4; C m5; i m6; I m7; d m8; s m9; struct A1152 m10; c m11; };
 int f_cmpA1153(const struct A1153 *x, const struct A1153 *y) { return x->m0[0] == y->m0[0] && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA1152(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1153() {
+DCaggr* f_touchA1153() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1153));
@@ -22961,7 +22961,7 @@ DCaggr* f_touchdcstA1153() {
 /* <sJCCiJJilLff> */
 union A1154 { s m0; J m1; C m2; C m3; i m4; J m5; J m6; i m7; l m8; L m9; f m10; f m11; };
 int f_cmpA1154(const union A1154 *x, const union A1154 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1154() {
+DCaggr* f_touchA1154() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1154));
@@ -22984,7 +22984,7 @@ DCaggr* f_touchdcstA1154() {
 /* <sLIJJClCjlSc> */
 union A1155 { s m0; L m1; I m2; J m3; J m4; C m5; l m6; C m7; j m8; l m9; S m10; c m11; };
 int f_cmpA1155(const union A1155 *x, const union A1155 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1155() {
+DCaggr* f_touchA1155() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1155));
@@ -23007,7 +23007,7 @@ DCaggr* f_touchdcstA1155() {
 /* <dSlIjfljpl<sLIJJClCjlSc>l> */
 union A1156 { d m0; S m1; l m2; I m3; j m4; f m5; l m6; j m7; p m8; l m9; union A1155 m10; l m11; };
 int f_cmpA1156(const union A1156 *x, const union A1156 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA1155(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1156() {
+DCaggr* f_touchA1156() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1156));
@@ -23030,7 +23030,7 @@ DCaggr* f_touchdcstA1156() {
 /* <sCdicCI[8]iiid> */
 union A1157 { s m0; C m1; d m2; i m3; c m4; C m5; I m6[8]; i m7; i m8; i m9; d m10; };
 int f_cmpA1157(const union A1157 *x, const union A1157 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6[0] == y->m6[0] && x->m6[1] == y->m6[1] && x->m6[2] == y->m6[2] && x->m6[3] == y->m6[3] && x->m6[4] == y->m6[4] && x->m6[5] == y->m6[5] && x->m6[6] == y->m6[6] && x->m6[7] == y->m6[7] && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA1157() {
+DCaggr* f_touchA1157() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(union A1157));
@@ -23052,7 +23052,7 @@ DCaggr* f_touchdcstA1157() {
 /* <sfIBjJISSscs> */
 union A1158 { s m0; f m1; I m2; B m3; j m4; J m5; I m6; S m7; S m8; s m9; c m10; s m11; };
 int f_cmpA1158(const union A1158 *x, const union A1158 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1158() {
+DCaggr* f_touchA1158() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1158));
@@ -23075,7 +23075,7 @@ DCaggr* f_touchdcstA1158() {
 /* {isJIJcspS[14]CsC} */
 struct A1159 { i m0; s m1; J m2; I m3; J m4; c m5; s m6; p m7; S m8[14]; C m9; s m10; C m11; };
 int f_cmpA1159(const struct A1159 *x, const struct A1159 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8[0] == y->m8[0] && x->m8[1] == y->m8[1] && x->m8[2] == y->m8[2] && x->m8[3] == y->m8[3] && x->m8[4] == y->m8[4] && x->m8[5] == y->m8[5] && x->m8[6] == y->m8[6] && x->m8[7] == y->m8[7] && x->m8[8] == y->m8[8] && x->m8[9] == y->m8[9] && x->m8[10] == y->m8[10] && x->m8[11] == y->m8[11] && x->m8[12] == y->m8[12] && x->m8[13] == y->m8[13] && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1159() {
+DCaggr* f_touchA1159() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1159));
@@ -23098,7 +23098,7 @@ DCaggr* f_touchdcstA1159() {
 /* <Si{isJIJcspS[14]CsC}Ld> */
 union A1160 { S m0; i m1; struct A1159 m2; L m3; d m4; };
 int f_cmpA1160(const union A1160 *x, const union A1160 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA1159(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA1160() {
+DCaggr* f_touchA1160() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A1160));
@@ -23114,7 +23114,7 @@ DCaggr* f_touchdcstA1160() {
 /* {iC<Si{isJIJcspS[14]CsC}Ld>BC} */
 struct A1161 { i m0; C m1; union A1160 m2; B m3; C m4; };
 int f_cmpA1161(const struct A1161 *x, const struct A1161 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA1160(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA1161() {
+DCaggr* f_touchA1161() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A1161));
@@ -23130,7 +23130,7 @@ DCaggr* f_touchdcstA1161() {
 /* <ij> */
 union A1162 { i m0; j m1; };
 int f_cmpA1162(const union A1162 *x, const union A1162 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA1162() {
+DCaggr* f_touchA1162() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A1162));
@@ -23143,7 +23143,7 @@ DCaggr* f_touchdcstA1162() {
 /* {ffLBf[16]pB<ij>djlC} */
 struct A1163 { f m0; f m1; L m2; B m3; f m4[16]; p m5; B m6; union A1162 m7; d m8; j m9; l m10; C m11; };
 int f_cmpA1163(const struct A1163 *x, const struct A1163 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4[0] == y->m4[0] && x->m4[1] == y->m4[1] && x->m4[2] == y->m4[2] && x->m4[3] == y->m4[3] && x->m4[4] == y->m4[4] && x->m4[5] == y->m4[5] && x->m4[6] == y->m4[6] && x->m4[7] == y->m4[7] && x->m4[8] == y->m4[8] && x->m4[9] == y->m4[9] && x->m4[10] == y->m4[10] && x->m4[11] == y->m4[11] && x->m4[12] == y->m4[12] && x->m4[13] == y->m4[13] && x->m4[14] == y->m4[14] && x->m4[15] == y->m4[15] && x->m5 == y->m5 && x->m6 == y->m6 && f_cmpA1162(&x->m7, &y->m7) && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1163() {
+DCaggr* f_touchA1163() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1163));
@@ -23166,7 +23166,7 @@ DCaggr* f_touchdcstA1163() {
 /* {fd} */
 struct A1164 { f m0; d m1; };
 int f_cmpA1164(const struct A1164 *x, const struct A1164 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA1164() {
+DCaggr* f_touchA1164() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(struct A1164));
@@ -23179,7 +23179,7 @@ DCaggr* f_touchdcstA1164() {
 /* <IIC{fd}fSljSBjC> */
 union A1165 { I m0; I m1; C m2; struct A1164 m3; f m4; S m5; l m6; j m7; S m8; B m9; j m10; C m11; };
 int f_cmpA1165(const union A1165 *x, const union A1165 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA1164(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1165() {
+DCaggr* f_touchA1165() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1165));
@@ -23202,7 +23202,7 @@ DCaggr* f_touchdcstA1165() {
 /* <LiclB[10]cfcc[16]Scc> */
 union A1166 { L m0; i m1; c m2; l m3; B m4[10]; c m5; f m6; c m7; c m8[16]; S m9; c m10; c m11; };
 int f_cmpA1166(const union A1166 *x, const union A1166 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4[0] == y->m4[0] && x->m4[1] == y->m4[1] && x->m4[2] == y->m4[2] && x->m4[3] == y->m4[3] && x->m4[4] == y->m4[4] && x->m4[5] == y->m4[5] && x->m4[6] == y->m4[6] && x->m4[7] == y->m4[7] && x->m4[8] == y->m4[8] && x->m4[9] == y->m4[9] && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8[0] == y->m8[0] && x->m8[1] == y->m8[1] && x->m8[2] == y->m8[2] && x->m8[3] == y->m8[3] && x->m8[4] == y->m8[4] && x->m8[5] == y->m8[5] && x->m8[6] == y->m8[6] && x->m8[7] == y->m8[7] && x->m8[8] == y->m8[8] && x->m8[9] == y->m8[9] && x->m8[10] == y->m8[10] && x->m8[11] == y->m8[11] && x->m8[12] == y->m8[12] && x->m8[13] == y->m8[13] && x->m8[14] == y->m8[14] && x->m8[15] == y->m8[15] && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1166() {
+DCaggr* f_touchA1166() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1166));
@@ -23225,7 +23225,7 @@ DCaggr* f_touchdcstA1166() {
 /* {jcLfIfpCjf} */
 struct A1167 { j m0; c m1; L m2; f m3; I m4; f m5; p m6; C m7; j m8; f m9; };
 int f_cmpA1167(const struct A1167 *x, const struct A1167 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA1167() {
+DCaggr* f_touchA1167() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(struct A1167));
@@ -23246,7 +23246,7 @@ DCaggr* f_touchdcstA1167() {
 /* {JdilspJ<LiclB[10]cfcc[16]Scc>id{jcLfIfpCjf}B} */
 struct A1168 { J m0; d m1; i m2; l m3; s m4; p m5; J m6; union A1166 m7; i m8; d m9; struct A1167 m10; B m11; };
 int f_cmpA1168(const struct A1168 *x, const struct A1168 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && f_cmpA1166(&x->m7, &y->m7) && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA1167(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1168() {
+DCaggr* f_touchA1168() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1168));
@@ -23269,7 +23269,7 @@ DCaggr* f_touchdcstA1168() {
 /* {BSfcJCfJLIBJ} */
 struct A1169 { B m0; S m1; f m2; c m3; J m4; C m5; f m6; J m7; L m8; I m9; B m10; J m11; };
 int f_cmpA1169(const struct A1169 *x, const struct A1169 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1169() {
+DCaggr* f_touchA1169() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1169));
@@ -23292,7 +23292,7 @@ DCaggr* f_touchdcstA1169() {
 /* {dfcCLIp{BSfcJCfJLIBJ}LLfC} */
 struct A1170 { d m0; f m1; c m2; C m3; L m4; I m5; p m6; struct A1169 m7; L m8; L m9; f m10; C m11; };
 int f_cmpA1170(const struct A1170 *x, const struct A1170 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && f_cmpA1169(&x->m7, &y->m7) && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1170() {
+DCaggr* f_touchA1170() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1170));
@@ -23315,7 +23315,7 @@ DCaggr* f_touchdcstA1170() {
 /* <sjSpsS> */
 union A1171 { s m0; j m1; S m2; p m3; s m4; S m5; };
 int f_cmpA1171(const union A1171 *x, const union A1171 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA1171() {
+DCaggr* f_touchA1171() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(union A1171));
@@ -23332,7 +23332,7 @@ DCaggr* f_touchdcstA1171() {
 /* {li} */
 struct A1172 { l m0; i m1; };
 int f_cmpA1172(const struct A1172 *x, const struct A1172 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA1172() {
+DCaggr* f_touchA1172() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(struct A1172));
@@ -23345,7 +23345,7 @@ DCaggr* f_touchdcstA1172() {
 /* {cdISBiClpiLj} */
 struct A1173 { c m0; d m1; I m2; S m3; B m4; i m5; C m6; l m7; p m8; i m9; L m10; j m11; };
 int f_cmpA1173(const struct A1173 *x, const struct A1173 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1173() {
+DCaggr* f_touchA1173() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1173));
@@ -23368,7 +23368,7 @@ DCaggr* f_touchdcstA1173() {
 /* <<i>{li}iCjicBs{cdISBiClpiLj}JL> */
 union A1174 { union A45 m0; struct A1172 m1; i m2; C m3; j m4; i m5; c m6; B m7; s m8; struct A1173 m9; J m10; L m11; };
 int f_cmpA1174(const union A1174 *x, const union A1174 *y) { return f_cmpA45(&x->m0, &y->m0) && f_cmpA1172(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && f_cmpA1173(&x->m9, &y->m9) && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1174() {
+DCaggr* f_touchA1174() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1174));
@@ -23391,7 +23391,7 @@ DCaggr* f_touchdcstA1174() {
 /* {BfLliSI<sjSpsS><<i>{li}iCjicBs{cdISBiClpiLj}JL>Slc} */
 struct A1175 { B m0; f m1; L m2; l m3; i m4; S m5; I m6; union A1171 m7; union A1174 m8; S m9; l m10; c m11; };
 int f_cmpA1175(const struct A1175 *x, const struct A1175 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && f_cmpA1171(&x->m7, &y->m7) && f_cmpA1174(&x->m8, &y->m8) && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1175() {
+DCaggr* f_touchA1175() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1175));
@@ -23414,7 +23414,7 @@ DCaggr* f_touchdcstA1175() {
 /* {CffBLBlccIdj} */
 struct A1176 { C m0; f m1; f m2; B m3; L m4; B m5; l m6; c m7; c m8; I m9; d m10; j m11; };
 int f_cmpA1176(const struct A1176 *x, const struct A1176 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1176() {
+DCaggr* f_touchA1176() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1176));
@@ -23437,7 +23437,7 @@ DCaggr* f_touchdcstA1176() {
 /* <pSf{CffBLBlccIdj}> */
 union A1177 { p m0; S m1; f m2; struct A1176 m3; };
 int f_cmpA1177(const union A1177 *x, const union A1177 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA1176(&x->m3, &y->m3); };
-DCaggr* f_touchdcstA1177() {
+DCaggr* f_touchA1177() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A1177));
@@ -23452,7 +23452,7 @@ DCaggr* f_touchdcstA1177() {
 /* <Lci[9]LCICdCSjL> */
 union A1178 { L m0; c m1; i m2[9]; L m3; C m4; I m5; C m6; d m7; C m8; S m9; j m10; L m11; };
 int f_cmpA1178(const union A1178 *x, const union A1178 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2[0] == y->m2[0] && x->m2[1] == y->m2[1] && x->m2[2] == y->m2[2] && x->m2[3] == y->m2[3] && x->m2[4] == y->m2[4] && x->m2[5] == y->m2[5] && x->m2[6] == y->m2[6] && x->m2[7] == y->m2[7] && x->m2[8] == y->m2[8] && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1178() {
+DCaggr* f_touchA1178() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1178));
@@ -23475,7 +23475,7 @@ DCaggr* f_touchdcstA1178() {
 /* {CIsl<Lci[9]LCICdCSjL>} */
 struct A1179 { C m0; I m1; s m2; l m3; union A1178 m4; };
 int f_cmpA1179(const struct A1179 *x, const struct A1179 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA1178(&x->m4, &y->m4); };
-DCaggr* f_touchdcstA1179() {
+DCaggr* f_touchA1179() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A1179));
@@ -23491,7 +23491,7 @@ DCaggr* f_touchdcstA1179() {
 /* <JpIdldJIiCil> */
 union A1180 { J m0; p m1; I m2; d m3; l m4; d m5; J m6; I m7; i m8; C m9; i m10; l m11; };
 int f_cmpA1180(const union A1180 *x, const union A1180 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1180() {
+DCaggr* f_touchA1180() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1180));
@@ -23514,7 +23514,7 @@ DCaggr* f_touchdcstA1180() {
 /* {JBJICciJdfLI} */
 struct A1181 { J m0; B m1; J m2; I m3; C m4; c m5; i m6; J m7; d m8; f m9; L m10; I m11; };
 int f_cmpA1181(const struct A1181 *x, const struct A1181 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1181() {
+DCaggr* f_touchA1181() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1181));
@@ -23537,7 +23537,7 @@ DCaggr* f_touchdcstA1181() {
 /* {lpdiLfiLLdjj} */
 struct A1182 { l m0; p m1; d m2; i m3; L m4; f m5; i m6; L m7; L m8; d m9; j m10; j m11; };
 int f_cmpA1182(const struct A1182 *x, const struct A1182 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1182() {
+DCaggr* f_touchA1182() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1182));
@@ -23560,7 +23560,7 @@ DCaggr* f_touchdcstA1182() {
 /* <j[10]JLCSjpI<JpIdldJIiCil>{JBJICciJdfLI}f{lpdiLfiLLdjj}> */
 union A1183 { j m0[10]; J m1; L m2; C m3; S m4; j m5; p m6; I m7; union A1180 m8; struct A1181 m9; f m10; struct A1182 m11; };
 int f_cmpA1183(const union A1183 *x, const union A1183 *y) { return x->m0[0] == y->m0[0] && x->m0[1] == y->m0[1] && x->m0[2] == y->m0[2] && x->m0[3] == y->m0[3] && x->m0[4] == y->m0[4] && x->m0[5] == y->m0[5] && x->m0[6] == y->m0[6] && x->m0[7] == y->m0[7] && x->m0[8] == y->m0[8] && x->m0[9] == y->m0[9] && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA1180(&x->m8, &y->m8) && f_cmpA1181(&x->m9, &y->m9) && x->m10 == y->m10 && f_cmpA1182(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA1183() {
+DCaggr* f_touchA1183() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1183));
@@ -23583,7 +23583,7 @@ DCaggr* f_touchdcstA1183() {
 /* {LJSLdILC} */
 struct A1184 { L m0; J m1; S m2; L m3; d m4; I m5; L m6; C m7; };
 int f_cmpA1184(const struct A1184 *x, const struct A1184 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA1184() {
+DCaggr* f_touchA1184() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(struct A1184));
@@ -23602,7 +23602,7 @@ DCaggr* f_touchdcstA1184() {
 /* {CdlILslf{LJSLdILC}BI} */
 struct A1185 { C m0; d m1; l m2; I m3; L m4; s m5; l m6; f m7; struct A1184 m8; B m9; I m10; };
 int f_cmpA1185(const struct A1185 *x, const struct A1185 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA1184(&x->m8, &y->m8) && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA1185() {
+DCaggr* f_touchA1185() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(struct A1185));
@@ -23624,7 +23624,7 @@ DCaggr* f_touchdcstA1185() {
 /* <pifJi> */
 union A1186 { p m0; i m1; f m2; J m3; i m4; };
 int f_cmpA1186(const union A1186 *x, const union A1186 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA1186() {
+DCaggr* f_touchA1186() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A1186));
@@ -23640,7 +23640,7 @@ DCaggr* f_touchdcstA1186() {
 /* {s[15]LccCSC} */
 struct A1187 { s m0[15]; L m1; c m2; c m3; C m4; S m5; C m6; };
 int f_cmpA1187(const struct A1187 *x, const struct A1187 *y) { return x->m0[0] == y->m0[0] && x->m0[1] == y->m0[1] && x->m0[2] == y->m0[2] && x->m0[3] == y->m0[3] && x->m0[4] == y->m0[4] && x->m0[5] == y->m0[5] && x->m0[6] == y->m0[6] && x->m0[7] == y->m0[7] && x->m0[8] == y->m0[8] && x->m0[9] == y->m0[9] && x->m0[10] == y->m0[10] && x->m0[11] == y->m0[11] && x->m0[12] == y->m0[12] && x->m0[13] == y->m0[13] && x->m0[14] == y->m0[14] && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA1187() {
+DCaggr* f_touchA1187() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(struct A1187));
@@ -23658,7 +23658,7 @@ DCaggr* f_touchdcstA1187() {
 /* {df[11]l{s[15]LccCSC}} */
 struct A1188 { d m0; f m1[11]; l m2; struct A1187 m3; };
 int f_cmpA1188(const struct A1188 *x, const struct A1188 *y) { return x->m0 == y->m0 && x->m1[0] == y->m1[0] && x->m1[1] == y->m1[1] && x->m1[2] == y->m1[2] && x->m1[3] == y->m1[3] && x->m1[4] == y->m1[4] && x->m1[5] == y->m1[5] && x->m1[6] == y->m1[6] && x->m1[7] == y->m1[7] && x->m1[8] == y->m1[8] && x->m1[9] == y->m1[9] && x->m1[10] == y->m1[10] && x->m2 == y->m2 && f_cmpA1187(&x->m3, &y->m3); };
-DCaggr* f_touchdcstA1188() {
+DCaggr* f_touchA1188() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A1188));
@@ -23673,7 +23673,7 @@ DCaggr* f_touchdcstA1188() {
 /* <CfffdIJBjsS[12]d> */
 union A1189 { C m0; f m1; f m2; f m3; d m4; I m5; J m6; B m7; j m8; s m9; S m10[12]; d m11; };
 int f_cmpA1189(const union A1189 *x, const union A1189 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10[0] == y->m10[0] && x->m10[1] == y->m10[1] && x->m10[2] == y->m10[2] && x->m10[3] == y->m10[3] && x->m10[4] == y->m10[4] && x->m10[5] == y->m10[5] && x->m10[6] == y->m10[6] && x->m10[7] == y->m10[7] && x->m10[8] == y->m10[8] && x->m10[9] == y->m10[9] && x->m10[10] == y->m10[10] && x->m10[11] == y->m10[11] && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1189() {
+DCaggr* f_touchA1189() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1189));
@@ -23696,7 +23696,7 @@ DCaggr* f_touchdcstA1189() {
 /* <fBffI<CfffdIJBjsS[12]d>sIiIlI> */
 union A1190 { f m0; B m1; f m2; f m3; I m4; union A1189 m5; s m6; I m7; i m8; I m9; l m10; I m11; };
 int f_cmpA1190(const union A1190 *x, const union A1190 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA1189(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1190() {
+DCaggr* f_touchA1190() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1190));
@@ -23719,7 +23719,7 @@ DCaggr* f_touchdcstA1190() {
 /* <jc> */
 union A1191 { j m0; c m1; };
 int f_cmpA1191(const union A1191 *x, const union A1191 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA1191() {
+DCaggr* f_touchA1191() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A1191));
@@ -23732,7 +23732,7 @@ DCaggr* f_touchdcstA1191() {
 /* {jd<jc>LSSiJlsSc} */
 struct A1192 { j m0; d m1; union A1191 m2; L m3; S m4; S m5; i m6; J m7; l m8; s m9; S m10; c m11; };
 int f_cmpA1192(const struct A1192 *x, const struct A1192 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA1191(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1192() {
+DCaggr* f_touchA1192() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1192));
@@ -23755,7 +23755,7 @@ DCaggr* f_touchdcstA1192() {
 /* <Sl> */
 union A1193 { S m0; l m1; };
 int f_cmpA1193(const union A1193 *x, const union A1193 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA1193() {
+DCaggr* f_touchA1193() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A1193));
@@ -23768,7 +23768,7 @@ DCaggr* f_touchdcstA1193() {
 /* {pLpCl} */
 struct A1194 { p m0; L m1; p m2; C m3; l m4; };
 int f_cmpA1194(const struct A1194 *x, const struct A1194 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA1194() {
+DCaggr* f_touchA1194() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A1194));
@@ -23784,7 +23784,7 @@ DCaggr* f_touchdcstA1194() {
 /* {I{pLpCl}} */
 struct A1195 { I m0; struct A1194 m1; };
 int f_cmpA1195(const struct A1195 *x, const struct A1195 *y) { return x->m0 == y->m0 && f_cmpA1194(&x->m1, &y->m1); };
-DCaggr* f_touchdcstA1195() {
+DCaggr* f_touchA1195() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(struct A1195));
@@ -23797,7 +23797,7 @@ DCaggr* f_touchdcstA1195() {
 /* {Cs} */
 struct A1196 { C m0; s m1; };
 int f_cmpA1196(const struct A1196 *x, const struct A1196 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA1196() {
+DCaggr* f_touchA1196() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(struct A1196));
@@ -23810,7 +23810,7 @@ DCaggr* f_touchdcstA1196() {
 /* <sJJLsLBcdp> */
 union A1197 { s m0; J m1; J m2; L m3; s m4; L m5; B m6; c m7; d m8; p m9; };
 int f_cmpA1197(const union A1197 *x, const union A1197 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA1197() {
+DCaggr* f_touchA1197() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A1197));
@@ -23831,7 +23831,7 @@ DCaggr* f_touchdcstA1197() {
 /* <fsl> */
 union A1198 { f m0; s m1; l m2; };
 int f_cmpA1198(const union A1198 *x, const union A1198 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA1198() {
+DCaggr* f_touchA1198() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A1198));
@@ -23845,7 +23845,7 @@ DCaggr* f_touchdcstA1198() {
 /* {cL<fsl>B{l}c} */
 struct A1199 { c m0; L m1; union A1198 m2; B m3; struct A937 m4; c m5; };
 int f_cmpA1199(const struct A1199 *x, const struct A1199 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA1198(&x->m2, &y->m2) && x->m3 == y->m3 && f_cmpA937(&x->m4, &y->m4) && x->m5 == y->m5; };
-DCaggr* f_touchdcstA1199() {
+DCaggr* f_touchA1199() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(struct A1199));
@@ -23862,7 +23862,7 @@ DCaggr* f_touchdcstA1199() {
 /* {IBCdccLjSscC} */
 struct A1200 { I m0; B m1; C m2; d m3; c m4; c m5; L m6; j m7; S m8; s m9; c m10; C m11; };
 int f_cmpA1200(const struct A1200 *x, const struct A1200 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1200() {
+DCaggr* f_touchA1200() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1200));
@@ -23885,7 +23885,7 @@ DCaggr* f_touchdcstA1200() {
 /* <fjSj> */
 union A1201 { f m0; j m1; S m2; j m3; };
 int f_cmpA1201(const union A1201 *x, const union A1201 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA1201() {
+DCaggr* f_touchA1201() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A1201));
@@ -23900,7 +23900,7 @@ DCaggr* f_touchdcstA1201() {
 /* <{IBCdccLjSscC}sc<fjSj>JIIcBdsL[8]> */
 union A1202 { struct A1200 m0; s m1; c m2; union A1201 m3; J m4; I m5; I m6; c m7; B m8; d m9; s m10; L m11[8]; };
 int f_cmpA1202(const union A1202 *x, const union A1202 *y) { return f_cmpA1200(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA1201(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11[0] == y->m11[0] && x->m11[1] == y->m11[1] && x->m11[2] == y->m11[2] && x->m11[3] == y->m11[3] && x->m11[4] == y->m11[4] && x->m11[5] == y->m11[5] && x->m11[6] == y->m11[6] && x->m11[7] == y->m11[7]; };
-DCaggr* f_touchdcstA1202() {
+DCaggr* f_touchA1202() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1202));
@@ -23923,7 +23923,7 @@ DCaggr* f_touchdcstA1202() {
 /* <JSfL> */
 union A1203 { J m0; S m1; f m2; L m3; };
 int f_cmpA1203(const union A1203 *x, const union A1203 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA1203() {
+DCaggr* f_touchA1203() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A1203));
@@ -23938,7 +23938,7 @@ DCaggr* f_touchdcstA1203() {
 /* {LCBiISCsBJBj} */
 struct A1204 { L m0; C m1; B m2; i m3; I m4; S m5; C m6; s m7; B m8; J m9; B m10; j m11; };
 int f_cmpA1204(const struct A1204 *x, const struct A1204 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1204() {
+DCaggr* f_touchA1204() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1204));
@@ -23961,7 +23961,7 @@ DCaggr* f_touchdcstA1204() {
 /* {piJLs{LCBiISCsBJBj}i} */
 struct A1205 { p m0; i m1; J m2; L m3; s m4; struct A1204 m5; i m6; };
 int f_cmpA1205(const struct A1205 *x, const struct A1205 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA1204(&x->m5, &y->m5) && x->m6 == y->m6; };
-DCaggr* f_touchdcstA1205() {
+DCaggr* f_touchA1205() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(struct A1205));
@@ -23979,7 +23979,7 @@ DCaggr* f_touchdcstA1205() {
 /* <SJfLiClcdBJS> */
 union A1206 { S m0; J m1; f m2; L m3; i m4; C m5; l m6; c m7; d m8; B m9; J m10; S m11; };
 int f_cmpA1206(const union A1206 *x, const union A1206 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1206() {
+DCaggr* f_touchA1206() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1206));
@@ -24002,7 +24002,7 @@ DCaggr* f_touchdcstA1206() {
 /* {Sf[2]} */
 struct A1207 { S m0; f m1[2]; };
 int f_cmpA1207(const struct A1207 *x, const struct A1207 *y) { return x->m0 == y->m0 && x->m1[0] == y->m1[0] && x->m1[1] == y->m1[1]; };
-DCaggr* f_touchdcstA1207() {
+DCaggr* f_touchA1207() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(struct A1207));
@@ -24015,7 +24015,7 @@ DCaggr* f_touchdcstA1207() {
 /* <IlfcSl> */
 union A1208 { I m0; l m1; f m2; c m3; S m4; l m5; };
 int f_cmpA1208(const union A1208 *x, const union A1208 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA1208() {
+DCaggr* f_touchA1208() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(union A1208));
@@ -24032,7 +24032,7 @@ DCaggr* f_touchdcstA1208() {
 /* <Lsp> */
 union A1209 { L m0; s m1; p m2; };
 int f_cmpA1209(const union A1209 *x, const union A1209 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA1209() {
+DCaggr* f_touchA1209() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A1209));
@@ -24046,7 +24046,7 @@ DCaggr* f_touchdcstA1209() {
 /* {<SJfLiClcdBJS>i{Sf[2]}I<IlfcSl>IcL<Lsp>il} */
 struct A1210 { union A1206 m0; i m1; struct A1207 m2; I m3; union A1208 m4; I m5; c m6; L m7; union A1209 m8; i m9; l m10; };
 int f_cmpA1210(const struct A1210 *x, const struct A1210 *y) { return f_cmpA1206(&x->m0, &y->m0) && x->m1 == y->m1 && f_cmpA1207(&x->m2, &y->m2) && x->m3 == y->m3 && f_cmpA1208(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA1209(&x->m8, &y->m8) && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA1210() {
+DCaggr* f_touchA1210() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(struct A1210));
@@ -24068,7 +24068,7 @@ DCaggr* f_touchdcstA1210() {
 /* {BIjf} */
 struct A1211 { B m0; I m1; j m2; f m3; };
 int f_cmpA1211(const struct A1211 *x, const struct A1211 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA1211() {
+DCaggr* f_touchA1211() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A1211));
@@ -24083,7 +24083,7 @@ DCaggr* f_touchdcstA1211() {
 /* {ps{BIjf}dfdli} */
 struct A1212 { p m0; s m1; struct A1211 m2; d m3; f m4; d m5; l m6; i m7; };
 int f_cmpA1212(const struct A1212 *x, const struct A1212 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA1211(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA1212() {
+DCaggr* f_touchA1212() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(struct A1212));
@@ -24102,7 +24102,7 @@ DCaggr* f_touchdcstA1212() {
 /* {pBSIcdjCfcBj} */
 struct A1213 { p m0; B m1; S m2; I m3; c m4; d m5; j m6; C m7; f m8; c m9; B m10; j m11; };
 int f_cmpA1213(const struct A1213 *x, const struct A1213 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1213() {
+DCaggr* f_touchA1213() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1213));
@@ -24125,7 +24125,7 @@ DCaggr* f_touchdcstA1213() {
 /* {lBfJLfCd} */
 struct A1214 { l m0; B m1; f m2; J m3; L m4; f m5; C m6; d m7; };
 int f_cmpA1214(const struct A1214 *x, const struct A1214 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA1214() {
+DCaggr* f_touchA1214() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(struct A1214));
@@ -24144,7 +24144,7 @@ DCaggr* f_touchdcstA1214() {
 /* {ldlc{pBSIcdjCfcBj}fId{lBfJLfCd}Jpi} */
 struct A1215 { l m0; d m1; l m2; c m3; struct A1213 m4; f m5; I m6; d m7; struct A1214 m8; J m9; p m10; i m11; };
 int f_cmpA1215(const struct A1215 *x, const struct A1215 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA1213(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA1214(&x->m8, &y->m8) && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1215() {
+DCaggr* f_touchA1215() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1215));
@@ -24167,7 +24167,7 @@ DCaggr* f_touchdcstA1215() {
 /* {ddBBsfdpJJIj} */
 struct A1216 { d m0; d m1; B m2; B m3; s m4; f m5; d m6; p m7; J m8; J m9; I m10; j m11; };
 int f_cmpA1216(const struct A1216 *x, const struct A1216 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1216() {
+DCaggr* f_touchA1216() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1216));
@@ -24190,7 +24190,7 @@ DCaggr* f_touchdcstA1216() {
 /* {Jppsf} */
 struct A1217 { J m0; p m1; p m2; s m3; f m4; };
 int f_cmpA1217(const struct A1217 *x, const struct A1217 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA1217() {
+DCaggr* f_touchA1217() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(struct A1217));
@@ -24206,7 +24206,7 @@ DCaggr* f_touchdcstA1217() {
 /* {pS{ddBBsfdpJJIj}J{Jppsf}f} */
 struct A1218 { p m0; S m1; struct A1216 m2; J m3; struct A1217 m4; f m5; };
 int f_cmpA1218(const struct A1218 *x, const struct A1218 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA1216(&x->m2, &y->m2) && x->m3 == y->m3 && f_cmpA1217(&x->m4, &y->m4) && x->m5 == y->m5; };
-DCaggr* f_touchdcstA1218() {
+DCaggr* f_touchA1218() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(struct A1218));
@@ -24223,7 +24223,7 @@ DCaggr* f_touchdcstA1218() {
 /* <jS{ps{BIjf}dfdli}j{ldlc{pBSIcdjCfcBj}fId{lBfJLfCd}Jpi}jLpsB{pS{ddBBsfdpJJIj}J{Jppsf}f}f> */
 union A1219 { j m0; S m1; struct A1212 m2; j m3; struct A1215 m4; j m5; L m6; p m7; s m8; B m9; struct A1218 m10; f m11; };
 int f_cmpA1219(const union A1219 *x, const union A1219 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA1212(&x->m2, &y->m2) && x->m3 == y->m3 && f_cmpA1215(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA1218(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1219() {
+DCaggr* f_touchA1219() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1219));
@@ -24246,7 +24246,7 @@ DCaggr* f_touchdcstA1219() {
 /* <sssiLjlBdJsp> */
 union A1220 { s m0; s m1; s m2; i m3; L m4; j m5; l m6; B m7; d m8; J m9; s m10; p m11; };
 int f_cmpA1220(const union A1220 *x, const union A1220 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1220() {
+DCaggr* f_touchA1220() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1220));
@@ -24269,7 +24269,7 @@ DCaggr* f_touchdcstA1220() {
 /* <SIsClSlljBJd> */
 union A1221 { S m0; I m1; s m2; C m3; l m4; S m5; l m6; l m7; j m8; B m9; J m10; d m11; };
 int f_cmpA1221(const union A1221 *x, const union A1221 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1221() {
+DCaggr* f_touchA1221() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1221));
@@ -24292,7 +24292,7 @@ DCaggr* f_touchdcstA1221() {
 /* {IC} */
 struct A1222 { I m0; C m1; };
 int f_cmpA1222(const struct A1222 *x, const struct A1222 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA1222() {
+DCaggr* f_touchA1222() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(struct A1222));
@@ -24305,7 +24305,7 @@ DCaggr* f_touchdcstA1222() {
 /* {CiISjdSCclCj} */
 struct A1223 { C m0; i m1; I m2; S m3; j m4; d m5; S m6; C m7; c m8; l m9; C m10; j m11; };
 int f_cmpA1223(const struct A1223 *x, const struct A1223 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1223() {
+DCaggr* f_touchA1223() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1223));
@@ -24328,7 +24328,7 @@ DCaggr* f_touchdcstA1223() {
 /* <di<SIsClSlljBJd>JJ{IC}c{CiISjdSCclCj}djdd> */
 union A1224 { d m0; i m1; union A1221 m2; J m3; J m4; struct A1222 m5; c m6; struct A1223 m7; d m8; j m9; d m10; d m11; };
 int f_cmpA1224(const union A1224 *x, const union A1224 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA1221(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA1222(&x->m5, &y->m5) && x->m6 == y->m6 && f_cmpA1223(&x->m7, &y->m7) && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1224() {
+DCaggr* f_touchA1224() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1224));
@@ -24351,7 +24351,7 @@ DCaggr* f_touchdcstA1224() {
 /* <lcSjsICcpIsI[15]> */
 union A1225 { l m0; c m1; S m2; j m3; s m4; I m5; C m6; c m7; p m8; I m9; s m10; I m11[15]; };
 int f_cmpA1225(const union A1225 *x, const union A1225 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11[0] == y->m11[0] && x->m11[1] == y->m11[1] && x->m11[2] == y->m11[2] && x->m11[3] == y->m11[3] && x->m11[4] == y->m11[4] && x->m11[5] == y->m11[5] && x->m11[6] == y->m11[6] && x->m11[7] == y->m11[7] && x->m11[8] == y->m11[8] && x->m11[9] == y->m11[9] && x->m11[10] == y->m11[10] && x->m11[11] == y->m11[11] && x->m11[12] == y->m11[12] && x->m11[13] == y->m11[13] && x->m11[14] == y->m11[14]; };
-DCaggr* f_touchdcstA1225() {
+DCaggr* f_touchA1225() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1225));
@@ -24374,7 +24374,7 @@ DCaggr* f_touchdcstA1225() {
 /* {lj[14]cBBspCjpii[9]} */
 struct A1226 { l m0; j m1[14]; c m2; B m3; B m4; s m5; p m6; C m7; j m8; p m9; i m10; i m11[9]; };
 int f_cmpA1226(const struct A1226 *x, const struct A1226 *y) { return x->m0 == y->m0 && x->m1[0] == y->m1[0] && x->m1[1] == y->m1[1] && x->m1[2] == y->m1[2] && x->m1[3] == y->m1[3] && x->m1[4] == y->m1[4] && x->m1[5] == y->m1[5] && x->m1[6] == y->m1[6] && x->m1[7] == y->m1[7] && x->m1[8] == y->m1[8] && x->m1[9] == y->m1[9] && x->m1[10] == y->m1[10] && x->m1[11] == y->m1[11] && x->m1[12] == y->m1[12] && x->m1[13] == y->m1[13] && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11[0] == y->m11[0] && x->m11[1] == y->m11[1] && x->m11[2] == y->m11[2] && x->m11[3] == y->m11[3] && x->m11[4] == y->m11[4] && x->m11[5] == y->m11[5] && x->m11[6] == y->m11[6] && x->m11[7] == y->m11[7] && x->m11[8] == y->m11[8]; };
-DCaggr* f_touchdcstA1226() {
+DCaggr* f_touchA1226() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1226));
@@ -24397,7 +24397,7 @@ DCaggr* f_touchdcstA1226() {
 /* <ISBl{lj[14]cBBspCjpii[9]}JLLdScl> */
 union A1227 { I m0; S m1; B m2; l m3; struct A1226 m4; J m5; L m6; L m7; d m8; S m9; c m10; l m11; };
 int f_cmpA1227(const union A1227 *x, const union A1227 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA1226(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1227() {
+DCaggr* f_touchA1227() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1227));
@@ -24420,7 +24420,7 @@ DCaggr* f_touchdcstA1227() {
 /* <fBjj> */
 union A1228 { f m0; B m1; j m2; j m3; };
 int f_cmpA1228(const union A1228 *x, const union A1228 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA1228() {
+DCaggr* f_touchA1228() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A1228));
@@ -24435,7 +24435,7 @@ DCaggr* f_touchdcstA1228() {
 /* <Jdsi[3]dLciJ> */
 union A1229 { J m0; d m1; s m2; i m3[3]; d m4; L m5; c m6; i m7; J m8; };
 int f_cmpA1229(const union A1229 *x, const union A1229 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3[0] == y->m3[0] && x->m3[1] == y->m3[1] && x->m3[2] == y->m3[2] && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA1229() {
+DCaggr* f_touchA1229() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A1229));
@@ -24455,7 +24455,7 @@ DCaggr* f_touchdcstA1229() {
 /* {<fBjj><Jdsi[3]dLciJ>pidcfSBcd{C}} */
 struct A1230 { union A1228 m0; union A1229 m1; p m2; i m3; d m4; c m5; f m6; S m7; B m8; c m9; d m10; struct A1079 m11; };
 int f_cmpA1230(const struct A1230 *x, const struct A1230 *y) { return f_cmpA1228(&x->m0, &y->m0) && f_cmpA1229(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && f_cmpA1079(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA1230() {
+DCaggr* f_touchA1230() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1230));
@@ -24478,7 +24478,7 @@ DCaggr* f_touchdcstA1230() {
 /* <lBd> */
 union A1231 { l m0; B m1; d m2; };
 int f_cmpA1231(const union A1231 *x, const union A1231 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA1231() {
+DCaggr* f_touchA1231() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A1231));
@@ -24492,7 +24492,7 @@ DCaggr* f_touchdcstA1231() {
 /* {JfCpjifCJjJf} */
 struct A1232 { J m0; f m1; C m2; p m3; j m4; i m5; f m6; C m7; J m8; j m9; J m10; f m11; };
 int f_cmpA1232(const struct A1232 *x, const struct A1232 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1232() {
+DCaggr* f_touchA1232() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1232));
@@ -24515,7 +24515,7 @@ DCaggr* f_touchdcstA1232() {
 /* <dJLdpdJ{JfCpjifCJjJf}jBS> */
 union A1233 { d m0; J m1; L m2; d m3; p m4; d m5; J m6; struct A1232 m7; j m8; B m9; S m10; };
 int f_cmpA1233(const union A1233 *x, const union A1233 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && f_cmpA1232(&x->m7, &y->m7) && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10; };
-DCaggr* f_touchdcstA1233() {
+DCaggr* f_touchA1233() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(11, sizeof(union A1233));
@@ -24537,7 +24537,7 @@ DCaggr* f_touchdcstA1233() {
 /* <LLI> */
 union A1234 { L m0; L m1; I m2; };
 int f_cmpA1234(const union A1234 *x, const union A1234 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA1234() {
+DCaggr* f_touchA1234() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A1234));
@@ -24551,7 +24551,7 @@ DCaggr* f_touchdcstA1234() {
 /* {dc{<fBjj><Jdsi[3]dLciJ>pidcfSBcd{C}}spscJ<lBd>[15]L<dJLdpdJ{JfCpjifCJjJf}jBS><LLI>} */
 struct A1235 { d m0; c m1; struct A1230 m2; s m3; p m4; s m5; c m6; J m7; union A1231 m8[15]; L m9; union A1233 m10; union A1234 m11; };
 int f_cmpA1235(const struct A1235 *x, const struct A1235 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA1230(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA1231(&x->m8[0], &y->m8[0]) && f_cmpA1231(&x->m8[1], &y->m8[1]) && f_cmpA1231(&x->m8[2], &y->m8[2]) && f_cmpA1231(&x->m8[3], &y->m8[3]) && f_cmpA1231(&x->m8[4], &y->m8[4]) && f_cmpA1231(&x->m8[5], &y->m8[5]) && f_cmpA1231(&x->m8[6], &y->m8[6]) && f_cmpA1231(&x->m8[7], &y->m8[7]) && f_cmpA1231(&x->m8[8], &y->m8[8]) && f_cmpA1231(&x->m8[9], &y->m8[9]) && f_cmpA1231(&x->m8[10], &y->m8[10]) && f_cmpA1231(&x->m8[11], &y->m8[11]) && f_cmpA1231(&x->m8[12], &y->m8[12]) && f_cmpA1231(&x->m8[13], &y->m8[13]) && f_cmpA1231(&x->m8[14], &y->m8[14]) && x->m9 == y->m9 && f_cmpA1233(&x->m10, &y->m10) && f_cmpA1234(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA1235() {
+DCaggr* f_touchA1235() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1235));
@@ -24574,7 +24574,7 @@ DCaggr* f_touchdcstA1235() {
 /* {cds[16]} */
 struct A1236 { c m0; d m1; s m2[16]; };
 int f_cmpA1236(const struct A1236 *x, const struct A1236 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2[0] == y->m2[0] && x->m2[1] == y->m2[1] && x->m2[2] == y->m2[2] && x->m2[3] == y->m2[3] && x->m2[4] == y->m2[4] && x->m2[5] == y->m2[5] && x->m2[6] == y->m2[6] && x->m2[7] == y->m2[7] && x->m2[8] == y->m2[8] && x->m2[9] == y->m2[9] && x->m2[10] == y->m2[10] && x->m2[11] == y->m2[11] && x->m2[12] == y->m2[12] && x->m2[13] == y->m2[13] && x->m2[14] == y->m2[14] && x->m2[15] == y->m2[15]; };
-DCaggr* f_touchdcstA1236() {
+DCaggr* f_touchA1236() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A1236));
@@ -24588,7 +24588,7 @@ DCaggr* f_touchdcstA1236() {
 /* {lB{cds[16]}BSBdCfCjs} */
 struct A1237 { l m0; B m1; struct A1236 m2; B m3; S m4; B m5; d m6; C m7; f m8; C m9; j m10; s m11; };
 int f_cmpA1237(const struct A1237 *x, const struct A1237 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA1236(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1237() {
+DCaggr* f_touchA1237() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1237));
@@ -24611,7 +24611,7 @@ DCaggr* f_touchdcstA1237() {
 /* <dlfIpijidiIc> */
 union A1238 { d m0; l m1; f m2; I m3; p m4; i m5; j m6; i m7; d m8; i m9; I m10; c m11; };
 int f_cmpA1238(const union A1238 *x, const union A1238 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1238() {
+DCaggr* f_touchA1238() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1238));
@@ -24634,7 +24634,7 @@ DCaggr* f_touchdcstA1238() {
 /* {jlB} */
 struct A1239 { j m0; l m1; B m2; };
 int f_cmpA1239(const struct A1239 *x, const struct A1239 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA1239() {
+DCaggr* f_touchA1239() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A1239));
@@ -24648,7 +24648,7 @@ DCaggr* f_touchdcstA1239() {
 /* <fJ{jlB}SJjsllCdi> */
 union A1240 { f m0; J m1; struct A1239 m2; S m3; J m4; j m5; s m6; l m7; l m8; C m9; d m10; i m11; };
 int f_cmpA1240(const union A1240 *x, const union A1240 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA1239(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1240() {
+DCaggr* f_touchA1240() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1240));
@@ -24671,7 +24671,7 @@ DCaggr* f_touchdcstA1240() {
 /* <jidCjiClLdSp> */
 union A1241 { j m0; i m1; d m2; C m3; j m4; i m5; C m6; l m7; L m8; d m9; S m10; p m11; };
 int f_cmpA1241(const union A1241 *x, const union A1241 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1241() {
+DCaggr* f_touchA1241() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1241));
@@ -24694,7 +24694,7 @@ DCaggr* f_touchdcstA1241() {
 /* {cfJSps<jidCjiClLdSp>BsJl[13]J} */
 struct A1242 { c m0; f m1; J m2; S m3; p m4; s m5; union A1241 m6; B m7; s m8; J m9; l m10[13]; J m11; };
 int f_cmpA1242(const struct A1242 *x, const struct A1242 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA1241(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10[0] == y->m10[0] && x->m10[1] == y->m10[1] && x->m10[2] == y->m10[2] && x->m10[3] == y->m10[3] && x->m10[4] == y->m10[4] && x->m10[5] == y->m10[5] && x->m10[6] == y->m10[6] && x->m10[7] == y->m10[7] && x->m10[8] == y->m10[8] && x->m10[9] == y->m10[9] && x->m10[10] == y->m10[10] && x->m10[11] == y->m10[11] && x->m10[12] == y->m10[12] && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1242() {
+DCaggr* f_touchA1242() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1242));
@@ -24717,7 +24717,7 @@ DCaggr* f_touchdcstA1242() {
 /* <llLlfJ> */
 union A1243 { l m0; l m1; L m2; l m3; f m4; J m5; };
 int f_cmpA1243(const union A1243 *x, const union A1243 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA1243() {
+DCaggr* f_touchA1243() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(union A1243));
@@ -24734,7 +24734,7 @@ DCaggr* f_touchdcstA1243() {
 /* <ScpJ<llLlfJ>jCIlfcs> */
 union A1244 { S m0; c m1; p m2; J m3; union A1243 m4; j m5; C m6; I m7; l m8; f m9; c m10; s m11; };
 int f_cmpA1244(const union A1244 *x, const union A1244 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA1243(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1244() {
+DCaggr* f_touchA1244() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1244));
@@ -24757,7 +24757,7 @@ DCaggr* f_touchdcstA1244() {
 /* <fc{cfJSps<jidCjiClLdSp>BsJl[13]J}<ScpJ<llLlfJ>jCIlfcs>SBcf> */
 union A1245 { f m0; c m1; struct A1242 m2; union A1244 m3; S m4; B m5; c m6; f m7; };
 int f_cmpA1245(const union A1245 *x, const union A1245 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA1242(&x->m2, &y->m2) && f_cmpA1244(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA1245() {
+DCaggr* f_touchA1245() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(union A1245));
@@ -24776,7 +24776,7 @@ DCaggr* f_touchdcstA1245() {
 /* <diLCf> */
 union A1246 { d m0; i m1; L m2; C m3; f m4; };
 int f_cmpA1246(const union A1246 *x, const union A1246 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA1246() {
+DCaggr* f_touchA1246() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A1246));
@@ -24792,7 +24792,7 @@ DCaggr* f_touchdcstA1246() {
 /* <spfCJ> */
 union A1247 { s m0; p m1; f m2; C m3; J m4; };
 int f_cmpA1247(const union A1247 *x, const union A1247 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA1247() {
+DCaggr* f_touchA1247() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A1247));
@@ -24808,7 +24808,7 @@ DCaggr* f_touchdcstA1247() {
 /* {Ls} */
 struct A1248 { L m0; s m1; };
 int f_cmpA1248(const struct A1248 *x, const struct A1248 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA1248() {
+DCaggr* f_touchA1248() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(struct A1248));
@@ -24821,7 +24821,7 @@ DCaggr* f_touchdcstA1248() {
 /* <jpplf{Ls}C> */
 union A1249 { j m0; p m1; p m2; l m3; f m4; struct A1248 m5; C m6; };
 int f_cmpA1249(const union A1249 *x, const union A1249 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA1248(&x->m5, &y->m5) && x->m6 == y->m6; };
-DCaggr* f_touchdcstA1249() {
+DCaggr* f_touchA1249() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(union A1249));
@@ -24839,7 +24839,7 @@ DCaggr* f_touchdcstA1249() {
 /* <LiC> */
 union A1250 { L m0; i m1; C m2; };
 int f_cmpA1250(const union A1250 *x, const union A1250 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA1250() {
+DCaggr* f_touchA1250() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A1250));
@@ -24853,7 +24853,7 @@ DCaggr* f_touchdcstA1250() {
 /* {ii<spfCJ>[16]i<jpplf{Ls}C>CS<LiC>fcjp} */
 struct A1251 { i m0; i m1; union A1247 m2[16]; i m3; union A1249 m4; C m5; S m6; union A1250 m7; f m8; c m9; j m10; p m11; };
 int f_cmpA1251(const struct A1251 *x, const struct A1251 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA1247(&x->m2[0], &y->m2[0]) && f_cmpA1247(&x->m2[1], &y->m2[1]) && f_cmpA1247(&x->m2[2], &y->m2[2]) && f_cmpA1247(&x->m2[3], &y->m2[3]) && f_cmpA1247(&x->m2[4], &y->m2[4]) && f_cmpA1247(&x->m2[5], &y->m2[5]) && f_cmpA1247(&x->m2[6], &y->m2[6]) && f_cmpA1247(&x->m2[7], &y->m2[7]) && f_cmpA1247(&x->m2[8], &y->m2[8]) && f_cmpA1247(&x->m2[9], &y->m2[9]) && f_cmpA1247(&x->m2[10], &y->m2[10]) && f_cmpA1247(&x->m2[11], &y->m2[11]) && f_cmpA1247(&x->m2[12], &y->m2[12]) && f_cmpA1247(&x->m2[13], &y->m2[13]) && f_cmpA1247(&x->m2[14], &y->m2[14]) && f_cmpA1247(&x->m2[15], &y->m2[15]) && x->m3 == y->m3 && f_cmpA1249(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && f_cmpA1250(&x->m7, &y->m7) && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1251() {
+DCaggr* f_touchA1251() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1251));
@@ -24876,7 +24876,7 @@ DCaggr* f_touchdcstA1251() {
 /* <fdiJd> */
 union A1252 { f m0; d m1; i m2; J m3; d m4; };
 int f_cmpA1252(const union A1252 *x, const union A1252 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA1252() {
+DCaggr* f_touchA1252() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A1252));
@@ -24892,7 +24892,7 @@ DCaggr* f_touchdcstA1252() {
 /* {fsfBiLjLfcip} */
 struct A1253 { f m0; s m1; f m2; B m3; i m4; L m5; j m6; L m7; f m8; c m9; i m10; p m11; };
 int f_cmpA1253(const struct A1253 *x, const struct A1253 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1253() {
+DCaggr* f_touchA1253() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1253));
@@ -24915,7 +24915,7 @@ DCaggr* f_touchdcstA1253() {
 /* <iCBLBs<fdiJd>jBC{fsfBiLjLfcip}{s}> */
 union A1254 { i m0; C m1; B m2; L m3; B m4; s m5; union A1252 m6; j m7; B m8; C m9; struct A1253 m10; struct A144 m11; };
 int f_cmpA1254(const union A1254 *x, const union A1254 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA1252(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA1253(&x->m10, &y->m10) && f_cmpA144(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA1254() {
+DCaggr* f_touchA1254() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1254));
@@ -24938,7 +24938,7 @@ DCaggr* f_touchdcstA1254() {
 /* <iB> */
 union A1255 { i m0; B m1; };
 int f_cmpA1255(const union A1255 *x, const union A1255 *y) { return x->m0 == y->m0 && x->m1 == y->m1; };
-DCaggr* f_touchdcstA1255() {
+DCaggr* f_touchA1255() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A1255));
@@ -24951,7 +24951,7 @@ DCaggr* f_touchdcstA1255() {
 /* {Bi<iB>lddjiSffB} */
 struct A1256 { B m0; i m1; union A1255 m2; l m3; d m4; d m5; j m6; i m7; S m8; f m9; f m10; B m11; };
 int f_cmpA1256(const struct A1256 *x, const struct A1256 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA1255(&x->m2, &y->m2) && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1256() {
+DCaggr* f_touchA1256() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1256));
@@ -24974,7 +24974,7 @@ DCaggr* f_touchdcstA1256() {
 /* {p} */
 struct A1257 { p m0; };
 int f_cmpA1257(const struct A1257 *x, const struct A1257 *y) { return x->m0 == y->m0; };
-DCaggr* f_touchdcstA1257() {
+DCaggr* f_touchA1257() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(1, sizeof(struct A1257));
@@ -24986,7 +24986,7 @@ DCaggr* f_touchdcstA1257() {
 /* {Iijp{p}dIl[1]llcB} */
 struct A1258 { I m0; i m1; j m2; p m3; struct A1257 m4; d m5; I m6; l m7[1]; l m8; l m9; c m10; B m11; };
 int f_cmpA1258(const struct A1258 *x, const struct A1258 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA1257(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7[0] == y->m7[0] && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1258() {
+DCaggr* f_touchA1258() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1258));
@@ -25009,7 +25009,7 @@ DCaggr* f_touchdcstA1258() {
 /* <SjpJp> */
 union A1259 { S m0; j m1; p m2; J m3; p m4; };
 int f_cmpA1259(const union A1259 *x, const union A1259 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA1259() {
+DCaggr* f_touchA1259() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A1259));
@@ -25025,7 +25025,7 @@ DCaggr* f_touchdcstA1259() {
 /* {jdiLSpBiCpLj} */
 struct A1260 { j m0; d m1; i m2; L m3; S m4; p m5; B m6; i m7; C m8; p m9; L m10; j m11; };
 int f_cmpA1260(const struct A1260 *x, const struct A1260 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1260() {
+DCaggr* f_touchA1260() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1260));
@@ -25048,7 +25048,7 @@ DCaggr* f_touchdcstA1260() {
 /* {diLdspB} */
 struct A1261 { d m0; i m1; L m2; d m3; s m4; p m5; B m6; };
 int f_cmpA1261(const struct A1261 *x, const struct A1261 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA1261() {
+DCaggr* f_touchA1261() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(struct A1261));
@@ -25066,7 +25066,7 @@ DCaggr* f_touchdcstA1261() {
 /* <JSJcB> */
 union A1262 { J m0; S m1; J m2; c m3; B m4; };
 int f_cmpA1262(const union A1262 *x, const union A1262 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4; };
-DCaggr* f_touchdcstA1262() {
+DCaggr* f_touchA1262() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(5, sizeof(union A1262));
@@ -25082,7 +25082,7 @@ DCaggr* f_touchdcstA1262() {
 /* <l{jdiLSpBiCpLj}sS[15]BIs{diLdspB}j[2]SI<JSJcB>> */
 union A1263 { l m0; struct A1260 m1; s m2; S m3[15]; B m4; I m5; s m6; struct A1261 m7; j m8[2]; S m9; I m10; union A1262 m11; };
 int f_cmpA1263(const union A1263 *x, const union A1263 *y) { return x->m0 == y->m0 && f_cmpA1260(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3[0] == y->m3[0] && x->m3[1] == y->m3[1] && x->m3[2] == y->m3[2] && x->m3[3] == y->m3[3] && x->m3[4] == y->m3[4] && x->m3[5] == y->m3[5] && x->m3[6] == y->m3[6] && x->m3[7] == y->m3[7] && x->m3[8] == y->m3[8] && x->m3[9] == y->m3[9] && x->m3[10] == y->m3[10] && x->m3[11] == y->m3[11] && x->m3[12] == y->m3[12] && x->m3[13] == y->m3[13] && x->m3[14] == y->m3[14] && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && f_cmpA1261(&x->m7, &y->m7) && x->m8[0] == y->m8[0] && x->m8[1] == y->m8[1] && x->m9 == y->m9 && x->m10 == y->m10 && f_cmpA1262(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA1263() {
+DCaggr* f_touchA1263() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1263));
@@ -25105,7 +25105,7 @@ DCaggr* f_touchdcstA1263() {
 /* <jIfpi[14]f[16]lSp> */
 union A1264 { j m0; I m1; f m2; p m3; i m4[14]; f m5[16]; l m6; S m7; p m8; };
 int f_cmpA1264(const union A1264 *x, const union A1264 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4[0] == y->m4[0] && x->m4[1] == y->m4[1] && x->m4[2] == y->m4[2] && x->m4[3] == y->m4[3] && x->m4[4] == y->m4[4] && x->m4[5] == y->m4[5] && x->m4[6] == y->m4[6] && x->m4[7] == y->m4[7] && x->m4[8] == y->m4[8] && x->m4[9] == y->m4[9] && x->m4[10] == y->m4[10] && x->m4[11] == y->m4[11] && x->m4[12] == y->m4[12] && x->m4[13] == y->m4[13] && x->m5[0] == y->m5[0] && x->m5[1] == y->m5[1] && x->m5[2] == y->m5[2] && x->m5[3] == y->m5[3] && x->m5[4] == y->m5[4] && x->m5[5] == y->m5[5] && x->m5[6] == y->m5[6] && x->m5[7] == y->m5[7] && x->m5[8] == y->m5[8] && x->m5[9] == y->m5[9] && x->m5[10] == y->m5[10] && x->m5[11] == y->m5[11] && x->m5[12] == y->m5[12] && x->m5[13] == y->m5[13] && x->m5[14] == y->m5[14] && x->m5[15] == y->m5[15] && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA1264() {
+DCaggr* f_touchA1264() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A1264));
@@ -25125,7 +25125,7 @@ DCaggr* f_touchdcstA1264() {
 /* {BsjL<jIfpi[14]f[16]lSp>iBpLsjj[13]} */
 struct A1265 { B m0; s m1; j m2; L m3; union A1264 m4; i m5; B m6; p m7; L m8; s m9; j m10; j m11[13]; };
 int f_cmpA1265(const struct A1265 *x, const struct A1265 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA1264(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11[0] == y->m11[0] && x->m11[1] == y->m11[1] && x->m11[2] == y->m11[2] && x->m11[3] == y->m11[3] && x->m11[4] == y->m11[4] && x->m11[5] == y->m11[5] && x->m11[6] == y->m11[6] && x->m11[7] == y->m11[7] && x->m11[8] == y->m11[8] && x->m11[9] == y->m11[9] && x->m11[10] == y->m11[10] && x->m11[11] == y->m11[11] && x->m11[12] == y->m11[12]; };
-DCaggr* f_touchdcstA1265() {
+DCaggr* f_touchA1265() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1265));
@@ -25148,7 +25148,7 @@ DCaggr* f_touchdcstA1265() {
 /* <IfcJCSsiBCLj> */
 union A1266 { I m0; f m1; c m2; J m3; C m4; S m5; s m6; i m7; B m8; C m9; L m10; j m11; };
 int f_cmpA1266(const union A1266 *x, const union A1266 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1266() {
+DCaggr* f_touchA1266() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1266));
@@ -25171,7 +25171,7 @@ DCaggr* f_touchdcstA1266() {
 /* <JBcSIicl<IfcJCSsiBCLj>SCI> */
 union A1267 { J m0; B m1; c m2; S m3; I m4; i m5; c m6; l m7; union A1266 m8; S m9; C m10; I m11; };
 int f_cmpA1267(const union A1267 *x, const union A1267 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && f_cmpA1266(&x->m8, &y->m8) && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1267() {
+DCaggr* f_touchA1267() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1267));
@@ -25194,7 +25194,7 @@ DCaggr* f_touchdcstA1267() {
 /* <ijS{BsjL<jIfpi[14]f[16]lSp>iBpLsjj[13]}sI<JBcSIicl<IfcJCSsiBCLj>SCI>cp> */
 union A1268 { i m0; j m1; S m2; struct A1265 m3; s m4; I m5; union A1267 m6; c m7; p m8; };
 int f_cmpA1268(const union A1268 *x, const union A1268 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && f_cmpA1265(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA1267(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA1268() {
+DCaggr* f_touchA1268() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A1268));
@@ -25214,7 +25214,7 @@ DCaggr* f_touchdcstA1268() {
 /* {dsSLjSSC[9]JBSl} */
 struct A1269 { d m0; s m1; S m2; L m3; j m4; S m5; S m6; C m7[9]; J m8; B m9; S m10; l m11; };
 int f_cmpA1269(const struct A1269 *x, const struct A1269 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7[0] == y->m7[0] && x->m7[1] == y->m7[1] && x->m7[2] == y->m7[2] && x->m7[3] == y->m7[3] && x->m7[4] == y->m7[4] && x->m7[5] == y->m7[5] && x->m7[6] == y->m7[6] && x->m7[7] == y->m7[7] && x->m7[8] == y->m7[8] && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1269() {
+DCaggr* f_touchA1269() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1269));
@@ -25237,7 +25237,7 @@ DCaggr* f_touchdcstA1269() {
 /* {fBdLCci} */
 struct A1270 { f m0; B m1; d m2; L m3; C m4; c m5; i m6; };
 int f_cmpA1270(const struct A1270 *x, const struct A1270 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6; };
-DCaggr* f_touchdcstA1270() {
+DCaggr* f_touchA1270() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(struct A1270));
@@ -25255,7 +25255,7 @@ DCaggr* f_touchdcstA1270() {
 /* <fSISsIB{fBdLCci}c> */
 union A1271 { f m0; S m1; I m2; S m3; s m4; I m5; B m6; struct A1270 m7; c m8; };
 int f_cmpA1271(const union A1271 *x, const union A1271 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && f_cmpA1270(&x->m7, &y->m7) && x->m8 == y->m8; };
-DCaggr* f_touchdcstA1271() {
+DCaggr* f_touchA1271() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A1271));
@@ -25275,7 +25275,7 @@ DCaggr* f_touchdcstA1271() {
 /* <LLCp> */
 union A1272 { L m0; L m1; C m2; p m3; };
 int f_cmpA1272(const union A1272 *x, const union A1272 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA1272() {
+DCaggr* f_touchA1272() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(union A1272));
@@ -25290,7 +25290,7 @@ DCaggr* f_touchdcstA1272() {
 /* <<LLCp>liIpc> */
 union A1273 { union A1272 m0; l m1; i m2; I m3; p m4; c m5; };
 int f_cmpA1273(const union A1273 *x, const union A1273 *y) { return f_cmpA1272(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA1273() {
+DCaggr* f_touchA1273() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(union A1273));
@@ -25307,7 +25307,7 @@ DCaggr* f_touchdcstA1273() {
 /* {<<LLCp>liIpc>jj[3]ifdifBCdc} */
 struct A1274 { union A1273 m0; j m1; j m2[3]; i m3; f m4; d m5; i m6; f m7; B m8; C m9; d m10; c m11; };
 int f_cmpA1274(const struct A1274 *x, const struct A1274 *y) { return f_cmpA1273(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2[0] == y->m2[0] && x->m2[1] == y->m2[1] && x->m2[2] == y->m2[2] && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1274() {
+DCaggr* f_touchA1274() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1274));
@@ -25330,7 +25330,7 @@ DCaggr* f_touchdcstA1274() {
 /* <JljpjL> */
 union A1275 { J m0; l m1; j m2; p m3; j m4; L m5; };
 int f_cmpA1275(const union A1275 *x, const union A1275 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA1275() {
+DCaggr* f_touchA1275() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(union A1275));
@@ -25347,7 +25347,7 @@ DCaggr* f_touchdcstA1275() {
 /* {idl} */
 struct A1276 { i m0; d m1; l m2; };
 int f_cmpA1276(const struct A1276 *x, const struct A1276 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA1276() {
+DCaggr* f_touchA1276() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A1276));
@@ -25361,7 +25361,7 @@ DCaggr* f_touchdcstA1276() {
 /* {c<JljpjL>jS[11]Cc{idl}<Jd>cjpI} */
 struct A1277 { c m0; union A1275 m1; j m2; S m3[11]; C m4; c m5; struct A1276 m6; union A702 m7; c m8; j m9; p m10; I m11; };
 int f_cmpA1277(const struct A1277 *x, const struct A1277 *y) { return x->m0 == y->m0 && f_cmpA1275(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3[0] == y->m3[0] && x->m3[1] == y->m3[1] && x->m3[2] == y->m3[2] && x->m3[3] == y->m3[3] && x->m3[4] == y->m3[4] && x->m3[5] == y->m3[5] && x->m3[6] == y->m3[6] && x->m3[7] == y->m3[7] && x->m3[8] == y->m3[8] && x->m3[9] == y->m3[9] && x->m3[10] == y->m3[10] && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA1276(&x->m6, &y->m6) && f_cmpA702(&x->m7, &y->m7) && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1277() {
+DCaggr* f_touchA1277() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1277));
@@ -25384,7 +25384,7 @@ DCaggr* f_touchdcstA1277() {
 /* {dfjcsJf[14]JBfdl} */
 struct A1278 { d m0; f m1; j m2; c m3; s m4; J m5; f m6[14]; J m7; B m8; f m9; d m10; l m11; };
 int f_cmpA1278(const struct A1278 *x, const struct A1278 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6[0] == y->m6[0] && x->m6[1] == y->m6[1] && x->m6[2] == y->m6[2] && x->m6[3] == y->m6[3] && x->m6[4] == y->m6[4] && x->m6[5] == y->m6[5] && x->m6[6] == y->m6[6] && x->m6[7] == y->m6[7] && x->m6[8] == y->m6[8] && x->m6[9] == y->m6[9] && x->m6[10] == y->m6[10] && x->m6[11] == y->m6[11] && x->m6[12] == y->m6[12] && x->m6[13] == y->m6[13] && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1278() {
+DCaggr* f_touchA1278() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1278));
@@ -25407,7 +25407,7 @@ DCaggr* f_touchdcstA1278() {
 /* <IfJddLBBB> */
 union A1279 { I m0; f m1; J m2; d m3; d m4; L m5; B m6; B m7; B m8; };
 int f_cmpA1279(const union A1279 *x, const union A1279 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA1279() {
+DCaggr* f_touchA1279() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A1279));
@@ -25427,7 +25427,7 @@ DCaggr* f_touchdcstA1279() {
 /* <pCC> */
 union A1280 { p m0; C m1; C m2; };
 int f_cmpA1280(const union A1280 *x, const union A1280 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA1280() {
+DCaggr* f_touchA1280() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A1280));
@@ -25441,7 +25441,7 @@ DCaggr* f_touchdcstA1280() {
 /* <{dfjcsJf[14]JBfdl}pdL<IfJddLBBB><pCC>BJLBpl> */
 union A1281 { struct A1278 m0; p m1; d m2; L m3; union A1279 m4; union A1280 m5; B m6; J m7; L m8; B m9; p m10; l m11; };
 int f_cmpA1281(const union A1281 *x, const union A1281 *y) { return f_cmpA1278(&x->m0, &y->m0) && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA1279(&x->m4, &y->m4) && f_cmpA1280(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1281() {
+DCaggr* f_touchA1281() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1281));
@@ -25464,7 +25464,7 @@ DCaggr* f_touchdcstA1281() {
 /* <BlilJBpLiLfJ> */
 union A1282 { B m0; l m1; i m2; l m3; J m4; B m5; p m6; L m7; i m8; L m9; f m10; J m11; };
 int f_cmpA1282(const union A1282 *x, const union A1282 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1282() {
+DCaggr* f_touchA1282() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1282));
@@ -25487,7 +25487,7 @@ DCaggr* f_touchdcstA1282() {
 /* {CIIClI<BlilJBpLiLfJ>LjpCc} */
 struct A1283 { C m0; I m1; I m2; C m3; l m4; I m5; union A1282 m6; L m7; j m8; p m9; C m10; c m11; };
 int f_cmpA1283(const struct A1283 *x, const struct A1283 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA1282(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1283() {
+DCaggr* f_touchA1283() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1283));
@@ -25510,7 +25510,7 @@ DCaggr* f_touchdcstA1283() {
 /* <sLLiLISll> */
 union A1284 { s m0; L m1; L m2; i m3; L m4; I m5; S m6; l m7; l m8; };
 int f_cmpA1284(const union A1284 *x, const union A1284 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA1284() {
+DCaggr* f_touchA1284() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A1284));
@@ -25530,7 +25530,7 @@ DCaggr* f_touchdcstA1284() {
 /* {<sLLiLISll>d} */
 struct A1285 { union A1284 m0; d m1; };
 int f_cmpA1285(const struct A1285 *x, const struct A1285 *y) { return f_cmpA1284(&x->m0, &y->m0) && x->m1 == y->m1; };
-DCaggr* f_touchdcstA1285() {
+DCaggr* f_touchA1285() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(struct A1285));
@@ -25543,7 +25543,7 @@ DCaggr* f_touchdcstA1285() {
 /* {SCd[5]dBJSClJSC} */
 struct A1286 { S m0; C m1; d m2[5]; d m3; B m4; J m5; S m6; C m7; l m8; J m9; S m10; C m11; };
 int f_cmpA1286(const struct A1286 *x, const struct A1286 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2[0] == y->m2[0] && x->m2[1] == y->m2[1] && x->m2[2] == y->m2[2] && x->m2[3] == y->m2[3] && x->m2[4] == y->m2[4] && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1286() {
+DCaggr* f_touchA1286() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1286));
@@ -25566,7 +25566,7 @@ DCaggr* f_touchdcstA1286() {
 /* {pcdfClSB} */
 struct A1287 { p m0; c m1; d m2; f m3; C m4; l m5; S m6; B m7; };
 int f_cmpA1287(const struct A1287 *x, const struct A1287 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA1287() {
+DCaggr* f_touchA1287() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(struct A1287));
@@ -25585,7 +25585,7 @@ DCaggr* f_touchdcstA1287() {
 /* <{pcdfClSB}S> */
 union A1288 { struct A1287 m0; S m1; };
 int f_cmpA1288(const union A1288 *x, const union A1288 *y) { return f_cmpA1287(&x->m0, &y->m0) && x->m1 == y->m1; };
-DCaggr* f_touchdcstA1288() {
+DCaggr* f_touchA1288() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(2, sizeof(union A1288));
@@ -25598,7 +25598,7 @@ DCaggr* f_touchdcstA1288() {
 /* {II{<sLLiLISll>d}{SCd[5]dBJSClJSC}ipdL[3]iS<{pcdfClSB}S>C} */
 struct A1289 { I m0; I m1; struct A1285 m2; struct A1286 m3; i m4; p m5; d m6; L m7[3]; i m8; S m9; union A1288 m10; C m11; };
 int f_cmpA1289(const struct A1289 *x, const struct A1289 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && f_cmpA1285(&x->m2, &y->m2) && f_cmpA1286(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7[0] == y->m7[0] && x->m7[1] == y->m7[1] && x->m7[2] == y->m7[2] && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA1288(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1289() {
+DCaggr* f_touchA1289() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1289));
@@ -25621,7 +25621,7 @@ DCaggr* f_touchdcstA1289() {
 /* {csICilLlsBJC} */
 struct A1290 { c m0; s m1; I m2; C m3; i m4; l m5; L m6; l m7; s m8; B m9; J m10; C m11; };
 int f_cmpA1290(const struct A1290 *x, const struct A1290 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1290() {
+DCaggr* f_touchA1290() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1290));
@@ -25644,7 +25644,7 @@ DCaggr* f_touchdcstA1290() {
 /* <JiJfcS{csICilLlsBJC}SiBil> */
 union A1291 { J m0; i m1; J m2; f m3; c m4; S m5; struct A1290 m6; S m7; i m8; B m9; i m10; l m11; };
 int f_cmpA1291(const union A1291 *x, const union A1291 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && f_cmpA1290(&x->m6, &y->m6) && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1291() {
+DCaggr* f_touchA1291() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1291));
@@ -25667,7 +25667,7 @@ DCaggr* f_touchdcstA1291() {
 /* <ccfSfpfJIsSd> */
 union A1292 { c m0; c m1; f m2; S m3; f m4; p m5; f m6; J m7; I m8; s m9; S m10; d m11; };
 int f_cmpA1292(const union A1292 *x, const union A1292 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1292() {
+DCaggr* f_touchA1292() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1292));
@@ -25690,7 +25690,7 @@ DCaggr* f_touchdcstA1292() {
 /* <CfsLCCCSLBJC> */
 union A1293 { C m0; f m1; s m2; L m3; C m4; C m5; C m6; S m7; L m8; B m9; J m10; C m11; };
 int f_cmpA1293(const union A1293 *x, const union A1293 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1293() {
+DCaggr* f_touchA1293() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1293));
@@ -25713,7 +25713,7 @@ DCaggr* f_touchdcstA1293() {
 /* {J} */
 struct A1294 { J m0; };
 int f_cmpA1294(const struct A1294 *x, const struct A1294 *y) { return x->m0 == y->m0; };
-DCaggr* f_touchdcstA1294() {
+DCaggr* f_touchA1294() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(1, sizeof(struct A1294));
@@ -25725,7 +25725,7 @@ DCaggr* f_touchdcstA1294() {
 /* <jlicLcjpfpC{J}> */
 union A1295 { j m0; l m1; i m2; c m3; L m4; c m5; j m6; p m7; f m8; p m9; C m10; struct A1294 m11; };
 int f_cmpA1295(const union A1295 *x, const union A1295 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && f_cmpA1294(&x->m11, &y->m11); };
-DCaggr* f_touchdcstA1295() {
+DCaggr* f_touchA1295() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1295));
@@ -25748,7 +25748,7 @@ DCaggr* f_touchdcstA1295() {
 /* <IsCCscJcICpI> */
 union A1296 { I m0; s m1; C m2; C m3; s m4; c m5; J m6; c m7; I m8; C m9; p m10; I m11; };
 int f_cmpA1296(const union A1296 *x, const union A1296 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1296() {
+DCaggr* f_touchA1296() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1296));
@@ -25771,7 +25771,7 @@ DCaggr* f_touchdcstA1296() {
 /* <sCC[2]LlBs<IsCCscJcICpI>p> */
 union A1297 { s m0; C m1; C m2[2]; L m3; l m4; B m5; s m6; union A1296 m7; p m8; };
 int f_cmpA1297(const union A1297 *x, const union A1297 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2[0] == y->m2[0] && x->m2[1] == y->m2[1] && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && f_cmpA1296(&x->m7, &y->m7) && x->m8 == y->m8; };
-DCaggr* f_touchdcstA1297() {
+DCaggr* f_touchA1297() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A1297));
@@ -25791,7 +25791,7 @@ DCaggr* f_touchdcstA1297() {
 /* {JljfIS} */
 struct A1298 { J m0; l m1; j m2; f m3; I m4; S m5; };
 int f_cmpA1298(const struct A1298 *x, const struct A1298 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA1298() {
+DCaggr* f_touchA1298() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(struct A1298));
@@ -25808,7 +25808,7 @@ DCaggr* f_touchdcstA1298() {
 /* <IJjpLSjCfCcB> */
 union A1299 { I m0; J m1; j m2; p m3; L m4; S m5; j m6; C m7; f m8; C m9; c m10; B m11; };
 int f_cmpA1299(const union A1299 *x, const union A1299 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1299() {
+DCaggr* f_touchA1299() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1299));
@@ -25831,7 +25831,7 @@ DCaggr* f_touchdcstA1299() {
 /* <CJfJpBScsJ[11]> */
 union A1300 { C m0; J m1; f m2; J m3; p m4; B m5; S m6; c m7; s m8; J m9[11]; };
 int f_cmpA1300(const union A1300 *x, const union A1300 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9[0] == y->m9[0] && x->m9[1] == y->m9[1] && x->m9[2] == y->m9[2] && x->m9[3] == y->m9[3] && x->m9[4] == y->m9[4] && x->m9[5] == y->m9[5] && x->m9[6] == y->m9[6] && x->m9[7] == y->m9[7] && x->m9[8] == y->m9[8] && x->m9[9] == y->m9[9] && x->m9[10] == y->m9[10]; };
-DCaggr* f_touchdcstA1300() {
+DCaggr* f_touchA1300() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A1300));
@@ -25852,7 +25852,7 @@ DCaggr* f_touchdcstA1300() {
 /* {CdIscsiCJSsB} */
 struct A1301 { C m0; d m1; I m2; s m3; c m4; s m5; i m6; C m7; J m8; S m9; s m10; B m11; };
 int f_cmpA1301(const struct A1301 *x, const struct A1301 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1301() {
+DCaggr* f_touchA1301() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1301));
@@ -25875,7 +25875,7 @@ DCaggr* f_touchdcstA1301() {
 /* <sisiCLSCCssC> */
 union A1302 { s m0; i m1; s m2; i m3; C m4; L m5; S m6; C m7; C m8; s m9; s m10; C m11; };
 int f_cmpA1302(const union A1302 *x, const union A1302 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1302() {
+DCaggr* f_touchA1302() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1302));
@@ -25898,7 +25898,7 @@ DCaggr* f_touchdcstA1302() {
 /* <pilfJCCllsSB> */
 union A1303 { p m0; i m1; l m2; f m3; J m4; C m5; C m6; l m7; l m8; s m9; S m10; B m11; };
 int f_cmpA1303(const union A1303 *x, const union A1303 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1303() {
+DCaggr* f_touchA1303() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1303));
@@ -25921,7 +25921,7 @@ DCaggr* f_touchdcstA1303() {
 /* {jjdJiJCdjl} */
 struct A1304 { j m0; j m1; d m2; J m3; i m4; J m5; C m6; d m7; j m8; l m9; };
 int f_cmpA1304(const struct A1304 *x, const struct A1304 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA1304() {
+DCaggr* f_touchA1304() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(struct A1304));
@@ -25942,7 +25942,7 @@ DCaggr* f_touchdcstA1304() {
 /* {cLfsISjJf} */
 struct A1305 { c m0; L m1; f m2; s m3; I m4; S m5; j m6; J m7; f m8; };
 int f_cmpA1305(const struct A1305 *x, const struct A1305 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA1305() {
+DCaggr* f_touchA1305() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(struct A1305));
@@ -25962,7 +25962,7 @@ DCaggr* f_touchdcstA1305() {
 /* <ScpifcsLscsI> */
 union A1306 { S m0; c m1; p m2; i m3; f m4; c m5; s m6; L m7; s m8; c m9; s m10; I m11; };
 int f_cmpA1306(const union A1306 *x, const union A1306 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1306() {
+DCaggr* f_touchA1306() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1306));
@@ -25985,7 +25985,7 @@ DCaggr* f_touchdcstA1306() {
 /* <BIfsJSCJI[12]iB[15]i> */
 union A1307 { B m0; I m1; f m2; s m3; J m4; S m5; C m6; J m7; I m8[12]; i m9; B m10[15]; i m11; };
 int f_cmpA1307(const union A1307 *x, const union A1307 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8[0] == y->m8[0] && x->m8[1] == y->m8[1] && x->m8[2] == y->m8[2] && x->m8[3] == y->m8[3] && x->m8[4] == y->m8[4] && x->m8[5] == y->m8[5] && x->m8[6] == y->m8[6] && x->m8[7] == y->m8[7] && x->m8[8] == y->m8[8] && x->m8[9] == y->m8[9] && x->m8[10] == y->m8[10] && x->m8[11] == y->m8[11] && x->m9 == y->m9 && x->m10[0] == y->m10[0] && x->m10[1] == y->m10[1] && x->m10[2] == y->m10[2] && x->m10[3] == y->m10[3] && x->m10[4] == y->m10[4] && x->m10[5] == y->m10[5] && x->m10[6] == y->m10[6] && x->m10[7] == y->m10[7] && x->m10[8] == y->m10[8] && x->m10[9] == y->m10[9] && x->m10[10] == y->m10[10] && x->m10[11] == y->m10[11] && x->m10[12] == y->m10[12] && x->m10[13] == y->m10[13] && x->m10[14] == y->m10[14] && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1307() {
+DCaggr* f_touchA1307() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1307));
@@ -26008,7 +26008,7 @@ DCaggr* f_touchdcstA1307() {
 /* <c<ScpifcsLscsI>JcdlI[5]j<BIfsJSCJI[12]iB[15]i>ijd> */
 union A1308 { c m0; union A1306 m1; J m2; c m3; d m4; l m5; I m6[5]; j m7; union A1307 m8; i m9; j m10; d m11; };
 int f_cmpA1308(const union A1308 *x, const union A1308 *y) { return x->m0 == y->m0 && f_cmpA1306(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6[0] == y->m6[0] && x->m6[1] == y->m6[1] && x->m6[2] == y->m6[2] && x->m6[3] == y->m6[3] && x->m6[4] == y->m6[4] && x->m7 == y->m7 && f_cmpA1307(&x->m8, &y->m8) && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1308() {
+DCaggr* f_touchA1308() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1308));
@@ -26031,7 +26031,7 @@ DCaggr* f_touchdcstA1308() {
 /* <spLsdj[6]iCClpJ> */
 union A1309 { s m0; p m1; L m2; s m3; d m4; j m5[6]; i m6; C m7; C m8; l m9; p m10; J m11; };
 int f_cmpA1309(const union A1309 *x, const union A1309 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5[0] == y->m5[0] && x->m5[1] == y->m5[1] && x->m5[2] == y->m5[2] && x->m5[3] == y->m5[3] && x->m5[4] == y->m5[4] && x->m5[5] == y->m5[5] && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1309() {
+DCaggr* f_touchA1309() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1309));
@@ -26054,7 +26054,7 @@ DCaggr* f_touchdcstA1309() {
 /* <BLLLsc> */
 union A1310 { B m0; L m1; L m2; L m3; s m4; c m5; };
 int f_cmpA1310(const union A1310 *x, const union A1310 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA1310() {
+DCaggr* f_touchA1310() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(union A1310));
@@ -26071,7 +26071,7 @@ DCaggr* f_touchdcstA1310() {
 /* {B[10]} */
 struct A1311 { B m0[10]; };
 int f_cmpA1311(const struct A1311 *x, const struct A1311 *y) { return x->m0[0] == y->m0[0] && x->m0[1] == y->m0[1] && x->m0[2] == y->m0[2] && x->m0[3] == y->m0[3] && x->m0[4] == y->m0[4] && x->m0[5] == y->m0[5] && x->m0[6] == y->m0[6] && x->m0[7] == y->m0[7] && x->m0[8] == y->m0[8] && x->m0[9] == y->m0[9]; };
-DCaggr* f_touchdcstA1311() {
+DCaggr* f_touchA1311() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(1, sizeof(struct A1311));
@@ -26083,7 +26083,7 @@ DCaggr* f_touchdcstA1311() {
 /* {pLIJsifccs{B[10]}l} */
 struct A1312 { p m0; L m1; I m2; J m3; s m4; i m5; f m6; c m7; c m8; s m9; struct A1311 m10; l m11; };
 int f_cmpA1312(const struct A1312 *x, const struct A1312 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && f_cmpA1311(&x->m10, &y->m10) && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1312() {
+DCaggr* f_touchA1312() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1312));
@@ -26106,7 +26106,7 @@ DCaggr* f_touchdcstA1312() {
 /* <cJfIidjJjJ[9]sL> */
 union A1313 { c m0; J m1; f m2; I m3; i m4; d m5; j m6; J m7; j m8; J m9[9]; s m10; L m11; };
 int f_cmpA1313(const union A1313 *x, const union A1313 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9[0] == y->m9[0] && x->m9[1] == y->m9[1] && x->m9[2] == y->m9[2] && x->m9[3] == y->m9[3] && x->m9[4] == y->m9[4] && x->m9[5] == y->m9[5] && x->m9[6] == y->m9[6] && x->m9[7] == y->m9[7] && x->m9[8] == y->m9[8] && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1313() {
+DCaggr* f_touchA1313() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1313));
@@ -26129,7 +26129,7 @@ DCaggr* f_touchdcstA1313() {
 /* <JsLBi<cJfIidjJjJ[9]sL>l> */
 union A1314 { J m0; s m1; L m2; B m3; i m4; union A1313 m5; l m6; };
 int f_cmpA1314(const union A1314 *x, const union A1314 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA1313(&x->m5, &y->m5) && x->m6 == y->m6; };
-DCaggr* f_touchdcstA1314() {
+DCaggr* f_touchA1314() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(7, sizeof(union A1314));
@@ -26147,7 +26147,7 @@ DCaggr* f_touchdcstA1314() {
 /* {sCdJ} */
 struct A1315 { s m0; C m1; d m2; J m3; };
 int f_cmpA1315(const struct A1315 *x, const struct A1315 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3; };
-DCaggr* f_touchdcstA1315() {
+DCaggr* f_touchA1315() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(4, sizeof(struct A1315));
@@ -26162,7 +26162,7 @@ DCaggr* f_touchdcstA1315() {
 /* <djSSjjCBfi> */
 union A1316 { d m0; j m1; S m2; S m3; j m4; j m5; C m6; B m7; f m8; i m9; };
 int f_cmpA1316(const union A1316 *x, const union A1316 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA1316() {
+DCaggr* f_touchA1316() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A1316));
@@ -26183,7 +26183,7 @@ DCaggr* f_touchdcstA1316() {
 /* <dppild> */
 union A1317 { d m0; p m1; p m2; i m3; l m4; d m5; };
 int f_cmpA1317(const union A1317 *x, const union A1317 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA1317() {
+DCaggr* f_touchA1317() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(union A1317));
@@ -26200,7 +26200,7 @@ DCaggr* f_touchdcstA1317() {
 /* <ddfCCSBjjC> */
 union A1318 { d m0; d m1; f m2; C m3; C m4; S m5; B m6; j m7; j m8; C m9; };
 int f_cmpA1318(const union A1318 *x, const union A1318 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9; };
-DCaggr* f_touchdcstA1318() {
+DCaggr* f_touchA1318() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(10, sizeof(union A1318));
@@ -26221,7 +26221,7 @@ DCaggr* f_touchdcstA1318() {
 /* <lSClljsfilsS> */
 union A1319 { l m0; S m1; C m2; l m3; l m4; j m5; s m6; f m7; i m8; l m9; s m10; S m11; };
 int f_cmpA1319(const union A1319 *x, const union A1319 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1319() {
+DCaggr* f_touchA1319() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1319));
@@ -26244,7 +26244,7 @@ DCaggr* f_touchdcstA1319() {
 /* <ppcd<ddfCCSBjjC>cdBL<lSClljsfilsS>Cl> */
 union A1320 { p m0; p m1; c m2; d m3; union A1318 m4; c m5; d m6; B m7; L m8; union A1319 m9; C m10; l m11; };
 int f_cmpA1320(const union A1320 *x, const union A1320 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA1318(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && f_cmpA1319(&x->m9, &y->m9) && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1320() {
+DCaggr* f_touchA1320() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1320));
@@ -26267,7 +26267,7 @@ DCaggr* f_touchdcstA1320() {
 /* {lCIjCsSCcslJ} */
 struct A1321 { l m0; C m1; I m2; j m3; C m4; s m5; S m6; C m7; c m8; s m9; l m10; J m11; };
 int f_cmpA1321(const struct A1321 *x, const struct A1321 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1321() {
+DCaggr* f_touchA1321() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1321));
@@ -26290,7 +26290,7 @@ DCaggr* f_touchdcstA1321() {
 /* <LdL[2]{lCIjCsSCcslJ}IfBCd> */
 union A1322 { L m0; d m1; L m2[2]; struct A1321 m3; I m4; f m5; B m6; C m7; d m8; };
 int f_cmpA1322(const union A1322 *x, const union A1322 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2[0] == y->m2[0] && x->m2[1] == y->m2[1] && f_cmpA1321(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA1322() {
+DCaggr* f_touchA1322() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A1322));
@@ -26310,7 +26310,7 @@ DCaggr* f_touchdcstA1322() {
 /* {ppfiIp} */
 struct A1323 { p m0; p m1; f m2; i m3; I m4; p m5; };
 int f_cmpA1323(const struct A1323 *x, const struct A1323 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA1323() {
+DCaggr* f_touchA1323() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(struct A1323));
@@ -26327,7 +26327,7 @@ DCaggr* f_touchdcstA1323() {
 /* {jJdd{ppfiIp}JiiJSsl} */
 struct A1324 { j m0; J m1; d m2; d m3; struct A1323 m4; J m5; i m6; i m7; J m8; S m9; s m10; l m11; };
 int f_cmpA1324(const struct A1324 *x, const struct A1324 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && f_cmpA1323(&x->m4, &y->m4) && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1324() {
+DCaggr* f_touchA1324() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1324));
@@ -26350,7 +26350,7 @@ DCaggr* f_touchdcstA1324() {
 /* <JSslJIJpp> */
 union A1325 { J m0; S m1; s m2; l m3; J m4; I m5; J m6; p m7; p m8; };
 int f_cmpA1325(const union A1325 *x, const union A1325 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8; };
-DCaggr* f_touchdcstA1325() {
+DCaggr* f_touchA1325() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(9, sizeof(union A1325));
@@ -26370,7 +26370,7 @@ DCaggr* f_touchdcstA1325() {
 /* <lCdJlClS[8]BfJi> */
 union A1326 { l m0; C m1; d m2; J m3; l m4; C m5; l m6; S m7[8]; B m8; f m9; J m10; i m11; };
 int f_cmpA1326(const union A1326 *x, const union A1326 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7[0] == y->m7[0] && x->m7[1] == y->m7[1] && x->m7[2] == y->m7[2] && x->m7[3] == y->m7[3] && x->m7[4] == y->m7[4] && x->m7[5] == y->m7[5] && x->m7[6] == y->m7[6] && x->m7[7] == y->m7[7] && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1326() {
+DCaggr* f_touchA1326() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1326));
@@ -26393,7 +26393,7 @@ DCaggr* f_touchdcstA1326() {
 /* <Sjiid[8]ICI> */
 union A1327 { S m0; j m1; i m2; i m3; d m4[8]; I m5; C m6; I m7; };
 int f_cmpA1327(const union A1327 *x, const union A1327 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4[0] == y->m4[0] && x->m4[1] == y->m4[1] && x->m4[2] == y->m4[2] && x->m4[3] == y->m4[3] && x->m4[4] == y->m4[4] && x->m4[5] == y->m4[5] && x->m4[6] == y->m4[6] && x->m4[7] == y->m4[7] && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7; };
-DCaggr* f_touchdcstA1327() {
+DCaggr* f_touchA1327() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(8, sizeof(union A1327));
@@ -26412,7 +26412,7 @@ DCaggr* f_touchdcstA1327() {
 /* {CLfCCSlcjsIi} */
 struct A1328 { C m0; L m1; f m2; C m3; C m4; S m5; l m6; c m7; j m8; s m9; I m10; i m11; };
 int f_cmpA1328(const struct A1328 *x, const struct A1328 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1328() {
+DCaggr* f_touchA1328() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1328));
@@ -26435,7 +26435,7 @@ DCaggr* f_touchdcstA1328() {
 /* {cSIlBl} */
 struct A1329 { c m0; S m1; I m2; l m3; B m4; l m5; };
 int f_cmpA1329(const struct A1329 *x, const struct A1329 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && x->m5 == y->m5; };
-DCaggr* f_touchdcstA1329() {
+DCaggr* f_touchA1329() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(6, sizeof(struct A1329));
@@ -26452,7 +26452,7 @@ DCaggr* f_touchdcstA1329() {
 /* <i{CLfCCSlcjsIi}c{cSIlBl}fBB<J>lljI> */
 union A1330 { i m0; struct A1328 m1; c m2; struct A1329 m3; f m4; B m5; B m6; union A40 m7; l m8; l m9; j m10; I m11; };
 int f_cmpA1330(const union A1330 *x, const union A1330 *y) { return x->m0 == y->m0 && f_cmpA1328(&x->m1, &y->m1) && x->m2 == y->m2 && f_cmpA1329(&x->m3, &y->m3) && x->m4 == y->m4 && x->m5 == y->m5 && x->m6 == y->m6 && f_cmpA40(&x->m7, &y->m7) && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1330() {
+DCaggr* f_touchA1330() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(union A1330));
@@ -26475,7 +26475,7 @@ DCaggr* f_touchdcstA1330() {
 /* <dij> */
 union A1331 { d m0; i m1; j m2; };
 int f_cmpA1331(const union A1331 *x, const union A1331 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA1331() {
+DCaggr* f_touchA1331() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(union A1331));
@@ -26489,7 +26489,7 @@ DCaggr* f_touchdcstA1331() {
 /* {CLc} */
 struct A1332 { C m0; L m1; c m2; };
 int f_cmpA1332(const struct A1332 *x, const struct A1332 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2; };
-DCaggr* f_touchdcstA1332() {
+DCaggr* f_touchA1332() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(3, sizeof(struct A1332));
@@ -26503,7 +26503,7 @@ DCaggr* f_touchdcstA1332() {
 /* {Cpjij<dij>fsl{CLc}Sj} */
 struct A1333 { C m0; p m1; j m2; i m3; j m4; union A1331 m5; f m6; s m7; l m8; struct A1332 m9; S m10; j m11; };
 int f_cmpA1333(const struct A1333 *x, const struct A1333 *y) { return x->m0 == y->m0 && x->m1 == y->m1 && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA1331(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && f_cmpA1332(&x->m9, &y->m9) && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1333() {
+DCaggr* f_touchA1333() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1333));
@@ -26526,7 +26526,7 @@ DCaggr* f_touchdcstA1333() {
 /* {c[4]<i{CLfCCSlcjsIi}c{cSIlBl}fBB<J>lljI>csB{Cpjij<dij>fsl{CLc}Sj}sCCdfi} */
 struct A1334 { c m0[4]; union A1330 m1; c m2; s m3; B m4; struct A1333 m5; s m6; C m7; C m8; d m9; f m10; i m11; };
 int f_cmpA1334(const struct A1334 *x, const struct A1334 *y) { return x->m0[0] == y->m0[0] && x->m0[1] == y->m0[1] && x->m0[2] == y->m0[2] && x->m0[3] == y->m0[3] && f_cmpA1330(&x->m1, &y->m1) && x->m2 == y->m2 && x->m3 == y->m3 && x->m4 == y->m4 && f_cmpA1333(&x->m5, &y->m5) && x->m6 == y->m6 && x->m7 == y->m7 && x->m8 == y->m8 && x->m9 == y->m9 && x->m10 == y->m10 && x->m11 == y->m11; };
-DCaggr* f_touchdcstA1334() {
+DCaggr* f_touchA1334() {
 	static DCaggr* a = NULL;
 	if(!a) {
 		a = dcNewAggr(12, sizeof(struct A1334));
@@ -30422,1341 +30422,1341 @@ int G_agg_sizes[] = {
 	sizeof(struct A1333),
 	sizeof(struct A1334)
 };
-funptr G_agg_touchdcstfuncs[] = {
-	(funptr)&f_touchdcstA1,
-	(funptr)&f_touchdcstA2,
-	(funptr)&f_touchdcstA3,
-	(funptr)&f_touchdcstA4,
-	(funptr)&f_touchdcstA5,
-	(funptr)&f_touchdcstA6,
-	(funptr)&f_touchdcstA7,
-	(funptr)&f_touchdcstA8,
-	(funptr)&f_touchdcstA9,
-	(funptr)&f_touchdcstA10,
-	(funptr)&f_touchdcstA11,
-	(funptr)&f_touchdcstA12,
-	(funptr)&f_touchdcstA13,
-	(funptr)&f_touchdcstA14,
-	(funptr)&f_touchdcstA15,
-	(funptr)&f_touchdcstA16,
-	(funptr)&f_touchdcstA17,
-	(funptr)&f_touchdcstA18,
-	(funptr)&f_touchdcstA19,
-	(funptr)&f_touchdcstA20,
-	(funptr)&f_touchdcstA21,
-	(funptr)&f_touchdcstA22,
-	(funptr)&f_touchdcstA23,
-	(funptr)&f_touchdcstA24,
-	(funptr)&f_touchdcstA25,
-	(funptr)&f_touchdcstA26,
-	(funptr)&f_touchdcstA27,
-	(funptr)&f_touchdcstA28,
-	(funptr)&f_touchdcstA29,
-	(funptr)&f_touchdcstA30,
-	(funptr)&f_touchdcstA31,
-	(funptr)&f_touchdcstA32,
-	(funptr)&f_touchdcstA33,
-	(funptr)&f_touchdcstA34,
-	(funptr)&f_touchdcstA35,
-	(funptr)&f_touchdcstA36,
-	(funptr)&f_touchdcstA37,
-	(funptr)&f_touchdcstA38,
-	(funptr)&f_touchdcstA39,
-	(funptr)&f_touchdcstA40,
-	(funptr)&f_touchdcstA41,
-	(funptr)&f_touchdcstA42,
-	(funptr)&f_touchdcstA43,
-	(funptr)&f_touchdcstA44,
-	(funptr)&f_touchdcstA45,
-	(funptr)&f_touchdcstA46,
-	(funptr)&f_touchdcstA47,
-	(funptr)&f_touchdcstA48,
-	(funptr)&f_touchdcstA49,
-	(funptr)&f_touchdcstA50,
-	(funptr)&f_touchdcstA51,
-	(funptr)&f_touchdcstA52,
-	(funptr)&f_touchdcstA53,
-	(funptr)&f_touchdcstA54,
-	(funptr)&f_touchdcstA55,
-	(funptr)&f_touchdcstA56,
-	(funptr)&f_touchdcstA57,
-	(funptr)&f_touchdcstA58,
-	(funptr)&f_touchdcstA59,
-	(funptr)&f_touchdcstA60,
-	(funptr)&f_touchdcstA61,
-	(funptr)&f_touchdcstA62,
-	(funptr)&f_touchdcstA63,
-	(funptr)&f_touchdcstA64,
-	(funptr)&f_touchdcstA65,
-	(funptr)&f_touchdcstA66,
-	(funptr)&f_touchdcstA67,
-	(funptr)&f_touchdcstA68,
-	(funptr)&f_touchdcstA69,
-	(funptr)&f_touchdcstA70,
-	(funptr)&f_touchdcstA71,
-	(funptr)&f_touchdcstA72,
-	(funptr)&f_touchdcstA73,
-	(funptr)&f_touchdcstA74,
-	(funptr)&f_touchdcstA75,
-	(funptr)&f_touchdcstA76,
-	(funptr)&f_touchdcstA77,
-	(funptr)&f_touchdcstA78,
-	(funptr)&f_touchdcstA79,
-	(funptr)&f_touchdcstA80,
-	(funptr)&f_touchdcstA81,
-	(funptr)&f_touchdcstA82,
-	(funptr)&f_touchdcstA83,
-	(funptr)&f_touchdcstA84,
-	(funptr)&f_touchdcstA85,
-	(funptr)&f_touchdcstA86,
-	(funptr)&f_touchdcstA87,
-	(funptr)&f_touchdcstA88,
-	(funptr)&f_touchdcstA89,
-	(funptr)&f_touchdcstA90,
-	(funptr)&f_touchdcstA91,
-	(funptr)&f_touchdcstA92,
-	(funptr)&f_touchdcstA93,
-	(funptr)&f_touchdcstA94,
-	(funptr)&f_touchdcstA95,
-	(funptr)&f_touchdcstA96,
-	(funptr)&f_touchdcstA97,
-	(funptr)&f_touchdcstA98,
-	(funptr)&f_touchdcstA99,
-	(funptr)&f_touchdcstA100,
-	(funptr)&f_touchdcstA101,
-	(funptr)&f_touchdcstA102,
-	(funptr)&f_touchdcstA103,
-	(funptr)&f_touchdcstA104,
-	(funptr)&f_touchdcstA105,
-	(funptr)&f_touchdcstA106,
-	(funptr)&f_touchdcstA107,
-	(funptr)&f_touchdcstA108,
-	(funptr)&f_touchdcstA109,
-	(funptr)&f_touchdcstA110,
-	(funptr)&f_touchdcstA111,
-	(funptr)&f_touchdcstA112,
-	(funptr)&f_touchdcstA113,
-	(funptr)&f_touchdcstA114,
-	(funptr)&f_touchdcstA115,
-	(funptr)&f_touchdcstA116,
-	(funptr)&f_touchdcstA117,
-	(funptr)&f_touchdcstA118,
-	(funptr)&f_touchdcstA119,
-	(funptr)&f_touchdcstA120,
-	(funptr)&f_touchdcstA121,
-	(funptr)&f_touchdcstA122,
-	(funptr)&f_touchdcstA123,
-	(funptr)&f_touchdcstA124,
-	(funptr)&f_touchdcstA125,
-	(funptr)&f_touchdcstA126,
-	(funptr)&f_touchdcstA127,
-	(funptr)&f_touchdcstA128,
-	(funptr)&f_touchdcstA129,
-	(funptr)&f_touchdcstA130,
-	(funptr)&f_touchdcstA131,
-	(funptr)&f_touchdcstA132,
-	(funptr)&f_touchdcstA133,
-	(funptr)&f_touchdcstA134,
-	(funptr)&f_touchdcstA135,
-	(funptr)&f_touchdcstA136,
-	(funptr)&f_touchdcstA137,
-	(funptr)&f_touchdcstA138,
-	(funptr)&f_touchdcstA139,
-	(funptr)&f_touchdcstA140,
-	(funptr)&f_touchdcstA141,
-	(funptr)&f_touchdcstA142,
-	(funptr)&f_touchdcstA143,
-	(funptr)&f_touchdcstA144,
-	(funptr)&f_touchdcstA145,
-	(funptr)&f_touchdcstA146,
-	(funptr)&f_touchdcstA147,
-	(funptr)&f_touchdcstA148,
-	(funptr)&f_touchdcstA149,
-	(funptr)&f_touchdcstA150,
-	(funptr)&f_touchdcstA151,
-	(funptr)&f_touchdcstA152,
-	(funptr)&f_touchdcstA153,
-	(funptr)&f_touchdcstA154,
-	(funptr)&f_touchdcstA155,
-	(funptr)&f_touchdcstA156,
-	(funptr)&f_touchdcstA157,
-	(funptr)&f_touchdcstA158,
-	(funptr)&f_touchdcstA159,
-	(funptr)&f_touchdcstA160,
-	(funptr)&f_touchdcstA161,
-	(funptr)&f_touchdcstA162,
-	(funptr)&f_touchdcstA163,
-	(funptr)&f_touchdcstA164,
-	(funptr)&f_touchdcstA165,
-	(funptr)&f_touchdcstA166,
-	(funptr)&f_touchdcstA167,
-	(funptr)&f_touchdcstA168,
-	(funptr)&f_touchdcstA169,
-	(funptr)&f_touchdcstA170,
-	(funptr)&f_touchdcstA171,
-	(funptr)&f_touchdcstA172,
-	(funptr)&f_touchdcstA173,
-	(funptr)&f_touchdcstA174,
-	(funptr)&f_touchdcstA175,
-	(funptr)&f_touchdcstA176,
-	(funptr)&f_touchdcstA177,
-	(funptr)&f_touchdcstA178,
-	(funptr)&f_touchdcstA179,
-	(funptr)&f_touchdcstA180,
-	(funptr)&f_touchdcstA181,
-	(funptr)&f_touchdcstA182,
-	(funptr)&f_touchdcstA183,
-	(funptr)&f_touchdcstA184,
-	(funptr)&f_touchdcstA185,
-	(funptr)&f_touchdcstA186,
-	(funptr)&f_touchdcstA187,
-	(funptr)&f_touchdcstA188,
-	(funptr)&f_touchdcstA189,
-	(funptr)&f_touchdcstA190,
-	(funptr)&f_touchdcstA191,
-	(funptr)&f_touchdcstA192,
-	(funptr)&f_touchdcstA193,
-	(funptr)&f_touchdcstA194,
-	(funptr)&f_touchdcstA195,
-	(funptr)&f_touchdcstA196,
-	(funptr)&f_touchdcstA197,
-	(funptr)&f_touchdcstA198,
-	(funptr)&f_touchdcstA199,
-	(funptr)&f_touchdcstA200,
-	(funptr)&f_touchdcstA201,
-	(funptr)&f_touchdcstA202,
-	(funptr)&f_touchdcstA203,
-	(funptr)&f_touchdcstA204,
-	(funptr)&f_touchdcstA205,
-	(funptr)&f_touchdcstA206,
-	(funptr)&f_touchdcstA207,
-	(funptr)&f_touchdcstA208,
-	(funptr)&f_touchdcstA209,
-	(funptr)&f_touchdcstA210,
-	(funptr)&f_touchdcstA211,
-	(funptr)&f_touchdcstA212,
-	(funptr)&f_touchdcstA213,
-	(funptr)&f_touchdcstA214,
-	(funptr)&f_touchdcstA215,
-	(funptr)&f_touchdcstA216,
-	(funptr)&f_touchdcstA217,
-	(funptr)&f_touchdcstA218,
-	(funptr)&f_touchdcstA219,
-	(funptr)&f_touchdcstA220,
-	(funptr)&f_touchdcstA221,
-	(funptr)&f_touchdcstA222,
-	(funptr)&f_touchdcstA223,
-	(funptr)&f_touchdcstA224,
-	(funptr)&f_touchdcstA225,
-	(funptr)&f_touchdcstA226,
-	(funptr)&f_touchdcstA227,
-	(funptr)&f_touchdcstA228,
-	(funptr)&f_touchdcstA229,
-	(funptr)&f_touchdcstA230,
-	(funptr)&f_touchdcstA231,
-	(funptr)&f_touchdcstA232,
-	(funptr)&f_touchdcstA233,
-	(funptr)&f_touchdcstA234,
-	(funptr)&f_touchdcstA235,
-	(funptr)&f_touchdcstA236,
-	(funptr)&f_touchdcstA237,
-	(funptr)&f_touchdcstA238,
-	(funptr)&f_touchdcstA239,
-	(funptr)&f_touchdcstA240,
-	(funptr)&f_touchdcstA241,
-	(funptr)&f_touchdcstA242,
-	(funptr)&f_touchdcstA243,
-	(funptr)&f_touchdcstA244,
-	(funptr)&f_touchdcstA245,
-	(funptr)&f_touchdcstA246,
-	(funptr)&f_touchdcstA247,
-	(funptr)&f_touchdcstA248,
-	(funptr)&f_touchdcstA249,
-	(funptr)&f_touchdcstA250,
-	(funptr)&f_touchdcstA251,
-	(funptr)&f_touchdcstA252,
-	(funptr)&f_touchdcstA253,
-	(funptr)&f_touchdcstA254,
-	(funptr)&f_touchdcstA255,
-	(funptr)&f_touchdcstA256,
-	(funptr)&f_touchdcstA257,
-	(funptr)&f_touchdcstA258,
-	(funptr)&f_touchdcstA259,
-	(funptr)&f_touchdcstA260,
-	(funptr)&f_touchdcstA261,
-	(funptr)&f_touchdcstA262,
-	(funptr)&f_touchdcstA263,
-	(funptr)&f_touchdcstA264,
-	(funptr)&f_touchdcstA265,
-	(funptr)&f_touchdcstA266,
-	(funptr)&f_touchdcstA267,
-	(funptr)&f_touchdcstA268,
-	(funptr)&f_touchdcstA269,
-	(funptr)&f_touchdcstA270,
-	(funptr)&f_touchdcstA271,
-	(funptr)&f_touchdcstA272,
-	(funptr)&f_touchdcstA273,
-	(funptr)&f_touchdcstA274,
-	(funptr)&f_touchdcstA275,
-	(funptr)&f_touchdcstA276,
-	(funptr)&f_touchdcstA277,
-	(funptr)&f_touchdcstA278,
-	(funptr)&f_touchdcstA279,
-	(funptr)&f_touchdcstA280,
-	(funptr)&f_touchdcstA281,
-	(funptr)&f_touchdcstA282,
-	(funptr)&f_touchdcstA283,
-	(funptr)&f_touchdcstA284,
-	(funptr)&f_touchdcstA285,
-	(funptr)&f_touchdcstA286,
-	(funptr)&f_touchdcstA287,
-	(funptr)&f_touchdcstA288,
-	(funptr)&f_touchdcstA289,
-	(funptr)&f_touchdcstA290,
-	(funptr)&f_touchdcstA291,
-	(funptr)&f_touchdcstA292,
-	(funptr)&f_touchdcstA293,
-	(funptr)&f_touchdcstA294,
-	(funptr)&f_touchdcstA295,
-	(funptr)&f_touchdcstA296,
-	(funptr)&f_touchdcstA297,
-	(funptr)&f_touchdcstA298,
-	(funptr)&f_touchdcstA299,
-	(funptr)&f_touchdcstA300,
-	(funptr)&f_touchdcstA301,
-	(funptr)&f_touchdcstA302,
-	(funptr)&f_touchdcstA303,
-	(funptr)&f_touchdcstA304,
-	(funptr)&f_touchdcstA305,
-	(funptr)&f_touchdcstA306,
-	(funptr)&f_touchdcstA307,
-	(funptr)&f_touchdcstA308,
-	(funptr)&f_touchdcstA309,
-	(funptr)&f_touchdcstA310,
-	(funptr)&f_touchdcstA311,
-	(funptr)&f_touchdcstA312,
-	(funptr)&f_touchdcstA313,
-	(funptr)&f_touchdcstA314,
-	(funptr)&f_touchdcstA315,
-	(funptr)&f_touchdcstA316,
-	(funptr)&f_touchdcstA317,
-	(funptr)&f_touchdcstA318,
-	(funptr)&f_touchdcstA319,
-	(funptr)&f_touchdcstA320,
-	(funptr)&f_touchdcstA321,
-	(funptr)&f_touchdcstA322,
-	(funptr)&f_touchdcstA323,
-	(funptr)&f_touchdcstA324,
-	(funptr)&f_touchdcstA325,
-	(funptr)&f_touchdcstA326,
-	(funptr)&f_touchdcstA327,
-	(funptr)&f_touchdcstA328,
-	(funptr)&f_touchdcstA329,
-	(funptr)&f_touchdcstA330,
-	(funptr)&f_touchdcstA331,
-	(funptr)&f_touchdcstA332,
-	(funptr)&f_touchdcstA333,
-	(funptr)&f_touchdcstA334,
-	(funptr)&f_touchdcstA335,
-	(funptr)&f_touchdcstA336,
-	(funptr)&f_touchdcstA337,
-	(funptr)&f_touchdcstA338,
-	(funptr)&f_touchdcstA339,
-	(funptr)&f_touchdcstA340,
-	(funptr)&f_touchdcstA341,
-	(funptr)&f_touchdcstA342,
-	(funptr)&f_touchdcstA343,
-	(funptr)&f_touchdcstA344,
-	(funptr)&f_touchdcstA345,
-	(funptr)&f_touchdcstA346,
-	(funptr)&f_touchdcstA347,
-	(funptr)&f_touchdcstA348,
-	(funptr)&f_touchdcstA349,
-	(funptr)&f_touchdcstA350,
-	(funptr)&f_touchdcstA351,
-	(funptr)&f_touchdcstA352,
-	(funptr)&f_touchdcstA353,
-	(funptr)&f_touchdcstA354,
-	(funptr)&f_touchdcstA355,
-	(funptr)&f_touchdcstA356,
-	(funptr)&f_touchdcstA357,
-	(funptr)&f_touchdcstA358,
-	(funptr)&f_touchdcstA359,
-	(funptr)&f_touchdcstA360,
-	(funptr)&f_touchdcstA361,
-	(funptr)&f_touchdcstA362,
-	(funptr)&f_touchdcstA363,
-	(funptr)&f_touchdcstA364,
-	(funptr)&f_touchdcstA365,
-	(funptr)&f_touchdcstA366,
-	(funptr)&f_touchdcstA367,
-	(funptr)&f_touchdcstA368,
-	(funptr)&f_touchdcstA369,
-	(funptr)&f_touchdcstA370,
-	(funptr)&f_touchdcstA371,
-	(funptr)&f_touchdcstA372,
-	(funptr)&f_touchdcstA373,
-	(funptr)&f_touchdcstA374,
-	(funptr)&f_touchdcstA375,
-	(funptr)&f_touchdcstA376,
-	(funptr)&f_touchdcstA377,
-	(funptr)&f_touchdcstA378,
-	(funptr)&f_touchdcstA379,
-	(funptr)&f_touchdcstA380,
-	(funptr)&f_touchdcstA381,
-	(funptr)&f_touchdcstA382,
-	(funptr)&f_touchdcstA383,
-	(funptr)&f_touchdcstA384,
-	(funptr)&f_touchdcstA385,
-	(funptr)&f_touchdcstA386,
-	(funptr)&f_touchdcstA387,
-	(funptr)&f_touchdcstA388,
-	(funptr)&f_touchdcstA389,
-	(funptr)&f_touchdcstA390,
-	(funptr)&f_touchdcstA391,
-	(funptr)&f_touchdcstA392,
-	(funptr)&f_touchdcstA393,
-	(funptr)&f_touchdcstA394,
-	(funptr)&f_touchdcstA395,
-	(funptr)&f_touchdcstA396,
-	(funptr)&f_touchdcstA397,
-	(funptr)&f_touchdcstA398,
-	(funptr)&f_touchdcstA399,
-	(funptr)&f_touchdcstA400,
-	(funptr)&f_touchdcstA401,
-	(funptr)&f_touchdcstA402,
-	(funptr)&f_touchdcstA403,
-	(funptr)&f_touchdcstA404,
-	(funptr)&f_touchdcstA405,
-	(funptr)&f_touchdcstA406,
-	(funptr)&f_touchdcstA407,
-	(funptr)&f_touchdcstA408,
-	(funptr)&f_touchdcstA409,
-	(funptr)&f_touchdcstA410,
-	(funptr)&f_touchdcstA411,
-	(funptr)&f_touchdcstA412,
-	(funptr)&f_touchdcstA413,
-	(funptr)&f_touchdcstA414,
-	(funptr)&f_touchdcstA415,
-	(funptr)&f_touchdcstA416,
-	(funptr)&f_touchdcstA417,
-	(funptr)&f_touchdcstA418,
-	(funptr)&f_touchdcstA419,
-	(funptr)&f_touchdcstA420,
-	(funptr)&f_touchdcstA421,
-	(funptr)&f_touchdcstA422,
-	(funptr)&f_touchdcstA423,
-	(funptr)&f_touchdcstA424,
-	(funptr)&f_touchdcstA425,
-	(funptr)&f_touchdcstA426,
-	(funptr)&f_touchdcstA427,
-	(funptr)&f_touchdcstA428,
-	(funptr)&f_touchdcstA429,
-	(funptr)&f_touchdcstA430,
-	(funptr)&f_touchdcstA431,
-	(funptr)&f_touchdcstA432,
-	(funptr)&f_touchdcstA433,
-	(funptr)&f_touchdcstA434,
-	(funptr)&f_touchdcstA435,
-	(funptr)&f_touchdcstA436,
-	(funptr)&f_touchdcstA437,
-	(funptr)&f_touchdcstA438,
-	(funptr)&f_touchdcstA439,
-	(funptr)&f_touchdcstA440,
-	(funptr)&f_touchdcstA441,
-	(funptr)&f_touchdcstA442,
-	(funptr)&f_touchdcstA443,
-	(funptr)&f_touchdcstA444,
-	(funptr)&f_touchdcstA445,
-	(funptr)&f_touchdcstA446,
-	(funptr)&f_touchdcstA447,
-	(funptr)&f_touchdcstA448,
-	(funptr)&f_touchdcstA449,
-	(funptr)&f_touchdcstA450,
-	(funptr)&f_touchdcstA451,
-	(funptr)&f_touchdcstA452,
-	(funptr)&f_touchdcstA453,
-	(funptr)&f_touchdcstA454,
-	(funptr)&f_touchdcstA455,
-	(funptr)&f_touchdcstA456,
-	(funptr)&f_touchdcstA457,
-	(funptr)&f_touchdcstA458,
-	(funptr)&f_touchdcstA459,
-	(funptr)&f_touchdcstA460,
-	(funptr)&f_touchdcstA461,
-	(funptr)&f_touchdcstA462,
-	(funptr)&f_touchdcstA463,
-	(funptr)&f_touchdcstA464,
-	(funptr)&f_touchdcstA465,
-	(funptr)&f_touchdcstA466,
-	(funptr)&f_touchdcstA467,
-	(funptr)&f_touchdcstA468,
-	(funptr)&f_touchdcstA469,
-	(funptr)&f_touchdcstA470,
-	(funptr)&f_touchdcstA471,
-	(funptr)&f_touchdcstA472,
-	(funptr)&f_touchdcstA473,
-	(funptr)&f_touchdcstA474,
-	(funptr)&f_touchdcstA475,
-	(funptr)&f_touchdcstA476,
-	(funptr)&f_touchdcstA477,
-	(funptr)&f_touchdcstA478,
-	(funptr)&f_touchdcstA479,
-	(funptr)&f_touchdcstA480,
-	(funptr)&f_touchdcstA481,
-	(funptr)&f_touchdcstA482,
-	(funptr)&f_touchdcstA483,
-	(funptr)&f_touchdcstA484,
-	(funptr)&f_touchdcstA485,
-	(funptr)&f_touchdcstA486,
-	(funptr)&f_touchdcstA487,
-	(funptr)&f_touchdcstA488,
-	(funptr)&f_touchdcstA489,
-	(funptr)&f_touchdcstA490,
-	(funptr)&f_touchdcstA491,
-	(funptr)&f_touchdcstA492,
-	(funptr)&f_touchdcstA493,
-	(funptr)&f_touchdcstA494,
-	(funptr)&f_touchdcstA495,
-	(funptr)&f_touchdcstA496,
-	(funptr)&f_touchdcstA497,
-	(funptr)&f_touchdcstA498,
-	(funptr)&f_touchdcstA499,
-	(funptr)&f_touchdcstA500,
-	(funptr)&f_touchdcstA501,
-	(funptr)&f_touchdcstA502,
-	(funptr)&f_touchdcstA503,
-	(funptr)&f_touchdcstA504,
-	(funptr)&f_touchdcstA505,
-	(funptr)&f_touchdcstA506,
-	(funptr)&f_touchdcstA507,
-	(funptr)&f_touchdcstA508,
-	(funptr)&f_touchdcstA509,
-	(funptr)&f_touchdcstA510,
-	(funptr)&f_touchdcstA511,
-	(funptr)&f_touchdcstA512,
-	(funptr)&f_touchdcstA513,
-	(funptr)&f_touchdcstA514,
-	(funptr)&f_touchdcstA515,
-	(funptr)&f_touchdcstA516,
-	(funptr)&f_touchdcstA517,
-	(funptr)&f_touchdcstA518,
-	(funptr)&f_touchdcstA519,
-	(funptr)&f_touchdcstA520,
-	(funptr)&f_touchdcstA521,
-	(funptr)&f_touchdcstA522,
-	(funptr)&f_touchdcstA523,
-	(funptr)&f_touchdcstA524,
-	(funptr)&f_touchdcstA525,
-	(funptr)&f_touchdcstA526,
-	(funptr)&f_touchdcstA527,
-	(funptr)&f_touchdcstA528,
-	(funptr)&f_touchdcstA529,
-	(funptr)&f_touchdcstA530,
-	(funptr)&f_touchdcstA531,
-	(funptr)&f_touchdcstA532,
-	(funptr)&f_touchdcstA533,
-	(funptr)&f_touchdcstA534,
-	(funptr)&f_touchdcstA535,
-	(funptr)&f_touchdcstA536,
-	(funptr)&f_touchdcstA537,
-	(funptr)&f_touchdcstA538,
-	(funptr)&f_touchdcstA539,
-	(funptr)&f_touchdcstA540,
-	(funptr)&f_touchdcstA541,
-	(funptr)&f_touchdcstA542,
-	(funptr)&f_touchdcstA543,
-	(funptr)&f_touchdcstA544,
-	(funptr)&f_touchdcstA545,
-	(funptr)&f_touchdcstA546,
-	(funptr)&f_touchdcstA547,
-	(funptr)&f_touchdcstA548,
-	(funptr)&f_touchdcstA549,
-	(funptr)&f_touchdcstA550,
-	(funptr)&f_touchdcstA551,
-	(funptr)&f_touchdcstA552,
-	(funptr)&f_touchdcstA553,
-	(funptr)&f_touchdcstA554,
-	(funptr)&f_touchdcstA555,
-	(funptr)&f_touchdcstA556,
-	(funptr)&f_touchdcstA557,
-	(funptr)&f_touchdcstA558,
-	(funptr)&f_touchdcstA559,
-	(funptr)&f_touchdcstA560,
-	(funptr)&f_touchdcstA561,
-	(funptr)&f_touchdcstA562,
-	(funptr)&f_touchdcstA563,
-	(funptr)&f_touchdcstA564,
-	(funptr)&f_touchdcstA565,
-	(funptr)&f_touchdcstA566,
-	(funptr)&f_touchdcstA567,
-	(funptr)&f_touchdcstA568,
-	(funptr)&f_touchdcstA569,
-	(funptr)&f_touchdcstA570,
-	(funptr)&f_touchdcstA571,
-	(funptr)&f_touchdcstA572,
-	(funptr)&f_touchdcstA573,
-	(funptr)&f_touchdcstA574,
-	(funptr)&f_touchdcstA575,
-	(funptr)&f_touchdcstA576,
-	(funptr)&f_touchdcstA577,
-	(funptr)&f_touchdcstA578,
-	(funptr)&f_touchdcstA579,
-	(funptr)&f_touchdcstA580,
-	(funptr)&f_touchdcstA581,
-	(funptr)&f_touchdcstA582,
-	(funptr)&f_touchdcstA583,
-	(funptr)&f_touchdcstA584,
-	(funptr)&f_touchdcstA585,
-	(funptr)&f_touchdcstA586,
-	(funptr)&f_touchdcstA587,
-	(funptr)&f_touchdcstA588,
-	(funptr)&f_touchdcstA589,
-	(funptr)&f_touchdcstA590,
-	(funptr)&f_touchdcstA591,
-	(funptr)&f_touchdcstA592,
-	(funptr)&f_touchdcstA593,
-	(funptr)&f_touchdcstA594,
-	(funptr)&f_touchdcstA595,
-	(funptr)&f_touchdcstA596,
-	(funptr)&f_touchdcstA597,
-	(funptr)&f_touchdcstA598,
-	(funptr)&f_touchdcstA599,
-	(funptr)&f_touchdcstA600,
-	(funptr)&f_touchdcstA601,
-	(funptr)&f_touchdcstA602,
-	(funptr)&f_touchdcstA603,
-	(funptr)&f_touchdcstA604,
-	(funptr)&f_touchdcstA605,
-	(funptr)&f_touchdcstA606,
-	(funptr)&f_touchdcstA607,
-	(funptr)&f_touchdcstA608,
-	(funptr)&f_touchdcstA609,
-	(funptr)&f_touchdcstA610,
-	(funptr)&f_touchdcstA611,
-	(funptr)&f_touchdcstA612,
-	(funptr)&f_touchdcstA613,
-	(funptr)&f_touchdcstA614,
-	(funptr)&f_touchdcstA615,
-	(funptr)&f_touchdcstA616,
-	(funptr)&f_touchdcstA617,
-	(funptr)&f_touchdcstA618,
-	(funptr)&f_touchdcstA619,
-	(funptr)&f_touchdcstA620,
-	(funptr)&f_touchdcstA621,
-	(funptr)&f_touchdcstA622,
-	(funptr)&f_touchdcstA623,
-	(funptr)&f_touchdcstA624,
-	(funptr)&f_touchdcstA625,
-	(funptr)&f_touchdcstA626,
-	(funptr)&f_touchdcstA627,
-	(funptr)&f_touchdcstA628,
-	(funptr)&f_touchdcstA629,
-	(funptr)&f_touchdcstA630,
-	(funptr)&f_touchdcstA631,
-	(funptr)&f_touchdcstA632,
-	(funptr)&f_touchdcstA633,
-	(funptr)&f_touchdcstA634,
-	(funptr)&f_touchdcstA635,
-	(funptr)&f_touchdcstA636,
-	(funptr)&f_touchdcstA637,
-	(funptr)&f_touchdcstA638,
-	(funptr)&f_touchdcstA639,
-	(funptr)&f_touchdcstA640,
-	(funptr)&f_touchdcstA641,
-	(funptr)&f_touchdcstA642,
-	(funptr)&f_touchdcstA643,
-	(funptr)&f_touchdcstA644,
-	(funptr)&f_touchdcstA645,
-	(funptr)&f_touchdcstA646,
-	(funptr)&f_touchdcstA647,
-	(funptr)&f_touchdcstA648,
-	(funptr)&f_touchdcstA649,
-	(funptr)&f_touchdcstA650,
-	(funptr)&f_touchdcstA651,
-	(funptr)&f_touchdcstA652,
-	(funptr)&f_touchdcstA653,
-	(funptr)&f_touchdcstA654,
-	(funptr)&f_touchdcstA655,
-	(funptr)&f_touchdcstA656,
-	(funptr)&f_touchdcstA657,
-	(funptr)&f_touchdcstA658,
-	(funptr)&f_touchdcstA659,
-	(funptr)&f_touchdcstA660,
-	(funptr)&f_touchdcstA661,
-	(funptr)&f_touchdcstA662,
-	(funptr)&f_touchdcstA663,
-	(funptr)&f_touchdcstA664,
-	(funptr)&f_touchdcstA665,
-	(funptr)&f_touchdcstA666,
-	(funptr)&f_touchdcstA667,
-	(funptr)&f_touchdcstA668,
-	(funptr)&f_touchdcstA669,
-	(funptr)&f_touchdcstA670,
-	(funptr)&f_touchdcstA671,
-	(funptr)&f_touchdcstA672,
-	(funptr)&f_touchdcstA673,
-	(funptr)&f_touchdcstA674,
-	(funptr)&f_touchdcstA675,
-	(funptr)&f_touchdcstA676,
-	(funptr)&f_touchdcstA677,
-	(funptr)&f_touchdcstA678,
-	(funptr)&f_touchdcstA679,
-	(funptr)&f_touchdcstA680,
-	(funptr)&f_touchdcstA681,
-	(funptr)&f_touchdcstA682,
-	(funptr)&f_touchdcstA683,
-	(funptr)&f_touchdcstA684,
-	(funptr)&f_touchdcstA685,
-	(funptr)&f_touchdcstA686,
-	(funptr)&f_touchdcstA687,
-	(funptr)&f_touchdcstA688,
-	(funptr)&f_touchdcstA689,
-	(funptr)&f_touchdcstA690,
-	(funptr)&f_touchdcstA691,
-	(funptr)&f_touchdcstA692,
-	(funptr)&f_touchdcstA693,
-	(funptr)&f_touchdcstA694,
-	(funptr)&f_touchdcstA695,
-	(funptr)&f_touchdcstA696,
-	(funptr)&f_touchdcstA697,
-	(funptr)&f_touchdcstA698,
-	(funptr)&f_touchdcstA699,
-	(funptr)&f_touchdcstA700,
-	(funptr)&f_touchdcstA701,
-	(funptr)&f_touchdcstA702,
-	(funptr)&f_touchdcstA703,
-	(funptr)&f_touchdcstA704,
-	(funptr)&f_touchdcstA705,
-	(funptr)&f_touchdcstA706,
-	(funptr)&f_touchdcstA707,
-	(funptr)&f_touchdcstA708,
-	(funptr)&f_touchdcstA709,
-	(funptr)&f_touchdcstA710,
-	(funptr)&f_touchdcstA711,
-	(funptr)&f_touchdcstA712,
-	(funptr)&f_touchdcstA713,
-	(funptr)&f_touchdcstA714,
-	(funptr)&f_touchdcstA715,
-	(funptr)&f_touchdcstA716,
-	(funptr)&f_touchdcstA717,
-	(funptr)&f_touchdcstA718,
-	(funptr)&f_touchdcstA719,
-	(funptr)&f_touchdcstA720,
-	(funptr)&f_touchdcstA721,
-	(funptr)&f_touchdcstA722,
-	(funptr)&f_touchdcstA723,
-	(funptr)&f_touchdcstA724,
-	(funptr)&f_touchdcstA725,
-	(funptr)&f_touchdcstA726,
-	(funptr)&f_touchdcstA727,
-	(funptr)&f_touchdcstA728,
-	(funptr)&f_touchdcstA729,
-	(funptr)&f_touchdcstA730,
-	(funptr)&f_touchdcstA731,
-	(funptr)&f_touchdcstA732,
-	(funptr)&f_touchdcstA733,
-	(funptr)&f_touchdcstA734,
-	(funptr)&f_touchdcstA735,
-	(funptr)&f_touchdcstA736,
-	(funptr)&f_touchdcstA737,
-	(funptr)&f_touchdcstA738,
-	(funptr)&f_touchdcstA739,
-	(funptr)&f_touchdcstA740,
-	(funptr)&f_touchdcstA741,
-	(funptr)&f_touchdcstA742,
-	(funptr)&f_touchdcstA743,
-	(funptr)&f_touchdcstA744,
-	(funptr)&f_touchdcstA745,
-	(funptr)&f_touchdcstA746,
-	(funptr)&f_touchdcstA747,
-	(funptr)&f_touchdcstA748,
-	(funptr)&f_touchdcstA749,
-	(funptr)&f_touchdcstA750,
-	(funptr)&f_touchdcstA751,
-	(funptr)&f_touchdcstA752,
-	(funptr)&f_touchdcstA753,
-	(funptr)&f_touchdcstA754,
-	(funptr)&f_touchdcstA755,
-	(funptr)&f_touchdcstA756,
-	(funptr)&f_touchdcstA757,
-	(funptr)&f_touchdcstA758,
-	(funptr)&f_touchdcstA759,
-	(funptr)&f_touchdcstA760,
-	(funptr)&f_touchdcstA761,
-	(funptr)&f_touchdcstA762,
-	(funptr)&f_touchdcstA763,
-	(funptr)&f_touchdcstA764,
-	(funptr)&f_touchdcstA765,
-	(funptr)&f_touchdcstA766,
-	(funptr)&f_touchdcstA767,
-	(funptr)&f_touchdcstA768,
-	(funptr)&f_touchdcstA769,
-	(funptr)&f_touchdcstA770,
-	(funptr)&f_touchdcstA771,
-	(funptr)&f_touchdcstA772,
-	(funptr)&f_touchdcstA773,
-	(funptr)&f_touchdcstA774,
-	(funptr)&f_touchdcstA775,
-	(funptr)&f_touchdcstA776,
-	(funptr)&f_touchdcstA777,
-	(funptr)&f_touchdcstA778,
-	(funptr)&f_touchdcstA779,
-	(funptr)&f_touchdcstA780,
-	(funptr)&f_touchdcstA781,
-	(funptr)&f_touchdcstA782,
-	(funptr)&f_touchdcstA783,
-	(funptr)&f_touchdcstA784,
-	(funptr)&f_touchdcstA785,
-	(funptr)&f_touchdcstA786,
-	(funptr)&f_touchdcstA787,
-	(funptr)&f_touchdcstA788,
-	(funptr)&f_touchdcstA789,
-	(funptr)&f_touchdcstA790,
-	(funptr)&f_touchdcstA791,
-	(funptr)&f_touchdcstA792,
-	(funptr)&f_touchdcstA793,
-	(funptr)&f_touchdcstA794,
-	(funptr)&f_touchdcstA795,
-	(funptr)&f_touchdcstA796,
-	(funptr)&f_touchdcstA797,
-	(funptr)&f_touchdcstA798,
-	(funptr)&f_touchdcstA799,
-	(funptr)&f_touchdcstA800,
-	(funptr)&f_touchdcstA801,
-	(funptr)&f_touchdcstA802,
-	(funptr)&f_touchdcstA803,
-	(funptr)&f_touchdcstA804,
-	(funptr)&f_touchdcstA805,
-	(funptr)&f_touchdcstA806,
-	(funptr)&f_touchdcstA807,
-	(funptr)&f_touchdcstA808,
-	(funptr)&f_touchdcstA809,
-	(funptr)&f_touchdcstA810,
-	(funptr)&f_touchdcstA811,
-	(funptr)&f_touchdcstA812,
-	(funptr)&f_touchdcstA813,
-	(funptr)&f_touchdcstA814,
-	(funptr)&f_touchdcstA815,
-	(funptr)&f_touchdcstA816,
-	(funptr)&f_touchdcstA817,
-	(funptr)&f_touchdcstA818,
-	(funptr)&f_touchdcstA819,
-	(funptr)&f_touchdcstA820,
-	(funptr)&f_touchdcstA821,
-	(funptr)&f_touchdcstA822,
-	(funptr)&f_touchdcstA823,
-	(funptr)&f_touchdcstA824,
-	(funptr)&f_touchdcstA825,
-	(funptr)&f_touchdcstA826,
-	(funptr)&f_touchdcstA827,
-	(funptr)&f_touchdcstA828,
-	(funptr)&f_touchdcstA829,
-	(funptr)&f_touchdcstA830,
-	(funptr)&f_touchdcstA831,
-	(funptr)&f_touchdcstA832,
-	(funptr)&f_touchdcstA833,
-	(funptr)&f_touchdcstA834,
-	(funptr)&f_touchdcstA835,
-	(funptr)&f_touchdcstA836,
-	(funptr)&f_touchdcstA837,
-	(funptr)&f_touchdcstA838,
-	(funptr)&f_touchdcstA839,
-	(funptr)&f_touchdcstA840,
-	(funptr)&f_touchdcstA841,
-	(funptr)&f_touchdcstA842,
-	(funptr)&f_touchdcstA843,
-	(funptr)&f_touchdcstA844,
-	(funptr)&f_touchdcstA845,
-	(funptr)&f_touchdcstA846,
-	(funptr)&f_touchdcstA847,
-	(funptr)&f_touchdcstA848,
-	(funptr)&f_touchdcstA849,
-	(funptr)&f_touchdcstA850,
-	(funptr)&f_touchdcstA851,
-	(funptr)&f_touchdcstA852,
-	(funptr)&f_touchdcstA853,
-	(funptr)&f_touchdcstA854,
-	(funptr)&f_touchdcstA855,
-	(funptr)&f_touchdcstA856,
-	(funptr)&f_touchdcstA857,
-	(funptr)&f_touchdcstA858,
-	(funptr)&f_touchdcstA859,
-	(funptr)&f_touchdcstA860,
-	(funptr)&f_touchdcstA861,
-	(funptr)&f_touchdcstA862,
-	(funptr)&f_touchdcstA863,
-	(funptr)&f_touchdcstA864,
-	(funptr)&f_touchdcstA865,
-	(funptr)&f_touchdcstA866,
-	(funptr)&f_touchdcstA867,
-	(funptr)&f_touchdcstA868,
-	(funptr)&f_touchdcstA869,
-	(funptr)&f_touchdcstA870,
-	(funptr)&f_touchdcstA871,
-	(funptr)&f_touchdcstA872,
-	(funptr)&f_touchdcstA873,
-	(funptr)&f_touchdcstA874,
-	(funptr)&f_touchdcstA875,
-	(funptr)&f_touchdcstA876,
-	(funptr)&f_touchdcstA877,
-	(funptr)&f_touchdcstA878,
-	(funptr)&f_touchdcstA879,
-	(funptr)&f_touchdcstA880,
-	(funptr)&f_touchdcstA881,
-	(funptr)&f_touchdcstA882,
-	(funptr)&f_touchdcstA883,
-	(funptr)&f_touchdcstA884,
-	(funptr)&f_touchdcstA885,
-	(funptr)&f_touchdcstA886,
-	(funptr)&f_touchdcstA887,
-	(funptr)&f_touchdcstA888,
-	(funptr)&f_touchdcstA889,
-	(funptr)&f_touchdcstA890,
-	(funptr)&f_touchdcstA891,
-	(funptr)&f_touchdcstA892,
-	(funptr)&f_touchdcstA893,
-	(funptr)&f_touchdcstA894,
-	(funptr)&f_touchdcstA895,
-	(funptr)&f_touchdcstA896,
-	(funptr)&f_touchdcstA897,
-	(funptr)&f_touchdcstA898,
-	(funptr)&f_touchdcstA899,
-	(funptr)&f_touchdcstA900,
-	(funptr)&f_touchdcstA901,
-	(funptr)&f_touchdcstA902,
-	(funptr)&f_touchdcstA903,
-	(funptr)&f_touchdcstA904,
-	(funptr)&f_touchdcstA905,
-	(funptr)&f_touchdcstA906,
-	(funptr)&f_touchdcstA907,
-	(funptr)&f_touchdcstA908,
-	(funptr)&f_touchdcstA909,
-	(funptr)&f_touchdcstA910,
-	(funptr)&f_touchdcstA911,
-	(funptr)&f_touchdcstA912,
-	(funptr)&f_touchdcstA913,
-	(funptr)&f_touchdcstA914,
-	(funptr)&f_touchdcstA915,
-	(funptr)&f_touchdcstA916,
-	(funptr)&f_touchdcstA917,
-	(funptr)&f_touchdcstA918,
-	(funptr)&f_touchdcstA919,
-	(funptr)&f_touchdcstA920,
-	(funptr)&f_touchdcstA921,
-	(funptr)&f_touchdcstA922,
-	(funptr)&f_touchdcstA923,
-	(funptr)&f_touchdcstA924,
-	(funptr)&f_touchdcstA925,
-	(funptr)&f_touchdcstA926,
-	(funptr)&f_touchdcstA927,
-	(funptr)&f_touchdcstA928,
-	(funptr)&f_touchdcstA929,
-	(funptr)&f_touchdcstA930,
-	(funptr)&f_touchdcstA931,
-	(funptr)&f_touchdcstA932,
-	(funptr)&f_touchdcstA933,
-	(funptr)&f_touchdcstA934,
-	(funptr)&f_touchdcstA935,
-	(funptr)&f_touchdcstA936,
-	(funptr)&f_touchdcstA937,
-	(funptr)&f_touchdcstA938,
-	(funptr)&f_touchdcstA939,
-	(funptr)&f_touchdcstA940,
-	(funptr)&f_touchdcstA941,
-	(funptr)&f_touchdcstA942,
-	(funptr)&f_touchdcstA943,
-	(funptr)&f_touchdcstA944,
-	(funptr)&f_touchdcstA945,
-	(funptr)&f_touchdcstA946,
-	(funptr)&f_touchdcstA947,
-	(funptr)&f_touchdcstA948,
-	(funptr)&f_touchdcstA949,
-	(funptr)&f_touchdcstA950,
-	(funptr)&f_touchdcstA951,
-	(funptr)&f_touchdcstA952,
-	(funptr)&f_touchdcstA953,
-	(funptr)&f_touchdcstA954,
-	(funptr)&f_touchdcstA955,
-	(funptr)&f_touchdcstA956,
-	(funptr)&f_touchdcstA957,
-	(funptr)&f_touchdcstA958,
-	(funptr)&f_touchdcstA959,
-	(funptr)&f_touchdcstA960,
-	(funptr)&f_touchdcstA961,
-	(funptr)&f_touchdcstA962,
-	(funptr)&f_touchdcstA963,
-	(funptr)&f_touchdcstA964,
-	(funptr)&f_touchdcstA965,
-	(funptr)&f_touchdcstA966,
-	(funptr)&f_touchdcstA967,
-	(funptr)&f_touchdcstA968,
-	(funptr)&f_touchdcstA969,
-	(funptr)&f_touchdcstA970,
-	(funptr)&f_touchdcstA971,
-	(funptr)&f_touchdcstA972,
-	(funptr)&f_touchdcstA973,
-	(funptr)&f_touchdcstA974,
-	(funptr)&f_touchdcstA975,
-	(funptr)&f_touchdcstA976,
-	(funptr)&f_touchdcstA977,
-	(funptr)&f_touchdcstA978,
-	(funptr)&f_touchdcstA979,
-	(funptr)&f_touchdcstA980,
-	(funptr)&f_touchdcstA981,
-	(funptr)&f_touchdcstA982,
-	(funptr)&f_touchdcstA983,
-	(funptr)&f_touchdcstA984,
-	(funptr)&f_touchdcstA985,
-	(funptr)&f_touchdcstA986,
-	(funptr)&f_touchdcstA987,
-	(funptr)&f_touchdcstA988,
-	(funptr)&f_touchdcstA989,
-	(funptr)&f_touchdcstA990,
-	(funptr)&f_touchdcstA991,
-	(funptr)&f_touchdcstA992,
-	(funptr)&f_touchdcstA993,
-	(funptr)&f_touchdcstA994,
-	(funptr)&f_touchdcstA995,
-	(funptr)&f_touchdcstA996,
-	(funptr)&f_touchdcstA997,
-	(funptr)&f_touchdcstA998,
-	(funptr)&f_touchdcstA999,
-	(funptr)&f_touchdcstA1000,
-	(funptr)&f_touchdcstA1001,
-	(funptr)&f_touchdcstA1002,
-	(funptr)&f_touchdcstA1003,
-	(funptr)&f_touchdcstA1004,
-	(funptr)&f_touchdcstA1005,
-	(funptr)&f_touchdcstA1006,
-	(funptr)&f_touchdcstA1007,
-	(funptr)&f_touchdcstA1008,
-	(funptr)&f_touchdcstA1009,
-	(funptr)&f_touchdcstA1010,
-	(funptr)&f_touchdcstA1011,
-	(funptr)&f_touchdcstA1012,
-	(funptr)&f_touchdcstA1013,
-	(funptr)&f_touchdcstA1014,
-	(funptr)&f_touchdcstA1015,
-	(funptr)&f_touchdcstA1016,
-	(funptr)&f_touchdcstA1017,
-	(funptr)&f_touchdcstA1018,
-	(funptr)&f_touchdcstA1019,
-	(funptr)&f_touchdcstA1020,
-	(funptr)&f_touchdcstA1021,
-	(funptr)&f_touchdcstA1022,
-	(funptr)&f_touchdcstA1023,
-	(funptr)&f_touchdcstA1024,
-	(funptr)&f_touchdcstA1025,
-	(funptr)&f_touchdcstA1026,
-	(funptr)&f_touchdcstA1027,
-	(funptr)&f_touchdcstA1028,
-	(funptr)&f_touchdcstA1029,
-	(funptr)&f_touchdcstA1030,
-	(funptr)&f_touchdcstA1031,
-	(funptr)&f_touchdcstA1032,
-	(funptr)&f_touchdcstA1033,
-	(funptr)&f_touchdcstA1034,
-	(funptr)&f_touchdcstA1035,
-	(funptr)&f_touchdcstA1036,
-	(funptr)&f_touchdcstA1037,
-	(funptr)&f_touchdcstA1038,
-	(funptr)&f_touchdcstA1039,
-	(funptr)&f_touchdcstA1040,
-	(funptr)&f_touchdcstA1041,
-	(funptr)&f_touchdcstA1042,
-	(funptr)&f_touchdcstA1043,
-	(funptr)&f_touchdcstA1044,
-	(funptr)&f_touchdcstA1045,
-	(funptr)&f_touchdcstA1046,
-	(funptr)&f_touchdcstA1047,
-	(funptr)&f_touchdcstA1048,
-	(funptr)&f_touchdcstA1049,
-	(funptr)&f_touchdcstA1050,
-	(funptr)&f_touchdcstA1051,
-	(funptr)&f_touchdcstA1052,
-	(funptr)&f_touchdcstA1053,
-	(funptr)&f_touchdcstA1054,
-	(funptr)&f_touchdcstA1055,
-	(funptr)&f_touchdcstA1056,
-	(funptr)&f_touchdcstA1057,
-	(funptr)&f_touchdcstA1058,
-	(funptr)&f_touchdcstA1059,
-	(funptr)&f_touchdcstA1060,
-	(funptr)&f_touchdcstA1061,
-	(funptr)&f_touchdcstA1062,
-	(funptr)&f_touchdcstA1063,
-	(funptr)&f_touchdcstA1064,
-	(funptr)&f_touchdcstA1065,
-	(funptr)&f_touchdcstA1066,
-	(funptr)&f_touchdcstA1067,
-	(funptr)&f_touchdcstA1068,
-	(funptr)&f_touchdcstA1069,
-	(funptr)&f_touchdcstA1070,
-	(funptr)&f_touchdcstA1071,
-	(funptr)&f_touchdcstA1072,
-	(funptr)&f_touchdcstA1073,
-	(funptr)&f_touchdcstA1074,
-	(funptr)&f_touchdcstA1075,
-	(funptr)&f_touchdcstA1076,
-	(funptr)&f_touchdcstA1077,
-	(funptr)&f_touchdcstA1078,
-	(funptr)&f_touchdcstA1079,
-	(funptr)&f_touchdcstA1080,
-	(funptr)&f_touchdcstA1081,
-	(funptr)&f_touchdcstA1082,
-	(funptr)&f_touchdcstA1083,
-	(funptr)&f_touchdcstA1084,
-	(funptr)&f_touchdcstA1085,
-	(funptr)&f_touchdcstA1086,
-	(funptr)&f_touchdcstA1087,
-	(funptr)&f_touchdcstA1088,
-	(funptr)&f_touchdcstA1089,
-	(funptr)&f_touchdcstA1090,
-	(funptr)&f_touchdcstA1091,
-	(funptr)&f_touchdcstA1092,
-	(funptr)&f_touchdcstA1093,
-	(funptr)&f_touchdcstA1094,
-	(funptr)&f_touchdcstA1095,
-	(funptr)&f_touchdcstA1096,
-	(funptr)&f_touchdcstA1097,
-	(funptr)&f_touchdcstA1098,
-	(funptr)&f_touchdcstA1099,
-	(funptr)&f_touchdcstA1100,
-	(funptr)&f_touchdcstA1101,
-	(funptr)&f_touchdcstA1102,
-	(funptr)&f_touchdcstA1103,
-	(funptr)&f_touchdcstA1104,
-	(funptr)&f_touchdcstA1105,
-	(funptr)&f_touchdcstA1106,
-	(funptr)&f_touchdcstA1107,
-	(funptr)&f_touchdcstA1108,
-	(funptr)&f_touchdcstA1109,
-	(funptr)&f_touchdcstA1110,
-	(funptr)&f_touchdcstA1111,
-	(funptr)&f_touchdcstA1112,
-	(funptr)&f_touchdcstA1113,
-	(funptr)&f_touchdcstA1114,
-	(funptr)&f_touchdcstA1115,
-	(funptr)&f_touchdcstA1116,
-	(funptr)&f_touchdcstA1117,
-	(funptr)&f_touchdcstA1118,
-	(funptr)&f_touchdcstA1119,
-	(funptr)&f_touchdcstA1120,
-	(funptr)&f_touchdcstA1121,
-	(funptr)&f_touchdcstA1122,
-	(funptr)&f_touchdcstA1123,
-	(funptr)&f_touchdcstA1124,
-	(funptr)&f_touchdcstA1125,
-	(funptr)&f_touchdcstA1126,
-	(funptr)&f_touchdcstA1127,
-	(funptr)&f_touchdcstA1128,
-	(funptr)&f_touchdcstA1129,
-	(funptr)&f_touchdcstA1130,
-	(funptr)&f_touchdcstA1131,
-	(funptr)&f_touchdcstA1132,
-	(funptr)&f_touchdcstA1133,
-	(funptr)&f_touchdcstA1134,
-	(funptr)&f_touchdcstA1135,
-	(funptr)&f_touchdcstA1136,
-	(funptr)&f_touchdcstA1137,
-	(funptr)&f_touchdcstA1138,
-	(funptr)&f_touchdcstA1139,
-	(funptr)&f_touchdcstA1140,
-	(funptr)&f_touchdcstA1141,
-	(funptr)&f_touchdcstA1142,
-	(funptr)&f_touchdcstA1143,
-	(funptr)&f_touchdcstA1144,
-	(funptr)&f_touchdcstA1145,
-	(funptr)&f_touchdcstA1146,
-	(funptr)&f_touchdcstA1147,
-	(funptr)&f_touchdcstA1148,
-	(funptr)&f_touchdcstA1149,
-	(funptr)&f_touchdcstA1150,
-	(funptr)&f_touchdcstA1151,
-	(funptr)&f_touchdcstA1152,
-	(funptr)&f_touchdcstA1153,
-	(funptr)&f_touchdcstA1154,
-	(funptr)&f_touchdcstA1155,
-	(funptr)&f_touchdcstA1156,
-	(funptr)&f_touchdcstA1157,
-	(funptr)&f_touchdcstA1158,
-	(funptr)&f_touchdcstA1159,
-	(funptr)&f_touchdcstA1160,
-	(funptr)&f_touchdcstA1161,
-	(funptr)&f_touchdcstA1162,
-	(funptr)&f_touchdcstA1163,
-	(funptr)&f_touchdcstA1164,
-	(funptr)&f_touchdcstA1165,
-	(funptr)&f_touchdcstA1166,
-	(funptr)&f_touchdcstA1167,
-	(funptr)&f_touchdcstA1168,
-	(funptr)&f_touchdcstA1169,
-	(funptr)&f_touchdcstA1170,
-	(funptr)&f_touchdcstA1171,
-	(funptr)&f_touchdcstA1172,
-	(funptr)&f_touchdcstA1173,
-	(funptr)&f_touchdcstA1174,
-	(funptr)&f_touchdcstA1175,
-	(funptr)&f_touchdcstA1176,
-	(funptr)&f_touchdcstA1177,
-	(funptr)&f_touchdcstA1178,
-	(funptr)&f_touchdcstA1179,
-	(funptr)&f_touchdcstA1180,
-	(funptr)&f_touchdcstA1181,
-	(funptr)&f_touchdcstA1182,
-	(funptr)&f_touchdcstA1183,
-	(funptr)&f_touchdcstA1184,
-	(funptr)&f_touchdcstA1185,
-	(funptr)&f_touchdcstA1186,
-	(funptr)&f_touchdcstA1187,
-	(funptr)&f_touchdcstA1188,
-	(funptr)&f_touchdcstA1189,
-	(funptr)&f_touchdcstA1190,
-	(funptr)&f_touchdcstA1191,
-	(funptr)&f_touchdcstA1192,
-	(funptr)&f_touchdcstA1193,
-	(funptr)&f_touchdcstA1194,
-	(funptr)&f_touchdcstA1195,
-	(funptr)&f_touchdcstA1196,
-	(funptr)&f_touchdcstA1197,
-	(funptr)&f_touchdcstA1198,
-	(funptr)&f_touchdcstA1199,
-	(funptr)&f_touchdcstA1200,
-	(funptr)&f_touchdcstA1201,
-	(funptr)&f_touchdcstA1202,
-	(funptr)&f_touchdcstA1203,
-	(funptr)&f_touchdcstA1204,
-	(funptr)&f_touchdcstA1205,
-	(funptr)&f_touchdcstA1206,
-	(funptr)&f_touchdcstA1207,
-	(funptr)&f_touchdcstA1208,
-	(funptr)&f_touchdcstA1209,
-	(funptr)&f_touchdcstA1210,
-	(funptr)&f_touchdcstA1211,
-	(funptr)&f_touchdcstA1212,
-	(funptr)&f_touchdcstA1213,
-	(funptr)&f_touchdcstA1214,
-	(funptr)&f_touchdcstA1215,
-	(funptr)&f_touchdcstA1216,
-	(funptr)&f_touchdcstA1217,
-	(funptr)&f_touchdcstA1218,
-	(funptr)&f_touchdcstA1219,
-	(funptr)&f_touchdcstA1220,
-	(funptr)&f_touchdcstA1221,
-	(funptr)&f_touchdcstA1222,
-	(funptr)&f_touchdcstA1223,
-	(funptr)&f_touchdcstA1224,
-	(funptr)&f_touchdcstA1225,
-	(funptr)&f_touchdcstA1226,
-	(funptr)&f_touchdcstA1227,
-	(funptr)&f_touchdcstA1228,
-	(funptr)&f_touchdcstA1229,
-	(funptr)&f_touchdcstA1230,
-	(funptr)&f_touchdcstA1231,
-	(funptr)&f_touchdcstA1232,
-	(funptr)&f_touchdcstA1233,
-	(funptr)&f_touchdcstA1234,
-	(funptr)&f_touchdcstA1235,
-	(funptr)&f_touchdcstA1236,
-	(funptr)&f_touchdcstA1237,
-	(funptr)&f_touchdcstA1238,
-	(funptr)&f_touchdcstA1239,
-	(funptr)&f_touchdcstA1240,
-	(funptr)&f_touchdcstA1241,
-	(funptr)&f_touchdcstA1242,
-	(funptr)&f_touchdcstA1243,
-	(funptr)&f_touchdcstA1244,
-	(funptr)&f_touchdcstA1245,
-	(funptr)&f_touchdcstA1246,
-	(funptr)&f_touchdcstA1247,
-	(funptr)&f_touchdcstA1248,
-	(funptr)&f_touchdcstA1249,
-	(funptr)&f_touchdcstA1250,
-	(funptr)&f_touchdcstA1251,
-	(funptr)&f_touchdcstA1252,
-	(funptr)&f_touchdcstA1253,
-	(funptr)&f_touchdcstA1254,
-	(funptr)&f_touchdcstA1255,
-	(funptr)&f_touchdcstA1256,
-	(funptr)&f_touchdcstA1257,
-	(funptr)&f_touchdcstA1258,
-	(funptr)&f_touchdcstA1259,
-	(funptr)&f_touchdcstA1260,
-	(funptr)&f_touchdcstA1261,
-	(funptr)&f_touchdcstA1262,
-	(funptr)&f_touchdcstA1263,
-	(funptr)&f_touchdcstA1264,
-	(funptr)&f_touchdcstA1265,
-	(funptr)&f_touchdcstA1266,
-	(funptr)&f_touchdcstA1267,
-	(funptr)&f_touchdcstA1268,
-	(funptr)&f_touchdcstA1269,
-	(funptr)&f_touchdcstA1270,
-	(funptr)&f_touchdcstA1271,
-	(funptr)&f_touchdcstA1272,
-	(funptr)&f_touchdcstA1273,
-	(funptr)&f_touchdcstA1274,
-	(funptr)&f_touchdcstA1275,
-	(funptr)&f_touchdcstA1276,
-	(funptr)&f_touchdcstA1277,
-	(funptr)&f_touchdcstA1278,
-	(funptr)&f_touchdcstA1279,
-	(funptr)&f_touchdcstA1280,
-	(funptr)&f_touchdcstA1281,
-	(funptr)&f_touchdcstA1282,
-	(funptr)&f_touchdcstA1283,
-	(funptr)&f_touchdcstA1284,
-	(funptr)&f_touchdcstA1285,
-	(funptr)&f_touchdcstA1286,
-	(funptr)&f_touchdcstA1287,
-	(funptr)&f_touchdcstA1288,
-	(funptr)&f_touchdcstA1289,
-	(funptr)&f_touchdcstA1290,
-	(funptr)&f_touchdcstA1291,
-	(funptr)&f_touchdcstA1292,
-	(funptr)&f_touchdcstA1293,
-	(funptr)&f_touchdcstA1294,
-	(funptr)&f_touchdcstA1295,
-	(funptr)&f_touchdcstA1296,
-	(funptr)&f_touchdcstA1297,
-	(funptr)&f_touchdcstA1298,
-	(funptr)&f_touchdcstA1299,
-	(funptr)&f_touchdcstA1300,
-	(funptr)&f_touchdcstA1301,
-	(funptr)&f_touchdcstA1302,
-	(funptr)&f_touchdcstA1303,
-	(funptr)&f_touchdcstA1304,
-	(funptr)&f_touchdcstA1305,
-	(funptr)&f_touchdcstA1306,
-	(funptr)&f_touchdcstA1307,
-	(funptr)&f_touchdcstA1308,
-	(funptr)&f_touchdcstA1309,
-	(funptr)&f_touchdcstA1310,
-	(funptr)&f_touchdcstA1311,
-	(funptr)&f_touchdcstA1312,
-	(funptr)&f_touchdcstA1313,
-	(funptr)&f_touchdcstA1314,
-	(funptr)&f_touchdcstA1315,
-	(funptr)&f_touchdcstA1316,
-	(funptr)&f_touchdcstA1317,
-	(funptr)&f_touchdcstA1318,
-	(funptr)&f_touchdcstA1319,
-	(funptr)&f_touchdcstA1320,
-	(funptr)&f_touchdcstA1321,
-	(funptr)&f_touchdcstA1322,
-	(funptr)&f_touchdcstA1323,
-	(funptr)&f_touchdcstA1324,
-	(funptr)&f_touchdcstA1325,
-	(funptr)&f_touchdcstA1326,
-	(funptr)&f_touchdcstA1327,
-	(funptr)&f_touchdcstA1328,
-	(funptr)&f_touchdcstA1329,
-	(funptr)&f_touchdcstA1330,
-	(funptr)&f_touchdcstA1331,
-	(funptr)&f_touchdcstA1332,
-	(funptr)&f_touchdcstA1333,
-	(funptr)&f_touchdcstA1334
+funptr G_agg_touchAfuncs[] = {
+	(funptr)&f_touchA1,
+	(funptr)&f_touchA2,
+	(funptr)&f_touchA3,
+	(funptr)&f_touchA4,
+	(funptr)&f_touchA5,
+	(funptr)&f_touchA6,
+	(funptr)&f_touchA7,
+	(funptr)&f_touchA8,
+	(funptr)&f_touchA9,
+	(funptr)&f_touchA10,
+	(funptr)&f_touchA11,
+	(funptr)&f_touchA12,
+	(funptr)&f_touchA13,
+	(funptr)&f_touchA14,
+	(funptr)&f_touchA15,
+	(funptr)&f_touchA16,
+	(funptr)&f_touchA17,
+	(funptr)&f_touchA18,
+	(funptr)&f_touchA19,
+	(funptr)&f_touchA20,
+	(funptr)&f_touchA21,
+	(funptr)&f_touchA22,
+	(funptr)&f_touchA23,
+	(funptr)&f_touchA24,
+	(funptr)&f_touchA25,
+	(funptr)&f_touchA26,
+	(funptr)&f_touchA27,
+	(funptr)&f_touchA28,
+	(funptr)&f_touchA29,
+	(funptr)&f_touchA30,
+	(funptr)&f_touchA31,
+	(funptr)&f_touchA32,
+	(funptr)&f_touchA33,
+	(funptr)&f_touchA34,
+	(funptr)&f_touchA35,
+	(funptr)&f_touchA36,
+	(funptr)&f_touchA37,
+	(funptr)&f_touchA38,
+	(funptr)&f_touchA39,
+	(funptr)&f_touchA40,
+	(funptr)&f_touchA41,
+	(funptr)&f_touchA42,
+	(funptr)&f_touchA43,
+	(funptr)&f_touchA44,
+	(funptr)&f_touchA45,
+	(funptr)&f_touchA46,
+	(funptr)&f_touchA47,
+	(funptr)&f_touchA48,
+	(funptr)&f_touchA49,
+	(funptr)&f_touchA50,
+	(funptr)&f_touchA51,
+	(funptr)&f_touchA52,
+	(funptr)&f_touchA53,
+	(funptr)&f_touchA54,
+	(funptr)&f_touchA55,
+	(funptr)&f_touchA56,
+	(funptr)&f_touchA57,
+	(funptr)&f_touchA58,
+	(funptr)&f_touchA59,
+	(funptr)&f_touchA60,
+	(funptr)&f_touchA61,
+	(funptr)&f_touchA62,
+	(funptr)&f_touchA63,
+	(funptr)&f_touchA64,
+	(funptr)&f_touchA65,
+	(funptr)&f_touchA66,
+	(funptr)&f_touchA67,
+	(funptr)&f_touchA68,
+	(funptr)&f_touchA69,
+	(funptr)&f_touchA70,
+	(funptr)&f_touchA71,
+	(funptr)&f_touchA72,
+	(funptr)&f_touchA73,
+	(funptr)&f_touchA74,
+	(funptr)&f_touchA75,
+	(funptr)&f_touchA76,
+	(funptr)&f_touchA77,
+	(funptr)&f_touchA78,
+	(funptr)&f_touchA79,
+	(funptr)&f_touchA80,
+	(funptr)&f_touchA81,
+	(funptr)&f_touchA82,
+	(funptr)&f_touchA83,
+	(funptr)&f_touchA84,
+	(funptr)&f_touchA85,
+	(funptr)&f_touchA86,
+	(funptr)&f_touchA87,
+	(funptr)&f_touchA88,
+	(funptr)&f_touchA89,
+	(funptr)&f_touchA90,
+	(funptr)&f_touchA91,
+	(funptr)&f_touchA92,
+	(funptr)&f_touchA93,
+	(funptr)&f_touchA94,
+	(funptr)&f_touchA95,
+	(funptr)&f_touchA96,
+	(funptr)&f_touchA97,
+	(funptr)&f_touchA98,
+	(funptr)&f_touchA99,
+	(funptr)&f_touchA100,
+	(funptr)&f_touchA101,
+	(funptr)&f_touchA102,
+	(funptr)&f_touchA103,
+	(funptr)&f_touchA104,
+	(funptr)&f_touchA105,
+	(funptr)&f_touchA106,
+	(funptr)&f_touchA107,
+	(funptr)&f_touchA108,
+	(funptr)&f_touchA109,
+	(funptr)&f_touchA110,
+	(funptr)&f_touchA111,
+	(funptr)&f_touchA112,
+	(funptr)&f_touchA113,
+	(funptr)&f_touchA114,
+	(funptr)&f_touchA115,
+	(funptr)&f_touchA116,
+	(funptr)&f_touchA117,
+	(funptr)&f_touchA118,
+	(funptr)&f_touchA119,
+	(funptr)&f_touchA120,
+	(funptr)&f_touchA121,
+	(funptr)&f_touchA122,
+	(funptr)&f_touchA123,
+	(funptr)&f_touchA124,
+	(funptr)&f_touchA125,
+	(funptr)&f_touchA126,
+	(funptr)&f_touchA127,
+	(funptr)&f_touchA128,
+	(funptr)&f_touchA129,
+	(funptr)&f_touchA130,
+	(funptr)&f_touchA131,
+	(funptr)&f_touchA132,
+	(funptr)&f_touchA133,
+	(funptr)&f_touchA134,
+	(funptr)&f_touchA135,
+	(funptr)&f_touchA136,
+	(funptr)&f_touchA137,
+	(funptr)&f_touchA138,
+	(funptr)&f_touchA139,
+	(funptr)&f_touchA140,
+	(funptr)&f_touchA141,
+	(funptr)&f_touchA142,
+	(funptr)&f_touchA143,
+	(funptr)&f_touchA144,
+	(funptr)&f_touchA145,
+	(funptr)&f_touchA146,
+	(funptr)&f_touchA147,
+	(funptr)&f_touchA148,
+	(funptr)&f_touchA149,
+	(funptr)&f_touchA150,
+	(funptr)&f_touchA151,
+	(funptr)&f_touchA152,
+	(funptr)&f_touchA153,
+	(funptr)&f_touchA154,
+	(funptr)&f_touchA155,
+	(funptr)&f_touchA156,
+	(funptr)&f_touchA157,
+	(funptr)&f_touchA158,
+	(funptr)&f_touchA159,
+	(funptr)&f_touchA160,
+	(funptr)&f_touchA161,
+	(funptr)&f_touchA162,
+	(funptr)&f_touchA163,
+	(funptr)&f_touchA164,
+	(funptr)&f_touchA165,
+	(funptr)&f_touchA166,
+	(funptr)&f_touchA167,
+	(funptr)&f_touchA168,
+	(funptr)&f_touchA169,
+	(funptr)&f_touchA170,
+	(funptr)&f_touchA171,
+	(funptr)&f_touchA172,
+	(funptr)&f_touchA173,
+	(funptr)&f_touchA174,
+	(funptr)&f_touchA175,
+	(funptr)&f_touchA176,
+	(funptr)&f_touchA177,
+	(funptr)&f_touchA178,
+	(funptr)&f_touchA179,
+	(funptr)&f_touchA180,
+	(funptr)&f_touchA181,
+	(funptr)&f_touchA182,
+	(funptr)&f_touchA183,
+	(funptr)&f_touchA184,
+	(funptr)&f_touchA185,
+	(funptr)&f_touchA186,
+	(funptr)&f_touchA187,
+	(funptr)&f_touchA188,
+	(funptr)&f_touchA189,
+	(funptr)&f_touchA190,
+	(funptr)&f_touchA191,
+	(funptr)&f_touchA192,
+	(funptr)&f_touchA193,
+	(funptr)&f_touchA194,
+	(funptr)&f_touchA195,
+	(funptr)&f_touchA196,
+	(funptr)&f_touchA197,
+	(funptr)&f_touchA198,
+	(funptr)&f_touchA199,
+	(funptr)&f_touchA200,
+	(funptr)&f_touchA201,
+	(funptr)&f_touchA202,
+	(funptr)&f_touchA203,
+	(funptr)&f_touchA204,
+	(funptr)&f_touchA205,
+	(funptr)&f_touchA206,
+	(funptr)&f_touchA207,
+	(funptr)&f_touchA208,
+	(funptr)&f_touchA209,
+	(funptr)&f_touchA210,
+	(funptr)&f_touchA211,
+	(funptr)&f_touchA212,
+	(funptr)&f_touchA213,
+	(funptr)&f_touchA214,
+	(funptr)&f_touchA215,
+	(funptr)&f_touchA216,
+	(funptr)&f_touchA217,
+	(funptr)&f_touchA218,
+	(funptr)&f_touchA219,
+	(funptr)&f_touchA220,
+	(funptr)&f_touchA221,
+	(funptr)&f_touchA222,
+	(funptr)&f_touchA223,
+	(funptr)&f_touchA224,
+	(funptr)&f_touchA225,
+	(funptr)&f_touchA226,
+	(funptr)&f_touchA227,
+	(funptr)&f_touchA228,
+	(funptr)&f_touchA229,
+	(funptr)&f_touchA230,
+	(funptr)&f_touchA231,
+	(funptr)&f_touchA232,
+	(funptr)&f_touchA233,
+	(funptr)&f_touchA234,
+	(funptr)&f_touchA235,
+	(funptr)&f_touchA236,
+	(funptr)&f_touchA237,
+	(funptr)&f_touchA238,
+	(funptr)&f_touchA239,
+	(funptr)&f_touchA240,
+	(funptr)&f_touchA241,
+	(funptr)&f_touchA242,
+	(funptr)&f_touchA243,
+	(funptr)&f_touchA244,
+	(funptr)&f_touchA245,
+	(funptr)&f_touchA246,
+	(funptr)&f_touchA247,
+	(funptr)&f_touchA248,
+	(funptr)&f_touchA249,
+	(funptr)&f_touchA250,
+	(funptr)&f_touchA251,
+	(funptr)&f_touchA252,
+	(funptr)&f_touchA253,
+	(funptr)&f_touchA254,
+	(funptr)&f_touchA255,
+	(funptr)&f_touchA256,
+	(funptr)&f_touchA257,
+	(funptr)&f_touchA258,
+	(funptr)&f_touchA259,
+	(funptr)&f_touchA260,
+	(funptr)&f_touchA261,
+	(funptr)&f_touchA262,
+	(funptr)&f_touchA263,
+	(funptr)&f_touchA264,
+	(funptr)&f_touchA265,
+	(funptr)&f_touchA266,
+	(funptr)&f_touchA267,
+	(funptr)&f_touchA268,
+	(funptr)&f_touchA269,
+	(funptr)&f_touchA270,
+	(funptr)&f_touchA271,
+	(funptr)&f_touchA272,
+	(funptr)&f_touchA273,
+	(funptr)&f_touchA274,
+	(funptr)&f_touchA275,
+	(funptr)&f_touchA276,
+	(funptr)&f_touchA277,
+	(funptr)&f_touchA278,
+	(funptr)&f_touchA279,
+	(funptr)&f_touchA280,
+	(funptr)&f_touchA281,
+	(funptr)&f_touchA282,
+	(funptr)&f_touchA283,
+	(funptr)&f_touchA284,
+	(funptr)&f_touchA285,
+	(funptr)&f_touchA286,
+	(funptr)&f_touchA287,
+	(funptr)&f_touchA288,
+	(funptr)&f_touchA289,
+	(funptr)&f_touchA290,
+	(funptr)&f_touchA291,
+	(funptr)&f_touchA292,
+	(funptr)&f_touchA293,
+	(funptr)&f_touchA294,
+	(funptr)&f_touchA295,
+	(funptr)&f_touchA296,
+	(funptr)&f_touchA297,
+	(funptr)&f_touchA298,
+	(funptr)&f_touchA299,
+	(funptr)&f_touchA300,
+	(funptr)&f_touchA301,
+	(funptr)&f_touchA302,
+	(funptr)&f_touchA303,
+	(funptr)&f_touchA304,
+	(funptr)&f_touchA305,
+	(funptr)&f_touchA306,
+	(funptr)&f_touchA307,
+	(funptr)&f_touchA308,
+	(funptr)&f_touchA309,
+	(funptr)&f_touchA310,
+	(funptr)&f_touchA311,
+	(funptr)&f_touchA312,
+	(funptr)&f_touchA313,
+	(funptr)&f_touchA314,
+	(funptr)&f_touchA315,
+	(funptr)&f_touchA316,
+	(funptr)&f_touchA317,
+	(funptr)&f_touchA318,
+	(funptr)&f_touchA319,
+	(funptr)&f_touchA320,
+	(funptr)&f_touchA321,
+	(funptr)&f_touchA322,
+	(funptr)&f_touchA323,
+	(funptr)&f_touchA324,
+	(funptr)&f_touchA325,
+	(funptr)&f_touchA326,
+	(funptr)&f_touchA327,
+	(funptr)&f_touchA328,
+	(funptr)&f_touchA329,
+	(funptr)&f_touchA330,
+	(funptr)&f_touchA331,
+	(funptr)&f_touchA332,
+	(funptr)&f_touchA333,
+	(funptr)&f_touchA334,
+	(funptr)&f_touchA335,
+	(funptr)&f_touchA336,
+	(funptr)&f_touchA337,
+	(funptr)&f_touchA338,
+	(funptr)&f_touchA339,
+	(funptr)&f_touchA340,
+	(funptr)&f_touchA341,
+	(funptr)&f_touchA342,
+	(funptr)&f_touchA343,
+	(funptr)&f_touchA344,
+	(funptr)&f_touchA345,
+	(funptr)&f_touchA346,
+	(funptr)&f_touchA347,
+	(funptr)&f_touchA348,
+	(funptr)&f_touchA349,
+	(funptr)&f_touchA350,
+	(funptr)&f_touchA351,
+	(funptr)&f_touchA352,
+	(funptr)&f_touchA353,
+	(funptr)&f_touchA354,
+	(funptr)&f_touchA355,
+	(funptr)&f_touchA356,
+	(funptr)&f_touchA357,
+	(funptr)&f_touchA358,
+	(funptr)&f_touchA359,
+	(funptr)&f_touchA360,
+	(funptr)&f_touchA361,
+	(funptr)&f_touchA362,
+	(funptr)&f_touchA363,
+	(funptr)&f_touchA364,
+	(funptr)&f_touchA365,
+	(funptr)&f_touchA366,
+	(funptr)&f_touchA367,
+	(funptr)&f_touchA368,
+	(funptr)&f_touchA369,
+	(funptr)&f_touchA370,
+	(funptr)&f_touchA371,
+	(funptr)&f_touchA372,
+	(funptr)&f_touchA373,
+	(funptr)&f_touchA374,
+	(funptr)&f_touchA375,
+	(funptr)&f_touchA376,
+	(funptr)&f_touchA377,
+	(funptr)&f_touchA378,
+	(funptr)&f_touchA379,
+	(funptr)&f_touchA380,
+	(funptr)&f_touchA381,
+	(funptr)&f_touchA382,
+	(funptr)&f_touchA383,
+	(funptr)&f_touchA384,
+	(funptr)&f_touchA385,
+	(funptr)&f_touchA386,
+	(funptr)&f_touchA387,
+	(funptr)&f_touchA388,
+	(funptr)&f_touchA389,
+	(funptr)&f_touchA390,
+	(funptr)&f_touchA391,
+	(funptr)&f_touchA392,
+	(funptr)&f_touchA393,
+	(funptr)&f_touchA394,
+	(funptr)&f_touchA395,
+	(funptr)&f_touchA396,
+	(funptr)&f_touchA397,
+	(funptr)&f_touchA398,
+	(funptr)&f_touchA399,
+	(funptr)&f_touchA400,
+	(funptr)&f_touchA401,
+	(funptr)&f_touchA402,
+	(funptr)&f_touchA403,
+	(funptr)&f_touchA404,
+	(funptr)&f_touchA405,
+	(funptr)&f_touchA406,
+	(funptr)&f_touchA407,
+	(funptr)&f_touchA408,
+	(funptr)&f_touchA409,
+	(funptr)&f_touchA410,
+	(funptr)&f_touchA411,
+	(funptr)&f_touchA412,
+	(funptr)&f_touchA413,
+	(funptr)&f_touchA414,
+	(funptr)&f_touchA415,
+	(funptr)&f_touchA416,
+	(funptr)&f_touchA417,
+	(funptr)&f_touchA418,
+	(funptr)&f_touchA419,
+	(funptr)&f_touchA420,
+	(funptr)&f_touchA421,
+	(funptr)&f_touchA422,
+	(funptr)&f_touchA423,
+	(funptr)&f_touchA424,
+	(funptr)&f_touchA425,
+	(funptr)&f_touchA426,
+	(funptr)&f_touchA427,
+	(funptr)&f_touchA428,
+	(funptr)&f_touchA429,
+	(funptr)&f_touchA430,
+	(funptr)&f_touchA431,
+	(funptr)&f_touchA432,
+	(funptr)&f_touchA433,
+	(funptr)&f_touchA434,
+	(funptr)&f_touchA435,
+	(funptr)&f_touchA436,
+	(funptr)&f_touchA437,
+	(funptr)&f_touchA438,
+	(funptr)&f_touchA439,
+	(funptr)&f_touchA440,
+	(funptr)&f_touchA441,
+	(funptr)&f_touchA442,
+	(funptr)&f_touchA443,
+	(funptr)&f_touchA444,
+	(funptr)&f_touchA445,
+	(funptr)&f_touchA446,
+	(funptr)&f_touchA447,
+	(funptr)&f_touchA448,
+	(funptr)&f_touchA449,
+	(funptr)&f_touchA450,
+	(funptr)&f_touchA451,
+	(funptr)&f_touchA452,
+	(funptr)&f_touchA453,
+	(funptr)&f_touchA454,
+	(funptr)&f_touchA455,
+	(funptr)&f_touchA456,
+	(funptr)&f_touchA457,
+	(funptr)&f_touchA458,
+	(funptr)&f_touchA459,
+	(funptr)&f_touchA460,
+	(funptr)&f_touchA461,
+	(funptr)&f_touchA462,
+	(funptr)&f_touchA463,
+	(funptr)&f_touchA464,
+	(funptr)&f_touchA465,
+	(funptr)&f_touchA466,
+	(funptr)&f_touchA467,
+	(funptr)&f_touchA468,
+	(funptr)&f_touchA469,
+	(funptr)&f_touchA470,
+	(funptr)&f_touchA471,
+	(funptr)&f_touchA472,
+	(funptr)&f_touchA473,
+	(funptr)&f_touchA474,
+	(funptr)&f_touchA475,
+	(funptr)&f_touchA476,
+	(funptr)&f_touchA477,
+	(funptr)&f_touchA478,
+	(funptr)&f_touchA479,
+	(funptr)&f_touchA480,
+	(funptr)&f_touchA481,
+	(funptr)&f_touchA482,
+	(funptr)&f_touchA483,
+	(funptr)&f_touchA484,
+	(funptr)&f_touchA485,
+	(funptr)&f_touchA486,
+	(funptr)&f_touchA487,
+	(funptr)&f_touchA488,
+	(funptr)&f_touchA489,
+	(funptr)&f_touchA490,
+	(funptr)&f_touchA491,
+	(funptr)&f_touchA492,
+	(funptr)&f_touchA493,
+	(funptr)&f_touchA494,
+	(funptr)&f_touchA495,
+	(funptr)&f_touchA496,
+	(funptr)&f_touchA497,
+	(funptr)&f_touchA498,
+	(funptr)&f_touchA499,
+	(funptr)&f_touchA500,
+	(funptr)&f_touchA501,
+	(funptr)&f_touchA502,
+	(funptr)&f_touchA503,
+	(funptr)&f_touchA504,
+	(funptr)&f_touchA505,
+	(funptr)&f_touchA506,
+	(funptr)&f_touchA507,
+	(funptr)&f_touchA508,
+	(funptr)&f_touchA509,
+	(funptr)&f_touchA510,
+	(funptr)&f_touchA511,
+	(funptr)&f_touchA512,
+	(funptr)&f_touchA513,
+	(funptr)&f_touchA514,
+	(funptr)&f_touchA515,
+	(funptr)&f_touchA516,
+	(funptr)&f_touchA517,
+	(funptr)&f_touchA518,
+	(funptr)&f_touchA519,
+	(funptr)&f_touchA520,
+	(funptr)&f_touchA521,
+	(funptr)&f_touchA522,
+	(funptr)&f_touchA523,
+	(funptr)&f_touchA524,
+	(funptr)&f_touchA525,
+	(funptr)&f_touchA526,
+	(funptr)&f_touchA527,
+	(funptr)&f_touchA528,
+	(funptr)&f_touchA529,
+	(funptr)&f_touchA530,
+	(funptr)&f_touchA531,
+	(funptr)&f_touchA532,
+	(funptr)&f_touchA533,
+	(funptr)&f_touchA534,
+	(funptr)&f_touchA535,
+	(funptr)&f_touchA536,
+	(funptr)&f_touchA537,
+	(funptr)&f_touchA538,
+	(funptr)&f_touchA539,
+	(funptr)&f_touchA540,
+	(funptr)&f_touchA541,
+	(funptr)&f_touchA542,
+	(funptr)&f_touchA543,
+	(funptr)&f_touchA544,
+	(funptr)&f_touchA545,
+	(funptr)&f_touchA546,
+	(funptr)&f_touchA547,
+	(funptr)&f_touchA548,
+	(funptr)&f_touchA549,
+	(funptr)&f_touchA550,
+	(funptr)&f_touchA551,
+	(funptr)&f_touchA552,
+	(funptr)&f_touchA553,
+	(funptr)&f_touchA554,
+	(funptr)&f_touchA555,
+	(funptr)&f_touchA556,
+	(funptr)&f_touchA557,
+	(funptr)&f_touchA558,
+	(funptr)&f_touchA559,
+	(funptr)&f_touchA560,
+	(funptr)&f_touchA561,
+	(funptr)&f_touchA562,
+	(funptr)&f_touchA563,
+	(funptr)&f_touchA564,
+	(funptr)&f_touchA565,
+	(funptr)&f_touchA566,
+	(funptr)&f_touchA567,
+	(funptr)&f_touchA568,
+	(funptr)&f_touchA569,
+	(funptr)&f_touchA570,
+	(funptr)&f_touchA571,
+	(funptr)&f_touchA572,
+	(funptr)&f_touchA573,
+	(funptr)&f_touchA574,
+	(funptr)&f_touchA575,
+	(funptr)&f_touchA576,
+	(funptr)&f_touchA577,
+	(funptr)&f_touchA578,
+	(funptr)&f_touchA579,
+	(funptr)&f_touchA580,
+	(funptr)&f_touchA581,
+	(funptr)&f_touchA582,
+	(funptr)&f_touchA583,
+	(funptr)&f_touchA584,
+	(funptr)&f_touchA585,
+	(funptr)&f_touchA586,
+	(funptr)&f_touchA587,
+	(funptr)&f_touchA588,
+	(funptr)&f_touchA589,
+	(funptr)&f_touchA590,
+	(funptr)&f_touchA591,
+	(funptr)&f_touchA592,
+	(funptr)&f_touchA593,
+	(funptr)&f_touchA594,
+	(funptr)&f_touchA595,
+	(funptr)&f_touchA596,
+	(funptr)&f_touchA597,
+	(funptr)&f_touchA598,
+	(funptr)&f_touchA599,
+	(funptr)&f_touchA600,
+	(funptr)&f_touchA601,
+	(funptr)&f_touchA602,
+	(funptr)&f_touchA603,
+	(funptr)&f_touchA604,
+	(funptr)&f_touchA605,
+	(funptr)&f_touchA606,
+	(funptr)&f_touchA607,
+	(funptr)&f_touchA608,
+	(funptr)&f_touchA609,
+	(funptr)&f_touchA610,
+	(funptr)&f_touchA611,
+	(funptr)&f_touchA612,
+	(funptr)&f_touchA613,
+	(funptr)&f_touchA614,
+	(funptr)&f_touchA615,
+	(funptr)&f_touchA616,
+	(funptr)&f_touchA617,
+	(funptr)&f_touchA618,
+	(funptr)&f_touchA619,
+	(funptr)&f_touchA620,
+	(funptr)&f_touchA621,
+	(funptr)&f_touchA622,
+	(funptr)&f_touchA623,
+	(funptr)&f_touchA624,
+	(funptr)&f_touchA625,
+	(funptr)&f_touchA626,
+	(funptr)&f_touchA627,
+	(funptr)&f_touchA628,
+	(funptr)&f_touchA629,
+	(funptr)&f_touchA630,
+	(funptr)&f_touchA631,
+	(funptr)&f_touchA632,
+	(funptr)&f_touchA633,
+	(funptr)&f_touchA634,
+	(funptr)&f_touchA635,
+	(funptr)&f_touchA636,
+	(funptr)&f_touchA637,
+	(funptr)&f_touchA638,
+	(funptr)&f_touchA639,
+	(funptr)&f_touchA640,
+	(funptr)&f_touchA641,
+	(funptr)&f_touchA642,
+	(funptr)&f_touchA643,
+	(funptr)&f_touchA644,
+	(funptr)&f_touchA645,
+	(funptr)&f_touchA646,
+	(funptr)&f_touchA647,
+	(funptr)&f_touchA648,
+	(funptr)&f_touchA649,
+	(funptr)&f_touchA650,
+	(funptr)&f_touchA651,
+	(funptr)&f_touchA652,
+	(funptr)&f_touchA653,
+	(funptr)&f_touchA654,
+	(funptr)&f_touchA655,
+	(funptr)&f_touchA656,
+	(funptr)&f_touchA657,
+	(funptr)&f_touchA658,
+	(funptr)&f_touchA659,
+	(funptr)&f_touchA660,
+	(funptr)&f_touchA661,
+	(funptr)&f_touchA662,
+	(funptr)&f_touchA663,
+	(funptr)&f_touchA664,
+	(funptr)&f_touchA665,
+	(funptr)&f_touchA666,
+	(funptr)&f_touchA667,
+	(funptr)&f_touchA668,
+	(funptr)&f_touchA669,
+	(funptr)&f_touchA670,
+	(funptr)&f_touchA671,
+	(funptr)&f_touchA672,
+	(funptr)&f_touchA673,
+	(funptr)&f_touchA674,
+	(funptr)&f_touchA675,
+	(funptr)&f_touchA676,
+	(funptr)&f_touchA677,
+	(funptr)&f_touchA678,
+	(funptr)&f_touchA679,
+	(funptr)&f_touchA680,
+	(funptr)&f_touchA681,
+	(funptr)&f_touchA682,
+	(funptr)&f_touchA683,
+	(funptr)&f_touchA684,
+	(funptr)&f_touchA685,
+	(funptr)&f_touchA686,
+	(funptr)&f_touchA687,
+	(funptr)&f_touchA688,
+	(funptr)&f_touchA689,
+	(funptr)&f_touchA690,
+	(funptr)&f_touchA691,
+	(funptr)&f_touchA692,
+	(funptr)&f_touchA693,
+	(funptr)&f_touchA694,
+	(funptr)&f_touchA695,
+	(funptr)&f_touchA696,
+	(funptr)&f_touchA697,
+	(funptr)&f_touchA698,
+	(funptr)&f_touchA699,
+	(funptr)&f_touchA700,
+	(funptr)&f_touchA701,
+	(funptr)&f_touchA702,
+	(funptr)&f_touchA703,
+	(funptr)&f_touchA704,
+	(funptr)&f_touchA705,
+	(funptr)&f_touchA706,
+	(funptr)&f_touchA707,
+	(funptr)&f_touchA708,
+	(funptr)&f_touchA709,
+	(funptr)&f_touchA710,
+	(funptr)&f_touchA711,
+	(funptr)&f_touchA712,
+	(funptr)&f_touchA713,
+	(funptr)&f_touchA714,
+	(funptr)&f_touchA715,
+	(funptr)&f_touchA716,
+	(funptr)&f_touchA717,
+	(funptr)&f_touchA718,
+	(funptr)&f_touchA719,
+	(funptr)&f_touchA720,
+	(funptr)&f_touchA721,
+	(funptr)&f_touchA722,
+	(funptr)&f_touchA723,
+	(funptr)&f_touchA724,
+	(funptr)&f_touchA725,
+	(funptr)&f_touchA726,
+	(funptr)&f_touchA727,
+	(funptr)&f_touchA728,
+	(funptr)&f_touchA729,
+	(funptr)&f_touchA730,
+	(funptr)&f_touchA731,
+	(funptr)&f_touchA732,
+	(funptr)&f_touchA733,
+	(funptr)&f_touchA734,
+	(funptr)&f_touchA735,
+	(funptr)&f_touchA736,
+	(funptr)&f_touchA737,
+	(funptr)&f_touchA738,
+	(funptr)&f_touchA739,
+	(funptr)&f_touchA740,
+	(funptr)&f_touchA741,
+	(funptr)&f_touchA742,
+	(funptr)&f_touchA743,
+	(funptr)&f_touchA744,
+	(funptr)&f_touchA745,
+	(funptr)&f_touchA746,
+	(funptr)&f_touchA747,
+	(funptr)&f_touchA748,
+	(funptr)&f_touchA749,
+	(funptr)&f_touchA750,
+	(funptr)&f_touchA751,
+	(funptr)&f_touchA752,
+	(funptr)&f_touchA753,
+	(funptr)&f_touchA754,
+	(funptr)&f_touchA755,
+	(funptr)&f_touchA756,
+	(funptr)&f_touchA757,
+	(funptr)&f_touchA758,
+	(funptr)&f_touchA759,
+	(funptr)&f_touchA760,
+	(funptr)&f_touchA761,
+	(funptr)&f_touchA762,
+	(funptr)&f_touchA763,
+	(funptr)&f_touchA764,
+	(funptr)&f_touchA765,
+	(funptr)&f_touchA766,
+	(funptr)&f_touchA767,
+	(funptr)&f_touchA768,
+	(funptr)&f_touchA769,
+	(funptr)&f_touchA770,
+	(funptr)&f_touchA771,
+	(funptr)&f_touchA772,
+	(funptr)&f_touchA773,
+	(funptr)&f_touchA774,
+	(funptr)&f_touchA775,
+	(funptr)&f_touchA776,
+	(funptr)&f_touchA777,
+	(funptr)&f_touchA778,
+	(funptr)&f_touchA779,
+	(funptr)&f_touchA780,
+	(funptr)&f_touchA781,
+	(funptr)&f_touchA782,
+	(funptr)&f_touchA783,
+	(funptr)&f_touchA784,
+	(funptr)&f_touchA785,
+	(funptr)&f_touchA786,
+	(funptr)&f_touchA787,
+	(funptr)&f_touchA788,
+	(funptr)&f_touchA789,
+	(funptr)&f_touchA790,
+	(funptr)&f_touchA791,
+	(funptr)&f_touchA792,
+	(funptr)&f_touchA793,
+	(funptr)&f_touchA794,
+	(funptr)&f_touchA795,
+	(funptr)&f_touchA796,
+	(funptr)&f_touchA797,
+	(funptr)&f_touchA798,
+	(funptr)&f_touchA799,
+	(funptr)&f_touchA800,
+	(funptr)&f_touchA801,
+	(funptr)&f_touchA802,
+	(funptr)&f_touchA803,
+	(funptr)&f_touchA804,
+	(funptr)&f_touchA805,
+	(funptr)&f_touchA806,
+	(funptr)&f_touchA807,
+	(funptr)&f_touchA808,
+	(funptr)&f_touchA809,
+	(funptr)&f_touchA810,
+	(funptr)&f_touchA811,
+	(funptr)&f_touchA812,
+	(funptr)&f_touchA813,
+	(funptr)&f_touchA814,
+	(funptr)&f_touchA815,
+	(funptr)&f_touchA816,
+	(funptr)&f_touchA817,
+	(funptr)&f_touchA818,
+	(funptr)&f_touchA819,
+	(funptr)&f_touchA820,
+	(funptr)&f_touchA821,
+	(funptr)&f_touchA822,
+	(funptr)&f_touchA823,
+	(funptr)&f_touchA824,
+	(funptr)&f_touchA825,
+	(funptr)&f_touchA826,
+	(funptr)&f_touchA827,
+	(funptr)&f_touchA828,
+	(funptr)&f_touchA829,
+	(funptr)&f_touchA830,
+	(funptr)&f_touchA831,
+	(funptr)&f_touchA832,
+	(funptr)&f_touchA833,
+	(funptr)&f_touchA834,
+	(funptr)&f_touchA835,
+	(funptr)&f_touchA836,
+	(funptr)&f_touchA837,
+	(funptr)&f_touchA838,
+	(funptr)&f_touchA839,
+	(funptr)&f_touchA840,
+	(funptr)&f_touchA841,
+	(funptr)&f_touchA842,
+	(funptr)&f_touchA843,
+	(funptr)&f_touchA844,
+	(funptr)&f_touchA845,
+	(funptr)&f_touchA846,
+	(funptr)&f_touchA847,
+	(funptr)&f_touchA848,
+	(funptr)&f_touchA849,
+	(funptr)&f_touchA850,
+	(funptr)&f_touchA851,
+	(funptr)&f_touchA852,
+	(funptr)&f_touchA853,
+	(funptr)&f_touchA854,
+	(funptr)&f_touchA855,
+	(funptr)&f_touchA856,
+	(funptr)&f_touchA857,
+	(funptr)&f_touchA858,
+	(funptr)&f_touchA859,
+	(funptr)&f_touchA860,
+	(funptr)&f_touchA861,
+	(funptr)&f_touchA862,
+	(funptr)&f_touchA863,
+	(funptr)&f_touchA864,
+	(funptr)&f_touchA865,
+	(funptr)&f_touchA866,
+	(funptr)&f_touchA867,
+	(funptr)&f_touchA868,
+	(funptr)&f_touchA869,
+	(funptr)&f_touchA870,
+	(funptr)&f_touchA871,
+	(funptr)&f_touchA872,
+	(funptr)&f_touchA873,
+	(funptr)&f_touchA874,
+	(funptr)&f_touchA875,
+	(funptr)&f_touchA876,
+	(funptr)&f_touchA877,
+	(funptr)&f_touchA878,
+	(funptr)&f_touchA879,
+	(funptr)&f_touchA880,
+	(funptr)&f_touchA881,
+	(funptr)&f_touchA882,
+	(funptr)&f_touchA883,
+	(funptr)&f_touchA884,
+	(funptr)&f_touchA885,
+	(funptr)&f_touchA886,
+	(funptr)&f_touchA887,
+	(funptr)&f_touchA888,
+	(funptr)&f_touchA889,
+	(funptr)&f_touchA890,
+	(funptr)&f_touchA891,
+	(funptr)&f_touchA892,
+	(funptr)&f_touchA893,
+	(funptr)&f_touchA894,
+	(funptr)&f_touchA895,
+	(funptr)&f_touchA896,
+	(funptr)&f_touchA897,
+	(funptr)&f_touchA898,
+	(funptr)&f_touchA899,
+	(funptr)&f_touchA900,
+	(funptr)&f_touchA901,
+	(funptr)&f_touchA902,
+	(funptr)&f_touchA903,
+	(funptr)&f_touchA904,
+	(funptr)&f_touchA905,
+	(funptr)&f_touchA906,
+	(funptr)&f_touchA907,
+	(funptr)&f_touchA908,
+	(funptr)&f_touchA909,
+	(funptr)&f_touchA910,
+	(funptr)&f_touchA911,
+	(funptr)&f_touchA912,
+	(funptr)&f_touchA913,
+	(funptr)&f_touchA914,
+	(funptr)&f_touchA915,
+	(funptr)&f_touchA916,
+	(funptr)&f_touchA917,
+	(funptr)&f_touchA918,
+	(funptr)&f_touchA919,
+	(funptr)&f_touchA920,
+	(funptr)&f_touchA921,
+	(funptr)&f_touchA922,
+	(funptr)&f_touchA923,
+	(funptr)&f_touchA924,
+	(funptr)&f_touchA925,
+	(funptr)&f_touchA926,
+	(funptr)&f_touchA927,
+	(funptr)&f_touchA928,
+	(funptr)&f_touchA929,
+	(funptr)&f_touchA930,
+	(funptr)&f_touchA931,
+	(funptr)&f_touchA932,
+	(funptr)&f_touchA933,
+	(funptr)&f_touchA934,
+	(funptr)&f_touchA935,
+	(funptr)&f_touchA936,
+	(funptr)&f_touchA937,
+	(funptr)&f_touchA938,
+	(funptr)&f_touchA939,
+	(funptr)&f_touchA940,
+	(funptr)&f_touchA941,
+	(funptr)&f_touchA942,
+	(funptr)&f_touchA943,
+	(funptr)&f_touchA944,
+	(funptr)&f_touchA945,
+	(funptr)&f_touchA946,
+	(funptr)&f_touchA947,
+	(funptr)&f_touchA948,
+	(funptr)&f_touchA949,
+	(funptr)&f_touchA950,
+	(funptr)&f_touchA951,
+	(funptr)&f_touchA952,
+	(funptr)&f_touchA953,
+	(funptr)&f_touchA954,
+	(funptr)&f_touchA955,
+	(funptr)&f_touchA956,
+	(funptr)&f_touchA957,
+	(funptr)&f_touchA958,
+	(funptr)&f_touchA959,
+	(funptr)&f_touchA960,
+	(funptr)&f_touchA961,
+	(funptr)&f_touchA962,
+	(funptr)&f_touchA963,
+	(funptr)&f_touchA964,
+	(funptr)&f_touchA965,
+	(funptr)&f_touchA966,
+	(funptr)&f_touchA967,
+	(funptr)&f_touchA968,
+	(funptr)&f_touchA969,
+	(funptr)&f_touchA970,
+	(funptr)&f_touchA971,
+	(funptr)&f_touchA972,
+	(funptr)&f_touchA973,
+	(funptr)&f_touchA974,
+	(funptr)&f_touchA975,
+	(funptr)&f_touchA976,
+	(funptr)&f_touchA977,
+	(funptr)&f_touchA978,
+	(funptr)&f_touchA979,
+	(funptr)&f_touchA980,
+	(funptr)&f_touchA981,
+	(funptr)&f_touchA982,
+	(funptr)&f_touchA983,
+	(funptr)&f_touchA984,
+	(funptr)&f_touchA985,
+	(funptr)&f_touchA986,
+	(funptr)&f_touchA987,
+	(funptr)&f_touchA988,
+	(funptr)&f_touchA989,
+	(funptr)&f_touchA990,
+	(funptr)&f_touchA991,
+	(funptr)&f_touchA992,
+	(funptr)&f_touchA993,
+	(funptr)&f_touchA994,
+	(funptr)&f_touchA995,
+	(funptr)&f_touchA996,
+	(funptr)&f_touchA997,
+	(funptr)&f_touchA998,
+	(funptr)&f_touchA999,
+	(funptr)&f_touchA1000,
+	(funptr)&f_touchA1001,
+	(funptr)&f_touchA1002,
+	(funptr)&f_touchA1003,
+	(funptr)&f_touchA1004,
+	(funptr)&f_touchA1005,
+	(funptr)&f_touchA1006,
+	(funptr)&f_touchA1007,
+	(funptr)&f_touchA1008,
+	(funptr)&f_touchA1009,
+	(funptr)&f_touchA1010,
+	(funptr)&f_touchA1011,
+	(funptr)&f_touchA1012,
+	(funptr)&f_touchA1013,
+	(funptr)&f_touchA1014,
+	(funptr)&f_touchA1015,
+	(funptr)&f_touchA1016,
+	(funptr)&f_touchA1017,
+	(funptr)&f_touchA1018,
+	(funptr)&f_touchA1019,
+	(funptr)&f_touchA1020,
+	(funptr)&f_touchA1021,
+	(funptr)&f_touchA1022,
+	(funptr)&f_touchA1023,
+	(funptr)&f_touchA1024,
+	(funptr)&f_touchA1025,
+	(funptr)&f_touchA1026,
+	(funptr)&f_touchA1027,
+	(funptr)&f_touchA1028,
+	(funptr)&f_touchA1029,
+	(funptr)&f_touchA1030,
+	(funptr)&f_touchA1031,
+	(funptr)&f_touchA1032,
+	(funptr)&f_touchA1033,
+	(funptr)&f_touchA1034,
+	(funptr)&f_touchA1035,
+	(funptr)&f_touchA1036,
+	(funptr)&f_touchA1037,
+	(funptr)&f_touchA1038,
+	(funptr)&f_touchA1039,
+	(funptr)&f_touchA1040,
+	(funptr)&f_touchA1041,
+	(funptr)&f_touchA1042,
+	(funptr)&f_touchA1043,
+	(funptr)&f_touchA1044,
+	(funptr)&f_touchA1045,
+	(funptr)&f_touchA1046,
+	(funptr)&f_touchA1047,
+	(funptr)&f_touchA1048,
+	(funptr)&f_touchA1049,
+	(funptr)&f_touchA1050,
+	(funptr)&f_touchA1051,
+	(funptr)&f_touchA1052,
+	(funptr)&f_touchA1053,
+	(funptr)&f_touchA1054,
+	(funptr)&f_touchA1055,
+	(funptr)&f_touchA1056,
+	(funptr)&f_touchA1057,
+	(funptr)&f_touchA1058,
+	(funptr)&f_touchA1059,
+	(funptr)&f_touchA1060,
+	(funptr)&f_touchA1061,
+	(funptr)&f_touchA1062,
+	(funptr)&f_touchA1063,
+	(funptr)&f_touchA1064,
+	(funptr)&f_touchA1065,
+	(funptr)&f_touchA1066,
+	(funptr)&f_touchA1067,
+	(funptr)&f_touchA1068,
+	(funptr)&f_touchA1069,
+	(funptr)&f_touchA1070,
+	(funptr)&f_touchA1071,
+	(funptr)&f_touchA1072,
+	(funptr)&f_touchA1073,
+	(funptr)&f_touchA1074,
+	(funptr)&f_touchA1075,
+	(funptr)&f_touchA1076,
+	(funptr)&f_touchA1077,
+	(funptr)&f_touchA1078,
+	(funptr)&f_touchA1079,
+	(funptr)&f_touchA1080,
+	(funptr)&f_touchA1081,
+	(funptr)&f_touchA1082,
+	(funptr)&f_touchA1083,
+	(funptr)&f_touchA1084,
+	(funptr)&f_touchA1085,
+	(funptr)&f_touchA1086,
+	(funptr)&f_touchA1087,
+	(funptr)&f_touchA1088,
+	(funptr)&f_touchA1089,
+	(funptr)&f_touchA1090,
+	(funptr)&f_touchA1091,
+	(funptr)&f_touchA1092,
+	(funptr)&f_touchA1093,
+	(funptr)&f_touchA1094,
+	(funptr)&f_touchA1095,
+	(funptr)&f_touchA1096,
+	(funptr)&f_touchA1097,
+	(funptr)&f_touchA1098,
+	(funptr)&f_touchA1099,
+	(funptr)&f_touchA1100,
+	(funptr)&f_touchA1101,
+	(funptr)&f_touchA1102,
+	(funptr)&f_touchA1103,
+	(funptr)&f_touchA1104,
+	(funptr)&f_touchA1105,
+	(funptr)&f_touchA1106,
+	(funptr)&f_touchA1107,
+	(funptr)&f_touchA1108,
+	(funptr)&f_touchA1109,
+	(funptr)&f_touchA1110,
+	(funptr)&f_touchA1111,
+	(funptr)&f_touchA1112,
+	(funptr)&f_touchA1113,
+	(funptr)&f_touchA1114,
+	(funptr)&f_touchA1115,
+	(funptr)&f_touchA1116,
+	(funptr)&f_touchA1117,
+	(funptr)&f_touchA1118,
+	(funptr)&f_touchA1119,
+	(funptr)&f_touchA1120,
+	(funptr)&f_touchA1121,
+	(funptr)&f_touchA1122,
+	(funptr)&f_touchA1123,
+	(funptr)&f_touchA1124,
+	(funptr)&f_touchA1125,
+	(funptr)&f_touchA1126,
+	(funptr)&f_touchA1127,
+	(funptr)&f_touchA1128,
+	(funptr)&f_touchA1129,
+	(funptr)&f_touchA1130,
+	(funptr)&f_touchA1131,
+	(funptr)&f_touchA1132,
+	(funptr)&f_touchA1133,
+	(funptr)&f_touchA1134,
+	(funptr)&f_touchA1135,
+	(funptr)&f_touchA1136,
+	(funptr)&f_touchA1137,
+	(funptr)&f_touchA1138,
+	(funptr)&f_touchA1139,
+	(funptr)&f_touchA1140,
+	(funptr)&f_touchA1141,
+	(funptr)&f_touchA1142,
+	(funptr)&f_touchA1143,
+	(funptr)&f_touchA1144,
+	(funptr)&f_touchA1145,
+	(funptr)&f_touchA1146,
+	(funptr)&f_touchA1147,
+	(funptr)&f_touchA1148,
+	(funptr)&f_touchA1149,
+	(funptr)&f_touchA1150,
+	(funptr)&f_touchA1151,
+	(funptr)&f_touchA1152,
+	(funptr)&f_touchA1153,
+	(funptr)&f_touchA1154,
+	(funptr)&f_touchA1155,
+	(funptr)&f_touchA1156,
+	(funptr)&f_touchA1157,
+	(funptr)&f_touchA1158,
+	(funptr)&f_touchA1159,
+	(funptr)&f_touchA1160,
+	(funptr)&f_touchA1161,
+	(funptr)&f_touchA1162,
+	(funptr)&f_touchA1163,
+	(funptr)&f_touchA1164,
+	(funptr)&f_touchA1165,
+	(funptr)&f_touchA1166,
+	(funptr)&f_touchA1167,
+	(funptr)&f_touchA1168,
+	(funptr)&f_touchA1169,
+	(funptr)&f_touchA1170,
+	(funptr)&f_touchA1171,
+	(funptr)&f_touchA1172,
+	(funptr)&f_touchA1173,
+	(funptr)&f_touchA1174,
+	(funptr)&f_touchA1175,
+	(funptr)&f_touchA1176,
+	(funptr)&f_touchA1177,
+	(funptr)&f_touchA1178,
+	(funptr)&f_touchA1179,
+	(funptr)&f_touchA1180,
+	(funptr)&f_touchA1181,
+	(funptr)&f_touchA1182,
+	(funptr)&f_touchA1183,
+	(funptr)&f_touchA1184,
+	(funptr)&f_touchA1185,
+	(funptr)&f_touchA1186,
+	(funptr)&f_touchA1187,
+	(funptr)&f_touchA1188,
+	(funptr)&f_touchA1189,
+	(funptr)&f_touchA1190,
+	(funptr)&f_touchA1191,
+	(funptr)&f_touchA1192,
+	(funptr)&f_touchA1193,
+	(funptr)&f_touchA1194,
+	(funptr)&f_touchA1195,
+	(funptr)&f_touchA1196,
+	(funptr)&f_touchA1197,
+	(funptr)&f_touchA1198,
+	(funptr)&f_touchA1199,
+	(funptr)&f_touchA1200,
+	(funptr)&f_touchA1201,
+	(funptr)&f_touchA1202,
+	(funptr)&f_touchA1203,
+	(funptr)&f_touchA1204,
+	(funptr)&f_touchA1205,
+	(funptr)&f_touchA1206,
+	(funptr)&f_touchA1207,
+	(funptr)&f_touchA1208,
+	(funptr)&f_touchA1209,
+	(funptr)&f_touchA1210,
+	(funptr)&f_touchA1211,
+	(funptr)&f_touchA1212,
+	(funptr)&f_touchA1213,
+	(funptr)&f_touchA1214,
+	(funptr)&f_touchA1215,
+	(funptr)&f_touchA1216,
+	(funptr)&f_touchA1217,
+	(funptr)&f_touchA1218,
+	(funptr)&f_touchA1219,
+	(funptr)&f_touchA1220,
+	(funptr)&f_touchA1221,
+	(funptr)&f_touchA1222,
+	(funptr)&f_touchA1223,
+	(funptr)&f_touchA1224,
+	(funptr)&f_touchA1225,
+	(funptr)&f_touchA1226,
+	(funptr)&f_touchA1227,
+	(funptr)&f_touchA1228,
+	(funptr)&f_touchA1229,
+	(funptr)&f_touchA1230,
+	(funptr)&f_touchA1231,
+	(funptr)&f_touchA1232,
+	(funptr)&f_touchA1233,
+	(funptr)&f_touchA1234,
+	(funptr)&f_touchA1235,
+	(funptr)&f_touchA1236,
+	(funptr)&f_touchA1237,
+	(funptr)&f_touchA1238,
+	(funptr)&f_touchA1239,
+	(funptr)&f_touchA1240,
+	(funptr)&f_touchA1241,
+	(funptr)&f_touchA1242,
+	(funptr)&f_touchA1243,
+	(funptr)&f_touchA1244,
+	(funptr)&f_touchA1245,
+	(funptr)&f_touchA1246,
+	(funptr)&f_touchA1247,
+	(funptr)&f_touchA1248,
+	(funptr)&f_touchA1249,
+	(funptr)&f_touchA1250,
+	(funptr)&f_touchA1251,
+	(funptr)&f_touchA1252,
+	(funptr)&f_touchA1253,
+	(funptr)&f_touchA1254,
+	(funptr)&f_touchA1255,
+	(funptr)&f_touchA1256,
+	(funptr)&f_touchA1257,
+	(funptr)&f_touchA1258,
+	(funptr)&f_touchA1259,
+	(funptr)&f_touchA1260,
+	(funptr)&f_touchA1261,
+	(funptr)&f_touchA1262,
+	(funptr)&f_touchA1263,
+	(funptr)&f_touchA1264,
+	(funptr)&f_touchA1265,
+	(funptr)&f_touchA1266,
+	(funptr)&f_touchA1267,
+	(funptr)&f_touchA1268,
+	(funptr)&f_touchA1269,
+	(funptr)&f_touchA1270,
+	(funptr)&f_touchA1271,
+	(funptr)&f_touchA1272,
+	(funptr)&f_touchA1273,
+	(funptr)&f_touchA1274,
+	(funptr)&f_touchA1275,
+	(funptr)&f_touchA1276,
+	(funptr)&f_touchA1277,
+	(funptr)&f_touchA1278,
+	(funptr)&f_touchA1279,
+	(funptr)&f_touchA1280,
+	(funptr)&f_touchA1281,
+	(funptr)&f_touchA1282,
+	(funptr)&f_touchA1283,
+	(funptr)&f_touchA1284,
+	(funptr)&f_touchA1285,
+	(funptr)&f_touchA1286,
+	(funptr)&f_touchA1287,
+	(funptr)&f_touchA1288,
+	(funptr)&f_touchA1289,
+	(funptr)&f_touchA1290,
+	(funptr)&f_touchA1291,
+	(funptr)&f_touchA1292,
+	(funptr)&f_touchA1293,
+	(funptr)&f_touchA1294,
+	(funptr)&f_touchA1295,
+	(funptr)&f_touchA1296,
+	(funptr)&f_touchA1297,
+	(funptr)&f_touchA1298,
+	(funptr)&f_touchA1299,
+	(funptr)&f_touchA1300,
+	(funptr)&f_touchA1301,
+	(funptr)&f_touchA1302,
+	(funptr)&f_touchA1303,
+	(funptr)&f_touchA1304,
+	(funptr)&f_touchA1305,
+	(funptr)&f_touchA1306,
+	(funptr)&f_touchA1307,
+	(funptr)&f_touchA1308,
+	(funptr)&f_touchA1309,
+	(funptr)&f_touchA1310,
+	(funptr)&f_touchA1311,
+	(funptr)&f_touchA1312,
+	(funptr)&f_touchA1313,
+	(funptr)&f_touchA1314,
+	(funptr)&f_touchA1315,
+	(funptr)&f_touchA1316,
+	(funptr)&f_touchA1317,
+	(funptr)&f_touchA1318,
+	(funptr)&f_touchA1319,
+	(funptr)&f_touchA1320,
+	(funptr)&f_touchA1321,
+	(funptr)&f_touchA1322,
+	(funptr)&f_touchA1323,
+	(funptr)&f_touchA1324,
+	(funptr)&f_touchA1325,
+	(funptr)&f_touchA1326,
+	(funptr)&f_touchA1327,
+	(funptr)&f_touchA1328,
+	(funptr)&f_touchA1329,
+	(funptr)&f_touchA1330,
+	(funptr)&f_touchA1331,
+	(funptr)&f_touchA1332,
+	(funptr)&f_touchA1333,
+	(funptr)&f_touchA1334
 };
 funptr G_agg_cmpfuncs[] = {
 	(funptr)&f_cmpA1,
