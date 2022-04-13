@@ -29,6 +29,7 @@ end
 -- packing: 0=off, pos values set fixed packing, neg values set a random
 --          power-of-2 packing per aggregate, within [1,abs(aggrpacking)]
 -- packing_seed: seed for random packing (if used)
+-- cpsimple: whether or not to copy aggregates via '=' or field by field
 function mkaggrdefs(aggrs, seen_aggrs, packing, packingseed)
   local agg_defs  = { }
   local agg_sizes = { }
@@ -71,7 +72,7 @@ function mkaggrdefs(aggrs, seen_aggrs, packing, packingseed)
     }
     o = { '=', '==', 'f_cp', 'f_cmp', '; ', ' && ', '', '1' }
     for t = 1, 2 do
-      if t ~= 1 or aggrcpsimple == false then
+      if t ~= 1 or cpsimple == false then
         aggr_def = aggr_def..s[t]
         local b = {}
         for i = 1, #am, 2 do

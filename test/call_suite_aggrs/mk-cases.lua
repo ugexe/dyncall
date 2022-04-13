@@ -118,7 +118,7 @@ function mkall()
     lineno = lineno + 1
   end
 
-  local agg_defs, agg_sizes, agg_sigs, agg_names = mkaggrdefs(aggrs, seen_aggrs, aggrpacking, aggrpackingseed)
+  local agg_defs, agg_sizes, agg_sigs, agg_names = mkaggrdefs(aggrs, seen_aggrs, aggrpacking, aggrpackingseed, aggrcpsimple)
 
   -- make table.concat work
   if #agg_names > 0 then
