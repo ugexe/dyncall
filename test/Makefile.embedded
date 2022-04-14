@@ -5,12 +5,12 @@ all-dynload:
 	cd dynload_plain && ${MAKE_CMD}
 	cd resolve_self && ${MAKE_CMD}
 all-dyncall:
-	cd suite && ${MAKE_CMD}
 	cd call_suite && ${MAKE_CMD}
+	cd call_suite_aggrs && ${MAKE_CMD}
+	cd suite && ${MAKE_CMD}
 	cd suite2 && ${MAKE_CMD}
 	cd suite3 && ${MAKE_CMD}
 	cd suite_floats && ${MAKE_CMD}
-	cd call_suite_aggrs && ${MAKE_CMD}
 	cd callf && ${MAKE_CMD}
 	cd plain && ${MAKE_CMD}
 	cd plain_c++ && ${MAKE_CMD}
@@ -20,12 +20,13 @@ all-dyncallback:
 	cd malloc_wx && ${MAKE_CMD}
 	cd callback_plain && ${MAKE_CMD}
 	cd callback_suite && ${MAKE_CMD}
+	cd callback_suite_aggrs && ${MAKE_CMD}
 all-c:
 	cd plain && ${MAKE_CMD}
 	cd syscall && ${MAKE_CMD}
-	cd suite && ${MAKE_CMD}
 	cd call_suite && ${MAKE_CMD}
 	cd call_suite_aggrs && ${MAKE_CMD}
+	cd suite && ${MAKE_CMD}
 	cd callf && ${MAKE_CMD}
 	cd dynload_plain && ${MAKE_CMD}
 	cd resolve_self && ${MAKE_CMD}
@@ -33,6 +34,7 @@ all-c:
 	cd malloc_wx && ${MAKE_CMD}
 	cd callback_plain && ${MAKE_CMD}
 	cd callback_suite && ${MAKE_CMD}
+	cd callback_suite_aggrs && ${MAKE_CMD}
 all-win32:
 	cd suite_x86win32std  && ${MAKE_CMD}
 	cd suite_x86win32fast && ${MAKE_CMD}
@@ -49,14 +51,15 @@ clean:
 	cd plain && ${MAKE_CMD} clean
 	cd plain_c++ && ${MAKE_CMD} clean
 	cd syscall && ${MAKE_CMD} clean
-	cd suite && ${MAKE_CMD} clean
 	cd call_suite && ${MAKE_CMD} clean
+	cd call_suite_aggrs && ${MAKE_CMD} clean
+	cd suite && ${MAKE_CMD} clean
 	cd suite2 && ${MAKE_CMD} clean
 	cd suite3 && ${MAKE_CMD} clean
 	cd suite_floats && ${MAKE_CMD} clean
-	cd call_suite_aggrs && ${MAKE_CMD} clean
 	cd callback_plain && ${MAKE_CMD} clean
 	cd callback_suite && ${MAKE_CMD} clean
+	cd callback_suite_aggrs && ${MAKE_CMD} clean
 	cd ellipsis && ${MAKE_CMD} clean
 	cd callf && ${MAKE_CMD} clean
 	cd dynload_plain && ${MAKE_CMD} clean

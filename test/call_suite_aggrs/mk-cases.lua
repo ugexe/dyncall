@@ -14,7 +14,7 @@ function mkcase(id, sig, aggrs, seen_aggrs)
   local sig = trim(sig)
   local fsig = put_sig_rtype_first(sig)
   local h = { "/* ",id,":",sig," */ " }
-  local t = { "" }
+  local t = { }
   local pos = -1
   local n_nest = 0
   local aggr = { }
@@ -24,7 +24,6 @@ function mkcase(id, sig, aggrs, seen_aggrs)
   for i = 1, #fsig do
     local name = "a"..pos
     local ch   = fsig:sub(i,i)
-
 
     -- aggregate nest level change?
     if ch == '{' or ch == '<' then
@@ -64,11 +63,11 @@ function mkcase(id, sig, aggrs, seen_aggrs)
       if n_nest == 0 then
         h[#h+1] = ch
         -- aggregate types have more than one char
-        if #h[#h] > 1 then
+        if #ch > 1 then
           if aggrcpsimple then
-            t[#t+1] = '*('..h[#h]..'*)V_a['..pos.."]="..name..";"
+            t[#t+1] = '*('..ch..'*)V_a['..pos.."]="..name..";"
           else
-            t[#t+1] = 'f_cp'..h[#h]:match('A.*')..'(V_a['..pos.."],&"..name..");"
+            t[#t+1] = 'f_cp'..ch:match('A.*')..'(V_a['..pos.."],&"..name..");"
           end
           if aggrmutabletest then
             t[#t] = t[#t]..'memset(&'..name..',0,sizeof('..name..'));'

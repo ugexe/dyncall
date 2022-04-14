@@ -1,5 +1,5 @@
-ALL=call_suite callback_suite plain plain_c++ suite suite2 suite3 suite_floats call_suite_aggrs ellipsis callf syscall dynload_plain resolve_self thunk malloc_wx callback_plain
-PACK=call_suite callback_suite plain plain_c++ suite suite2 suite3 suite_floats call_suite_aggrs ellipsis callf dynload_plain resolve_self callback_plain
+ALL=call_suite call_suite_aggrs callback_suite callback_suite_aggrs plain plain_c++ suite suite2 suite3 suite_floats ellipsis callf syscall dynload_plain resolve_self thunk malloc_wx callback_plain
+PACK=call_suite call_suite_aggrs callback_suite callback_suite_aggrs plain plain_c++ suite suite2 suite3 suite_floats ellipsis callf dynload_plain resolve_self callback_plain
 .PHONY: all clean run-tests install distclean ${ALL} 
 all clean install: 
 	${MAKE} TARGET=$@ ${ALL}
@@ -10,8 +10,8 @@ run-tests: all
 all-c:
 	cd plain && ${MAKE}
 	cd call_suite && ${MAKE}
-	cd suite && ${MAKE}
 	cd call_suite_aggrs && ${MAKE}
+	cd suite && ${MAKE}
 	cd callf && ${MAKE}
 	cd syscall && ${MAKE}
 	cd dynload_plain && ${MAKE}
@@ -20,6 +20,7 @@ all-c:
 	cd malloc_wx && ${MAKE}
 	cd callback_plain && ${MAKE}
 	cd callback_suite && ${MAKE}
+	cd callback_suite_aggrs && ${MAKE}
 all-win32:
 	cd suite_x86win32std  && ${MAKE}
 	cd suite_x86win32fast && ${MAKE}
@@ -34,11 +35,11 @@ all-dyncall:
 	cd plain && ${MAKE}
 	cd plain_c++ && ${MAKE}
 	cd call_suite && ${MAKE}
+	cd call_suite_aggrs && ${MAKE}
 	cd suite && ${MAKE}
 	cd suite2 && ${MAKE}
 	cd suite3 && ${MAKE}
 	cd suite_floats && ${MAKE}
-	cd call_suite_aggrs && ${MAKE}
 	cd ellipsis && ${MAKE}
 	cd callf && ${MAKE}
 	cd syscall && ${MAKE}
@@ -46,11 +47,11 @@ run-dyncall:
 	plain/plain
 	plain_c++/plain_c++
 	call_suite/call_suite
+	call_suite_aggrs/call_suite_aggrs
 	suite/suite
 	suite2/suite2
 	suite3/suite3
 	suite_floats/suite_floats
-	call_suite_aggrs/call_suite_aggrs
 	ellipsis/ellipsis
 	callf/callf
 	syscall/syscall
@@ -65,11 +66,13 @@ all-dyncallback:
 	cd malloc_wx && ${MAKE}
 	cd callback_plain && ${MAKE}
 	cd callback_suite && ${MAKE}
+	cd callback_suite_aggrs && ${MAKE}
 run-dyncallback:
 	thunk/thunk
 	malloc_wx/malloc_wx
 	callback_plain/callback_plain
 	callback_suite/callback_suite
+	callback_suite_aggrs/callback_suite_aggrs
 
 pack: ${PACK}
 	${VPATH}/pack-tests.sh ${PACK}
