@@ -4,7 +4,7 @@
 ncases    = 800         -- number of test cases (note: inf loop if higher than max arg permutation)
 mode      = "random"    -- generatore mode: 'random' or 'ordered' type sequences
 minargs   = 0           -- minimum num. of supported arguments (>= 0)
-maxargs   = 67          -- maximum num. of supported arguments (>= minargs)
+maxargs   = 60          -- maximum num. of supported arguments (>= minargs)
 
 
 -- section 'types' -------------------------------------------------------------
