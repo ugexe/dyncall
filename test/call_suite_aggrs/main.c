@@ -3,7 +3,7 @@
  Package: dyncall
  Library: test
  File: test/call_suite_aggrs/main.c
- Description: 
+ Description:
  License:
 
    Copyright (c) 2022 Tassilo Philipp <tphilipp@potion-studios.com>
@@ -39,7 +39,7 @@ static int find_agg_idx(int* len, const char* sig)
     const char* agg_sig = G_agg_sigs[i];
     int l = strlen(agg_sig);
     if(len)
-	  *len = l;
+      *len = l;
     if(strncmp(agg_sig, sig, l) == 0)
       return i;
   }
@@ -122,7 +122,7 @@ static int invoke(const char *signature, void* t)
     ++sig;
   }
 
-  switch(*rtype) 
+  switch(*rtype)
   {
     case 'v':                          dcCallVoid(p,t); s=1;             break; /*TODO:check that no return-arg was touched.*/
     case 'B': s = (                    dcCallBool    (p,t) == K_B[pos]); break;
@@ -203,7 +203,7 @@ static int invoke(const char *signature, void* t)
 }
 
 static int run_test(int i)
-{  
+{
   char const * sig;
   void * target;
   int success;

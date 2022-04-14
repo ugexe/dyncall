@@ -3,7 +3,7 @@
  Package: dyncall
  Library: test
  File: test/call_suite/main.c
- Description: 
+ Description:
  License:
 
    Copyright (c) 2011-2022 Daniel Adler <dadler@uni-goettingen.de>,
@@ -22,7 +22,6 @@
    OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 */
-
 
 #include "dyncall.h"
 #include "globals.h"
@@ -44,7 +43,7 @@ static int invoke(const char *signature, void* t)
   int          s = 0;
 
   clear_V();
-  
+
   dcReset(p);
 
   /* locate return type in sig; if no ')' separator, test failed */
@@ -76,8 +75,8 @@ static int invoke(const char *signature, void* t)
     }
     ++pos;
   }
-  
-  switch(*rtype) 
+
+  switch(*rtype)
   {
     case 'v':                           dcCallVoid    (p,t); s=1;         break; /*TODO:check that no return-arg was touched.*/
     case 'B':  s = (                    dcCallBool    (p,t) == K_B[pos]); break;
@@ -130,7 +129,7 @@ static int invoke(const char *signature, void* t)
 }
 
 static int run_test(int i)
-{  
+{
   char const * sig;
   void * target;
   int success;
