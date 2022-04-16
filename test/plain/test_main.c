@@ -344,10 +344,8 @@ int main(int argc, char* argv[])
   dcTest_initPlatform();
 
   r = testCallC() && r;
-  r = testAggrReturns() && r;
-  r = testAggrParameters() && r;
-  r = testAggrReturns() && r;
-  r = testAggrParameters() && r;
+  r = testStructSizes() && r;
+  /*r = testCallStructs() && r;*/
 #if defined(DC__OS_Win32)
   r = testCallStd() && r;
   r = testCallFast() && r;
