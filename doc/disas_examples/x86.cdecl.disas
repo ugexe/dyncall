@@ -775,7 +775,7 @@ _main   ENDP
 1c00095f:       8d 45 f4                lea    0xfffffff4(%ebp),%eax ; |
 1c000962:       83 00 7b                addl   $0x7b,(%eax)          ; | a += 12
 1c000965:       e8 b6 ff ff ff          call   1c000920 <f1>         ; call f1()
-1c00096a:       89 45 f0                mov    %eax,0xfffffff0(%ebp) ;
+1c00096a:       89 45 f0                mov    %eax,0xfffffff0(%ebp) ; retval (trivial struct <= 32bits, returned via eax)
 1c00096d:       8d 45 f4                lea    0xfffffff4(%ebp),%eax ; |
 1c000970:       83 28 7b                subl   $0x7b,(%eax)          ; | a -= 123
 1c000973:       8d 45 d8                lea    0xffffffd8(%ebp),%eax ; space (at top of stack) to hold non-triv retval -> eax

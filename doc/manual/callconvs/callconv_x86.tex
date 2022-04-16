@@ -188,10 +188,9 @@ aggregate doesn't fit entirely into ecx and edx, it is passed via the stack and 
 \paragraph{Return values}
 
 \begin{itemize}
-\item return values of pointer or integral type (\textless=\ 32 bits) are returned via the eax register
+\item return values of pointer or integral type, as well as aggregates (structs, unions) \textless=\ 64 are returned via the eax and edx registers
 \item for {\it non-trivial} C++ aggregates, the caller allocates space, passes pointer to it to the callee as a hidden first param
 (meaning via ecx), and callee writes return value to this space; the ptr to the aggregate is returned in eax
-\item integers and aggregates (structs, unions) \textgreater\ 32 and \textless=\ 64 bits are returned via the eax and edx registers
 \item return values \textgreater\ 64 bits (e.g. aggregates) are returned by the caller allocating the space and
 passing a pointer to the callee as a new, implicit first parameter (always via the stack, never via a register)
 \item floating point types are returned via the st0 register
@@ -510,7 +509,7 @@ Name          & Brief description\\
 \item arguments \textgreater\ 64 bits are pushed as a sequence of dwords
 \item aggregates (structs, unions) are pushed as a sequence of dwords
 \item {\it non-trivial} C++ aggregates (as defined by the language) of any size, are passed indirectly via a pointer to a copy of the aggregate
-\item stack is usually 4 byte aligned (GCC \textgreater=\ 3.x seems to use a 16byte alignement)
+\item stack is usually 4 byte aligned (GCC \textgreater=\ 3.x seems to use a 16byte alignment)
 \item the direction flag is clear on entry and must be returned clear % mention it first, above @@@
 \end{itemize}
 
