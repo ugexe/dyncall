@@ -6,7 +6,7 @@
  Description:
  License:
 
-   Copyright (c) 2007-2019 Daniel Adler <dadler@uni-goettingen.de>,
+   Copyright (c) 2007-2022 Daniel Adler <dadler@uni-goettingen.de>,
                            Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
@@ -54,7 +54,7 @@ DCpointer  API fun_##NAME##_p(DCpointer  x) { return x; }
 int g_void_testval;
 DEF_FUNCS(__cdecl,c)
 
-int testCallC()
+static int testCallC()
 {
   int ret = 1;
 
@@ -72,14 +72,14 @@ int testCallC()
     dcArgBool(pc, val);
     r = dcCallBool(pc, (DCpointer) &fun_c_b);
     printf("bt (cdecl): %d\n", (r == val));
-	ret = (r == val) && ret;
+    ret = (r == val) && ret;
 
     val=DC_FALSE;
     dcReset(pc);
     dcArgBool(pc, val);
     r = dcCallBool(pc, (DCpointer) &fun_c_b);
     printf("bf (cdecl): %d\n", (r == val));
-	ret = (r == val) && ret;
+    ret = (r == val) && ret;
   }
   /* int */
   {
@@ -88,7 +88,7 @@ int testCallC()
     dcArgInt(pc, val);
     r = dcCallInt(pc, (DCpointer) &fun_c_i);
     printf("i  (cdecl): %d\n", (r == val));
-	ret = (r == val) && ret;
+    ret = (r == val) && ret;
   }
   /* long */
   {
@@ -97,7 +97,7 @@ int testCallC()
     dcArgLong(pc, val);
     r = dcCallLong(pc, (DCpointer) &fun_c_j);
     printf("l  (cdecl): %d\n", (r == val));
-	ret = (r == val) && ret;
+    ret = (r == val) && ret;
   }
   /* long long */
   {
@@ -106,7 +106,7 @@ int testCallC()
     dcArgLongLong(pc, val);
     r = dcCallLongLong(pc, (DCpointer) &fun_c_l);
     printf("ll (cdecl): %d\n", (r == (DClonglong)val));
-	ret = (r == (DClonglong)val) && ret;
+    ret = (r == (DClonglong)val) && ret;
   }
   /* float */
   {
@@ -115,7 +115,7 @@ int testCallC()
     dcArgFloat(pc, val);
     r = dcCallFloat(pc, (DCpointer) &fun_c_f);
     printf("f  (cdecl): %d\n", (r == val));
-	ret = (r == val) && ret;
+    ret = (r == val) && ret;
   }
   /* double */
   {
@@ -124,7 +124,7 @@ int testCallC()
     dcArgDouble(pc, val);
     r = dcCallDouble(pc, (DCpointer) &fun_c_d);
     printf("d  (cdecl): %d\n", (r == val));
-	ret = (r == val) && ret;
+    ret = (r == val) && ret;
   }
   /* ptr */
   {
@@ -133,7 +133,7 @@ int testCallC()
     dcArgPointer(pc, (DCpointer) &fun_c_b);
     r = dcCallPointer(pc, (DCpointer) &fun_c_p);
     printf("p  (cdecl): %d\n", (r == (DCpointer) &fun_c_b));
-	ret = (r == (DCpointer) &fun_c_b) && ret;
+    ret = (r == (DCpointer) &fun_c_b) && ret;
   }
   dcFree(pc);
 
@@ -146,7 +146,7 @@ int testCallC()
 
 DEF_FUNCS(__stdcall,std)
 
-int testCallStd()
+static int testCallStd()
 {
   int ret = 1;
 
@@ -164,14 +164,14 @@ int testCallStd()
     dcArgBool(pc, val);
     r = dcCallBool(pc, (DCpointer) &fun_std_b);
     printf("bt (stdcall): %d\n", (r == val));
-	ret = (r == val) && ret;
+    ret = (r == val) && ret;
 
     val=DC_FALSE;
     dcReset(pc);
     dcArgBool(pc, val);
     r = dcCallBool(pc, (DCpointer) &fun_std_b);
     printf("bf (stdcall): %d\n", (r == val));
-	ret = (r == val) && ret;
+    ret = (r == val) && ret;
   }
   /* int */
   {
@@ -180,7 +180,7 @@ int testCallStd()
     dcArgInt(pc, val);
     r = dcCallInt(pc, (DCpointer) &fun_std_i);
     printf("i  (stdcall): %d\n", (r == val));
-	ret = (r == val) && ret;
+    ret = (r == val) && ret;
   }
   /* long */
   {
@@ -189,7 +189,7 @@ int testCallStd()
     dcArgLong(pc, val);
     r = dcCallLong(pc, (DCpointer) &fun_std_j);
     printf("l  (stdcall): %d\n", (r == val));
-	ret = (r == val) && ret;
+    ret = (r == val) && ret;
   }
   /* long long */
   {
@@ -198,7 +198,7 @@ int testCallStd()
     dcArgLongLong(pc, val);
     r = dcCallLongLong(pc, (DCpointer) &fun_std_l);
     printf("ll (stdcall): %d\n", (r == val));
-	ret = (r == val) && ret;
+    ret = (r == val) && ret;
   }
   /* float */
   {
@@ -207,7 +207,7 @@ int testCallStd()
     dcArgFloat(pc, val);
     r = dcCallFloat(pc, (DCpointer) &fun_std_f);
     printf("f  (stdcall): %d\n", (r == val));
-	ret = (r == val) && ret;
+    ret = (r == val) && ret;
   }
   /* double */
   {
@@ -216,7 +216,7 @@ int testCallStd()
     dcArgDouble(pc, val);
     r = dcCallDouble(pc, (DCpointer) &fun_std_d);
     printf("d  (stdcall): %d\n", (r == val));
-	ret = (r == val) && ret;
+    ret = (r == val) && ret;
   }
   /* ptr */
   {
@@ -225,7 +225,7 @@ int testCallStd()
     dcArgPointer(pc, (DCpointer) &fun_c_b);
     r = dcCallPointer(pc, (DCpointer) &fun_std_p);
     printf("p  (stdcall): %d\n", (r == &fun_c_b));
-	ret = (r == &fun_c_b) && ret;
+    ret = (r == &fun_c_b) && ret;
   }
   dcFree(pc);
 
@@ -240,7 +240,7 @@ int testCallStd()
 
 DEF_FUNCS(__fastcall,fast)
 
-int testCallFast()
+static int testCallFast()
 {
   int ret = 1;
 
@@ -264,14 +264,14 @@ int testCallFast()
     dcArgBool(pc, val);
     r = dcCallBool(pc, (DCpointer) &fun_fast_b);
     printf("bt ("FT"fastcall): %d\n", (r == val));
-	ret = (r == val) && ret;
+    ret = (r == val) && ret;
 
     val=DC_FALSE;
     dcReset(pc);
     dcArgBool(pc, val);
     r = dcCallBool(pc, (DCpointer) &fun_fast_b);
     printf("bf ("FT"fastcall): %d\n", (r == val));
-	ret = (r == val) && ret;
+    ret = (r == val) && ret;
   }
   /* int */
   {
@@ -280,7 +280,7 @@ int testCallFast()
     dcArgInt(pc, val);
     r = dcCallInt(pc, (DCpointer) &fun_fast_i);
     printf("i  ("FT"fastcall): %d\n", (r == val));
-	ret = (r == val) && ret;
+    ret = (r == val) && ret;
   }
   /* long */
   {
@@ -289,7 +289,7 @@ int testCallFast()
     dcArgLong(pc, val);
     r = dcCallLong(pc, (DCpointer) &fun_fast_j);
     printf("l  ("FT"fastcall): %d\n", (r == val));
-	ret = (r == val) && ret;
+    ret = (r == val) && ret;
   }
   /* long long */
   {
@@ -298,7 +298,7 @@ int testCallFast()
     dcArgLongLong(pc, val);
     r = dcCallLongLong(pc, (DCpointer) &fun_fast_l);
     printf("ll ("FT"fastcall): %d\n", (r == val));
-	ret = (r == val) && ret;
+    ret = (r == val) && ret;
   }
   /* float */
   {
@@ -307,7 +307,7 @@ int testCallFast()
     dcArgFloat(pc, val);
     r = dcCallFloat(pc, (DCpointer) &fun_fast_f);
     printf("f  ("FT"fastcall): %d\n", (r == val));
-	ret = (r == val) && ret;
+    ret = (r == val) && ret;
   }
   /* double */
   {
@@ -316,7 +316,7 @@ int testCallFast()
     dcArgDouble(pc, val);
     r = dcCallDouble(pc, (DCpointer) &fun_fast_d);
     printf("d  ("FT"fastcall): %d\n", (r == val));
-	ret = (r == val) && ret;
+    ret = (r == val) && ret;
   }
   /* ptr */
   {
@@ -325,7 +325,7 @@ int testCallFast()
     dcArgPointer(pc, (DCpointer) &fun_c_b);
     r = dcCallPointer(pc, (DCpointer) &fun_fast_p);
     printf("p  ("FT"fastcall): %d\n", (r == &fun_c_b));
-	ret = (r == &fun_c_b) && ret;
+    ret = (r == &fun_c_b) && ret;
   }
   dcFree(pc);
 
@@ -344,8 +344,10 @@ int main(int argc, char* argv[])
   dcTest_initPlatform();
 
   r = testCallC() && r;
-  r = testStructSizes() && r;
-  /*r = testCallStructs() && r;*/
+  r = testAggrReturns() && r;
+  r = testAggrParameters() && r;
+  r = testAggrReturns() && r;
+  r = testAggrParameters() && r;
 #if defined(DC__OS_Win32)
   r = testCallStd() && r;
   r = testCallFast() && r;

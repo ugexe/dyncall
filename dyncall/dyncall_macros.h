@@ -311,7 +311,8 @@ DC__Arch_SuperH
    call and callback support are required for a platform implementation */
 
 /* syscalls */
-#if defined(DC__Arch_Intel_x86) || (defined(DC__Arch_AMD64) && defined(DC_UNIX)) || defined(DC__Arch_PPC32) || defined(DC__Arch_PPC64)
+#if (defined(DC__Arch_Intel_x86) || (defined(DC__Arch_AMD64) && defined(DC_UNIX)) || defined(DC__Arch_PPC32) || defined(DC__Arch_PPC64)) && \
+    !defined(DC__OS_MacOSX) && !defined(DC__OS_Plan9) && !defined(DC__OS_NDS) && !defined(DC__OS_PSP) && !defined(DC__OS_Minix) && !defined(DC__OS_SunOS) && !defined(DC__OS_BeOS)
 #  define DC__Feature_Syscall
 #endif
 
