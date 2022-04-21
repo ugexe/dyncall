@@ -226,7 +226,7 @@ static int run_test(int id)
   dc_sig[len_sig] = '\0';
 
 
-  pcb = dcbNewCallback(dc_sig, handler, (void*)dc_sig, dc_aggrs);
+  pcb = dcbNewCallback2(dc_sig, handler, (void*)dc_sig, dc_aggrs);
   assert(pcb != NULL);
 
   clear_V();

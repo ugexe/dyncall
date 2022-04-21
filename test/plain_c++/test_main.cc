@@ -6,7 +6,7 @@
  Description:
  License:
 
-   Copyright (c) 2007-2019 Daniel Adler <dadler@uni-goettingen.de>,
+   Copyright (c) 2007-2022 Daniel Adler <dadler@uni-goettingen.de>,
                            Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
@@ -30,9 +30,11 @@
 #include "../common/platformInit.h"
 #include "../common/platformInit.c" /* Impl. for functions only used in this translation unit */
 
+#include "../../dyncall/dyncall_aggregate.h"
 
 #include <signal.h>
 #include <setjmp.h>
+#include <stdarg.h>
 
 jmp_buf jbuf;
 
@@ -110,6 +112,7 @@ union ValueUnion
 #define VTBI_GET_DOUBLE VTBI_BASE+11
 #define VTBI_SET_POINTER VTBI_BASE+12
 #define VTBI_GET_POINTER VTBI_BASE+13
+#define VTBI_SUM_3_INTS VTBI_BASE+14
 
 class Value
 {
@@ -130,31 +133,10 @@ public:
   virtual DCdouble   __cdecl getDouble()               { return mValue.d; }
   virtual void       __cdecl setPtr(DCpointer x)       { mValue.p = x; }
   virtual DCpointer  __cdecl getPtr()                  { return mValue.p; }
-private:
-  ValueUnion mValue;
-};
 
-/* C++ class using (on win32: microsoft) this call */
+  /* ellipsis test w/ this ptr */
+  virtual int        __cdecl sum3Ints(DCint x, ...)    { va_list va; va_start(va,x); x += va_arg(va,int) + va_arg(va,int); va_end(va); return x; }
 
-class ValueMS
-{
-public:
-  virtual ~ValueMS()    {}
-
-  virtual void       setBool(DCbool x)         { mValue.B = x; }
-  virtual DCbool     getBool()                 { return mValue.B; }
-  virtual void       setInt(DCint x)           { mValue.i = x; }
-  virtual DCint      getInt()                  { return mValue.i; }
-  virtual void       setLong(DClong x)         { mValue.j = x; }
-  virtual DClong     getLong()                 { return mValue.j; }
-  virtual void       setLongLong(DClonglong x) { mValue.l = x; }
-  virtual DClonglong getLongLong()             { return mValue.l; }
-  virtual void       setFloat(DCfloat x)       { mValue.f = x; }
-  virtual DCfloat    getFloat()                { return mValue.f; }
-  virtual void       setDouble(DCdouble x)     { mValue.d = x; }
-  virtual DCdouble   getDouble()               { return mValue.d; }
-  virtual void       setPtr(DCpointer x)       { mValue.p = x; }
-  virtual DCpointer  getPtr()                  { return mValue.p; }
 private:
   ValueUnion mValue;
 };
@@ -263,20 +245,59 @@ bool testCallValue(DCCallVM* pc, const char* name)
   printf("p  (%s): %d\n", name, b);
   r = r && b;
 
+  /* ellipsis test w/ this pointer */
+
+  dcReset(pc);
+  dcMode(pc, DC_CALL_C_ELLIPSIS);
+  dcArgPointer(pc, pThis);
+  dcArgInt(pc, 23);
+  dcMode(pc, DC_CALL_C_ELLIPSIS_VARARGS);
+  dcArgInt(pc, -223);
+  dcArgInt(pc, 888);
+  int r_ = dcCallInt(pc, vtbl[VTBI_SUM_3_INTS]);
+  b = (r_ == 688);
+  printf("...  (%s): %d\n", name, b);
+  r = r && b;
+
   return r;
 }
 
 
-#if defined(DC__OS_Win32)
+#if defined(DC__OS_Win32) && defined(DC__C_MSVC)
 
-int testCallThisMS()
+/* C++ class using (on win32: microsoft) this call */
+
+class ValueMS
+{
+public:
+  virtual ~ValueMS()    {}
+
+  virtual void       setBool(DCbool x)         { mValue.B = x; }
+  virtual DCbool     getBool()                 { return mValue.B; }
+  virtual void       setInt(DCint x)           { mValue.i = x; }
+  virtual DCint      getInt()                  { return mValue.i; }
+  virtual void       setLong(DClong x)         { mValue.j = x; }
+  virtual DClong     getLong()                 { return mValue.j; }
+  virtual void       setLongLong(DClonglong x) { mValue.l = x; }
+  virtual DClonglong getLongLong()             { return mValue.l; }
+  virtual void       setFloat(DCfloat x)       { mValue.f = x; }
+  virtual DCfloat    getFloat()                { return mValue.f; }
+  virtual void       setDouble(DCdouble x)     { mValue.d = x; }
+  virtual DCdouble   getDouble()               { return mValue.d; }
+  virtual void       setPtr(DCpointer x)       { mValue.p = x; }
+  virtual DCpointer  getPtr()                  { return mValue.p; }
+private:
+  ValueUnion mValue;
+};
+
+static bool testCallThisMS()
 {
   bool r = false;
   DCCallVM* pc = dcNewCallVM(4096);
   dcMode(pc, DC_CALL_C_X86_WIN32_THIS_MS);
   dcReset(pc);
   if(setjmp(jbuf) != 0)
-    printf("sigsegv\n");
+    printf("sigsegv\n"), r=false;
   else
     r = testCallValue<ValueMS>(pc, "MS");
   dcFree(pc);
@@ -286,19 +307,172 @@ int testCallThisMS()
 #endif
 
 
-int testCallThisC()
+static bool testCallThisC()
 {
   bool r = false;
   DCCallVM* pc = dcNewCallVM(4096);
   dcMode(pc, DC_CALL_C_DEFAULT_THIS);
   dcReset(pc);
   if(setjmp(jbuf) != 0)
-    printf("sigsegv\n");
+    printf("sigsegv\n"), r=false;
   else
     r = testCallValue<Value>(pc, "c");
   dcFree(pc);
   return r;
 }
+
+
+#if defined(DC__Feature_AggrByVal)
+
+class ValueAggr
+{
+public:
+  struct S { int i, j, k, l, m; };
+
+  virtual ~ValueAggr()    {}
+
+  virtual void  __cdecl setAggr(S x)  { mS.i = x.i; mS.j = x.j; mS.k = x.k; mS.l = x.l; mS.m = x.m; }
+  virtual S     __cdecl getAggr()     { return mS; }
+
+  /* ellipsis test w/ this ptr and big (!) aggregate return */
+  struct Big { int sum; long long dummy[50]; /*dummy to make it not fit in any regs*/ };
+  virtual struct Big  __cdecl sum3RetAggr(DCint x, ...) { va_list va; va_start(va,x); struct Big r = { x + va_arg(va,int) + va_arg(va,int) }; va_end(va); return r; }
+
+  /* non-trivial aggregate */
+  struct NonTriv {
+    int i, j;
+    NonTriv(int a, int b) : i(a),j(b) { }
+    NonTriv(const NonTriv& rhs) { static int a=13, b=37; i = a++; j = b++; }
+  };
+  /* by value, so on first invocation a = 13,37, b = 14,38 and retval = 13*14,37*38, no matter the contents of the instances as copy ctor is called */
+  /* NOTE: copy of return value is subject to C++ "copy elision", so it is *not* calling the copy ctor for the return value */
+  virtual struct NonTriv  __cdecl squareFields(NonTriv a, NonTriv b) { return NonTriv(a.i*b.i, a.j*b.j); }
+
+private:
+  struct S mS;
+};
+
+#if (__cplusplus >= 201103L)
+#  include <type_traits>
+#endif
+
+/* special case w/ e.g. MS x64 C++ calling cconf: struct return ptr is passed as *2nd* arg */
+static bool testCallThisAggr()
+{
+  bool r = false;
+  DCCallVM* pc = dcNewCallVM(4096);
+  dcMode(pc, DC_CALL_C_DEFAULT_THIS);
+
+  if(setjmp(jbuf) != 0)
+    printf("sigsegv\n"), r=false;
+  else
+  {
+    ValueAggr o;
+
+    DCpointer* vtbl =  *( (DCpointer**) &o ); /* vtbl is located at beginning of class */
+    ValueAggr::S st = { 124, -12, 434, 20202, -99999 }, returned;
+
+#if (__cplusplus >= 201103L)
+    bool istriv = std::is_trivial<ValueAggr::S>::value;
+#else
+    bool istriv = true; /* own deduction as no type trait */
+#endif
+    DCaggr *s = dcNewAggr(5, sizeof(ValueAggr::S));
+    dcAggrField(s, DC_SIGCHAR_INT, offsetof(ValueAggr::S, i), 1);
+    dcAggrField(s, DC_SIGCHAR_INT, offsetof(ValueAggr::S, j), 1);
+    dcAggrField(s, DC_SIGCHAR_INT, offsetof(ValueAggr::S, k), 1);
+    dcAggrField(s, DC_SIGCHAR_INT, offsetof(ValueAggr::S, l), 1);
+    dcAggrField(s, DC_SIGCHAR_INT, offsetof(ValueAggr::S, m), 1);
+    dcCloseAggr(s);
+
+    // set S::mS
+    dcReset(pc);
+    dcArgPointer(pc, &o); // this ptr
+    dcArgAggr(pc, s, &st);
+    dcCallVoid(pc, vtbl[VTBI_BASE+0]);
+
+    // get it back
+    dcReset(pc);
+    dcBeginCallAggr(pc, s);
+    dcArgPointer(pc, &o); // this ptr
+    dcCallAggr(pc, vtbl[VTBI_BASE+1], s, &returned);
+
+    dcFreeAggr(s);
+
+    r = returned.i == st.i && returned.j == st.j && returned.k == st.k && returned.l == st.l && returned.m == st.m && istriv;
+    printf("r:{iiiii}  (this/trivial): %d\n", r);
+
+
+
+    /* ellipsis test w/ this pointer returning big aggregate (quite an edge
+     * case) by value (won't fit in regs, so hidden pointer is is used to write
+     * return values to), showing the need to use the DC_CALL_C_DEFAULT_THIS
+     * mode first, for the this ptr alone, then DC_CALL_C_ELLIPSIS, then
+     * DC_CALL_C_ELLIPSIS_VARARGS (test is useful on win64 where thisptr is
+     * passed *after* return aggregate's hidden ptr) */
+#if (__cplusplus >= 201103L)
+    istriv = std::is_trivial<ValueAggr::Big>::value;
+#else
+    istriv = true; /* own deduction as no type trait */
+#endif
+    s = dcNewAggr(2, sizeof(struct ValueAggr::Big));
+    dcAggrField(s, DC_SIGCHAR_INT, offsetof(struct ValueAggr::Big, sum), 1);
+    dcAggrField(s, DC_SIGCHAR_LONGLONG, offsetof(struct ValueAggr::Big, dummy), 50);
+    dcCloseAggr(s);
+    dcReset(pc);
+    dcMode(pc, DC_CALL_C_DEFAULT_THIS); /* <-- needed on x64/win64 */
+
+    dcBeginCallAggr(pc, s);
+    dcMode(pc, DC_CALL_C_ELLIPSIS);
+    dcArgPointer(pc, &o);
+    dcArgInt(pc, 89);
+    dcMode(pc, DC_CALL_C_ELLIPSIS_VARARGS);
+    dcArgInt(pc, -157);
+    dcArgInt(pc, 888);
+    struct ValueAggr::Big big;
+    dcCallAggr(pc, vtbl[VTBI_BASE+2], s, &big);
+
+    dcFreeAggr(s);
+
+    bool b = (big.sum == 820) && istriv;
+    r = r && b;
+    printf("r:{il[50]}  (this/trivial/ellipsis): %d\n", b);
+
+
+
+    /* non-trivial test ----------------------------------------------------------- */
+
+#if (__cplusplus >= 201103L)
+    istriv = std::is_trivial<ValueAggr::NonTriv>::value;
+#else
+    istriv = false; /* own deduction as no type trait */
+#endif
+    dcReset(pc);
+    dcMode(pc, DC_CALL_C_DEFAULT_THIS);
+
+    /* non trivial aggregates: pass NULL for DCaggr* and do copy on our own (see doc) */
+    dcBeginCallAggr(pc, NULL);
+
+    ValueAggr::NonTriv nt0(5, 6), nt1(7, 8), ntr(0, 0);
+    dcArgAggr(pc, NULL, &o); // this ptr
+    /* make *own* copies, as dyncall cannot know how to call copy ctor */ //@@@ put into doc
+    ValueAggr::NonTriv nt0_ = nt0, nt1_ = nt1;
+    dcArgAggr(pc, NULL, &nt0_); /* use *own* copy */
+    dcArgAggr(pc, NULL, &nt1_); /* use *own* copy */
+
+    dcCallAggr(pc, vtbl[VTBI_BASE+3], NULL, &ntr); /* note: "copy elision", so retval might *not* call copy ctor */
+
+
+    b = ntr.i == 13*14 && ntr.j == 37*38 && !istriv;
+    r = r && b;
+    printf("r:{ii}  (this/nontrivial/retval_copy_elision): %d\n", b);
+  }
+
+  dcFree(pc);
+  return r;
+}
+
+#endif
 
 
 extern "C" {
@@ -312,8 +486,11 @@ int main(int argc, char* argv[])
   bool r = true;
 
   r = testCallThisC() && r;
-#if defined(DC__OS_Win32)
+#if defined(DC__OS_Win32) && defined(DC__C_MSVC)
   r = testCallThisMS() && r;
+#endif
+#if defined(DC__Feature_AggrByVal)
+  r = testCallThisAggr() && r;
 #endif
 
   printf("result: plain_cpp: %d\n", r);

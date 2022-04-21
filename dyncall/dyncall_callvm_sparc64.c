@@ -106,7 +106,7 @@ DCCallVM_vt gVT_v9_ellipsis =
   &dc_callvm_argFloat_v9_ellipsis,
   &dc_callvm_argDouble_v9_ellipsis,
   &dc_callvm_argPointer_v9,
-  NULL /* argStruct */,
+  NULL /* argAggr */,
   (DCvoidvmfunc*)       &dcCall_v9,
   (DCboolvmfunc*)       &dcCall_v9,
   (DCcharvmfunc*)       &dcCall_v9,
@@ -117,7 +117,8 @@ DCCallVM_vt gVT_v9_ellipsis =
   (DCfloatvmfunc*)      &dcCall_v9,
   (DCdoublevmfunc*)     &dcCall_v9,
   (DCpointervmfunc*)    &dcCall_v9,
-  NULL /* callStruct */
+  NULL /* callAggr */,
+  NULL /* beginAggr */
 };
 
 /* CallVM virtual table. */
@@ -135,7 +136,7 @@ DCCallVM_vt gVT_v9 =
   &dc_callvm_argFloat_v9,
   &dc_callvm_argDouble_v9,
   &dc_callvm_argPointer_v9,
-  NULL /* argStruct */,
+  NULL /* argAggr */,
   (DCvoidvmfunc*)       &dcCall_v9,
   (DCboolvmfunc*)       &dcCall_v9,
   (DCcharvmfunc*)       &dcCall_v9,
@@ -146,7 +147,8 @@ DCCallVM_vt gVT_v9 =
   (DCfloatvmfunc*)      &dcCall_v9,
   (DCdoublevmfunc*)     &dcCall_v9,
   (DCpointervmfunc*)    &dcCall_v9,
-  NULL /* callStruct */
+  NULL /* callAggr */,
+  NULL /* beginAggr */
 };
 
 /* mode: only a single mode available currently. */

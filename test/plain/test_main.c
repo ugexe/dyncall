@@ -335,8 +335,10 @@ static int testCallFast()
 #endif
 
 
-int testCallStructs();
-int testStructSizes();
+#if defined(DC__Feature_AggrByVal)
+int testAggrReturns();
+int testAggrParameters();
+#endif
 
 int main(int argc, char* argv[])
 {
@@ -344,8 +346,10 @@ int main(int argc, char* argv[])
   dcTest_initPlatform();
 
   r = testCallC() && r;
-  r = testStructSizes() && r;
-  /*r = testCallStructs() && r;*/
+#if defined(DC__Feature_AggrByVal)
+  r = testAggrReturns() && r;
+  r = testAggrParameters() && r;
+#endif
 #if defined(DC__OS_Win32)
   r = testCallStd() && r;
   r = testCallFast() && r;

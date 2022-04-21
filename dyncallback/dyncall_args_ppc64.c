@@ -6,7 +6,8 @@
  Description: Callback's Arguments VM - Implementation for ppc64
  License:
 
-   Copyright (c) 2014-2015 Masanori Mitsugi <mitsugi@linux.vnet.ibm.com>
+   Copyright (c) 2014-2015 Masanori Mitsugi <mitsugi@linux.vnet.ibm.com>,
+                      2022 Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
    purpose with or without fee is hereby granted, provided that the above
@@ -90,3 +91,7 @@ DCfloat    dcbArgFloat   (DCArgs* p)
   p->stackptr += sizeof(double);
   return result;
 }
+
+void        dcbArgAggr     (DCArgs* p, DCpointer target)                   { /* @@@AGGR not impl */ }
+void        dcbReturnAggr  (DCArgs *args, DCValue *result, DCpointer ret)  { /* @@@AGGR not impl */ }
+

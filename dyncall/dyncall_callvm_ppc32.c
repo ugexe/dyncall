@@ -309,7 +309,7 @@ DCCallVM_vt gVT_ppc32_darwin =
 , &dc_callvm_argFloat_ppc32_darwin
 , &dc_callvm_argDouble_ppc32_darwin
 , &dc_callvm_argPointer_ppc32
-, NULL /* argStruct */
+, NULL /* argAggr */
 , (DCvoidvmfunc*)       &dc_callvm_call_ppc32_darwin
 , (DCboolvmfunc*)       &dc_callvm_call_ppc32_darwin
 , (DCcharvmfunc*)       &dc_callvm_call_ppc32_darwin
@@ -320,7 +320,8 @@ DCCallVM_vt gVT_ppc32_darwin =
 , (DCfloatvmfunc*)      &dc_callvm_call_ppc32_darwin
 , (DCdoublevmfunc*)     &dc_callvm_call_ppc32_darwin
 , (DCpointervmfunc*)    &dc_callvm_call_ppc32_darwin
-, NULL /* callStruct */
+, NULL /* callAggr */
+, NULL /* beginAggr */
 };
 
 DCCallVM_vt gVT_ppc32_sysv =
@@ -337,7 +338,7 @@ DCCallVM_vt gVT_ppc32_sysv =
 , &dc_callvm_argFloat_ppc32_sysv
 , &dc_callvm_argDouble_ppc32_sysv
 , &dc_callvm_argPointer_ppc32
-, NULL /* argStruct */
+, NULL /* argAggr */
 , (DCvoidvmfunc*)       &dc_callvm_call_ppc32_sysv
 , (DCboolvmfunc*)       &dc_callvm_call_ppc32_sysv
 , (DCcharvmfunc*)       &dc_callvm_call_ppc32_sysv
@@ -348,7 +349,8 @@ DCCallVM_vt gVT_ppc32_sysv =
 , (DCfloatvmfunc*)      &dc_callvm_call_ppc32_sysv
 , (DCdoublevmfunc*)     &dc_callvm_call_ppc32_sysv
 , (DCpointervmfunc*)    &dc_callvm_call_ppc32_sysv
-, NULL /* callStruct */
+, NULL /* callAggr */
+, NULL /* beginAggr */
 };
 
 DCCallVM_vt gVT_ppc32_syscall =
@@ -365,7 +367,7 @@ DCCallVM_vt gVT_ppc32_syscall =
 , &dc_callvm_argFloat_ppc32_sysv
 , &dc_callvm_argDouble_ppc32_sysv
 , &dc_callvm_argPointer_ppc32
-, NULL /* argStruct */
+, NULL /* argAggr */
 , (DCvoidvmfunc*)       &dc_callvm_call_ppc32_syscall
 , (DCboolvmfunc*)       &dc_callvm_call_ppc32_syscall
 , (DCcharvmfunc*)       &dc_callvm_call_ppc32_syscall
@@ -376,7 +378,8 @@ DCCallVM_vt gVT_ppc32_syscall =
 , (DCfloatvmfunc*)      &dc_callvm_call_ppc32_syscall
 , (DCdoublevmfunc*)     &dc_callvm_call_ppc32_syscall
 , (DCpointervmfunc*)    &dc_callvm_call_ppc32_syscall
-, NULL /* callStruct */
+, NULL /* callAggr */
+, NULL /* beginAggr */
 };
 
 

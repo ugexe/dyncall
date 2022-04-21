@@ -75,3 +75,6 @@ DCushort    dcbArgUShort   (DCArgs* p) { return (DCushort)    dcbArgShort(p);   
 DCulong     dcbArgULong    (DCArgs* p) { return (DCulong)     dcbArgLong(p);     }
 DCulonglong dcbArgULongLong(DCArgs* p) { return (DCulonglong) dcbArgLongLong(p); }
 
+void        dcbArgAggr     (DCArgs* p, DCpointer target)                   { /* @@@AGGR not impl */ }
+void        dcbReturnAggr  (DCArgs *args, DCValue *result, DCpointer ret)  { /* @@@AGGR not impl */ }
+

@@ -34,7 +34,7 @@ endif()
 
 add_library(dyncall_s STATIC ${ASM_SRC} 
   dyncall_vector.c 
-  dyncall_struct.c 
+  dyncall_aggregate.c 
   dyncall_api.c 
   dyncall_callvm.c 
   dyncall_callvm_base.c

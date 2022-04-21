@@ -3,8 +3,37 @@ This file lists bigger/noteworthy changes, only...
 
 Version 1.4 (upcoming)
 
+dyncall:
+  o aggregate-by-value (struct, union) support for x64 (win and sysv; thanks Raphael Luba!)
+  o new aggregate arg interface DCaggr replacing stale DCstruct (latter had shortcomings, was
+    mostly unused as it lacked stable implementations, didn't handle unions, ...)
+  o new calling convention modes for thiscalls (platform agnostic DC_CALL_C_DEFAULT_THIS, as well as
+    DC_CALL_C_X64_{WIN64,SYSV}_THIS (needed to handle C++ ABI rules for returning aggregates by value)
+  o new signature character for platform agnostic thiscalls ('*' / DC_SIGCHAR_CC_THISCALL)
+  o dcCallF(), dcVCallF(), dcArgF() and dcVArgF() don't implicitly call dcReset()
+    anymore, which was unflexible (breaking change)
+  o added macros to feature test implementation for aggregate-by-value and syscall support
+dyncallback:
+  o aggregate-by-value (struct, union) support for x64 (win and sysv; thanks Raphael Luba!)
+  o new aggregate arg interface DCaggr
 dynload:
   o build fix for ReactOS with RosBE/cmake/mingw-make environment
+tests:
+  o call_suite: simplified and extended to test also unsigned types, and _Bool
+  o callback_suite: refactored to be much more like call_suite test
+  o call_suite_aggrs: new test suite for calls with aggregate arguments and
+    return types (structs, unions and arrays as aggregate members)
+  o callback_suite_aggrs: new test suite, like call_suite_aggrs but for callbacks
+  o simplifications and refactoring to share more code (especially signature
+    and case generator) across test suites
+doc:
+  o callconv section additions about aggregate-by-value passing for all platforms
+  o new Linux-Std-Base-specific PPC32/SysV section, as aggregate retval handling differs from
+    default SysV for such systems
+  o man page changes/additions to document new aggregate interfaces
+  o replaced API description in manual with references to the manpages, to
+    avoid duplication and keeping things in sync
+  o general clarifications and cleanup
 
 
 Version 1.3 (2021/12/17)
@@ -327,7 +356,7 @@ Version 0.4 (2009/07/06)
     target "config" modified, phony without dependencies to other builds
   o bugfix: GNU fastcall calling convention for float and double arguments was wrong (no skip of register)
   o update: x86win32* suite tests are built on cygwin now, added total result output
-  o signature types change:
+  o signature char (breaking) changes:
     C Strings: 'S' -> 'Z'
     long: 'l' -> 'j'
     long long: 'L' -> 'l'

@@ -190,7 +190,7 @@ DCCallVM_vt vt_arm64 =
 , &a_float
 , &a_double
 , &a_pointer
-, NULL /* argStruct */
+, NULL /* argAggr */
 , (DCvoidvmfunc*)       &call
 , (DCboolvmfunc*)       &call
 , (DCcharvmfunc*)       &call
@@ -201,7 +201,8 @@ DCCallVM_vt vt_arm64 =
 , (DCfloatvmfunc*)      &call
 , (DCdoublevmfunc*)     &call
 , (DCpointervmfunc*)    &call
-, NULL /* callStruct */
+, NULL /* callAggr */
+, NULL /* beginAggr */
 };
 
 DCCallVM_vt vt_arm64_variadic =
@@ -218,7 +219,7 @@ DCCallVM_vt vt_arm64_variadic =
 , &var_float
 , &var_double
 , &var_pointer
-, NULL /* argStruct */
+, NULL /* argAggr */
 , (DCvoidvmfunc*)       &call
 , (DCboolvmfunc*)       &call
 , (DCcharvmfunc*)       &call
@@ -229,7 +230,8 @@ DCCallVM_vt vt_arm64_variadic =
 , (DCfloatvmfunc*)      &call
 , (DCdoublevmfunc*)     &call
 , (DCpointervmfunc*)    &call
-, NULL /* callStruct */
+, NULL /* callAggr */
+, NULL /* beginAggr */
 };
 
 static void mode(DCCallVM* in_self, DCint mode)

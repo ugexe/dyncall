@@ -199,7 +199,7 @@ DCCallVM_vt gVT_mips_o32 =
 , &dc_callvm_argFloat_mips_o32
 , &dc_callvm_argDouble_mips_o32
 , &dc_callvm_argPointer_mips_o32
-, NULL /* argStruct */
+, NULL /* argAggr */
 , (DCvoidvmfunc*)       &dc_callvm_call_mips_o32
 , (DCboolvmfunc*)       &dc_callvm_call_mips_o32
 , (DCcharvmfunc*)       &dc_callvm_call_mips_o32
@@ -210,7 +210,8 @@ DCCallVM_vt gVT_mips_o32 =
 , (DCfloatvmfunc*)      &dc_callvm_call_mips_o32
 , (DCdoublevmfunc*)     &dc_callvm_call_mips_o32
 , (DCpointervmfunc*)    &dc_callvm_call_mips_o32
-, NULL /* callStruct */
+, NULL /* callAggr */
+, NULL /* beginAggr */
 };
 
 /* mode: only a single mode available currently. */

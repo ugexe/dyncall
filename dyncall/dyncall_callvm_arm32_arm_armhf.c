@@ -162,7 +162,7 @@ DCCallVM_vt vt_armhf =
 , &a_float
 , &a_double
 , &a_pointer
-, NULL /* argStruct */
+, NULL /* argAggr */
 , (DCvoidvmfunc*)       &call
 , (DCboolvmfunc*)       &call
 , (DCcharvmfunc*)       &call
@@ -173,7 +173,8 @@ DCCallVM_vt vt_armhf =
 , (DCfloatvmfunc*)      &call
 , (DCdoublevmfunc*)     &call
 , (DCpointervmfunc*)    &call
-, NULL /* callStruct */
+, NULL /* callAggr */
+, NULL /* beginAggr */
 };
 
 DCCallVM_vt vt_armhf_ellipsis =
@@ -190,7 +191,7 @@ DCCallVM_vt vt_armhf_ellipsis =
 , &a_float_ellipsis
 , &a_double_ellipsis
 , &a_pointer
-, NULL /* argStruct */
+, NULL /* argAggr */
 , (DCvoidvmfunc*)       &call
 , (DCboolvmfunc*)       &call
 , (DCcharvmfunc*)       &call
@@ -201,7 +202,8 @@ DCCallVM_vt vt_armhf_ellipsis =
 , (DCfloatvmfunc*)      &call
 , (DCdoublevmfunc*)     &call
 , (DCpointervmfunc*)    &call
-, NULL /* callStruct */
+, NULL /* callAggr */
+, NULL /* beginAggr */
 };
 
 static void mode(DCCallVM* in_self, DCint mode)

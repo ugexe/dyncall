@@ -206,7 +206,7 @@ DCCallVM_vt gVT_mips_n64 =
 , &dc_callvm_argFloat_mips_n64
 , &dc_callvm_argDouble_mips_n64
 , &dc_callvm_argPointer_mips_n64
-, NULL /* argStruct */
+, NULL /* argAggr */
 , (DCvoidvmfunc*)       &dc_callvm_call_mips_n64
 , (DCboolvmfunc*)       &dc_callvm_call_mips_n64
 , (DCcharvmfunc*)       &dc_callvm_call_mips_n64
@@ -217,7 +217,8 @@ DCCallVM_vt gVT_mips_n64 =
 , (DCfloatvmfunc*)      &dc_callvm_call_mips_n64
 , (DCdoublevmfunc*)     &dc_callvm_call_mips_n64
 , (DCpointervmfunc*)    &dc_callvm_call_mips_n64
-, NULL /* callStruct */
+, NULL /* callAggr */
+, NULL /* beginAggr */
 };
 
 DCCallVM_vt gVT_mips_n64_ellipsis =
@@ -234,7 +235,7 @@ DCCallVM_vt gVT_mips_n64_ellipsis =
 , &dc_callvm_argFloat_mips_n64_ellipsis
 , &dc_callvm_argDouble_mips_n64_ellipsis
 , &dc_callvm_argPointer_mips_n64
-, NULL /* argStruct */
+, NULL /* argAggr */
 , (DCvoidvmfunc*)       &dc_callvm_call_mips_n64
 , (DCboolvmfunc*)       &dc_callvm_call_mips_n64
 , (DCcharvmfunc*)       &dc_callvm_call_mips_n64
@@ -245,7 +246,8 @@ DCCallVM_vt gVT_mips_n64_ellipsis =
 , (DCfloatvmfunc*)      &dc_callvm_call_mips_n64
 , (DCdoublevmfunc*)     &dc_callvm_call_mips_n64
 , (DCpointervmfunc*)    &dc_callvm_call_mips_n64
-, NULL /* callStruct */
+, NULL /* callAggr */
+, NULL /* beginAggr */
 };
 
 static void dc_callvm_mode_mips_n64(DCCallVM* in_self, DCint mode)

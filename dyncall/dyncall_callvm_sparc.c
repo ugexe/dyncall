@@ -115,7 +115,7 @@ DCCallVM_vt gVT_sparc =
   &dc_callvm_argFloat_sparc,
   &dc_callvm_argDouble_sparc,
   &dc_callvm_argPointer_sparc,
-  NULL /* argStruct */,
+  NULL /* argAggr */,
   (DCvoidvmfunc*)       &dcCall_sparc,
   (DCboolvmfunc*)       &dcCall_sparc,
   (DCcharvmfunc*)       &dcCall_sparc,
@@ -126,7 +126,8 @@ DCCallVM_vt gVT_sparc =
   (DCfloatvmfunc*)      &dcCall_sparc,
   (DCdoublevmfunc*)     &dcCall_sparc,
   (DCpointervmfunc*)    &dcCall_sparc,
-  NULL /* callStruct */
+  NULL /* callAggr */,
+  NULL /* beginAggr */
 };
 
 /* mode: only a single mode available currently. */

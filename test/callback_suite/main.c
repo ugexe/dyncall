@@ -156,7 +156,7 @@ static int run_test(int id)
   signature = G_sigtab[id];
   printf("%d:%s", id, signature);
 
-  pcb = dcbNewCallback(signature, handler, (void*)signature, NULL);
+  pcb = dcbNewCallback(signature, handler, (void*)signature);
   assert(pcb != NULL);
 
   clear_V();

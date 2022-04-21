@@ -117,7 +117,7 @@ DCCallVM_vt vt_arm64 =
 , &a_float
 , &a_double
 , &a_pointer
-, NULL /* argStruct */
+, NULL /* argAggr */
 , (DCvoidvmfunc*)       &call
 , (DCboolvmfunc*)       &call
 , (DCcharvmfunc*)       &call
@@ -128,7 +128,8 @@ DCCallVM_vt vt_arm64 =
 , (DCfloatvmfunc*)      &call
 , (DCdoublevmfunc*)     &call
 , (DCpointervmfunc*)    &call
-, NULL /* callStruct */
+, NULL /* callAggr */
+, NULL /* beginAggr */
 };
 
 #ifdef DC__OS_Win64
@@ -153,7 +154,7 @@ DCCallVM_vt vt_arm64_win_varargs =
 , &var_float
 , &var_double
 , &a_pointer
-, NULL /* argStruct */
+, NULL /* argAggr */
 , (DCvoidvmfunc*)       &call
 , (DCboolvmfunc*)       &call
 , (DCcharvmfunc*)       &call
@@ -164,7 +165,8 @@ DCCallVM_vt vt_arm64_win_varargs =
 , (DCfloatvmfunc*)      &call
 , (DCdoublevmfunc*)     &call
 , (DCpointervmfunc*)    &call
-, NULL /* callStruct */
+, NULL /* callAggr */
+, NULL /* beginAggr */
 };
 #endif
 

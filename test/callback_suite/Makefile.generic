@@ -3,7 +3,7 @@ OBJS     = globals.o cases.o main.o
 SRCTOP   = ${VPATH}/../..
 BLDTOP   = ../..
 CFLAGS  += -I${SRCTOP}/dyncall -I${SRCTOP}/dyncallback
-LDLIBS  += -L${BLDTOP}/dyncall -ldyncall_s -L${BLDTOP}/dyncallback -ldyncallback_s
+LDLIBS  += -L${BLDTOP}/dyncallback -ldyncallback_s -L${BLDTOP}/dyncall -ldyncall_s
 LUA      = lua
 
 .PHONY: all clean install config

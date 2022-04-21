@@ -88,9 +88,9 @@ void dcArgPointer(DCCallVM* vm, DCpointer x)
   vm->mVTpointer->argPointer(vm, x);
 }
 
-void dcArgStruct(DCCallVM* vm, DCstruct* s, DCpointer x)
+void dcArgAggr(DCCallVM* vm, const DCaggr* ag, const void* x)
 {
-  vm->mVTpointer->argStruct(vm, s, x);
+  vm->mVTpointer->argAggr(vm, ag, x);
 }
 
 
@@ -144,9 +144,17 @@ DCpointer dcCallPointer(DCCallVM* vm, DCpointer funcptr)
   return vm->mVTpointer->callPointer(vm, funcptr);
 }
 
-void dcCallStruct(DCCallVM* vm, DCpointer funcptr, DCstruct* s, DCpointer x)
+void dcBeginCallAggr(DCCallVM* vm, const DCaggr* ag)
 {
-  vm->mVTpointer->callStruct(vm, funcptr, s, x);
+  if (vm->mVTpointer->beginAggr) {
+    vm->mVTpointer->beginAggr(vm, ag);
+  }
+}
+
+DCpointer dcCallAggr(DCCallVM* vm, DCpointer funcptr, const DCaggr* ag, DCpointer ret)
+{
+  vm->mVTpointer->callAggr(vm, funcptr, ag, ret);
+  return ret;
 }
 
 DCint dcGetError(DCCallVM *vm)

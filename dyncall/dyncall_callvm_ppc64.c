@@ -259,7 +259,7 @@ void dc_callvm_call_ppc64(DCCallVM* in_self, DCpointer target)
   if (size < 64) {
 	dcVecSkip(&self->mVecHead, 64-size);
   }
-
+ 
   dcCall_ppc64( target, &self->mRegData, dcVecSize(&self->mVecHead) , dcVecData(&self->mVecHead));
 }
 
@@ -285,7 +285,7 @@ DCCallVM_vt gVT_ppc64 =
 , &dc_callvm_argFloat_ppc64
 , &dc_callvm_argDouble_ppc64
 , &dc_callvm_argPointer_ppc64
-, NULL /* argStruct */
+, NULL /* argAggr */
 , (DCvoidvmfunc*)       &dc_callvm_call_ppc64
 , (DCboolvmfunc*)       &dc_callvm_call_ppc64
 , (DCcharvmfunc*)       &dc_callvm_call_ppc64
@@ -296,7 +296,8 @@ DCCallVM_vt gVT_ppc64 =
 , (DCfloatvmfunc*)      &dc_callvm_call_ppc64
 , (DCdoublevmfunc*)     &dc_callvm_call_ppc64
 , (DCpointervmfunc*)    &dc_callvm_call_ppc64
-, NULL /* callStruct */
+, NULL /* callAggr */
+, NULL /* beginAggr */
 };
 
 #if DC__ABI_PPC64_ELF_V == 2
@@ -314,7 +315,7 @@ DCCallVM_vt gVT_ppc64_ellipsis =
 , &dc_callvm_argFloat_ppc64_ellipsis
 , &dc_callvm_argDouble_ppc64_ellipsis
 , &dc_callvm_argPointer_ppc64
-, NULL /* argStruct */
+, NULL /* argAggr */
 , (DCvoidvmfunc*)       &dc_callvm_call_ppc64
 , (DCboolvmfunc*)       &dc_callvm_call_ppc64
 , (DCcharvmfunc*)       &dc_callvm_call_ppc64
@@ -325,7 +326,8 @@ DCCallVM_vt gVT_ppc64_ellipsis =
 , (DCfloatvmfunc*)      &dc_callvm_call_ppc64
 , (DCdoublevmfunc*)     &dc_callvm_call_ppc64
 , (DCpointervmfunc*)    &dc_callvm_call_ppc64
-, NULL /* callStruct */
+, NULL /* callAggr */
+, NULL /* beginAggr */
 };
 #endif
 
@@ -343,7 +345,7 @@ DCCallVM_vt gVT_ppc64_syscall =
 , &dc_callvm_argFloat_ppc64
 , &dc_callvm_argDouble_ppc64
 , &dc_callvm_argPointer_ppc64
-, NULL /* argStruct */
+, NULL /* argAggr */
 , (DCvoidvmfunc*)       &dc_callvm_call_ppc64_syscall
 , (DCboolvmfunc*)       &dc_callvm_call_ppc64_syscall
 , (DCcharvmfunc*)       &dc_callvm_call_ppc64_syscall
@@ -354,7 +356,8 @@ DCCallVM_vt gVT_ppc64_syscall =
 , (DCfloatvmfunc*)      &dc_callvm_call_ppc64_syscall
 , (DCdoublevmfunc*)     &dc_callvm_call_ppc64_syscall
 , (DCpointervmfunc*)    &dc_callvm_call_ppc64_syscall
-, NULL /* callStruct */
+, NULL /* callAggr */
+, NULL /* beginAggr */
 };
 
 void dc_callvm_mode_ppc64(DCCallVM* in_self, DCint mode)

@@ -171,7 +171,7 @@ DCCallVM_vt gVT_arm32_thumb =
 , &dc_callvm_argFloat_arm32_thumb
 , &dc_callvm_argDouble_arm32_thumb
 , &dc_callvm_argPointer_arm32_thumb
-, NULL /* argStruct */
+, NULL /* argAggr */
 , (DCvoidvmfunc*)       &dc_callvm_call_arm32_thumb
 , (DCboolvmfunc*)       &dc_callvm_call_arm32_thumb
 , (DCcharvmfunc*)       &dc_callvm_call_arm32_thumb
@@ -182,7 +182,8 @@ DCCallVM_vt gVT_arm32_thumb =
 , (DCfloatvmfunc*)      &dc_callvm_call_arm32_thumb
 , (DCdoublevmfunc*)     &dc_callvm_call_arm32_thumb
 , (DCpointervmfunc*)    &dc_callvm_call_arm32_thumb
-, NULL /* callStruct */
+, NULL /* callAggr */
+, NULL /* beginAggr */
 };
 
 DCCallVM_vt gVT_arm32_thumb_eabi =
@@ -199,7 +200,7 @@ DCCallVM_vt gVT_arm32_thumb_eabi =
 , &dc_callvm_argFloat_arm32_thumb
 , &dc_callvm_argDouble_arm32_thumb_eabi
 , &dc_callvm_argPointer_arm32_thumb
-, NULL /* argStruct */
+, NULL /* argAggr */
 , (DCvoidvmfunc*)       &dc_callvm_call_arm32_thumb
 , (DCboolvmfunc*)       &dc_callvm_call_arm32_thumb
 , (DCcharvmfunc*)       &dc_callvm_call_arm32_thumb
@@ -210,7 +211,8 @@ DCCallVM_vt gVT_arm32_thumb_eabi =
 , (DCfloatvmfunc*)      &dc_callvm_call_arm32_thumb
 , (DCdoublevmfunc*)     &dc_callvm_call_arm32_thumb
 , (DCpointervmfunc*)    &dc_callvm_call_arm32_thumb
-, NULL /* callStruct */
+, NULL /* callAggr */
+, NULL /* beginAggr */
 };
 
 static void dc_callvm_mode_arm32_thumb(DCCallVM* in_self, DCint mode)

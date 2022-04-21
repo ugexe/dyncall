@@ -6,7 +6,7 @@
  Description: Callback's Arguments VM - Implementation for sparc64 - not yet
  License:
 
-   Copyright (c) 2007-2018 Daniel Adler <dadler@uni-goettingen.de>,
+   Copyright (c) 2007-2022 Daniel Adler <dadler@uni-goettingen.de>,
                            Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
@@ -52,4 +52,7 @@ DCfloat dcbArgFloat(DCArgs* p)
 		? *((DCfloat*)(p->dreg_data + p->i++)+1)  /* +1 bc single-prec fp args are */
 		: *((DCfloat*)(p->arg_ptr   + p->i++)+1); /* right aligned in 64bit slot   */
 }
+
+void        dcbArgAggr     (DCArgs* p, DCpointer target)                   { /* @@@AGGR not impl */ }
+void        dcbReturnAggr  (DCArgs *args, DCValue *result, DCpointer ret)  { /* @@@AGGR not impl */ }
 
