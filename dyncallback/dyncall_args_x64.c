@@ -80,8 +80,8 @@ void        dcbArgAggr     (DCArgs* p, DCpointer target)
   DCaggr *ag = *(p->aggrs++);
 
   if(!ag) {
-    /* non-trivial aggr: pass as ptr, user was supposed to make copy */
-    dcbArgPointer(target);
+    /* non-trivial aggr: retrieve as ptr, user is supposed to make copy */
+    target = dcbArgPointer(p);
     return;
   }
 
@@ -142,6 +142,12 @@ void dcbReturnAggr(DCArgs *args, DCValue *result, DCpointer ret)
 {
   int i;
   DCaggr *ag = *(args->aggrs++);
+
+  if(!ag) {
+    /* non-trivial aggr */
+    result->p = ret;
+    return;
+  }
 
   if (args->aggr_return_register >= 0) {
     DCpointer dest = (DCpointer) args->reg_data.i[args->aggr_return_register];
