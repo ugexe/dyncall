@@ -144,8 +144,8 @@ void dcbReturnAggr(DCArgs *args, DCValue *result, DCpointer ret)
   DCaggr *ag = *(args->aggrs++);
 
   if(!ag) {
-    /* non-trivial aggr */
-    result->p = ret;
+    /* non-trivial aggr: all we can do is to provide the ptr to the output space, user has to make copy */
+    result->p = args->reg_data.i[0];
     return;
   }
 
