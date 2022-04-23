@@ -33,7 +33,7 @@
 typedef struct DCCallback DCCallback;
 
 /* callback handler:
-   - handler's return value signature char (see dyncall_signature.h) of callback's return value type
+   - handlers return value signature char (see dyncall_signature.h) of callback's return value type
    - callback return value is written to the corresponding type's field of result
    - if callback return value is an aggregate (by value), use dcbReturnAggr() as a helper to write to result
 */
