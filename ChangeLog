@@ -13,9 +13,14 @@ dyncall:
   o dcCallF(), dcVCallF(), dcArgF() and dcVArgF() don't implicitly call dcReset()
     anymore, which was unflexible (breaking change)
   o added macros to feature test implementation for aggregate-by-value and syscall support
+  o windows/x64/masm directives added to specify how stack unwinds (help for
+    debuggers, exception handling, etc.; thanks Raphael Luba)
 dyncallback:
+  o stack unwinding debug help on windows... @@@@@@@@@@@@@@@@@@@@ (thanks Raphael Luba!)
   o aggregate-by-value (struct, union) support for x64 (win and sysv; thanks Raphael Luba!)
   o new aggregate arg interface DCaggr
+  o windows/x64/masm directives added to specify how stack unwinds (help for
+    debuggers, exception handling, etc.; thanks Raphael Luba)
 dynload:
   o build fix for ReactOS with RosBE/cmake/mingw-make environment
 tests:
