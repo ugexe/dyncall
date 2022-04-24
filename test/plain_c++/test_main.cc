@@ -423,8 +423,8 @@ static bool testCallThisAggr()
     dcMode(pc, DC_CALL_C_DEFAULT_THIS); /* <-- needed on x64/win64 */
 
     dcBeginCallAggr(pc, s);
-    dcMode(pc, DC_CALL_C_ELLIPSIS);
     dcArgPointer(pc, &o);
+    dcMode(pc, DC_CALL_C_ELLIPSIS);
     dcArgInt(pc, 89);
     dcMode(pc, DC_CALL_C_ELLIPSIS_VARARGS);
     dcArgInt(pc, -157);
