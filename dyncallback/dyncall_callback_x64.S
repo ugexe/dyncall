@@ -111,7 +111,7 @@ BEGIN_PROC(dcCallback_x64_sysv)
 	CMPL(LIT(-2/*see C*/), DWORD(RSP, 48)) /* rsp+48 = where r8 (aggr_return_register) was pushed */
 
 	/* if retval is small aggregate via regs */
-	JE(scalar_retval)
+	JE(CSYM(scalar_retval))
 
 		MOV(QWORD(RSP,0),RAX)
 		MOV(QWORD(RSP,8),RDX)
@@ -119,7 +119,7 @@ BEGIN_PROC(dcCallback_x64_sysv)
 		MOVSD(QWORD(RSP,24),XMM1) /* @@@AGGR needed to be put in xmm in this case? @@@ also not what doc/appendix says, actually */
 
 	/* else (retval is int, float, or ptr to aggregate) */
-	JMP(epilog)
+	JMP(CSYM(epilog))
 CSYM(scalar_retval):
 
 		/* pass return type via registers, handle ints and floats */
