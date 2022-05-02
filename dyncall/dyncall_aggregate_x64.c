@@ -34,12 +34,34 @@
 #define SYSVC_CHECK_ALL_CLASSES(X) ((LLBYTE(X)<<56)|(LLBYTE(X)<<48)|(LLBYTE(X)<<40)|(LLBYTE(X)<<32)|(LLBYTE(X)<<24)|(LLBYTE(X)<<16)|(LLBYTE(X)<<8)|LLBYTE(X))
 
 
+static DCuchar dc_merge_sysv_classes(DCuchar clz, DCuchar new_class)
+{
+    if(clz == SYSVC_NONE)
+      return new_class;
+
+    if(new_class == SYSVC_NONE)
+      return clz;
+
+    if(clz == SYSVC_MEMORY || new_class == SYSVC_MEMORY)
+      return SYSVC_MEMORY;
+
+    if(clz == SYSVC_INTEGER || new_class == SYSVC_INTEGER)
+      return SYSVC_INTEGER;
+
+    /* @@@AGGR implement when implementing x87 types
+    if((clz & (SYSVC_X87|SYSVC_X87UP|SYSVC_COMPLEX_X87)) || (new_class & (SYSVC_X87|SYSVC_X87UP|SYSVC_COMPLEX_X87)))
+      return SYSVC_MEMORY;*/
+
+    return SYSVC_SSE;
+}
+
+
 static DCuchar dc_get_sysv_class_for_8byte(const DCaggr *ag, int index, int base_offset)
 {
   int qword_offset = index * DC_ONE_8BYTE, i;
   DCuchar clz = SYSVC_NONE;
 
-  for(i = 0; i < ag->n_fields; i++) {
+  for(i=0; i<ag->n_fields; ++i) {
     const DCfield *f = ag->fields + i;
     DCsize offset = base_offset + f->offset;
 
@@ -70,7 +92,22 @@ static DCuchar dc_get_sysv_class_for_8byte(const DCaggr *ag, int index, int base
         new_class = SYSVC_SSE;
         break;
       case DC_SIGCHAR_AGGREGATE:
-        new_class = dc_get_sysv_class_for_8byte(f->sub_aggr, index, offset);
+	    /* skip empty structs */
+	    if(f->size)
+        {
+          /* aggregate arrays need to be checked per element, as an aggregate can be composed of
+           * multiple types, potentially split across an 8byte; loop only over parts within 8byte */
+          int j = (qword_offset-offset) / f->size;
+          int k = DC_ONE_8BYTE / f->size + j + 1; /* +1 for split array elements at end of 8byte */
+          if(k > f->array_len)
+            k = f->array_len;
+
+          for(; j<k; ++j) {
+            //@@@STRUCT new_class = dc_get_sysv_class_for_8byte(f->sub_aggr, index, offset + f->size*j);
+            //@@@STRUCT clz = dc_merge_sysv_classes(clz, new_class);
+            new_class = dc_merge_sysv_classes(new_class, dc_get_sysv_class_for_8byte(f->sub_aggr, index, offset + f->size*j));
+          }
+        }
         break;
       /*case DClongdouble, DCcomplexfloat DCcomplexdouble DCcomplexlongdouble etc... -> x87/x87up/complexx87 classes @@@AGGR implement */
     }
@@ -78,19 +115,7 @@ static DCuchar dc_get_sysv_class_for_8byte(const DCaggr *ag, int index, int base
     if (clz == new_class)
       continue;
 
-    if (clz == SYSVC_NONE)
-      clz = new_class;
-    else if (new_class == SYSVC_NONE)
-      continue;
-    else if (clz == SYSVC_MEMORY || new_class == SYSVC_MEMORY)
-      clz = SYSVC_MEMORY;
-    else if (clz == SYSVC_INTEGER || new_class == SYSVC_INTEGER)
-      clz = SYSVC_INTEGER;
-    /* @@@AGGR implement when implementing x87 types
-    else if ((clz & (SYSVC_X87|SYSVC_X87UP|SYSVC_COMPLEX_X87)) || (new_class & (SYSVC_X87|SYSVC_X87UP|SYSVC_COMPLEX_X87)))
-      clz = SYSVC_MEMORY;*/
-    else
-      clz = SYSVC_SSE;
+    clz = dc_merge_sysv_classes(clz, new_class);
   }
 
   return clz;
