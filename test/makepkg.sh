@@ -4,7 +4,7 @@
 TOP=..
 . $TOP/ConfigVars
 
-TESTS="callf ellipsis malloc_wx plain plain_c++ suite suite2 suite3 suite_floats callback_plain callback_suite"
+TESTS="callf ellipsis malloc_wx plain plain_c++ suite suite2 suite3 suite_floats callback_plain callback_plain_c++ callback_suite"
 # addition test:
 #
 # callback_plain callback_suite callf

@@ -19,6 +19,7 @@ all-dyncallback:
 	cd thunk && ${MAKE_CMD}
 	cd malloc_wx && ${MAKE_CMD}
 	cd callback_plain && ${MAKE_CMD}
+	cd callback_plain_c++ && ${MAKE_CMD}
 	cd callback_suite && ${MAKE_CMD}
 	cd callback_suite_aggrs && ${MAKE_CMD}
 all-c:
@@ -58,6 +59,7 @@ clean:
 	cd suite3 && ${MAKE_CMD} clean
 	cd suite_floats && ${MAKE_CMD} clean
 	cd callback_plain && ${MAKE_CMD} clean
+	cd callback_plain_c++ && ${MAKE_CMD} clean
 	cd callback_suite && ${MAKE_CMD} clean
 	cd callback_suite_aggrs && ${MAKE_CMD} clean
 	cd ellipsis && ${MAKE_CMD} clean

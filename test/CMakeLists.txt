@@ -6,6 +6,7 @@ include_directories(
 
 if (CMAKE_CXX_COMPILER_WORKS)
 add_subdirectory(plain_c++)
+add_subdirectory(callback_plain_c++)
 add_subdirectory(suite2)
 add_subdirectory(suite3)
 add_subdirectory(suite_floats)
