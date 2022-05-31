@@ -204,7 +204,7 @@ char cbFloatFloatReturnHandler(DCCallback* cb, DCArgs* args, DCValue* result, vo
 
   dcbReturnAggr(args, result, (DCpointer)&ret);
 
-  return 't';
+  return 'A';
 }
 
 char cbU8DoubleReturnHandler(DCCallback* cb, DCArgs* args, DCValue* result, void* userdata)
@@ -225,7 +225,7 @@ char cbU8DoubleReturnHandler(DCCallback* cb, DCArgs* args, DCValue* result, void
 
   dcbReturnAggr(args, result, (DCpointer)&ret);
 
-  return 't';
+  return 'A';
 }
 
 char cbU64U64ReturnHandler(DCCallback* cb, DCArgs* args, DCValue* result, void* userdata)
@@ -245,7 +245,7 @@ char cbU64U64ReturnHandler(DCCallback* cb, DCArgs* args, DCValue* result, void* 
 
   dcbReturnAggr(args, result, (DCpointer)&ret);
 
-  return 't';
+  return 'A';
 }
 
 char cbDoubleDoubleReturnHandler(DCCallback* cb, DCArgs* args, DCValue* result, void* userdata)
@@ -265,7 +265,7 @@ char cbDoubleDoubleReturnHandler(DCCallback* cb, DCArgs* args, DCValue* result, 
 
   dcbReturnAggr(args, result, (DCpointer)&ret);
 
-  return 't';
+  return 'A';
 }
 
 char cbThreeU64ReturnHandler(DCCallback* cb, DCArgs* args, DCValue* result, void* userdata)
@@ -287,7 +287,7 @@ char cbThreeU64ReturnHandler(DCCallback* cb, DCArgs* args, DCValue* result, void
 
   dcbReturnAggr(args, result, (DCpointer)&ret);
 
-  return 't';
+  return 'A';
 }
 
 char cbThreeDoubleReturnHandler(DCCallback* cb, DCArgs* args, DCValue* result, void* userdata)
@@ -309,7 +309,7 @@ char cbThreeDoubleReturnHandler(DCCallback* cb, DCArgs* args, DCValue* result, v
 
   dcbReturnAggr(args, result, (DCpointer)&ret);
 
-  return 't';
+  return 'A';
 }
 
 int testAggrReturnCallback()
