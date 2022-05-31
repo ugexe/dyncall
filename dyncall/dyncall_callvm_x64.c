@@ -168,8 +168,8 @@ static void dc_callvm_argAggr_x64(DCCallVM* in_self, const DCaggr* ag, const voi
   DCCallVM_x64* self = (DCCallVM_x64*)in_self;
 
   if (!ag) {
-	/* non-trivial aggrs (C++) are passed via pointer (win and sysv callconv),
-	 * copy has to be provided by user, as dyncall cannot do such copies*/
+    /* non-trivial aggrs (C++) are passed via pointer (win and sysv callconv),
+     * copy has to be provided by user, as dyncall cannot do such copies*/
     dc_callvm_argPointer_x64(in_self, (DCpointer)x);
     return;
   }
@@ -254,7 +254,7 @@ static void dc_callvm_begin_aggr_x64(DCCallVM* in_self, const DCaggr *ag)
 #if defined(DC_UNIX)
   if (!ag || (ag->sysv_classes[0] == SYSVC_MEMORY)) {
 #else
-  if (!ag || ag->size > 8) {
+  if (!ag || ag->size > 8 || /*not a power of 2?*/(ag->size & (ag->size - 1)))
 #endif 
     /* pass pointer to aggregate as hidden first argument */
     self->mAggrReturnReg = 0;
@@ -269,10 +269,8 @@ static void dc_callvm_begin_aggr_x64_win64_this(DCCallVM* in_self, const DCaggr 
 
   assert(self->mRegCount.i == 0 && self->mRegCount.f == 0 && "dc_callvm_begin_aggr_x64_win64_this should be called before any function arguments are declared");
 
-  if (!ag || ag->size > 8) {
-    /* thiscall: this-ptr comes first, then pointer to aggregate as hidden (second) argument */
-    self->mAggrReturnReg = 1;
-  }
+  /* thiscall: this-ptr comes first, then pointer to aggregate as hidden (second) argument */
+  self->mAggrReturnReg = 1;
 }
 #endif
 

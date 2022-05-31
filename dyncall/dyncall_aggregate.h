@@ -49,13 +49,13 @@ extern "C" {
 
 
 typedef struct DCfield_ {
-	DCsize offset, size, array_len;
+	DCsize offset, size, alignment, array_len;
 	DCsigchar type;
 	const DCaggr* sub_aggr;
 } DCfield;
 
 struct DCaggr_ {
-	DCsize size, n_fields;
+	DCsize size, n_fields, alignment;
 #if defined(DC_UNIX) && defined(DC__Arch_AMD64)
 	DCuchar sysv_classes[DC_SYSV_MAX_NUM_CLASSES]; /* !code relies on this to be 64 bits! */
 #endif

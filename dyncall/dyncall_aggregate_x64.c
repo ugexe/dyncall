@@ -69,6 +69,10 @@ static DCuchar dc_get_sysv_class_for_8byte(const DCaggr *ag, int index, int base
     if(offset >= (qword_offset + DC_ONE_8BYTE) || (offset + f->size * f->array_len) <= qword_offset)
       continue;
 
+    /* if field is unaligned, class is MEMORY */
+    if(f->alignment && (offset % f->alignment) != 0)
+      return SYSVC_MEMORY;
+
     DCuchar new_class = SYSVC_NONE;
 
     switch (f->type) {

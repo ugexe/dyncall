@@ -48,12 +48,19 @@ struct DCCallback
 void dcbInitCallback2(DCCallback* pcb, const DCsigchar* signature, DCCallbackHandler* handler, void* userdata, DCaggr *const * aggrs)
 {
   const DCsigchar *ch = signature;
+  int mode = DC_CALL_C_DEFAULT;
   DCint num_aggrs = 0;
 
   pcb->handler              = handler;
   pcb->userdata             = userdata;
   pcb->aggrs                = NULL;
   pcb->aggr_return_register = -2; /* default, = no aggr as ret value */
+
+  if(*ch == DC_SIGCHAR_CC_PREFIX)
+  {
+    mode = dcGetModeFromCCSigChar(ch[1]);
+    ch += 2;
+  }
 
   while(*ch)
     num_aggrs += (*(ch++) == DC_SIGCHAR_AGGREGATE);
@@ -68,7 +75,9 @@ void dcbInitCallback2(DCCallback* pcb, const DCsigchar* signature, DCCallbackHan
 #if defined(DC_UNIX)
       if (!ag || (ag->sysv_classes[0] == SYSVC_MEMORY)) {
 #else
-      if (!ag || ag->size > 8) {
+      if (mode == DC_CALL_C_DEFAULT_THIS) {
+        pcb->aggr_return_register = 1;
+      } else if (!ag || ag->size > 8 || /*not a power of 2?*/(ag->size & (ag->size - 1))) {
 #endif 
         /* we need to "return" this aggr as a hidden pointer (first arg) */
         pcb->aggr_return_register = 0;

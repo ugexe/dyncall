@@ -48,6 +48,7 @@ DCaggr* dcNewAggr(DCsize maxFieldCount, DCsize size)
 	DCaggr* ag = (DCaggr*)dcAllocMem(sizeof(DCaggr) + maxFieldCount * sizeof(DCfield));
 	ag->n_fields = 0;
 	ag->size = size;
+	ag->alignment = 0;
 	return ag;
 }
 
@@ -83,11 +84,19 @@ void dcAggrField(DCaggr* ag, DCsigchar type, DCint offset, DCsize array_len, ...
 			va_end(ap);
 
 			f->size = f->sub_aggr->size;
+			f->alignment = f->sub_aggr->alignment;
 			break;
 		}
 		default:
 			assert(0);
 	}
+
+	if(type != DC_SIGCHAR_AGGREGATE)
+		f->alignment = f->size;
+
+	/* aggr's field alignment is relative largest field size */
+	if(ag->alignment < f->alignment)
+		ag->alignment = f->alignment;
 }
 
 
