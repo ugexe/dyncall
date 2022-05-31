@@ -16,7 +16,7 @@ dyncall:
   o windows/x64/masm directives added to specify how stack unwinds (help for
     debuggers, exception handling, etc.; thanks Raphael Luba)
 dyncallback:
-  o stack unwinding debug help on windows... @@@@@@@@@@@@@@@@@@@@ (thanks Raphael Luba!)
+  o stack unwinding debug help on windows (thanks Raphael Luba!)
   o aggregate-by-value (struct, union) support for x64 (win and sysv; thanks Raphael Luba!)
   o new aggregate arg interface DCaggr
   o windows/x64/masm directives added to specify how stack unwinds (help for
@@ -29,6 +29,8 @@ tests:
   o call_suite_aggrs: new test suite for calls with aggregate arguments and
     return types (structs, unions and arrays as aggregate members)
   o callback_suite_aggrs: new test suite, like call_suite_aggrs but for callbacks
+  o plain_c++: added non-trivial C++ aggregate tests
+  o callback_plain_c++: new test, focusing on methods and non-trivial C++ aggregates
   o simplifications and refactoring to share more code (especially signature
     and case generator) across test suites
 doc:
