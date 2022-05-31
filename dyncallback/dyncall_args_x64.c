@@ -74,15 +74,14 @@ DCpointer   dcbArgPointer  (DCArgs* p) { return (DCpointer)   dcbArgLongLong(p);
 DCdouble    dcbArgDouble   (DCArgs* p) { return *arg_f64(p); }
 DCfloat     dcbArgFloat    (DCArgs* p) { return *(float*)arg_f64(p); }
 
-void        dcbArgAggr     (DCArgs* p, DCpointer target)
+DCpointer   dcbArgAggr     (DCArgs* p, DCpointer target)
 {
   int i;
   DCaggr *ag = *(p->aggrs++);
 
   if(!ag) {
     /* non-trivial aggr: retrieve as ptr, user is supposed to make copy */
-    target = dcbArgPointer(p);
-    return;
+    return dcbArgPointer(p);
   }
 
 #if defined(DC_UNIX)
@@ -102,21 +101,23 @@ void        dcbArgAggr     (DCArgs* p, DCpointer target)
   {
      memcpy(target, p->stack_ptr, ag->size);
      p->stack_ptr = p->stack_ptr + ((ag->size + (sizeof(DClonglong)-1)) >> 3); // advance to next full stack slot
-     return;
   }
-
-
-  for(i=0; ag->sysv_classes[i] && i<DC_SYSV_MAX_NUM_CLASSES; ++i)
+  else
   {
-    switch (ag->sysv_classes[i])
+    for(i=0; ag->sysv_classes[i] && i<DC_SYSV_MAX_NUM_CLASSES; ++i)
     {
-      case SYSVC_INTEGER: ((DClonglong*)target)[i] = dcbArgLongLong(p); break;
-      case SYSVC_SSE:     ((DCdouble  *)target)[i] = dcbArgDouble  (p); break;
-      /* @@@AGGR implement when implementing x87 types */
-      default:
-          assert(DC_FALSE && "Should never be reached because we check for unupported classes earlier");
+      switch (ag->sysv_classes[i])
+      {
+        case SYSVC_INTEGER: ((DClonglong*)target)[i] = dcbArgLongLong(p); break;
+        case SYSVC_SSE:     ((DCdouble  *)target)[i] = dcbArgDouble  (p); break;
+        /* @@@AGGR implement when implementing x87 types */
+        default:
+            assert(DC_FALSE && "Should never be reached because we check for unupported classes earlier");
+      }
     }
   }
+
+  return target;
 
 #else
 
@@ -145,7 +146,7 @@ void dcbReturnAggr(DCArgs *args, DCValue *result, DCpointer ret)
 
   if(!ag) {
     /* non-trivial aggr: all we can do is to provide the ptr to the output space, user has to make copy */
-    result->p = args->reg_data.i[0];
+    result->p = (DCpointer) args->reg_data.i[0];
     return;
   }
 

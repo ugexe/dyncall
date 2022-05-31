@@ -53,6 +53,6 @@ DCfloat dcbArgFloat(DCArgs* p)
 		: *((DCfloat*)(p->arg_ptr   + p->i++)+1); /* right aligned in 64bit slot   */
 }
 
-void        dcbArgAggr     (DCArgs* p, DCpointer target)                   { /* @@@AGGR not impl */ }
+DCpointer   dcbArgAggr     (DCArgs* p, DCpointer target)                   { /* @@@AGGR not impl */ }
 void        dcbReturnAggr  (DCArgs *args, DCValue *result, DCpointer ret)  { /* @@@AGGR not impl */ }
 

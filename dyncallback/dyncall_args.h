@@ -61,10 +61,13 @@ DC_API DCulonglong dcbArgULongLong(DCArgs* p);
 DC_API DCfloat     dcbArgFloat    (DCArgs* p);
 DC_API DCdouble    dcbArgDouble   (DCArgs* p);
 DC_API DCpointer   dcbArgPointer  (DCArgs* p);
-DC_API void        dcbArgAggr     (DCArgs* p, DCpointer target);
+/* for trivial aggrs: 'target' points to space to copy aggr to, returns 'target'
+   for C++ non-trivial aggrs: target is ignored, returns ptr to aggr arg */
+DC_API DCpointer   dcbArgAggr     (DCArgs* p, DCpointer target);
 
-/* function helper to put a to be returned struct-by-value into the 'result'
-   param of the callback handler, in order to return it */
+/* helper func to put a to be returned struct-by-value into the 'result'
+   param of the callback handler; for C++ non-trivial aggrs, pass NULL in
+   'ret', then copy aggr into result->p */
 DC_API void dcbReturnAggr(DCArgs *args, DCValue *result, DCpointer ret);
 
 #ifdef __cplusplus

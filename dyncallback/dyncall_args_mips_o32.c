@@ -115,6 +115,6 @@ DCdouble dcbArgDouble(DCArgs* p)
   return d.result;
 }
 
-void        dcbArgAggr     (DCArgs* p, DCpointer target)                   { /* @@@AGGR not impl */ }
+DCpointer   dcbArgAggr     (DCArgs* p, DCpointer target)                   { /* @@@AGGR not impl */ }
 void        dcbReturnAggr  (DCArgs *args, DCValue *result, DCpointer ret)  { /* @@@AGGR not impl */ }
 

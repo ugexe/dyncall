@@ -60,7 +60,7 @@
 .Fn dcbArgDouble "DCArgs * p"
 .Ft DCpointer
 .Fn dcbArgPointer "DCArgs * p"
-.Ft void
+.Ft DCpointer
 .Fn dcbArgAggr "DCArgs * p" "DCpointer target"
 .Ft void
 .Fn dcbReturnAggr "DCArgs * args" "DCValue * result" "DCpointer ret"
@@ -103,8 +103,8 @@ aggregate by value.
 .Pp
 .Sy NOTE:
 C++ non-trivial aggregates (check with the std::is_trivial type trait) do not
-use any aggregate descriptions, so the respective pointers in the provided
-array must be NULL. See
+use aggregate descriptions, so the respective pointers in the provided array
+must be NULL. See
 .Xr dyncall 3
 for more information on C++ non-trivial aggregates.
 .Pp
@@ -115,7 +115,7 @@ as argument in functions requiring a callback function pointer.
 .Fn dcbInitCallback
 and
 .Fn dcbInitCallback2
-(re)initializes the callback object. For a description of its parameters, see
+(re)initialize the callback object. For a description of their parameters, see
 .Fn dcbNewCallback* .
 .Pp
 .Fn dcbFreeCallback
@@ -144,27 +144,50 @@ functions to iterate over the arguments passed to the callback, and
 is a pointer to an object used to store the callback's return value (output, to
 be set by the handler). Finally,
 .Ar userdata
-is a pointer to some user defined data that can be set when creating or
-(re)initializing the callback object.
+is the user defined data pointer set when creating or (re)initializing the
+callback object.
 The handler itself must return a signature character (see manual or
 dyncall_signature.h for format) specifying the data type of
 .Ar result .
 .Pp
-Retrieving aggregates from the generic handler's
+Retrieving aggregates by value from the generic handler's
 .Ar args
 argument can be done via
 .Fn dcbArgAggr ,
 where
 .Ar target
-must point to memory large enough for the aggregate to be copied to.
+must point to memory large enough for the aggregate to be copied to,
+.Sy iff
+the aggregate is trivial (see below for non-trivial C++ aggregates), in which case
+.Ar target
+is returned.
 .Pp
-To return an aggregate by value, a helper function
+To return a trivial aggregate by value, a helper function
 .Fn dcbReturnAggr
 needs to be used in order to correctly place the aggregate pointed to by
 .Ar ret
 into
 .Ar result ,
 then let the generic handler return DC_SIGCHAR_AGGREGATE.
+.Pp
+Retrieving or returning C++ non-trivial aggregates (check with the
+std::is_trivial type trait) is done differently, as dyncall cannot know how to
+do this copy and the C++ ABI handles those differently:
+.Pp
+When retrieving a C++ non-trivial aggregate via
+.Fn dcbArgAggr ,
+.Ar target
+is ignored, and a pointer to the non-trivial aggregate is returned (the user
+should then do a local copy).
+To return a C++ non-trivial aggregate by value via
+.Fn dcbReturnAggr ,
+pass NULL for
+.Ar ret ,
+which will make
+.Ar result->p
+point to (implicit, caller-provided) memory where the aggregate should be
+copied to.
+
 .Sh EXAMPLE
 Let's say, we want to create a callback object and call it. For simplicity, this
 example will omit passing it as a function pointer to a function (e.g. compar

@@ -6,7 +6,7 @@
  Description: Callback's Arguments VM - Implementation for Apple's ARM64 / ARMv8 / AAPCS64
  License:
 
-   Copyright (c) 2015-2018 Daniel Adler <dadler@uni-goettingen.de>,
+   Copyright (c) 2015-2022 Daniel Adler <dadler@uni-goettingen.de>,
                            Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
@@ -158,6 +158,6 @@ DCushort    dcbArgUShort   (DCArgs* p) { return (DCushort)    dcbArgShort(p);   
 DCulong     dcbArgULong    (DCArgs* p) { return (DCulong)     dcbArgLong(p);     }
 DCulonglong dcbArgULongLong(DCArgs* p) { return (DCulonglong) dcbArgLongLong(p); }
 
-void        dcbArgAggr     (DCArgs* p, DCpointer target)                   { /* @@@AGGR not impl */ }
+DCpointer   dcbArgAggr     (DCArgs* p, DCpointer target)                   { /* @@@AGGR not impl */ }
 void        dcbReturnAggr  (DCArgs *args, DCValue *result, DCpointer ret)  { /* @@@AGGR not impl */ }
 
