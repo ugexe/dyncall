@@ -100,7 +100,7 @@ DCpointer   dcbArgAggr     (DCArgs* p, DCpointer target)
   if(ag->sysv_classes[0] == SYSVC_MEMORY || (n_regs.i > numIntRegs) || (n_regs.f > numFloatRegs))
   {
      memcpy(target, p->stack_ptr, ag->size);
-     p->stack_ptr = p->stack_ptr + ((ag->size + (sizeof(DClonglong)-1)) >> 3); // advance to next full stack slot
+     p->stack_ptr = p->stack_ptr + ((ag->size + (sizeof(DClonglong)-1)) >> 3); /* advance to next full stack slot */
   }
   else
   {
@@ -108,8 +108,21 @@ DCpointer   dcbArgAggr     (DCArgs* p, DCpointer target)
     {
       switch (ag->sysv_classes[i])
       {
-        case SYSVC_INTEGER: ((DClonglong*)target)[i] = dcbArgLongLong(p); break;
-        case SYSVC_SSE:     ((DCdouble  *)target)[i] = dcbArgDouble  (p); break;
+        case SYSVC_INTEGER:
+          switch (ag->size - i*8) {
+            case 1:  *(DCchar *)(((DClonglong*)target) + i) = dcbArgChar    (p); break;
+            case 2:  *(DCshort*)(((DClonglong*)target) + i) = dcbArgShort   (p); break;
+            case 4:  *(DCint  *)(((DClonglong*)target) + i) = dcbArgInt     (p); break;
+            default: *          (((DClonglong*)target) + i) = dcbArgLongLong(p); break;
+          }
+          break;
+
+        case SYSVC_SSE:
+          switch (ag->size - i*8) {
+            case 4:  *(DCfloat*)(((DCdouble*)target) + i) = dcbArgFloat (p); break;
+            default: *          (((DCdouble*)target) + i) = dcbArgDouble(p); break;
+          }
+          break;
         /* @@@AGGR implement when implementing x87 types */
         default:
             assert(DC_FALSE && "Should never be reached because we check for unupported classes earlier");
