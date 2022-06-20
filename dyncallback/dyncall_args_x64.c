@@ -106,26 +106,30 @@ DCpointer   dcbArgAggr     (DCArgs* p, DCpointer target)
   {
     for(i=0; ag->sysv_classes[i] && i<DC_SYSV_MAX_NUM_CLASSES; ++i)
     {
+      size_t s = ag->size - i*8;
+      s = s<8?s:8;
+
       switch (ag->sysv_classes[i])
       {
         case SYSVC_INTEGER:
-          switch (ag->size - i*8) {
-            case 1:  *(DCchar *)(((DClonglong*)target) + i) = dcbArgChar    (p); break;
-            case 2:  *(DCshort*)(((DClonglong*)target) + i) = dcbArgShort   (p); break;
-            case 4:  *(DCint  *)(((DClonglong*)target) + i) = dcbArgInt     (p); break;
-            default: *          (((DClonglong*)target) + i) = dcbArgLongLong(p); break;
+          {
+            DClonglong l = dcbArgLongLong(p);
+            memcpy((DClonglong*)target + i, &l, s);
           }
           break;
 
         case SYSVC_SSE:
-          switch (ag->size - i*8) {
-            case 4:  *(DCfloat*)(((DCdouble*)target) + i) = dcbArgFloat (p); break;
-            default: *          (((DCdouble*)target) + i) = dcbArgDouble(p); break;
-          }
+          if(s == 8)
+            *(((DCdouble*)target) + i) = dcbArgDouble(p);
+          else if(s == 4)
+            *(DCfloat*)(((DCdouble*)target) + i) = dcbArgFloat (p);
+          else
+            assert(DC_FALSE && "SYSV aggregate floating point slot mismatch (unexpected size of fp field)");
           break;
+
         /* @@@AGGR implement when implementing x87 types */
         default:
-            assert(DC_FALSE && "Should never be reached because we check for unupported classes earlier");
+            assert(DC_FALSE && "unsupported SYSV aggregate slot classification"); /* shouldn't be reached, as we check for unupported classes earlier */
       }
     }
   }
