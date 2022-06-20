@@ -71,8 +71,8 @@ static int cmp(const char* signature)
   int do_bndck = 1;
   while ( (atype = *sig) != '\0') {
     switch(atype) {
-      case '_':  sig += 2; /* skip cconv prefix */                                                  continue;
-      case ')':  ++sig; /* skip ret type separator */ do_bndck = 0; /* no bounds check on retval */ continue;
+      case '_':  sig += 2; /* skip cconv prefix */                                                                           continue;
+      case ')':  ++sig; /* skip ret type separator */ do_bndck = 0; /* no bounds check on retval, as we don't do its copy */ continue;
       case 'v':  s = (sig > signature) && sig[-1] == ')'; /* assure this was the return type */                            break; /*TODO:check that no return-arg was touched.*/
       case 'B':  s = ( V_B[pos] == K_B[pos] ); if (!s) printf("'%c':%d: %d != %d ; ",     atype, pos, V_B[pos], K_B[pos]); break;
       case 'c':  s = ( V_c[pos] == K_c[pos] ); if (!s) printf("'%c':%d: %d != %d ; ",     atype, pos, V_c[pos], K_c[pos]); break;
