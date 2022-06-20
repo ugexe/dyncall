@@ -134,8 +134,6 @@ DCpointer   dcbArgAggr     (DCArgs* p, DCpointer target)
     }
   }
 
-  return target;
-
 #else
 
   switch (ag->size) {
@@ -146,6 +144,8 @@ DCpointer   dcbArgAggr     (DCArgs* p, DCpointer target)
     default: memcpy(target, dcbArgPointer(p), ag->size); break;
   }
 #endif
+
+  return target;
 }
 
 
