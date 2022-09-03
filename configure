@@ -180,7 +180,8 @@ case ${TARGET:=`uname`} in
     # open distributions often don't come with default cc and CC, check for common alternatives.
     printf "CC=` (which cc gcc clang  ) | grep -v '^no ' | head -1`\n" >>$C
     printf "CXX=`(which CC g++ clang++) | grep -v '^no ' | head -1`\n" >>$C # C++ compiler traditionally named CC
-    printf "CCC=\${CXX}\n" >>$C # Sun make's rules use CCC for c++ compiler
+    printf "CCC=\${CXX}\n" >>$C          # Sun make's rules use CCC for c++ compiler
+    printf "CCFLAGS=\${CXXFLAGS}\n" >>$C # Sun make's rules use CCFLAGS for c++ compiler flags
     printf "LDLIBS=-lm -ldl\n" >>$C
     ;;
   Minix)
