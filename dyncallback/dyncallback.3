@@ -20,6 +20,8 @@
 .Nd callback interface of dyncall
 .Sh SYNOPSIS
 .In dyncall_callback.h
+.Ft typedef DCsigchar
+.Fn (DCCallbackHandler) "DCCallback* pcb" "DCArgs* args" "DCValue* result" "void* userdata"
 .Ft DCCallback *
 .Fn dcbNewCallback "const DCsigchar * signature" "DCCallbackHandler * funcptr" "void * userdata"
 .Ft DCCallback *
