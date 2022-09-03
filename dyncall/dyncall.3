@@ -210,10 +210,10 @@ argument is needed. Also, as
 .Nm
 is oblivious to how to do any custom/non-trivial construction or copy, and thus
 cannot do the copy of the aggregate, passed by-value, itself, the user has to
-provide such copies, where needed. E.g. when passing such an aggregate as an
-argument by-value, using
+provide such copies, manually, where needed (e.g. when passing such an
+aggregate as an argument by-value, using
 .Fn dcArgAggr ,
-in order to preserver the call's by-value semantics.
+in order to preserver the call's by-value semantics).
 .Pp
 .Fn dcArgF ,
 .Fn dcVArgF ,
