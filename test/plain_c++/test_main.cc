@@ -498,7 +498,7 @@ int main(int argc, char* argv[])
   r = testCallThisAggr() && r;
 #endif
 
-  printf("result: plain_cpp: %d\n", r);
+  printf("result: plain_c++: %d\n", r);
 
   dcTest_deInitPlatform();
 
