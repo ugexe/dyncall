@@ -32,6 +32,7 @@ tests:
   o callback_plain_c++: new test, focusing on methods and non-trivial C++ aggregates
   o simplifications and major refactoring to share more code (especially
     signature and case generator) across test suites
+  o dynload_plain: simplified build and robustness fixes on some platforms
 buildsys:
   o ./configure output for sun make builds: set correct C++ compiler flag var
   o ./configure for SunOS now uses isainfo(1) to deduce native instruction set
