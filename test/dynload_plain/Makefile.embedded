@@ -20,7 +20,7 @@ all: ${APP} ${TEST_U8_SO}
 .PHONY: all clean
 
 ${APP}: ${OBJS}
-	${CC} ${OBJS} ${LDFLAGS} ${LDLIBS} -o $@
+	${CC} ${CFLAGS} ${LDFLAGS} ${OBJS} ${LDLIBS} -o $@
 
 ${TEST_U8_SO}:
 	echo 'int dynload_plain_testfunc() { return 5; }' | ${CC} -`[ \`uname\` = Darwin ] && echo dynamiclib || echo shared` -x c - -o ${TEST_U8_SO}
