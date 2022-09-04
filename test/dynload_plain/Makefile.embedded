@@ -3,8 +3,8 @@
 #             and thus not override previously set var; in a similar vein, the :sh line works on
 #             sun make flavors and sets the var using sunOS specific deduction if not already set
 #             (:sh also works on bmake, but != already sets the var)
-DEF_C_DYLIB=$(shell ((ldd `which ls` | grep -o '/.*/libc.so[^ ]*' || ls /lib*/libc.so* || ls /usr/lib/libc.so*) | grep -v '\.a$$' | (sort -V -r || sort -t . -n -k 2)) 2>/dev/null | head -1)
-DEF_C_DYLIB!=((ldd `which ls` | grep -o '/.*/libc.so[^ ]*' || ls /lib*/libc.so* || ls /usr/lib/libc.so*) | grep -v '\.a$$' | (sort -V -r || sort -t . -n -k 2)) 2>/dev/null | head -1
+DEF_C_DYLIB=$(shell ((ldd `which [` | grep -o '/.*/libc.so[^ ]*' || ls /lib*/libc.so* || ls /usr/lib/libc.so*) | grep -v '\.a$$' | (sort -V -r || sort -t . -n -k 2)) 2>/dev/null | head -1)
+DEF_C_DYLIB!=((ldd `which [` | grep -o '/.*/libc.so[^ ]*' || ls /lib*/libc.so* || ls /usr/lib/libc.so*) | grep -v '\.a$$' | (sort -V -r || sort -t . -n -k 2)) 2>/dev/null | head -1
 DEF_C_DYLIB:sh=[ -z "${DEF_C_DYLIB}" ] && ls /lib/`isainfo -b`/libc.so || echo "${DEF_C_DYLIB}"
 
 APP = dynload_plain
