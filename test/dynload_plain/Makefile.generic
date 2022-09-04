@@ -20,7 +20,7 @@ ${TEST_C_LD}:
 ${APP}: ${OBJS}
 	${CC} ${CFLAGS} ${LDFLAGS} ${OBJS} ${LDLIBS_D} ${LDLIBS} -o ${APP}
 ${TEST_U8_SO}:
-	echo 'int dynload_plain_testfunc() { return 5; }' | ${CC} -`[ \`uname\` = Darwin ] && echo dynamiclib || echo shared` -x c - -o ${TEST_U8_SO}
+	echo 'int dynload_plain_testfunc() { return 5; }' | ${CC} ${CFLAGS} -`[ \`uname\` = Darwin ] && echo dynamiclib || echo shared` -x c - -o ${TEST_U8_SO}
 clean:
 	rm -f ${APP} ${OBJS} ${TEST_C_LD} ${TEST_U8_SO}
 install:
