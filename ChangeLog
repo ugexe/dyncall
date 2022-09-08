@@ -41,6 +41,7 @@ doc:
   o new Linux-Std-Base-specific PPC32/SysV section, as aggregate retval handling differs from
     default SysV for such systems
   o man page changes/additions to document new aggregate interfaces
+  o added many more usage examples to man pages
   o replaced API description in manual with references to the manpages, to
     avoid duplication and keeping things in sync
   o general clarifications and cleanup, adding missing definitions to man
