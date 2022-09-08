@@ -283,12 +283,12 @@ after having described all fields of an aggregate.
 Note that c99 flexible array members do not count as a field, and must be
 omitted, as passing aggregates with a flexible array member by value in C would
 also omit it.
-.Sh EXAMPLE
-Let's say, we want to make a call to the function:
-.Bd -literal -offset indent
-	double sqrt(double x); 
-.Ed
+.Sh EXAMPLES
+Note: none of the examples below perform any error checking for simplicity of
+the example.
 .Pp
+Let's start with a simple example, making a call to the function
+.Xr sqrt 3 .
 Using the
 .Nm
 library, this function would be called as follows: 
@@ -297,10 +297,78 @@ library, this function would be called as follows:
 	DCCallVM* vm = dcNewCallVM(4096);
 	dcMode(vm, DC_CALL_C_DEFAULT);
 	dcReset(vm);
+	/* call: double sqrt(double x); */
 	dcArgDouble(vm, 4.2373);
 	r = dcCallDouble(vm, (DCpointer)&sqrt);
 	dcFree(vm);
 .Ed
+.Pp
+Note that the DCCallVM object can be reused and shouldn't be created and freed
+per call, for performance reasons. The following examples will omit creation
+and freeing of the DCCallVM, for simplicity.
+.Pp
+In a more complicated example, let's call
+.Xr printf 3 ,
+which requires a different initial mode, as well as a mode switch for the
+varargs part:
+.Bd -literal -offset indent
+	int n_written_chars, n;
+	dcMode(vm, DC_CALL_C_ELLIPSIS);
+	dcReset(vm);
+	/* int printf(const char * restrict format, ...); */
+	dcArgPointer(vm, "my printf(%d) %s string%n");
+	dcMode(vm, DC_CALL_C_ELLIPSIS_VARARGS);
+	dcArgInt(vm, 3);
+	dcArgPointer(vm, "format");
+	dcArgPointer(vm, &n_written_chars);
+	n = dcCallInt(vm, (DCpointer)&printf);
+.Ed
+.Pp
+In our next example, let's look at calling a simple C++ method, with the method
+declaration being:
+.Bd -literal -offset indent
+	virtual void Klass::Method(float, int);
+.Ed
+.Pp
+To simplify this example let's assume we have a pointer to this virtual method
+in var mptr (grabbed from the instance's vtable), and a pointer to the instance
+in var thisptr:
+.Bd -literal -offset indent
+	/* thiscall calling convention */
+	dcMode(vm, DC_CALL_C_DEFAULT_THIS);
+	dcReset(vm);
+	/* C++ methods use this-ptr as first/hidden argument */
+	dcArgPointer(vm, thisptr);
+	dcArgFloat(vm, 2.3f);
+	dcArgInt(vm, -19);
+	dcCallVoid(vm, (DCpointer)mptr);
+.Ed
+.Pp
+Extending the last example to a vararg method would need some more
+.Xr dcMode 3
+calls. E.g.:
+.Bd -literal -offset indent
+	virtual void Klass::Method(float, int, ...);
+.Ed
+.Pp
+would be called as follows:
+.Bd -literal -offset indent
+	/* thiscall calling convention (to pass this-ptr) */
+	dcMode(vm, DC_CALL_C_DEFAULT_THIS);
+	dcReset(vm);
+	/* C++ methods use this-ptr as first/hidden argument */
+	dcArgPointer(vm, thisptr);
+	/* fixed part of arguments */
+	dcMode(vm, DC_CALL_C_ELLIPSIS);
+	dcArgFloat(vm, 2.3f);
+	dcArgInt(vm, -19);
+	/* variable part of arguments */
+	dcMode(vm, DC_CALL_C_ELLIPSIS_VARARGS);
+	dcArgInt(vm, 7);
+	dcArgDouble(vm, 7.99);
+	dcCallVoid(vm, (DCpointer)mptr);
+.Ed
+.Pp
 .Sh CONFORMING TO
 The dyncall library needs at least a c99 compiler with additional support for
 anonymous structs/unions (which were introduced officially in c11). Given that
