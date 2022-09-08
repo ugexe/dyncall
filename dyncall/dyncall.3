@@ -377,7 +377,8 @@ from function:
 .Ed
 .Pp
 Omitting creation of the
-.Sy DCaggr *a
+.Sy DCaggr
+.Ar *a
 description, for simplicity:
 .Bd -literal -offset indent
 	struct S s;
@@ -401,9 +402,9 @@ declaration being:
 .Pp
 To keep the example simple, let's assume we have a pointer to this virtual
 method in var
-.Sy mptr
+.Ar mptr
 (e.g. grabbed from the instance's vtable), and a pointer to the instance in var
-.Sy thisptr :
+.Ar thisptr :
 .Bd -literal -offset indent
 	/* thiscall calling convention */
 	dcMode(vm, DC_CALL_C_DEFAULT_THIS);
