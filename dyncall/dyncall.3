@@ -294,14 +294,14 @@ Using the
 .Nm
 library, this function would be called as follows: 
 .Bd -literal -offset indent
-	double r;
-	DCCallVM* vm = dcNewCallVM(4096);
-	dcMode(vm, DC_CALL_C_DEFAULT);
-	dcReset(vm);
-	/* call: double sqrt(double x); */
-	dcArgDouble(vm, 4.2373);
-	r = dcCallDouble(vm, (DCpointer)&sqrt);
-	dcFree(vm);
+double r;
+DCCallVM* vm = dcNewCallVM(4096);
+dcMode(vm, DC_CALL_C_DEFAULT);
+dcReset(vm);
+/* call: double sqrt(double x); */
+dcArgDouble(vm, 4.2373);
+r = dcCallDouble(vm, (DCpointer)&sqrt);
+dcFree(vm);
 .Ed
 .Pp
 Note that the
@@ -317,18 +317,18 @@ In a more complicated example, let's call
 which requires a different initial mode, as well as a mode switch for the
 varargs part:
 .Bd -literal -offset indent
-	int n_written_chars, r;
-	/* initial callconv mode */
-	dcMode(vm, DC_CALL_C_ELLIPSIS);
-	dcReset(vm);
-	/* int printf(const char * restrict format, ...); */
-	dcArgPointer(vm, "my printf(%d) %s string%n");
-	/* switch mode for varargs part */
-	dcMode(vm, DC_CALL_C_ELLIPSIS_VARARGS);
-	dcArgInt(vm, 3);
-	dcArgPointer(vm, "format");
-	dcArgPointer(vm, &n_written_chars);
-	r = dcCallInt(vm, (DCpointer)&printf);
+int n_written_chars, r;
+/* initial callconv mode */
+dcMode(vm, DC_CALL_C_ELLIPSIS);
+dcReset(vm);
+/* int printf(const char * restrict format, ...); */
+dcArgPointer(vm, "my printf(%d) %s string%n");
+/* switch mode for varargs part */
+dcMode(vm, DC_CALL_C_ELLIPSIS_VARARGS);
+dcArgInt(vm, 3);
+dcArgPointer(vm, "format");
+dcArgPointer(vm, &n_written_chars);
+r = dcCallInt(vm, (DCpointer)&printf);
 .Ed
 .Pp
 .Ss C/trivial aggregates by-value
@@ -341,8 +341,8 @@ is defined). E.g. passing the following
 to
 .Fn f :
 .Bd -literal -offset indent
-	struct S { char x[3]; double y; };
-	void f(int, struct S);
+struct S { char x[3]; double y; };
+void f(int, struct S);
 .Ed
 .Pp
 requires a
@@ -351,20 +351,20 @@ description of the fields/layout of
 .Sy struct S ,
 and is called as follows:
 .Bd -literal -offset indent
-	struct S s = { { 56, -23, 0 }, -6.28 };
+struct S s = { { 56, -23, 0 }, -6.28 };
 
-	DCaggr *a = dcNewAggr(2, sizeof(struct S));
-	dcAggrField(a, DC_SIGCHAR_CHAR,   offsetof(struct S, x), 3);
-	dcAggrField(a, DC_SIGCHAR_DOUBLE, offsetof(struct S, y), 1);
-	dcCloseAggr(a);
+DCaggr *a = dcNewAggr(2, sizeof(struct S));
+dcAggrField(a, DC_SIGCHAR_CHAR,   offsetof(struct S, x), 3);
+dcAggrField(a, DC_SIGCHAR_DOUBLE, offsetof(struct S, y), 1);
+dcCloseAggr(a);
 
-	dcMode(vm, DC_CALL_C_DEFAULT);
-	dcArgInt(vm, 999);
-	dcArgAggr(vm, a, &s);
+dcMode(vm, DC_CALL_C_DEFAULT);
+dcArgInt(vm, 999);
+dcArgAggr(vm, a, &s);
 
-	dcCallVoid(vm, (DCpointer)&f);
+dcCallVoid(vm, (DCpointer)&f);
 
-	dcFreeAggr(a);
+dcFreeAggr(a);
 .Ed
 .Pp
 Let's look at an example returning
@@ -373,7 +373,7 @@ the above
 .Sy struct S
 from function:
 .Bd -literal -offset indent
-	struct S g(int, short);
+struct S g(int, short);
 .Ed
 .Pp
 Omitting creation of the
@@ -381,23 +381,23 @@ Omitting creation of the
 .Ar *a
 description, for simplicity:
 .Bd -literal -offset indent
-	struct S s;
+struct S s;
 
-	dcMode(vm, DC_CALL_C_DEFAULT);
+dcMode(vm, DC_CALL_C_DEFAULT);
 
-	/* needed when returning aggrs by value, *before* pushing args */
-	dcBeginCallAggr(vm, a);
+/* needed when returning aggrs by value, *before* pushing args */
+dcBeginCallAggr(vm, a);
 
-	dcArgInt(vm, 9);
-	dcArgShort(vm, 7);
+dcArgInt(vm, 9);
+dcArgShort(vm, 7);
 
-	dcCallAggr(vm, (DCpointer)&g, a, &s);
+dcCallAggr(vm, (DCpointer)&g, a, &s);
 .Ed
 .Ss C++
 In our next example, let's look at calling a simple C++ method, with the method
 declaration being:
 .Bd -literal -offset indent
-	virtual void Klass::Method(float, int);
+virtual void Klass::Method(float, int);
 .Ed
 .Pp
 To keep the example simple, let's assume we have a pointer to this virtual
@@ -406,39 +406,39 @@ method in var
 (e.g. grabbed from the instance's vtable), and a pointer to the instance in var
 .Ar thisptr :
 .Bd -literal -offset indent
-	/* thiscall calling convention */
-	dcMode(vm, DC_CALL_C_DEFAULT_THIS);
-	dcReset(vm);
-	/* C++ methods use this-ptr as first/hidden argument */
-	dcArgPointer(vm, thisptr);
-	dcArgFloat(vm, 2.3f);
-	dcArgInt(vm, -19);
-	dcCallVoid(vm, (DCpointer)mptr);
+/* thiscall calling convention */
+dcMode(vm, DC_CALL_C_DEFAULT_THIS);
+dcReset(vm);
+/* C++ methods use this-ptr as first/hidden argument */
+dcArgPointer(vm, thisptr);
+dcArgFloat(vm, 2.3f);
+dcArgInt(vm, -19);
+dcCallVoid(vm, (DCpointer)mptr);
 .Ed
 .Pp
 Extending the last example to a vararg method would need some more
 .Xr dcMode 3
 calls. E.g.:
 .Bd -literal -offset indent
-	virtual void Klass::Method(float, int, ...);
+virtual void Klass::Method(float, int, ...);
 .Ed
 .Pp
 would be called as follows:
 .Bd -literal -offset indent
-	/* thiscall calling convention (to pass this-ptr) */
-	dcMode(vm, DC_CALL_C_DEFAULT_THIS);
-	dcReset(vm);
-	/* C++ methods use this-ptr as first/hidden argument */
-	dcArgPointer(vm, thisptr);
-	/* fixed part of arguments */
-	dcMode(vm, DC_CALL_C_ELLIPSIS);
-	dcArgFloat(vm, 2.3f);
-	dcArgInt(vm, -19);
-	/* variable part of arguments */
-	dcMode(vm, DC_CALL_C_ELLIPSIS_VARARGS);
-	dcArgInt(vm, 7);
-	dcArgDouble(vm, 7.99);
-	dcCallVoid(vm, (DCpointer)mptr);
+/* thiscall calling convention (to pass this-ptr) */
+dcMode(vm, DC_CALL_C_DEFAULT_THIS);
+dcReset(vm);
+/* C++ methods use this-ptr as first/hidden argument */
+dcArgPointer(vm, thisptr);
+/* fixed part of arguments */
+dcMode(vm, DC_CALL_C_ELLIPSIS);
+dcArgFloat(vm, 2.3f);
+dcArgInt(vm, -19);
+/* variable part of arguments */
+dcMode(vm, DC_CALL_C_ELLIPSIS_VARARGS);
+dcArgInt(vm, 7);
+dcArgDouble(vm, 7.99);
+dcCallVoid(vm, (DCpointer)mptr);
 .Ed
 .Pp
 .Sh CONFORMING TO
