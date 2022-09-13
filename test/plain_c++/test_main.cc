@@ -253,8 +253,8 @@ bool testCallValue(DCCallVM* pc, const char* name)
   /* ellipsis test w/ this pointer */
 
   dcReset(pc);
-  dcMode(pc, DC_CALL_C_ELLIPSIS);
   dcArgPointer(pc, pThis);
+  dcMode(pc, DC_CALL_C_ELLIPSIS);
   dcArgInt(pc, 23);
   dcMode(pc, DC_CALL_C_ELLIPSIS_VARARGS);
   dcArgInt(pc, -223);
