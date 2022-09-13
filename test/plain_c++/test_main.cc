@@ -140,7 +140,7 @@ public:
   virtual DCpointer  __cdecl getPtr()                  { return mValue.p; }
 
   /* ellipsis test w/ this ptr */
-  virtual int        __cdecl sum3Ints(DCint x, ...)    { va_list va; va_start(va,x); x += va_arg(va,int) + va_arg(va,int); va_end(va); return x; }
+  virtual int        __cdecl sum3Ints(DCint x, ...)    { va_list va; va_start(va,x); x += va_arg(va,int); x += va_arg(va,int); va_end(va); return x; }
 
 private:
   ValueUnion mValue;
