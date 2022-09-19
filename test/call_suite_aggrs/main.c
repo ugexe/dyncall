@@ -25,6 +25,8 @@
 #include "dyncall.h"
 #include "globals.h"
 #include <string.h>
+#include <signal.h>
+#include <setjmp.h>
 #include "../common/platformInit.h"
 #include "../common/platformInit.c" /* Impl. for functions only used in this translation unit */
 
@@ -225,9 +227,22 @@ static int run_all()
   return !failure;
 }
 
+
+jmp_buf jbuf;
+void segv_handler(int sig)
+{
+  longjmp(jbuf, 1);
+}
+
+
 int main(int argc, char* argv[])
 {
-  int total, i;
+  int r = 0, i;
+
+  signal(SIGSEGV, segv_handler);
+#if !defined(DC_WINDOWS)
+  signal(SIGBUS,  segv_handler);
+#endif
 
   dcTest_initPlatform();
 
@@ -235,19 +250,20 @@ int main(int argc, char* argv[])
   G_callvm = (DCCallVM*) dcNewCallVM(32768);
 
   dcReset(G_callvm);
-  total = run_all();
+  if(setjmp(jbuf) == 0)
+    r = run_all();
 
-  /* free all DCaggrs created on the fly */
-  for(i=0; i<G_naggs; ++i)
+  /* free all DCaggrs created on the fly (backwards b/c they are interdependency-ordered */
+  for(i=G_naggs-1; i>=0; --i)
     dcFreeAggr(((DCaggr*(*)())G_agg_touchAfuncs[i])());
 
   dcFree(G_callvm);
   deinit_test_data(G_maxargs);
 
-  printf("result: call_suite_aggrs: %d\n", total);
+  printf("result: call_suite_aggrs: %d\n", r);
 
   dcTest_deInitPlatform();
 
-  return !total;
+  return !r;
 }
 
