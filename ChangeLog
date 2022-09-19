@@ -22,6 +22,9 @@ dyncallback:
   o x64/windows masm directives for frame unwinding information (as dbg help; thanks Raphael Luba!)
 dynload:
   o build fix for ReactOS with RosBE/cmake/mingw-make environment
+general:
+  o more robust detection of platform endianness (on some platforms inclusion
+    of endian.h led to wrong assumptions)
 tests:
   o call_suite: simplified and extended to test also unsigned types, and _Bool
   o callback_suite: refactored to be much more like call_suite test
