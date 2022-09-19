@@ -252,6 +252,8 @@ int main(int argc, char* argv[])
   dcReset(G_callvm);
   if(setjmp(jbuf) == 0)
     r = run_all();
+  else
+    printf("\n"); /* new line as current might be filled with garbage */
 
   /* free all DCaggrs created on the fly (backwards b/c they are interdependency-ordered */
   for(i=G_naggs-1; i>=0; --i)
