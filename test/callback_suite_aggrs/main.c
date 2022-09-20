@@ -276,7 +276,7 @@ static int run_all(int from, int to)
 
 
 jmp_buf jbuf;
-void segv_handler(int sig)
+void sig_handler(int sig)
 {
   longjmp(jbuf, 1);
 }
@@ -289,9 +289,11 @@ int main(int argc, char* argv[])
   int from = 0, to = G_ncases-1;
   int i, pos = 0, r = 0;
 
-  signal(SIGSEGV, segv_handler);
+  signal(SIGABRT, sig_handler);
+  signal(SIGILL,  sig_handler);
+  signal(SIGSEGV, sig_handler);
 #if !defined(DC_WINDOWS)
-  signal(SIGBUS,  segv_handler);
+  signal(SIGBUS,  sig_handler);
 #endif
 
   dcTest_initPlatform();

@@ -229,7 +229,7 @@ static int run_all()
 
 
 jmp_buf jbuf;
-void segv_handler(int sig)
+void sig_handler(int sig)
 {
   longjmp(jbuf, 1);
 }
@@ -239,9 +239,11 @@ int main(int argc, char* argv[])
 {
   int r = 0, i;
 
-  signal(SIGSEGV, segv_handler);
+  signal(SIGABRT, sig_handler);
+  signal(SIGILL,  sig_handler);
+  signal(SIGSEGV, sig_handler);
 #if !defined(DC_WINDOWS)
-  signal(SIGBUS,  segv_handler);
+  signal(SIGBUS,  sig_handler);
 #endif
 
   dcTest_initPlatform();
