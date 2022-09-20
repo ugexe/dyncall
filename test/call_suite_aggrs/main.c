@@ -147,11 +147,11 @@ static int invoke(const char *signature, void* t)
       /* bound check memory adjacent to returned aggregate, to check for overflows by dcCallAggr */
       long long* adj_ll = (get_max_aggr_size() - rtype_size) > sizeof(long long) ? (long long*)((char*)V_a[pos] + rtype_size) : NULL;
       if(adj_ll)
-        *adj_ll = 0x0123456789abcdef;
+        *adj_ll = 0x0123456789abcdefLL;
 
       s = ((int(*)(const void*,const void*))rtype_a_cmp)(dcCallAggr(p, t, rtype_a, V_a[pos]), K_a[pos]);
 
-      if(adj_ll && *adj_ll != 0x0123456789abcdef) {
+      if(adj_ll && *adj_ll != 0x0123456789abcdefLL) {
         printf("writing rval overflowed into adjacent memory;");
         return 0;
       }
