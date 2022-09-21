@@ -30,7 +30,7 @@
 #include "../../dyncall/dyncall_value.h"
 #include "funcinfo.h"
 
-DCValue mValue[MAXARGS];
+static DCValue mValue[MAXARGS];
 
 void clearValues() { for(int i = 0;i<MAXARGS;++i) mValue[i].L = 0xCAFEBABEDEADC0DEULL; }
 

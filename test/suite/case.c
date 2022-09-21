@@ -29,7 +29,7 @@
 #include "config.h"
 #include "../../dyncall/dyncall_value.h"
 
-DCValue mValue[NARGS];
+static DCValue mValue[NARGS];
 
 void clearValues() { int i; for(i=0; i<NARGS; ++i) mValue[i].L = 0xCAFEBABEDEADC0DEULL; }
 
@@ -88,10 +88,11 @@ int getId() { return gID; }
 #define VF10(id,A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,S) (void(*)())(S),
 
 typedef void (*fp)();
-fp gFuncTable[] = {
+static fp gFuncTable[] = {
 #include "case.h"
 };
 
 DCpointer getFunc(int x) {
   return (DCpointer)gFuncTable[x];
 }
+
