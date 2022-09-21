@@ -6,7 +6,7 @@
  Description: 
  License:
 
-   Copyright (c) 2007-2018 Daniel Adler <dadler@uni-goettingen.de>, 
+   Copyright (c) 2007-2022 Daniel Adler <dadler@uni-goettingen.de>, 
                            Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
@@ -52,7 +52,7 @@ template<> void g(DCdouble   value, int pos) { mValue[pos].d = value; }
 
 DCValue* getArg(int pos) { return &mValue[pos]; }
 
-int gID;
+static int gID;
 int getId() { return gID; }
 
 extern "C" {
