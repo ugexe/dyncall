@@ -39,9 +39,6 @@ DCpointer getFunc(int x);
 DCValue* getArg(int pos);
 
 
-typedef double precise;
-
-
 DCbool     valueBool[NARGS];
 DCshort    valueShort[NARGS];
 DCchar     valueChar[NARGS];
