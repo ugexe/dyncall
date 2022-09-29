@@ -124,6 +124,12 @@ private: \
   ValueUnion mValue; \
 };
 
+
+#if defined(DC__Arch_Intel_x86) && !defined(DC__C_MSVC) && !defined(__cdecl)
+#  define __cdecl
+#endif
+
+
 TEST_CLASS(ValueThisDef, /*empty/default*/) /* default */
 #if defined(DC__Arch_Intel_x86)
 TEST_CLASS(ValueThisCdecl, __cdecl)         /* methods explicitly declared as cdecl */
