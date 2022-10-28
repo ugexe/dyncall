@@ -275,9 +275,9 @@ static double __cdecl fun_take_three_double(Three_Double s)                     
 static double __cdecl fun_take_mixed_fp(double a, float b, float c, int d, float e, double f, float g, Three_Double s) { return a + 2.*b + 3.*c + 4.*d + 5.*e + 6.*f + 7.*g + 8.*s.a + 9.*s.b + 10.*s.c; }
 static int    __cdecl fun_take_iiiii_il(int a, int b, int c, int d, int e, Int_LongLong f)                             { return a + b + c + d + e + f.a + (int)f.b; }
 static double __cdecl fun_take_more_than_regs(More_Than_Regs s)                                                        { return s.a + s.b + s.c + s.d + s.e + s.f + s.g + s.h + s.i + s.j + s.k + s.l + s.m + s.n + s.o + s.p + s.q + s.r; }
-static double __cdecl fun_take_mixed_fp_vararg(double a, float b, float c, int d, ...)                                 { double r = a + 2.*b + 3.*c + 4.*d; va_list v; va_start(v,d); r += 5.*va_arg(v,double); r += 6.*va_arg(v,double); r += 7.*va_arg(v,double); Three_Double s = va_arg(v,Three_Double); va_end(v); return r + 8.*s.a + 9.*s.b + 10.*s.c; }
-static int    __cdecl fun_take_iiiii_il_vararg(int a, int b, int c, int d, int e, ...)                                 { int r = a + b + c + d + e; va_list v; va_start(v,e); Int_LongLong f = va_arg(v,Int_LongLong); va_end(v); return r + f.a + (int)f.b; }
-static double __cdecl fun_take_aggrs_vararg(Int_NestedDouble a, ...)                                                   { double r = a.a + a.b.f; va_list v; va_start(v,a); Int_NestedFloat b = va_arg(v,Int_NestedFloat); va_end(v); return r + b.a + b.b.f; }
+static double __cdecl fun_take_mixed_fp_vararg(double a, float b, float c, int d, ...)                                 { double r = a + 2.*b + 3.*c + 4.*d; Three_Double s; va_list v; va_start(v,d); r += 5.*va_arg(v,double); r += 6.*va_arg(v,double); r += 7.*va_arg(v,double); s = va_arg(v,Three_Double); va_end(v); return r + 8.*s.a + 9.*s.b + 10.*s.c; }
+static int    __cdecl fun_take_iiiii_il_vararg(int a, int b, int c, int d, int e, ...)                                 { int r = a + b + c + d + e; Int_LongLong f; va_list v; va_start(v,e); f = va_arg(v,Int_LongLong); va_end(v); return r + f.a + (int)f.b; }
+static double __cdecl fun_take_aggrs_vararg(Int_NestedDouble a, ...)                                                   { double r = a.a + a.b.f; Int_NestedFloat b; va_list v; va_start(v,a); b = va_arg(v,Int_NestedFloat); va_end(v); return r + b.a + b.b.f; }
 
 
 int testAggrParameters()
@@ -570,21 +570,22 @@ int testAggrParameters()
 		Int_NestedDouble t0 = { -64, { -6.6} };
 		Int_NestedFloat t1 = { 112, { 7.5f } };
 		int returned;
+		DCaggr *s0, *s0_, *s1, *s1_;
 
-		DCaggr *s0_ = dcNewAggr(1, sizeof(NestedDouble));
+		s0_ = dcNewAggr(1, sizeof(NestedDouble));
 		dcAggrField(s0_, DC_SIGCHAR_DOUBLE, offsetof(NestedDouble, f), 1);
 		dcCloseAggr(s0_);
 
-		DCaggr *s0 = dcNewAggr(2, sizeof(t0));
+		s0 = dcNewAggr(2, sizeof(t0));
 		dcAggrField(s0, DC_SIGCHAR_INT, offsetof(Int_NestedDouble, a), 1);
 		dcAggrField(s0, DC_SIGCHAR_AGGREGATE, offsetof(Int_NestedDouble, b), 1, s0_);
 		dcCloseAggr(s0);
 
-		DCaggr *s1_ = dcNewAggr(1, sizeof(NestedFloat));
+		s1_ = dcNewAggr(1, sizeof(NestedFloat));
 		dcAggrField(s1_, DC_SIGCHAR_FLOAT, offsetof(NestedFloat, f), 1);
 		dcCloseAggr(s1_);
 
-		DCaggr *s1 = dcNewAggr(2, sizeof(t1));
+		s1 = dcNewAggr(2, sizeof(t1));
 		dcAggrField(s1, DC_SIGCHAR_INT, offsetof(Int_NestedFloat, a), 1);
 		dcAggrField(s1, DC_SIGCHAR_AGGREGATE, offsetof(Int_NestedFloat, b), 1, s1_);
 		dcCloseAggr(s1);
