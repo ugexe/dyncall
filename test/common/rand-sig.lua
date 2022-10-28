@@ -123,17 +123,17 @@ for i = 1, ncases do
     for j = 1, nargs do
       id = math.random(#types)
       sig[#sig+1] = mktype(types:sub(id,id), 0, math.random(maxaggrdepth), nil) -- random depth avoids excessive nesting
-	  -- start vararg part?
-	  if j > varargstart and #sig > 0 then
-	  	sig[#sig+1] = "."
-		varargstart = nargs
-	  end
+      -- start vararg part?
+      if j > varargstart and #sig > 0 then
+        sig[#sig+1] = "."
+        varargstart = nargs
+      end
     end
-	repeat
+    repeat
       id = math.random(#rtypes)
-	  r = mktype(rtypes:sub(id,id), 0, math.random(maxaggrdepth), nil) -- random depth avoids excessive nesting
-	until r
-	sig[#sig+1] = ')'..r
+      r = mktype(rtypes:sub(id,id), 0, math.random(maxaggrdepth), nil) -- random depth avoids excessive nesting
+    until r
+    sig[#sig+1] = ')'..r
     l = table.concat(sig)
     -- reject dupes, sigs without any aggregate (as this is about aggrs after all), and empty ones (if not wanted)
   until (reqaggrinsig ~= true or string.match(l, aggr_op_pattern) ~= nil) and uniq_sigs[l] == nil
