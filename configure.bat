@@ -36,6 +36,7 @@ IF [%PROCESSOR_ARCHITECTURE%] == [AMD64] (
 ) ELSE (
 	SET CONFIG_ARCH=x86
 )
+SET CONFIG_MAKE=nmake
 
 REM Scan arguments.
 :MAIN_LOOP
@@ -67,6 +68,9 @@ IF [%1]==[] (
 	ECHO.  /asm-ml           use Microsoft Macro Assembler ^(default^)
 	ECHO.  /asm-as           use the GNU or LLVM Assembler
 	ECHO.  /asm-nasm         use NASM Assembler
+	ECHO.
+	ECHO.  /make-nmake       configure for use with cmd.exe/NMAKE env ^(default^)
+	ECHO.  /make-make        configure for use with sh/make env
 	GOTO:EOF
 ) ELSE IF [%1]==[/target-x86] (
 	SET CONFIG_ARCH=x86
@@ -98,6 +102,8 @@ IF [%1]==[] (
 	SET CONFIG_ASM=nasm
 ) ELSE IF [%1]==[/asm-ml] (
 	SET CONFIG_ASM=ml
+) ELSE IF [%1]==[/make-make] (
+	SET CONFIG_MAKE=make
 ) ELSE (
 	ECHO Unknown parameter '%1'.
 	GOTO DONE
@@ -114,6 +120,7 @@ ECHO CONFIG_OS=%CONFIG_OS%#>>Makefile.config
 ECHO CONFIG_ARCH=%CONFIG_ARCH%#>>Makefile.config
 ECHO CONFIG_TOOL=%CONFIG_TOOL%#>>Makefile.config
 ECHO CONFIG_ASM=%CONFIG_ASM%#>>Makefile.config
+ECHO CONFIG_MAKE=%CONFIG_MAKE%#>>Makefile.config
 
 ECHO Writing following configuration to Makefile.config:
 ECHO.
@@ -122,6 +129,7 @@ ECHO Target OS:           %CONFIG_OS%
 ECHO Target Architecture: %CONFIG_ARCH%
 ECHO Compiler:            %CONFIG_TOOL%
 ECHO Assembler:           %CONFIG_ASM%
+ECHO Make:                %CONFIG_MAKE%
 
 
 REM We have to transform some pathes for the nds/devkitPro build.
@@ -131,6 +139,17 @@ IF [%CONFIG_OS%]==[nds] (
 		ECHO ERROR: Environment variable DEVKITPRO must be set to absolute devkitPro path.
 	) ELSE (
 		buildsys\scripts\conf-nds.bat
+	)
+)
+
+REM Generate *nix style make files? @@@ maybe we should just always do that
+IF [%CONFIG_MAKE%]==[make] (
+	FOR /F "USEBACKQ TOKENS=*" %%X IN (`CD`) DO (
+		FOR /R %%F IN (Makefile.generic) DO IF EXIST %%F (
+			ECHO VPATH = %%~dF%%~pF.>%%~pF%%~nF
+			ECHO include %%X\Makefile.config>>%%~pF%%~nF
+			ECHO include ${VPATH}\Makefile.generic>>%%~pF%%~nF
+		)
 	)
 )
 
