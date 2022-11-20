@@ -248,7 +248,7 @@ int main(int argc, char* argv[])
 
   dcTest_initPlatform();
 
-  init_test_data(G_maxargs);
+  init_test_data();
   G_callvm = (DCCallVM*) dcNewCallVM(32768);
 
   dcReset(G_callvm);
