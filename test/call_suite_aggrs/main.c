@@ -262,7 +262,7 @@ int main(int argc, char* argv[])
     dcFreeAggr(((DCaggr*(*)())G_agg_touchAfuncs[i])());
 
   dcFree(G_callvm);
-  deinit_test_data(G_maxargs);
+  deinit_test_data();
 
   printf("result: call_suite_aggrs: %d\n", r);
 

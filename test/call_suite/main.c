@@ -162,7 +162,7 @@ int main(int argc, char* argv[])
   dcReset(G_callvm);
   total = run_all();
   dcFree(G_callvm);
-  deinit_test_data(G_maxargs);
+  deinit_test_data();
 
   printf("result: call_suite: %d\n", total);
 
