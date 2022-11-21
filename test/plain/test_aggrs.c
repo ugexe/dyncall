@@ -34,7 +34,7 @@
 
 #if defined(DC__Feature_AggrByVal)
 
-#if !defined(DC__OS_Win32)
+#if defined(DC__Arch_Intel_x86) && !defined(DC__C_MSVC) && !defined(__cdecl)
 #  define __cdecl
 #endif
 
