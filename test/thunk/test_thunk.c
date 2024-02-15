@@ -128,7 +128,7 @@ int main()
   */
   struct sigaction sigAct;
   sigfillset(&(sigAct.sa_mask));
-  sigAct.sa_sigaction = segv_handler;
+  sigAct.sa_sigaction = (void (*)(int,siginfo_t*,void*))segv_handler;
   sigAct.sa_flags = SA_ONSTACK;
   sigaction(SIGSEGV, &sigAct, NULL);
   sigaction(SIGBUS,  &sigAct, NULL);
