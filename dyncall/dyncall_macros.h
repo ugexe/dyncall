@@ -207,6 +207,14 @@
 # else
 #  define DC__Arch_Sparc
 # endif
+#elif defined(__riscv)
+# if __riscv_xlen == 32
+#  define DC__Arch_RiscV32
+# elif __riscv_xlen == 64
+#  define DC__Arch_RiscV64
+# elif __riscv_xlen == 128
+#  define DC__Arch_RiscV128
+# endif
 #endif
 
 
@@ -298,15 +306,16 @@
 
 /* -- Endianness detection ------------------------------------------ */
 
-#if defined(DC__Arch_Intel_x86) || defined(DC__Arch_AMD64) /* always little */
+#if defined(DC__Arch_Intel_x86) || defined(DC__Arch_AMD64)                                  /* always little */
 # define DC__Endian_LITTLE
-#elif defined(DC__Arch_Sparc)                              /* always purely big until v9 */
+#elif defined(DC__Arch_Sparc)                                                               /* always purely big until v9 */
 # define DC__Endian_BIG
-#else                                                      /* all others are bi-endian */
+#elif defined(DC__Arch_RiscV32) || defined(DC__Arch_RiscV64) || defined(DC__Arch_RiscV128)  /* always little */
+# define DC__Endian_LITTLE
+#else                                                                                       /* all others are bi-endian */
 /* @@@check flags used on following bi-endianness archs:
 DC__Arch_Itanium
 DC__Arch_PPC32
-DC__Arch_PPC64
 DC__Arch_SuperH
 */
 # if (defined(DC__Arch_PPC64) && (DC__ABI_PPC64_ELF_V == 1)) || defined(MIPSEB) || defined(_MIPSEB) || defined(__MIPSEB) || defined(__MIPSEB__) || defined(__ARMEB__) || defined(__AARCH64EB__)
