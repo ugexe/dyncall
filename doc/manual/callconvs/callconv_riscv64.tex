@@ -83,7 +83,7 @@ Name          & Symbolic Name & Brief description\\
 \item first 8 floating point arguments are passed using f10-f17/fa0-fa7
 \item 128 bit arguments passed via registers are passed in even-odd register pairs (skipping a register, if necessary, which remains unused)
 \item aggregates (struct, union) \textless=\ 16 bytes in size are passed via registers (but only in float registers if members are either one or two floating point non-union and non-array members)
-\item arguments \textgreater 128 bits are passed as a pointer pointing to the argument (pointer to a copy, if needed)
+\item arguments \textgreater 128 bits are passed as a pointer to the argument (to a copy, if needed)
 \item subsequent parameters are pushed onto the stack
 \item if the callee takes the address of one of the parameters and uses it to address other parameters (e.g. varargs) it has to copy - in its prolog - the first 8 integer
 and 8 floating-point registers to a reserved stack area adjacent to the other parameters on the stack (only the unnamed integer parameters require saving, though)
@@ -102,6 +102,8 @@ and 8 floating-point registers to a reserved stack area adjacent to the other pa
 \item for aggregates not returnable via registers (e.g. \textgreater\ 16b, ...), the caller allocates space, passes pointer to it to the callee through
 a0 as hidden param, and callee writes return value to this space
 \end{itemize}
+
+\clearpage
 
 \paragraph{Stack layout}
 
