@@ -6,7 +6,7 @@
  Description: Callback Thunk - Implementation for ARM64 / ARMv8 / AAPCS64
  License:
 
-   Copyright (c) 2015-2020 Daniel Adler <dadler@uni-goettingen.de>,
+   Copyright (c) 2015-2024 Daniel Adler <dadler@uni-goettingen.de>,
                            Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
@@ -26,12 +26,13 @@
 #include "../portasm/portasm-arm64.S"
 BEGIN_ASM
 
-// struct DCCallback
-//   type       off   size
-//   ---------|------|------
-//   DCThunk  |   0  |  32
-//   handler  |  32  |   8
-//   userdata |  40  |   8
+/* struct DCCallback
+     type       off   size
+     ---------|------|------
+     DCThunk  |   0  |  32
+     handler  |  32  |   8
+     userdata |  40  |   8
+*/
 
 TEXTAREA
 
@@ -39,26 +40,27 @@ GLOBAL_C(dcCallbackThunkEntry)
 ENTRY_C(dcCallbackThunkEntry)
 ALIGN(4)
 
-// input:
-//  x9: DCCallback* pcb
-//  x0..x7 ?? GP regs
-//  d0..d7 ?? FP/SIMD regs
-//  sp...  ?? arguments on stack
-//
-// locals:
-//   type       off   size
-//   ---------|------|------
-//   Frame        0     16
-//   DCArgs      16    168
-//   DCValue    184     16
-//
-//   size              200
-//   aligned           208
-//
+/* input:
+    x9: DCCallback* pcb
+    x0..x7 ?? GP regs
+    d0..d7 ?? FP/SIMD regs
+    sp...  ?? arguments on stack
+  
+   locals:
+     type       off   size
+     ---------|------|------
+     Frame        0     16
+     DCArgs      16    168
+     DCValue    184     16
+  
+     size              200
+     aligned           208
+  
 
-// locals:
-//    x10: sp
-//    x11: DCArgs* args
+   locals:
+      x10: sp
+      x11: DCArgs* args
+*/
 
 	mov x10, sp
 	stp x29, x30, [sp, #-208 ]! 
@@ -66,7 +68,7 @@ ALIGN(4)
 
 	add x11, x29 , #16
 
-// save integer registers
+/* save integer registers */
 
 	stp x0, x1, [x11, #0 ]
 	stp x2, x3, [x11, #16]
@@ -79,17 +81,18 @@ ALIGN(4)
 	stp d6, d7, [x11, #112]
 
 	eor x12, x12, x12
-	stp x10,x12,[x11, #128]		// sp=sp, i=0, f=0
-	
-	str x12,    [x11, #144]		// s=0, reserved=0
+	stp x10,x12,[x11, #128]		/* sp=sp, i=0, f=0 */
+
+	str x12,    [x11, #144]		/* s=0, reserved=0 */
           
 
-// call handler:
-//   args:
-//     x0: DCCallback* pcb
-//     x1: DCArgs*     args
-//     x2: DCValue*    result
-//     x3: void*       userdata
+/* call handler:
+     args:
+       x0: DCCallback* pcb
+       x1: DCArgs*     args
+       x2: DCValue*    result
+       x3: void*       userdata
+*/
 
 	mov x0 , x9
 	add x1 , x29 , #16
