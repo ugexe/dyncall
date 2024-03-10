@@ -13,7 +13,7 @@ dyncallback:
   o small arm64 callback optimization (saving 32b of stack space and one instruction)
 doc:
   o riscv64 calling convention description
-  o marked riscv64 as supported (basic) for *nix, tested on Linux and FreeBSD
+  o marked riscv64 as supported (basic) for *nix, tested on Linux, FreeBSD and Haiku
 
 
 Version 1.4 (2022/12/06)
