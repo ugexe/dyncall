@@ -79,8 +79,7 @@ Name          & Symbolic Name & Brief description\\
 \item stack parameter order: right-to-left
 \item caller cleans up the stack
 \item stack grows down
-\item first 8 integer arguments are passed using x10-x17/a0-a7
-\item first 8 floating point arguments are passed using f10-f17/fa0-fa7
+\item up to 16 arguments \textless=\ 8 bytes are passed using x10-x17/a0-a7 and f10-f17/fa0-fa7, with floating point arguments using float registers until those are exhausted
 \item 128 bit arguments passed via registers are passed in even-odd register pairs (skipping a register, if necessary, which remains unused)
 \item aggregates (struct, union) \textless=\ 16 bytes in size are passed via registers (but only in float registers if members are either one or two floating point non-union and non-array members)
 \item arguments \textgreater 128 bits are passed as a pointer to the argument (to a copy, if needed)
