@@ -54,79 +54,68 @@ dcCallbackThunkEntry:
 
    ra - ret addr
    s0/fp - frame ptr
-
-   locals:
-      t0: orig sp
-      t1: DCArgs* args
 */
 
-	mv  t0, sp
+/* prolog */
 
 	add sp, sp, -176
+	sd  ra, 168(sp)
+	sd  s0, 160(sp)
+	add s0, sp, 176
 
-	/* save ra and s0 */
-	sd  ra, 0(sp)
-	sd  s0, 8(sp)
+/* fill DCArgs data (see dyncall_args_riscv64.c) */
 
-	/* save frame ptr */
-	mv  s0, sp
+	sd  a0, 0(sp)     /* I */
+	sd  a1, 8(sp)
+	sd  a2, 16(sp)
+	sd  a3, 24(sp)
+	sd  a4, 32(sp)
+	sd  a5, 40(sp)
+	sd  a6, 48(sp)
+	sd  a7, 56(sp)
 
-	add t1, s0, 16
+	fsd fa0, 64(sp)   /* F */
+	fsd fa1, 72(sp)
+	fsd fa2, 80(sp)
+	fsd fa3, 88(sp)
+	fsd fa4, 96(sp)
+	fsd fa5, 104(sp)
+	fsd fa6, 112(sp)
+	fsd fa7, 120(sp)
 
-	/* just saving everything on stack, as defined in DCArgs in dyncall_args_riscv64.c */
-
-/* save regs */
-
-	sd  a0, 0(t1)
-	sd  a1, 8(t1)
-	sd  a2, 16(t1)
-	sd  a3, 24(t1)
-	sd  a4, 32(t1)
-	sd  a5, 40(t1)
-	sd  a6, 48(t1)
-	sd  a7, 56(t1)
-
-	fsd fa0, 64(t1)
-	fsd fa1, 72(t1)
-	fsd fa2, 80(t1)
-	fsd fa3, 88(t1)
-	fsd fa4, 96(t1)
-	fsd fa5, 104(t1)
-	fsd fa6, 112(t1)
-	fsd fa7, 120(t1)
-
-	sd  t0, 128(t1)   /* sp=sp */
-	sd  zero, 136(t1) /* i=f=0 */
+	sd  s0,   128(sp) /* sp=sp */
+	sd  zero, 136(sp) /* i=f=0 */
 
 /* call handler/callback */
 
-	mv   a0, t5      /* DCCallback* pcb      */
-	add  a1, s0, 16  /* DCArgs*     args     */
-	add  a2, s0, 160 /* DCValue*    result   */
-	ld   a3, 40(t5)  /* void*       userdata */
+	mv   a0, t5       /* DCCallback* pcb      */
+	mv   a1, sp       /* DCArgs*     args     */
+	add  a2, sp, 144  /* DCValue*    result   */
+	ld   a3, 40(t5)   /* void*       userdata */
 
 	ld   t2, 32(t5)
 	jalr ra, 0(t2)
 
 	and  t3, a0, 255
-	add  t4, zero, 'f'  /* single precition floats are sign extended on    */
-	beq  t3, t4, .retf  /* riscv with the D extension, handle specifically */
-	add  t4, zero, 'd'
+	li   t4, 'f'        /* single prec floats need reg's 32 MSBs   */
+	beq  t3, t4, .retf  /* all set (on riscv with the D extension) */
+	li   t4, 'd'
 	beq  t3, t4, .retd
 
 .reti:
-	ld   a0, 160(s0)
+	ld   a0, 144(sp)
 	j    .ret
 .retf:
-	flw  fa0, 160(s0)
+	flw  fa0, 144(sp)
 	j    .ret
 .retd:
-	fld  fa0, 160(s0)
+	fld  fa0, 144(sp)
 .ret:
-	/* recover ra and s0 */
-	ld   ra, 0(sp)
-	ld   s0, 8(sp)
 
+/* epilog */
+
+	ld   ra, 168(sp)
+	ld   s0, 160(sp)
 	add  sp, sp, 176
 	ret
 
