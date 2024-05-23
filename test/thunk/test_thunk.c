@@ -6,7 +6,7 @@
  Description: 
  License:
 
-   Copyright (c) 2011-2021 Daniel Adler <dadler@uni-goettingen.de>,
+   Copyright (c) 2011-2024 Daniel Adler <dadler@uni-goettingen.de>,
                            Tassilo Philipp <tphilipp@potion-studios.com>
 
    Permission to use, copy, modify, and distribute this software for any
@@ -137,6 +137,9 @@ int main()
 #if !defined(DC_WINDOWS)
   signal(SIGBUS,  segv_handler);
 #endif
+  /* disable output buffering - might not be able catch segfaults on stack
+     without SA_ONSTACK, so print maximum for when handler isn't called */
+  setvbuf(stdout, NULL, _IONBF, 0);
 #endif
 
 
