@@ -1,4 +1,4 @@
-APP        = dynload_plain
+APP        = dynload_plain${APP_SUFFIX}
 OBJS       = dynload_plain.o
 TEST_C_LD  = dynload_plain_c_ld   # helper to deduce default c lib apps are linked with
 TEST_U8_SO = dynload_plain_ß_test # @@@ unsure if every platform handles ß, here (ANSI, UTF-8, ...)
